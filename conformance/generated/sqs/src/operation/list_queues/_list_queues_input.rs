@@ -29,8 +29,8 @@ impl ListQueuesInput {
 }
 impl ListQueuesInput {
     /// Creates a new builder-style object to manufacture [`ListQueuesInput`](crate::operation::list_queues::ListQueuesInput).
-    pub fn builder() -> crate::operation::list_queues::builders::ListQueuesInputBuilder {
-        crate::operation::list_queues::builders::ListQueuesInputBuilder::default()
+    pub fn builder() -> super::operation::list_queues::builders::ListQueuesInputBuilder {
+        super::operation::list_queues::builders::ListQueuesInputBuilder::default()
     }
 }
 
@@ -89,8 +89,8 @@ impl ListQueuesInputBuilder {
         &self.max_results
     }
     /// Consumes the builder and constructs a [`ListQueuesInput`](crate::operation::list_queues::ListQueuesInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_queues::ListQueuesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_queues::ListQueuesInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::list_queues::ListQueuesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_queues::ListQueuesInput {
             queue_name_prefix: self.queue_name_prefix,
             next_token: self.next_token,
             max_results: self.max_results,

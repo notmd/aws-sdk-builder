@@ -86,8 +86,8 @@ impl UpdateAccountPasswordPolicyInput {
 }
 impl UpdateAccountPasswordPolicyInput {
     /// Creates a new builder-style object to manufacture [`UpdateAccountPasswordPolicyInput`](crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput).
-    pub fn builder() -> crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyInputBuilder {
-        crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyInputBuilder {
+        super::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyInputBuilder::default()
     }
 }
 
@@ -272,10 +272,10 @@ impl UpdateAccountPasswordPolicyInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput,
+        super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
+        ::std::result::Result::Ok(super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
             minimum_password_length: self.minimum_password_length,
             require_symbols: self.require_symbols.unwrap_or_default(),
             require_numbers: self.require_numbers.unwrap_or_default(),

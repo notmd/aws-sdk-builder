@@ -49,8 +49,8 @@ impl ::aws_types::request_id::RequestId for SendMessageOutput {
 }
 impl SendMessageOutput {
     /// Creates a new builder-style object to manufacture [`SendMessageOutput`](crate::operation::send_message::SendMessageOutput).
-    pub fn builder() -> crate::operation::send_message::builders::SendMessageOutputBuilder {
-        crate::operation::send_message::builders::SendMessageOutputBuilder::default()
+    pub fn builder() -> super::operation::send_message::builders::SendMessageOutputBuilder {
+        super::operation::send_message::builders::SendMessageOutputBuilder::default()
     }
 }
 
@@ -152,8 +152,8 @@ impl SendMessageOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SendMessageOutput`](crate::operation::send_message::SendMessageOutput).
-    pub fn build(self) -> crate::operation::send_message::SendMessageOutput {
-        crate::operation::send_message::SendMessageOutput {
+    pub fn build(self) -> super::operation::send_message::SendMessageOutput {
+        super::operation::send_message::SendMessageOutput {
             md5_of_message_body: self.md5_of_message_body,
             md5_of_message_attributes: self.md5_of_message_attributes,
             md5_of_message_system_attributes: self.md5_of_message_system_attributes,

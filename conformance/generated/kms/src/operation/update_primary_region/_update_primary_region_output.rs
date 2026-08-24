@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdatePrimaryRegionOutput {
 }
 impl UpdatePrimaryRegionOutput {
     /// Creates a new builder-style object to manufacture [`UpdatePrimaryRegionOutput`](crate::operation::update_primary_region::UpdatePrimaryRegionOutput).
-    pub fn builder() -> crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder {
-        crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder::default()
+    pub fn builder() -> super::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder {
+        super::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdatePrimaryRegionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdatePrimaryRegionOutput`](crate::operation::update_primary_region::UpdatePrimaryRegionOutput).
-    pub fn build(self) -> crate::operation::update_primary_region::UpdatePrimaryRegionOutput {
-        crate::operation::update_primary_region::UpdatePrimaryRegionOutput {
+    pub fn build(self) -> super::operation::update_primary_region::UpdatePrimaryRegionOutput {
+        super::operation::update_primary_region::UpdatePrimaryRegionOutput {
             _request_id: self._request_id,
         }
     }

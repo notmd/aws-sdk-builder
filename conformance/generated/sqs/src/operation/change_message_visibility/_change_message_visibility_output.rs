@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for ChangeMessageVisibilityOutput {
 }
 impl ChangeMessageVisibilityOutput {
     /// Creates a new builder-style object to manufacture [`ChangeMessageVisibilityOutput`](crate::operation::change_message_visibility::ChangeMessageVisibilityOutput).
-    pub fn builder() -> crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder {
-        crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder::default()
+    pub fn builder() -> super::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder {
+        super::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl ChangeMessageVisibilityOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ChangeMessageVisibilityOutput`](crate::operation::change_message_visibility::ChangeMessageVisibilityOutput).
-    pub fn build(self) -> crate::operation::change_message_visibility::ChangeMessageVisibilityOutput {
-        crate::operation::change_message_visibility::ChangeMessageVisibilityOutput {
+    pub fn build(self) -> super::operation::change_message_visibility::ChangeMessageVisibilityOutput {
+        super::operation::change_message_visibility::ChangeMessageVisibilityOutput {
             _request_id: self._request_id,
         }
     }

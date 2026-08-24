@@ -55,13 +55,13 @@ pub enum EncodingType {
     Url,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-    Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
+    Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for EncodingType {
     fn from(s: &str) -> Self {
         match s {
             "url" => EncodingType::Url,
-            other => EncodingType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => EncodingType::Unknown(super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }
@@ -94,10 +94,10 @@ impl EncodingType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, super::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => ::std::result::Result::Err(super::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

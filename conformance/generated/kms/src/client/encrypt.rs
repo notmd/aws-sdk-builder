@@ -14,7 +14,7 @@ impl super::Client {
     ///   - [`key_id(Option<String>)`](crate::operation::encrypt::EncryptOutput::key_id): <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to encrypt the plaintext.</p>
     ///   - [`encryption_algorithm(Option<EncryptionAlgorithmSpec>)`](crate::operation::encrypt::EncryptOutput::encryption_algorithm): <p>The encryption algorithm that was used to encrypt the plaintext.</p>
     /// - On failure, responds with [`SdkError<EncryptError>`](crate::operation::encrypt::EncryptError)
-    pub fn encrypt(&self) -> crate::operation::encrypt::builders::EncryptFluentBuilder {
-        crate::operation::encrypt::builders::EncryptFluentBuilder::new(self.handle.clone())
+    pub fn encrypt(&self) -> super::operation::encrypt::builders::EncryptFluentBuilder {
+        super::operation::encrypt::builders::EncryptFluentBuilder::new(self.handle.clone())
     }
 }

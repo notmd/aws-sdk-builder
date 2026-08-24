@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidRestoreTimeException {
     }
 }
 impl ::std::error::Error for InvalidRestoreTimeException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidRestoreTimeException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidRestoreTimeException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidRestor
 }
 impl InvalidRestoreTimeException {
     /// Creates a new builder-style object to manufacture [`InvalidRestoreTimeException`](crate::types::error::InvalidRestoreTimeException).
-    pub fn builder() -> crate::types::error::builders::InvalidRestoreTimeExceptionBuilder {
-        crate::types::error::builders::InvalidRestoreTimeExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidRestoreTimeExceptionBuilder {
+        super::types::error::builders::InvalidRestoreTimeExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidRestoreTimeExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidRestoreTimeException`](crate::types::error::InvalidRestoreTimeException).
-    pub fn build(self) -> crate::types::error::InvalidRestoreTimeException {
-        crate::types::error::InvalidRestoreTimeException {
+    pub fn build(self) -> super::types::error::InvalidRestoreTimeException {
+        super::types::error::InvalidRestoreTimeException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

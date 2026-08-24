@@ -30,8 +30,8 @@ impl CreateServiceSpecificCredentialInput {
 }
 impl CreateServiceSpecificCredentialInput {
     /// Creates a new builder-style object to manufacture [`CreateServiceSpecificCredentialInput`](crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialInput).
-    pub fn builder() -> crate::operation::create_service_specific_credential::builders::CreateServiceSpecificCredentialInputBuilder {
-        crate::operation::create_service_specific_credential::builders::CreateServiceSpecificCredentialInputBuilder::default()
+    pub fn builder() -> super::operation::create_service_specific_credential::builders::CreateServiceSpecificCredentialInputBuilder {
+        super::operation::create_service_specific_credential::builders::CreateServiceSpecificCredentialInputBuilder::default()
     }
 }
 
@@ -98,11 +98,11 @@ impl CreateServiceSpecificCredentialInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialInput,
+        super::operation::create_service_specific_credential::CreateServiceSpecificCredentialInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialInput {
+            super::operation::create_service_specific_credential::CreateServiceSpecificCredentialInput {
                 user_name: self.user_name,
                 service_name: self.service_name,
                 credential_age_days: self.credential_age_days,

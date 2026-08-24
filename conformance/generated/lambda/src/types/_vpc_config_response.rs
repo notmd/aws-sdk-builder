@@ -37,8 +37,8 @@ impl VpcConfigResponse {
 }
 impl VpcConfigResponse {
     /// Creates a new builder-style object to manufacture [`VpcConfigResponse`](crate::types::VpcConfigResponse).
-    pub fn builder() -> crate::types::builders::VpcConfigResponseBuilder {
-        crate::types::builders::VpcConfigResponseBuilder::default()
+    pub fn builder() -> super::types::builders::VpcConfigResponseBuilder {
+        super::types::builders::VpcConfigResponseBuilder::default()
     }
 }
 
@@ -121,8 +121,8 @@ impl VpcConfigResponseBuilder {
         &self.ipv6_allowed_for_dual_stack
     }
     /// Consumes the builder and constructs a [`VpcConfigResponse`](crate::types::VpcConfigResponse).
-    pub fn build(self) -> crate::types::VpcConfigResponse {
-        crate::types::VpcConfigResponse {
+    pub fn build(self) -> super::types::VpcConfigResponse {
+        super::types::VpcConfigResponse {
             subnet_ids: self.subnet_ids,
             security_group_ids: self.security_group_ids,
             vpc_id: self.vpc_id,

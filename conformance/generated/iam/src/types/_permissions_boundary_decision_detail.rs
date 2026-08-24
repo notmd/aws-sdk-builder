@@ -15,8 +15,8 @@ impl PermissionsBoundaryDecisionDetail {
 }
 impl PermissionsBoundaryDecisionDetail {
     /// Creates a new builder-style object to manufacture [`PermissionsBoundaryDecisionDetail`](crate::types::PermissionsBoundaryDecisionDetail).
-    pub fn builder() -> crate::types::builders::PermissionsBoundaryDecisionDetailBuilder {
-        crate::types::builders::PermissionsBoundaryDecisionDetailBuilder::default()
+    pub fn builder() -> super::types::builders::PermissionsBoundaryDecisionDetailBuilder {
+        super::types::builders::PermissionsBoundaryDecisionDetailBuilder::default()
     }
 }
 
@@ -42,8 +42,8 @@ impl PermissionsBoundaryDecisionDetailBuilder {
         &self.allowed_by_permissions_boundary
     }
     /// Consumes the builder and constructs a [`PermissionsBoundaryDecisionDetail`](crate::types::PermissionsBoundaryDecisionDetail).
-    pub fn build(self) -> crate::types::PermissionsBoundaryDecisionDetail {
-        crate::types::PermissionsBoundaryDecisionDetail {
+    pub fn build(self) -> super::types::PermissionsBoundaryDecisionDetail {
+        super::types::PermissionsBoundaryDecisionDetail {
             allowed_by_permissions_boundary: self.allowed_by_permissions_boundary.unwrap_or_default(),
         }
     }

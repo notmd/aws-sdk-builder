@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListVirtualMfaDevicesOutput {
     /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
-    pub virtual_mfa_devices: ::std::vec::Vec<crate::types::VirtualMfaDevice>,
+    pub virtual_mfa_devices: ::std::vec::Vec<super::types::VirtualMfaDevice>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -14,7 +14,7 @@ pub struct ListVirtualMfaDevicesOutput {
 }
 impl ListVirtualMfaDevicesOutput {
     /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
-    pub fn virtual_mfa_devices(&self) -> &[crate::types::VirtualMfaDevice] {
+    pub fn virtual_mfa_devices(&self) -> &[super::types::VirtualMfaDevice] {
         use std::ops::Deref;
         self.virtual_mfa_devices.deref()
     }
@@ -34,8 +34,8 @@ impl ::aws_types::request_id::RequestId for ListVirtualMfaDevicesOutput {
 }
 impl ListVirtualMfaDevicesOutput {
     /// Creates a new builder-style object to manufacture [`ListVirtualMfaDevicesOutput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput).
-    pub fn builder() -> crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesOutputBuilder {
-        crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesOutputBuilder::default()
+    pub fn builder() -> super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesOutputBuilder {
+        super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesOutputBuilder::default()
     }
 }
 
@@ -43,7 +43,7 @@ impl ListVirtualMfaDevicesOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListVirtualMfaDevicesOutputBuilder {
-    pub(crate) virtual_mfa_devices: ::std::option::Option<::std::vec::Vec<crate::types::VirtualMfaDevice>>,
+    pub(crate) virtual_mfa_devices: ::std::option::Option<::std::vec::Vec<super::types::VirtualMfaDevice>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -54,19 +54,19 @@ impl ListVirtualMfaDevicesOutputBuilder {
     /// To override the contents of this collection use [`set_virtual_mfa_devices`](Self::set_virtual_mfa_devices).
     ///
     /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
-    pub fn virtual_mfa_devices(mut self, input: crate::types::VirtualMfaDevice) -> Self {
+    pub fn virtual_mfa_devices(mut self, input: super::types::VirtualMfaDevice) -> Self {
         let mut v = self.virtual_mfa_devices.unwrap_or_default();
         v.push(input);
         self.virtual_mfa_devices = ::std::option::Option::Some(v);
         self
     }
     /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
-    pub fn set_virtual_mfa_devices(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VirtualMfaDevice>>) -> Self {
+    pub fn set_virtual_mfa_devices(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::VirtualMfaDevice>>) -> Self {
         self.virtual_mfa_devices = input;
         self
     }
     /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
-    pub fn get_virtual_mfa_devices(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VirtualMfaDevice>> {
+    pub fn get_virtual_mfa_devices(&self) -> &::std::option::Option<::std::vec::Vec<super::types::VirtualMfaDevice>> {
         &self.virtual_mfa_devices
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -112,10 +112,10 @@ impl ListVirtualMfaDevicesOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
+        super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput {
+        ::std::result::Result::Ok(super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput {
             virtual_mfa_devices: self.virtual_mfa_devices.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "virtual_mfa_devices",

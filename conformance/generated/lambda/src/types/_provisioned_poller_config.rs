@@ -27,8 +27,8 @@ impl ProvisionedPollerConfig {
 }
 impl ProvisionedPollerConfig {
     /// Creates a new builder-style object to manufacture [`ProvisionedPollerConfig`](crate::types::ProvisionedPollerConfig).
-    pub fn builder() -> crate::types::builders::ProvisionedPollerConfigBuilder {
-        crate::types::builders::ProvisionedPollerConfigBuilder::default()
+    pub fn builder() -> super::types::builders::ProvisionedPollerConfigBuilder {
+        super::types::builders::ProvisionedPollerConfigBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl ProvisionedPollerConfigBuilder {
         &self.poller_group_name
     }
     /// Consumes the builder and constructs a [`ProvisionedPollerConfig`](crate::types::ProvisionedPollerConfig).
-    pub fn build(self) -> crate::types::ProvisionedPollerConfig {
-        crate::types::ProvisionedPollerConfig {
+    pub fn build(self) -> super::types::ProvisionedPollerConfig {
+        super::types::ProvisionedPollerConfig {
             minimum_pollers: self.minimum_pollers,
             maximum_pollers: self.maximum_pollers,
             poller_group_name: self.poller_group_name,

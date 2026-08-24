@@ -20,8 +20,8 @@ impl GetLayerVersionInput {
 }
 impl GetLayerVersionInput {
     /// Creates a new builder-style object to manufacture [`GetLayerVersionInput`](crate::operation::get_layer_version::GetLayerVersionInput).
-    pub fn builder() -> crate::operation::get_layer_version::builders::GetLayerVersionInputBuilder {
-        crate::operation::get_layer_version::builders::GetLayerVersionInputBuilder::default()
+    pub fn builder() -> super::operation::get_layer_version::builders::GetLayerVersionInputBuilder {
+        super::operation::get_layer_version::builders::GetLayerVersionInputBuilder::default()
     }
 }
 
@@ -66,8 +66,8 @@ impl GetLayerVersionInputBuilder {
     /// Consumes the builder and constructs a [`GetLayerVersionInput`](crate::operation::get_layer_version::GetLayerVersionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_layer_version::GetLayerVersionInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_layer_version::GetLayerVersionInput {
+    ) -> ::std::result::Result<super::operation::get_layer_version::GetLayerVersionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_layer_version::GetLayerVersionInput {
             layer_name: self.layer_name,
             version_number: self.version_number.unwrap_or_default(),
         })

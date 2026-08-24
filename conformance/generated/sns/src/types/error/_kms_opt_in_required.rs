@@ -26,7 +26,7 @@ impl ::std::fmt::Display for KmsOptInRequired {
     }
 }
 impl ::std::error::Error for KmsOptInRequired {}
-impl ::aws_types::request_id::RequestId for crate::types::error::KmsOptInRequired {
+impl ::aws_types::request_id::RequestId for super::types::error::KmsOptInRequired {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for KmsOptInRequi
 }
 impl KmsOptInRequired {
     /// Creates a new builder-style object to manufacture [`KmsOptInRequired`](crate::types::error::KmsOptInRequired).
-    pub fn builder() -> crate::types::error::builders::KmsOptInRequiredBuilder {
-        crate::types::error::builders::KmsOptInRequiredBuilder::default()
+    pub fn builder() -> super::types::error::builders::KmsOptInRequiredBuilder {
+        super::types::error::builders::KmsOptInRequiredBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl KmsOptInRequiredBuilder {
         self
     }
     /// Consumes the builder and constructs a [`KmsOptInRequired`](crate::types::error::KmsOptInRequired).
-    pub fn build(self) -> crate::types::error::KmsOptInRequired {
-        crate::types::error::KmsOptInRequired {
+    pub fn build(self) -> super::types::error::KmsOptInRequired {
+        super::types::error::KmsOptInRequired {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

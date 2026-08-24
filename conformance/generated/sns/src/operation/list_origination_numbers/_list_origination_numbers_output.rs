@@ -6,7 +6,7 @@ pub struct ListOriginationNumbersOutput {
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListOriginationNumbers</code> operation if additional pages of records are available.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
-    pub phone_numbers: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>,
+    pub phone_numbers: ::std::option::Option<::std::vec::Vec<super::types::PhoneNumberInformation>>,
     _request_id: Option<String>,
 }
 impl ListOriginationNumbersOutput {
@@ -17,7 +17,7 @@ impl ListOriginationNumbersOutput {
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.phone_numbers.is_none()`.
-    pub fn phone_numbers(&self) -> &[crate::types::PhoneNumberInformation] {
+    pub fn phone_numbers(&self) -> &[super::types::PhoneNumberInformation] {
         self.phone_numbers.as_deref().unwrap_or_default()
     }
 }
@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for ListOriginationNumbersOutput {
 }
 impl ListOriginationNumbersOutput {
     /// Creates a new builder-style object to manufacture [`ListOriginationNumbersOutput`](crate::operation::list_origination_numbers::ListOriginationNumbersOutput).
-    pub fn builder() -> crate::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder {
-        crate::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder::default()
+    pub fn builder() -> super::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder {
+        super::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl ListOriginationNumbersOutput {
 #[non_exhaustive]
 pub struct ListOriginationNumbersOutputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-    pub(crate) phone_numbers: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>,
+    pub(crate) phone_numbers: ::std::option::Option<::std::vec::Vec<super::types::PhoneNumberInformation>>,
     _request_id: Option<String>,
 }
 impl ListOriginationNumbersOutputBuilder {
@@ -61,19 +61,19 @@ impl ListOriginationNumbersOutputBuilder {
     /// To override the contents of this collection use [`set_phone_numbers`](Self::set_phone_numbers).
     ///
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
-    pub fn phone_numbers(mut self, input: crate::types::PhoneNumberInformation) -> Self {
+    pub fn phone_numbers(mut self, input: super::types::PhoneNumberInformation) -> Self {
         let mut v = self.phone_numbers.unwrap_or_default();
         v.push(input);
         self.phone_numbers = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
-    pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>) -> Self {
+    pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PhoneNumberInformation>>) -> Self {
         self.phone_numbers = input;
         self
     }
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
-    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>> {
+    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PhoneNumberInformation>> {
         &self.phone_numbers
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,8 +86,8 @@ impl ListOriginationNumbersOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListOriginationNumbersOutput`](crate::operation::list_origination_numbers::ListOriginationNumbersOutput).
-    pub fn build(self) -> crate::operation::list_origination_numbers::ListOriginationNumbersOutput {
-        crate::operation::list_origination_numbers::ListOriginationNumbersOutput {
+    pub fn build(self) -> super::operation::list_origination_numbers::ListOriginationNumbersOutput {
+        super::operation::list_origination_numbers::ListOriginationNumbersOutput {
             next_token: self.next_token,
             phone_numbers: self.phone_numbers,
             _request_id: self._request_id,

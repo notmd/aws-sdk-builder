@@ -25,7 +25,7 @@ pub struct GenerateDataKeyWithoutPlaintextInput {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
-    pub key_spec: ::std::option::Option<crate::types::DataKeySpec>,
+    pub key_spec: ::std::option::Option<super::types::DataKeySpec>,
     /// <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the <code>KeySpec</code> field instead of this one.</p>
     pub number_of_bytes: ::std::option::Option<i32>,
     /// <p>A list of grant tokens.</p>
@@ -62,7 +62,7 @@ impl GenerateDataKeyWithoutPlaintextInput {
         self.encryption_context.as_ref()
     }
     /// <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
-    pub fn key_spec(&self) -> ::std::option::Option<&crate::types::DataKeySpec> {
+    pub fn key_spec(&self) -> ::std::option::Option<&super::types::DataKeySpec> {
         self.key_spec.as_ref()
     }
     /// <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the <code>KeySpec</code> field instead of this one.</p>
@@ -84,8 +84,8 @@ impl GenerateDataKeyWithoutPlaintextInput {
 }
 impl GenerateDataKeyWithoutPlaintextInput {
     /// Creates a new builder-style object to manufacture [`GenerateDataKeyWithoutPlaintextInput`](crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput).
-    pub fn builder() -> crate::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextInputBuilder {
-        crate::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextInputBuilder::default()
+    pub fn builder() -> super::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextInputBuilder {
+        super::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextInputBuilder::default()
     }
 }
 
@@ -95,7 +95,7 @@ impl GenerateDataKeyWithoutPlaintextInput {
 pub struct GenerateDataKeyWithoutPlaintextInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) key_spec: ::std::option::Option<crate::types::DataKeySpec>,
+    pub(crate) key_spec: ::std::option::Option<super::types::DataKeySpec>,
     pub(crate) number_of_bytes: ::std::option::Option<i32>,
     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) dry_run: ::std::option::Option<bool>,
@@ -195,17 +195,17 @@ impl GenerateDataKeyWithoutPlaintextInputBuilder {
         &self.encryption_context
     }
     /// <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
-    pub fn key_spec(mut self, input: crate::types::DataKeySpec) -> Self {
+    pub fn key_spec(mut self, input: super::types::DataKeySpec) -> Self {
         self.key_spec = ::std::option::Option::Some(input);
         self
     }
     /// <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
-    pub fn set_key_spec(mut self, input: ::std::option::Option<crate::types::DataKeySpec>) -> Self {
+    pub fn set_key_spec(mut self, input: ::std::option::Option<super::types::DataKeySpec>) -> Self {
         self.key_spec = input;
         self
     }
     /// <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
-    pub fn get_key_spec(&self) -> &::std::option::Option<crate::types::DataKeySpec> {
+    pub fn get_key_spec(&self) -> &::std::option::Option<super::types::DataKeySpec> {
         &self.key_spec
     }
     /// <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the <code>KeySpec</code> field instead of this one.</p>
@@ -266,11 +266,11 @@ impl GenerateDataKeyWithoutPlaintextInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
+        super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput {
+            super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput {
                 key_id: self.key_id,
                 encryption_context: self.encryption_context,
                 key_spec: self.key_spec,

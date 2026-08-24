@@ -5,16 +5,16 @@ pub fn de_get_object_legal_hold_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_object_legal_hold::GetObjectLegalHoldOutput,
-    crate::operation::get_object_legal_hold::GetObjectLegalHoldError,
+    super::operation::get_object_legal_hold::GetObjectLegalHoldOutput,
+    super::operation::get_object_legal_hold::GetObjectLegalHoldError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_object_legal_hold::GetObjectLegalHoldError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_object_legal_hold::GetObjectLegalHoldError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::get_object_legal_hold::GetObjectLegalHoldError::generic(generic))
+    Err(super::operation::get_object_legal_hold::GetObjectLegalHoldError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -23,23 +23,23 @@ pub fn de_get_object_legal_hold_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_object_legal_hold::GetObjectLegalHoldOutput,
-    crate::operation::get_object_legal_hold::GetObjectLegalHoldError,
+    super::operation::get_object_legal_hold::GetObjectLegalHoldOutput,
+    super::operation::get_object_legal_hold::GetObjectLegalHoldError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldOutputBuilder::default();
-        output = output.set_legal_hold(crate::protocol_serde::shape_get_object_legal_hold_output::de_legal_hold_payload(
+        let mut output = super::operation::get_object_legal_hold::builders::GetObjectLegalHoldOutputBuilder::default();
+        output = output.set_legal_hold(super::protocol_serde::shape_get_object_legal_hold_output::de_legal_hold_payload(
             _response_body,
         )?);
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_get_object_legal_hold_headers(
-    input: &crate::operation::get_object_legal_hold::GetObjectLegalHoldInput,
+    input: &super::operation::get_object_legal_hold::GetObjectLegalHoldInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.request_payer {

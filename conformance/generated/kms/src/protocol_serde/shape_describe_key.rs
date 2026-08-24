@@ -4,26 +4,26 @@ pub fn de_describe_key_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::describe_key::DescribeKeyOutput, crate::operation::describe_key::DescribeKeyError> {
+) -> std::result::Result<super::operation::describe_key::DescribeKeyOutput, super::operation::describe_key::DescribeKeyError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::describe_key::DescribeKeyError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::describe_key::DescribeKeyError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::describe_key::DescribeKeyError::unhandled(generic)),
+        None => return Err(super::operation::describe_key::DescribeKeyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => crate::operation::describe_key::DescribeKeyError::DependencyTimeoutException({
+        "DependencyTimeoutException" => super::operation::describe_key::DescribeKeyError::DependencyTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::describe_key::DescribeKeyError::unhandled)?;
+                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::operation::describe_key::DescribeKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -32,13 +32,13 @@ pub fn de_describe_key_http_error(
             }
             tmp
         }),
-        "InvalidArnException" => crate::operation::describe_key::DescribeKeyError::InvalidArnException({
+        "InvalidArnException" => super::operation::describe_key::DescribeKeyError::InvalidArnException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidArnExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::describe_key::DescribeKeyError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidArnExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
+                    .map_err(super::operation::describe_key::DescribeKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -47,13 +47,13 @@ pub fn de_describe_key_http_error(
             }
             tmp
         }),
-        "KMSInternalException" => crate::operation::describe_key::DescribeKeyError::KmsInternalException({
+        "KMSInternalException" => super::operation::describe_key::DescribeKeyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::describe_key::DescribeKeyError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                    .map_err(super::operation::describe_key::DescribeKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,13 +62,13 @@ pub fn de_describe_key_http_error(
             }
             tmp
         }),
-        "NotFoundException" => crate::operation::describe_key::DescribeKeyError::NotFoundException({
+        "NotFoundException" => super::operation::describe_key::DescribeKeyError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::describe_key::DescribeKeyError::unhandled)?;
+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::describe_key::DescribeKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -77,7 +77,7 @@ pub fn de_describe_key_http_error(
             }
             tmp
         }),
-        _ => crate::operation::describe_key::DescribeKeyError::generic(generic),
+        _ => super::operation::describe_key::DescribeKeyError::generic(generic),
     })
 }
 
@@ -86,33 +86,33 @@ pub fn de_describe_key_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::describe_key::DescribeKeyOutput, crate::operation::describe_key::DescribeKeyError> {
+) -> std::result::Result<super::operation::describe_key::DescribeKeyOutput, super::operation::describe_key::DescribeKeyError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::describe_key::builders::DescribeKeyOutputBuilder::default();
-        output = crate::protocol_serde::shape_describe_key::de_describe_key(_response_body, output)
-            .map_err(crate::operation::describe_key::DescribeKeyError::unhandled)?;
+        let mut output = super::operation::describe_key::builders::DescribeKeyOutputBuilder::default();
+        output = super::protocol_serde::shape_describe_key::de_describe_key(_response_body, output)
+            .map_err(super::operation::describe_key::DescribeKeyError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_describe_key_input(
-    input: &crate::operation::describe_key::DescribeKeyInput,
+    input: &super::operation::describe_key::DescribeKeyInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_describe_key_input::ser_describe_key_input_input(&mut object, input)?;
+    super::protocol_serde::shape_describe_key_input::ser_describe_key_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_describe_key(
     _value: &[u8],
-    mut builder: crate::operation::describe_key::builders::DescribeKeyOutputBuilder,
-) -> ::std::result::Result<crate::operation::describe_key::builders::DescribeKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+    mut builder: super::operation::describe_key::builders::DescribeKeyOutputBuilder,
+) -> ::std::result::Result<super::operation::describe_key::builders::DescribeKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -122,7 +122,7 @@ pub(crate) fn de_describe_key(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "KeyMetadata" => {
-                    builder = builder.set_key_metadata(crate::protocol_serde::shape_key_metadata::de_key_metadata(tokens, _value, depth + 1)?);
+                    builder = builder.set_key_metadata(super::protocol_serde::shape_key_metadata::de_key_metadata(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

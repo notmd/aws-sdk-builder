@@ -29,8 +29,8 @@ impl ::std::fmt::Debug for EnvironmentError {
 }
 impl EnvironmentError {
     /// Creates a new builder-style object to manufacture [`EnvironmentError`](crate::types::EnvironmentError).
-    pub fn builder() -> crate::types::builders::EnvironmentErrorBuilder {
-        crate::types::builders::EnvironmentErrorBuilder::default()
+    pub fn builder() -> super::types::builders::EnvironmentErrorBuilder {
+        super::types::builders::EnvironmentErrorBuilder::default()
     }
 }
 
@@ -71,8 +71,8 @@ impl EnvironmentErrorBuilder {
         &self.message
     }
     /// Consumes the builder and constructs a [`EnvironmentError`](crate::types::EnvironmentError).
-    pub fn build(self) -> crate::types::EnvironmentError {
-        crate::types::EnvironmentError {
+    pub fn build(self) -> super::types::EnvironmentError {
+        super::types::EnvironmentError {
             error_code: self.error_code,
             message: self.message,
         }

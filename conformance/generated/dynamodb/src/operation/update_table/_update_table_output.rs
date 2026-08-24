@@ -5,12 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct UpdateTableOutput {
     /// <p>Represents the properties of the table.</p>
-    pub table_description: ::std::option::Option<crate::types::TableDescription>,
+    pub table_description: ::std::option::Option<super::types::TableDescription>,
     _request_id: Option<String>,
 }
 impl UpdateTableOutput {
     /// <p>Represents the properties of the table.</p>
-    pub fn table_description(&self) -> ::std::option::Option<&crate::types::TableDescription> {
+    pub fn table_description(&self) -> ::std::option::Option<&super::types::TableDescription> {
         self.table_description.as_ref()
     }
 }
@@ -21,8 +21,8 @@ impl ::aws_types::request_id::RequestId for UpdateTableOutput {
 }
 impl UpdateTableOutput {
     /// Creates a new builder-style object to manufacture [`UpdateTableOutput`](crate::operation::update_table::UpdateTableOutput).
-    pub fn builder() -> crate::operation::update_table::builders::UpdateTableOutputBuilder {
-        crate::operation::update_table::builders::UpdateTableOutputBuilder::default()
+    pub fn builder() -> super::operation::update_table::builders::UpdateTableOutputBuilder {
+        super::operation::update_table::builders::UpdateTableOutputBuilder::default()
     }
 }
 
@@ -30,22 +30,22 @@ impl UpdateTableOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateTableOutputBuilder {
-    pub(crate) table_description: ::std::option::Option<crate::types::TableDescription>,
+    pub(crate) table_description: ::std::option::Option<super::types::TableDescription>,
     _request_id: Option<String>,
 }
 impl UpdateTableOutputBuilder {
     /// <p>Represents the properties of the table.</p>
-    pub fn table_description(mut self, input: crate::types::TableDescription) -> Self {
+    pub fn table_description(mut self, input: super::types::TableDescription) -> Self {
         self.table_description = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the properties of the table.</p>
-    pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
+    pub fn set_table_description(mut self, input: ::std::option::Option<super::types::TableDescription>) -> Self {
         self.table_description = input;
         self
     }
     /// <p>Represents the properties of the table.</p>
-    pub fn get_table_description(&self) -> &::std::option::Option<crate::types::TableDescription> {
+    pub fn get_table_description(&self) -> &::std::option::Option<super::types::TableDescription> {
         &self.table_description
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -58,8 +58,8 @@ impl UpdateTableOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateTableOutput`](crate::operation::update_table::UpdateTableOutput).
-    pub fn build(self) -> crate::operation::update_table::UpdateTableOutput {
-        crate::operation::update_table::UpdateTableOutput {
+    pub fn build(self) -> super::operation::update_table::UpdateTableOutput {
+        super::operation::update_table::UpdateTableOutput {
             table_description: self.table_description,
             _request_id: self._request_id,
         }

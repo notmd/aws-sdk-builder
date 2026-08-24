@@ -26,8 +26,8 @@ impl ListBucketAnalyticsConfigurationsInput {
 }
 impl ListBucketAnalyticsConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`ListBucketAnalyticsConfigurationsInput`](crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput).
-    pub fn builder() -> crate::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder {
-        crate::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder::default()
+    pub fn builder() -> super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder {
+        super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder::default()
     }
 }
 
@@ -87,11 +87,11 @@ impl ListBucketAnalyticsConfigurationsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput,
+        super::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput {
+            super::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput {
                 bucket: self.bucket,
                 continuation_token: self.continuation_token,
                 expected_bucket_owner: self.expected_bucket_owner,

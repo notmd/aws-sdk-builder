@@ -9,7 +9,7 @@ impl super::Client {
     ///   - [`successful(Vec::<SendMessageBatchResultEntry>)`](crate::operation::send_message_batch::SendMessageBatchOutput::successful): <p>A list of <code> <a>SendMessageBatchResultEntry</a> </code> items.</p>
     ///   - [`failed(Vec::<BatchResultErrorEntry>)`](crate::operation::send_message_batch::SendMessageBatchOutput::failed): <p>A list of <code> <a>BatchResultErrorEntry</a> </code> items with error details about each message that can't be enqueued.</p>
     /// - On failure, responds with [`SdkError<SendMessageBatchError>`](crate::operation::send_message_batch::SendMessageBatchError)
-    pub fn send_message_batch(&self) -> crate::operation::send_message_batch::builders::SendMessageBatchFluentBuilder {
-        crate::operation::send_message_batch::builders::SendMessageBatchFluentBuilder::new(self.handle.clone())
+    pub fn send_message_batch(&self) -> super::operation::send_message_batch::builders::SendMessageBatchFluentBuilder {
+        super::operation::send_message_batch::builders::SendMessageBatchFluentBuilder::new(self.handle.clone())
     }
 }

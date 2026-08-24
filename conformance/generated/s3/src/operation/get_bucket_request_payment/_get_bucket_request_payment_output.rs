@@ -4,17 +4,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBucketRequestPaymentOutput {
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub payer: ::std::option::Option<crate::types::Payer>,
+    pub payer: ::std::option::Option<super::types::Payer>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetBucketRequestPaymentOutput {
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub fn payer(&self) -> ::std::option::Option<&crate::types::Payer> {
+    pub fn payer(&self) -> ::std::option::Option<&super::types::Payer> {
         self.payer.as_ref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for GetBucketRequestPaymentOutput {
+impl super::s3_request_id::RequestIdExt for GetBucketRequestPaymentOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -26,8 +26,8 @@ impl ::aws_types::request_id::RequestId for GetBucketRequestPaymentOutput {
 }
 impl GetBucketRequestPaymentOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketRequestPaymentOutput`](crate::operation::get_bucket_request_payment::GetBucketRequestPaymentOutput).
-    pub fn builder() -> crate::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentOutputBuilder {
-        crate::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentOutputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentOutputBuilder {
+        super::operation::get_bucket_request_payment::builders::GetBucketRequestPaymentOutputBuilder::default()
     }
 }
 
@@ -35,23 +35,23 @@ impl GetBucketRequestPaymentOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketRequestPaymentOutputBuilder {
-    pub(crate) payer: ::std::option::Option<crate::types::Payer>,
+    pub(crate) payer: ::std::option::Option<super::types::Payer>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetBucketRequestPaymentOutputBuilder {
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub fn payer(mut self, input: crate::types::Payer) -> Self {
+    pub fn payer(mut self, input: super::types::Payer) -> Self {
         self.payer = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub fn set_payer(mut self, input: ::std::option::Option<crate::types::Payer>) -> Self {
+    pub fn set_payer(mut self, input: ::std::option::Option<super::types::Payer>) -> Self {
         self.payer = input;
         self
     }
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub fn get_payer(&self) -> &::std::option::Option<crate::types::Payer> {
+    pub fn get_payer(&self) -> &::std::option::Option<super::types::Payer> {
         &self.payer
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -73,8 +73,8 @@ impl GetBucketRequestPaymentOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketRequestPaymentOutput`](crate::operation::get_bucket_request_payment::GetBucketRequestPaymentOutput).
-    pub fn build(self) -> crate::operation::get_bucket_request_payment::GetBucketRequestPaymentOutput {
-        crate::operation::get_bucket_request_payment::GetBucketRequestPaymentOutput {
+    pub fn build(self) -> super::operation::get_bucket_request_payment::GetBucketRequestPaymentOutput {
+        super::operation::get_bucket_request_payment::GetBucketRequestPaymentOutput {
             payer: self.payer,
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

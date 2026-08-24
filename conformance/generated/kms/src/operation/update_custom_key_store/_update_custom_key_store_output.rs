@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateCustomKeyStoreOutput {
 }
 impl UpdateCustomKeyStoreOutput {
     /// Creates a new builder-style object to manufacture [`UpdateCustomKeyStoreOutput`](crate::operation::update_custom_key_store::UpdateCustomKeyStoreOutput).
-    pub fn builder() -> crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder {
-        crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder::default()
+    pub fn builder() -> super::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder {
+        super::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateCustomKeyStoreOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateCustomKeyStoreOutput`](crate::operation::update_custom_key_store::UpdateCustomKeyStoreOutput).
-    pub fn build(self) -> crate::operation::update_custom_key_store::UpdateCustomKeyStoreOutput {
-        crate::operation::update_custom_key_store::UpdateCustomKeyStoreOutput {
+    pub fn build(self) -> super::operation::update_custom_key_store::UpdateCustomKeyStoreOutput {
+        super::operation::update_custom_key_store::UpdateCustomKeyStoreOutput {
             _request_id: self._request_id,
         }
     }

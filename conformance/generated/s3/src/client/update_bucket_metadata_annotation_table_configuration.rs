@@ -10,7 +10,7 @@ impl super::Client {
     ///   - [`expected_bucket_owner(impl Into<String>)`](crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder::expected_bucket_owner) / [`set_expected_bucket_owner(Option<String>)`](crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder::set_expected_bucket_owner):<br>required: **false**<br><p>The account ID of the expected bucket owner.</p><br>
     /// - On success, responds with [`UpdateBucketMetadataAnnotationTableConfigurationOutput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput)
     /// - On failure, responds with [`SdkError<UpdateBucketMetadataAnnotationTableConfigurationError>`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationError)
-    pub fn update_bucket_metadata_annotation_table_configuration(&self) -> crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder{
-        crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder::new(self.handle.clone())
+    pub fn update_bucket_metadata_annotation_table_configuration(&self) -> super::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder{
+        super::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

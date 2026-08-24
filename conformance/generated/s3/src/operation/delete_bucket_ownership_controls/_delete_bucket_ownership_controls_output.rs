@@ -6,7 +6,7 @@ pub struct DeleteBucketOwnershipControlsOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for DeleteBucketOwnershipControlsOutput {
+impl super::s3_request_id::RequestIdExt for DeleteBucketOwnershipControlsOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for DeleteBucketOwnershipControlsOutput 
 }
 impl DeleteBucketOwnershipControlsOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketOwnershipControlsOutput`](crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput).
-    pub fn builder() -> crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsOutputBuilder {
-        crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsOutputBuilder {
+        super::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl DeleteBucketOwnershipControlsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketOwnershipControlsOutput`](crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput {
-        crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput {
+    pub fn build(self) -> super::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput {
+        super::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

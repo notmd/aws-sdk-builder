@@ -34,7 +34,7 @@ impl ::std::fmt::Display for InvalidKeyUsageException {
     }
 }
 impl ::std::error::Error for InvalidKeyUsageException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidKeyUsageException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidKeyUsageException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidKeyUsa
 }
 impl InvalidKeyUsageException {
     /// Creates a new builder-style object to manufacture [`InvalidKeyUsageException`](crate::types::error::InvalidKeyUsageException).
-    pub fn builder() -> crate::types::error::builders::InvalidKeyUsageExceptionBuilder {
-        crate::types::error::builders::InvalidKeyUsageExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidKeyUsageExceptionBuilder {
+        super::types::error::builders::InvalidKeyUsageExceptionBuilder::default()
     }
 }
 
@@ -86,8 +86,8 @@ impl InvalidKeyUsageExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidKeyUsageException`](crate::types::error::InvalidKeyUsageException).
-    pub fn build(self) -> crate::types::error::InvalidKeyUsageException {
-        crate::types::error::InvalidKeyUsageException {
+    pub fn build(self) -> super::types::error::InvalidKeyUsageException {
+        super::types::error::InvalidKeyUsageException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

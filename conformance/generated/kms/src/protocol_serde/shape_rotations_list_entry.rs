@@ -3,7 +3,7 @@ pub(crate) fn de_rotations_list_entry<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::RotationsListEntry>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::RotationsListEntry>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::RotationsListEntryBuilder::default();
+            let mut builder = super::types::builders::RotationsListEntryBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -45,21 +45,21 @@ where
                         "ImportState" => {
                             builder = builder.set_import_state(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ImportState::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::ImportState::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "KeyMaterialState" => {
                             builder = builder.set_key_material_state(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::KeyMaterialState::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::KeyMaterialState::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "ExpirationModel" => {
                             builder = builder.set_expiration_model(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ExpirationModelType::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::ExpirationModelType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
@@ -78,7 +78,7 @@ where
                         "RotationType" => {
                             builder = builder.set_rotation_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::RotationType::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::RotationType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

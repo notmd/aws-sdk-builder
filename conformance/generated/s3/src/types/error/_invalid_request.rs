@@ -26,13 +26,13 @@ impl ::std::fmt::Display for InvalidRequest {
     }
 }
 impl ::std::error::Error for InvalidRequest {}
-impl crate::s3_request_id::RequestIdExt for crate::types::error::InvalidRequest {
+impl super::s3_request_id::RequestIdExt for super::types::error::InvalidRequest {
     fn extended_request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidRequest {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidRequest {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -45,8 +45,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidReques
 }
 impl InvalidRequest {
     /// Creates a new builder-style object to manufacture [`InvalidRequest`](crate::types::error::InvalidRequest).
-    pub fn builder() -> crate::types::error::builders::InvalidRequestBuilder {
-        crate::types::error::builders::InvalidRequestBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidRequestBuilder {
+        super::types::error::builders::InvalidRequestBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl InvalidRequestBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidRequest`](crate::types::error::InvalidRequest).
-    pub fn build(self) -> crate::types::error::InvalidRequest {
-        crate::types::error::InvalidRequest {
+    pub fn build(self) -> super::types::error::InvalidRequest {
+        super::types::error::InvalidRequest {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -7,7 +7,7 @@ pub struct AutoScalingPolicyUpdate {
     /// <p>The name of the scaling policy.</p>
     pub policy_name: ::std::option::Option<::std::string::String>,
     /// <p>Represents a target tracking scaling policy configuration.</p>
-    pub target_tracking_scaling_policy_configuration: ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,
+    pub target_tracking_scaling_policy_configuration: ::std::option::Option<super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,
 }
 impl AutoScalingPolicyUpdate {
     /// <p>The name of the scaling policy.</p>
@@ -17,14 +17,14 @@ impl AutoScalingPolicyUpdate {
     /// <p>Represents a target tracking scaling policy configuration.</p>
     pub fn target_tracking_scaling_policy_configuration(
         &self,
-    ) -> ::std::option::Option<&crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate> {
+    ) -> ::std::option::Option<&super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate> {
         self.target_tracking_scaling_policy_configuration.as_ref()
     }
 }
 impl AutoScalingPolicyUpdate {
     /// Creates a new builder-style object to manufacture [`AutoScalingPolicyUpdate`](crate::types::AutoScalingPolicyUpdate).
-    pub fn builder() -> crate::types::builders::AutoScalingPolicyUpdateBuilder {
-        crate::types::builders::AutoScalingPolicyUpdateBuilder::default()
+    pub fn builder() -> super::types::builders::AutoScalingPolicyUpdateBuilder {
+        super::types::builders::AutoScalingPolicyUpdateBuilder::default()
     }
 }
 
@@ -34,7 +34,7 @@ impl AutoScalingPolicyUpdate {
 pub struct AutoScalingPolicyUpdateBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
     pub(crate) target_tracking_scaling_policy_configuration:
-        ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,
+        ::std::option::Option<super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,
 }
 impl AutoScalingPolicyUpdateBuilder {
     /// <p>The name of the scaling policy.</p>
@@ -55,7 +55,7 @@ impl AutoScalingPolicyUpdateBuilder {
     /// This field is required.
     pub fn target_tracking_scaling_policy_configuration(
         mut self,
-        input: crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
+        input: super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
     ) -> Self {
         self.target_tracking_scaling_policy_configuration = ::std::option::Option::Some(input);
         self
@@ -63,7 +63,7 @@ impl AutoScalingPolicyUpdateBuilder {
     /// <p>Represents a target tracking scaling policy configuration.</p>
     pub fn set_target_tracking_scaling_policy_configuration(
         mut self,
-        input: ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,
+        input: ::std::option::Option<super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,
     ) -> Self {
         self.target_tracking_scaling_policy_configuration = input;
         self
@@ -71,12 +71,12 @@ impl AutoScalingPolicyUpdateBuilder {
     /// <p>Represents a target tracking scaling policy configuration.</p>
     pub fn get_target_tracking_scaling_policy_configuration(
         &self,
-    ) -> &::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate> {
+    ) -> &::std::option::Option<super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate> {
         &self.target_tracking_scaling_policy_configuration
     }
     /// Consumes the builder and constructs a [`AutoScalingPolicyUpdate`](crate::types::AutoScalingPolicyUpdate).
-    pub fn build(self) -> crate::types::AutoScalingPolicyUpdate {
-        crate::types::AutoScalingPolicyUpdate {
+    pub fn build(self) -> super::types::AutoScalingPolicyUpdate {
+        super::types::AutoScalingPolicyUpdate {
             policy_name: self.policy_name,
             target_tracking_scaling_policy_configuration: self.target_tracking_scaling_policy_configuration,
         }

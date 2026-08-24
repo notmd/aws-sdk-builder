@@ -52,8 +52,8 @@ impl ListAliasesInput {
 }
 impl ListAliasesInput {
     /// Creates a new builder-style object to manufacture [`ListAliasesInput`](crate::operation::list_aliases::ListAliasesInput).
-    pub fn builder() -> crate::operation::list_aliases::builders::ListAliasesInputBuilder {
-        crate::operation::list_aliases::builders::ListAliasesInputBuilder::default()
+    pub fn builder() -> super::operation::list_aliases::builders::ListAliasesInputBuilder {
+        super::operation::list_aliases::builders::ListAliasesInputBuilder::default()
     }
 }
 
@@ -155,8 +155,8 @@ impl ListAliasesInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`ListAliasesInput`](crate::operation::list_aliases::ListAliasesInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_aliases::ListAliasesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_aliases::ListAliasesInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::list_aliases::ListAliasesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_aliases::ListAliasesInput {
             function_name: self.function_name,
             function_version: self.function_version,
             marker: self.marker,

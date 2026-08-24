@@ -39,7 +39,7 @@ pub struct PutBucketPolicyInput {
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -93,7 +93,7 @@ impl PutBucketPolicyInput {
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
         self.checksum_algorithm.as_ref()
     }
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p><note>
@@ -116,8 +116,8 @@ impl PutBucketPolicyInput {
 }
 impl PutBucketPolicyInput {
     /// Creates a new builder-style object to manufacture [`PutBucketPolicyInput`](crate::operation::put_bucket_policy::PutBucketPolicyInput).
-    pub fn builder() -> crate::operation::put_bucket_policy::builders::PutBucketPolicyInputBuilder {
-        crate::operation::put_bucket_policy::builders::PutBucketPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_policy::builders::PutBucketPolicyInputBuilder {
+        super::operation::put_bucket_policy::builders::PutBucketPolicyInputBuilder::default()
     }
 }
 
@@ -127,7 +127,7 @@ impl PutBucketPolicyInput {
 pub struct PutBucketPolicyInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) content_md5: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
     pub(crate) confirm_remove_self_bucket_access: ::std::option::Option<bool>,
     pub(crate) policy: ::std::option::Option<::std::string::String>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
@@ -202,7 +202,7 @@ impl PutBucketPolicyInputBuilder {
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
@@ -234,7 +234,7 @@ impl PutBucketPolicyInputBuilder {
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
@@ -266,7 +266,7 @@ impl PutBucketPolicyInputBuilder {
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p><note>
@@ -330,8 +330,8 @@ impl PutBucketPolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutBucketPolicyInput`](crate::operation::put_bucket_policy::PutBucketPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_bucket_policy::PutBucketPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::put_bucket_policy::PutBucketPolicyInput {
+    ) -> ::std::result::Result<super::operation::put_bucket_policy::PutBucketPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::put_bucket_policy::PutBucketPolicyInput {
             bucket: self.bucket,
             content_md5: self.content_md5,
             checksum_algorithm: self.checksum_algorithm,

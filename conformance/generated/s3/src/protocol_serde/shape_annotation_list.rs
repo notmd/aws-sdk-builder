@@ -2,7 +2,7 @@
 pub fn de_annotation_list(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<::std::vec::Vec<crate::types::AnnotationEntry>, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<::std::vec::Vec<super::types::AnnotationEntry>, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
@@ -11,7 +11,7 @@ pub fn de_annotation_list(
         match tag.start_el() {
             s if s.matches("AnnotationEntry") /* member com.amazonaws.s3#AnnotationList$member */ =>  {
                 out.push(
-                    crate::protocol_serde::shape_annotation_entry::de_annotation_entry(&mut tag, depth + 1)
+                    super::protocol_serde::shape_annotation_entry::de_annotation_entry(&mut tag, depth + 1)
                     ?
                 );
             }

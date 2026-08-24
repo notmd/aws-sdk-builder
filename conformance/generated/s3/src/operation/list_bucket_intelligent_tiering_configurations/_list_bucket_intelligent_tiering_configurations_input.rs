@@ -27,8 +27,8 @@ impl ListBucketIntelligentTieringConfigurationsInput {
 impl ListBucketIntelligentTieringConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`ListBucketIntelligentTieringConfigurationsInput`](crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsInput).
     pub fn builder(
-    ) -> crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder {
-        crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder::default()
+    ) -> super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder {
+        super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder::default()
     }
 }
 
@@ -88,11 +88,11 @@ impl ListBucketIntelligentTieringConfigurationsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsInput,
+        super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsInput {
+            super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsInput {
                 bucket: self.bucket,
                 continuation_token: self.continuation_token,
                 expected_bucket_owner: self.expected_bucket_owner,

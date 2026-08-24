@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidCertificateException {
     }
 }
 impl ::std::error::Error for InvalidCertificateException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidCertificateException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidCertificateException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidCertif
 }
 impl InvalidCertificateException {
     /// Creates a new builder-style object to manufacture [`InvalidCertificateException`](crate::types::error::InvalidCertificateException).
-    pub fn builder() -> crate::types::error::builders::InvalidCertificateExceptionBuilder {
-        crate::types::error::builders::InvalidCertificateExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidCertificateExceptionBuilder {
+        super::types::error::builders::InvalidCertificateExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidCertificateExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidCertificateException`](crate::types::error::InvalidCertificateException).
-    pub fn build(self) -> crate::types::error::InvalidCertificateException {
-        crate::types::error::InvalidCertificateException {
+    pub fn build(self) -> super::types::error::InvalidCertificateException {
+        super::types::error::InvalidCertificateException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

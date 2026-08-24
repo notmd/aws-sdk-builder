@@ -6,7 +6,7 @@ pub struct PutBucketInventoryConfigurationOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for PutBucketInventoryConfigurationOutput {
+impl super::s3_request_id::RequestIdExt for PutBucketInventoryConfigurationOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for PutBucketInventoryConfigurationOutpu
 }
 impl PutBucketInventoryConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketInventoryConfigurationOutput`](crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationOutput).
-    pub fn builder() -> crate::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationOutputBuilder {
-        crate::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationOutputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationOutputBuilder {
+        super::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl PutBucketInventoryConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketInventoryConfigurationOutput`](crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationOutput).
-    pub fn build(self) -> crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationOutput {
-        crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationOutput {
+    pub fn build(self) -> super::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationOutput {
+        super::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

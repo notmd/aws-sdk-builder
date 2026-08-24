@@ -26,7 +26,7 @@ impl ::std::fmt::Display for PasswordPolicyViolationException {
     }
 }
 impl ::std::error::Error for PasswordPolicyViolationException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::PasswordPolicyViolationException {
+impl ::aws_types::request_id::RequestId for super::types::error::PasswordPolicyViolationException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PasswordPolic
 }
 impl PasswordPolicyViolationException {
     /// Creates a new builder-style object to manufacture [`PasswordPolicyViolationException`](crate::types::error::PasswordPolicyViolationException).
-    pub fn builder() -> crate::types::error::builders::PasswordPolicyViolationExceptionBuilder {
-        crate::types::error::builders::PasswordPolicyViolationExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::PasswordPolicyViolationExceptionBuilder {
+        super::types::error::builders::PasswordPolicyViolationExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl PasswordPolicyViolationExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PasswordPolicyViolationException`](crate::types::error::PasswordPolicyViolationException).
-    pub fn build(self) -> crate::types::error::PasswordPolicyViolationException {
-        crate::types::error::PasswordPolicyViolationException {
+    pub fn build(self) -> super::types::error::PasswordPolicyViolationException {
+        super::types::error::PasswordPolicyViolationException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

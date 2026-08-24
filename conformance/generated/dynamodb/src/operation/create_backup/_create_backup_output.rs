@@ -4,12 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateBackupOutput {
     /// <p>Contains the details of the backup created for the table.</p>
-    pub backup_details: ::std::option::Option<crate::types::BackupDetails>,
+    pub backup_details: ::std::option::Option<super::types::BackupDetails>,
     _request_id: Option<String>,
 }
 impl CreateBackupOutput {
     /// <p>Contains the details of the backup created for the table.</p>
-    pub fn backup_details(&self) -> ::std::option::Option<&crate::types::BackupDetails> {
+    pub fn backup_details(&self) -> ::std::option::Option<&super::types::BackupDetails> {
         self.backup_details.as_ref()
     }
 }
@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for CreateBackupOutput {
 }
 impl CreateBackupOutput {
     /// Creates a new builder-style object to manufacture [`CreateBackupOutput`](crate::operation::create_backup::CreateBackupOutput).
-    pub fn builder() -> crate::operation::create_backup::builders::CreateBackupOutputBuilder {
-        crate::operation::create_backup::builders::CreateBackupOutputBuilder::default()
+    pub fn builder() -> super::operation::create_backup::builders::CreateBackupOutputBuilder {
+        super::operation::create_backup::builders::CreateBackupOutputBuilder::default()
     }
 }
 
@@ -29,22 +29,22 @@ impl CreateBackupOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateBackupOutputBuilder {
-    pub(crate) backup_details: ::std::option::Option<crate::types::BackupDetails>,
+    pub(crate) backup_details: ::std::option::Option<super::types::BackupDetails>,
     _request_id: Option<String>,
 }
 impl CreateBackupOutputBuilder {
     /// <p>Contains the details of the backup created for the table.</p>
-    pub fn backup_details(mut self, input: crate::types::BackupDetails) -> Self {
+    pub fn backup_details(mut self, input: super::types::BackupDetails) -> Self {
         self.backup_details = ::std::option::Option::Some(input);
         self
     }
     /// <p>Contains the details of the backup created for the table.</p>
-    pub fn set_backup_details(mut self, input: ::std::option::Option<crate::types::BackupDetails>) -> Self {
+    pub fn set_backup_details(mut self, input: ::std::option::Option<super::types::BackupDetails>) -> Self {
         self.backup_details = input;
         self
     }
     /// <p>Contains the details of the backup created for the table.</p>
-    pub fn get_backup_details(&self) -> &::std::option::Option<crate::types::BackupDetails> {
+    pub fn get_backup_details(&self) -> &::std::option::Option<super::types::BackupDetails> {
         &self.backup_details
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -57,8 +57,8 @@ impl CreateBackupOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateBackupOutput`](crate::operation::create_backup::CreateBackupOutput).
-    pub fn build(self) -> crate::operation::create_backup::CreateBackupOutput {
-        crate::operation::create_backup::CreateBackupOutput {
+    pub fn build(self) -> super::operation::create_backup::CreateBackupOutput {
+        super::operation::create_backup::CreateBackupOutput {
             backup_details: self.backup_details,
             _request_id: self._request_id,
         }

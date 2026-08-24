@@ -21,8 +21,8 @@ impl ::aws_types::request_id::RequestId for CreatePlatformEndpointOutput {
 }
 impl CreatePlatformEndpointOutput {
     /// Creates a new builder-style object to manufacture [`CreatePlatformEndpointOutput`](crate::operation::create_platform_endpoint::CreatePlatformEndpointOutput).
-    pub fn builder() -> crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder {
-        crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder::default()
+    pub fn builder() -> super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder {
+        super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder::default()
     }
 }
 
@@ -58,8 +58,8 @@ impl CreatePlatformEndpointOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreatePlatformEndpointOutput`](crate::operation::create_platform_endpoint::CreatePlatformEndpointOutput).
-    pub fn build(self) -> crate::operation::create_platform_endpoint::CreatePlatformEndpointOutput {
-        crate::operation::create_platform_endpoint::CreatePlatformEndpointOutput {
+    pub fn build(self) -> super::operation::create_platform_endpoint::CreatePlatformEndpointOutput {
+        super::operation::create_platform_endpoint::CreatePlatformEndpointOutput {
             endpoint_arn: self.endpoint_arn,
             _request_id: self._request_id,
         }

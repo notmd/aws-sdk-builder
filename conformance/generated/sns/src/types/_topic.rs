@@ -15,8 +15,8 @@ impl Topic {
 }
 impl Topic {
     /// Creates a new builder-style object to manufacture [`Topic`](crate::types::Topic).
-    pub fn builder() -> crate::types::builders::TopicBuilder {
-        crate::types::builders::TopicBuilder::default()
+    pub fn builder() -> super::types::builders::TopicBuilder {
+        super::types::builders::TopicBuilder::default()
     }
 }
 
@@ -42,7 +42,7 @@ impl TopicBuilder {
         &self.topic_arn
     }
     /// Consumes the builder and constructs a [`Topic`](crate::types::Topic).
-    pub fn build(self) -> crate::types::Topic {
-        crate::types::Topic { topic_arn: self.topic_arn }
+    pub fn build(self) -> super::types::Topic {
+        super::types::Topic { topic_arn: self.topic_arn }
     }
 }

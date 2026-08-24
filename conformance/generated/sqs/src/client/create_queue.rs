@@ -9,7 +9,7 @@ impl super::Client {
     /// - On success, responds with [`CreateQueueOutput`](crate::operation::create_queue::CreateQueueOutput) with field(s):
     ///   - [`queue_url(Option<String>)`](crate::operation::create_queue::CreateQueueOutput::queue_url): <p>The URL of the created Amazon SQS queue.</p>
     /// - On failure, responds with [`SdkError<CreateQueueError>`](crate::operation::create_queue::CreateQueueError)
-    pub fn create_queue(&self) -> crate::operation::create_queue::builders::CreateQueueFluentBuilder {
-        crate::operation::create_queue::builders::CreateQueueFluentBuilder::new(self.handle.clone())
+    pub fn create_queue(&self) -> super::operation::create_queue::builders::CreateQueueFluentBuilder {
+        super::operation::create_queue::builders::CreateQueueFluentBuilder::new(self.handle.clone())
     }
 }

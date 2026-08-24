@@ -18,7 +18,7 @@ impl super::Client {
     ///   - [`location(Option<String>)`](crate::operation::create_bucket::CreateBucketOutput::location): <p>A forward slash followed by the name of the bucket for all account regional namespace buckets and all global general purpose buckets created in us-east-1. For example, <code>/amzn-s3-demo-bucket</code>. For global general purpose buckets created in other Amazon Web Services Regions, the Location field is the global endpoint URL. For example, <code>http://amzn-s3-demo-bucket.s3.amazonaws.com/</code>.</p>
     ///   - [`bucket_arn(Option<String>)`](crate::operation::create_bucket::CreateBucketOutput::bucket_arn): <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p><note>  <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p> </note>
     /// - On failure, responds with [`SdkError<CreateBucketError>`](crate::operation::create_bucket::CreateBucketError)
-    pub fn create_bucket(&self) -> crate::operation::create_bucket::builders::CreateBucketFluentBuilder {
-        crate::operation::create_bucket::builders::CreateBucketFluentBuilder::new(self.handle.clone())
+    pub fn create_bucket(&self) -> super::operation::create_bucket::builders::CreateBucketFluentBuilder {
+        super::operation::create_bucket::builders::CreateBucketFluentBuilder::new(self.handle.clone())
     }
 }

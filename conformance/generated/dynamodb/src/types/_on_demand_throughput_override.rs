@@ -15,8 +15,8 @@ impl OnDemandThroughputOverride {
 }
 impl OnDemandThroughputOverride {
     /// Creates a new builder-style object to manufacture [`OnDemandThroughputOverride`](crate::types::OnDemandThroughputOverride).
-    pub fn builder() -> crate::types::builders::OnDemandThroughputOverrideBuilder {
-        crate::types::builders::OnDemandThroughputOverrideBuilder::default()
+    pub fn builder() -> super::types::builders::OnDemandThroughputOverrideBuilder {
+        super::types::builders::OnDemandThroughputOverrideBuilder::default()
     }
 }
 
@@ -42,8 +42,8 @@ impl OnDemandThroughputOverrideBuilder {
         &self.max_read_request_units
     }
     /// Consumes the builder and constructs a [`OnDemandThroughputOverride`](crate::types::OnDemandThroughputOverride).
-    pub fn build(self) -> crate::types::OnDemandThroughputOverride {
-        crate::types::OnDemandThroughputOverride {
+    pub fn build(self) -> super::types::OnDemandThroughputOverride {
+        super::types::OnDemandThroughputOverride {
             max_read_request_units: self.max_read_request_units,
         }
     }

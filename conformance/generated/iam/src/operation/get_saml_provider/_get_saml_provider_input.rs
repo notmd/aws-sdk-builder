@@ -16,8 +16,8 @@ impl GetSamlProviderInput {
 }
 impl GetSamlProviderInput {
     /// Creates a new builder-style object to manufacture [`GetSamlProviderInput`](crate::operation::get_saml_provider::GetSamlProviderInput).
-    pub fn builder() -> crate::operation::get_saml_provider::builders::GetSamlProviderInputBuilder {
-        crate::operation::get_saml_provider::builders::GetSamlProviderInputBuilder::default()
+    pub fn builder() -> super::operation::get_saml_provider::builders::GetSamlProviderInputBuilder {
+        super::operation::get_saml_provider::builders::GetSamlProviderInputBuilder::default()
     }
 }
 
@@ -49,8 +49,8 @@ impl GetSamlProviderInputBuilder {
     /// Consumes the builder and constructs a [`GetSamlProviderInput`](crate::operation::get_saml_provider::GetSamlProviderInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_saml_provider::GetSamlProviderInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_saml_provider::GetSamlProviderInput {
+    ) -> ::std::result::Result<super::operation::get_saml_provider::GetSamlProviderInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_saml_provider::GetSamlProviderInput {
             saml_provider_arn: self.saml_provider_arn,
         })
     }

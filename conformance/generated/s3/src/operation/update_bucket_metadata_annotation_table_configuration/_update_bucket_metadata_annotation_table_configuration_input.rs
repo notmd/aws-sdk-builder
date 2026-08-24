@@ -8,9 +8,9 @@ pub struct UpdateBucketMetadataAnnotationTableConfigurationInput {
     /// <p>Base64-encoded MD5 digest of the message body.</p>
     pub content_md5: ::std::option::Option<::std::string::String>,
     /// <p>Checksum algorithm for the request payload.</p>
-    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
     /// <p>The annotation table configuration updates to apply.</p>
-    pub annotation_table_configuration: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>,
+    pub annotation_table_configuration: ::std::option::Option<super::types::AnnotationTableConfigurationUpdates>,
     /// <p>The account ID of the expected bucket owner.</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
@@ -24,11 +24,11 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInput {
         self.content_md5.as_deref()
     }
     /// <p>Checksum algorithm for the request payload.</p>
-    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
         self.checksum_algorithm.as_ref()
     }
     /// <p>The annotation table configuration updates to apply.</p>
-    pub fn annotation_table_configuration(&self) -> ::std::option::Option<&crate::types::AnnotationTableConfigurationUpdates> {
+    pub fn annotation_table_configuration(&self) -> ::std::option::Option<&super::types::AnnotationTableConfigurationUpdates> {
         self.annotation_table_configuration.as_ref()
     }
     /// <p>The account ID of the expected bucket owner.</p>
@@ -39,9 +39,9 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInput {
 impl UpdateBucketMetadataAnnotationTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataAnnotationTableConfigurationInput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput).
     pub fn builder(
-    ) -> crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder
+    ) -> super::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder
     {
-        crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder::default()
+        super::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder::default()
     }
 }
 
@@ -51,8 +51,8 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInput {
 pub struct UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) content_md5: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    pub(crate) annotation_table_configuration: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>,
+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
+    pub(crate) annotation_table_configuration: ::std::option::Option<super::types::AnnotationTableConfigurationUpdates>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
 impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
@@ -86,32 +86,32 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         &self.content_md5
     }
     /// <p>Checksum algorithm for the request payload.</p>
-    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>Checksum algorithm for the request payload.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>Checksum algorithm for the request payload.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>The annotation table configuration updates to apply.</p>
     /// This field is required.
-    pub fn annotation_table_configuration(mut self, input: crate::types::AnnotationTableConfigurationUpdates) -> Self {
+    pub fn annotation_table_configuration(mut self, input: super::types::AnnotationTableConfigurationUpdates) -> Self {
         self.annotation_table_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The annotation table configuration updates to apply.</p>
-    pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>) -> Self {
+    pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<super::types::AnnotationTableConfigurationUpdates>) -> Self {
         self.annotation_table_configuration = input;
         self
     }
     /// <p>The annotation table configuration updates to apply.</p>
-    pub fn get_annotation_table_configuration(&self) -> &::std::option::Option<crate::types::AnnotationTableConfigurationUpdates> {
+    pub fn get_annotation_table_configuration(&self) -> &::std::option::Option<super::types::AnnotationTableConfigurationUpdates> {
         &self.annotation_table_configuration
     }
     /// <p>The account ID of the expected bucket owner.</p>
@@ -132,11 +132,11 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput,
+        super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput {
+            super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput {
                 bucket: self.bucket,
                 content_md5: self.content_md5,
                 checksum_algorithm: self.checksum_algorithm,

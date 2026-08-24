@@ -3,19 +3,19 @@
 pub fn de_filter_rule(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::FilterRule, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::FilterRule, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::FilterRule::builder();
+    let mut builder = super::types::FilterRule::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("Name") /* Name com.amazonaws.s3#FilterRule$Name */ =>  {
                 let var_1 =
                     Some(
-                        Result::<crate::types::FilterRuleName, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::FilterRuleName::from(
+                        Result::<super::types::FilterRuleName, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::FilterRuleName::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -45,7 +45,7 @@ pub fn de_filter_rule(
 }
 
 pub fn ser_filter_rule(
-    input: &crate::types::FilterRule,
+    input: &super::types::FilterRule,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]

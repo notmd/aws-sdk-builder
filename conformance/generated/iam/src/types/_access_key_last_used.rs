@@ -80,8 +80,8 @@ impl AccessKeyLastUsed {
 }
 impl AccessKeyLastUsed {
     /// Creates a new builder-style object to manufacture [`AccessKeyLastUsed`](crate::types::AccessKeyLastUsed).
-    pub fn builder() -> crate::types::builders::AccessKeyLastUsedBuilder {
-        crate::types::builders::AccessKeyLastUsedBuilder::default()
+    pub fn builder() -> super::types::builders::AccessKeyLastUsedBuilder {
+        super::types::builders::AccessKeyLastUsedBuilder::default()
     }
 }
 
@@ -217,8 +217,8 @@ impl AccessKeyLastUsedBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`service_name`](crate::types::builders::AccessKeyLastUsedBuilder::service_name)
     /// - [`region`](crate::types::builders::AccessKeyLastUsedBuilder::region)
-    pub fn build(self) -> ::std::result::Result<crate::types::AccessKeyLastUsed, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AccessKeyLastUsed {
+    pub fn build(self) -> ::std::result::Result<super::types::AccessKeyLastUsed, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::AccessKeyLastUsed {
             last_used_date: self.last_used_date,
             service_name: self.service_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

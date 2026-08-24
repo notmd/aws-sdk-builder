@@ -39,8 +39,8 @@ impl S3TablesDestinationResult {
 }
 impl S3TablesDestinationResult {
     /// Creates a new builder-style object to manufacture [`S3TablesDestinationResult`](crate::types::S3TablesDestinationResult).
-    pub fn builder() -> crate::types::builders::S3TablesDestinationResultBuilder {
-        crate::types::builders::S3TablesDestinationResultBuilder::default()
+    pub fn builder() -> super::types::builders::S3TablesDestinationResultBuilder {
+        super::types::builders::S3TablesDestinationResultBuilder::default()
     }
 }
 
@@ -120,8 +120,8 @@ impl S3TablesDestinationResultBuilder {
     /// - [`table_name`](crate::types::builders::S3TablesDestinationResultBuilder::table_name)
     /// - [`table_arn`](crate::types::builders::S3TablesDestinationResultBuilder::table_arn)
     /// - [`table_namespace`](crate::types::builders::S3TablesDestinationResultBuilder::table_namespace)
-    pub fn build(self) -> ::std::result::Result<crate::types::S3TablesDestinationResult, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::S3TablesDestinationResult {
+    pub fn build(self) -> ::std::result::Result<super::types::S3TablesDestinationResult, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::S3TablesDestinationResult {
             table_bucket_arn: self.table_bucket_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "table_bucket_arn",

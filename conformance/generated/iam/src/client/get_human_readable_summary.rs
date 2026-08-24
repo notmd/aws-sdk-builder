@@ -10,7 +10,7 @@ impl super::Client {
     ///   - [`locale(Option<String>)`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput::locale): <p>The locale that this response was generated for. This maps to the input locale.</p>
     ///   - [`summary_state(Option<SummaryStateType>)`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput::summary_state): <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
     /// - On failure, responds with [`SdkError<GetHumanReadableSummaryError>`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryError)
-    pub fn get_human_readable_summary(&self) -> crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder {
-        crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::new(self.handle.clone())
+    pub fn get_human_readable_summary(&self) -> super::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder {
+        super::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::new(self.handle.clone())
     }
 }

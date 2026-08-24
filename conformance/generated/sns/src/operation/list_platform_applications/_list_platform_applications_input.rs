@@ -15,8 +15,8 @@ impl ListPlatformApplicationsInput {
 }
 impl ListPlatformApplicationsInput {
     /// Creates a new builder-style object to manufacture [`ListPlatformApplicationsInput`](crate::operation::list_platform_applications::ListPlatformApplicationsInput).
-    pub fn builder() -> crate::operation::list_platform_applications::builders::ListPlatformApplicationsInputBuilder {
-        crate::operation::list_platform_applications::builders::ListPlatformApplicationsInputBuilder::default()
+    pub fn builder() -> super::operation::list_platform_applications::builders::ListPlatformApplicationsInputBuilder {
+        super::operation::list_platform_applications::builders::ListPlatformApplicationsInputBuilder::default()
     }
 }
 
@@ -45,9 +45,9 @@ impl ListPlatformApplicationsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_platform_applications::ListPlatformApplicationsInput,
+        super::operation::list_platform_applications::ListPlatformApplicationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_platform_applications::ListPlatformApplicationsInput { next_token: self.next_token })
+        ::std::result::Result::Ok(super::operation::list_platform_applications::ListPlatformApplicationsInput { next_token: self.next_token })
     }
 }

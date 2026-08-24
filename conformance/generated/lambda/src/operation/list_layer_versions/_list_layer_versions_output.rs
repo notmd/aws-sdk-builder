@@ -6,7 +6,7 @@ pub struct ListLayerVersionsOutput {
     /// <p>A pagination token returned when the response doesn't contain all versions.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A list of versions.</p>
-    pub layer_versions: ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>,
+    pub layer_versions: ::std::option::Option<::std::vec::Vec<super::types::LayerVersionsListItem>>,
     _request_id: Option<String>,
 }
 impl ListLayerVersionsOutput {
@@ -17,7 +17,7 @@ impl ListLayerVersionsOutput {
     /// <p>A list of versions.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.layer_versions.is_none()`.
-    pub fn layer_versions(&self) -> &[crate::types::LayerVersionsListItem] {
+    pub fn layer_versions(&self) -> &[super::types::LayerVersionsListItem] {
         self.layer_versions.as_deref().unwrap_or_default()
     }
 }
@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for ListLayerVersionsOutput {
 }
 impl ListLayerVersionsOutput {
     /// Creates a new builder-style object to manufacture [`ListLayerVersionsOutput`](crate::operation::list_layer_versions::ListLayerVersionsOutput).
-    pub fn builder() -> crate::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder {
-        crate::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder {
+        super::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl ListLayerVersionsOutput {
 #[non_exhaustive]
 pub struct ListLayerVersionsOutputBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
-    pub(crate) layer_versions: ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>,
+    pub(crate) layer_versions: ::std::option::Option<::std::vec::Vec<super::types::LayerVersionsListItem>>,
     _request_id: Option<String>,
 }
 impl ListLayerVersionsOutputBuilder {
@@ -61,19 +61,19 @@ impl ListLayerVersionsOutputBuilder {
     /// To override the contents of this collection use [`set_layer_versions`](Self::set_layer_versions).
     ///
     /// <p>A list of versions.</p>
-    pub fn layer_versions(mut self, input: crate::types::LayerVersionsListItem) -> Self {
+    pub fn layer_versions(mut self, input: super::types::LayerVersionsListItem) -> Self {
         let mut v = self.layer_versions.unwrap_or_default();
         v.push(input);
         self.layer_versions = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of versions.</p>
-    pub fn set_layer_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>) -> Self {
+    pub fn set_layer_versions(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LayerVersionsListItem>>) -> Self {
         self.layer_versions = input;
         self
     }
     /// <p>A list of versions.</p>
-    pub fn get_layer_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>> {
+    pub fn get_layer_versions(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LayerVersionsListItem>> {
         &self.layer_versions
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,8 +86,8 @@ impl ListLayerVersionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListLayerVersionsOutput`](crate::operation::list_layer_versions::ListLayerVersionsOutput).
-    pub fn build(self) -> crate::operation::list_layer_versions::ListLayerVersionsOutput {
-        crate::operation::list_layer_versions::ListLayerVersionsOutput {
+    pub fn build(self) -> super::operation::list_layer_versions::ListLayerVersionsOutput {
+        super::operation::list_layer_versions::ListLayerVersionsOutput {
             next_marker: self.next_marker,
             layer_versions: self.layer_versions,
             _request_id: self._request_id,

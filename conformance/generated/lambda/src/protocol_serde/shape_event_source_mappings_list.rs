@@ -4,7 +4,7 @@ pub(crate) fn de_event_source_mappings_list<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>>,
+    Option<::std::vec::Vec<super::types::EventSourceMappingConfiguration>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -26,7 +26,7 @@ where
                         break;
                     }
                     _ => {
-                        let value = crate::protocol_serde::shape_event_source_mapping_configuration::de_event_source_mapping_configuration(
+                        let value = super::protocol_serde::shape_event_source_mapping_configuration::de_event_source_mapping_configuration(
                             tokens,
                             _value,
                             depth + 1,

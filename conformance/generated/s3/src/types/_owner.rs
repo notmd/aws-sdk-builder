@@ -21,8 +21,8 @@ impl Owner {
 }
 impl Owner {
     /// Creates a new builder-style object to manufacture [`Owner`](crate::types::Owner).
-    pub fn builder() -> crate::types::builders::OwnerBuilder {
-        crate::types::builders::OwnerBuilder::default()
+    pub fn builder() -> super::types::builders::OwnerBuilder {
+        super::types::builders::OwnerBuilder::default()
     }
 }
 
@@ -63,8 +63,8 @@ impl OwnerBuilder {
         &self.id
     }
     /// Consumes the builder and constructs a [`Owner`](crate::types::Owner).
-    pub fn build(self) -> crate::types::Owner {
-        crate::types::Owner {
+    pub fn build(self) -> super::types::Owner {
+        super::types::Owner {
             display_name: self.display_name,
             id: self.id,
         }

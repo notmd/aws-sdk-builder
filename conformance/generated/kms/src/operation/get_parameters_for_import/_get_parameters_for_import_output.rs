@@ -49,8 +49,8 @@ impl ::aws_types::request_id::RequestId for GetParametersForImportOutput {
 }
 impl GetParametersForImportOutput {
     /// Creates a new builder-style object to manufacture [`GetParametersForImportOutput`](crate::operation::get_parameters_for_import::GetParametersForImportOutput).
-    pub fn builder() -> crate::operation::get_parameters_for_import::builders::GetParametersForImportOutputBuilder {
-        crate::operation::get_parameters_for_import::builders::GetParametersForImportOutputBuilder::default()
+    pub fn builder() -> super::operation::get_parameters_for_import::builders::GetParametersForImportOutputBuilder {
+        super::operation::get_parameters_for_import::builders::GetParametersForImportOutputBuilder::default()
     }
 }
 
@@ -131,8 +131,8 @@ impl GetParametersForImportOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetParametersForImportOutput`](crate::operation::get_parameters_for_import::GetParametersForImportOutput).
-    pub fn build(self) -> crate::operation::get_parameters_for_import::GetParametersForImportOutput {
-        crate::operation::get_parameters_for_import::GetParametersForImportOutput {
+    pub fn build(self) -> super::operation::get_parameters_for_import::GetParametersForImportOutput {
+        super::operation::get_parameters_for_import::GetParametersForImportOutput {
             key_id: self.key_id,
             import_token: self.import_token,
             public_key: self.public_key,

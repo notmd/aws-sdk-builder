@@ -6,13 +6,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RecipientInfo {
     /// <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave or NitroTPM to encrypt plaintext values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
-    pub key_encryption_algorithm: ::std::option::Option<crate::types::KeyEncryptionMechanism>,
+    pub key_encryption_algorithm: ::std::option::Option<super::types::KeyEncryptionMechanism>,
     /// <p>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This document includes the enclave's public key.</p>
     pub attestation_document: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl RecipientInfo {
     /// <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave or NitroTPM to encrypt plaintext values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
-    pub fn key_encryption_algorithm(&self) -> ::std::option::Option<&crate::types::KeyEncryptionMechanism> {
+    pub fn key_encryption_algorithm(&self) -> ::std::option::Option<&super::types::KeyEncryptionMechanism> {
         self.key_encryption_algorithm.as_ref()
     }
     /// <p>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This document includes the enclave's public key.</p>
@@ -22,8 +22,8 @@ impl RecipientInfo {
 }
 impl RecipientInfo {
     /// Creates a new builder-style object to manufacture [`RecipientInfo`](crate::types::RecipientInfo).
-    pub fn builder() -> crate::types::builders::RecipientInfoBuilder {
-        crate::types::builders::RecipientInfoBuilder::default()
+    pub fn builder() -> super::types::builders::RecipientInfoBuilder {
+        super::types::builders::RecipientInfoBuilder::default()
     }
 }
 
@@ -31,22 +31,22 @@ impl RecipientInfo {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RecipientInfoBuilder {
-    pub(crate) key_encryption_algorithm: ::std::option::Option<crate::types::KeyEncryptionMechanism>,
+    pub(crate) key_encryption_algorithm: ::std::option::Option<super::types::KeyEncryptionMechanism>,
     pub(crate) attestation_document: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl RecipientInfoBuilder {
     /// <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave or NitroTPM to encrypt plaintext values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
-    pub fn key_encryption_algorithm(mut self, input: crate::types::KeyEncryptionMechanism) -> Self {
+    pub fn key_encryption_algorithm(mut self, input: super::types::KeyEncryptionMechanism) -> Self {
         self.key_encryption_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave or NitroTPM to encrypt plaintext values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
-    pub fn set_key_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::KeyEncryptionMechanism>) -> Self {
+    pub fn set_key_encryption_algorithm(mut self, input: ::std::option::Option<super::types::KeyEncryptionMechanism>) -> Self {
         self.key_encryption_algorithm = input;
         self
     }
     /// <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave or NitroTPM to encrypt plaintext values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
-    pub fn get_key_encryption_algorithm(&self) -> &::std::option::Option<crate::types::KeyEncryptionMechanism> {
+    pub fn get_key_encryption_algorithm(&self) -> &::std::option::Option<super::types::KeyEncryptionMechanism> {
         &self.key_encryption_algorithm
     }
     /// <p>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This document includes the enclave's public key.</p>
@@ -64,8 +64,8 @@ impl RecipientInfoBuilder {
         &self.attestation_document
     }
     /// Consumes the builder and constructs a [`RecipientInfo`](crate::types::RecipientInfo).
-    pub fn build(self) -> crate::types::RecipientInfo {
-        crate::types::RecipientInfo {
+    pub fn build(self) -> super::types::RecipientInfo {
+        super::types::RecipientInfo {
             key_encryption_algorithm: self.key_encryption_algorithm,
             attestation_document: self.attestation_document,
         }

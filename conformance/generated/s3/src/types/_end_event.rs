@@ -6,8 +6,8 @@
 pub struct EndEvent {}
 impl EndEvent {
     /// Creates a new builder-style object to manufacture [`EndEvent`](crate::types::EndEvent).
-    pub fn builder() -> crate::types::builders::EndEventBuilder {
-        crate::types::builders::EndEventBuilder::default()
+    pub fn builder() -> super::types::builders::EndEventBuilder {
+        super::types::builders::EndEventBuilder::default()
     }
 }
 
@@ -17,7 +17,7 @@ impl EndEvent {
 pub struct EndEventBuilder {}
 impl EndEventBuilder {
     /// Consumes the builder and constructs a [`EndEvent`](crate::types::EndEvent).
-    pub fn build(self) -> crate::types::EndEvent {
-        crate::types::EndEvent {}
+    pub fn build(self) -> super::types::EndEvent {
+        super::types::EndEvent {}
     }
 }

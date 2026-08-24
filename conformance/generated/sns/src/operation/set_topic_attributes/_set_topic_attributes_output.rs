@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for SetTopicAttributesOutput {
 }
 impl SetTopicAttributesOutput {
     /// Creates a new builder-style object to manufacture [`SetTopicAttributesOutput`](crate::operation::set_topic_attributes::SetTopicAttributesOutput).
-    pub fn builder() -> crate::operation::set_topic_attributes::builders::SetTopicAttributesOutputBuilder {
-        crate::operation::set_topic_attributes::builders::SetTopicAttributesOutputBuilder::default()
+    pub fn builder() -> super::operation::set_topic_attributes::builders::SetTopicAttributesOutputBuilder {
+        super::operation::set_topic_attributes::builders::SetTopicAttributesOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl SetTopicAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SetTopicAttributesOutput`](crate::operation::set_topic_attributes::SetTopicAttributesOutput).
-    pub fn build(self) -> crate::operation::set_topic_attributes::SetTopicAttributesOutput {
-        crate::operation::set_topic_attributes::SetTopicAttributesOutput {
+    pub fn build(self) -> super::operation::set_topic_attributes::SetTopicAttributesOutput {
+        super::operation::set_topic_attributes::SetTopicAttributesOutput {
             _request_id: self._request_id,
         }
     }

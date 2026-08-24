@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ChangeMessageVisibilityBatchError>`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError)
     pub fn change_message_visibility_batch(
         &self,
-    ) -> crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder {
-        crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder {
+        super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchFluentBuilder::new(self.handle.clone())
     }
 }

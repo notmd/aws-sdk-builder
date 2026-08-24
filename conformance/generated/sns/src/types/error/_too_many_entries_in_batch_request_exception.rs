@@ -26,7 +26,7 @@ impl ::std::fmt::Display for TooManyEntriesInBatchRequestException {
     }
 }
 impl ::std::error::Error for TooManyEntriesInBatchRequestException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::TooManyEntriesInBatchRequestException {
+impl ::aws_types::request_id::RequestId for super::types::error::TooManyEntriesInBatchRequestException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for TooManyEntrie
 }
 impl TooManyEntriesInBatchRequestException {
     /// Creates a new builder-style object to manufacture [`TooManyEntriesInBatchRequestException`](crate::types::error::TooManyEntriesInBatchRequestException).
-    pub fn builder() -> crate::types::error::builders::TooManyEntriesInBatchRequestExceptionBuilder {
-        crate::types::error::builders::TooManyEntriesInBatchRequestExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::TooManyEntriesInBatchRequestExceptionBuilder {
+        super::types::error::builders::TooManyEntriesInBatchRequestExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl TooManyEntriesInBatchRequestExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`TooManyEntriesInBatchRequestException`](crate::types::error::TooManyEntriesInBatchRequestException).
-    pub fn build(self) -> crate::types::error::TooManyEntriesInBatchRequestException {
-        crate::types::error::TooManyEntriesInBatchRequestException {
+    pub fn build(self) -> super::types::error::TooManyEntriesInBatchRequestException {
+        super::types::error::TooManyEntriesInBatchRequestException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

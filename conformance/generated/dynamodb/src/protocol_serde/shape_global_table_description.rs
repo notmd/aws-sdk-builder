@@ -3,7 +3,7 @@ pub(crate) fn de_global_table_description<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::GlobalTableDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::GlobalTableDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,14 +16,14 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::GlobalTableDescriptionBuilder::default();
+            let mut builder = super::types::builders::GlobalTableDescriptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "ReplicationGroup" => {
                             builder = builder.set_replication_group(
-                                crate::protocol_serde::shape_replica_description_list::de_replica_description_list(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_replica_description_list::de_replica_description_list(tokens, _value, depth + 1)?,
                             );
                         }
                         "GlobalTableArn" => {
@@ -42,7 +42,7 @@ where
                         "GlobalTableStatus" => {
                             builder = builder.set_global_table_status(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::GlobalTableStatus::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::GlobalTableStatus::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

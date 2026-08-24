@@ -9,7 +9,7 @@ pub struct GlobalTableGlobalSecondaryIndexSettingsUpdate {
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
     pub provisioned_write_capacity_units: ::std::option::Option<i64>,
     /// <p>Auto scaling settings for managing a global secondary index's write capacity units.</p>
-    pub provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    pub provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<super::types::AutoScalingSettingsUpdate>,
 }
 impl GlobalTableGlobalSecondaryIndexSettingsUpdate {
     /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
@@ -22,14 +22,14 @@ impl GlobalTableGlobalSecondaryIndexSettingsUpdate {
         self.provisioned_write_capacity_units
     }
     /// <p>Auto scaling settings for managing a global secondary index's write capacity units.</p>
-    pub fn provisioned_write_capacity_auto_scaling_settings_update(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
+    pub fn provisioned_write_capacity_auto_scaling_settings_update(&self) -> ::std::option::Option<&super::types::AutoScalingSettingsUpdate> {
         self.provisioned_write_capacity_auto_scaling_settings_update.as_ref()
     }
 }
 impl GlobalTableGlobalSecondaryIndexSettingsUpdate {
     /// Creates a new builder-style object to manufacture [`GlobalTableGlobalSecondaryIndexSettingsUpdate`](crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate).
-    pub fn builder() -> crate::types::builders::GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder {
-        crate::types::builders::GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder::default()
+    pub fn builder() -> super::types::builders::GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder {
+        super::types::builders::GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder::default()
     }
 }
 
@@ -39,7 +39,7 @@ impl GlobalTableGlobalSecondaryIndexSettingsUpdate {
 pub struct GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
     pub(crate) provisioned_write_capacity_units: ::std::option::Option<i64>,
-    pub(crate) provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    pub(crate) provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<super::types::AutoScalingSettingsUpdate>,
 }
 impl GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder {
     /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
@@ -72,20 +72,20 @@ impl GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder {
         &self.provisioned_write_capacity_units
     }
     /// <p>Auto scaling settings for managing a global secondary index's write capacity units.</p>
-    pub fn provisioned_write_capacity_auto_scaling_settings_update(mut self, input: crate::types::AutoScalingSettingsUpdate) -> Self {
+    pub fn provisioned_write_capacity_auto_scaling_settings_update(mut self, input: super::types::AutoScalingSettingsUpdate) -> Self {
         self.provisioned_write_capacity_auto_scaling_settings_update = ::std::option::Option::Some(input);
         self
     }
     /// <p>Auto scaling settings for managing a global secondary index's write capacity units.</p>
     pub fn set_provisioned_write_capacity_auto_scaling_settings_update(
         mut self,
-        input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+        input: ::std::option::Option<super::types::AutoScalingSettingsUpdate>,
     ) -> Self {
         self.provisioned_write_capacity_auto_scaling_settings_update = input;
         self
     }
     /// <p>Auto scaling settings for managing a global secondary index's write capacity units.</p>
-    pub fn get_provisioned_write_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
+    pub fn get_provisioned_write_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<super::types::AutoScalingSettingsUpdate> {
         &self.provisioned_write_capacity_auto_scaling_settings_update
     }
     /// Consumes the builder and constructs a [`GlobalTableGlobalSecondaryIndexSettingsUpdate`](crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate).
@@ -93,8 +93,8 @@ impl GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder {
     /// - [`index_name`](crate::types::builders::GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder::index_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate {
+    ) -> ::std::result::Result<super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "index_name",

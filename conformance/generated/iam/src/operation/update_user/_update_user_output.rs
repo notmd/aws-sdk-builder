@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateUserOutput {
 }
 impl UpdateUserOutput {
     /// Creates a new builder-style object to manufacture [`UpdateUserOutput`](crate::operation::update_user::UpdateUserOutput).
-    pub fn builder() -> crate::operation::update_user::builders::UpdateUserOutputBuilder {
-        crate::operation::update_user::builders::UpdateUserOutputBuilder::default()
+    pub fn builder() -> super::operation::update_user::builders::UpdateUserOutputBuilder {
+        super::operation::update_user::builders::UpdateUserOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateUserOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateUserOutput`](crate::operation::update_user::UpdateUserOutput).
-    pub fn build(self) -> crate::operation::update_user::UpdateUserOutput {
-        crate::operation::update_user::UpdateUserOutput {
+    pub fn build(self) -> super::operation::update_user::UpdateUserOutput {
+        super::operation::update_user::UpdateUserOutput {
             _request_id: self._request_id,
         }
     }

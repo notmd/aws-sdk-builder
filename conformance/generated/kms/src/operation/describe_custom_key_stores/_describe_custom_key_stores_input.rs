@@ -36,8 +36,8 @@ impl DescribeCustomKeyStoresInput {
 }
 impl DescribeCustomKeyStoresInput {
     /// Creates a new builder-style object to manufacture [`DescribeCustomKeyStoresInput`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput).
-    pub fn builder() -> crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder {
-        crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder::default()
+    pub fn builder() -> super::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder {
+        super::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder::default()
     }
 }
 
@@ -117,10 +117,10 @@ impl DescribeCustomKeyStoresInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput,
+        super::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput {
+        ::std::result::Result::Ok(super::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput {
             custom_key_store_id: self.custom_key_store_id,
             custom_key_store_name: self.custom_key_store_name,
             limit: self.limit,

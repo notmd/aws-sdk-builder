@@ -131,8 +131,8 @@ impl ::aws_types::request_id::RequestId for GetTopicAttributesOutput {
 }
 impl GetTopicAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetTopicAttributesOutput`](crate::operation::get_topic_attributes::GetTopicAttributesOutput).
-    pub fn builder() -> crate::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder {
-        crate::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder::default()
+    pub fn builder() -> super::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder {
+        super::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder::default()
     }
 }
 
@@ -339,8 +339,8 @@ impl GetTopicAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetTopicAttributesOutput`](crate::operation::get_topic_attributes::GetTopicAttributesOutput).
-    pub fn build(self) -> crate::operation::get_topic_attributes::GetTopicAttributesOutput {
-        crate::operation::get_topic_attributes::GetTopicAttributesOutput {
+    pub fn build(self) -> super::operation::get_topic_attributes::GetTopicAttributesOutput {
+        super::operation::get_topic_attributes::GetTopicAttributesOutput {
             attributes: self.attributes,
             _request_id: self._request_id,
         }

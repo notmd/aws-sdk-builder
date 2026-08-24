@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for PutFunctionConcurrencyOutput {
 }
 impl PutFunctionConcurrencyOutput {
     /// Creates a new builder-style object to manufacture [`PutFunctionConcurrencyOutput`](crate::operation::put_function_concurrency::PutFunctionConcurrencyOutput).
-    pub fn builder() -> crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyOutputBuilder {
-        crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyOutputBuilder::default()
+    pub fn builder() -> super::operation::put_function_concurrency::builders::PutFunctionConcurrencyOutputBuilder {
+        super::operation::put_function_concurrency::builders::PutFunctionConcurrencyOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl PutFunctionConcurrencyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutFunctionConcurrencyOutput`](crate::operation::put_function_concurrency::PutFunctionConcurrencyOutput).
-    pub fn build(self) -> crate::operation::put_function_concurrency::PutFunctionConcurrencyOutput {
-        crate::operation::put_function_concurrency::PutFunctionConcurrencyOutput {
+    pub fn build(self) -> super::operation::put_function_concurrency::PutFunctionConcurrencyOutput {
+        super::operation::put_function_concurrency::PutFunctionConcurrencyOutput {
             reserved_concurrent_executions: self.reserved_concurrent_executions,
             _request_id: self._request_id,
         }

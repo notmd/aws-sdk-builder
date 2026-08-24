@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for AcceptDelegationRequestOutput {
 }
 impl AcceptDelegationRequestOutput {
     /// Creates a new builder-style object to manufacture [`AcceptDelegationRequestOutput`](crate::operation::accept_delegation_request::AcceptDelegationRequestOutput).
-    pub fn builder() -> crate::operation::accept_delegation_request::builders::AcceptDelegationRequestOutputBuilder {
-        crate::operation::accept_delegation_request::builders::AcceptDelegationRequestOutputBuilder::default()
+    pub fn builder() -> super::operation::accept_delegation_request::builders::AcceptDelegationRequestOutputBuilder {
+        super::operation::accept_delegation_request::builders::AcceptDelegationRequestOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl AcceptDelegationRequestOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AcceptDelegationRequestOutput`](crate::operation::accept_delegation_request::AcceptDelegationRequestOutput).
-    pub fn build(self) -> crate::operation::accept_delegation_request::AcceptDelegationRequestOutput {
-        crate::operation::accept_delegation_request::AcceptDelegationRequestOutput {
+    pub fn build(self) -> super::operation::accept_delegation_request::AcceptDelegationRequestOutput {
+        super::operation::accept_delegation_request::AcceptDelegationRequestOutput {
             _request_id: self._request_id,
         }
     }

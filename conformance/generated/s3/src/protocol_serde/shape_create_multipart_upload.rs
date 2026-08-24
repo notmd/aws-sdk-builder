@@ -5,16 +5,16 @@ pub fn de_create_multipart_upload_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
-    crate::operation::create_multipart_upload::CreateMultipartUploadError,
+    super::operation::create_multipart_upload::CreateMultipartUploadOutput,
+    super::operation::create_multipart_upload::CreateMultipartUploadError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::create_multipart_upload::CreateMultipartUploadError::generic(generic))
+    Err(super::operation::create_multipart_upload::CreateMultipartUploadError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -23,99 +23,99 @@ pub fn de_create_multipart_upload_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
-    crate::operation::create_multipart_upload::CreateMultipartUploadError,
+    super::operation::create_multipart_upload::CreateMultipartUploadOutput,
+    super::operation::create_multipart_upload::CreateMultipartUploadError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder::default();
-        output = crate::protocol_serde::shape_create_multipart_upload::de_create_multipart_upload(_response_body, output)
-            .map_err(crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled)?;
+        let mut output = super::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder::default();
+        output = super::protocol_serde::shape_create_multipart_upload::de_create_multipart_upload(_response_body, output)
+            .map_err(super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled)?;
         output = output.set_abort_date(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_abort_date_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_abort_date_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse AbortDate from header `x-amz-abort-date",
                 )
             })?,
         );
         output = output.set_abort_rule_id(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_abort_rule_id_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_abort_rule_id_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse AbortRuleId from header `x-amz-abort-rule-id",
                 )
             })?,
         );
         output = output.set_bucket_key_enabled(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse BucketKeyEnabled from header `x-amz-server-side-encryption-bucket-key-enabled",
                 )
             })?,
         );
         output = output.set_checksum_algorithm(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_checksum_algorithm_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_checksum_algorithm_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse ChecksumAlgorithm from header `x-amz-checksum-algorithm",
                 )
             })?,
         );
         output = output.set_checksum_type(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_checksum_type_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_checksum_type_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse ChecksumType from header `x-amz-checksum-type",
                 )
             })?,
         );
         output = output.set_request_charged(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_request_charged_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse RequestCharged from header `x-amz-request-charged",
                 )
             })?,
         );
         output = output.set_sse_customer_algorithm(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_sse_customer_algorithm_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_sse_customer_algorithm_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse SSECustomerAlgorithm from header `x-amz-server-side-encryption-customer-algorithm",
                 )
             })?,
         );
         output = output.set_sse_customer_key_md5(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_sse_customer_key_md5_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_sse_customer_key_md5_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse SSECustomerKeyMD5 from header `x-amz-server-side-encryption-customer-key-MD5",
                 )
             })?,
         );
         output = output.set_ssekms_encryption_context(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_ssekms_encryption_context_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_ssekms_encryption_context_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse SSEKMSEncryptionContext from header `x-amz-server-side-encryption-context",
                 )
             })?,
         );
         output = output.set_ssekms_key_id(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_ssekms_key_id_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_ssekms_key_id_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse SSEKMSKeyId from header `x-amz-server-side-encryption-aws-kms-key-id",
                 )
             })?,
         );
         output = output.set_server_side_encryption(
-            crate::protocol_serde::shape_create_multipart_upload_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
-                crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+            super::protocol_serde::shape_create_multipart_upload_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
+                super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
                     "Failed to parse ServerSideEncryption from header `x-amz-server-side-encryption",
                 )
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_create_multipart_upload_headers(
-    input: &crate::operation::create_multipart_upload::CreateMultipartUploadInput,
+    input: &super::operation::create_multipart_upload::CreateMultipartUploadInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.acl {
@@ -454,9 +454,9 @@ pub fn ser_create_multipart_upload_headers(
 #[allow(unused_mut)]
 pub fn de_create_multipart_upload(
     inp: &[u8],
-    mut builder: crate::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder,
+    mut builder: super::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder,
 ) -> std::result::Result<
-    crate::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder,
+    super::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
 > {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;

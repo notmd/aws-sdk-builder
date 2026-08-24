@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UntagOpenIdConnectProviderOutput {
 }
 impl UntagOpenIdConnectProviderOutput {
     /// Creates a new builder-style object to manufacture [`UntagOpenIdConnectProviderOutput`](crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput).
-    pub fn builder() -> crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderOutputBuilder {
-        crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderOutputBuilder::default()
+    pub fn builder() -> super::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderOutputBuilder {
+        super::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UntagOpenIdConnectProviderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UntagOpenIdConnectProviderOutput`](crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput).
-    pub fn build(self) -> crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput {
-        crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput {
+    pub fn build(self) -> super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput {
+        super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput {
             _request_id: self._request_id,
         }
     }

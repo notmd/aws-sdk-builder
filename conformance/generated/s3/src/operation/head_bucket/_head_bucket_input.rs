@@ -32,8 +32,8 @@ impl HeadBucketInput {
 }
 impl HeadBucketInput {
     /// Creates a new builder-style object to manufacture [`HeadBucketInput`](crate::operation::head_bucket::HeadBucketInput).
-    pub fn builder() -> crate::operation::head_bucket::builders::HeadBucketInputBuilder {
-        crate::operation::head_bucket::builders::HeadBucketInputBuilder::default()
+    pub fn builder() -> super::operation::head_bucket::builders::HeadBucketInputBuilder {
+        super::operation::head_bucket::builders::HeadBucketInputBuilder::default()
     }
 }
 
@@ -93,8 +93,8 @@ impl HeadBucketInputBuilder {
         &self.expected_bucket_owner
     }
     /// Consumes the builder and constructs a [`HeadBucketInput`](crate::operation::head_bucket::HeadBucketInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::head_bucket::HeadBucketInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::head_bucket::HeadBucketInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::head_bucket::HeadBucketInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::head_bucket::HeadBucketInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

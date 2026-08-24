@@ -6,7 +6,7 @@ pub struct PutBucketIntelligentTieringConfigurationOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for PutBucketIntelligentTieringConfigurationOutput {
+impl super::s3_request_id::RequestIdExt for PutBucketIntelligentTieringConfigurationOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,9 +18,9 @@ impl ::aws_types::request_id::RequestId for PutBucketIntelligentTieringConfigura
 }
 impl PutBucketIntelligentTieringConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketIntelligentTieringConfigurationOutput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput).
-    pub fn builder() -> crate::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder
+    pub fn builder() -> super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder
     {
-        crate::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder::default()
+        super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder::default()
     }
 }
 
@@ -51,8 +51,8 @@ impl PutBucketIntelligentTieringConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketIntelligentTieringConfigurationOutput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput).
-    pub fn build(self) -> crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput {
-        crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput {
+    pub fn build(self) -> super::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput {
+        super::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

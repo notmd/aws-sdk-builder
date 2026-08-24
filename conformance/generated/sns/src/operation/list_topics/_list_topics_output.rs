@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListTopicsOutput {
     /// <p>A list of topic ARNs.</p>
-    pub topics: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>,
+    pub topics: ::std::option::Option<::std::vec::Vec<super::types::Topic>>,
     /// <p>Token to pass along to the next <code>ListTopics</code> request. This element is returned if there are additional topics to retrieve.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -14,7 +14,7 @@ impl ListTopicsOutput {
     /// <p>A list of topic ARNs.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.topics.is_none()`.
-    pub fn topics(&self) -> &[crate::types::Topic] {
+    pub fn topics(&self) -> &[super::types::Topic] {
         self.topics.as_deref().unwrap_or_default()
     }
     /// <p>Token to pass along to the next <code>ListTopics</code> request. This element is returned if there are additional topics to retrieve.</p>
@@ -29,8 +29,8 @@ impl ::aws_types::request_id::RequestId for ListTopicsOutput {
 }
 impl ListTopicsOutput {
     /// Creates a new builder-style object to manufacture [`ListTopicsOutput`](crate::operation::list_topics::ListTopicsOutput).
-    pub fn builder() -> crate::operation::list_topics::builders::ListTopicsOutputBuilder {
-        crate::operation::list_topics::builders::ListTopicsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_topics::builders::ListTopicsOutputBuilder {
+        super::operation::list_topics::builders::ListTopicsOutputBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl ListTopicsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTopicsOutputBuilder {
-    pub(crate) topics: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>,
+    pub(crate) topics: ::std::option::Option<::std::vec::Vec<super::types::Topic>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -48,19 +48,19 @@ impl ListTopicsOutputBuilder {
     /// To override the contents of this collection use [`set_topics`](Self::set_topics).
     ///
     /// <p>A list of topic ARNs.</p>
-    pub fn topics(mut self, input: crate::types::Topic) -> Self {
+    pub fn topics(mut self, input: super::types::Topic) -> Self {
         let mut v = self.topics.unwrap_or_default();
         v.push(input);
         self.topics = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of topic ARNs.</p>
-    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>) -> Self {
+    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Topic>>) -> Self {
         self.topics = input;
         self
     }
     /// <p>A list of topic ARNs.</p>
-    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Topic>> {
+    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Topic>> {
         &self.topics
     }
     /// <p>Token to pass along to the next <code>ListTopics</code> request. This element is returned if there are additional topics to retrieve.</p>
@@ -87,8 +87,8 @@ impl ListTopicsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListTopicsOutput`](crate::operation::list_topics::ListTopicsOutput).
-    pub fn build(self) -> crate::operation::list_topics::ListTopicsOutput {
-        crate::operation::list_topics::ListTopicsOutput {
+    pub fn build(self) -> super::operation::list_topics::ListTopicsOutput {
+        super::operation::list_topics::ListTopicsOutput {
             topics: self.topics,
             next_token: self.next_token,
             _request_id: self._request_id,

@@ -46,8 +46,8 @@ impl ListVersionsByFunctionInput {
 }
 impl ListVersionsByFunctionInput {
     /// Creates a new builder-style object to manufacture [`ListVersionsByFunctionInput`](crate::operation::list_versions_by_function::ListVersionsByFunctionInput).
-    pub fn builder() -> crate::operation::list_versions_by_function::builders::ListVersionsByFunctionInputBuilder {
-        crate::operation::list_versions_by_function::builders::ListVersionsByFunctionInputBuilder::default()
+    pub fn builder() -> super::operation::list_versions_by_function::builders::ListVersionsByFunctionInputBuilder {
+        super::operation::list_versions_by_function::builders::ListVersionsByFunctionInputBuilder::default()
     }
 }
 
@@ -137,10 +137,10 @@ impl ListVersionsByFunctionInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_versions_by_function::ListVersionsByFunctionInput,
+        super::operation::list_versions_by_function::ListVersionsByFunctionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_versions_by_function::ListVersionsByFunctionInput {
+        ::std::result::Result::Ok(super::operation::list_versions_by_function::ListVersionsByFunctionInput {
             function_name: self.function_name,
             marker: self.marker,
             max_items: self.max_items,

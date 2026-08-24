@@ -21,7 +21,7 @@ pub struct CreateOpenIdConnectProviderInput {
     /// <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl CreateOpenIdConnectProviderInput {
     /// <p>The URL of the identity provider. The URL must begin with <code>https://</code> and should correspond to the <code>iss</code> claim in the provider's OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like <code>https://server.example.org</code> or <code>https://example.com</code>. The URL should not contain a port number.</p>
@@ -54,14 +54,14 @@ impl CreateOpenIdConnectProviderInput {
     /// </note>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
 }
 impl CreateOpenIdConnectProviderInput {
     /// Creates a new builder-style object to manufacture [`CreateOpenIdConnectProviderInput`](crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput).
-    pub fn builder() -> crate::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder {
-        crate::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder::default()
+    pub fn builder() -> super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder {
+        super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderInputBuilder::default()
     }
 }
 
@@ -72,7 +72,7 @@ pub struct CreateOpenIdConnectProviderInputBuilder {
     pub(crate) url: ::std::option::Option<::std::string::String>,
     pub(crate) client_id_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) thumbprint_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl CreateOpenIdConnectProviderInputBuilder {
     /// <p>The URL of the identity provider. The URL must begin with <code>https://</code> and should correspond to the <code>iss</code> claim in the provider's OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like <code>https://server.example.org</code> or <code>https://example.com</code>. The URL should not contain a port number.</p>
@@ -164,7 +164,7 @@ impl CreateOpenIdConnectProviderInputBuilder {
     /// <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
@@ -173,24 +173,24 @@ impl CreateOpenIdConnectProviderInputBuilder {
     /// <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateOpenIdConnectProviderInput`](crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput).
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput,
+        super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput {
+        ::std::result::Result::Ok(super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput {
             url: self.url,
             client_id_list: self.client_id_list,
             thumbprint_list: self.thumbprint_list,

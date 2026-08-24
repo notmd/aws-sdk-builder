@@ -54,8 +54,8 @@ impl CreatePolicyVersionInput {
 }
 impl CreatePolicyVersionInput {
     /// Creates a new builder-style object to manufacture [`CreatePolicyVersionInput`](crate::operation::create_policy_version::CreatePolicyVersionInput).
-    pub fn builder() -> crate::operation::create_policy_version::builders::CreatePolicyVersionInputBuilder {
-        crate::operation::create_policy_version::builders::CreatePolicyVersionInputBuilder::default()
+    pub fn builder() -> super::operation::create_policy_version::builders::CreatePolicyVersionInputBuilder {
+        super::operation::create_policy_version::builders::CreatePolicyVersionInputBuilder::default()
     }
 }
 
@@ -157,9 +157,9 @@ impl CreatePolicyVersionInputBuilder {
     /// Consumes the builder and constructs a [`CreatePolicyVersionInput`](crate::operation::create_policy_version::CreatePolicyVersionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_policy_version::CreatePolicyVersionInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::create_policy_version::CreatePolicyVersionInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::create_policy_version::CreatePolicyVersionInput {
+        ::std::result::Result::Ok(super::operation::create_policy_version::CreatePolicyVersionInput {
             policy_arn: self.policy_arn,
             policy_document: self.policy_document,
             set_as_default: self.set_as_default.unwrap_or_default(),

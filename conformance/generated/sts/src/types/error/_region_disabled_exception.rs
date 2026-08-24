@@ -26,7 +26,7 @@ impl ::std::fmt::Display for RegionDisabledException {
     }
 }
 impl ::std::error::Error for RegionDisabledException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::RegionDisabledException {
+impl ::aws_types::request_id::RequestId for super::types::error::RegionDisabledException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for RegionDisable
 }
 impl RegionDisabledException {
     /// Creates a new builder-style object to manufacture [`RegionDisabledException`](crate::types::error::RegionDisabledException).
-    pub fn builder() -> crate::types::error::builders::RegionDisabledExceptionBuilder {
-        crate::types::error::builders::RegionDisabledExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::RegionDisabledExceptionBuilder {
+        super::types::error::builders::RegionDisabledExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl RegionDisabledExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RegionDisabledException`](crate::types::error::RegionDisabledException).
-    pub fn build(self) -> crate::types::error::RegionDisabledException {
-        crate::types::error::RegionDisabledException {
+    pub fn build(self) -> super::types::error::RegionDisabledException {
+        super::types::error::RegionDisabledException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

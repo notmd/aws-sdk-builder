@@ -14,8 +14,8 @@ impl DeleteUserPermissionsBoundaryInput {
 }
 impl DeleteUserPermissionsBoundaryInput {
     /// Creates a new builder-style object to manufacture [`DeleteUserPermissionsBoundaryInput`](crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput).
-    pub fn builder() -> crate::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryInputBuilder {
-        crate::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryInputBuilder::default()
+    pub fn builder() -> super::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryInputBuilder {
+        super::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryInputBuilder::default()
     }
 }
 
@@ -45,10 +45,10 @@ impl DeleteUserPermissionsBoundaryInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput,
+        super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput {
+        ::std::result::Result::Ok(super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput {
             user_name: self.user_name,
         })
     }

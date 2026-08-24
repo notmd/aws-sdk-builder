@@ -4,7 +4,7 @@ pub(crate) fn de_global_table_witness_description_list<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::vec::Vec<crate::types::GlobalTableWitnessDescription>>,
+    Option<::std::vec::Vec<super::types::GlobalTableWitnessDescription>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -26,7 +26,7 @@ where
                         break;
                     }
                     _ => {
-                        let value = crate::protocol_serde::shape_global_table_witness_description::de_global_table_witness_description(
+                        let value = super::protocol_serde::shape_global_table_witness_description::de_global_table_witness_description(
                             tokens,
                             _value,
                             depth + 1,

@@ -10,11 +10,11 @@ impl DescribeKinesisStreamingDestination {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
+        input: super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
     ) -> ::std::result::Result<
-        crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
+        super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
+            super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl DescribeKinesisStreamingDestination {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError>()
+                err.downcast::<super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl DescribeKinesisStreamingDestination {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput>()
+                .downcast::<super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
+        input: super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -72,8 +72,8 @@ impl DescribeKinesisStreamingDestination {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -81,7 +81,7 @@ impl DescribeKinesisStreamingDestination {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -102,7 +102,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Describ
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("DescribeKinesisStreamingDestination")
                 .build()
                 .expect("required fields set"),
@@ -142,13 +142,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Describ
                 DescribeKinesisStreamingDestinationEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
+                super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
+                super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
+                super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -213,15 +213,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DescribeK
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_describe_kinesis_streaming_destination::de_describe_kinesis_streaming_destination_http_error(
+            super::protocol_serde::shape_describe_kinesis_streaming_destination::de_describe_kinesis_streaming_destination_http_error(
                 status, headers, body,
             )
         } else {
-            crate::protocol_serde::shape_describe_kinesis_streaming_destination::de_describe_kinesis_streaming_destination_http_response(
+            super::protocol_serde::shape_describe_kinesis_streaming_destination::de_describe_kinesis_streaming_destination_http_response(
                 status, headers, body,
             )
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -234,16 +234,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeKine
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput>()
+            .downcast::<super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
+                _input: &super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -252,7 +252,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeKine
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
+                input: &super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -269,7 +269,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeKine
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_describe_kinesis_streaming_destination::ser_describe_kinesis_streaming_destination_input(&input)?,
+            super::protocol_serde::shape_describe_kinesis_streaming_destination::ser_describe_kinesis_streaming_destination_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -302,7 +302,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeKines
             .downcast_ref::<DescribeKinesisStreamingDestinationInput>()
             .ok_or("failed to downcast to DescribeKinesisStreamingDestinationInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -338,11 +338,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeKines
 #[derive(::std::fmt::Debug)]
 pub enum DescribeKinesisStreamingDestinationError {
     /// <p>An error occurred on the server side.</p>
-    InternalServerError(crate::types::error::InternalServerError),
+    InternalServerError(super::types::error::InternalServerError),
     #[allow(missing_docs)] // documentation missing in model
-    InvalidEndpointException(crate::types::error::InvalidEndpointException),
+    InvalidEndpointException(super::types::error::InvalidEndpointException),
     /// <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -350,14 +350,14 @@ pub enum DescribeKinesisStreamingDestinationError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DescribeKinesisStreamingDestinationError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl DescribeKinesisStreamingDestinationError {
     /// Creates the `DescribeKinesisStreamingDestinationError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -365,7 +365,7 @@ impl DescribeKinesisStreamingDestinationError {
 
     /// Creates the `DescribeKinesisStreamingDestinationError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -444,21 +444,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Describe
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError {
+impl ::aws_types::request_id::RequestId for super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::describe_kinesis_streaming_destination::_describe_kinesis_streaming_destination_input::DescribeKinesisStreamingDestinationInput;
+pub use super::operation::describe_kinesis_streaming_destination::_describe_kinesis_streaming_destination_input::DescribeKinesisStreamingDestinationInput;
 
-pub use crate::operation::describe_kinesis_streaming_destination::_describe_kinesis_streaming_destination_output::DescribeKinesisStreamingDestinationOutput;
+pub use super::operation::describe_kinesis_streaming_destination::_describe_kinesis_streaming_destination_output::DescribeKinesisStreamingDestinationOutput;
 
 mod _describe_kinesis_streaming_destination_input;
 

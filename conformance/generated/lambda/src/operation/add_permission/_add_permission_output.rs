@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for AddPermissionOutput {
 }
 impl AddPermissionOutput {
     /// Creates a new builder-style object to manufacture [`AddPermissionOutput`](crate::operation::add_permission::AddPermissionOutput).
-    pub fn builder() -> crate::operation::add_permission::builders::AddPermissionOutputBuilder {
-        crate::operation::add_permission::builders::AddPermissionOutputBuilder::default()
+    pub fn builder() -> super::operation::add_permission::builders::AddPermissionOutputBuilder {
+        super::operation::add_permission::builders::AddPermissionOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl AddPermissionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AddPermissionOutput`](crate::operation::add_permission::AddPermissionOutput).
-    pub fn build(self) -> crate::operation::add_permission::AddPermissionOutput {
-        crate::operation::add_permission::AddPermissionOutput {
+    pub fn build(self) -> super::operation::add_permission::AddPermissionOutput {
+        super::operation::add_permission::AddPermissionOutput {
             statement: self.statement,
             _request_id: self._request_id,
         }

@@ -3,13 +3,13 @@
 /// Matcher union: {"output":{"path":"ContributorInsightsStatus","expected":"ENABLED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_contributor_insights_57787899eaa02d958(
     _result: ::std::result::Result<
-        &crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
-        &crate::operation::describe_contributor_insights::DescribeContributorInsightsError,
+        &super::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
+        &super::operation::describe_contributor_insights::DescribeContributorInsightsError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
-    ) -> ::std::option::Option<&'a crate::types::ContributorInsightsStatus> {
+        _output: &'a super::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
+    ) -> ::std::option::Option<&'a super::types::ContributorInsightsStatus> {
         let _fld_1 = _output.contributor_insights_status.as_ref()?;
         ::std::option::Option::Some(_fld_1)
     }
@@ -29,13 +29,13 @@ pub(crate) fn match_describe_contributor_insights_57787899eaa02d958(
 /// Matcher union: {"output":{"path":"ContributorInsightsStatus","expected":"FAILED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_contributor_insights_5ba948784ca4cb322(
     _result: ::std::result::Result<
-        &crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
-        &crate::operation::describe_contributor_insights::DescribeContributorInsightsError,
+        &super::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
+        &super::operation::describe_contributor_insights::DescribeContributorInsightsError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
-    ) -> ::std::option::Option<&'a crate::types::ContributorInsightsStatus> {
+        _output: &'a super::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
+    ) -> ::std::option::Option<&'a super::types::ContributorInsightsStatus> {
         let _fld_1 = _output.contributor_insights_status.as_ref()?;
         ::std::option::Option::Some(_fld_1)
     }
@@ -54,11 +54,11 @@ pub(crate) fn match_describe_contributor_insights_5ba948784ca4cb322(
 
 /// Matcher union: {"output":{"path":"ExportDescription.ExportStatus","expected":"COMPLETED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_export_a4219f96bc64309c4(
-    _result: ::std::result::Result<&crate::operation::describe_export::DescribeExportOutput, &crate::operation::describe_export::DescribeExportError>,
+    _result: ::std::result::Result<&super::operation::describe_export::DescribeExportOutput, &super::operation::describe_export::DescribeExportError>,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_export::DescribeExportOutput,
-    ) -> ::std::option::Option<&'a crate::types::ExportStatus> {
+        _output: &'a super::operation::describe_export::DescribeExportOutput,
+    ) -> ::std::option::Option<&'a super::types::ExportStatus> {
         let _fld_1 = _output.export_description.as_ref()?;
         let _fld_2 = _fld_1.export_status.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -78,11 +78,11 @@ pub(crate) fn match_describe_export_a4219f96bc64309c4(
 
 /// Matcher union: {"output":{"path":"ExportDescription.ExportStatus","expected":"FAILED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_export_8d899fd0681b891e9(
-    _result: ::std::result::Result<&crate::operation::describe_export::DescribeExportOutput, &crate::operation::describe_export::DescribeExportError>,
+    _result: ::std::result::Result<&super::operation::describe_export::DescribeExportOutput, &super::operation::describe_export::DescribeExportError>,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_export::DescribeExportOutput,
-    ) -> ::std::option::Option<&'a crate::types::ExportStatus> {
+        _output: &'a super::operation::describe_export::DescribeExportOutput,
+    ) -> ::std::option::Option<&'a super::types::ExportStatus> {
         let _fld_1 = _output.export_description.as_ref()?;
         let _fld_2 = _fld_1.export_status.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -102,11 +102,11 @@ pub(crate) fn match_describe_export_8d899fd0681b891e9(
 
 /// Matcher union: {"output":{"path":"ImportTableDescription.ImportStatus","expected":"COMPLETED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_import_6175a829c57972dc3(
-    _result: ::std::result::Result<&crate::operation::describe_import::DescribeImportOutput, &crate::operation::describe_import::DescribeImportError>,
+    _result: ::std::result::Result<&super::operation::describe_import::DescribeImportOutput, &super::operation::describe_import::DescribeImportError>,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_import::DescribeImportOutput,
-    ) -> ::std::option::Option<&'a crate::types::ImportStatus> {
+        _output: &'a super::operation::describe_import::DescribeImportOutput,
+    ) -> ::std::option::Option<&'a super::types::ImportStatus> {
         let _fld_1 = _output.import_table_description.as_ref()?;
         let _fld_2 = _fld_1.import_status.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -126,11 +126,11 @@ pub(crate) fn match_describe_import_6175a829c57972dc3(
 
 /// Matcher union: {"output":{"path":"ImportTableDescription.ImportStatus","expected":"FAILED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_import_ba4301a7fe05a6956(
-    _result: ::std::result::Result<&crate::operation::describe_import::DescribeImportOutput, &crate::operation::describe_import::DescribeImportError>,
+    _result: ::std::result::Result<&super::operation::describe_import::DescribeImportOutput, &super::operation::describe_import::DescribeImportError>,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_import::DescribeImportOutput,
-    ) -> ::std::option::Option<&'a crate::types::ImportStatus> {
+        _output: &'a super::operation::describe_import::DescribeImportOutput,
+    ) -> ::std::option::Option<&'a super::types::ImportStatus> {
         let _fld_1 = _output.import_table_description.as_ref()?;
         let _fld_2 = _fld_1.import_status.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -150,11 +150,11 @@ pub(crate) fn match_describe_import_ba4301a7fe05a6956(
 
 /// Matcher union: {"output":{"path":"ImportTableDescription.ImportStatus","expected":"CANCELLED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_import_b4c5c86bd60d42041(
-    _result: ::std::result::Result<&crate::operation::describe_import::DescribeImportOutput, &crate::operation::describe_import::DescribeImportError>,
+    _result: ::std::result::Result<&super::operation::describe_import::DescribeImportOutput, &super::operation::describe_import::DescribeImportError>,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_import::DescribeImportOutput,
-    ) -> ::std::option::Option<&'a crate::types::ImportStatus> {
+        _output: &'a super::operation::describe_import::DescribeImportOutput,
+    ) -> ::std::option::Option<&'a super::types::ImportStatus> {
         let _fld_1 = _output.import_table_description.as_ref()?;
         let _fld_2 = _fld_1.import_status.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -175,19 +175,19 @@ pub(crate) fn match_describe_import_b4c5c86bd60d42041(
 /// Matcher union: {"output":{"path":"KinesisDataStreamDestinations[].DestinationStatus","expected":"ACTIVE","comparator":"anyStringEquals"}}
 pub(crate) fn match_describe_kinesis_streaming_destination_56e18114fb2c2cf5a(
     _result: ::std::result::Result<
-        &crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
-        &crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
+        &super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
+        &super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
-    ) -> ::std::option::Option<::std::vec::Vec<&'a crate::types::DestinationStatus>> {
+        _output: &'a super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
+    ) -> ::std::option::Option<::std::vec::Vec<&'a super::types::DestinationStatus>> {
         let _fld_1 = _output.kinesis_data_stream_destinations.as_ref()?;
         let _prj_3 = _fld_1
             .iter()
             .flat_map(|v| {
                 #[allow(clippy::let_and_return)]
-                fn map(_v: &crate::types::KinesisDataStreamDestination) -> ::std::option::Option<&crate::types::DestinationStatus> {
+                fn map(_v: &super::types::KinesisDataStreamDestination) -> ::std::option::Option<&super::types::DestinationStatus> {
                     let _fld_2 = _v.destination_status.as_ref();
                     _fld_2
                 }
@@ -214,12 +214,12 @@ pub(crate) fn match_describe_kinesis_streaming_destination_56e18114fb2c2cf5a(
 /// Matcher union: {"output":{"path":"length(KinesisDataStreamDestinations) > `0`  && length(KinesisDataStreamDestinations[?DestinationStatus == 'DISABLED' || DestinationStatus == 'ENABLE_FAILED']) ==  length(KinesisDataStreamDestinations)","expected":"true","comparator":"booleanEquals"}}
 pub(crate) fn match_describe_kinesis_streaming_destination_ce975c8fb2b65f98f(
     _result: ::std::result::Result<
-        &crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
-        &crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
+        &super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
+        &super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
+        _output: &'a super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
     ) -> ::std::option::Option<bool> {
         let _fld_2 = _output.kinesis_data_stream_destinations.as_ref()?;
         let _ret_1 = _fld_2.len() as i64;
@@ -231,7 +231,7 @@ pub(crate) fn match_describe_kinesis_streaming_destination_ce975c8fb2b65f98f(
         let _fprj_14 = _fld_6
             .iter()
             .filter({
-                fn filter(_v: &crate::types::KinesisDataStreamDestination) -> ::std::option::Option<bool> {
+                fn filter(_v: &super::types::KinesisDataStreamDestination) -> ::std::option::Option<bool> {
                     let _fld_7 = _v.destination_status.as_ref()?;
                     let _tmp_21 = _fld_7.as_str();
                     const _LIT_8: &str = "DISABLED";
@@ -267,11 +267,11 @@ pub(crate) fn match_describe_kinesis_streaming_destination_ce975c8fb2b65f98f(
 
 /// Matcher union: {"output":{"path":"Table.TableStatus","expected":"ACTIVE","comparator":"stringEquals"}}
 pub(crate) fn match_describe_table_0429b99996ae6dab6(
-    _result: ::std::result::Result<&crate::operation::describe_table::DescribeTableOutput, &crate::operation::describe_table::DescribeTableError>,
+    _result: ::std::result::Result<&super::operation::describe_table::DescribeTableOutput, &super::operation::describe_table::DescribeTableError>,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::describe_table::DescribeTableOutput,
-    ) -> ::std::option::Option<&'a crate::types::TableStatus> {
+        _output: &'a super::operation::describe_table::DescribeTableOutput,
+    ) -> ::std::option::Option<&'a super::types::TableStatus> {
         let _fld_1 = _output.table.as_ref()?;
         let _fld_2 = _fld_1.table_status.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -291,7 +291,7 @@ pub(crate) fn match_describe_table_0429b99996ae6dab6(
 
 /// Matcher union: {"errorType":"ResourceNotFoundException"}
 pub(crate) fn match_describe_table_1cce2c05524fb92d4(
-    _result: ::std::result::Result<&crate::operation::describe_table::DescribeTableOutput, &crate::operation::describe_table::DescribeTableError>,
+    _result: ::std::result::Result<&super::operation::describe_table::DescribeTableOutput, &super::operation::describe_table::DescribeTableError>,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
         if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {

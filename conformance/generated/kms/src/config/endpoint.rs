@@ -29,7 +29,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EndpointOverr
 /// Endpoint resolver trait specific to AWS Key Management Service
 pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
     /// Resolve an endpoint with the given parameters
-    fn resolve_endpoint<'a>(&'a self, params: &'a crate::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
+    fn resolve_endpoint<'a>(&'a self, params: &'a super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
 
     /// Convert this service-specific resolver into a `SharedEndpointResolver`
     ///
@@ -52,7 +52,7 @@ where
         &'a self,
         params: &'a ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams,
     ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-        let ep = match params.get::<crate::config::endpoint::Params>() {
+        let ep = match params.get::<super::config::endpoint::Params>() {
             Some(params) => self.0.resolve_endpoint(params),
             None => ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(Err("params of expected type was not present".into())),
         };
@@ -63,7 +63,7 @@ where
 #[derive(Debug)]
 /// The default endpoint resolver.
 pub struct DefaultResolver {
-    partition_resolver: &'static crate::endpoint_lib::partition::PartitionResolver,
+    partition_resolver: &'static super::endpoint_lib::partition::PartitionResolver,
     endpoint_cache: ::arc_swap::ArcSwap<::std::option::Option<(Params, ::aws_smithy_types::endpoint::Endpoint)>>,
 }
 
@@ -77,7 +77,7 @@ impl DefaultResolver {
     /// Create a new DefaultResolver
     pub fn new() -> Self {
         Self {
-            partition_resolver: &crate::endpoint_lib::DEFAULT_PARTITION_RESOLVER,
+            partition_resolver: &super::endpoint_lib::DEFAULT_PARTITION_RESOLVER,
             endpoint_cache: ::arc_swap::ArcSwap::from_pointee(None),
         }
     }
@@ -97,9 +97,9 @@ impl DefaultResolver {
     )]
     fn resolve_endpoint<'a>(
         &'a self,
-        params: &'a crate::config::endpoint::Params,
+        params: &'a super::config::endpoint::Params,
     ) -> ::std::result::Result<::aws_smithy_types::endpoint::Endpoint, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let mut _diagnostic_collector = crate::endpoint_lib::diagnostic::DiagnosticCollector::new();
+        let mut _diagnostic_collector = super::endpoint_lib::diagnostic::DiagnosticCollector::new();
         #[allow(unused_mut)]
         let mut context = ConditionContext::default();
 
@@ -228,7 +228,7 @@ impl DefaultResolver {
                     let condition_result = match node.condition_index {
                         0 => endpoint.is_some(),
                         1 => region.is_some(),
-                        2 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        2 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &mut context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             {
@@ -240,7 +240,7 @@ impl DefaultResolver {
                         })(&mut _diagnostic_collector),
                         3 => (use_fips) == (&true),
                         4 => (use_dual_stack) == (&true),
-                        5 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        5 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = partition_result {
@@ -249,7 +249,7 @@ impl DefaultResolver {
                                 return false;
                             }) == (true)
                         })(&mut _diagnostic_collector),
-                        6 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        6 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = partition_result {
@@ -267,8 +267,8 @@ impl DefaultResolver {
     }
 }
 
-impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
-    fn resolve_endpoint<'a>(&'a self, params: &'a crate::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
+impl super::config::endpoint::ResolveEndpoint for DefaultResolver {
+    fn resolve_endpoint<'a>(&'a self, params: &'a super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
         // Check single-entry cache (lock-free read via ArcSwap)
         let cached = self.endpoint_cache.load();
         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
@@ -284,68 +284,68 @@ impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
         ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(result)
     }
 }
-const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 13] = [
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+const NODES: [super::endpoint_lib::bdd_interpreter::BddNode; 13] = [
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: -1,
         high_ref: 1,
         low_ref: -1,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 0,
         high_ref: 12,
         low_ref: 3,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 1,
         high_ref: 4,
         low_ref: 100000011,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 2,
         high_ref: 5,
         low_ref: 100000011,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 3,
         high_ref: 8,
         low_ref: 6,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 7,
         low_ref: 100000010,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
         high_ref: 100000008,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 10,
         low_ref: 9,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 100000006,
         low_ref: 100000007,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
         high_ref: 11,
         low_ref: 100000005,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 100000004,
         low_ref: 100000005,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 3,
         high_ref: 100000001,
         low_ref: 13,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 100000002,
         low_ref: 100000003,
@@ -356,7 +356,7 @@ const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 13] = [
 #[derive(Default)]
 #[allow(unused_lifetimes)]
 pub(crate) struct ConditionContext<'a> {
-    pub(crate) partition_result: Option<crate::endpoint_lib::partition::Partition<'a>>,
+    pub(crate) partition_result: Option<super::endpoint_lib::partition::Partition<'a>>,
     // Sometimes none of the members reference the lifetime, this makes it still valid
     phantom: std::marker::PhantomData<&'a ()>,
 }
@@ -376,8 +376,8 @@ pub struct Params {
 }
 impl Params {
     /// Create a builder for [`Params`]
-    pub fn builder() -> crate::config::endpoint::ParamsBuilder {
-        crate::config::endpoint::ParamsBuilder::default()
+    pub fn builder() -> super::config::endpoint::ParamsBuilder {
+        super::config::endpoint::ParamsBuilder::default()
     }
     /// The AWS region used to dispatch the request.
     pub fn region(&self) -> ::std::option::Option<&str> {
@@ -407,14 +407,14 @@ pub struct ParamsBuilder {
 }
 impl ParamsBuilder {
     /// Consume this builder, creating [`Params`].
-    pub fn build(self) -> ::std::result::Result<crate::config::endpoint::Params, crate::config::endpoint::InvalidParams> {
+    pub fn build(self) -> ::std::result::Result<super::config::endpoint::Params, super::config::endpoint::InvalidParams> {
         if let Some(region) = &self.region {
-            if !crate::endpoint_lib::host::is_valid_host_label(
+            if !super::endpoint_lib::host::is_valid_host_label(
                 region.as_ref() as &str,
                 true,
-                &mut crate::endpoint_lib::diagnostic::DiagnosticCollector::new(),
+                &mut super::endpoint_lib::diagnostic::DiagnosticCollector::new(),
             ) {
-                return Err(crate::config::endpoint::InvalidParams::invalid_value(
+                return Err(super::config::endpoint::InvalidParams::invalid_value(
                     "region",
                     "must be a valid host label",
                 ));
@@ -422,16 +422,16 @@ impl ParamsBuilder {
         };
         Ok(
             #[allow(clippy::unnecessary_lazy_evaluations)]
-            crate::config::endpoint::Params {
+            super::config::endpoint::Params {
                 region: self.region,
                 use_dual_stack: self
                     .use_dual_stack
                     .or_else(|| Some(false))
-                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
                 use_fips: self
                     .use_fips
                     .or_else(|| Some(false))
-                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_fips"))?,
+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("use_fips"))?,
                 endpoint: self.endpoint,
             },
         )

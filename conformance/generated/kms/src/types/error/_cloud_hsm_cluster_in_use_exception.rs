@@ -27,7 +27,7 @@ impl ::std::fmt::Display for CloudHsmClusterInUseException {
     }
 }
 impl ::std::error::Error for CloudHsmClusterInUseException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::CloudHsmClusterInUseException {
+impl ::aws_types::request_id::RequestId for super::types::error::CloudHsmClusterInUseException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -40,8 +40,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CloudHsmClust
 }
 impl CloudHsmClusterInUseException {
     /// Creates a new builder-style object to manufacture [`CloudHsmClusterInUseException`](crate::types::error::CloudHsmClusterInUseException).
-    pub fn builder() -> crate::types::error::builders::CloudHsmClusterInUseExceptionBuilder {
-        crate::types::error::builders::CloudHsmClusterInUseExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::CloudHsmClusterInUseExceptionBuilder {
+        super::types::error::builders::CloudHsmClusterInUseExceptionBuilder::default()
     }
 }
 
@@ -79,8 +79,8 @@ impl CloudHsmClusterInUseExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CloudHsmClusterInUseException`](crate::types::error::CloudHsmClusterInUseException).
-    pub fn build(self) -> crate::types::error::CloudHsmClusterInUseException {
-        crate::types::error::CloudHsmClusterInUseException {
+    pub fn build(self) -> super::types::error::CloudHsmClusterInUseException {
+        super::types::error::CloudHsmClusterInUseException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

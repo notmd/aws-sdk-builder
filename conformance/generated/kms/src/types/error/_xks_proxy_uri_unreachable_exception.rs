@@ -27,7 +27,7 @@ impl ::std::fmt::Display for XksProxyUriUnreachableException {
     }
 }
 impl ::std::error::Error for XksProxyUriUnreachableException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::XksProxyUriUnreachableException {
+impl ::aws_types::request_id::RequestId for super::types::error::XksProxyUriUnreachableException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -40,8 +40,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for XksProxyUriUn
 }
 impl XksProxyUriUnreachableException {
     /// Creates a new builder-style object to manufacture [`XksProxyUriUnreachableException`](crate::types::error::XksProxyUriUnreachableException).
-    pub fn builder() -> crate::types::error::builders::XksProxyUriUnreachableExceptionBuilder {
-        crate::types::error::builders::XksProxyUriUnreachableExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::XksProxyUriUnreachableExceptionBuilder {
+        super::types::error::builders::XksProxyUriUnreachableExceptionBuilder::default()
     }
 }
 
@@ -79,8 +79,8 @@ impl XksProxyUriUnreachableExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`XksProxyUriUnreachableException`](crate::types::error::XksProxyUriUnreachableException).
-    pub fn build(self) -> crate::types::error::XksProxyUriUnreachableException {
-        crate::types::error::XksProxyUriUnreachableException {
+    pub fn build(self) -> super::types::error::XksProxyUriUnreachableException {
+        super::types::error::XksProxyUriUnreachableException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -26,8 +26,8 @@ impl ::aws_types::request_id::RequestId for GetResourcePolicyOutput {
 }
 impl GetResourcePolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetResourcePolicyOutput`](crate::operation::get_resource_policy::GetResourcePolicyOutput).
-    pub fn builder() -> crate::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder {
-        crate::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder {
+        super::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl GetResourcePolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetResourcePolicyOutput`](crate::operation::get_resource_policy::GetResourcePolicyOutput).
-    pub fn build(self) -> crate::operation::get_resource_policy::GetResourcePolicyOutput {
-        crate::operation::get_resource_policy::GetResourcePolicyOutput {
+    pub fn build(self) -> super::operation::get_resource_policy::GetResourcePolicyOutput {
+        super::operation::get_resource_policy::GetResourcePolicyOutput {
             policy: self.policy,
             revision_id: self.revision_id,
             _request_id: self._request_id,

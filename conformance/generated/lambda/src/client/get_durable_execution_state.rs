@@ -12,7 +12,7 @@ impl super::Client {
     ///   - [`operations(Vec::<Operation>)`](crate::operation::get_durable_execution_state::GetDurableExecutionStateOutput::operations): <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
     ///   - [`next_marker(Option<String>)`](crate::operation::get_durable_execution_state::GetDurableExecutionStateOutput::next_marker): <p>If present, indicates that more operations are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
     /// - On failure, responds with [`SdkError<GetDurableExecutionStateError>`](crate::operation::get_durable_execution_state::GetDurableExecutionStateError)
-    pub fn get_durable_execution_state(&self) -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateFluentBuilder {
-        crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateFluentBuilder::new(self.handle.clone())
+    pub fn get_durable_execution_state(&self) -> super::operation::get_durable_execution_state::builders::GetDurableExecutionStateFluentBuilder {
+        super::operation::get_durable_execution_state::builders::GetDurableExecutionStateFluentBuilder::new(self.handle.clone())
     }
 }

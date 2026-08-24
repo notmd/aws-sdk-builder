@@ -32,8 +32,8 @@ impl CreateServiceLinkedRoleInput {
 }
 impl CreateServiceLinkedRoleInput {
     /// Creates a new builder-style object to manufacture [`CreateServiceLinkedRoleInput`](crate::operation::create_service_linked_role::CreateServiceLinkedRoleInput).
-    pub fn builder() -> crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleInputBuilder {
-        crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleInputBuilder::default()
+    pub fn builder() -> super::operation::create_service_linked_role::builders::CreateServiceLinkedRoleInputBuilder {
+        super::operation::create_service_linked_role::builders::CreateServiceLinkedRoleInputBuilder::default()
     }
 }
 
@@ -102,10 +102,10 @@ impl CreateServiceLinkedRoleInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::create_service_linked_role::CreateServiceLinkedRoleInput,
+        super::operation::create_service_linked_role::CreateServiceLinkedRoleInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::create_service_linked_role::CreateServiceLinkedRoleInput {
+        ::std::result::Result::Ok(super::operation::create_service_linked_role::CreateServiceLinkedRoleInput {
             aws_service_name: self.aws_service_name,
             description: self.description,
             custom_suffix: self.custom_suffix,

@@ -4,7 +4,7 @@ pub(crate) fn de_item_list<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
+    Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -26,7 +26,7 @@ where
                         break;
                     }
                     _ => {
-                        let value = crate::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?;
+                        let value = super::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

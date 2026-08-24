@@ -4,27 +4,27 @@ pub fn de_update_time_to_live_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::update_time_to_live::UpdateTimeToLiveOutput, crate::operation::update_time_to_live::UpdateTimeToLiveError>
+) -> std::result::Result<super::operation::update_time_to_live::UpdateTimeToLiveOutput, super::operation::update_time_to_live::UpdateTimeToLiveError>
 {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::update_time_to_live::UpdateTimeToLiveError::unhandled(generic)),
+        None => return Err(super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalServerError" => crate::operation::update_time_to_live::UpdateTimeToLiveError::InternalServerError({
+        "InternalServerError" => super::operation::update_time_to_live::UpdateTimeToLiveError::InternalServerError({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InternalServerErrorBuilder::default();
-                output = crate::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
-                    .map_err(crate::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
+                let mut output = super::types::error::builders::InternalServerErrorBuilder::default();
+                output = super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
+                    .map_err(super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -33,13 +33,13 @@ pub fn de_update_time_to_live_http_error(
             }
             tmp
         }),
-        "InvalidEndpointException" => crate::operation::update_time_to_live::UpdateTimeToLiveError::InvalidEndpointException({
+        "InvalidEndpointException" => super::operation::update_time_to_live::UpdateTimeToLiveError::InvalidEndpointException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidEndpointExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -48,13 +48,13 @@ pub fn de_update_time_to_live_http_error(
             }
             tmp
         }),
-        "LimitExceededException" => crate::operation::update_time_to_live::UpdateTimeToLiveError::LimitExceededException({
+        "LimitExceededException" => super::operation::update_time_to_live::UpdateTimeToLiveError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                    .map_err(super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63,13 +63,13 @@ pub fn de_update_time_to_live_http_error(
             }
             tmp
         }),
-        "ResourceInUseException" => crate::operation::update_time_to_live::UpdateTimeToLiveError::ResourceInUseException({
+        "ResourceInUseException" => super::operation::update_time_to_live::UpdateTimeToLiveError::ResourceInUseException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceInUseExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
+                let mut output = super::types::error::builders::ResourceInUseExceptionBuilder::default();
+                output = super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
+                    .map_err(super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -78,13 +78,13 @@ pub fn de_update_time_to_live_http_error(
             }
             tmp
         }),
-        "ResourceNotFoundException" => crate::operation::update_time_to_live::UpdateTimeToLiveError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::operation::update_time_to_live::UpdateTimeToLiveError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -93,7 +93,7 @@ pub fn de_update_time_to_live_http_error(
             }
             tmp
         }),
-        _ => crate::operation::update_time_to_live::UpdateTimeToLiveError::generic(generic),
+        _ => super::operation::update_time_to_live::UpdateTimeToLiveError::generic(generic),
     })
 }
 
@@ -102,36 +102,36 @@ pub fn de_update_time_to_live_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::update_time_to_live::UpdateTimeToLiveOutput, crate::operation::update_time_to_live::UpdateTimeToLiveError>
+) -> std::result::Result<super::operation::update_time_to_live::UpdateTimeToLiveOutput, super::operation::update_time_to_live::UpdateTimeToLiveError>
 {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::update_time_to_live::builders::UpdateTimeToLiveOutputBuilder::default();
-        output = crate::protocol_serde::shape_update_time_to_live::de_update_time_to_live(_response_body, output)
-            .map_err(crate::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
+        let mut output = super::operation::update_time_to_live::builders::UpdateTimeToLiveOutputBuilder::default();
+        output = super::protocol_serde::shape_update_time_to_live::de_update_time_to_live(_response_body, output)
+            .map_err(super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_update_time_to_live_input(
-    input: &crate::operation::update_time_to_live::UpdateTimeToLiveInput,
+    input: &super::operation::update_time_to_live::UpdateTimeToLiveInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_update_time_to_live_input::ser_update_time_to_live_input_input(&mut object, input)?;
+    super::protocol_serde::shape_update_time_to_live_input::ser_update_time_to_live_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_update_time_to_live(
     _value: &[u8],
-    mut builder: crate::operation::update_time_to_live::builders::UpdateTimeToLiveOutputBuilder,
+    mut builder: super::operation::update_time_to_live::builders::UpdateTimeToLiveOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::update_time_to_live::builders::UpdateTimeToLiveOutputBuilder,
+    super::operation::update_time_to_live::builders::UpdateTimeToLiveOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -142,7 +142,7 @@ pub(crate) fn de_update_time_to_live(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "TimeToLiveSpecification" => {
                     builder = builder.set_time_to_live_specification(
-                        crate::protocol_serde::shape_time_to_live_specification::de_time_to_live_specification(tokens, _value, depth + 1)?,
+                        super::protocol_serde::shape_time_to_live_specification::de_time_to_live_specification(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

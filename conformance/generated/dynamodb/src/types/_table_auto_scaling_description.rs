@@ -17,9 +17,9 @@ pub struct TableAutoScalingDescription {
     /// <li>
     /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
     /// </ul>
-    pub table_status: ::std::option::Option<crate::types::TableStatus>,
+    pub table_status: ::std::option::Option<super::types::TableStatus>,
     /// <p>Represents replicas of the global table.</p>
-    pub replicas: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>,
+    pub replicas: ::std::option::Option<::std::vec::Vec<super::types::ReplicaAutoScalingDescription>>,
 }
 impl TableAutoScalingDescription {
     /// <p>The name of the table.</p>
@@ -37,20 +37,20 @@ impl TableAutoScalingDescription {
     /// <li>
     /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
     /// </ul>
-    pub fn table_status(&self) -> ::std::option::Option<&crate::types::TableStatus> {
+    pub fn table_status(&self) -> ::std::option::Option<&super::types::TableStatus> {
         self.table_status.as_ref()
     }
     /// <p>Represents replicas of the global table.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replicas.is_none()`.
-    pub fn replicas(&self) -> &[crate::types::ReplicaAutoScalingDescription] {
+    pub fn replicas(&self) -> &[super::types::ReplicaAutoScalingDescription] {
         self.replicas.as_deref().unwrap_or_default()
     }
 }
 impl TableAutoScalingDescription {
     /// Creates a new builder-style object to manufacture [`TableAutoScalingDescription`](crate::types::TableAutoScalingDescription).
-    pub fn builder() -> crate::types::builders::TableAutoScalingDescriptionBuilder {
-        crate::types::builders::TableAutoScalingDescriptionBuilder::default()
+    pub fn builder() -> super::types::builders::TableAutoScalingDescriptionBuilder {
+        super::types::builders::TableAutoScalingDescriptionBuilder::default()
     }
 }
 
@@ -59,8 +59,8 @@ impl TableAutoScalingDescription {
 #[non_exhaustive]
 pub struct TableAutoScalingDescriptionBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
-    pub(crate) table_status: ::std::option::Option<crate::types::TableStatus>,
-    pub(crate) replicas: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>,
+    pub(crate) table_status: ::std::option::Option<super::types::TableStatus>,
+    pub(crate) replicas: ::std::option::Option<::std::vec::Vec<super::types::ReplicaAutoScalingDescription>>,
 }
 impl TableAutoScalingDescriptionBuilder {
     /// <p>The name of the table.</p>
@@ -88,7 +88,7 @@ impl TableAutoScalingDescriptionBuilder {
     /// <li>
     /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
     /// </ul>
-    pub fn table_status(mut self, input: crate::types::TableStatus) -> Self {
+    pub fn table_status(mut self, input: super::types::TableStatus) -> Self {
         self.table_status = ::std::option::Option::Some(input);
         self
     }
@@ -103,7 +103,7 @@ impl TableAutoScalingDescriptionBuilder {
     /// <li>
     /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
     /// </ul>
-    pub fn set_table_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
+    pub fn set_table_status(mut self, input: ::std::option::Option<super::types::TableStatus>) -> Self {
         self.table_status = input;
         self
     }
@@ -118,7 +118,7 @@ impl TableAutoScalingDescriptionBuilder {
     /// <li>
     /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
     /// </ul>
-    pub fn get_table_status(&self) -> &::std::option::Option<crate::types::TableStatus> {
+    pub fn get_table_status(&self) -> &::std::option::Option<super::types::TableStatus> {
         &self.table_status
     }
     /// Appends an item to `replicas`.
@@ -126,24 +126,24 @@ impl TableAutoScalingDescriptionBuilder {
     /// To override the contents of this collection use [`set_replicas`](Self::set_replicas).
     ///
     /// <p>Represents replicas of the global table.</p>
-    pub fn replicas(mut self, input: crate::types::ReplicaAutoScalingDescription) -> Self {
+    pub fn replicas(mut self, input: super::types::ReplicaAutoScalingDescription) -> Self {
         let mut v = self.replicas.unwrap_or_default();
         v.push(input);
         self.replicas = ::std::option::Option::Some(v);
         self
     }
     /// <p>Represents replicas of the global table.</p>
-    pub fn set_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>) -> Self {
+    pub fn set_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ReplicaAutoScalingDescription>>) -> Self {
         self.replicas = input;
         self
     }
     /// <p>Represents replicas of the global table.</p>
-    pub fn get_replicas(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>> {
+    pub fn get_replicas(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ReplicaAutoScalingDescription>> {
         &self.replicas
     }
     /// Consumes the builder and constructs a [`TableAutoScalingDescription`](crate::types::TableAutoScalingDescription).
-    pub fn build(self) -> crate::types::TableAutoScalingDescription {
-        crate::types::TableAutoScalingDescription {
+    pub fn build(self) -> super::types::TableAutoScalingDescription {
+        super::types::TableAutoScalingDescription {
             table_name: self.table_name,
             table_status: self.table_status,
             replicas: self.replicas,

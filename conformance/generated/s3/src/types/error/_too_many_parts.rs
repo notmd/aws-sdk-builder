@@ -26,13 +26,13 @@ impl ::std::fmt::Display for TooManyParts {
     }
 }
 impl ::std::error::Error for TooManyParts {}
-impl crate::s3_request_id::RequestIdExt for crate::types::error::TooManyParts {
+impl super::s3_request_id::RequestIdExt for super::types::error::TooManyParts {
     fn extended_request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::types::error::TooManyParts {
+impl ::aws_types::request_id::RequestId for super::types::error::TooManyParts {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -45,8 +45,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for TooManyParts 
 }
 impl TooManyParts {
     /// Creates a new builder-style object to manufacture [`TooManyParts`](crate::types::error::TooManyParts).
-    pub fn builder() -> crate::types::error::builders::TooManyPartsBuilder {
-        crate::types::error::builders::TooManyPartsBuilder::default()
+    pub fn builder() -> super::types::error::builders::TooManyPartsBuilder {
+        super::types::error::builders::TooManyPartsBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl TooManyPartsBuilder {
         self
     }
     /// Consumes the builder and constructs a [`TooManyParts`](crate::types::error::TooManyParts).
-    pub fn build(self) -> crate::types::error::TooManyParts {
-        crate::types::error::TooManyParts {
+    pub fn build(self) -> super::types::error::TooManyParts {
+        super::types::error::TooManyParts {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -27,8 +27,8 @@ impl ResolvedS3Object {
 }
 impl ResolvedS3Object {
     /// Creates a new builder-style object to manufacture [`ResolvedS3Object`](crate::types::ResolvedS3Object).
-    pub fn builder() -> crate::types::builders::ResolvedS3ObjectBuilder {
-        crate::types::builders::ResolvedS3ObjectBuilder::default()
+    pub fn builder() -> super::types::builders::ResolvedS3ObjectBuilder {
+        super::types::builders::ResolvedS3ObjectBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl ResolvedS3ObjectBuilder {
         &self.s3_object_version
     }
     /// Consumes the builder and constructs a [`ResolvedS3Object`](crate::types::ResolvedS3Object).
-    pub fn build(self) -> crate::types::ResolvedS3Object {
-        crate::types::ResolvedS3Object {
+    pub fn build(self) -> super::types::ResolvedS3Object {
+        super::types::ResolvedS3Object {
             s3_bucket: self.s3_bucket,
             s3_key: self.s3_key,
             s3_object_version: self.s3_object_version,

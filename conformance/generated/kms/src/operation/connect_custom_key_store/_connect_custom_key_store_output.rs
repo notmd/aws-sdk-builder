@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for ConnectCustomKeyStoreOutput {
 }
 impl ConnectCustomKeyStoreOutput {
     /// Creates a new builder-style object to manufacture [`ConnectCustomKeyStoreOutput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreOutput).
-    pub fn builder() -> crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder {
-        crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder::default()
+    pub fn builder() -> super::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder {
+        super::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl ConnectCustomKeyStoreOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ConnectCustomKeyStoreOutput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreOutput).
-    pub fn build(self) -> crate::operation::connect_custom_key_store::ConnectCustomKeyStoreOutput {
-        crate::operation::connect_custom_key_store::ConnectCustomKeyStoreOutput {
+    pub fn build(self) -> super::operation::connect_custom_key_store::ConnectCustomKeyStoreOutput {
+        super::operation::connect_custom_key_store::ConnectCustomKeyStoreOutput {
             _request_id: self._request_id,
         }
     }

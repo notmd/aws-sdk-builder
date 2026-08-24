@@ -10,11 +10,11 @@ impl AddPermission {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::add_permission::AddPermissionInput,
+        input: super::operation::add_permission::AddPermissionInput,
     ) -> ::std::result::Result<
-        crate::operation::add_permission::AddPermissionOutput,
+        super::operation::add_permission::AddPermissionOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_permission::AddPermissionError,
+            super::operation::add_permission::AddPermissionError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl AddPermission {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::add_permission::AddPermissionError>()
+                err.downcast::<super::operation::add_permission::AddPermissionError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl AddPermission {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::add_permission::AddPermissionOutput>()
+                .downcast::<super::operation::add_permission::AddPermissionOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::add_permission::AddPermissionInput,
+        input: super::operation::add_permission::AddPermissionInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl AddPermission {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl AddPermission {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AddPerm
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("AddPermission")
                 .build()
                 .expect("required fields set"),
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AddPerm
                 AddPermissionEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::add_permission::AddPermissionError,
+                super::operation::add_permission::AddPermissionError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::add_permission::AddPermissionError,
+                super::operation::add_permission::AddPermissionError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::add_permission::AddPermissionError,
+                super::operation::add_permission::AddPermissionError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -249,11 +249,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for AddPermis
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 201 || force_error {
-            crate::protocol_serde::shape_add_permission::de_add_permission_http_error(status, headers, body)
+            super::protocol_serde::shape_add_permission::de_add_permission_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_add_permission::de_add_permission_http_response(status, headers, body)
+            super::protocol_serde::shape_add_permission::de_add_permission_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -266,16 +266,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AddPermissio
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::add_permission::AddPermissionInput>()
+            .downcast::<super::operation::add_permission::AddPermissionInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::add_permission::AddPermissionInput,
+                _input: &super::operation::add_permission::AddPermissionInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -295,7 +295,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AddPermissio
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
-                _input: &crate::operation::add_permission::AddPermissionInput,
+                _input: &super::operation::add_permission::AddPermissionInput,
                 mut output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
@@ -308,7 +308,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AddPermissio
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::add_permission::AddPermissionInput,
+                input: &super::operation::add_permission::AddPermissionInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -320,7 +320,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AddPermissio
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_add_permission::ser_add_permission_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_add_permission::ser_add_permission_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -352,7 +352,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AddPermission
             .downcast_ref::<AddPermissionInput>()
             .ok_or("failed to downcast to AddPermissionInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -375,9 +375,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AddPermission
 #[derive(::std::fmt::Debug)]
 pub enum AddPermissionError {
     /// <p>One of the parameters in the request is not valid.</p>
-    InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
+    InvalidParameterValueException(super::types::error::InvalidParameterValueException),
     /// <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
-    PolicyLengthExceededException(crate::types::error::PolicyLengthExceededException),
+    PolicyLengthExceededException(super::types::error::PolicyLengthExceededException),
     /// <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
     /// <ul>
     /// <li>
@@ -385,17 +385,17 @@ pub enum AddPermissionError {
     /// <li>
     /// <p><b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p></li>
     /// </ul>
-    PreconditionFailedException(crate::types::error::PreconditionFailedException),
+    PreconditionFailedException(super::types::error::PreconditionFailedException),
     /// <p>The resource-based policy you tried to add to the Lambda resource would grant public access to it, which isn't allowed.</p>
-    PublicPolicyException(crate::types::error::PublicPolicyException),
+    PublicPolicyException(super::types::error::PublicPolicyException),
     /// <p>The resource already exists, or another operation is in progress.</p>
-    ResourceConflictException(crate::types::error::ResourceConflictException),
+    ResourceConflictException(super::types::error::ResourceConflictException),
     /// <p>The resource specified in the request does not exist.</p>
-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
     /// <p>The Lambda service encountered an internal error.</p>
-    ServiceException(crate::types::error::ServiceException),
+    ServiceException(super::types::error::ServiceException),
     /// <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
-    TooManyRequestsException(crate::types::error::TooManyRequestsException),
+    TooManyRequestsException(super::types::error::TooManyRequestsException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -403,14 +403,14 @@ pub enum AddPermissionError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-AddPermissionError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl AddPermissionError {
     /// Creates the `AddPermissionError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -418,7 +418,7 @@ impl AddPermissionError {
 
     /// Creates the `AddPermissionError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -537,21 +537,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AddPermi
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::add_permission::AddPermissionError {
+impl ::aws_types::request_id::RequestId for super::operation::add_permission::AddPermissionError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::add_permission::_add_permission_input::AddPermissionInput;
+pub use super::operation::add_permission::_add_permission_input::AddPermissionInput;
 
-pub use crate::operation::add_permission::_add_permission_output::AddPermissionOutput;
+pub use super::operation::add_permission::_add_permission_output::AddPermissionOutput;
 
 mod _add_permission_input;
 

@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InternalServerError {
     }
 }
 impl ::std::error::Error for InternalServerError {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InternalServerError {
+impl ::aws_types::request_id::RequestId for super::types::error::InternalServerError {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InternalServe
 }
 impl InternalServerError {
     /// Creates a new builder-style object to manufacture [`InternalServerError`](crate::types::error::InternalServerError).
-    pub fn builder() -> crate::types::error::builders::InternalServerErrorBuilder {
-        crate::types::error::builders::InternalServerErrorBuilder::default()
+    pub fn builder() -> super::types::error::builders::InternalServerErrorBuilder {
+        super::types::error::builders::InternalServerErrorBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InternalServerErrorBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InternalServerError`](crate::types::error::InternalServerError).
-    pub fn build(self) -> crate::types::error::InternalServerError {
-        crate::types::error::InternalServerError {
+    pub fn build(self) -> super::types::error::InternalServerError {
+        super::types::error::InternalServerError {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

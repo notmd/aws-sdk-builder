@@ -26,13 +26,13 @@ impl ::std::fmt::Display for AnnotationNameTooLong {
     }
 }
 impl ::std::error::Error for AnnotationNameTooLong {}
-impl crate::s3_request_id::RequestIdExt for crate::types::error::AnnotationNameTooLong {
+impl super::s3_request_id::RequestIdExt for super::types::error::AnnotationNameTooLong {
     fn extended_request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::types::error::AnnotationNameTooLong {
+impl ::aws_types::request_id::RequestId for super::types::error::AnnotationNameTooLong {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -45,8 +45,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AnnotationNam
 }
 impl AnnotationNameTooLong {
     /// Creates a new builder-style object to manufacture [`AnnotationNameTooLong`](crate::types::error::AnnotationNameTooLong).
-    pub fn builder() -> crate::types::error::builders::AnnotationNameTooLongBuilder {
-        crate::types::error::builders::AnnotationNameTooLongBuilder::default()
+    pub fn builder() -> super::types::error::builders::AnnotationNameTooLongBuilder {
+        super::types::error::builders::AnnotationNameTooLongBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl AnnotationNameTooLongBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AnnotationNameTooLong`](crate::types::error::AnnotationNameTooLong).
-    pub fn build(self) -> crate::types::error::AnnotationNameTooLong {
-        crate::types::error::AnnotationNameTooLong {
+    pub fn build(self) -> super::types::error::AnnotationNameTooLong {
+        super::types::error::AnnotationNameTooLong {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

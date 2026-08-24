@@ -40,7 +40,7 @@ pub struct ReceiveMessageInput {
     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
     /// </ul>
     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
-    pub attribute_names: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>,
+    pub attribute_names: ::std::option::Option<::std::vec::Vec<super::types::QueueAttributeName>>,
     /// <p>A list of attributes that need to be returned along with each message. These attributes include:</p>
     /// <ul>
     /// <li>
@@ -70,7 +70,7 @@ pub struct ReceiveMessageInput {
     /// <li>
     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
     /// </ul>
-    pub message_system_attribute_names: ::std::option::Option<::std::vec::Vec<crate::types::MessageSystemAttributeName>>,
+    pub message_system_attribute_names: ::std::option::Option<::std::vec::Vec<super::types::MessageSystemAttributeName>>,
     /// <p>The name of the message attribute, where <i>N</i> is the index.</p>
     /// <ul>
     /// <li>
@@ -170,7 +170,7 @@ impl ReceiveMessageInput {
     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attribute_names.is_none()`.
-    pub fn attribute_names(&self) -> &[crate::types::QueueAttributeName] {
+    pub fn attribute_names(&self) -> &[super::types::QueueAttributeName] {
         self.attribute_names.as_deref().unwrap_or_default()
     }
     /// <p>A list of attributes that need to be returned along with each message. These attributes include:</p>
@@ -204,7 +204,7 @@ impl ReceiveMessageInput {
     /// </ul>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.message_system_attribute_names.is_none()`.
-    pub fn message_system_attribute_names(&self) -> &[crate::types::MessageSystemAttributeName] {
+    pub fn message_system_attribute_names(&self) -> &[super::types::MessageSystemAttributeName] {
         self.message_system_attribute_names.as_deref().unwrap_or_default()
     }
     /// <p>The name of the message attribute, where <i>N</i> is the index.</p>
@@ -279,8 +279,8 @@ impl ReceiveMessageInput {
 }
 impl ReceiveMessageInput {
     /// Creates a new builder-style object to manufacture [`ReceiveMessageInput`](crate::operation::receive_message::ReceiveMessageInput).
-    pub fn builder() -> crate::operation::receive_message::builders::ReceiveMessageInputBuilder {
-        crate::operation::receive_message::builders::ReceiveMessageInputBuilder::default()
+    pub fn builder() -> super::operation::receive_message::builders::ReceiveMessageInputBuilder {
+        super::operation::receive_message::builders::ReceiveMessageInputBuilder::default()
     }
 }
 
@@ -289,8 +289,8 @@ impl ReceiveMessageInput {
 #[non_exhaustive]
 pub struct ReceiveMessageInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
-    pub(crate) attribute_names: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>,
-    pub(crate) message_system_attribute_names: ::std::option::Option<::std::vec::Vec<crate::types::MessageSystemAttributeName>>,
+    pub(crate) attribute_names: ::std::option::Option<::std::vec::Vec<super::types::QueueAttributeName>>,
+    pub(crate) message_system_attribute_names: ::std::option::Option<::std::vec::Vec<super::types::MessageSystemAttributeName>>,
     pub(crate) message_attribute_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) max_number_of_messages: ::std::option::Option<i32>,
     pub(crate) visibility_timeout: ::std::option::Option<i32>,
@@ -353,7 +353,7 @@ impl ReceiveMessageInputBuilder {
     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
     /// </ul>
     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
-    pub fn attribute_names(mut self, input: crate::types::QueueAttributeName) -> Self {
+    pub fn attribute_names(mut self, input: super::types::QueueAttributeName) -> Self {
         let mut v = self.attribute_names.unwrap_or_default();
         v.push(input);
         self.attribute_names = ::std::option::Option::Some(v);
@@ -392,7 +392,7 @@ impl ReceiveMessageInputBuilder {
     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
     /// </ul>
     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
-    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self {
+    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::QueueAttributeName>>) -> Self {
         self.attribute_names = input;
         self
     }
@@ -429,7 +429,7 @@ impl ReceiveMessageInputBuilder {
     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
     /// </ul>
     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
-    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> {
+    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::types::QueueAttributeName>> {
         &self.attribute_names
     }
     /// Appends an item to `message_system_attribute_names`.
@@ -465,7 +465,7 @@ impl ReceiveMessageInputBuilder {
     /// <li>
     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
     /// </ul>
-    pub fn message_system_attribute_names(mut self, input: crate::types::MessageSystemAttributeName) -> Self {
+    pub fn message_system_attribute_names(mut self, input: super::types::MessageSystemAttributeName) -> Self {
         let mut v = self.message_system_attribute_names.unwrap_or_default();
         v.push(input);
         self.message_system_attribute_names = ::std::option::Option::Some(v);
@@ -502,7 +502,7 @@ impl ReceiveMessageInputBuilder {
     /// </ul>
     pub fn set_message_system_attribute_names(
         mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MessageSystemAttributeName>>,
+        input: ::std::option::Option<::std::vec::Vec<super::types::MessageSystemAttributeName>>,
     ) -> Self {
         self.message_system_attribute_names = input;
         self
@@ -536,7 +536,7 @@ impl ReceiveMessageInputBuilder {
     /// <li>
     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
     /// </ul>
-    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageSystemAttributeName>> {
+    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MessageSystemAttributeName>> {
         &self.message_system_attribute_names
     }
     /// Appends an item to `message_attribute_names`.
@@ -759,8 +759,8 @@ impl ReceiveMessageInputBuilder {
     /// Consumes the builder and constructs a [`ReceiveMessageInput`](crate::operation::receive_message::ReceiveMessageInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::receive_message::ReceiveMessageInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::receive_message::ReceiveMessageInput {
+    ) -> ::std::result::Result<super::operation::receive_message::ReceiveMessageInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::receive_message::ReceiveMessageInput {
             queue_url: self.queue_url,
             attribute_names: self.attribute_names,
             message_system_attribute_names: self.message_system_attribute_names,

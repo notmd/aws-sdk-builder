@@ -5,12 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetServerCertificateOutput {
     /// <p>A structure containing details about the server certificate.</p>
-    pub server_certificate: ::std::option::Option<crate::types::ServerCertificate>,
+    pub server_certificate: ::std::option::Option<super::types::ServerCertificate>,
     _request_id: Option<String>,
 }
 impl GetServerCertificateOutput {
     /// <p>A structure containing details about the server certificate.</p>
-    pub fn server_certificate(&self) -> ::std::option::Option<&crate::types::ServerCertificate> {
+    pub fn server_certificate(&self) -> ::std::option::Option<&super::types::ServerCertificate> {
         self.server_certificate.as_ref()
     }
 }
@@ -21,8 +21,8 @@ impl ::aws_types::request_id::RequestId for GetServerCertificateOutput {
 }
 impl GetServerCertificateOutput {
     /// Creates a new builder-style object to manufacture [`GetServerCertificateOutput`](crate::operation::get_server_certificate::GetServerCertificateOutput).
-    pub fn builder() -> crate::operation::get_server_certificate::builders::GetServerCertificateOutputBuilder {
-        crate::operation::get_server_certificate::builders::GetServerCertificateOutputBuilder::default()
+    pub fn builder() -> super::operation::get_server_certificate::builders::GetServerCertificateOutputBuilder {
+        super::operation::get_server_certificate::builders::GetServerCertificateOutputBuilder::default()
     }
 }
 
@@ -30,23 +30,23 @@ impl GetServerCertificateOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetServerCertificateOutputBuilder {
-    pub(crate) server_certificate: ::std::option::Option<crate::types::ServerCertificate>,
+    pub(crate) server_certificate: ::std::option::Option<super::types::ServerCertificate>,
     _request_id: Option<String>,
 }
 impl GetServerCertificateOutputBuilder {
     /// <p>A structure containing details about the server certificate.</p>
     /// This field is required.
-    pub fn server_certificate(mut self, input: crate::types::ServerCertificate) -> Self {
+    pub fn server_certificate(mut self, input: super::types::ServerCertificate) -> Self {
         self.server_certificate = ::std::option::Option::Some(input);
         self
     }
     /// <p>A structure containing details about the server certificate.</p>
-    pub fn set_server_certificate(mut self, input: ::std::option::Option<crate::types::ServerCertificate>) -> Self {
+    pub fn set_server_certificate(mut self, input: ::std::option::Option<super::types::ServerCertificate>) -> Self {
         self.server_certificate = input;
         self
     }
     /// <p>A structure containing details about the server certificate.</p>
-    pub fn get_server_certificate(&self) -> &::std::option::Option<crate::types::ServerCertificate> {
+    pub fn get_server_certificate(&self) -> &::std::option::Option<super::types::ServerCertificate> {
         &self.server_certificate
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -59,8 +59,8 @@ impl GetServerCertificateOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetServerCertificateOutput`](crate::operation::get_server_certificate::GetServerCertificateOutput).
-    pub fn build(self) -> crate::operation::get_server_certificate::GetServerCertificateOutput {
-        crate::operation::get_server_certificate::GetServerCertificateOutput {
+    pub fn build(self) -> super::operation::get_server_certificate::GetServerCertificateOutput {
+        super::operation::get_server_certificate::GetServerCertificateOutput {
             server_certificate: self.server_certificate,
             _request_id: self._request_id,
         }

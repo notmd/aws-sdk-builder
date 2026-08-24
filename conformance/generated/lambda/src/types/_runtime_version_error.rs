@@ -29,8 +29,8 @@ impl ::std::fmt::Debug for RuntimeVersionError {
 }
 impl RuntimeVersionError {
     /// Creates a new builder-style object to manufacture [`RuntimeVersionError`](crate::types::RuntimeVersionError).
-    pub fn builder() -> crate::types::builders::RuntimeVersionErrorBuilder {
-        crate::types::builders::RuntimeVersionErrorBuilder::default()
+    pub fn builder() -> super::types::builders::RuntimeVersionErrorBuilder {
+        super::types::builders::RuntimeVersionErrorBuilder::default()
     }
 }
 
@@ -71,8 +71,8 @@ impl RuntimeVersionErrorBuilder {
         &self.message
     }
     /// Consumes the builder and constructs a [`RuntimeVersionError`](crate::types::RuntimeVersionError).
-    pub fn build(self) -> crate::types::RuntimeVersionError {
-        crate::types::RuntimeVersionError {
+    pub fn build(self) -> super::types::RuntimeVersionError {
+        super::types::RuntimeVersionError {
             error_code: self.error_code,
             message: self.message,
         }

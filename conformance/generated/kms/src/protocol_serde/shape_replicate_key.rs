@@ -4,26 +4,26 @@ pub fn de_replicate_key_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::replicate_key::ReplicateKeyOutput, crate::operation::replicate_key::ReplicateKeyError> {
+) -> std::result::Result<super::operation::replicate_key::ReplicateKeyOutput, super::operation::replicate_key::ReplicateKeyError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::replicate_key::ReplicateKeyError::unhandled(generic)),
+        None => return Err(super::operation::replicate_key::ReplicateKeyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AlreadyExistsException" => crate::operation::replicate_key::ReplicateKeyError::AlreadyExistsException({
+        "AlreadyExistsException" => super::operation::replicate_key::ReplicateKeyError::AlreadyExistsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::AlreadyExistsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                let mut output = super::types::error::builders::AlreadyExistsExceptionBuilder::default();
+                output = super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
+                    .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -32,13 +32,13 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "DisabledException" => crate::operation::replicate_key::ReplicateKeyError::DisabledException({
+        "DisabledException" => super::operation::replicate_key::ReplicateKeyError::DisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                let mut output = super::types::error::builders::DisabledExceptionBuilder::default();
+                output = super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
+                    .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -47,13 +47,13 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "InvalidArnException" => crate::operation::replicate_key::ReplicateKeyError::InvalidArnException({
+        "InvalidArnException" => super::operation::replicate_key::ReplicateKeyError::InvalidArnException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidArnExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidArnExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
+                    .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,13 +62,13 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "KMSInternalException" => crate::operation::replicate_key::ReplicateKeyError::KmsInternalException({
+        "KMSInternalException" => super::operation::replicate_key::ReplicateKeyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                    .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -77,13 +77,13 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => crate::operation::replicate_key::ReplicateKeyError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::operation::replicate_key::ReplicateKeyError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -92,13 +92,13 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "LimitExceededException" => crate::operation::replicate_key::ReplicateKeyError::LimitExceededException({
+        "LimitExceededException" => super::operation::replicate_key::ReplicateKeyError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                    .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -107,16 +107,16 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "MalformedPolicyDocumentException" => crate::operation::replicate_key::ReplicateKeyError::MalformedPolicyDocumentException({
+        "MalformedPolicyDocumentException" => super::operation::replicate_key::ReplicateKeyError::MalformedPolicyDocumentException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
-                output = crate::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_json_err(
+                let mut output = super::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
+                output = super::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_json_err(
                     _response_body,
                     output,
                 )
-                .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125,13 +125,13 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "NotFoundException" => crate::operation::replicate_key::ReplicateKeyError::NotFoundException({
+        "NotFoundException" => super::operation::replicate_key::ReplicateKeyError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -140,13 +140,13 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "TagException" => crate::operation::replicate_key::ReplicateKeyError::TagException({
+        "TagException" => super::operation::replicate_key::ReplicateKeyError::TagException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TagExceptionBuilder::default();
-                output = crate::protocol_serde::shape_tag_exception::de_tag_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                let mut output = super::types::error::builders::TagExceptionBuilder::default();
+                output = super::protocol_serde::shape_tag_exception::de_tag_exception_json_err(_response_body, output)
+                    .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -155,14 +155,14 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        "UnsupportedOperationException" => crate::operation::replicate_key::ReplicateKeyError::UnsupportedOperationException({
+        "UnsupportedOperationException" => super::operation::replicate_key::ReplicateKeyError::UnsupportedOperationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
+                let mut output = super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                    super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -171,7 +171,7 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        _ => crate::operation::replicate_key::ReplicateKeyError::generic(generic),
+        _ => super::operation::replicate_key::ReplicateKeyError::generic(generic),
     })
 }
 
@@ -180,35 +180,35 @@ pub fn de_replicate_key_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::replicate_key::ReplicateKeyOutput, crate::operation::replicate_key::ReplicateKeyError> {
+) -> std::result::Result<super::operation::replicate_key::ReplicateKeyOutput, super::operation::replicate_key::ReplicateKeyError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::replicate_key::builders::ReplicateKeyOutputBuilder::default();
-        output = crate::protocol_serde::shape_replicate_key::de_replicate_key(_response_body, output)
-            .map_err(crate::operation::replicate_key::ReplicateKeyError::unhandled)?;
+        let mut output = super::operation::replicate_key::builders::ReplicateKeyOutputBuilder::default();
+        output = super::protocol_serde::shape_replicate_key::de_replicate_key(_response_body, output)
+            .map_err(super::operation::replicate_key::ReplicateKeyError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_replicate_key_input(
-    input: &crate::operation::replicate_key::ReplicateKeyInput,
+    input: &super::operation::replicate_key::ReplicateKeyInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_replicate_key_input::ser_replicate_key_input_input(&mut object, input)?;
+    super::protocol_serde::shape_replicate_key_input::ser_replicate_key_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_replicate_key(
     _value: &[u8],
-    mut builder: crate::operation::replicate_key::builders::ReplicateKeyOutputBuilder,
+    mut builder: super::operation::replicate_key::builders::ReplicateKeyOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::replicate_key::builders::ReplicateKeyOutputBuilder,
+    super::operation::replicate_key::builders::ReplicateKeyOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -219,7 +219,7 @@ pub(crate) fn de_replicate_key(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "ReplicaKeyMetadata" => {
                     builder =
-                        builder.set_replica_key_metadata(crate::protocol_serde::shape_key_metadata::de_key_metadata(tokens, _value, depth + 1)?);
+                        builder.set_replica_key_metadata(super::protocol_serde::shape_key_metadata::de_key_metadata(tokens, _value, depth + 1)?);
                 }
                 "ReplicaPolicy" => {
                     builder = builder.set_replica_policy(
@@ -229,7 +229,7 @@ pub(crate) fn de_replicate_key(
                     );
                 }
                 "ReplicaTags" => {
-                    builder = builder.set_replica_tags(crate::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                    builder = builder.set_replica_tags(super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

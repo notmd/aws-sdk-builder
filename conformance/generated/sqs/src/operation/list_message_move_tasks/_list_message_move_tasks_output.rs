@@ -4,14 +4,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListMessageMoveTasksOutput {
     /// <p>A list of message movement tasks and their attributes.</p>
-    pub results: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>,
+    pub results: ::std::option::Option<::std::vec::Vec<super::types::ListMessageMoveTasksResultEntry>>,
     _request_id: Option<String>,
 }
 impl ListMessageMoveTasksOutput {
     /// <p>A list of message movement tasks and their attributes.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.results.is_none()`.
-    pub fn results(&self) -> &[crate::types::ListMessageMoveTasksResultEntry] {
+    pub fn results(&self) -> &[super::types::ListMessageMoveTasksResultEntry] {
         self.results.as_deref().unwrap_or_default()
     }
 }
@@ -22,8 +22,8 @@ impl ::aws_types::request_id::RequestId for ListMessageMoveTasksOutput {
 }
 impl ListMessageMoveTasksOutput {
     /// Creates a new builder-style object to manufacture [`ListMessageMoveTasksOutput`](crate::operation::list_message_move_tasks::ListMessageMoveTasksOutput).
-    pub fn builder() -> crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksOutputBuilder {
-        crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksOutputBuilder::default()
+    pub fn builder() -> super::operation::list_message_move_tasks::builders::ListMessageMoveTasksOutputBuilder {
+        super::operation::list_message_move_tasks::builders::ListMessageMoveTasksOutputBuilder::default()
     }
 }
 
@@ -31,7 +31,7 @@ impl ListMessageMoveTasksOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListMessageMoveTasksOutputBuilder {
-    pub(crate) results: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>,
+    pub(crate) results: ::std::option::Option<::std::vec::Vec<super::types::ListMessageMoveTasksResultEntry>>,
     _request_id: Option<String>,
 }
 impl ListMessageMoveTasksOutputBuilder {
@@ -40,19 +40,19 @@ impl ListMessageMoveTasksOutputBuilder {
     /// To override the contents of this collection use [`set_results`](Self::set_results).
     ///
     /// <p>A list of message movement tasks and their attributes.</p>
-    pub fn results(mut self, input: crate::types::ListMessageMoveTasksResultEntry) -> Self {
+    pub fn results(mut self, input: super::types::ListMessageMoveTasksResultEntry) -> Self {
         let mut v = self.results.unwrap_or_default();
         v.push(input);
         self.results = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of message movement tasks and their attributes.</p>
-    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>) -> Self {
+    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ListMessageMoveTasksResultEntry>>) -> Self {
         self.results = input;
         self
     }
     /// <p>A list of message movement tasks and their attributes.</p>
-    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>> {
+    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ListMessageMoveTasksResultEntry>> {
         &self.results
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -65,8 +65,8 @@ impl ListMessageMoveTasksOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListMessageMoveTasksOutput`](crate::operation::list_message_move_tasks::ListMessageMoveTasksOutput).
-    pub fn build(self) -> crate::operation::list_message_move_tasks::ListMessageMoveTasksOutput {
-        crate::operation::list_message_move_tasks::ListMessageMoveTasksOutput {
+    pub fn build(self) -> super::operation::list_message_move_tasks::ListMessageMoveTasksOutput {
+        super::operation::list_message_move_tasks::ListMessageMoveTasksOutput {
             results: self.results,
             _request_id: self._request_id,
         }

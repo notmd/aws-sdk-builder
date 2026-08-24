@@ -10,11 +10,11 @@ impl Publish {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::publish::PublishInput,
+        input: super::operation::publish::PublishInput,
     ) -> ::std::result::Result<
-        crate::operation::publish::PublishOutput,
+        super::operation::publish::PublishOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish::PublishError,
+            super::operation::publish::PublishError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -22,21 +22,21 @@ impl Publish {
             |err: ::aws_smithy_runtime_api::client::result::SdkError<
                 ::aws_smithy_runtime_api::client::interceptors::context::Error,
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-            >| { err.map_service_error(|err| err.downcast::<crate::operation::publish::PublishError>().expect("correct error type")) };
+            >| { err.map_service_error(|err| err.downcast::<super::operation::publish::PublishError>().expect("correct error type")) };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
             .await
             .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::publish::PublishOutput>()
+                .downcast::<super::operation::publish::PublishOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::publish::PublishInput,
+        input: super::operation::publish::PublishInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -62,8 +62,8 @@ impl Publish {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -71,7 +71,7 @@ impl Publish {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -92,7 +92,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Publish
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("Publish")
                 .build()
                 .expect("required fields set"),
@@ -129,13 +129,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Publish
                 PublishEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::publish::PublishError,
+                super::operation::publish::PublishError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::publish::PublishError,
+                super::operation::publish::PublishError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::publish::PublishError,
+                super::operation::publish::PublishError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -230,11 +230,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for PublishRe
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_publish::de_publish_http_error(status, headers, body)
+            super::protocol_serde::shape_publish::de_publish_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_publish::de_publish_http_response(status, headers, body)
+            super::protocol_serde::shape_publish::de_publish_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -246,15 +246,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PublishReque
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input.downcast::<crate::operation::publish::PublishInput>().expect("correct type");
+        let input = input.downcast::<super::operation::publish::PublishInput>().expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::publish::PublishInput,
+                _input: &super::operation::publish::PublishInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -263,7 +263,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PublishReque
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::publish::PublishInput,
+                input: &super::operation::publish::PublishInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -274,7 +274,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PublishReque
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_publish_input::ser_publish_op_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_publish_input::ser_publish_op_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -306,7 +306,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for PublishEndpoi
             .downcast_ref::<PublishInput>()
             .ok_or("failed to downcast to PublishInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -329,35 +329,35 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for PublishEndpoi
 #[derive(::std::fmt::Debug)]
 pub enum PublishError {
     /// <p>Indicates that the user has been denied access to the requested resource.</p>
-    AuthorizationErrorException(crate::types::error::AuthorizationErrorException),
+    AuthorizationErrorException(super::types::error::AuthorizationErrorException),
     /// <p>Exception error indicating endpoint disabled.</p>
-    EndpointDisabledException(crate::types::error::EndpointDisabledException),
+    EndpointDisabledException(super::types::error::EndpointDisabledException),
     /// <p>Indicates an internal service error.</p>
-    InternalErrorException(crate::types::error::InternalErrorException),
+    InternalErrorException(super::types::error::InternalErrorException),
     /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
-    InvalidParameterException(crate::types::error::InvalidParameterException),
+    InvalidParameterException(super::types::error::InvalidParameterException),
     /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
-    InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
+    InvalidParameterValueException(super::types::error::InvalidParameterValueException),
     /// <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
-    InvalidSecurityException(crate::types::error::InvalidSecurityException),
+    InvalidSecurityException(super::types::error::InvalidSecurityException),
     /// <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
-    KmsAccessDeniedException(crate::types::error::KmsAccessDeniedException),
+    KmsAccessDeniedException(super::types::error::KmsAccessDeniedException),
     /// <p>The request was rejected because the specified Amazon Web Services KMS key isn't enabled.</p>
-    KmsDisabledException(crate::types::error::KmsDisabledException),
+    KmsDisabledException(super::types::error::KmsDisabledException),
     /// <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
+    KmsInvalidStateException(super::types::error::KmsInvalidStateException),
     /// <p>The request was rejected because the specified entity or resource can't be found.</p>
-    KmsNotFoundException(crate::types::error::KmsNotFoundException),
+    KmsNotFoundException(super::types::error::KmsNotFoundException),
     /// <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
-    KmsOptInRequired(crate::types::error::KmsOptInRequired),
+    KmsOptInRequired(super::types::error::KmsOptInRequired),
     /// <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the <i>Key Management Service Developer Guide.</i></p>
-    KmsThrottlingException(crate::types::error::KmsThrottlingException),
+    KmsThrottlingException(super::types::error::KmsThrottlingException),
     /// <p>Indicates that the requested resource does not exist.</p>
-    NotFoundException(crate::types::error::NotFoundException),
+    NotFoundException(super::types::error::NotFoundException),
     /// <p>Exception error indicating platform application disabled.</p>
-    PlatformApplicationDisabledException(crate::types::error::PlatformApplicationDisabledException),
+    PlatformApplicationDisabledException(super::types::error::PlatformApplicationDisabledException),
     /// <p>Indicates that a parameter in the request is invalid.</p>
-    ValidationException(crate::types::error::ValidationException),
+    ValidationException(super::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -365,14 +365,14 @@ pub enum PublishError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-PublishError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl PublishError {
     /// Creates the `PublishError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -380,7 +380,7 @@ impl PublishError {
 
     /// Creates the `PublishError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -555,21 +555,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PublishE
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::publish::PublishError {
+impl ::aws_types::request_id::RequestId for super::operation::publish::PublishError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::publish::_publish_input::PublishInput;
+pub use super::operation::publish::_publish_input::PublishInput;
 
-pub use crate::operation::publish::_publish_output::PublishOutput;
+pub use super::operation::publish::_publish_output::PublishOutput;
 
 mod _publish_input;
 

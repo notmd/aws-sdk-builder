@@ -5,29 +5,29 @@ pub fn de_publish_layer_version_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::publish_layer_version::PublishLayerVersionOutput,
-    crate::operation::publish_layer_version::PublishLayerVersionError,
+    super::operation::publish_layer_version::PublishLayerVersionOutput,
+    super::operation::publish_layer_version::PublishLayerVersionError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::publish_layer_version::PublishLayerVersionError::unhandled(generic)),
+        None => return Err(super::operation::publish_layer_version::PublishLayerVersionError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "CodeStorageExceededException" => crate::operation::publish_layer_version::PublishLayerVersionError::CodeStorageExceededException({
+        "CodeStorageExceededException" => super::operation::publish_layer_version::PublishLayerVersionError::CodeStorageExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::CodeStorageExceededExceptionBuilder::default();
+                let mut output = super::types::error::builders::CodeStorageExceededExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_code_storage_exceeded_exception::de_code_storage_exceeded_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
+                    super::protocol_serde::shape_code_storage_exceeded_exception::de_code_storage_exceeded_exception_json_err(_response_body, output)
+                        .map_err(super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -36,16 +36,16 @@ pub fn de_publish_layer_version_http_error(
             }
             tmp
         }),
-        "InvalidParameterValueException" => crate::operation::publish_layer_version::PublishLayerVersionError::InvalidParameterValueException({
+        "InvalidParameterValueException" => super::operation::publish_layer_version::PublishLayerVersionError::InvalidParameterValueException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                     _response_body,
                     output,
                 )
-                .map_err(crate::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
+                .map_err(super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -54,13 +54,13 @@ pub fn de_publish_layer_version_http_error(
             }
             tmp
         }),
-        "ResourceNotFoundException" => crate::operation::publish_layer_version::PublishLayerVersionError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::operation::publish_layer_version::PublishLayerVersionError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -69,13 +69,13 @@ pub fn de_publish_layer_version_http_error(
             }
             tmp
         }),
-        "ServiceException" => crate::operation::publish_layer_version::PublishLayerVersionError::ServiceException({
+        "ServiceException" => super::operation::publish_layer_version::PublishLayerVersionError::ServiceException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
+                let mut output = super::types::error::builders::ServiceExceptionBuilder::default();
+                output = super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
+                    .map_err(super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -84,13 +84,13 @@ pub fn de_publish_layer_version_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => crate::operation::publish_layer_version::PublishLayerVersionError::TooManyRequestsException({
+        "TooManyRequestsException" => super::operation::publish_layer_version::PublishLayerVersionError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -99,7 +99,7 @@ pub fn de_publish_layer_version_http_error(
             }
             tmp
         }),
-        _ => crate::operation::publish_layer_version::PublishLayerVersionError::generic(generic),
+        _ => super::operation::publish_layer_version::PublishLayerVersionError::generic(generic),
     })
 }
 
@@ -109,37 +109,37 @@ pub fn de_publish_layer_version_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::publish_layer_version::PublishLayerVersionOutput,
-    crate::operation::publish_layer_version::PublishLayerVersionError,
+    super::operation::publish_layer_version::PublishLayerVersionOutput,
+    super::operation::publish_layer_version::PublishLayerVersionError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder::default();
-        output = crate::protocol_serde::shape_publish_layer_version::de_publish_layer_version(_response_body, output)
-            .map_err(crate::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
+        let mut output = super::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder::default();
+        output = super::protocol_serde::shape_publish_layer_version::de_publish_layer_version(_response_body, output)
+            .map_err(super::operation::publish_layer_version::PublishLayerVersionError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_publish_layer_version_input(
-    input: &crate::operation::publish_layer_version::PublishLayerVersionInput,
+    input: &super::operation::publish_layer_version::PublishLayerVersionInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_publish_layer_version_input::ser_publish_layer_version_input_input(&mut object, input)?;
+    super::protocol_serde::shape_publish_layer_version_input::ser_publish_layer_version_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_publish_layer_version(
     _value: &[u8],
-    mut builder: crate::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder,
+    mut builder: super::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder,
+    super::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -150,7 +150,7 @@ pub(crate) fn de_publish_layer_version(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Content" => {
                     builder = builder.set_content(
-                        crate::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
+                        super::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
                     );
                 }
                 "LayerArn" => {
@@ -190,11 +190,11 @@ pub(crate) fn de_publish_layer_version(
                 }
                 "CompatibleArchitectures" => {
                     builder = builder.set_compatible_architectures(
-                        crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
+                        super::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
                     );
                 }
                 "CompatibleRuntimes" => {
-                    builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
+                    builder = builder.set_compatible_runtimes(super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
                         tokens,
                         _value,
                         depth + 1,

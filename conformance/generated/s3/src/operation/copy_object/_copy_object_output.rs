@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct CopyObjectOutput {
     /// <p>Container for all response elements.</p>
-    pub copy_object_result: ::std::option::Option<crate::types::CopyObjectResult>,
+    pub copy_object_result: ::std::option::Option<super::types::CopyObjectResult>,
     /// <p>If the object expiration is configured, the response includes this header.</p><note>
     /// <p>Object expiration information is not returned in directory buckets and this header returns the value "<code>NotImplemented</code>" in all responses for directory buckets.</p>
     /// </note>
@@ -20,7 +20,7 @@ pub struct CopyObjectOutput {
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -38,13 +38,13 @@ pub struct CopyObjectOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl CopyObjectOutput {
     /// <p>Container for all response elements.</p>
-    pub fn copy_object_result(&self) -> ::std::option::Option<&crate::types::CopyObjectResult> {
+    pub fn copy_object_result(&self) -> ::std::option::Option<&super::types::CopyObjectResult> {
         self.copy_object_result.as_ref()
     }
     /// <p>If the object expiration is configured, the response includes this header.</p><note>
@@ -68,7 +68,7 @@ impl CopyObjectOutput {
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
+    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
         self.server_side_encryption.as_ref()
     }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
@@ -98,7 +98,7 @@ impl CopyObjectOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
 }
@@ -121,7 +121,7 @@ impl ::std::fmt::Debug for CopyObjectOutput {
         formatter.finish()
     }
 }
-impl crate::s3_request_id::RequestIdExt for CopyObjectOutput {
+impl super::s3_request_id::RequestIdExt for CopyObjectOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -133,8 +133,8 @@ impl ::aws_types::request_id::RequestId for CopyObjectOutput {
 }
 impl CopyObjectOutput {
     /// Creates a new builder-style object to manufacture [`CopyObjectOutput`](crate::operation::copy_object::CopyObjectOutput).
-    pub fn builder() -> crate::operation::copy_object::builders::CopyObjectOutputBuilder {
-        crate::operation::copy_object::builders::CopyObjectOutputBuilder::default()
+    pub fn builder() -> super::operation::copy_object::builders::CopyObjectOutputBuilder {
+        super::operation::copy_object::builders::CopyObjectOutputBuilder::default()
     }
 }
 
@@ -142,33 +142,33 @@ impl CopyObjectOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct CopyObjectOutputBuilder {
-    pub(crate) copy_object_result: ::std::option::Option<crate::types::CopyObjectResult>,
+    pub(crate) copy_object_result: ::std::option::Option<super::types::CopyObjectResult>,
     pub(crate) expiration: ::std::option::Option<::std::string::String>,
     pub(crate) copy_source_version_id: ::std::option::Option<::std::string::String>,
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
-    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
     pub(crate) sse_customer_key_md5: ::std::option::Option<::std::string::String>,
     pub(crate) ssekms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) ssekms_encryption_context: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl CopyObjectOutputBuilder {
     /// <p>Container for all response elements.</p>
-    pub fn copy_object_result(mut self, input: crate::types::CopyObjectResult) -> Self {
+    pub fn copy_object_result(mut self, input: super::types::CopyObjectResult) -> Self {
         self.copy_object_result = ::std::option::Option::Some(input);
         self
     }
     /// <p>Container for all response elements.</p>
-    pub fn set_copy_object_result(mut self, input: ::std::option::Option<crate::types::CopyObjectResult>) -> Self {
+    pub fn set_copy_object_result(mut self, input: ::std::option::Option<super::types::CopyObjectResult>) -> Self {
         self.copy_object_result = input;
         self
     }
     /// <p>Container for all response elements.</p>
-    pub fn get_copy_object_result(&self) -> &::std::option::Option<crate::types::CopyObjectResult> {
+    pub fn get_copy_object_result(&self) -> &::std::option::Option<super::types::CopyObjectResult> {
         &self.copy_object_result
     }
     /// <p>If the object expiration is configured, the response includes this header.</p><note>
@@ -234,21 +234,21 @@ impl CopyObjectOutputBuilder {
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
+    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
     }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
         &self.server_side_encryption
     }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
@@ -336,21 +336,21 @@ impl CopyObjectOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -372,8 +372,8 @@ impl CopyObjectOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CopyObjectOutput`](crate::operation::copy_object::CopyObjectOutput).
-    pub fn build(self) -> crate::operation::copy_object::CopyObjectOutput {
-        crate::operation::copy_object::CopyObjectOutput {
+    pub fn build(self) -> super::operation::copy_object::CopyObjectOutput {
+        super::operation::copy_object::CopyObjectOutput {
             copy_object_result: self.copy_object_result,
             expiration: self.expiration,
             copy_source_version_id: self.copy_source_version_id,

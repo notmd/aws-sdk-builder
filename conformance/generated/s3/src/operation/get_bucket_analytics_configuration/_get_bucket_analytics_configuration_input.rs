@@ -26,8 +26,8 @@ impl GetBucketAnalyticsConfigurationInput {
 }
 impl GetBucketAnalyticsConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketAnalyticsConfigurationInput`](crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationInput).
-    pub fn builder() -> crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationInputBuilder {
-        crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationInputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationInputBuilder {
+        super::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationInputBuilder::default()
     }
 }
 
@@ -88,11 +88,11 @@ impl GetBucketAnalyticsConfigurationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationInput,
+        super::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationInput {
+            super::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationInput {
                 bucket: self.bucket,
                 id: self.id,
                 expected_bucket_owner: self.expected_bucket_owner,

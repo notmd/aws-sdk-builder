@@ -20,8 +20,8 @@ impl DeleteBucketMetadataTableConfigurationInput {
 }
 impl DeleteBucketMetadataTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketMetadataTableConfigurationInput`](crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationInput).
-    pub fn builder() -> crate::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationInputBuilder {
-        crate::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationInputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationInputBuilder {
+        super::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationInputBuilder::default()
     }
 }
 
@@ -66,11 +66,11 @@ impl DeleteBucketMetadataTableConfigurationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationInput,
+        super::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationInput {
+            super::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationInput {
                 bucket: self.bucket,
                 expected_bucket_owner: self.expected_bucket_owner,
             },

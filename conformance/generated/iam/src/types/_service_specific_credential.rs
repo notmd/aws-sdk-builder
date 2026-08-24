@@ -23,7 +23,7 @@ pub struct ServiceSpecificCredential {
     /// <p>The name of the IAM user associated with the service-specific credential.</p>
     pub user_name: ::std::string::String,
     /// <p>The status of the service-specific credential. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
-    pub status: crate::types::StatusType,
+    pub status: super::types::StatusType,
 }
 impl ServiceSpecificCredential {
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the service-specific credential were created.</p>
@@ -68,7 +68,7 @@ impl ServiceSpecificCredential {
         self.user_name.deref()
     }
     /// <p>The status of the service-specific credential. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
-    pub fn status(&self) -> &crate::types::StatusType {
+    pub fn status(&self) -> &super::types::StatusType {
         &self.status
     }
 }
@@ -90,8 +90,8 @@ impl ::std::fmt::Debug for ServiceSpecificCredential {
 }
 impl ServiceSpecificCredential {
     /// Creates a new builder-style object to manufacture [`ServiceSpecificCredential`](crate::types::ServiceSpecificCredential).
-    pub fn builder() -> crate::types::builders::ServiceSpecificCredentialBuilder {
-        crate::types::builders::ServiceSpecificCredentialBuilder::default()
+    pub fn builder() -> super::types::builders::ServiceSpecificCredentialBuilder {
+        super::types::builders::ServiceSpecificCredentialBuilder::default()
     }
 }
 
@@ -108,7 +108,7 @@ pub struct ServiceSpecificCredentialBuilder {
     pub(crate) service_credential_secret: ::std::option::Option<::std::string::String>,
     pub(crate) service_specific_credential_id: ::std::option::Option<::std::string::String>,
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
-    pub(crate) status: ::std::option::Option<crate::types::StatusType>,
+    pub(crate) status: ::std::option::Option<super::types::StatusType>,
 }
 impl ServiceSpecificCredentialBuilder {
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the service-specific credential were created.</p>
@@ -243,17 +243,17 @@ impl ServiceSpecificCredentialBuilder {
     }
     /// <p>The status of the service-specific credential. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
     /// This field is required.
-    pub fn status(mut self, input: crate::types::StatusType) -> Self {
+    pub fn status(mut self, input: super::types::StatusType) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The status of the service-specific credential. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<super::types::StatusType>) -> Self {
         self.status = input;
         self
     }
     /// <p>The status of the service-specific credential. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> {
+    pub fn get_status(&self) -> &::std::option::Option<super::types::StatusType> {
         &self.status
     }
     /// Consumes the builder and constructs a [`ServiceSpecificCredential`](crate::types::ServiceSpecificCredential).
@@ -263,8 +263,8 @@ impl ServiceSpecificCredentialBuilder {
     /// - [`service_specific_credential_id`](crate::types::builders::ServiceSpecificCredentialBuilder::service_specific_credential_id)
     /// - [`user_name`](crate::types::builders::ServiceSpecificCredentialBuilder::user_name)
     /// - [`status`](crate::types::builders::ServiceSpecificCredentialBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::ServiceSpecificCredential, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ServiceSpecificCredential {
+    pub fn build(self) -> ::std::result::Result<super::types::ServiceSpecificCredential, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::ServiceSpecificCredential {
             create_date: self.create_date.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "create_date",

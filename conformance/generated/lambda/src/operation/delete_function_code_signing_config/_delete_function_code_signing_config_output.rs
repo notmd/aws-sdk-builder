@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteFunctionCodeSigningConfigOutpu
 }
 impl DeleteFunctionCodeSigningConfigOutput {
     /// Creates a new builder-style object to manufacture [`DeleteFunctionCodeSigningConfigOutput`](crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigOutput).
-    pub fn builder() -> crate::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder {
-        crate::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder {
+        super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteFunctionCodeSigningConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteFunctionCodeSigningConfigOutput`](crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigOutput).
-    pub fn build(self) -> crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigOutput {
-        crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigOutput {
+    pub fn build(self) -> super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigOutput {
+        super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigOutput {
             _request_id: self._request_id,
         }
     }

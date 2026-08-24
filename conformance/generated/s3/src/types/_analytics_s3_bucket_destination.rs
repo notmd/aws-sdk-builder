@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AnalyticsS3BucketDestination {
     /// <p>Specifies the file format used when exporting data to Amazon S3.</p>
-    pub format: crate::types::AnalyticsS3ExportFileFormat,
+    pub format: super::types::AnalyticsS3ExportFileFormat,
     /// <p>The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.</p><note>
     /// <p>Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.</p>
     /// </note>
@@ -17,7 +17,7 @@ pub struct AnalyticsS3BucketDestination {
 }
 impl AnalyticsS3BucketDestination {
     /// <p>Specifies the file format used when exporting data to Amazon S3.</p>
-    pub fn format(&self) -> &crate::types::AnalyticsS3ExportFileFormat {
+    pub fn format(&self) -> &super::types::AnalyticsS3ExportFileFormat {
         &self.format
     }
     /// <p>The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.</p><note>
@@ -38,8 +38,8 @@ impl AnalyticsS3BucketDestination {
 }
 impl AnalyticsS3BucketDestination {
     /// Creates a new builder-style object to manufacture [`AnalyticsS3BucketDestination`](crate::types::AnalyticsS3BucketDestination).
-    pub fn builder() -> crate::types::builders::AnalyticsS3BucketDestinationBuilder {
-        crate::types::builders::AnalyticsS3BucketDestinationBuilder::default()
+    pub fn builder() -> super::types::builders::AnalyticsS3BucketDestinationBuilder {
+        super::types::builders::AnalyticsS3BucketDestinationBuilder::default()
     }
 }
 
@@ -47,7 +47,7 @@ impl AnalyticsS3BucketDestination {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AnalyticsS3BucketDestinationBuilder {
-    pub(crate) format: ::std::option::Option<crate::types::AnalyticsS3ExportFileFormat>,
+    pub(crate) format: ::std::option::Option<super::types::AnalyticsS3ExportFileFormat>,
     pub(crate) bucket_account_id: ::std::option::Option<::std::string::String>,
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
@@ -55,17 +55,17 @@ pub struct AnalyticsS3BucketDestinationBuilder {
 impl AnalyticsS3BucketDestinationBuilder {
     /// <p>Specifies the file format used when exporting data to Amazon S3.</p>
     /// This field is required.
-    pub fn format(mut self, input: crate::types::AnalyticsS3ExportFileFormat) -> Self {
+    pub fn format(mut self, input: super::types::AnalyticsS3ExportFileFormat) -> Self {
         self.format = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the file format used when exporting data to Amazon S3.</p>
-    pub fn set_format(mut self, input: ::std::option::Option<crate::types::AnalyticsS3ExportFileFormat>) -> Self {
+    pub fn set_format(mut self, input: ::std::option::Option<super::types::AnalyticsS3ExportFileFormat>) -> Self {
         self.format = input;
         self
     }
     /// <p>Specifies the file format used when exporting data to Amazon S3.</p>
-    pub fn get_format(&self) -> &::std::option::Option<crate::types::AnalyticsS3ExportFileFormat> {
+    pub fn get_format(&self) -> &::std::option::Option<super::types::AnalyticsS3ExportFileFormat> {
         &self.format
     }
     /// <p>The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.</p><note>
@@ -121,8 +121,8 @@ impl AnalyticsS3BucketDestinationBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::AnalyticsS3BucketDestinationBuilder::format)
     /// - [`bucket`](crate::types::builders::AnalyticsS3BucketDestinationBuilder::bucket)
-    pub fn build(self) -> ::std::result::Result<crate::types::AnalyticsS3BucketDestination, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AnalyticsS3BucketDestination {
+    pub fn build(self) -> ::std::result::Result<super::types::AnalyticsS3BucketDestination, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::AnalyticsS3BucketDestination {
             format: self.format.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "format",

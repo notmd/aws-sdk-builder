@@ -14,8 +14,8 @@ impl Concurrency {
 }
 impl Concurrency {
     /// Creates a new builder-style object to manufacture [`Concurrency`](crate::types::Concurrency).
-    pub fn builder() -> crate::types::builders::ConcurrencyBuilder {
-        crate::types::builders::ConcurrencyBuilder::default()
+    pub fn builder() -> super::types::builders::ConcurrencyBuilder {
+        super::types::builders::ConcurrencyBuilder::default()
     }
 }
 
@@ -41,8 +41,8 @@ impl ConcurrencyBuilder {
         &self.reserved_concurrent_executions
     }
     /// Consumes the builder and constructs a [`Concurrency`](crate::types::Concurrency).
-    pub fn build(self) -> crate::types::Concurrency {
-        crate::types::Concurrency {
+    pub fn build(self) -> super::types::Concurrency {
+        super::types::Concurrency {
             reserved_concurrent_executions: self.reserved_concurrent_executions,
         }
     }

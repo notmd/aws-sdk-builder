@@ -29,8 +29,8 @@ impl ::std::fmt::Debug for FunctionCodeLocationError {
 }
 impl FunctionCodeLocationError {
     /// Creates a new builder-style object to manufacture [`FunctionCodeLocationError`](crate::types::FunctionCodeLocationError).
-    pub fn builder() -> crate::types::builders::FunctionCodeLocationErrorBuilder {
-        crate::types::builders::FunctionCodeLocationErrorBuilder::default()
+    pub fn builder() -> super::types::builders::FunctionCodeLocationErrorBuilder {
+        super::types::builders::FunctionCodeLocationErrorBuilder::default()
     }
 }
 
@@ -71,8 +71,8 @@ impl FunctionCodeLocationErrorBuilder {
         &self.message
     }
     /// Consumes the builder and constructs a [`FunctionCodeLocationError`](crate::types::FunctionCodeLocationError).
-    pub fn build(self) -> crate::types::FunctionCodeLocationError {
-        crate::types::FunctionCodeLocationError {
+    pub fn build(self) -> super::types::FunctionCodeLocationError {
+        super::types::FunctionCodeLocationError {
             error_code: self.error_code,
             message: self.message,
         }

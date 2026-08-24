@@ -30,8 +30,8 @@ impl ListInstanceProfilesForRoleInput {
 }
 impl ListInstanceProfilesForRoleInput {
     /// Creates a new builder-style object to manufacture [`ListInstanceProfilesForRoleInput`](crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput).
-    pub fn builder() -> crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleInputBuilder {
-        crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleInputBuilder::default()
+    pub fn builder() -> super::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleInputBuilder {
+        super::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleInputBuilder::default()
     }
 }
 
@@ -97,10 +97,10 @@ impl ListInstanceProfilesForRoleInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput,
+        super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput {
+        ::std::result::Result::Ok(super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput {
             role_name: self.role_name,
             marker: self.marker,
             max_items: self.max_items,

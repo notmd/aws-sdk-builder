@@ -70,7 +70,7 @@ impl super::Client {
     ///   - [`expires(Option<DateTime>)`](crate::operation::head_object::HeadObjectOutput::expires): <p>The date and time at which the object is no longer cacheable.</p>
     ///   - [`expires_string(Option<String>)`](crate::operation::head_object::HeadObjectOutput::expires_string): <p>The date and time at which the object is no longer cacheable.</p>
     /// - On failure, responds with [`SdkError<HeadObjectError>`](crate::operation::head_object::HeadObjectError)
-    pub fn head_object(&self) -> crate::operation::head_object::builders::HeadObjectFluentBuilder {
-        crate::operation::head_object::builders::HeadObjectFluentBuilder::new(self.handle.clone())
+    pub fn head_object(&self) -> super::operation::head_object::builders::HeadObjectFluentBuilder {
+        super::operation::head_object::builders::HeadObjectFluentBuilder::new(self.handle.clone())
     }
 }

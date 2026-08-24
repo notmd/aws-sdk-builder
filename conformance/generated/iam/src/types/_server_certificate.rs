@@ -6,17 +6,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ServerCertificate {
     /// <p>The meta information of the server certificate, such as its name, path, ID, and ARN.</p>
-    pub server_certificate_metadata: ::std::option::Option<crate::types::ServerCertificateMetadata>,
+    pub server_certificate_metadata: ::std::option::Option<super::types::ServerCertificateMetadata>,
     /// <p>The contents of the public key certificate.</p>
     pub certificate_body: ::std::string::String,
     /// <p>The contents of the public key certificate chain.</p>
     pub certificate_chain: ::std::option::Option<::std::string::String>,
     /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl ServerCertificate {
     /// <p>The meta information of the server certificate, such as its name, path, ID, and ARN.</p>
-    pub fn server_certificate_metadata(&self) -> ::std::option::Option<&crate::types::ServerCertificateMetadata> {
+    pub fn server_certificate_metadata(&self) -> ::std::option::Option<&super::types::ServerCertificateMetadata> {
         self.server_certificate_metadata.as_ref()
     }
     /// <p>The contents of the public key certificate.</p>
@@ -31,14 +31,14 @@ impl ServerCertificate {
     /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
 }
 impl ServerCertificate {
     /// Creates a new builder-style object to manufacture [`ServerCertificate`](crate::types::ServerCertificate).
-    pub fn builder() -> crate::types::builders::ServerCertificateBuilder {
-        crate::types::builders::ServerCertificateBuilder::default()
+    pub fn builder() -> super::types::builders::ServerCertificateBuilder {
+        super::types::builders::ServerCertificateBuilder::default()
     }
 }
 
@@ -46,25 +46,25 @@ impl ServerCertificate {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ServerCertificateBuilder {
-    pub(crate) server_certificate_metadata: ::std::option::Option<crate::types::ServerCertificateMetadata>,
+    pub(crate) server_certificate_metadata: ::std::option::Option<super::types::ServerCertificateMetadata>,
     pub(crate) certificate_body: ::std::option::Option<::std::string::String>,
     pub(crate) certificate_chain: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl ServerCertificateBuilder {
     /// <p>The meta information of the server certificate, such as its name, path, ID, and ARN.</p>
     /// This field is required.
-    pub fn server_certificate_metadata(mut self, input: crate::types::ServerCertificateMetadata) -> Self {
+    pub fn server_certificate_metadata(mut self, input: super::types::ServerCertificateMetadata) -> Self {
         self.server_certificate_metadata = ::std::option::Option::Some(input);
         self
     }
     /// <p>The meta information of the server certificate, such as its name, path, ID, and ARN.</p>
-    pub fn set_server_certificate_metadata(mut self, input: ::std::option::Option<crate::types::ServerCertificateMetadata>) -> Self {
+    pub fn set_server_certificate_metadata(mut self, input: ::std::option::Option<super::types::ServerCertificateMetadata>) -> Self {
         self.server_certificate_metadata = input;
         self
     }
     /// <p>The meta information of the server certificate, such as its name, path, ID, and ARN.</p>
-    pub fn get_server_certificate_metadata(&self) -> &::std::option::Option<crate::types::ServerCertificateMetadata> {
+    pub fn get_server_certificate_metadata(&self) -> &::std::option::Option<super::types::ServerCertificateMetadata> {
         &self.server_certificate_metadata
     }
     /// <p>The contents of the public key certificate.</p>
@@ -101,26 +101,26 @@ impl ServerCertificateBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`ServerCertificate`](crate::types::ServerCertificate).
     /// This method will fail if any of the following fields are not set:
     /// - [`certificate_body`](crate::types::builders::ServerCertificateBuilder::certificate_body)
-    pub fn build(self) -> ::std::result::Result<crate::types::ServerCertificate, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ServerCertificate {
+    pub fn build(self) -> ::std::result::Result<super::types::ServerCertificate, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::ServerCertificate {
             server_certificate_metadata: self.server_certificate_metadata,
             certificate_body: self.certificate_body.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

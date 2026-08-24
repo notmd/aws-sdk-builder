@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct TracingConfig {
     /// <p>The tracing mode.</p>
-    pub mode: ::std::option::Option<crate::types::TracingMode>,
+    pub mode: ::std::option::Option<super::types::TracingMode>,
 }
 impl TracingConfig {
     /// <p>The tracing mode.</p>
-    pub fn mode(&self) -> ::std::option::Option<&crate::types::TracingMode> {
+    pub fn mode(&self) -> ::std::option::Option<&super::types::TracingMode> {
         self.mode.as_ref()
     }
 }
 impl TracingConfig {
     /// Creates a new builder-style object to manufacture [`TracingConfig`](crate::types::TracingConfig).
-    pub fn builder() -> crate::types::builders::TracingConfigBuilder {
-        crate::types::builders::TracingConfigBuilder::default()
+    pub fn builder() -> super::types::builders::TracingConfigBuilder {
+        super::types::builders::TracingConfigBuilder::default()
     }
 }
 
@@ -24,25 +24,25 @@ impl TracingConfig {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TracingConfigBuilder {
-    pub(crate) mode: ::std::option::Option<crate::types::TracingMode>,
+    pub(crate) mode: ::std::option::Option<super::types::TracingMode>,
 }
 impl TracingConfigBuilder {
     /// <p>The tracing mode.</p>
-    pub fn mode(mut self, input: crate::types::TracingMode) -> Self {
+    pub fn mode(mut self, input: super::types::TracingMode) -> Self {
         self.mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>The tracing mode.</p>
-    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::TracingMode>) -> Self {
+    pub fn set_mode(mut self, input: ::std::option::Option<super::types::TracingMode>) -> Self {
         self.mode = input;
         self
     }
     /// <p>The tracing mode.</p>
-    pub fn get_mode(&self) -> &::std::option::Option<crate::types::TracingMode> {
+    pub fn get_mode(&self) -> &::std::option::Option<super::types::TracingMode> {
         &self.mode
     }
     /// Consumes the builder and constructs a [`TracingConfig`](crate::types::TracingConfig).
-    pub fn build(self) -> crate::types::TracingConfig {
-        crate::types::TracingConfig { mode: self.mode }
+    pub fn build(self) -> super::types::TracingConfig {
+        super::types::TracingConfig { mode: self.mode }
     }
 }

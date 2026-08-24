@@ -18,8 +18,8 @@ impl PutAccountPropertiesInput {
 }
 impl PutAccountPropertiesInput {
     /// Creates a new builder-style object to manufacture [`PutAccountPropertiesInput`](crate::operation::put_account_properties::PutAccountPropertiesInput).
-    pub fn builder() -> crate::operation::put_account_properties::builders::PutAccountPropertiesInputBuilder {
-        crate::operation::put_account_properties::builders::PutAccountPropertiesInputBuilder::default()
+    pub fn builder() -> super::operation::put_account_properties::builders::PutAccountPropertiesInputBuilder {
+        super::operation::put_account_properties::builders::PutAccountPropertiesInputBuilder::default()
     }
 }
 
@@ -59,8 +59,8 @@ impl PutAccountPropertiesInputBuilder {
     /// Consumes the builder and constructs a [`PutAccountPropertiesInput`](crate::operation::put_account_properties::PutAccountPropertiesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_account_properties::PutAccountPropertiesInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::put_account_properties::PutAccountPropertiesInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::put_account_properties::PutAccountPropertiesInput { properties: self.properties })
+        ::std::result::Result::Ok(super::operation::put_account_properties::PutAccountPropertiesInput { properties: self.properties })
     }
 }

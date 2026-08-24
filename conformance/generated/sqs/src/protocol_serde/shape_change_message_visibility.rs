@@ -5,18 +5,18 @@ pub fn de_change_message_visibility_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::change_message_visibility::ChangeMessageVisibilityOutput,
-    crate::operation::change_message_visibility::ChangeMessageVisibilityError,
+    super::operation::change_message_visibility::ChangeMessageVisibilityOutput,
+    super::operation::change_message_visibility::ChangeMessageVisibilityError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled(
+            return Err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled(
                 generic,
             ))
         }
@@ -24,13 +24,13 @@ pub fn de_change_message_visibility_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidAddress" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidAddress({
+        "InvalidAddress" => super::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidAddress({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidAddressBuilder::default();
-                output = crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
-                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidAddressBuilder::default();
+                output = super::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
+                    .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -39,13 +39,13 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "InvalidSecurity" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidSecurity({
+        "InvalidSecurity" => super::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidSecurity({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidSecurityBuilder::default();
-                output = crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
-                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidSecurityBuilder::default();
+                output = super::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
+                    .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -54,13 +54,13 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "MessageNotInflight" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
+        "MessageNotInflight" => super::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::MessageNotInflightBuilder::default();
-                output = crate::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
-                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                let mut output = super::types::error::builders::MessageNotInflightBuilder::default();
+                output = super::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
+                    .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -69,13 +69,13 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
+        "QueueDoesNotExist" => super::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
-                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
-                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                let mut output = super::types::error::builders::QueueDoesNotExistBuilder::default();
+                output = super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+                    .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -84,13 +84,13 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "ReceiptHandleIsInvalid" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::ReceiptHandleIsInvalid({
+        "ReceiptHandleIsInvalid" => super::operation::change_message_visibility::ChangeMessageVisibilityError::ReceiptHandleIsInvalid({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ReceiptHandleIsInvalidBuilder::default();
-                output = crate::protocol_serde::shape_receipt_handle_is_invalid::de_receipt_handle_is_invalid_json_err(_response_body, output)
-                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                let mut output = super::types::error::builders::ReceiptHandleIsInvalidBuilder::default();
+                output = super::protocol_serde::shape_receipt_handle_is_invalid::de_receipt_handle_is_invalid_json_err(_response_body, output)
+                    .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -99,13 +99,13 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "RequestThrottled" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::RequestThrottled({
+        "RequestThrottled" => super::operation::change_message_visibility::ChangeMessageVisibilityError::RequestThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::RequestThrottledBuilder::default();
-                output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
-                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                let mut output = super::types::error::builders::RequestThrottledBuilder::default();
+                output = super::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
+                    .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -114,13 +114,13 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
+        "UnsupportedOperation" => super::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                    .map_err(super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -129,7 +129,7 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        _ => crate::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic),
+        _ => super::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic),
     })
 }
 
@@ -139,35 +139,35 @@ pub fn de_change_message_visibility_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::change_message_visibility::ChangeMessageVisibilityOutput,
-    crate::operation::change_message_visibility::ChangeMessageVisibilityError,
+    super::operation::change_message_visibility::ChangeMessageVisibilityOutput,
+    super::operation::change_message_visibility::ChangeMessageVisibilityError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder::default();
+        let mut output = super::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_change_message_visibility_input(
-    input: &crate::operation::change_message_visibility::ChangeMessageVisibilityInput,
+    input: &super::operation::change_message_visibility::ChangeMessageVisibilityInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_change_message_visibility_input::ser_change_message_visibility_input_input(&mut object, input)?;
+    super::protocol_serde::shape_change_message_visibility_input::ser_change_message_visibility_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_change_message_visibility(
     _value: &[u8],
-    mut builder: crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
+    mut builder: super::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
+    super::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;

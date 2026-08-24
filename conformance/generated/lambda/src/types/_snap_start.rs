@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct SnapStart {
     /// <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
-    pub apply_on: ::std::option::Option<crate::types::SnapStartApplyOn>,
+    pub apply_on: ::std::option::Option<super::types::SnapStartApplyOn>,
 }
 impl SnapStart {
     /// <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
-    pub fn apply_on(&self) -> ::std::option::Option<&crate::types::SnapStartApplyOn> {
+    pub fn apply_on(&self) -> ::std::option::Option<&super::types::SnapStartApplyOn> {
         self.apply_on.as_ref()
     }
 }
 impl SnapStart {
     /// Creates a new builder-style object to manufacture [`SnapStart`](crate::types::SnapStart).
-    pub fn builder() -> crate::types::builders::SnapStartBuilder {
-        crate::types::builders::SnapStartBuilder::default()
+    pub fn builder() -> super::types::builders::SnapStartBuilder {
+        super::types::builders::SnapStartBuilder::default()
     }
 }
 
@@ -24,25 +24,25 @@ impl SnapStart {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SnapStartBuilder {
-    pub(crate) apply_on: ::std::option::Option<crate::types::SnapStartApplyOn>,
+    pub(crate) apply_on: ::std::option::Option<super::types::SnapStartApplyOn>,
 }
 impl SnapStartBuilder {
     /// <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
-    pub fn apply_on(mut self, input: crate::types::SnapStartApplyOn) -> Self {
+    pub fn apply_on(mut self, input: super::types::SnapStartApplyOn) -> Self {
         self.apply_on = ::std::option::Option::Some(input);
         self
     }
     /// <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
-    pub fn set_apply_on(mut self, input: ::std::option::Option<crate::types::SnapStartApplyOn>) -> Self {
+    pub fn set_apply_on(mut self, input: ::std::option::Option<super::types::SnapStartApplyOn>) -> Self {
         self.apply_on = input;
         self
     }
     /// <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
-    pub fn get_apply_on(&self) -> &::std::option::Option<crate::types::SnapStartApplyOn> {
+    pub fn get_apply_on(&self) -> &::std::option::Option<super::types::SnapStartApplyOn> {
         &self.apply_on
     }
     /// Consumes the builder and constructs a [`SnapStart`](crate::types::SnapStart).
-    pub fn build(self) -> crate::types::SnapStart {
-        crate::types::SnapStart { apply_on: self.apply_on }
+    pub fn build(self) -> super::types::SnapStart {
+        super::types::SnapStart { apply_on: self.apply_on }
     }
 }

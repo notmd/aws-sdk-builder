@@ -40,8 +40,8 @@ impl UploadSshPublicKeyInput {
 }
 impl UploadSshPublicKeyInput {
     /// Creates a new builder-style object to manufacture [`UploadSshPublicKeyInput`](crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput).
-    pub fn builder() -> crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder {
-        crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder::default()
+    pub fn builder() -> super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder {
+        super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder::default()
     }
 }
 
@@ -116,9 +116,9 @@ impl UploadSshPublicKeyInputBuilder {
     /// Consumes the builder and constructs a [`UploadSshPublicKeyInput`](crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::upload_ssh_public_key::UploadSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput {
+        ::std::result::Result::Ok(super::operation::upload_ssh_public_key::UploadSshPublicKeyInput {
             user_name: self.user_name,
             ssh_public_key_body: self.ssh_public_key_body,
         })

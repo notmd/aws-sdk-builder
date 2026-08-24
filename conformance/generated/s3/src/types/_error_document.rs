@@ -20,8 +20,8 @@ impl ErrorDocument {
 }
 impl ErrorDocument {
     /// Creates a new builder-style object to manufacture [`ErrorDocument`](crate::types::ErrorDocument).
-    pub fn builder() -> crate::types::builders::ErrorDocumentBuilder {
-        crate::types::builders::ErrorDocumentBuilder::default()
+    pub fn builder() -> super::types::builders::ErrorDocumentBuilder {
+        super::types::builders::ErrorDocumentBuilder::default()
     }
 }
 
@@ -56,8 +56,8 @@ impl ErrorDocumentBuilder {
     /// Consumes the builder and constructs a [`ErrorDocument`](crate::types::ErrorDocument).
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](crate::types::builders::ErrorDocumentBuilder::key)
-    pub fn build(self) -> ::std::result::Result<crate::types::ErrorDocument, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ErrorDocument {
+    pub fn build(self) -> ::std::result::Result<super::types::ErrorDocument, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::ErrorDocument {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "key",

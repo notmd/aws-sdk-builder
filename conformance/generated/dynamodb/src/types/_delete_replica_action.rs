@@ -16,8 +16,8 @@ impl DeleteReplicaAction {
 }
 impl DeleteReplicaAction {
     /// Creates a new builder-style object to manufacture [`DeleteReplicaAction`](crate::types::DeleteReplicaAction).
-    pub fn builder() -> crate::types::builders::DeleteReplicaActionBuilder {
-        crate::types::builders::DeleteReplicaActionBuilder::default()
+    pub fn builder() -> super::types::builders::DeleteReplicaActionBuilder {
+        super::types::builders::DeleteReplicaActionBuilder::default()
     }
 }
 
@@ -46,8 +46,8 @@ impl DeleteReplicaActionBuilder {
     /// Consumes the builder and constructs a [`DeleteReplicaAction`](crate::types::DeleteReplicaAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`region_name`](crate::types::builders::DeleteReplicaActionBuilder::region_name)
-    pub fn build(self) -> ::std::result::Result<crate::types::DeleteReplicaAction, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::DeleteReplicaAction {
+    pub fn build(self) -> ::std::result::Result<super::types::DeleteReplicaAction, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::DeleteReplicaAction {
             region_name: self.region_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "region_name",

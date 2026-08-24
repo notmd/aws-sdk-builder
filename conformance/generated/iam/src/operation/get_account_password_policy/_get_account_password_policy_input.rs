@@ -5,8 +5,8 @@
 pub struct GetAccountPasswordPolicyInput {}
 impl GetAccountPasswordPolicyInput {
     /// Creates a new builder-style object to manufacture [`GetAccountPasswordPolicyInput`](crate::operation::get_account_password_policy::GetAccountPasswordPolicyInput).
-    pub fn builder() -> crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyInputBuilder {
-        crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::get_account_password_policy::builders::GetAccountPasswordPolicyInputBuilder {
+        super::operation::get_account_password_policy::builders::GetAccountPasswordPolicyInputBuilder::default()
     }
 }
 
@@ -19,9 +19,9 @@ impl GetAccountPasswordPolicyInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_account_password_policy::GetAccountPasswordPolicyInput,
+        super::operation::get_account_password_policy::GetAccountPasswordPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_account_password_policy::GetAccountPasswordPolicyInput {})
+        ::std::result::Result::Ok(super::operation::get_account_password_policy::GetAccountPasswordPolicyInput {})
     }
 }

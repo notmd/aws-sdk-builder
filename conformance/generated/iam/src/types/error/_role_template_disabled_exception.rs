@@ -26,7 +26,7 @@ impl ::std::fmt::Display for RoleTemplateDisabledException {
     }
 }
 impl ::std::error::Error for RoleTemplateDisabledException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::RoleTemplateDisabledException {
+impl ::aws_types::request_id::RequestId for super::types::error::RoleTemplateDisabledException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for RoleTemplateD
 }
 impl RoleTemplateDisabledException {
     /// Creates a new builder-style object to manufacture [`RoleTemplateDisabledException`](crate::types::error::RoleTemplateDisabledException).
-    pub fn builder() -> crate::types::error::builders::RoleTemplateDisabledExceptionBuilder {
-        crate::types::error::builders::RoleTemplateDisabledExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::RoleTemplateDisabledExceptionBuilder {
+        super::types::error::builders::RoleTemplateDisabledExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl RoleTemplateDisabledExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RoleTemplateDisabledException`](crate::types::error::RoleTemplateDisabledException).
-    pub fn build(self) -> crate::types::error::RoleTemplateDisabledException {
-        crate::types::error::RoleTemplateDisabledException {
+    pub fn build(self) -> super::types::error::RoleTemplateDisabledException {
+        super::types::error::RoleTemplateDisabledException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

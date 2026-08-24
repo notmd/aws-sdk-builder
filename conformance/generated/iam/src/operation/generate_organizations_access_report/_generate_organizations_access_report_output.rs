@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for GenerateOrganizationsAccessReportOut
 }
 impl GenerateOrganizationsAccessReportOutput {
     /// Creates a new builder-style object to manufacture [`GenerateOrganizationsAccessReportOutput`](crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportOutput).
-    pub fn builder() -> crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportOutputBuilder {
-        crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportOutputBuilder::default()
+    pub fn builder() -> super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportOutputBuilder {
+        super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl GenerateOrganizationsAccessReportOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateOrganizationsAccessReportOutput`](crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportOutput).
-    pub fn build(self) -> crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportOutput {
-        crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportOutput {
+    pub fn build(self) -> super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportOutput {
+        super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportOutput {
             job_id: self.job_id,
             _request_id: self._request_id,
         }

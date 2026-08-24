@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for PurgeQueueOutput {
 }
 impl PurgeQueueOutput {
     /// Creates a new builder-style object to manufacture [`PurgeQueueOutput`](crate::operation::purge_queue::PurgeQueueOutput).
-    pub fn builder() -> crate::operation::purge_queue::builders::PurgeQueueOutputBuilder {
-        crate::operation::purge_queue::builders::PurgeQueueOutputBuilder::default()
+    pub fn builder() -> super::operation::purge_queue::builders::PurgeQueueOutputBuilder {
+        super::operation::purge_queue::builders::PurgeQueueOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl PurgeQueueOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PurgeQueueOutput`](crate::operation::purge_queue::PurgeQueueOutput).
-    pub fn build(self) -> crate::operation::purge_queue::PurgeQueueOutput {
-        crate::operation::purge_queue::PurgeQueueOutput {
+    pub fn build(self) -> super::operation::purge_queue::PurgeQueueOutput {
+        super::operation::purge_queue::PurgeQueueOutput {
             _request_id: self._request_id,
         }
     }

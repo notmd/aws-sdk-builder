@@ -26,7 +26,7 @@ impl ::std::fmt::Display for ExpiredTokenException {
     }
 }
 impl ::std::error::Error for ExpiredTokenException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ExpiredTokenException {
+impl ::aws_types::request_id::RequestId for super::types::error::ExpiredTokenException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ExpiredTokenE
 }
 impl ExpiredTokenException {
     /// Creates a new builder-style object to manufacture [`ExpiredTokenException`](crate::types::error::ExpiredTokenException).
-    pub fn builder() -> crate::types::error::builders::ExpiredTokenExceptionBuilder {
-        crate::types::error::builders::ExpiredTokenExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ExpiredTokenExceptionBuilder {
+        super::types::error::builders::ExpiredTokenExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl ExpiredTokenExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ExpiredTokenException`](crate::types::error::ExpiredTokenException).
-    pub fn build(self) -> crate::types::error::ExpiredTokenException {
-        crate::types::error::ExpiredTokenException {
+    pub fn build(self) -> super::types::error::ExpiredTokenException {
+        super::types::error::ExpiredTokenException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

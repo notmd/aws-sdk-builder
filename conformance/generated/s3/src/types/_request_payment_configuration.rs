@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RequestPaymentConfiguration {
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub payer: crate::types::Payer,
+    pub payer: super::types::Payer,
 }
 impl RequestPaymentConfiguration {
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub fn payer(&self) -> &crate::types::Payer {
+    pub fn payer(&self) -> &super::types::Payer {
         &self.payer
     }
 }
 impl RequestPaymentConfiguration {
     /// Creates a new builder-style object to manufacture [`RequestPaymentConfiguration`](crate::types::RequestPaymentConfiguration).
-    pub fn builder() -> crate::types::builders::RequestPaymentConfigurationBuilder {
-        crate::types::builders::RequestPaymentConfigurationBuilder::default()
+    pub fn builder() -> super::types::builders::RequestPaymentConfigurationBuilder {
+        super::types::builders::RequestPaymentConfigurationBuilder::default()
     }
 }
 
@@ -24,29 +24,29 @@ impl RequestPaymentConfiguration {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RequestPaymentConfigurationBuilder {
-    pub(crate) payer: ::std::option::Option<crate::types::Payer>,
+    pub(crate) payer: ::std::option::Option<super::types::Payer>,
 }
 impl RequestPaymentConfigurationBuilder {
     /// <p>Specifies who pays for the download and request fees.</p>
     /// This field is required.
-    pub fn payer(mut self, input: crate::types::Payer) -> Self {
+    pub fn payer(mut self, input: super::types::Payer) -> Self {
         self.payer = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub fn set_payer(mut self, input: ::std::option::Option<crate::types::Payer>) -> Self {
+    pub fn set_payer(mut self, input: ::std::option::Option<super::types::Payer>) -> Self {
         self.payer = input;
         self
     }
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub fn get_payer(&self) -> &::std::option::Option<crate::types::Payer> {
+    pub fn get_payer(&self) -> &::std::option::Option<super::types::Payer> {
         &self.payer
     }
     /// Consumes the builder and constructs a [`RequestPaymentConfiguration`](crate::types::RequestPaymentConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`payer`](crate::types::builders::RequestPaymentConfigurationBuilder::payer)
-    pub fn build(self) -> ::std::result::Result<crate::types::RequestPaymentConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::RequestPaymentConfiguration {
+    pub fn build(self) -> ::std::result::Result<super::types::RequestPaymentConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::RequestPaymentConfiguration {
             payer: self.payer.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "payer",

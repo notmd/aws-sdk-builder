@@ -24,8 +24,8 @@ impl DeleteServiceSpecificCredentialInput {
 }
 impl DeleteServiceSpecificCredentialInput {
     /// Creates a new builder-style object to manufacture [`DeleteServiceSpecificCredentialInput`](crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialInput).
-    pub fn builder() -> crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialInputBuilder {
-        crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialInputBuilder::default()
+    pub fn builder() -> super::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialInputBuilder {
+        super::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialInputBuilder::default()
     }
 }
 
@@ -76,11 +76,11 @@ impl DeleteServiceSpecificCredentialInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialInput,
+        super::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialInput {
+            super::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialInput {
                 user_name: self.user_name,
                 service_specific_credential_id: self.service_specific_credential_id,
             },

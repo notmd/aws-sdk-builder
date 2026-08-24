@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateOpenIdConnectProviderThumbprin
 }
 impl UpdateOpenIdConnectProviderThumbprintOutput {
     /// Creates a new builder-style object to manufacture [`UpdateOpenIdConnectProviderThumbprintOutput`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput).
-    pub fn builder() -> crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder {
-        crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder::default()
+    pub fn builder() -> super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder {
+        super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateOpenIdConnectProviderThumbprintOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateOpenIdConnectProviderThumbprintOutput`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput).
-    pub fn build(self) -> crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput {
-        crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput {
+    pub fn build(self) -> super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput {
+        super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput {
             _request_id: self._request_id,
         }
     }

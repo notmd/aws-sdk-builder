@@ -24,8 +24,8 @@ impl ResetServiceSpecificCredentialInput {
 }
 impl ResetServiceSpecificCredentialInput {
     /// Creates a new builder-style object to manufacture [`ResetServiceSpecificCredentialInput`](crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput).
-    pub fn builder() -> crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialInputBuilder {
-        crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialInputBuilder::default()
+    pub fn builder() -> super::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialInputBuilder {
+        super::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialInputBuilder::default()
     }
 }
 
@@ -76,10 +76,10 @@ impl ResetServiceSpecificCredentialInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput,
+        super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput {
+        ::std::result::Result::Ok(super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput {
             user_name: self.user_name,
             service_specific_credential_id: self.service_specific_credential_id,
         })

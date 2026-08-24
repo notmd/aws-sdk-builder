@@ -16,8 +16,8 @@ impl GetAccessKeyInfoInput {
 }
 impl GetAccessKeyInfoInput {
     /// Creates a new builder-style object to manufacture [`GetAccessKeyInfoInput`](crate::operation::get_access_key_info::GetAccessKeyInfoInput).
-    pub fn builder() -> crate::operation::get_access_key_info::builders::GetAccessKeyInfoInputBuilder {
-        crate::operation::get_access_key_info::builders::GetAccessKeyInfoInputBuilder::default()
+    pub fn builder() -> super::operation::get_access_key_info::builders::GetAccessKeyInfoInputBuilder {
+        super::operation::get_access_key_info::builders::GetAccessKeyInfoInputBuilder::default()
     }
 }
 
@@ -49,8 +49,8 @@ impl GetAccessKeyInfoInputBuilder {
     /// Consumes the builder and constructs a [`GetAccessKeyInfoInput`](crate::operation::get_access_key_info::GetAccessKeyInfoInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_access_key_info::GetAccessKeyInfoInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_access_key_info::GetAccessKeyInfoInput {
+    ) -> ::std::result::Result<super::operation::get_access_key_info::GetAccessKeyInfoInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_access_key_info::GetAccessKeyInfoInput {
             access_key_id: self.access_key_id,
         })
     }

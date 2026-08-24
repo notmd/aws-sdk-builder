@@ -17,13 +17,13 @@ pub struct JournalTableConfigurationResult {
     /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
     /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
     /// </note>
-    pub error: ::std::option::Option<crate::types::ErrorDetails>,
+    pub error: ::std::option::Option<super::types::ErrorDetails>,
     /// <p>The name of the journal table.</p>
     pub table_name: ::std::string::String,
     /// <p>The Amazon Resource Name (ARN) for the journal table.</p>
     pub table_arn: ::std::option::Option<::std::string::String>,
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub record_expiration: ::std::option::Option<crate::types::RecordExpiration>,
+    pub record_expiration: ::std::option::Option<super::types::RecordExpiration>,
 }
 impl JournalTableConfigurationResult {
     /// <p>The status of the journal table. The status values are:</p>
@@ -42,7 +42,7 @@ impl JournalTableConfigurationResult {
     /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
     /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
     /// </note>
-    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
+    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorDetails> {
         self.error.as_ref()
     }
     /// <p>The name of the journal table.</p>
@@ -55,14 +55,14 @@ impl JournalTableConfigurationResult {
         self.table_arn.as_deref()
     }
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub fn record_expiration(&self) -> ::std::option::Option<&crate::types::RecordExpiration> {
+    pub fn record_expiration(&self) -> ::std::option::Option<&super::types::RecordExpiration> {
         self.record_expiration.as_ref()
     }
 }
 impl JournalTableConfigurationResult {
     /// Creates a new builder-style object to manufacture [`JournalTableConfigurationResult`](crate::types::JournalTableConfigurationResult).
-    pub fn builder() -> crate::types::builders::JournalTableConfigurationResultBuilder {
-        crate::types::builders::JournalTableConfigurationResultBuilder::default()
+    pub fn builder() -> super::types::builders::JournalTableConfigurationResultBuilder {
+        super::types::builders::JournalTableConfigurationResultBuilder::default()
     }
 }
 
@@ -71,10 +71,10 @@ impl JournalTableConfigurationResult {
 #[non_exhaustive]
 pub struct JournalTableConfigurationResultBuilder {
     pub(crate) table_status: ::std::option::Option<::std::string::String>,
-    pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
+    pub(crate) error: ::std::option::Option<super::types::ErrorDetails>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) table_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) record_expiration: ::std::option::Option<crate::types::RecordExpiration>,
+    pub(crate) record_expiration: ::std::option::Option<super::types::RecordExpiration>,
 }
 impl JournalTableConfigurationResultBuilder {
     /// <p>The status of the journal table. The status values are:</p>
@@ -119,21 +119,21 @@ impl JournalTableConfigurationResultBuilder {
     /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
     /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
     /// </note>
-    pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
+    pub fn error(mut self, input: super::types::ErrorDetails) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
     /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
     /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
     /// </note>
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
+    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorDetails>) -> Self {
         self.error = input;
         self
     }
     /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
     /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
     /// </note>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
+    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorDetails> {
         &self.error
     }
     /// <p>The name of the journal table.</p>
@@ -167,25 +167,25 @@ impl JournalTableConfigurationResultBuilder {
     }
     /// <p>The journal table record expiration settings for the journal table.</p>
     /// This field is required.
-    pub fn record_expiration(mut self, input: crate::types::RecordExpiration) -> Self {
+    pub fn record_expiration(mut self, input: super::types::RecordExpiration) -> Self {
         self.record_expiration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self {
+    pub fn set_record_expiration(mut self, input: ::std::option::Option<super::types::RecordExpiration>) -> Self {
         self.record_expiration = input;
         self
     }
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub fn get_record_expiration(&self) -> &::std::option::Option<crate::types::RecordExpiration> {
+    pub fn get_record_expiration(&self) -> &::std::option::Option<super::types::RecordExpiration> {
         &self.record_expiration
     }
     /// Consumes the builder and constructs a [`JournalTableConfigurationResult`](crate::types::JournalTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
     /// - [`table_status`](crate::types::builders::JournalTableConfigurationResultBuilder::table_status)
     /// - [`table_name`](crate::types::builders::JournalTableConfigurationResultBuilder::table_name)
-    pub fn build(self) -> ::std::result::Result<crate::types::JournalTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::JournalTableConfigurationResult {
+    pub fn build(self) -> ::std::result::Result<super::types::JournalTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::JournalTableConfigurationResult {
             table_status: self.table_status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "table_status",

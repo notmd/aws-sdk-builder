@@ -32,8 +32,8 @@ impl DisableKeyInput {
 }
 impl DisableKeyInput {
     /// Creates a new builder-style object to manufacture [`DisableKeyInput`](crate::operation::disable_key::DisableKeyInput).
-    pub fn builder() -> crate::operation::disable_key::builders::DisableKeyInputBuilder {
-        crate::operation::disable_key::builders::DisableKeyInputBuilder::default()
+    pub fn builder() -> super::operation::disable_key::builders::DisableKeyInputBuilder {
+        super::operation::disable_key::builders::DisableKeyInputBuilder::default()
     }
 }
 
@@ -87,7 +87,7 @@ impl DisableKeyInputBuilder {
         &self.key_id
     }
     /// Consumes the builder and constructs a [`DisableKeyInput`](crate::operation::disable_key::DisableKeyInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::disable_key::DisableKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::disable_key::DisableKeyInput { key_id: self.key_id })
+    pub fn build(self) -> ::std::result::Result<super::operation::disable_key::DisableKeyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::disable_key::DisableKeyInput { key_id: self.key_id })
     }
 }

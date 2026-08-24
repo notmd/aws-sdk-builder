@@ -50,8 +50,8 @@ impl GetPublicKeyInput {
 }
 impl GetPublicKeyInput {
     /// Creates a new builder-style object to manufacture [`GetPublicKeyInput`](crate::operation::get_public_key::GetPublicKeyInput).
-    pub fn builder() -> crate::operation::get_public_key::builders::GetPublicKeyInputBuilder {
-        crate::operation::get_public_key::builders::GetPublicKeyInputBuilder::default()
+    pub fn builder() -> super::operation::get_public_key::builders::GetPublicKeyInputBuilder {
+        super::operation::get_public_key::builders::GetPublicKeyInputBuilder::default()
     }
 }
 
@@ -143,8 +143,8 @@ impl GetPublicKeyInputBuilder {
     /// Consumes the builder and constructs a [`GetPublicKeyInput`](crate::operation::get_public_key::GetPublicKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_public_key::GetPublicKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_public_key::GetPublicKeyInput {
+    ) -> ::std::result::Result<super::operation::get_public_key::GetPublicKeyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_public_key::GetPublicKeyInput {
             key_id: self.key_id,
             grant_tokens: self.grant_tokens,
         })

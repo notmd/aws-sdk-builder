@@ -14,8 +14,8 @@ impl GetResourcePolicyInput {
 }
 impl GetResourcePolicyInput {
     /// Creates a new builder-style object to manufacture [`GetResourcePolicyInput`](crate::operation::get_resource_policy::GetResourcePolicyInput).
-    pub fn builder() -> crate::operation::get_resource_policy::builders::GetResourcePolicyInputBuilder {
-        crate::operation::get_resource_policy::builders::GetResourcePolicyInputBuilder::default()
+    pub fn builder() -> super::operation::get_resource_policy::builders::GetResourcePolicyInputBuilder {
+        super::operation::get_resource_policy::builders::GetResourcePolicyInputBuilder::default()
     }
 }
 
@@ -44,8 +44,8 @@ impl GetResourcePolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetResourcePolicyInput`](crate::operation::get_resource_policy::GetResourcePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_resource_policy::GetResourcePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_resource_policy::GetResourcePolicyInput {
+    ) -> ::std::result::Result<super::operation::get_resource_policy::GetResourcePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_resource_policy::GetResourcePolicyInput {
             resource_arn: self.resource_arn,
         })
     }

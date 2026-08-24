@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetBucketAnalyticsConfigurationError>`](crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationError)
     pub fn get_bucket_analytics_configuration(
         &self,
-    ) -> crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationFluentBuilder {
-        crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationFluentBuilder {
+        super::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

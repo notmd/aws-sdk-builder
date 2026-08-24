@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UntagInstanceProfileOutput {
 }
 impl UntagInstanceProfileOutput {
     /// Creates a new builder-style object to manufacture [`UntagInstanceProfileOutput`](crate::operation::untag_instance_profile::UntagInstanceProfileOutput).
-    pub fn builder() -> crate::operation::untag_instance_profile::builders::UntagInstanceProfileOutputBuilder {
-        crate::operation::untag_instance_profile::builders::UntagInstanceProfileOutputBuilder::default()
+    pub fn builder() -> super::operation::untag_instance_profile::builders::UntagInstanceProfileOutputBuilder {
+        super::operation::untag_instance_profile::builders::UntagInstanceProfileOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UntagInstanceProfileOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UntagInstanceProfileOutput`](crate::operation::untag_instance_profile::UntagInstanceProfileOutput).
-    pub fn build(self) -> crate::operation::untag_instance_profile::UntagInstanceProfileOutput {
-        crate::operation::untag_instance_profile::UntagInstanceProfileOutput {
+    pub fn build(self) -> super::operation::untag_instance_profile::UntagInstanceProfileOutput {
+        super::operation::untag_instance_profile::UntagInstanceProfileOutput {
             _request_id: self._request_id,
         }
     }

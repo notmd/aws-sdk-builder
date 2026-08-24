@@ -33,8 +33,8 @@ impl Layer {
 }
 impl Layer {
     /// Creates a new builder-style object to manufacture [`Layer`](crate::types::Layer).
-    pub fn builder() -> crate::types::builders::LayerBuilder {
-        crate::types::builders::LayerBuilder::default()
+    pub fn builder() -> super::types::builders::LayerBuilder {
+        super::types::builders::LayerBuilder::default()
     }
 }
 
@@ -105,8 +105,8 @@ impl LayerBuilder {
         &self.signing_job_arn
     }
     /// Consumes the builder and constructs a [`Layer`](crate::types::Layer).
-    pub fn build(self) -> crate::types::Layer {
-        crate::types::Layer {
+    pub fn build(self) -> super::types::Layer {
+        super::types::Layer {
             arn: self.arn,
             code_size: self.code_size.unwrap_or_default(),
             signing_profile_version_arn: self.signing_profile_version_arn,

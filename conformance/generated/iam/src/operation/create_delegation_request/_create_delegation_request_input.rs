@@ -9,7 +9,7 @@ pub struct CreateDelegationRequestInput {
     /// <p>A description of the delegation request.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The permissions to be delegated in this delegation request.</p>
-    pub permissions: ::std::option::Option<crate::types::DelegationPermission>,
+    pub permissions: ::std::option::Option<super::types::DelegationPermission>,
     /// <p>A message explaining the reason for the delegation request.</p>
     /// <p>Requesters can utilize this field to add a custom note to the delegation request. This field is different from the description such that this is to be utilized for a custom messaging on a case-by-case basis.</p>
     /// <p>For example, if the current delegation request is in response to a previous request being rejected, this explanation can be added to the request via this field.</p>
@@ -42,7 +42,7 @@ impl CreateDelegationRequestInput {
         self.description.as_deref()
     }
     /// <p>The permissions to be delegated in this delegation request.</p>
-    pub fn permissions(&self) -> ::std::option::Option<&crate::types::DelegationPermission> {
+    pub fn permissions(&self) -> ::std::option::Option<&super::types::DelegationPermission> {
         self.permissions.as_ref()
     }
     /// <p>A message explaining the reason for the delegation request.</p>
@@ -80,8 +80,8 @@ impl CreateDelegationRequestInput {
 }
 impl CreateDelegationRequestInput {
     /// Creates a new builder-style object to manufacture [`CreateDelegationRequestInput`](crate::operation::create_delegation_request::CreateDelegationRequestInput).
-    pub fn builder() -> crate::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder {
-        crate::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder::default()
+    pub fn builder() -> super::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder {
+        super::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder::default()
     }
 }
 
@@ -91,7 +91,7 @@ impl CreateDelegationRequestInput {
 pub struct CreateDelegationRequestInputBuilder {
     pub(crate) owner_account_id: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
-    pub(crate) permissions: ::std::option::Option<crate::types::DelegationPermission>,
+    pub(crate) permissions: ::std::option::Option<super::types::DelegationPermission>,
     pub(crate) request_message: ::std::option::Option<::std::string::String>,
     pub(crate) requestor_workflow_id: ::std::option::Option<::std::string::String>,
     pub(crate) redirect_url: ::std::option::Option<::std::string::String>,
@@ -134,17 +134,17 @@ impl CreateDelegationRequestInputBuilder {
     }
     /// <p>The permissions to be delegated in this delegation request.</p>
     /// This field is required.
-    pub fn permissions(mut self, input: crate::types::DelegationPermission) -> Self {
+    pub fn permissions(mut self, input: super::types::DelegationPermission) -> Self {
         self.permissions = ::std::option::Option::Some(input);
         self
     }
     /// <p>The permissions to be delegated in this delegation request.</p>
-    pub fn set_permissions(mut self, input: ::std::option::Option<crate::types::DelegationPermission>) -> Self {
+    pub fn set_permissions(mut self, input: ::std::option::Option<super::types::DelegationPermission>) -> Self {
         self.permissions = input;
         self
     }
     /// <p>The permissions to be delegated in this delegation request.</p>
-    pub fn get_permissions(&self) -> &::std::option::Option<crate::types::DelegationPermission> {
+    pub fn get_permissions(&self) -> &::std::option::Option<super::types::DelegationPermission> {
         &self.permissions
     }
     /// <p>A message explaining the reason for the delegation request.</p>
@@ -262,10 +262,10 @@ impl CreateDelegationRequestInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::create_delegation_request::CreateDelegationRequestInput,
+        super::operation::create_delegation_request::CreateDelegationRequestInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::create_delegation_request::CreateDelegationRequestInput {
+        ::std::result::Result::Ok(super::operation::create_delegation_request::CreateDelegationRequestInput {
             owner_account_id: self.owner_account_id,
             description: self.description,
             permissions: self.permissions,

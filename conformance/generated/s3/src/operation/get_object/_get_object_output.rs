@@ -51,7 +51,7 @@ pub struct GetObjectOutput {
     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub checksum_xxhash128: ::std::option::Option<::std::string::String>,
     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub checksum_type: ::std::option::Option<crate::types::ChecksumType>,
+    pub checksum_type: ::std::option::Option<super::types::ChecksumType>,
     /// <p>This is set to the number of metadata entries not returned in the headers that are prefixed with <code>x-amz-meta-</code>. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -79,7 +79,7 @@ pub struct GetObjectOutput {
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     /// <p>A map of metadata to store with the object in S3.</p>
     pub metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
@@ -97,15 +97,15 @@ pub struct GetObjectOutput {
     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p><note>
     /// <p><b>Directory buckets </b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub storage_class: ::std::option::Option<crate::types::StorageClass>,
+    pub storage_class: ::std::option::Option<super::types::StorageClass>,
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     /// <p>Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
+    pub replication_status: ::std::option::Option<super::types::ReplicationStatus>,
     /// <p>The count of parts this object has. This value is only returned if you specify <code>partNumber</code> in your request and the object was uploaded as a multipart upload.</p>
     pub parts_count: ::std::option::Option<i32>,
     /// <p>The number of tags, if any, on the object, when you have the relevant permission to read object tags.</p>
@@ -116,7 +116,7 @@ pub struct GetObjectOutput {
     /// <p>The Object Lock mode that's currently in place for this object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub object_lock_mode: ::std::option::Option<crate::types::ObjectLockMode>,
+    pub object_lock_mode: ::std::option::Option<super::types::ObjectLockMode>,
     /// <p>The date and time when this object's Object Lock will expire.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -124,7 +124,7 @@ pub struct GetObjectOutput {
     /// <p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
+    pub object_lock_legal_hold_status: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>,
     /// <p>The date and time at which the object is no longer cacheable.</p>
     #[deprecated(note = "Please use `expires_string` which contains the raw, unparsed value of this field.")]
     pub expires: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -219,7 +219,7 @@ impl GetObjectOutput {
         self.checksum_xxhash128.as_deref()
     }
     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_type(&self) -> ::std::option::Option<&crate::types::ChecksumType> {
+    pub fn checksum_type(&self) -> ::std::option::Option<&super::types::ChecksumType> {
         self.checksum_type.as_ref()
     }
     /// <p>This is set to the number of metadata entries not returned in the headers that are prefixed with <code>x-amz-meta-</code>. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p><note>
@@ -267,7 +267,7 @@ impl GetObjectOutput {
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
+    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
         self.server_side_encryption.as_ref()
     }
     /// <p>A map of metadata to store with the object in S3.</p>
@@ -297,19 +297,19 @@ impl GetObjectOutput {
     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p><note>
     /// <p><b>Directory buckets </b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::StorageClass> {
+    pub fn storage_class(&self) -> ::std::option::Option<&super::types::StorageClass> {
         self.storage_class.as_ref()
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
     /// <p>Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn replication_status(&self) -> ::std::option::Option<&crate::types::ReplicationStatus> {
+    pub fn replication_status(&self) -> ::std::option::Option<&super::types::ReplicationStatus> {
         self.replication_status.as_ref()
     }
     /// <p>The count of parts this object has. This value is only returned if you specify <code>partNumber</code> in your request and the object was uploaded as a multipart upload.</p>
@@ -326,7 +326,7 @@ impl GetObjectOutput {
     /// <p>The Object Lock mode that's currently in place for this object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn object_lock_mode(&self) -> ::std::option::Option<&crate::types::ObjectLockMode> {
+    pub fn object_lock_mode(&self) -> ::std::option::Option<&super::types::ObjectLockMode> {
         self.object_lock_mode.as_ref()
     }
     /// <p>The date and time when this object's Object Lock will expire.</p><note>
@@ -338,7 +338,7 @@ impl GetObjectOutput {
     /// <p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&crate::types::ObjectLockLegalHoldStatus> {
+    pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&super::types::ObjectLockLegalHoldStatus> {
         self.object_lock_legal_hold_status.as_ref()
     }
     /// <p>The date and time at which the object is no longer cacheable.</p>
@@ -403,7 +403,7 @@ impl ::std::fmt::Debug for GetObjectOutput {
         formatter.finish()
     }
 }
-impl crate::s3_request_id::RequestIdExt for GetObjectOutput {
+impl super::s3_request_id::RequestIdExt for GetObjectOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -415,8 +415,8 @@ impl ::aws_types::request_id::RequestId for GetObjectOutput {
 }
 impl GetObjectOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectOutput`](crate::operation::get_object::GetObjectOutput).
-    pub fn builder() -> crate::operation::get_object::builders::GetObjectOutputBuilder {
-        crate::operation::get_object::builders::GetObjectOutputBuilder::default()
+    pub fn builder() -> super::operation::get_object::builders::GetObjectOutputBuilder {
+        super::operation::get_object::builders::GetObjectOutputBuilder::default()
     }
 }
 
@@ -442,7 +442,7 @@ pub struct GetObjectOutputBuilder {
     pub(crate) checksum_xxhash64: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_xxhash3: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_xxhash128: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_type: ::std::option::Option<crate::types::ChecksumType>,
+    pub(crate) checksum_type: ::std::option::Option<super::types::ChecksumType>,
     pub(crate) missing_meta: ::std::option::Option<i32>,
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
     pub(crate) cache_control: ::std::option::Option<::std::string::String>,
@@ -452,20 +452,20 @@ pub struct GetObjectOutputBuilder {
     pub(crate) content_range: ::std::option::Option<::std::string::String>,
     pub(crate) content_type: ::std::option::Option<::std::string::String>,
     pub(crate) website_redirect_location: ::std::option::Option<::std::string::String>,
-    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     pub(crate) metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
     pub(crate) sse_customer_key_md5: ::std::option::Option<::std::string::String>,
     pub(crate) ssekms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
-    pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
-    pub(crate) replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
+    pub(crate) storage_class: ::std::option::Option<super::types::StorageClass>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
+    pub(crate) replication_status: ::std::option::Option<super::types::ReplicationStatus>,
     pub(crate) parts_count: ::std::option::Option<i32>,
     pub(crate) tag_count: ::std::option::Option<i32>,
-    pub(crate) object_lock_mode: ::std::option::Option<crate::types::ObjectLockMode>,
+    pub(crate) object_lock_mode: ::std::option::Option<super::types::ObjectLockMode>,
     pub(crate) object_lock_retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
+    pub(crate) object_lock_legal_hold_status: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>,
     pub(crate) expires: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) expires_string: ::std::option::Option<::std::string::String>,
     _extended_request_id: Option<String>,
@@ -761,17 +761,17 @@ impl GetObjectOutputBuilder {
         &self.checksum_xxhash128
     }
     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
+    pub fn checksum_type(mut self, input: super::types::ChecksumType) -> Self {
         self.checksum_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
+    pub fn set_checksum_type(mut self, input: ::std::option::Option<super::types::ChecksumType>) -> Self {
         self.checksum_type = input;
         self
     }
     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
+    pub fn get_checksum_type(&self) -> &::std::option::Option<super::types::ChecksumType> {
         &self.checksum_type
     }
     /// <p>This is set to the number of metadata entries not returned in the headers that are prefixed with <code>x-amz-meta-</code>. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p><note>
@@ -921,21 +921,21 @@ impl GetObjectOutputBuilder {
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
+    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
     }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
         &self.server_side_encryption
     }
     /// Adds a key-value pair to `metadata`.
@@ -1029,61 +1029,61 @@ impl GetObjectOutputBuilder {
     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p><note>
     /// <p><b>Directory buckets </b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
+    pub fn storage_class(mut self, input: super::types::StorageClass) -> Self {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p><note>
     /// <p><b>Directory buckets </b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
+    pub fn set_storage_class(mut self, input: ::std::option::Option<super::types::StorageClass>) -> Self {
         self.storage_class = input;
         self
     }
     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p><note>
     /// <p><b>Directory buckets </b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
+    pub fn get_storage_class(&self) -> &::std::option::Option<super::types::StorageClass> {
         &self.storage_class
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     /// <p>Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn replication_status(mut self, input: crate::types::ReplicationStatus) -> Self {
+    pub fn replication_status(mut self, input: super::types::ReplicationStatus) -> Self {
         self.replication_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self {
+    pub fn set_replication_status(mut self, input: ::std::option::Option<super::types::ReplicationStatus>) -> Self {
         self.replication_status = input;
         self
     }
     /// <p>Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> {
+    pub fn get_replication_status(&self) -> &::std::option::Option<super::types::ReplicationStatus> {
         &self.replication_status
     }
     /// <p>The count of parts this object has. This value is only returned if you specify <code>partNumber</code> in your request and the object was uploaded as a multipart upload.</p>
@@ -1126,21 +1126,21 @@ impl GetObjectOutputBuilder {
     /// <p>The Object Lock mode that's currently in place for this object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn object_lock_mode(mut self, input: crate::types::ObjectLockMode) -> Self {
+    pub fn object_lock_mode(mut self, input: super::types::ObjectLockMode) -> Self {
         self.object_lock_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>The Object Lock mode that's currently in place for this object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockMode>) -> Self {
+    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<super::types::ObjectLockMode>) -> Self {
         self.object_lock_mode = input;
         self
     }
     /// <p>The Object Lock mode that's currently in place for this object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_object_lock_mode(&self) -> &::std::option::Option<crate::types::ObjectLockMode> {
+    pub fn get_object_lock_mode(&self) -> &::std::option::Option<super::types::ObjectLockMode> {
         &self.object_lock_mode
     }
     /// <p>The date and time when this object's Object Lock will expire.</p><note>
@@ -1166,21 +1166,21 @@ impl GetObjectOutputBuilder {
     /// <p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn object_lock_legal_hold_status(mut self, input: crate::types::ObjectLockLegalHoldStatus) -> Self {
+    pub fn object_lock_legal_hold_status(mut self, input: super::types::ObjectLockLegalHoldStatus) -> Self {
         self.object_lock_legal_hold_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>) -> Self {
+    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<super::types::ObjectLockLegalHoldStatus>) -> Self {
         self.object_lock_legal_hold_status = input;
         self
     }
     /// <p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHoldStatus> {
+    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<super::types::ObjectLockLegalHoldStatus> {
         &self.object_lock_legal_hold_status
     }
     /// <p>The date and time at which the object is no longer cacheable.</p>
@@ -1233,8 +1233,8 @@ impl GetObjectOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetObjectOutput`](crate::operation::get_object::GetObjectOutput).
-    pub fn build(self) -> crate::operation::get_object::GetObjectOutput {
-        crate::operation::get_object::GetObjectOutput {
+    pub fn build(self) -> super::operation::get_object::GetObjectOutput {
+        super::operation::get_object::GetObjectOutput {
             body: self.body.unwrap_or_default(),
             delete_marker: self.delete_marker,
             accept_ranges: self.accept_ranges,

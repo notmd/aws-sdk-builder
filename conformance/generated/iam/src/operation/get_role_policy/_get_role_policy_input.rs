@@ -24,8 +24,8 @@ impl GetRolePolicyInput {
 }
 impl GetRolePolicyInput {
     /// Creates a new builder-style object to manufacture [`GetRolePolicyInput`](crate::operation::get_role_policy::GetRolePolicyInput).
-    pub fn builder() -> crate::operation::get_role_policy::builders::GetRolePolicyInputBuilder {
-        crate::operation::get_role_policy::builders::GetRolePolicyInputBuilder::default()
+    pub fn builder() -> super::operation::get_role_policy::builders::GetRolePolicyInputBuilder {
+        super::operation::get_role_policy::builders::GetRolePolicyInputBuilder::default()
     }
 }
 
@@ -76,8 +76,8 @@ impl GetRolePolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetRolePolicyInput`](crate::operation::get_role_policy::GetRolePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_role_policy::GetRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_role_policy::GetRolePolicyInput {
+    ) -> ::std::result::Result<super::operation::get_role_policy::GetRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_role_policy::GetRolePolicyInput {
             role_name: self.role_name,
             policy_name: self.policy_name,
         })

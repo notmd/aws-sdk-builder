@@ -4,7 +4,7 @@ pub(crate) fn de_replica_global_secondary_index_auto_scaling_description_list<'a
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
+    Option<::std::vec::Vec<super::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -26,7 +26,7 @@ where
                         break;
                     }
                     _ => {
-                        let value = crate::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description::de_replica_global_secondary_index_auto_scaling_description(tokens, _value, depth + 1)?;
+                        let value = super::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description::de_replica_global_secondary_index_auto_scaling_description(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

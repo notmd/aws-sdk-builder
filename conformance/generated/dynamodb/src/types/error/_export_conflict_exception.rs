@@ -26,7 +26,7 @@ impl ::std::fmt::Display for ExportConflictException {
     }
 }
 impl ::std::error::Error for ExportConflictException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ExportConflictException {
+impl ::aws_types::request_id::RequestId for super::types::error::ExportConflictException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ExportConflic
 }
 impl ExportConflictException {
     /// Creates a new builder-style object to manufacture [`ExportConflictException`](crate::types::error::ExportConflictException).
-    pub fn builder() -> crate::types::error::builders::ExportConflictExceptionBuilder {
-        crate::types::error::builders::ExportConflictExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ExportConflictExceptionBuilder {
+        super::types::error::builders::ExportConflictExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl ExportConflictExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ExportConflictException`](crate::types::error::ExportConflictException).
-    pub fn build(self) -> crate::types::error::ExportConflictException {
-        crate::types::error::ExportConflictException {
+    pub fn build(self) -> super::types::error::ExportConflictException {
+        super::types::error::ExportConflictException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

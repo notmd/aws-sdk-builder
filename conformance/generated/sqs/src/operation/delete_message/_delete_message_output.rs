@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteMessageOutput {
 }
 impl DeleteMessageOutput {
     /// Creates a new builder-style object to manufacture [`DeleteMessageOutput`](crate::operation::delete_message::DeleteMessageOutput).
-    pub fn builder() -> crate::operation::delete_message::builders::DeleteMessageOutputBuilder {
-        crate::operation::delete_message::builders::DeleteMessageOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_message::builders::DeleteMessageOutputBuilder {
+        super::operation::delete_message::builders::DeleteMessageOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteMessageOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteMessageOutput`](crate::operation::delete_message::DeleteMessageOutput).
-    pub fn build(self) -> crate::operation::delete_message::DeleteMessageOutput {
-        crate::operation::delete_message::DeleteMessageOutput {
+    pub fn build(self) -> super::operation::delete_message::DeleteMessageOutput {
+        super::operation::delete_message::DeleteMessageOutput {
             _request_id: self._request_id,
         }
     }

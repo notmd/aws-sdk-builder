@@ -4,12 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AcquireRoleOutput {
     /// <p>A structure that contains details about the IAM role that was created.</p>
-    pub role: ::std::option::Option<crate::types::Role>,
+    pub role: ::std::option::Option<super::types::Role>,
     _request_id: Option<String>,
 }
 impl AcquireRoleOutput {
     /// <p>A structure that contains details about the IAM role that was created.</p>
-    pub fn role(&self) -> ::std::option::Option<&crate::types::Role> {
+    pub fn role(&self) -> ::std::option::Option<&super::types::Role> {
         self.role.as_ref()
     }
 }
@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for AcquireRoleOutput {
 }
 impl AcquireRoleOutput {
     /// Creates a new builder-style object to manufacture [`AcquireRoleOutput`](crate::operation::acquire_role::AcquireRoleOutput).
-    pub fn builder() -> crate::operation::acquire_role::builders::AcquireRoleOutputBuilder {
-        crate::operation::acquire_role::builders::AcquireRoleOutputBuilder::default()
+    pub fn builder() -> super::operation::acquire_role::builders::AcquireRoleOutputBuilder {
+        super::operation::acquire_role::builders::AcquireRoleOutputBuilder::default()
     }
 }
 
@@ -29,23 +29,23 @@ impl AcquireRoleOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AcquireRoleOutputBuilder {
-    pub(crate) role: ::std::option::Option<crate::types::Role>,
+    pub(crate) role: ::std::option::Option<super::types::Role>,
     _request_id: Option<String>,
 }
 impl AcquireRoleOutputBuilder {
     /// <p>A structure that contains details about the IAM role that was created.</p>
     /// This field is required.
-    pub fn role(mut self, input: crate::types::Role) -> Self {
+    pub fn role(mut self, input: super::types::Role) -> Self {
         self.role = ::std::option::Option::Some(input);
         self
     }
     /// <p>A structure that contains details about the IAM role that was created.</p>
-    pub fn set_role(mut self, input: ::std::option::Option<crate::types::Role>) -> Self {
+    pub fn set_role(mut self, input: ::std::option::Option<super::types::Role>) -> Self {
         self.role = input;
         self
     }
     /// <p>A structure that contains details about the IAM role that was created.</p>
-    pub fn get_role(&self) -> &::std::option::Option<crate::types::Role> {
+    pub fn get_role(&self) -> &::std::option::Option<super::types::Role> {
         &self.role
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -58,8 +58,8 @@ impl AcquireRoleOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AcquireRoleOutput`](crate::operation::acquire_role::AcquireRoleOutput).
-    pub fn build(self) -> crate::operation::acquire_role::AcquireRoleOutput {
-        crate::operation::acquire_role::AcquireRoleOutput {
+    pub fn build(self) -> super::operation::acquire_role::AcquireRoleOutput {
+        super::operation::acquire_role::AcquireRoleOutput {
             role: self.role,
             _request_id: self._request_id,
         }

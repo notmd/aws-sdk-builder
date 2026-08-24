@@ -5,12 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetInstanceProfileOutput {
     /// <p>A structure containing details about the instance profile.</p>
-    pub instance_profile: ::std::option::Option<crate::types::InstanceProfile>,
+    pub instance_profile: ::std::option::Option<super::types::InstanceProfile>,
     _request_id: Option<String>,
 }
 impl GetInstanceProfileOutput {
     /// <p>A structure containing details about the instance profile.</p>
-    pub fn instance_profile(&self) -> ::std::option::Option<&crate::types::InstanceProfile> {
+    pub fn instance_profile(&self) -> ::std::option::Option<&super::types::InstanceProfile> {
         self.instance_profile.as_ref()
     }
 }
@@ -21,8 +21,8 @@ impl ::aws_types::request_id::RequestId for GetInstanceProfileOutput {
 }
 impl GetInstanceProfileOutput {
     /// Creates a new builder-style object to manufacture [`GetInstanceProfileOutput`](crate::operation::get_instance_profile::GetInstanceProfileOutput).
-    pub fn builder() -> crate::operation::get_instance_profile::builders::GetInstanceProfileOutputBuilder {
-        crate::operation::get_instance_profile::builders::GetInstanceProfileOutputBuilder::default()
+    pub fn builder() -> super::operation::get_instance_profile::builders::GetInstanceProfileOutputBuilder {
+        super::operation::get_instance_profile::builders::GetInstanceProfileOutputBuilder::default()
     }
 }
 
@@ -30,23 +30,23 @@ impl GetInstanceProfileOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetInstanceProfileOutputBuilder {
-    pub(crate) instance_profile: ::std::option::Option<crate::types::InstanceProfile>,
+    pub(crate) instance_profile: ::std::option::Option<super::types::InstanceProfile>,
     _request_id: Option<String>,
 }
 impl GetInstanceProfileOutputBuilder {
     /// <p>A structure containing details about the instance profile.</p>
     /// This field is required.
-    pub fn instance_profile(mut self, input: crate::types::InstanceProfile) -> Self {
+    pub fn instance_profile(mut self, input: super::types::InstanceProfile) -> Self {
         self.instance_profile = ::std::option::Option::Some(input);
         self
     }
     /// <p>A structure containing details about the instance profile.</p>
-    pub fn set_instance_profile(mut self, input: ::std::option::Option<crate::types::InstanceProfile>) -> Self {
+    pub fn set_instance_profile(mut self, input: ::std::option::Option<super::types::InstanceProfile>) -> Self {
         self.instance_profile = input;
         self
     }
     /// <p>A structure containing details about the instance profile.</p>
-    pub fn get_instance_profile(&self) -> &::std::option::Option<crate::types::InstanceProfile> {
+    pub fn get_instance_profile(&self) -> &::std::option::Option<super::types::InstanceProfile> {
         &self.instance_profile
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -59,8 +59,8 @@ impl GetInstanceProfileOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetInstanceProfileOutput`](crate::operation::get_instance_profile::GetInstanceProfileOutput).
-    pub fn build(self) -> crate::operation::get_instance_profile::GetInstanceProfileOutput {
-        crate::operation::get_instance_profile::GetInstanceProfileOutput {
+    pub fn build(self) -> super::operation::get_instance_profile::GetInstanceProfileOutput {
+        super::operation::get_instance_profile::GetInstanceProfileOutput {
             instance_profile: self.instance_profile,
             _request_id: self._request_id,
         }

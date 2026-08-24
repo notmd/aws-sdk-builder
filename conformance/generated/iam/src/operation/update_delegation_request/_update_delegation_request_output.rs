@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateDelegationRequestOutput {
 }
 impl UpdateDelegationRequestOutput {
     /// Creates a new builder-style object to manufacture [`UpdateDelegationRequestOutput`](crate::operation::update_delegation_request::UpdateDelegationRequestOutput).
-    pub fn builder() -> crate::operation::update_delegation_request::builders::UpdateDelegationRequestOutputBuilder {
-        crate::operation::update_delegation_request::builders::UpdateDelegationRequestOutputBuilder::default()
+    pub fn builder() -> super::operation::update_delegation_request::builders::UpdateDelegationRequestOutputBuilder {
+        super::operation::update_delegation_request::builders::UpdateDelegationRequestOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateDelegationRequestOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateDelegationRequestOutput`](crate::operation::update_delegation_request::UpdateDelegationRequestOutput).
-    pub fn build(self) -> crate::operation::update_delegation_request::UpdateDelegationRequestOutput {
-        crate::operation::update_delegation_request::UpdateDelegationRequestOutput {
+    pub fn build(self) -> super::operation::update_delegation_request::UpdateDelegationRequestOutput {
+        super::operation::update_delegation_request::UpdateDelegationRequestOutput {
             _request_id: self._request_id,
         }
     }

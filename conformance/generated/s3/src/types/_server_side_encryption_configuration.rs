@@ -5,19 +5,19 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ServerSideEncryptionConfiguration {
     /// <p>Container for information about a particular server-side encryption configuration rule.</p>
-    pub rules: ::std::vec::Vec<crate::types::ServerSideEncryptionRule>,
+    pub rules: ::std::vec::Vec<super::types::ServerSideEncryptionRule>,
 }
 impl ServerSideEncryptionConfiguration {
     /// <p>Container for information about a particular server-side encryption configuration rule.</p>
-    pub fn rules(&self) -> &[crate::types::ServerSideEncryptionRule] {
+    pub fn rules(&self) -> &[super::types::ServerSideEncryptionRule] {
         use std::ops::Deref;
         self.rules.deref()
     }
 }
 impl ServerSideEncryptionConfiguration {
     /// Creates a new builder-style object to manufacture [`ServerSideEncryptionConfiguration`](crate::types::ServerSideEncryptionConfiguration).
-    pub fn builder() -> crate::types::builders::ServerSideEncryptionConfigurationBuilder {
-        crate::types::builders::ServerSideEncryptionConfigurationBuilder::default()
+    pub fn builder() -> super::types::builders::ServerSideEncryptionConfigurationBuilder {
+        super::types::builders::ServerSideEncryptionConfigurationBuilder::default()
     }
 }
 
@@ -25,7 +25,7 @@ impl ServerSideEncryptionConfiguration {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ServerSideEncryptionConfigurationBuilder {
-    pub(crate) rules: ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>,
+    pub(crate) rules: ::std::option::Option<::std::vec::Vec<super::types::ServerSideEncryptionRule>>,
 }
 impl ServerSideEncryptionConfigurationBuilder {
     /// Appends an item to `rules`.
@@ -33,26 +33,26 @@ impl ServerSideEncryptionConfigurationBuilder {
     /// To override the contents of this collection use [`set_rules`](Self::set_rules).
     ///
     /// <p>Container for information about a particular server-side encryption configuration rule.</p>
-    pub fn rules(mut self, input: crate::types::ServerSideEncryptionRule) -> Self {
+    pub fn rules(mut self, input: super::types::ServerSideEncryptionRule) -> Self {
         let mut v = self.rules.unwrap_or_default();
         v.push(input);
         self.rules = ::std::option::Option::Some(v);
         self
     }
     /// <p>Container for information about a particular server-side encryption configuration rule.</p>
-    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>) -> Self {
+    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ServerSideEncryptionRule>>) -> Self {
         self.rules = input;
         self
     }
     /// <p>Container for information about a particular server-side encryption configuration rule.</p>
-    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>> {
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ServerSideEncryptionRule>> {
         &self.rules
     }
     /// Consumes the builder and constructs a [`ServerSideEncryptionConfiguration`](crate::types::ServerSideEncryptionConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`rules`](crate::types::builders::ServerSideEncryptionConfigurationBuilder::rules)
-    pub fn build(self) -> ::std::result::Result<crate::types::ServerSideEncryptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ServerSideEncryptionConfiguration {
+    pub fn build(self) -> ::std::result::Result<super::types::ServerSideEncryptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::ServerSideEncryptionConfiguration {
             rules: self.rules.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "rules",

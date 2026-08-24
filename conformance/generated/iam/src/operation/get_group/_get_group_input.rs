@@ -30,8 +30,8 @@ impl GetGroupInput {
 }
 impl GetGroupInput {
     /// Creates a new builder-style object to manufacture [`GetGroupInput`](crate::operation::get_group::GetGroupInput).
-    pub fn builder() -> crate::operation::get_group::builders::GetGroupInputBuilder {
-        crate::operation::get_group::builders::GetGroupInputBuilder::default()
+    pub fn builder() -> super::operation::get_group::builders::GetGroupInputBuilder {
+        super::operation::get_group::builders::GetGroupInputBuilder::default()
     }
 }
 
@@ -94,8 +94,8 @@ impl GetGroupInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`GetGroupInput`](crate::operation::get_group::GetGroupInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_group::GetGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_group::GetGroupInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::get_group::GetGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_group::GetGroupInput {
             group_name: self.group_name,
             marker: self.marker,
             max_items: self.max_items,

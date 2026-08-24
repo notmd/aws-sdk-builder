@@ -39,7 +39,7 @@ impl ::std::fmt::Display for CustomKeyStoreInvalidStateException {
     }
 }
 impl ::std::error::Error for CustomKeyStoreInvalidStateException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::CustomKeyStoreInvalidStateException {
+impl ::aws_types::request_id::RequestId for super::types::error::CustomKeyStoreInvalidStateException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -52,8 +52,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CustomKeyStor
 }
 impl CustomKeyStoreInvalidStateException {
     /// Creates a new builder-style object to manufacture [`CustomKeyStoreInvalidStateException`](crate::types::error::CustomKeyStoreInvalidStateException).
-    pub fn builder() -> crate::types::error::builders::CustomKeyStoreInvalidStateExceptionBuilder {
-        crate::types::error::builders::CustomKeyStoreInvalidStateExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::CustomKeyStoreInvalidStateExceptionBuilder {
+        super::types::error::builders::CustomKeyStoreInvalidStateExceptionBuilder::default()
     }
 }
 
@@ -91,8 +91,8 @@ impl CustomKeyStoreInvalidStateExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CustomKeyStoreInvalidStateException`](crate::types::error::CustomKeyStoreInvalidStateException).
-    pub fn build(self) -> crate::types::error::CustomKeyStoreInvalidStateException {
-        crate::types::error::CustomKeyStoreInvalidStateException {
+    pub fn build(self) -> super::types::error::CustomKeyStoreInvalidStateException {
+        super::types::error::CustomKeyStoreInvalidStateException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

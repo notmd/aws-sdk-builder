@@ -20,7 +20,7 @@ pub fn parse_http_error_metadata(
     response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
 ) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    crate::json_errors::parse_error_metadata(response_body, response_headers)
+    super::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
 pub(crate) mod shape_add_layer_version_permission;

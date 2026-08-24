@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListSubscriptionsOutput {
     /// <p>A list of subscriptions.</p>
-    pub subscriptions: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>,
+    pub subscriptions: ::std::option::Option<::std::vec::Vec<super::types::Subscription>>,
     /// <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element is returned if there are more subscriptions to retrieve.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -14,7 +14,7 @@ impl ListSubscriptionsOutput {
     /// <p>A list of subscriptions.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.subscriptions.is_none()`.
-    pub fn subscriptions(&self) -> &[crate::types::Subscription] {
+    pub fn subscriptions(&self) -> &[super::types::Subscription] {
         self.subscriptions.as_deref().unwrap_or_default()
     }
     /// <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element is returned if there are more subscriptions to retrieve.</p>
@@ -29,8 +29,8 @@ impl ::aws_types::request_id::RequestId for ListSubscriptionsOutput {
 }
 impl ListSubscriptionsOutput {
     /// Creates a new builder-style object to manufacture [`ListSubscriptionsOutput`](crate::operation::list_subscriptions::ListSubscriptionsOutput).
-    pub fn builder() -> crate::operation::list_subscriptions::builders::ListSubscriptionsOutputBuilder {
-        crate::operation::list_subscriptions::builders::ListSubscriptionsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_subscriptions::builders::ListSubscriptionsOutputBuilder {
+        super::operation::list_subscriptions::builders::ListSubscriptionsOutputBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl ListSubscriptionsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSubscriptionsOutputBuilder {
-    pub(crate) subscriptions: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>,
+    pub(crate) subscriptions: ::std::option::Option<::std::vec::Vec<super::types::Subscription>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -48,19 +48,19 @@ impl ListSubscriptionsOutputBuilder {
     /// To override the contents of this collection use [`set_subscriptions`](Self::set_subscriptions).
     ///
     /// <p>A list of subscriptions.</p>
-    pub fn subscriptions(mut self, input: crate::types::Subscription) -> Self {
+    pub fn subscriptions(mut self, input: super::types::Subscription) -> Self {
         let mut v = self.subscriptions.unwrap_or_default();
         v.push(input);
         self.subscriptions = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of subscriptions.</p>
-    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>) -> Self {
+    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Subscription>>) -> Self {
         self.subscriptions = input;
         self
     }
     /// <p>A list of subscriptions.</p>
-    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Subscription>> {
+    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Subscription>> {
         &self.subscriptions
     }
     /// <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element is returned if there are more subscriptions to retrieve.</p>
@@ -87,8 +87,8 @@ impl ListSubscriptionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListSubscriptionsOutput`](crate::operation::list_subscriptions::ListSubscriptionsOutput).
-    pub fn build(self) -> crate::operation::list_subscriptions::ListSubscriptionsOutput {
-        crate::operation::list_subscriptions::ListSubscriptionsOutput {
+    pub fn build(self) -> super::operation::list_subscriptions::ListSubscriptionsOutput {
+        super::operation::list_subscriptions::ListSubscriptionsOutput {
             subscriptions: self.subscriptions,
             next_token: self.next_token,
             _request_id: self._request_id,

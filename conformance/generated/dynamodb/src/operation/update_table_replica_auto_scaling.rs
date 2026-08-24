@@ -10,11 +10,11 @@ impl UpdateTableReplicaAutoScaling {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
+        input: super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
     ) -> ::std::result::Result<
-        crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput,
+        super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
+            super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl UpdateTableReplicaAutoScaling {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError>()
+                err.downcast::<super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl UpdateTableReplicaAutoScaling {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput>()
+                .downcast::<super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
+        input: super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -72,8 +72,8 @@ impl UpdateTableReplicaAutoScaling {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -81,7 +81,7 @@ impl UpdateTableReplicaAutoScaling {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -102,7 +102,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateT
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("UpdateTableReplicaAutoScaling")
                 .build()
                 .expect("required fields set"),
@@ -142,13 +142,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateT
                 UpdateTableReplicaAutoScalingEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
+                super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
+                super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
+                super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -213,11 +213,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for UpdateTab
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_update_table_replica_auto_scaling::de_update_table_replica_auto_scaling_http_error(status, headers, body)
+            super::protocol_serde::shape_update_table_replica_auto_scaling::de_update_table_replica_auto_scaling_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_update_table_replica_auto_scaling::de_update_table_replica_auto_scaling_http_response(status, headers, body)
+            super::protocol_serde::shape_update_table_replica_auto_scaling::de_update_table_replica_auto_scaling_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -230,16 +230,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateTableR
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput>()
+            .downcast::<super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
+                _input: &super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -248,7 +248,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateTableR
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
+                input: &super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -265,7 +265,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateTableR
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_update_table_replica_auto_scaling::ser_update_table_replica_auto_scaling_input(&input)?,
+            super::protocol_serde::shape_update_table_replica_auto_scaling::ser_update_table_replica_auto_scaling_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -298,7 +298,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateTableRe
             .downcast_ref::<UpdateTableReplicaAutoScalingInput>()
             .ok_or("failed to downcast to UpdateTableReplicaAutoScalingInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -334,7 +334,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateTableRe
 #[derive(::std::fmt::Debug)]
 pub enum UpdateTableReplicaAutoScalingError {
     /// <p>An error occurred on the server side.</p>
-    InternalServerError(crate::types::error::InternalServerError),
+    InternalServerError(super::types::error::InternalServerError),
     /// <p>There is no limit to the number of daily on-demand backups that can be taken.</p>
     /// <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>.</p>
     /// <p>When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.</p>
@@ -342,7 +342,7 @@ pub enum UpdateTableReplicaAutoScalingError {
     /// <p>There is a soft account quota of 2,500 tables.</p>
     /// <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
     /// <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.</p>
-    LimitExceededException(crate::types::error::LimitExceededException),
+    LimitExceededException(super::types::error::LimitExceededException),
     /// <p>The operation conflicts with the resource's availability. For example:</p>
     /// <ul>
     /// <li>
@@ -353,9 +353,9 @@ pub enum UpdateTableReplicaAutoScalingError {
     /// <p>You tried to update a resource that was already being updated.</p></li>
     /// </ul>
     /// <p>When appropriate, wait for the ongoing update to complete and attempt the request again.</p>
-    ResourceInUseException(crate::types::error::ResourceInUseException),
+    ResourceInUseException(super::types::error::ResourceInUseException),
     /// <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -363,14 +363,14 @@ pub enum UpdateTableReplicaAutoScalingError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UpdateTableReplicaAutoScalingError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl UpdateTableReplicaAutoScalingError {
     /// Creates the `UpdateTableReplicaAutoScalingError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -378,7 +378,7 @@ impl UpdateTableReplicaAutoScalingError {
 
     /// Creates the `UpdateTableReplicaAutoScalingError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -465,21 +465,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateTa
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError {
+impl ::aws_types::request_id::RequestId for super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::update_table_replica_auto_scaling::_update_table_replica_auto_scaling_input::UpdateTableReplicaAutoScalingInput;
+pub use super::operation::update_table_replica_auto_scaling::_update_table_replica_auto_scaling_input::UpdateTableReplicaAutoScalingInput;
 
-pub use crate::operation::update_table_replica_auto_scaling::_update_table_replica_auto_scaling_output::UpdateTableReplicaAutoScalingOutput;
+pub use super::operation::update_table_replica_auto_scaling::_update_table_replica_auto_scaling_output::UpdateTableReplicaAutoScalingOutput;
 
 mod _update_table_replica_auto_scaling_input;
 

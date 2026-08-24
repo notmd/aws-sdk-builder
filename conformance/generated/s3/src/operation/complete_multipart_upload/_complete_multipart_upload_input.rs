@@ -13,7 +13,7 @@ pub struct CompleteMultipartUploadInput {
     /// <p>Object key for which the multipart upload was initiated.</p>
     pub key: ::std::option::Option<::std::string::String>,
     /// <p>The container for the multipart upload request information.</p>
-    pub multipart_upload: ::std::option::Option<crate::types::CompletedMultipartUpload>,
+    pub multipart_upload: ::std::option::Option<super::types::CompletedMultipartUpload>,
     /// <p>ID for the initiated multipart upload.</p>
     pub upload_id: ::std::option::Option<::std::string::String>,
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -37,13 +37,13 @@ pub struct CompleteMultipartUploadInput {
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub checksum_xxhash128: ::std::option::Option<::std::string::String>,
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. If the checksum type doesn’t match the checksum type that was specified for the object during the <code>CreateMultipartUpload</code> request, it’ll result in a <code>BadDigest</code> error. For more information, see Checking object integrity in the Amazon S3 User Guide.</p>
-    pub checksum_type: ::std::option::Option<crate::types::ChecksumType>,
+    pub checksum_type: ::std::option::Option<super::types::ChecksumType>,
     /// <p>The expected total object size of the multipart upload request. If there’s a mismatch between the specified object size value and the actual object size value, it results in an <code>HTTP 400 InvalidRequest</code> error.</p>
     pub mpu_object_size: ::std::option::Option<i64>,
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
     /// <p>Uploads the object only if the ETag (entity tag) value provided during the WRITE operation matches the ETag of the object in S3. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</p>
@@ -84,7 +84,7 @@ impl CompleteMultipartUploadInput {
         self.key.as_deref()
     }
     /// <p>The container for the multipart upload request information.</p>
-    pub fn multipart_upload(&self) -> ::std::option::Option<&crate::types::CompletedMultipartUpload> {
+    pub fn multipart_upload(&self) -> ::std::option::Option<&super::types::CompletedMultipartUpload> {
         self.multipart_upload.as_ref()
     }
     /// <p>ID for the initiated multipart upload.</p>
@@ -132,7 +132,7 @@ impl CompleteMultipartUploadInput {
         self.checksum_xxhash128.as_deref()
     }
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. If the checksum type doesn’t match the checksum type that was specified for the object during the <code>CreateMultipartUpload</code> request, it’ll result in a <code>BadDigest</code> error. For more information, see Checking object integrity in the Amazon S3 User Guide.</p>
-    pub fn checksum_type(&self) -> ::std::option::Option<&crate::types::ChecksumType> {
+    pub fn checksum_type(&self) -> ::std::option::Option<&super::types::ChecksumType> {
         self.checksum_type.as_ref()
     }
     /// <p>The expected total object size of the multipart upload request. If there’s a mismatch between the specified object size value and the actual object size value, it results in an <code>HTTP 400 InvalidRequest</code> error.</p>
@@ -142,7 +142,7 @@ impl CompleteMultipartUploadInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
         self.request_payer.as_ref()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -213,8 +213,8 @@ impl ::std::fmt::Debug for CompleteMultipartUploadInput {
 }
 impl CompleteMultipartUploadInput {
     /// Creates a new builder-style object to manufacture [`CompleteMultipartUploadInput`](crate::operation::complete_multipart_upload::CompleteMultipartUploadInput).
-    pub fn builder() -> crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadInputBuilder {
-        crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadInputBuilder::default()
+    pub fn builder() -> super::operation::complete_multipart_upload::builders::CompleteMultipartUploadInputBuilder {
+        super::operation::complete_multipart_upload::builders::CompleteMultipartUploadInputBuilder::default()
     }
 }
 
@@ -224,7 +224,7 @@ impl CompleteMultipartUploadInput {
 pub struct CompleteMultipartUploadInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) key: ::std::option::Option<::std::string::String>,
-    pub(crate) multipart_upload: ::std::option::Option<crate::types::CompletedMultipartUpload>,
+    pub(crate) multipart_upload: ::std::option::Option<super::types::CompletedMultipartUpload>,
     pub(crate) upload_id: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_crc32: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_crc32_c: ::std::option::Option<::std::string::String>,
@@ -236,9 +236,9 @@ pub struct CompleteMultipartUploadInputBuilder {
     pub(crate) checksum_xxhash64: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_xxhash3: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_xxhash128: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_type: ::std::option::Option<crate::types::ChecksumType>,
+    pub(crate) checksum_type: ::std::option::Option<super::types::ChecksumType>,
     pub(crate) mpu_object_size: ::std::option::Option<i64>,
-    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
     pub(crate) if_match: ::std::option::Option<::std::string::String>,
     pub(crate) if_none_match: ::std::option::Option<::std::string::String>,
@@ -293,17 +293,17 @@ impl CompleteMultipartUploadInputBuilder {
         &self.key
     }
     /// <p>The container for the multipart upload request information.</p>
-    pub fn multipart_upload(mut self, input: crate::types::CompletedMultipartUpload) -> Self {
+    pub fn multipart_upload(mut self, input: super::types::CompletedMultipartUpload) -> Self {
         self.multipart_upload = ::std::option::Option::Some(input);
         self
     }
     /// <p>The container for the multipart upload request information.</p>
-    pub fn set_multipart_upload(mut self, input: ::std::option::Option<crate::types::CompletedMultipartUpload>) -> Self {
+    pub fn set_multipart_upload(mut self, input: ::std::option::Option<super::types::CompletedMultipartUpload>) -> Self {
         self.multipart_upload = input;
         self
     }
     /// <p>The container for the multipart upload request information.</p>
-    pub fn get_multipart_upload(&self) -> &::std::option::Option<crate::types::CompletedMultipartUpload> {
+    pub fn get_multipart_upload(&self) -> &::std::option::Option<super::types::CompletedMultipartUpload> {
         &self.multipart_upload
     }
     /// <p>ID for the initiated multipart upload.</p>
@@ -462,17 +462,17 @@ impl CompleteMultipartUploadInputBuilder {
         &self.checksum_xxhash128
     }
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. If the checksum type doesn’t match the checksum type that was specified for the object during the <code>CreateMultipartUpload</code> request, it’ll result in a <code>BadDigest</code> error. For more information, see Checking object integrity in the Amazon S3 User Guide.</p>
-    pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
+    pub fn checksum_type(mut self, input: super::types::ChecksumType) -> Self {
         self.checksum_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. If the checksum type doesn’t match the checksum type that was specified for the object during the <code>CreateMultipartUpload</code> request, it’ll result in a <code>BadDigest</code> error. For more information, see Checking object integrity in the Amazon S3 User Guide.</p>
-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
+    pub fn set_checksum_type(mut self, input: ::std::option::Option<super::types::ChecksumType>) -> Self {
         self.checksum_type = input;
         self
     }
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. If the checksum type doesn’t match the checksum type that was specified for the object during the <code>CreateMultipartUpload</code> request, it’ll result in a <code>BadDigest</code> error. For more information, see Checking object integrity in the Amazon S3 User Guide.</p>
-    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
+    pub fn get_checksum_type(&self) -> &::std::option::Option<super::types::ChecksumType> {
         &self.checksum_type
     }
     /// <p>The expected total object size of the multipart upload request. If there’s a mismatch between the specified object size value and the actual object size value, it results in an <code>HTTP 400 InvalidRequest</code> error.</p>
@@ -492,21 +492,21 @@ impl CompleteMultipartUploadInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
         &self.request_payer
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -633,10 +633,10 @@ impl CompleteMultipartUploadInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::complete_multipart_upload::CompleteMultipartUploadInput,
+        super::operation::complete_multipart_upload::CompleteMultipartUploadInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::complete_multipart_upload::CompleteMultipartUploadInput {
+        ::std::result::Result::Ok(super::operation::complete_multipart_upload::CompleteMultipartUploadInput {
             bucket: self.bucket,
             key: self.key,
             multipart_upload: self.multipart_upload,

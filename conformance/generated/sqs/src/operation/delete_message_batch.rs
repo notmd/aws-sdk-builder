@@ -10,11 +10,11 @@ impl DeleteMessageBatch {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::delete_message_batch::DeleteMessageBatchInput,
+        input: super::operation::delete_message_batch::DeleteMessageBatchInput,
     ) -> ::std::result::Result<
-        crate::operation::delete_message_batch::DeleteMessageBatchOutput,
+        super::operation::delete_message_batch::DeleteMessageBatchOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_message_batch::DeleteMessageBatchError,
+            super::operation::delete_message_batch::DeleteMessageBatchError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl DeleteMessageBatch {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::delete_message_batch::DeleteMessageBatchError>()
+                err.downcast::<super::operation::delete_message_batch::DeleteMessageBatchError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl DeleteMessageBatch {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::delete_message_batch::DeleteMessageBatchOutput>()
+                .downcast::<super::operation::delete_message_batch::DeleteMessageBatchOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::delete_message_batch::DeleteMessageBatchInput,
+        input: super::operation::delete_message_batch::DeleteMessageBatchInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl DeleteMessageBatch {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl DeleteMessageBatch {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteM
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("DeleteMessageBatch")
                 .build()
                 .expect("required fields set"),
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteM
                 DeleteMessageBatchEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::delete_message_batch::DeleteMessageBatchError,
+                super::operation::delete_message_batch::DeleteMessageBatchError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::delete_message_batch::DeleteMessageBatchError,
+                super::operation::delete_message_batch::DeleteMessageBatchError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::delete_message_batch::DeleteMessageBatchError,
+                super::operation::delete_message_batch::DeleteMessageBatchError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -204,11 +204,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DeleteMes
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_delete_message_batch::de_delete_message_batch_http_error(status, headers, body)
+            super::protocol_serde::shape_delete_message_batch::de_delete_message_batch_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_delete_message_batch::de_delete_message_batch_http_response(status, headers, body)
+            super::protocol_serde::shape_delete_message_batch::de_delete_message_batch_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -221,16 +221,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteMessag
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::delete_message_batch::DeleteMessageBatchInput>()
+            .downcast::<super::operation::delete_message_batch::DeleteMessageBatchInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::delete_message_batch::DeleteMessageBatchInput,
+                _input: &super::operation::delete_message_batch::DeleteMessageBatchInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -239,7 +239,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteMessag
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::delete_message_batch::DeleteMessageBatchInput,
+                input: &super::operation::delete_message_batch::DeleteMessageBatchInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -256,7 +256,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteMessag
             builder
         };
         let body =
-            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_message_batch::ser_delete_message_batch_input(&input)?);
+            ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_delete_message_batch::ser_delete_message_batch_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -288,7 +288,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteMessage
             .downcast_ref::<DeleteMessageBatchInput>()
             .ok_or("failed to downcast to DeleteMessageBatchInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -311,17 +311,17 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteMessage
 #[derive(::std::fmt::Debug)]
 pub enum DeleteMessageBatchError {
     /// <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
-    BatchEntryIdsNotDistinct(crate::types::error::BatchEntryIdsNotDistinct),
+    BatchEntryIdsNotDistinct(super::types::error::BatchEntryIdsNotDistinct),
     /// <p>The batch request doesn't contain any entries.</p>
-    EmptyBatchRequest(crate::types::error::EmptyBatchRequest),
+    EmptyBatchRequest(super::types::error::EmptyBatchRequest),
     /// <p>The specified ID is invalid.</p>
-    InvalidAddress(crate::types::error::InvalidAddress),
+    InvalidAddress(super::types::error::InvalidAddress),
     /// <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
-    InvalidBatchEntryId(crate::types::error::InvalidBatchEntryId),
+    InvalidBatchEntryId(super::types::error::InvalidBatchEntryId),
     /// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
-    InvalidSecurity(crate::types::error::InvalidSecurity),
+    InvalidSecurity(super::types::error::InvalidSecurity),
     /// <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been deleted.</p>
-    QueueDoesNotExist(crate::types::error::QueueDoesNotExist),
+    QueueDoesNotExist(super::types::error::QueueDoesNotExist),
     /// <p>The request was denied due to request throttling.</p>
     /// <ul>
     /// <li>
@@ -329,11 +329,11 @@ pub enum DeleteMessageBatchError {
     /// <li>
     /// <p>Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS Developer Guide</i>.</p></li>
     /// </ul>
-    RequestThrottled(crate::types::error::RequestThrottled),
+    RequestThrottled(super::types::error::RequestThrottled),
     /// <p>The batch request contains more entries than permissible. For Amazon SQS, the maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
-    TooManyEntriesInBatchRequest(crate::types::error::TooManyEntriesInBatchRequest),
+    TooManyEntriesInBatchRequest(super::types::error::TooManyEntriesInBatchRequest),
     /// <p>Error code 400. Unsupported operation.</p>
-    UnsupportedOperation(crate::types::error::UnsupportedOperation),
+    UnsupportedOperation(super::types::error::UnsupportedOperation),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -341,14 +341,14 @@ pub enum DeleteMessageBatchError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteMessageBatchError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl DeleteMessageBatchError {
     /// Creates the `DeleteMessageBatchError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -356,7 +356,7 @@ impl DeleteMessageBatchError {
 
     /// Creates the `DeleteMessageBatchError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -483,21 +483,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteMe
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::delete_message_batch::DeleteMessageBatchError {
+impl ::aws_types::request_id::RequestId for super::operation::delete_message_batch::DeleteMessageBatchError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::delete_message_batch::_delete_message_batch_input::DeleteMessageBatchInput;
+pub use super::operation::delete_message_batch::_delete_message_batch_input::DeleteMessageBatchInput;
 
-pub use crate::operation::delete_message_batch::_delete_message_batch_output::DeleteMessageBatchOutput;
+pub use super::operation::delete_message_batch::_delete_message_batch_output::DeleteMessageBatchOutput;
 
 mod _delete_message_batch_input;
 

@@ -23,8 +23,8 @@ impl OnFailure {
 }
 impl OnFailure {
     /// Creates a new builder-style object to manufacture [`OnFailure`](crate::types::OnFailure).
-    pub fn builder() -> crate::types::builders::OnFailureBuilder {
-        crate::types::builders::OnFailureBuilder::default()
+    pub fn builder() -> super::types::builders::OnFailureBuilder {
+        super::types::builders::OnFailureBuilder::default()
     }
 }
 
@@ -62,8 +62,8 @@ impl OnFailureBuilder {
         &self.destination
     }
     /// Consumes the builder and constructs a [`OnFailure`](crate::types::OnFailure).
-    pub fn build(self) -> crate::types::OnFailure {
-        crate::types::OnFailure {
+    pub fn build(self) -> super::types::OnFailure {
+        super::types::OnFailure {
             destination: self.destination,
         }
     }

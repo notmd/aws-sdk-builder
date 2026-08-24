@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UnsubscribeOutput {
 }
 impl UnsubscribeOutput {
     /// Creates a new builder-style object to manufacture [`UnsubscribeOutput`](crate::operation::unsubscribe::UnsubscribeOutput).
-    pub fn builder() -> crate::operation::unsubscribe::builders::UnsubscribeOutputBuilder {
-        crate::operation::unsubscribe::builders::UnsubscribeOutputBuilder::default()
+    pub fn builder() -> super::operation::unsubscribe::builders::UnsubscribeOutputBuilder {
+        super::operation::unsubscribe::builders::UnsubscribeOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UnsubscribeOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UnsubscribeOutput`](crate::operation::unsubscribe::UnsubscribeOutput).
-    pub fn build(self) -> crate::operation::unsubscribe::UnsubscribeOutput {
-        crate::operation::unsubscribe::UnsubscribeOutput {
+    pub fn build(self) -> super::operation::unsubscribe::UnsubscribeOutput {
+        super::operation::unsubscribe::UnsubscribeOutput {
             _request_id: self._request_id,
         }
     }

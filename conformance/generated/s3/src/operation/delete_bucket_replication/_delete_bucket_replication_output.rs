@@ -6,7 +6,7 @@ pub struct DeleteBucketReplicationOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for DeleteBucketReplicationOutput {
+impl super::s3_request_id::RequestIdExt for DeleteBucketReplicationOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for DeleteBucketReplicationOutput {
 }
 impl DeleteBucketReplicationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketReplicationOutput`](crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput).
-    pub fn builder() -> crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationOutputBuilder {
-        crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_replication::builders::DeleteBucketReplicationOutputBuilder {
+        super::operation::delete_bucket_replication::builders::DeleteBucketReplicationOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl DeleteBucketReplicationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketReplicationOutput`](crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput {
-        crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput {
+    pub fn build(self) -> super::operation::delete_bucket_replication::DeleteBucketReplicationOutput {
+        super::operation::delete_bucket_replication::DeleteBucketReplicationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

@@ -5,14 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ItemCollectionMetrics {
     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
-    pub item_collection_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    pub item_collection_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
     /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
     /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
     pub size_estimate_range_gb: ::std::option::Option<::std::vec::Vec<f64>>,
 }
 impl ItemCollectionMetrics {
     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
-    pub fn item_collection_key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    pub fn item_collection_key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
         self.item_collection_key.as_ref()
     }
     /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
@@ -25,8 +25,8 @@ impl ItemCollectionMetrics {
 }
 impl ItemCollectionMetrics {
     /// Creates a new builder-style object to manufacture [`ItemCollectionMetrics`](crate::types::ItemCollectionMetrics).
-    pub fn builder() -> crate::types::builders::ItemCollectionMetricsBuilder {
-        crate::types::builders::ItemCollectionMetricsBuilder::default()
+    pub fn builder() -> super::types::builders::ItemCollectionMetricsBuilder {
+        super::types::builders::ItemCollectionMetricsBuilder::default()
     }
 }
 
@@ -34,7 +34,7 @@ impl ItemCollectionMetrics {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ItemCollectionMetricsBuilder {
-    pub(crate) item_collection_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    pub(crate) item_collection_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
     pub(crate) size_estimate_range_gb: ::std::option::Option<::std::vec::Vec<f64>>,
 }
 impl ItemCollectionMetricsBuilder {
@@ -43,7 +43,7 @@ impl ItemCollectionMetricsBuilder {
     /// To override the contents of this collection use [`set_item_collection_key`](Self::set_item_collection_key).
     ///
     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
-    pub fn item_collection_key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
+    pub fn item_collection_key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::types::AttributeValue) -> Self {
         let mut hash_map = self.item_collection_key.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.item_collection_key = ::std::option::Option::Some(hash_map);
@@ -52,7 +52,7 @@ impl ItemCollectionMetricsBuilder {
     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
     pub fn set_item_collection_key(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>>,
     ) -> Self {
         self.item_collection_key = input;
         self
@@ -60,7 +60,7 @@ impl ItemCollectionMetricsBuilder {
     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
     pub fn get_item_collection_key(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::types::AttributeValue>> {
         &self.item_collection_key
     }
     /// Appends an item to `size_estimate_range_gb`.
@@ -87,8 +87,8 @@ impl ItemCollectionMetricsBuilder {
         &self.size_estimate_range_gb
     }
     /// Consumes the builder and constructs a [`ItemCollectionMetrics`](crate::types::ItemCollectionMetrics).
-    pub fn build(self) -> crate::types::ItemCollectionMetrics {
-        crate::types::ItemCollectionMetrics {
+    pub fn build(self) -> super::types::ItemCollectionMetrics {
+        super::types::ItemCollectionMetrics {
             item_collection_key: self.item_collection_key,
             size_estimate_range_gb: self.size_estimate_range_gb,
         }

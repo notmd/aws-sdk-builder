@@ -40,8 +40,8 @@ impl GetFunctionInput {
 }
 impl GetFunctionInput {
     /// Creates a new builder-style object to manufacture [`GetFunctionInput`](crate::operation::get_function::GetFunctionInput).
-    pub fn builder() -> crate::operation::get_function::builders::GetFunctionInputBuilder {
-        crate::operation::get_function::builders::GetFunctionInputBuilder::default()
+    pub fn builder() -> super::operation::get_function::builders::GetFunctionInputBuilder {
+        super::operation::get_function::builders::GetFunctionInputBuilder::default()
     }
 }
 
@@ -113,8 +113,8 @@ impl GetFunctionInputBuilder {
         &self.qualifier
     }
     /// Consumes the builder and constructs a [`GetFunctionInput`](crate::operation::get_function::GetFunctionInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_function::GetFunctionInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_function::GetFunctionInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::get_function::GetFunctionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_function::GetFunctionInput {
             function_name: self.function_name,
             qualifier: self.qualifier,
         })

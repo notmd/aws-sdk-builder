@@ -23,8 +23,8 @@ impl PolicyGroup {
 }
 impl PolicyGroup {
     /// Creates a new builder-style object to manufacture [`PolicyGroup`](crate::types::PolicyGroup).
-    pub fn builder() -> crate::types::builders::PolicyGroupBuilder {
-        crate::types::builders::PolicyGroupBuilder::default()
+    pub fn builder() -> super::types::builders::PolicyGroupBuilder {
+        super::types::builders::PolicyGroupBuilder::default()
     }
 }
 
@@ -65,8 +65,8 @@ impl PolicyGroupBuilder {
         &self.group_id
     }
     /// Consumes the builder and constructs a [`PolicyGroup`](crate::types::PolicyGroup).
-    pub fn build(self) -> crate::types::PolicyGroup {
-        crate::types::PolicyGroup {
+    pub fn build(self) -> super::types::PolicyGroup {
+        super::types::PolicyGroup {
             group_name: self.group_name,
             group_id: self.group_id,
         }

@@ -5,18 +5,18 @@ pub fn de_get_function_configuration_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-    crate::operation::get_function_configuration::GetFunctionConfigurationError,
+    super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    super::operation::get_function_configuration::GetFunctionConfigurationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::get_function_configuration::GetFunctionConfigurationError::unhandled(
+            return Err(super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled(
                 generic,
             ))
         }
@@ -25,16 +25,16 @@ pub fn de_get_function_configuration_http_error(
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "InvalidParameterValueException" => {
-            crate::operation::get_function_configuration::GetFunctionConfigurationError::InvalidParameterValueException({
+            super::operation::get_function_configuration::GetFunctionConfigurationError::InvalidParameterValueException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                         _response_body,
                         output,
                     )
-                    .map_err(crate::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
+                    .map_err(super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -44,13 +44,13 @@ pub fn de_get_function_configuration_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => crate::operation::get_function_configuration::GetFunctionConfigurationError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::operation::get_function_configuration::GetFunctionConfigurationError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -59,13 +59,13 @@ pub fn de_get_function_configuration_http_error(
             }
             tmp
         }),
-        "ServiceException" => crate::operation::get_function_configuration::GetFunctionConfigurationError::ServiceException({
+        "ServiceException" => super::operation::get_function_configuration::GetFunctionConfigurationError::ServiceException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
+                let mut output = super::types::error::builders::ServiceExceptionBuilder::default();
+                output = super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -74,13 +74,13 @@ pub fn de_get_function_configuration_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => crate::operation::get_function_configuration::GetFunctionConfigurationError::TooManyRequestsException({
+        "TooManyRequestsException" => super::operation::get_function_configuration::GetFunctionConfigurationError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -89,7 +89,7 @@ pub fn de_get_function_configuration_http_error(
             }
             tmp
         }),
-        _ => crate::operation::get_function_configuration::GetFunctionConfigurationError::generic(generic),
+        _ => super::operation::get_function_configuration::GetFunctionConfigurationError::generic(generic),
     })
 }
 
@@ -99,37 +99,37 @@ pub fn de_get_function_configuration_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-    crate::operation::get_function_configuration::GetFunctionConfigurationError,
+    super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    super::operation::get_function_configuration::GetFunctionConfigurationError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_function_configuration::builders::GetFunctionConfigurationOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_function_configuration::de_get_function_configuration(_response_body, output)
-            .map_err(crate::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
+        let mut output = super::operation::get_function_configuration::builders::GetFunctionConfigurationOutputBuilder::default();
+        output = super::protocol_serde::shape_get_function_configuration::de_get_function_configuration(_response_body, output)
+            .map_err(super::operation::get_function_configuration::GetFunctionConfigurationError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_get_function_configuration_input(
-    input: &crate::operation::get_function_configuration::GetFunctionConfigurationInput,
+    input: &super::operation::get_function_configuration::GetFunctionConfigurationInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_get_function_configuration_input::ser_get_function_configuration_input_input(&mut object, input)?;
+    super::protocol_serde::shape_get_function_configuration_input::ser_get_function_configuration_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_get_function_configuration(
     _value: &[u8],
-    mut builder: crate::operation::get_function_configuration::builders::GetFunctionConfigurationOutputBuilder,
+    mut builder: super::operation::get_function_configuration::builders::GetFunctionConfigurationOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::get_function_configuration::builders::GetFunctionConfigurationOutputBuilder,
+    super::operation::get_function_configuration::builders::GetFunctionConfigurationOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -155,7 +155,7 @@ pub(crate) fn de_get_function_configuration(
                 "Runtime" => {
                     builder = builder.set_runtime(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::Runtime::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::Runtime::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
@@ -223,21 +223,21 @@ pub(crate) fn de_get_function_configuration(
                     );
                 }
                 "VpcConfig" => {
-                    builder = builder.set_vpc_config(crate::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
+                    builder = builder.set_vpc_config(super::protocol_serde::shape_vpc_config_response::de_vpc_config_response(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
                 "DeadLetterConfig" => {
-                    builder = builder.set_dead_letter_config(crate::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
+                    builder = builder.set_dead_letter_config(super::protocol_serde::shape_dead_letter_config::de_dead_letter_config(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
                 "Environment" => {
-                    builder = builder.set_environment(crate::protocol_serde::shape_environment_response::de_environment_response(
+                    builder = builder.set_environment(super::protocol_serde::shape_environment_response::de_environment_response(
                         tokens,
                         _value,
                         depth + 1,
@@ -251,7 +251,7 @@ pub(crate) fn de_get_function_configuration(
                     );
                 }
                 "TracingConfig" => {
-                    builder = builder.set_tracing_config(crate::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
+                    builder = builder.set_tracing_config(super::protocol_serde::shape_tracing_config_response::de_tracing_config_response(
                         tokens,
                         _value,
                         depth + 1,
@@ -272,7 +272,7 @@ pub(crate) fn de_get_function_configuration(
                     );
                 }
                 "Layers" => {
-                    builder = builder.set_layers(crate::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
+                    builder = builder.set_layers(super::protocol_serde::shape_layers_reference_list::de_layers_reference_list(
                         tokens,
                         _value,
                         depth + 1,
@@ -281,7 +281,7 @@ pub(crate) fn de_get_function_configuration(
                 "State" => {
                     builder = builder.set_state(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::State::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::State::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
@@ -295,14 +295,14 @@ pub(crate) fn de_get_function_configuration(
                 "StateReasonCode" => {
                     builder = builder.set_state_reason_code(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::StateReasonCode::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::StateReasonCode::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
                 "LastUpdateStatus" => {
                     builder = builder.set_last_update_status(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::LastUpdateStatus::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::LastUpdateStatus::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
@@ -316,12 +316,12 @@ pub(crate) fn de_get_function_configuration(
                 "LastUpdateStatusReasonCode" => {
                     builder = builder.set_last_update_status_reason_code(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::LastUpdateStatusReasonCode::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::LastUpdateStatusReasonCode::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
                 "FileSystemConfigs" => {
-                    builder = builder.set_file_system_configs(crate::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
+                    builder = builder.set_file_system_configs(super::protocol_serde::shape_file_system_config_list::de_file_system_config_list(
                         tokens,
                         _value,
                         depth + 1,
@@ -344,54 +344,54 @@ pub(crate) fn de_get_function_configuration(
                 "PackageType" => {
                     builder = builder.set_package_type(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::PackageType::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::PackageType::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
                 "ImageConfigResponse" => {
-                    builder = builder.set_image_config_response(crate::protocol_serde::shape_image_config_response::de_image_config_response(
+                    builder = builder.set_image_config_response(super::protocol_serde::shape_image_config_response::de_image_config_response(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
                 "Architectures" => {
-                    builder = builder.set_architectures(crate::protocol_serde::shape_architectures_list::de_architectures_list(
+                    builder = builder.set_architectures(super::protocol_serde::shape_architectures_list::de_architectures_list(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
                 "EphemeralStorage" => {
-                    builder = builder.set_ephemeral_storage(crate::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
+                    builder = builder.set_ephemeral_storage(super::protocol_serde::shape_ephemeral_storage::de_ephemeral_storage(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
                 "SnapStart" => {
-                    builder = builder.set_snap_start(crate::protocol_serde::shape_snap_start_response::de_snap_start_response(
+                    builder = builder.set_snap_start(super::protocol_serde::shape_snap_start_response::de_snap_start_response(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
                 "RuntimeVersionConfig" => {
-                    builder = builder.set_runtime_version_config(crate::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
+                    builder = builder.set_runtime_version_config(super::protocol_serde::shape_runtime_version_config::de_runtime_version_config(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
                 }
                 "LoggingConfig" => {
-                    builder = builder.set_logging_config(crate::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
+                    builder = builder.set_logging_config(super::protocol_serde::shape_logging_config::de_logging_config(tokens, _value, depth + 1)?);
                 }
                 "TenancyConfig" => {
-                    builder = builder.set_tenancy_config(crate::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
+                    builder = builder.set_tenancy_config(super::protocol_serde::shape_tenancy_config::de_tenancy_config(tokens, _value, depth + 1)?);
                 }
                 "CapacityProviderConfig" => {
                     builder = builder.set_capacity_provider_config(
-                        crate::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
+                        super::protocol_serde::shape_capacity_provider_config::de_capacity_provider_config(tokens, _value, depth + 1)?,
                     );
                 }
                 "ConfigSha256" => {
@@ -402,7 +402,7 @@ pub(crate) fn de_get_function_configuration(
                     );
                 }
                 "DurableConfig" => {
-                    builder = builder.set_durable_config(crate::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
+                    builder = builder.set_durable_config(super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

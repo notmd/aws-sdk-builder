@@ -24,8 +24,8 @@ impl DeleteSshPublicKeyInput {
 }
 impl DeleteSshPublicKeyInput {
     /// Creates a new builder-style object to manufacture [`DeleteSshPublicKeyInput`](crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput).
-    pub fn builder() -> crate::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder {
-        crate::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder::default()
+    pub fn builder() -> super::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder {
+        super::operation::delete_ssh_public_key::builders::DeleteSshPublicKeyInputBuilder::default()
     }
 }
 
@@ -76,9 +76,9 @@ impl DeleteSshPublicKeyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteSshPublicKeyInput`](crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::delete_ssh_public_key::DeleteSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput {
+        ::std::result::Result::Ok(super::operation::delete_ssh_public_key::DeleteSshPublicKeyInput {
             user_name: self.user_name,
             ssh_public_key_id: self.ssh_public_key_id,
         })

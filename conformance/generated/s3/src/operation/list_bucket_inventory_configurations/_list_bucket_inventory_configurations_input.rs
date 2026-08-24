@@ -32,8 +32,8 @@ impl ListBucketInventoryConfigurationsInput {
 }
 impl ListBucketInventoryConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`ListBucketInventoryConfigurationsInput`](crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput).
-    pub fn builder() -> crate::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsInputBuilder {
-        crate::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsInputBuilder::default()
+    pub fn builder() -> super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsInputBuilder {
+        super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsInputBuilder::default()
     }
 }
 
@@ -102,11 +102,11 @@ impl ListBucketInventoryConfigurationsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
+        super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput {
+            super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput {
                 bucket: self.bucket,
                 continuation_token: self.continuation_token,
                 expected_bucket_owner: self.expected_bucket_owner,

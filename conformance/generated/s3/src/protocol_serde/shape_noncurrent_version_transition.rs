@@ -3,12 +3,12 @@
 pub fn de_noncurrent_version_transition(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::NoncurrentVersionTransition, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::NoncurrentVersionTransition, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::NoncurrentVersionTransition::builder();
+    let mut builder = super::types::NoncurrentVersionTransition::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("NoncurrentDays") /* NoncurrentDays com.amazonaws.s3#NoncurrentVersionTransition$NoncurrentDays */ =>  {
@@ -29,8 +29,8 @@ pub fn de_noncurrent_version_transition(
             s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3#NoncurrentVersionTransition$StorageClass */ =>  {
                 let var_2 =
                     Some(
-                        Result::<crate::types::TransitionStorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::TransitionStorageClass::from(
+                        Result::<super::types::TransitionStorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::TransitionStorageClass::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -62,7 +62,7 @@ pub fn de_noncurrent_version_transition(
 }
 
 pub fn ser_noncurrent_version_transition(
-    input: &crate::types::NoncurrentVersionTransition,
+    input: &super::types::NoncurrentVersionTransition,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]

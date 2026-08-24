@@ -21,8 +21,8 @@ impl MultiRegionKey {
 }
 impl MultiRegionKey {
     /// Creates a new builder-style object to manufacture [`MultiRegionKey`](crate::types::MultiRegionKey).
-    pub fn builder() -> crate::types::builders::MultiRegionKeyBuilder {
-        crate::types::builders::MultiRegionKeyBuilder::default()
+    pub fn builder() -> super::types::builders::MultiRegionKeyBuilder {
+        super::types::builders::MultiRegionKeyBuilder::default()
     }
 }
 
@@ -63,8 +63,8 @@ impl MultiRegionKeyBuilder {
         &self.region
     }
     /// Consumes the builder and constructs a [`MultiRegionKey`](crate::types::MultiRegionKey).
-    pub fn build(self) -> crate::types::MultiRegionKey {
-        crate::types::MultiRegionKey {
+    pub fn build(self) -> super::types::MultiRegionKey {
+        super::types::MultiRegionKey {
             arn: self.arn,
             region: self.region,
         }

@@ -7,15 +7,15 @@ pub struct VectorIndexDescription {
     /// <p>The name of the vector index.</p>
     pub index_name: ::std::option::Option<::std::string::String>,
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
-    pub search_schema: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>,
+    pub search_schema: ::std::option::Option<::std::vec::Vec<super::types::SearchSchemaElement>>,
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub projection: ::std::option::Option<crate::types::Projection>,
+    pub projection: ::std::option::Option<super::types::Projection>,
     /// <p>The vector attribute configuration for the index.</p>
-    pub vector_attribute: ::std::option::Option<crate::types::VectorAttributeDefinition>,
+    pub vector_attribute: ::std::option::Option<super::types::VectorAttributeDefinition>,
     /// <p>The number of dimensions in each vector.</p>
     pub dimensions: ::std::option::Option<i64>,
     /// <p>The distance function used to calculate similarity between vectors.</p>
-    pub distance_function: ::std::option::Option<crate::types::VectorDistanceFunction>,
+    pub distance_function: ::std::option::Option<super::types::VectorDistanceFunction>,
     /// <p>The current state of the vector index:</p>
     /// <ul>
     /// <li>
@@ -25,7 +25,7 @@ pub struct VectorIndexDescription {
     /// <li>
     /// <p><code>DELETING</code> - The index is being deleted.</p></li>
     /// </ul>
-    pub index_status: ::std::option::Option<crate::types::IndexStatus>,
+    pub index_status: ::std::option::Option<super::types::IndexStatus>,
     /// <p>Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p>
     pub backfilling: ::std::option::Option<bool>,
     /// <p>The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
@@ -43,15 +43,15 @@ impl VectorIndexDescription {
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.search_schema.is_none()`.
-    pub fn search_schema(&self) -> &[crate::types::SearchSchemaElement] {
+    pub fn search_schema(&self) -> &[super::types::SearchSchemaElement] {
         self.search_schema.as_deref().unwrap_or_default()
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn projection(&self) -> ::std::option::Option<&crate::types::Projection> {
+    pub fn projection(&self) -> ::std::option::Option<&super::types::Projection> {
         self.projection.as_ref()
     }
     /// <p>The vector attribute configuration for the index.</p>
-    pub fn vector_attribute(&self) -> ::std::option::Option<&crate::types::VectorAttributeDefinition> {
+    pub fn vector_attribute(&self) -> ::std::option::Option<&super::types::VectorAttributeDefinition> {
         self.vector_attribute.as_ref()
     }
     /// <p>The number of dimensions in each vector.</p>
@@ -59,7 +59,7 @@ impl VectorIndexDescription {
         self.dimensions
     }
     /// <p>The distance function used to calculate similarity between vectors.</p>
-    pub fn distance_function(&self) -> ::std::option::Option<&crate::types::VectorDistanceFunction> {
+    pub fn distance_function(&self) -> ::std::option::Option<&super::types::VectorDistanceFunction> {
         self.distance_function.as_ref()
     }
     /// <p>The current state of the vector index:</p>
@@ -71,7 +71,7 @@ impl VectorIndexDescription {
     /// <li>
     /// <p><code>DELETING</code> - The index is being deleted.</p></li>
     /// </ul>
-    pub fn index_status(&self) -> ::std::option::Option<&crate::types::IndexStatus> {
+    pub fn index_status(&self) -> ::std::option::Option<&super::types::IndexStatus> {
         self.index_status.as_ref()
     }
     /// <p>Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p>
@@ -93,8 +93,8 @@ impl VectorIndexDescription {
 }
 impl VectorIndexDescription {
     /// Creates a new builder-style object to manufacture [`VectorIndexDescription`](crate::types::VectorIndexDescription).
-    pub fn builder() -> crate::types::builders::VectorIndexDescriptionBuilder {
-        crate::types::builders::VectorIndexDescriptionBuilder::default()
+    pub fn builder() -> super::types::builders::VectorIndexDescriptionBuilder {
+        super::types::builders::VectorIndexDescriptionBuilder::default()
     }
 }
 
@@ -103,12 +103,12 @@ impl VectorIndexDescription {
 #[non_exhaustive]
 pub struct VectorIndexDescriptionBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) search_schema: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>,
-    pub(crate) projection: ::std::option::Option<crate::types::Projection>,
-    pub(crate) vector_attribute: ::std::option::Option<crate::types::VectorAttributeDefinition>,
+    pub(crate) search_schema: ::std::option::Option<::std::vec::Vec<super::types::SearchSchemaElement>>,
+    pub(crate) projection: ::std::option::Option<super::types::Projection>,
+    pub(crate) vector_attribute: ::std::option::Option<super::types::VectorAttributeDefinition>,
     pub(crate) dimensions: ::std::option::Option<i64>,
-    pub(crate) distance_function: ::std::option::Option<crate::types::VectorDistanceFunction>,
-    pub(crate) index_status: ::std::option::Option<crate::types::IndexStatus>,
+    pub(crate) distance_function: ::std::option::Option<super::types::VectorDistanceFunction>,
+    pub(crate) index_status: ::std::option::Option<super::types::IndexStatus>,
     pub(crate) backfilling: ::std::option::Option<bool>,
     pub(crate) index_size_bytes: ::std::option::Option<i64>,
     pub(crate) item_count: ::std::option::Option<i64>,
@@ -134,47 +134,47 @@ impl VectorIndexDescriptionBuilder {
     /// To override the contents of this collection use [`set_search_schema`](Self::set_search_schema).
     ///
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
-    pub fn search_schema(mut self, input: crate::types::SearchSchemaElement) -> Self {
+    pub fn search_schema(mut self, input: super::types::SearchSchemaElement) -> Self {
         let mut v = self.search_schema.unwrap_or_default();
         v.push(input);
         self.search_schema = ::std::option::Option::Some(v);
         self
     }
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
-    pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self {
+    pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SearchSchemaElement>>) -> Self {
         self.search_schema = input;
         self
     }
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
-    pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>> {
+    pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SearchSchemaElement>> {
         &self.search_schema
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn projection(mut self, input: crate::types::Projection) -> Self {
+    pub fn projection(mut self, input: super::types::Projection) -> Self {
         self.projection = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
+    pub fn set_projection(mut self, input: ::std::option::Option<super::types::Projection>) -> Self {
         self.projection = input;
         self
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> {
+    pub fn get_projection(&self) -> &::std::option::Option<super::types::Projection> {
         &self.projection
     }
     /// <p>The vector attribute configuration for the index.</p>
-    pub fn vector_attribute(mut self, input: crate::types::VectorAttributeDefinition) -> Self {
+    pub fn vector_attribute(mut self, input: super::types::VectorAttributeDefinition) -> Self {
         self.vector_attribute = ::std::option::Option::Some(input);
         self
     }
     /// <p>The vector attribute configuration for the index.</p>
-    pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self {
+    pub fn set_vector_attribute(mut self, input: ::std::option::Option<super::types::VectorAttributeDefinition>) -> Self {
         self.vector_attribute = input;
         self
     }
     /// <p>The vector attribute configuration for the index.</p>
-    pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
+    pub fn get_vector_attribute(&self) -> &::std::option::Option<super::types::VectorAttributeDefinition> {
         &self.vector_attribute
     }
     /// <p>The number of dimensions in each vector.</p>
@@ -192,17 +192,17 @@ impl VectorIndexDescriptionBuilder {
         &self.dimensions
     }
     /// <p>The distance function used to calculate similarity between vectors.</p>
-    pub fn distance_function(mut self, input: crate::types::VectorDistanceFunction) -> Self {
+    pub fn distance_function(mut self, input: super::types::VectorDistanceFunction) -> Self {
         self.distance_function = ::std::option::Option::Some(input);
         self
     }
     /// <p>The distance function used to calculate similarity between vectors.</p>
-    pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
+    pub fn set_distance_function(mut self, input: ::std::option::Option<super::types::VectorDistanceFunction>) -> Self {
         self.distance_function = input;
         self
     }
     /// <p>The distance function used to calculate similarity between vectors.</p>
-    pub fn get_distance_function(&self) -> &::std::option::Option<crate::types::VectorDistanceFunction> {
+    pub fn get_distance_function(&self) -> &::std::option::Option<super::types::VectorDistanceFunction> {
         &self.distance_function
     }
     /// <p>The current state of the vector index:</p>
@@ -214,7 +214,7 @@ impl VectorIndexDescriptionBuilder {
     /// <li>
     /// <p><code>DELETING</code> - The index is being deleted.</p></li>
     /// </ul>
-    pub fn index_status(mut self, input: crate::types::IndexStatus) -> Self {
+    pub fn index_status(mut self, input: super::types::IndexStatus) -> Self {
         self.index_status = ::std::option::Option::Some(input);
         self
     }
@@ -227,7 +227,7 @@ impl VectorIndexDescriptionBuilder {
     /// <li>
     /// <p><code>DELETING</code> - The index is being deleted.</p></li>
     /// </ul>
-    pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
+    pub fn set_index_status(mut self, input: ::std::option::Option<super::types::IndexStatus>) -> Self {
         self.index_status = input;
         self
     }
@@ -240,7 +240,7 @@ impl VectorIndexDescriptionBuilder {
     /// <li>
     /// <p><code>DELETING</code> - The index is being deleted.</p></li>
     /// </ul>
-    pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
+    pub fn get_index_status(&self) -> &::std::option::Option<super::types::IndexStatus> {
         &self.index_status
     }
     /// <p>Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p>
@@ -300,8 +300,8 @@ impl VectorIndexDescriptionBuilder {
         &self.index_arn
     }
     /// Consumes the builder and constructs a [`VectorIndexDescription`](crate::types::VectorIndexDescription).
-    pub fn build(self) -> crate::types::VectorIndexDescription {
-        crate::types::VectorIndexDescription {
+    pub fn build(self) -> super::types::VectorIndexDescription {
+        super::types::VectorIndexDescription {
             index_name: self.index_name,
             search_schema: self.search_schema,
             projection: self.projection,

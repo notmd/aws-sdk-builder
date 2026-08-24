@@ -6,7 +6,7 @@ pub struct WriteGetObjectResponseOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for WriteGetObjectResponseOutput {
+impl super::s3_request_id::RequestIdExt for WriteGetObjectResponseOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for WriteGetObjectResponseOutput {
 }
 impl WriteGetObjectResponseOutput {
     /// Creates a new builder-style object to manufacture [`WriteGetObjectResponseOutput`](crate::operation::write_get_object_response::WriteGetObjectResponseOutput).
-    pub fn builder() -> crate::operation::write_get_object_response::builders::WriteGetObjectResponseOutputBuilder {
-        crate::operation::write_get_object_response::builders::WriteGetObjectResponseOutputBuilder::default()
+    pub fn builder() -> super::operation::write_get_object_response::builders::WriteGetObjectResponseOutputBuilder {
+        super::operation::write_get_object_response::builders::WriteGetObjectResponseOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl WriteGetObjectResponseOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`WriteGetObjectResponseOutput`](crate::operation::write_get_object_response::WriteGetObjectResponseOutput).
-    pub fn build(self) -> crate::operation::write_get_object_response::WriteGetObjectResponseOutput {
-        crate::operation::write_get_object_response::WriteGetObjectResponseOutput {
+    pub fn build(self) -> super::operation::write_get_object_response::WriteGetObjectResponseOutput {
+        super::operation::write_get_object_response::WriteGetObjectResponseOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

@@ -26,7 +26,7 @@ impl ::std::fmt::Display for BackupNotFoundException {
     }
 }
 impl ::std::error::Error for BackupNotFoundException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::BackupNotFoundException {
+impl ::aws_types::request_id::RequestId for super::types::error::BackupNotFoundException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for BackupNotFoun
 }
 impl BackupNotFoundException {
     /// Creates a new builder-style object to manufacture [`BackupNotFoundException`](crate::types::error::BackupNotFoundException).
-    pub fn builder() -> crate::types::error::builders::BackupNotFoundExceptionBuilder {
-        crate::types::error::builders::BackupNotFoundExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::BackupNotFoundExceptionBuilder {
+        super::types::error::builders::BackupNotFoundExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl BackupNotFoundExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`BackupNotFoundException`](crate::types::error::BackupNotFoundException).
-    pub fn build(self) -> crate::types::error::BackupNotFoundException {
-        crate::types::error::BackupNotFoundException {
+    pub fn build(self) -> super::types::error::BackupNotFoundException {
+        super::types::error::BackupNotFoundException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

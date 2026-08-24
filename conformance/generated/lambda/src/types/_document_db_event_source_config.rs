@@ -9,7 +9,7 @@ pub struct DocumentDbEventSourceConfig {
     /// <p>The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.</p>
     pub collection_name: ::std::option::Option<::std::string::String>,
     /// <p>Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.</p>
-    pub full_document: ::std::option::Option<crate::types::FullDocument>,
+    pub full_document: ::std::option::Option<super::types::FullDocument>,
 }
 impl DocumentDbEventSourceConfig {
     /// <p>The name of the database to consume within the DocumentDB cluster.</p>
@@ -21,14 +21,14 @@ impl DocumentDbEventSourceConfig {
         self.collection_name.as_deref()
     }
     /// <p>Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.</p>
-    pub fn full_document(&self) -> ::std::option::Option<&crate::types::FullDocument> {
+    pub fn full_document(&self) -> ::std::option::Option<&super::types::FullDocument> {
         self.full_document.as_ref()
     }
 }
 impl DocumentDbEventSourceConfig {
     /// Creates a new builder-style object to manufacture [`DocumentDbEventSourceConfig`](crate::types::DocumentDbEventSourceConfig).
-    pub fn builder() -> crate::types::builders::DocumentDbEventSourceConfigBuilder {
-        crate::types::builders::DocumentDbEventSourceConfigBuilder::default()
+    pub fn builder() -> super::types::builders::DocumentDbEventSourceConfigBuilder {
+        super::types::builders::DocumentDbEventSourceConfigBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl DocumentDbEventSourceConfig {
 pub struct DocumentDbEventSourceConfigBuilder {
     pub(crate) database_name: ::std::option::Option<::std::string::String>,
     pub(crate) collection_name: ::std::option::Option<::std::string::String>,
-    pub(crate) full_document: ::std::option::Option<crate::types::FullDocument>,
+    pub(crate) full_document: ::std::option::Option<super::types::FullDocument>,
 }
 impl DocumentDbEventSourceConfigBuilder {
     /// <p>The name of the database to consume within the DocumentDB cluster.</p>
@@ -70,22 +70,22 @@ impl DocumentDbEventSourceConfigBuilder {
         &self.collection_name
     }
     /// <p>Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.</p>
-    pub fn full_document(mut self, input: crate::types::FullDocument) -> Self {
+    pub fn full_document(mut self, input: super::types::FullDocument) -> Self {
         self.full_document = ::std::option::Option::Some(input);
         self
     }
     /// <p>Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.</p>
-    pub fn set_full_document(mut self, input: ::std::option::Option<crate::types::FullDocument>) -> Self {
+    pub fn set_full_document(mut self, input: ::std::option::Option<super::types::FullDocument>) -> Self {
         self.full_document = input;
         self
     }
     /// <p>Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.</p>
-    pub fn get_full_document(&self) -> &::std::option::Option<crate::types::FullDocument> {
+    pub fn get_full_document(&self) -> &::std::option::Option<super::types::FullDocument> {
         &self.full_document
     }
     /// Consumes the builder and constructs a [`DocumentDbEventSourceConfig`](crate::types::DocumentDbEventSourceConfig).
-    pub fn build(self) -> crate::types::DocumentDbEventSourceConfig {
-        crate::types::DocumentDbEventSourceConfig {
+    pub fn build(self) -> super::types::DocumentDbEventSourceConfig {
+        super::types::DocumentDbEventSourceConfig {
             database_name: self.database_name,
             collection_name: self.collection_name,
             full_document: self.full_document,

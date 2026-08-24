@@ -4,7 +4,7 @@ pub(crate) fn de_replica_global_secondary_index_auto_scaling_description<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>,
+    Option<super::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -19,7 +19,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder::default();
+            let mut builder = super::types::builders::ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -34,13 +34,13 @@ where
                         "IndexStatus" => {
                             builder = builder.set_index_status(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::IndexStatus::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::IndexStatus::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "ProvisionedReadCapacityAutoScalingSettings" => {
                             builder = builder.set_provisioned_read_capacity_auto_scaling_settings(
-                                crate::protocol_serde::shape_auto_scaling_settings_description::de_auto_scaling_settings_description(
+                                super::protocol_serde::shape_auto_scaling_settings_description::de_auto_scaling_settings_description(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -49,7 +49,7 @@ where
                         }
                         "ProvisionedWriteCapacityAutoScalingSettings" => {
                             builder = builder.set_provisioned_write_capacity_auto_scaling_settings(
-                                crate::protocol_serde::shape_auto_scaling_settings_description::de_auto_scaling_settings_description(
+                                super::protocol_serde::shape_auto_scaling_settings_description::de_auto_scaling_settings_description(
                                     tokens,
                                     _value,
                                     depth + 1,

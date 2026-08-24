@@ -13,13 +13,13 @@ pub struct SourceTableDetails {
     /// <p>Size of the table in bytes. Note that this is an approximate value.</p>
     pub table_size_bytes: ::std::option::Option<i64>,
     /// <p>Schema of the table.</p>
-    pub key_schema: ::std::vec::Vec<crate::types::KeySchemaElement>,
+    pub key_schema: ::std::vec::Vec<super::types::KeySchemaElement>,
     /// <p>Time when the source table was created.</p>
     pub table_creation_date_time: ::aws_smithy_types::DateTime,
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-    pub provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    pub provisioned_throughput: ::std::option::Option<super::types::ProvisionedThroughput>,
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
+    pub on_demand_throughput: ::std::option::Option<super::types::OnDemandThroughput>,
     /// <p>Number of items in the table. Note that this is an approximate value.</p>
     pub item_count: ::std::option::Option<i64>,
     /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
@@ -29,7 +29,7 @@ pub struct SourceTableDetails {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
     /// </ul>
-    pub billing_mode: ::std::option::Option<crate::types::BillingMode>,
+    pub billing_mode: ::std::option::Option<super::types::BillingMode>,
 }
 impl SourceTableDetails {
     /// <p>The name of the table for which the backup was created.</p>
@@ -51,7 +51,7 @@ impl SourceTableDetails {
         self.table_size_bytes
     }
     /// <p>Schema of the table.</p>
-    pub fn key_schema(&self) -> &[crate::types::KeySchemaElement] {
+    pub fn key_schema(&self) -> &[super::types::KeySchemaElement] {
         use std::ops::Deref;
         self.key_schema.deref()
     }
@@ -60,11 +60,11 @@ impl SourceTableDetails {
         &self.table_creation_date_time
     }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-    pub fn provisioned_throughput(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
+    pub fn provisioned_throughput(&self) -> ::std::option::Option<&super::types::ProvisionedThroughput> {
         self.provisioned_throughput.as_ref()
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn on_demand_throughput(&self) -> ::std::option::Option<&crate::types::OnDemandThroughput> {
+    pub fn on_demand_throughput(&self) -> ::std::option::Option<&super::types::OnDemandThroughput> {
         self.on_demand_throughput.as_ref()
     }
     /// <p>Number of items in the table. Note that this is an approximate value.</p>
@@ -78,14 +78,14 @@ impl SourceTableDetails {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
     /// </ul>
-    pub fn billing_mode(&self) -> ::std::option::Option<&crate::types::BillingMode> {
+    pub fn billing_mode(&self) -> ::std::option::Option<&super::types::BillingMode> {
         self.billing_mode.as_ref()
     }
 }
 impl SourceTableDetails {
     /// Creates a new builder-style object to manufacture [`SourceTableDetails`](crate::types::SourceTableDetails).
-    pub fn builder() -> crate::types::builders::SourceTableDetailsBuilder {
-        crate::types::builders::SourceTableDetailsBuilder::default()
+    pub fn builder() -> super::types::builders::SourceTableDetailsBuilder {
+        super::types::builders::SourceTableDetailsBuilder::default()
     }
 }
 
@@ -97,12 +97,12 @@ pub struct SourceTableDetailsBuilder {
     pub(crate) table_id: ::std::option::Option<::std::string::String>,
     pub(crate) table_arn: ::std::option::Option<::std::string::String>,
     pub(crate) table_size_bytes: ::std::option::Option<i64>,
-    pub(crate) key_schema: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>,
+    pub(crate) key_schema: ::std::option::Option<::std::vec::Vec<super::types::KeySchemaElement>>,
     pub(crate) table_creation_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughput>,
-    pub(crate) on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
+    pub(crate) provisioned_throughput: ::std::option::Option<super::types::ProvisionedThroughput>,
+    pub(crate) on_demand_throughput: ::std::option::Option<super::types::OnDemandThroughput>,
     pub(crate) item_count: ::std::option::Option<i64>,
-    pub(crate) billing_mode: ::std::option::Option<crate::types::BillingMode>,
+    pub(crate) billing_mode: ::std::option::Option<super::types::BillingMode>,
 }
 impl SourceTableDetailsBuilder {
     /// <p>The name of the table for which the backup was created.</p>
@@ -168,19 +168,19 @@ impl SourceTableDetailsBuilder {
     /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
     ///
     /// <p>Schema of the table.</p>
-    pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
+    pub fn key_schema(mut self, input: super::types::KeySchemaElement) -> Self {
         let mut v = self.key_schema.unwrap_or_default();
         v.push(input);
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
     /// <p>Schema of the table.</p>
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::KeySchemaElement>>) -> Self {
         self.key_schema = input;
         self
     }
     /// <p>Schema of the table.</p>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<super::types::KeySchemaElement>> {
         &self.key_schema
     }
     /// <p>Time when the source table was created.</p>
@@ -200,31 +200,31 @@ impl SourceTableDetailsBuilder {
     }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
     /// This field is required.
-    pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
+    pub fn provisioned_throughput(mut self, input: super::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<super::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput = input;
         self
     }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<super::types::ProvisionedThroughput> {
         &self.provisioned_throughput
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn on_demand_throughput(mut self, input: crate::types::OnDemandThroughput) -> Self {
+    pub fn on_demand_throughput(mut self, input: super::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<super::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput = input;
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<super::types::OnDemandThroughput> {
         &self.on_demand_throughput
     }
     /// <p>Number of items in the table. Note that this is an approximate value.</p>
@@ -248,7 +248,7 @@ impl SourceTableDetailsBuilder {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
     /// </ul>
-    pub fn billing_mode(mut self, input: crate::types::BillingMode) -> Self {
+    pub fn billing_mode(mut self, input: super::types::BillingMode) -> Self {
         self.billing_mode = ::std::option::Option::Some(input);
         self
     }
@@ -259,7 +259,7 @@ impl SourceTableDetailsBuilder {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
     /// </ul>
-    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
+    pub fn set_billing_mode(mut self, input: ::std::option::Option<super::types::BillingMode>) -> Self {
         self.billing_mode = input;
         self
     }
@@ -270,7 +270,7 @@ impl SourceTableDetailsBuilder {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
     /// </ul>
-    pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
+    pub fn get_billing_mode(&self) -> &::std::option::Option<super::types::BillingMode> {
         &self.billing_mode
     }
     /// Consumes the builder and constructs a [`SourceTableDetails`](crate::types::SourceTableDetails).
@@ -279,8 +279,8 @@ impl SourceTableDetailsBuilder {
     /// - [`table_id`](crate::types::builders::SourceTableDetailsBuilder::table_id)
     /// - [`key_schema`](crate::types::builders::SourceTableDetailsBuilder::key_schema)
     /// - [`table_creation_date_time`](crate::types::builders::SourceTableDetailsBuilder::table_creation_date_time)
-    pub fn build(self) -> ::std::result::Result<crate::types::SourceTableDetails, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::SourceTableDetails {
+    pub fn build(self) -> ::std::result::Result<super::types::SourceTableDetails, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::SourceTableDetails {
             table_name: self.table_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "table_name",

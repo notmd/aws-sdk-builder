@@ -26,7 +26,7 @@ impl ::std::fmt::Display for KmsInternalException {
     }
 }
 impl ::std::error::Error for KmsInternalException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::KmsInternalException {
+impl ::aws_types::request_id::RequestId for super::types::error::KmsInternalException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for KmsInternalEx
 }
 impl KmsInternalException {
     /// Creates a new builder-style object to manufacture [`KmsInternalException`](crate::types::error::KmsInternalException).
-    pub fn builder() -> crate::types::error::builders::KmsInternalExceptionBuilder {
-        crate::types::error::builders::KmsInternalExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::KmsInternalExceptionBuilder {
+        super::types::error::builders::KmsInternalExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl KmsInternalExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`KmsInternalException`](crate::types::error::KmsInternalException).
-    pub fn build(self) -> crate::types::error::KmsInternalException {
-        crate::types::error::KmsInternalException {
+    pub fn build(self) -> super::types::error::KmsInternalException {
+        super::types::error::KmsInternalException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

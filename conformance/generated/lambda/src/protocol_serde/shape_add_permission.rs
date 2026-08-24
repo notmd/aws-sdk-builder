@@ -4,29 +4,29 @@ pub fn de_add_permission_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::add_permission::AddPermissionOutput, crate::operation::add_permission::AddPermissionError> {
+) -> std::result::Result<super::operation::add_permission::AddPermissionOutput, super::operation::add_permission::AddPermissionError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::add_permission::AddPermissionError::unhandled(generic)),
+        None => return Err(super::operation::add_permission::AddPermissionError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidParameterValueException" => crate::operation::add_permission::AddPermissionError::InvalidParameterValueException({
+        "InvalidParameterValueException" => super::operation::add_permission::AddPermissionError::InvalidParameterValueException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                     _response_body,
                     output,
                 )
-                .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+                .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,16 +35,16 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "PolicyLengthExceededException" => crate::operation::add_permission::AddPermissionError::PolicyLengthExceededException({
+        "PolicyLengthExceededException" => super::operation::add_permission::AddPermissionError::PolicyLengthExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::PolicyLengthExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_policy_length_exceeded_exception::de_policy_length_exceeded_exception_json_err(
+                let mut output = super::types::error::builders::PolicyLengthExceededExceptionBuilder::default();
+                output = super::protocol_serde::shape_policy_length_exceeded_exception::de_policy_length_exceeded_exception_json_err(
                     _response_body,
                     output,
                 )
-                .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+                .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -53,14 +53,14 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "PreconditionFailedException" => crate::operation::add_permission::AddPermissionError::PreconditionFailedException({
+        "PreconditionFailedException" => super::operation::add_permission::AddPermissionError::PreconditionFailedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::PreconditionFailedExceptionBuilder::default();
+                let mut output = super::types::error::builders::PreconditionFailedExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_precondition_failed_exception::de_precondition_failed_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+                    super::protocol_serde::shape_precondition_failed_exception::de_precondition_failed_exception_json_err(_response_body, output)
+                        .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -69,13 +69,13 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "PublicPolicyException" => crate::operation::add_permission::AddPermissionError::PublicPolicyException({
+        "PublicPolicyException" => super::operation::add_permission::AddPermissionError::PublicPolicyException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::PublicPolicyExceptionBuilder::default();
-                output = crate::protocol_serde::shape_public_policy_exception::de_public_policy_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+                let mut output = super::types::error::builders::PublicPolicyExceptionBuilder::default();
+                output = super::protocol_serde::shape_public_policy_exception::de_public_policy_exception_json_err(_response_body, output)
+                    .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -84,13 +84,13 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "ResourceConflictException" => crate::operation::add_permission::AddPermissionError::ResourceConflictException({
+        "ResourceConflictException" => super::operation::add_permission::AddPermissionError::ResourceConflictException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceConflictExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+                let mut output = super::types::error::builders::ResourceConflictExceptionBuilder::default();
+                output = super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+                    .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -99,13 +99,13 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "ResourceNotFoundException" => crate::operation::add_permission::AddPermissionError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::operation::add_permission::AddPermissionError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -114,13 +114,13 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "ServiceException" => crate::operation::add_permission::AddPermissionError::ServiceException({
+        "ServiceException" => super::operation::add_permission::AddPermissionError::ServiceException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+                let mut output = super::types::error::builders::ServiceExceptionBuilder::default();
+                output = super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
+                    .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -129,13 +129,13 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => crate::operation::add_permission::AddPermissionError::TooManyRequestsException({
+        "TooManyRequestsException" => super::operation::add_permission::AddPermissionError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -144,7 +144,7 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        _ => crate::operation::add_permission::AddPermissionError::generic(generic),
+        _ => super::operation::add_permission::AddPermissionError::generic(generic),
     })
 }
 
@@ -153,35 +153,35 @@ pub fn de_add_permission_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::add_permission::AddPermissionOutput, crate::operation::add_permission::AddPermissionError> {
+) -> std::result::Result<super::operation::add_permission::AddPermissionOutput, super::operation::add_permission::AddPermissionError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::add_permission::builders::AddPermissionOutputBuilder::default();
-        output = crate::protocol_serde::shape_add_permission::de_add_permission(_response_body, output)
-            .map_err(crate::operation::add_permission::AddPermissionError::unhandled)?;
+        let mut output = super::operation::add_permission::builders::AddPermissionOutputBuilder::default();
+        output = super::protocol_serde::shape_add_permission::de_add_permission(_response_body, output)
+            .map_err(super::operation::add_permission::AddPermissionError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_add_permission_input(
-    input: &crate::operation::add_permission::AddPermissionInput,
+    input: &super::operation::add_permission::AddPermissionInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_add_permission_input::ser_add_permission_input_input(&mut object, input)?;
+    super::protocol_serde::shape_add_permission_input::ser_add_permission_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_add_permission(
     _value: &[u8],
-    mut builder: crate::operation::add_permission::builders::AddPermissionOutputBuilder,
+    mut builder: super::operation::add_permission::builders::AddPermissionOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::add_permission::builders::AddPermissionOutputBuilder,
+    super::operation::add_permission::builders::AddPermissionOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;

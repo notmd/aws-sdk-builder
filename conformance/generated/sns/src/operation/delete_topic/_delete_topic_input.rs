@@ -14,8 +14,8 @@ impl DeleteTopicInput {
 }
 impl DeleteTopicInput {
     /// Creates a new builder-style object to manufacture [`DeleteTopicInput`](crate::operation::delete_topic::DeleteTopicInput).
-    pub fn builder() -> crate::operation::delete_topic::builders::DeleteTopicInputBuilder {
-        crate::operation::delete_topic::builders::DeleteTopicInputBuilder::default()
+    pub fn builder() -> super::operation::delete_topic::builders::DeleteTopicInputBuilder {
+        super::operation::delete_topic::builders::DeleteTopicInputBuilder::default()
     }
 }
 
@@ -42,7 +42,7 @@ impl DeleteTopicInputBuilder {
         &self.topic_arn
     }
     /// Consumes the builder and constructs a [`DeleteTopicInput`](crate::operation::delete_topic::DeleteTopicInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::delete_topic::DeleteTopicInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_topic::DeleteTopicInput { topic_arn: self.topic_arn })
+    pub fn build(self) -> ::std::result::Result<super::operation::delete_topic::DeleteTopicInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::delete_topic::DeleteTopicInput { topic_arn: self.topic_arn })
     }
 }

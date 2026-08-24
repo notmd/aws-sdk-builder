@@ -6,7 +6,7 @@ impl super::Client {
     /// - On success, responds with [`GetAccountPropertiesOutput`](crate::operation::get_account_properties::GetAccountPropertiesOutput) with field(s):
     ///   - [`properties(Option<HashMap::<String, String>>)`](crate::operation::get_account_properties::GetAccountPropertiesOutput::properties): <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
     /// - On failure, responds with [`SdkError<GetAccountPropertiesError>`](crate::operation::get_account_properties::GetAccountPropertiesError)
-    pub fn get_account_properties(&self) -> crate::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder {
-        crate::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder::new(self.handle.clone())
+    pub fn get_account_properties(&self) -> super::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder {
+        super::operation::get_account_properties::builders::GetAccountPropertiesFluentBuilder::new(self.handle.clone())
     }
 }

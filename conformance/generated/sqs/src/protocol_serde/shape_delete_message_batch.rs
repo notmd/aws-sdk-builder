@@ -5,28 +5,28 @@ pub fn de_delete_message_batch_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::delete_message_batch::DeleteMessageBatchOutput,
-    crate::operation::delete_message_batch::DeleteMessageBatchError,
+    super::operation::delete_message_batch::DeleteMessageBatchOutput,
+    super::operation::delete_message_batch::DeleteMessageBatchError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled(generic)),
+        None => return Err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BatchEntryIdsNotDistinct" => crate::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
+        "BatchEntryIdsNotDistinct" => super::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
-                output = crate::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                let mut output = super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
+                output = super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
+                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "EmptyBatchRequest" => crate::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
+        "EmptyBatchRequest" => super::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::EmptyBatchRequestBuilder::default();
-                output = crate::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                let mut output = super::types::error::builders::EmptyBatchRequestBuilder::default();
+                output = super::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(_response_body, output)
+                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "InvalidAddress" => crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidAddress({
+        "InvalidAddress" => super::operation::delete_message_batch::DeleteMessageBatchError::InvalidAddress({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidAddressBuilder::default();
-                output = crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidAddressBuilder::default();
+                output = super::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
+                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,13 +65,13 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "InvalidBatchEntryId" => crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
+        "InvalidBatchEntryId" => super::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidBatchEntryIdBuilder::default();
-                output = crate::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidBatchEntryIdBuilder::default();
+                output = super::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(_response_body, output)
+                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,13 +80,13 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "InvalidSecurity" => crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidSecurity({
+        "InvalidSecurity" => super::operation::delete_message_batch::DeleteMessageBatchError::InvalidSecurity({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidSecurityBuilder::default();
-                output = crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidSecurityBuilder::default();
+                output = super::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
+                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -95,13 +95,13 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => crate::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
+        "QueueDoesNotExist" => super::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
-                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                let mut output = super::types::error::builders::QueueDoesNotExistBuilder::default();
+                output = super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -110,13 +110,13 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "RequestThrottled" => crate::operation::delete_message_batch::DeleteMessageBatchError::RequestThrottled({
+        "RequestThrottled" => super::operation::delete_message_batch::DeleteMessageBatchError::RequestThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::RequestThrottledBuilder::default();
-                output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                let mut output = super::types::error::builders::RequestThrottledBuilder::default();
+                output = super::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
+                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125,16 +125,16 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "TooManyEntriesInBatchRequest" => crate::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
+        "TooManyEntriesInBatchRequest" => super::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
-                output = crate::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
+                let mut output = super::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
+                output = super::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
                     _response_body,
                     output,
                 )
-                .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -143,13 +143,13 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => crate::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
+        "UnsupportedOperation" => super::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                    .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -158,7 +158,7 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        _ => crate::operation::delete_message_batch::DeleteMessageBatchError::generic(generic),
+        _ => super::operation::delete_message_batch::DeleteMessageBatchError::generic(generic),
     })
 }
 
@@ -168,39 +168,39 @@ pub fn de_delete_message_batch_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::delete_message_batch::DeleteMessageBatchOutput,
-    crate::operation::delete_message_batch::DeleteMessageBatchError,
+    super::operation::delete_message_batch::DeleteMessageBatchOutput,
+    super::operation::delete_message_batch::DeleteMessageBatchError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder::default();
-        output = crate::protocol_serde::shape_delete_message_batch::de_delete_message_batch(_response_body, output)
-            .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+        let mut output = super::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder::default();
+        output = super::protocol_serde::shape_delete_message_batch::de_delete_message_batch(_response_body, output)
+            .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        crate::serde_util::delete_message_batch_output_output_correct_errors(output)
+        super::serde_util::delete_message_batch_output_output_correct_errors(output)
             .build()
-            .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?
+            .map_err(super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?
     })
 }
 
 pub fn ser_delete_message_batch_input(
-    input: &crate::operation::delete_message_batch::DeleteMessageBatchInput,
+    input: &super::operation::delete_message_batch::DeleteMessageBatchInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_delete_message_batch_input::ser_delete_message_batch_input_input(&mut object, input)?;
+    super::protocol_serde::shape_delete_message_batch_input::ser_delete_message_batch_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_delete_message_batch(
     _value: &[u8],
-    mut builder: crate::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder,
+    mut builder: super::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder,
+    super::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -211,7 +211,7 @@ pub(crate) fn de_delete_message_batch(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Successful" => {
                     builder = builder.set_successful(
-                        crate::protocol_serde::shape_delete_message_batch_result_entry_list::de_delete_message_batch_result_entry_list(
+                        super::protocol_serde::shape_delete_message_batch_result_entry_list::de_delete_message_batch_result_entry_list(
                             tokens,
                             _value,
                             depth + 1,
@@ -220,7 +220,7 @@ pub(crate) fn de_delete_message_batch(
                 }
                 "Failed" => {
                     builder = builder.set_failed(
-                        crate::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(tokens, _value, depth + 1)?,
+                        super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

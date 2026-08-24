@@ -7,8 +7,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DisableOutboundWebIdentityFederationError>`](crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError)
     pub fn disable_outbound_web_identity_federation(
         &self,
-    ) -> crate::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder {
-        crate::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder::new(
+    ) -> super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder {
+        super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationFluentBuilder::new(
             self.handle.clone(),
         )
     }

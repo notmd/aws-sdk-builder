@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteBucketOwnershipControlsError>`](crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsError)
     pub fn delete_bucket_ownership_controls(
         &self,
-    ) -> crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder {
-        crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder {
+        super::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder::new(self.handle.clone())
     }
 }

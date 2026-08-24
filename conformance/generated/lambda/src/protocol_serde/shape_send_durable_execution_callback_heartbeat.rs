@@ -5,32 +5,32 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
-    crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
+    super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
+    super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(generic))
+            return Err(super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(generic))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "CallbackTimeoutException" => {
-            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::CallbackTimeoutException({
+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::CallbackTimeoutException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::CallbackTimeoutExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_callback_timeout_exception::de_callback_timeout_exception_json_err(_response_body, output)
+                    let mut output = super::types::error::builders::CallbackTimeoutExceptionBuilder::default();
+                    output = super::protocol_serde::shape_callback_timeout_exception::de_callback_timeout_exception_json_err(_response_body, output)
                         .map_err(
-                            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
+                            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                         )?;
                     let output = output.meta(generic);
                     output.build()
@@ -42,16 +42,16 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
             })
         }
         "InvalidParameterValueException" => {
-            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::InvalidParameterValueException({
+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::InvalidParameterValueException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                         _response_body,
                         output,
                     )
-                    .map_err(crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
+                    .map_err(super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -62,15 +62,15 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
             })
         }
         "ResourceNotFoundException" => {
-            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ResourceNotFoundException({
+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                             .map_err(
-                            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
+                            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                         )?;
                     let output = output.meta(generic);
                     output.build()
@@ -82,13 +82,13 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
             })
         }
         "ServiceException" => {
-            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ServiceException({
+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ServiceException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output).map_err(
-                        crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
+                    let mut output = super::types::error::builders::ServiceExceptionBuilder::default();
+                    output = super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output).map_err(
+                        super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                     )?;
                     let output = output.meta(generic);
                     output.build()
@@ -100,15 +100,15 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
             })
         }
         "TooManyRequestsException" => {
-            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::TooManyRequestsException({
+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                        super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                             .map_err(
-                                crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
+                                super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
                             )?;
                     let output = output.meta(generic);
                     output.build()
@@ -119,7 +119,7 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
                 tmp
             })
         }
-        _ => crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::generic(generic),
+        _ => super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::generic(generic),
     })
 }
 
@@ -129,24 +129,24 @@ pub fn de_send_durable_execution_callback_heartbeat_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
-    crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
+    super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
+    super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
 > {
     Ok({
         #[allow(unused_mut)]
         let mut output =
-            crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default();
+            super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_send_durable_execution_callback_heartbeat_input(
-    input: &crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
+    input: &super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_send_durable_execution_callback_heartbeat_input::ser_send_durable_execution_callback_heartbeat_input_input(
+    super::protocol_serde::shape_send_durable_execution_callback_heartbeat_input::ser_send_durable_execution_callback_heartbeat_input_input(
         &mut object,
         input,
     )?;
@@ -156,12 +156,12 @@ pub fn ser_send_durable_execution_callback_heartbeat_input(
 
 pub(crate) fn de_send_durable_execution_callback_heartbeat(
     _value: &[u8],
-    mut builder: crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder,
+    mut builder: super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder,
+    super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;

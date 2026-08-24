@@ -6,7 +6,7 @@ impl super::Client {
     ///   - [`properties(impl Into<String>, impl Into<String>)`](crate::operation::put_account_properties::builders::PutAccountPropertiesFluentBuilder::properties) / [`set_properties(Option<HashMap::<String, String>>)`](crate::operation::put_account_properties::builders::PutAccountPropertiesFluentBuilder::set_properties):<br>required: **true**<br><p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p> <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p> <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p><br>
     /// - On success, responds with [`PutAccountPropertiesOutput`](crate::operation::put_account_properties::PutAccountPropertiesOutput)
     /// - On failure, responds with [`SdkError<PutAccountPropertiesError>`](crate::operation::put_account_properties::PutAccountPropertiesError)
-    pub fn put_account_properties(&self) -> crate::operation::put_account_properties::builders::PutAccountPropertiesFluentBuilder {
-        crate::operation::put_account_properties::builders::PutAccountPropertiesFluentBuilder::new(self.handle.clone())
+    pub fn put_account_properties(&self) -> super::operation::put_account_properties::builders::PutAccountPropertiesFluentBuilder {
+        super::operation::put_account_properties::builders::PutAccountPropertiesFluentBuilder::new(self.handle.clone())
     }
 }

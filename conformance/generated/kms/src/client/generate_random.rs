@@ -10,7 +10,7 @@ impl super::Client {
     ///   - [`plaintext(Option<Blob>)`](crate::operation::generate_random::GenerateRandomOutput::plaintext): <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p> <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
     ///   - [`ciphertext_for_recipient(Option<Blob>)`](crate::operation::generate_random::GenerateRandomOutput::ciphertext_for_recipient): <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p> <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// - On failure, responds with [`SdkError<GenerateRandomError>`](crate::operation::generate_random::GenerateRandomError)
-    pub fn generate_random(&self) -> crate::operation::generate_random::builders::GenerateRandomFluentBuilder {
-        crate::operation::generate_random::builders::GenerateRandomFluentBuilder::new(self.handle.clone())
+    pub fn generate_random(&self) -> super::operation::generate_random::builders::GenerateRandomFluentBuilder {
+        super::operation::generate_random::builders::GenerateRandomFluentBuilder::new(self.handle.clone())
     }
 }

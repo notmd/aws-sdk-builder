@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for RemoveRoleFromInstanceProfileOutput 
 }
 impl RemoveRoleFromInstanceProfileOutput {
     /// Creates a new builder-style object to manufacture [`RemoveRoleFromInstanceProfileOutput`](crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileOutput).
-    pub fn builder() -> crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileOutputBuilder {
-        crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileOutputBuilder::default()
+    pub fn builder() -> super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileOutputBuilder {
+        super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl RemoveRoleFromInstanceProfileOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RemoveRoleFromInstanceProfileOutput`](crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileOutput).
-    pub fn build(self) -> crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileOutput {
-        crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileOutput {
+    pub fn build(self) -> super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileOutput {
+        super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileOutput {
             _request_id: self._request_id,
         }
     }

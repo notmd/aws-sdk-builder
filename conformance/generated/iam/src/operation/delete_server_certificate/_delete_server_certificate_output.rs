@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteServerCertificateOutput {
 }
 impl DeleteServerCertificateOutput {
     /// Creates a new builder-style object to manufacture [`DeleteServerCertificateOutput`](crate::operation::delete_server_certificate::DeleteServerCertificateOutput).
-    pub fn builder() -> crate::operation::delete_server_certificate::builders::DeleteServerCertificateOutputBuilder {
-        crate::operation::delete_server_certificate::builders::DeleteServerCertificateOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_server_certificate::builders::DeleteServerCertificateOutputBuilder {
+        super::operation::delete_server_certificate::builders::DeleteServerCertificateOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteServerCertificateOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteServerCertificateOutput`](crate::operation::delete_server_certificate::DeleteServerCertificateOutput).
-    pub fn build(self) -> crate::operation::delete_server_certificate::DeleteServerCertificateOutput {
-        crate::operation::delete_server_certificate::DeleteServerCertificateOutput {
+    pub fn build(self) -> super::operation::delete_server_certificate::DeleteServerCertificateOutput {
+        super::operation::delete_server_certificate::DeleteServerCertificateOutput {
             _request_id: self._request_id,
         }
     }

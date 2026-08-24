@@ -8,7 +8,7 @@ impl super::Client {
     ///   - [`new_user_name(impl Into<String>)`](crate::operation::update_user::builders::UpdateUserFluentBuilder::new_user_name) / [`set_new_user_name(Option<String>)`](crate::operation::update_user::builders::UpdateUserFluentBuilder::set_new_user_name):<br>required: **false**<br><p>New name for the user. Include this parameter only if you're changing the user's name.</p> <p>IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".</p><br>
     /// - On success, responds with [`UpdateUserOutput`](crate::operation::update_user::UpdateUserOutput)
     /// - On failure, responds with [`SdkError<UpdateUserError>`](crate::operation::update_user::UpdateUserError)
-    pub fn update_user(&self) -> crate::operation::update_user::builders::UpdateUserFluentBuilder {
-        crate::operation::update_user::builders::UpdateUserFluentBuilder::new(self.handle.clone())
+    pub fn update_user(&self) -> super::operation::update_user::builders::UpdateUserFluentBuilder {
+        super::operation::update_user::builders::UpdateUserFluentBuilder::new(self.handle.clone())
     }
 }

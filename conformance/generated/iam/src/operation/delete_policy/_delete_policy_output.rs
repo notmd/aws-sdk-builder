@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeletePolicyOutput {
 }
 impl DeletePolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeletePolicyOutput`](crate::operation::delete_policy::DeletePolicyOutput).
-    pub fn builder() -> crate::operation::delete_policy::builders::DeletePolicyOutputBuilder {
-        crate::operation::delete_policy::builders::DeletePolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_policy::builders::DeletePolicyOutputBuilder {
+        super::operation::delete_policy::builders::DeletePolicyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeletePolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeletePolicyOutput`](crate::operation::delete_policy::DeletePolicyOutput).
-    pub fn build(self) -> crate::operation::delete_policy::DeletePolicyOutput {
-        crate::operation::delete_policy::DeletePolicyOutput {
+    pub fn build(self) -> super::operation::delete_policy::DeletePolicyOutput {
+        super::operation::delete_policy::DeletePolicyOutput {
             _request_id: self._request_id,
         }
     }

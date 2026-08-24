@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeletePolicyVersionOutput {
 }
 impl DeletePolicyVersionOutput {
     /// Creates a new builder-style object to manufacture [`DeletePolicyVersionOutput`](crate::operation::delete_policy_version::DeletePolicyVersionOutput).
-    pub fn builder() -> crate::operation::delete_policy_version::builders::DeletePolicyVersionOutputBuilder {
-        crate::operation::delete_policy_version::builders::DeletePolicyVersionOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_policy_version::builders::DeletePolicyVersionOutputBuilder {
+        super::operation::delete_policy_version::builders::DeletePolicyVersionOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeletePolicyVersionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeletePolicyVersionOutput`](crate::operation::delete_policy_version::DeletePolicyVersionOutput).
-    pub fn build(self) -> crate::operation::delete_policy_version::DeletePolicyVersionOutput {
-        crate::operation::delete_policy_version::DeletePolicyVersionOutput {
+    pub fn build(self) -> super::operation::delete_policy_version::DeletePolicyVersionOutput {
+        super::operation::delete_policy_version::DeletePolicyVersionOutput {
             _request_id: self._request_id,
         }
     }

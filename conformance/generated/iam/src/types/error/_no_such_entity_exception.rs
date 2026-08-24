@@ -26,7 +26,7 @@ impl ::std::fmt::Display for NoSuchEntityException {
     }
 }
 impl ::std::error::Error for NoSuchEntityException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::NoSuchEntityException {
+impl ::aws_types::request_id::RequestId for super::types::error::NoSuchEntityException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for NoSuchEntityE
 }
 impl NoSuchEntityException {
     /// Creates a new builder-style object to manufacture [`NoSuchEntityException`](crate::types::error::NoSuchEntityException).
-    pub fn builder() -> crate::types::error::builders::NoSuchEntityExceptionBuilder {
-        crate::types::error::builders::NoSuchEntityExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::NoSuchEntityExceptionBuilder {
+        super::types::error::builders::NoSuchEntityExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl NoSuchEntityExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`NoSuchEntityException`](crate::types::error::NoSuchEntityException).
-    pub fn build(self) -> crate::types::error::NoSuchEntityException {
-        crate::types::error::NoSuchEntityException {
+    pub fn build(self) -> super::types::error::NoSuchEntityException {
+        super::types::error::NoSuchEntityException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

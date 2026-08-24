@@ -34,7 +34,7 @@ impl ::std::fmt::Display for KmsInvalidStateException {
     }
 }
 impl ::std::error::Error for KmsInvalidStateException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::KmsInvalidStateException {
+impl ::aws_types::request_id::RequestId for super::types::error::KmsInvalidStateException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for KmsInvalidSta
 }
 impl KmsInvalidStateException {
     /// Creates a new builder-style object to manufacture [`KmsInvalidStateException`](crate::types::error::KmsInvalidStateException).
-    pub fn builder() -> crate::types::error::builders::KmsInvalidStateExceptionBuilder {
-        crate::types::error::builders::KmsInvalidStateExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::KmsInvalidStateExceptionBuilder {
+        super::types::error::builders::KmsInvalidStateExceptionBuilder::default()
     }
 }
 
@@ -86,8 +86,8 @@ impl KmsInvalidStateExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`KmsInvalidStateException`](crate::types::error::KmsInvalidStateException).
-    pub fn build(self) -> crate::types::error::KmsInvalidStateException {
-        crate::types::error::KmsInvalidStateException {
+    pub fn build(self) -> super::types::error::KmsInvalidStateException {
+        super::types::error::KmsInvalidStateException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

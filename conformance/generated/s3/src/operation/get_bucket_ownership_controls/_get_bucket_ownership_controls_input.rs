@@ -20,8 +20,8 @@ impl GetBucketOwnershipControlsInput {
 }
 impl GetBucketOwnershipControlsInput {
     /// Creates a new builder-style object to manufacture [`GetBucketOwnershipControlsInput`](crate::operation::get_bucket_ownership_controls::GetBucketOwnershipControlsInput).
-    pub fn builder() -> crate::operation::get_bucket_ownership_controls::builders::GetBucketOwnershipControlsInputBuilder {
-        crate::operation::get_bucket_ownership_controls::builders::GetBucketOwnershipControlsInputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_ownership_controls::builders::GetBucketOwnershipControlsInputBuilder {
+        super::operation::get_bucket_ownership_controls::builders::GetBucketOwnershipControlsInputBuilder::default()
     }
 }
 
@@ -66,10 +66,10 @@ impl GetBucketOwnershipControlsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_bucket_ownership_controls::GetBucketOwnershipControlsInput,
+        super::operation::get_bucket_ownership_controls::GetBucketOwnershipControlsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_bucket_ownership_controls::GetBucketOwnershipControlsInput {
+        ::std::result::Result::Ok(super::operation::get_bucket_ownership_controls::GetBucketOwnershipControlsInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

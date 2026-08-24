@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListUsersOutput {
     /// <p>A list of users.</p>
-    pub users: ::std::vec::Vec<crate::types::User>,
+    pub users: ::std::vec::Vec<super::types::User>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -14,7 +14,7 @@ pub struct ListUsersOutput {
 }
 impl ListUsersOutput {
     /// <p>A list of users.</p>
-    pub fn users(&self) -> &[crate::types::User] {
+    pub fn users(&self) -> &[super::types::User] {
         use std::ops::Deref;
         self.users.deref()
     }
@@ -34,8 +34,8 @@ impl ::aws_types::request_id::RequestId for ListUsersOutput {
 }
 impl ListUsersOutput {
     /// Creates a new builder-style object to manufacture [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
-    pub fn builder() -> crate::operation::list_users::builders::ListUsersOutputBuilder {
-        crate::operation::list_users::builders::ListUsersOutputBuilder::default()
+    pub fn builder() -> super::operation::list_users::builders::ListUsersOutputBuilder {
+        super::operation::list_users::builders::ListUsersOutputBuilder::default()
     }
 }
 
@@ -43,7 +43,7 @@ impl ListUsersOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListUsersOutputBuilder {
-    pub(crate) users: ::std::option::Option<::std::vec::Vec<crate::types::User>>,
+    pub(crate) users: ::std::option::Option<::std::vec::Vec<super::types::User>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -54,19 +54,19 @@ impl ListUsersOutputBuilder {
     /// To override the contents of this collection use [`set_users`](Self::set_users).
     ///
     /// <p>A list of users.</p>
-    pub fn users(mut self, input: crate::types::User) -> Self {
+    pub fn users(mut self, input: super::types::User) -> Self {
         let mut v = self.users.unwrap_or_default();
         v.push(input);
         self.users = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of users.</p>
-    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::User>>) -> Self {
+    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::User>>) -> Self {
         self.users = input;
         self
     }
     /// <p>A list of users.</p>
-    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::User>> {
+    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::types::User>> {
         &self.users
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -109,8 +109,8 @@ impl ListUsersOutputBuilder {
     /// Consumes the builder and constructs a [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`users`](crate::operation::list_users::builders::ListUsersOutputBuilder::users)
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_users::ListUsersOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_users::ListUsersOutput {
+    pub fn build(self) -> ::std::result::Result<super::operation::list_users::ListUsersOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_users::ListUsersOutput {
             users: self.users.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "users",

@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for DeleteFunctionOutput {
 }
 impl DeleteFunctionOutput {
     /// Creates a new builder-style object to manufacture [`DeleteFunctionOutput`](crate::operation::delete_function::DeleteFunctionOutput).
-    pub fn builder() -> crate::operation::delete_function::builders::DeleteFunctionOutputBuilder {
-        crate::operation::delete_function::builders::DeleteFunctionOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_function::builders::DeleteFunctionOutputBuilder {
+        super::operation::delete_function::builders::DeleteFunctionOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl DeleteFunctionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteFunctionOutput`](crate::operation::delete_function::DeleteFunctionOutput).
-    pub fn build(self) -> crate::operation::delete_function::DeleteFunctionOutput {
-        crate::operation::delete_function::DeleteFunctionOutput {
+    pub fn build(self) -> super::operation::delete_function::DeleteFunctionOutput {
+        super::operation::delete_function::DeleteFunctionOutput {
             status_code: self.status_code.unwrap_or_default(),
             _request_id: self._request_id,
         }

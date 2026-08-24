@@ -14,9 +14,9 @@ pub struct ListObjectVersionsOutput {
     /// <p>When the number of responses exceeds the value of <code>MaxKeys</code>, <code>NextVersionIdMarker</code> specifies the first object version not returned that satisfies the search criteria. Use this value for the <code>version-id-marker</code> request parameter in a subsequent request.</p>
     pub next_version_id_marker: ::std::option::Option<::std::string::String>,
     /// <p>Container for version information.</p>
-    pub versions: ::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>>,
+    pub versions: ::std::option::Option<::std::vec::Vec<super::types::ObjectVersion>>,
     /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
-    pub delete_markers: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>>,
+    pub delete_markers: ::std::option::Option<::std::vec::Vec<super::types::DeleteMarkerEntry>>,
     /// <p>The bucket name.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>Selects objects that start with the value supplied by this parameter.</p>
@@ -26,15 +26,15 @@ pub struct ListObjectVersionsOutput {
     /// <p>Specifies the maximum number of objects to return.</p>
     pub max_keys: ::std::option::Option<i32>,
     /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
-    pub common_prefixes: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>,
+    pub common_prefixes: ::std::option::Option<::std::vec::Vec<super::types::CommonPrefix>>,
     /// <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
-    pub encoding_type: ::std::option::Option<crate::types::EncodingType>,
+    pub encoding_type: ::std::option::Option<super::types::EncodingType>,
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -62,13 +62,13 @@ impl ListObjectVersionsOutput {
     /// <p>Container for version information.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.versions.is_none()`.
-    pub fn versions(&self) -> &[crate::types::ObjectVersion] {
+    pub fn versions(&self) -> &[super::types::ObjectVersion] {
         self.versions.as_deref().unwrap_or_default()
     }
     /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.delete_markers.is_none()`.
-    pub fn delete_markers(&self) -> &[crate::types::DeleteMarkerEntry] {
+    pub fn delete_markers(&self) -> &[super::types::DeleteMarkerEntry] {
         self.delete_markers.as_deref().unwrap_or_default()
     }
     /// <p>The bucket name.</p>
@@ -90,23 +90,23 @@ impl ListObjectVersionsOutput {
     /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.common_prefixes.is_none()`.
-    pub fn common_prefixes(&self) -> &[crate::types::CommonPrefix] {
+    pub fn common_prefixes(&self) -> &[super::types::CommonPrefix] {
         self.common_prefixes.as_deref().unwrap_or_default()
     }
     /// <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
-    pub fn encoding_type(&self) -> ::std::option::Option<&crate::types::EncodingType> {
+    pub fn encoding_type(&self) -> ::std::option::Option<&super::types::EncodingType> {
         self.encoding_type.as_ref()
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for ListObjectVersionsOutput {
+impl super::s3_request_id::RequestIdExt for ListObjectVersionsOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -118,8 +118,8 @@ impl ::aws_types::request_id::RequestId for ListObjectVersionsOutput {
 }
 impl ListObjectVersionsOutput {
     /// Creates a new builder-style object to manufacture [`ListObjectVersionsOutput`](crate::operation::list_object_versions::ListObjectVersionsOutput).
-    pub fn builder() -> crate::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder {
-        crate::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder {
+        super::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder::default()
     }
 }
 
@@ -132,15 +132,15 @@ pub struct ListObjectVersionsOutputBuilder {
     pub(crate) version_id_marker: ::std::option::Option<::std::string::String>,
     pub(crate) next_key_marker: ::std::option::Option<::std::string::String>,
     pub(crate) next_version_id_marker: ::std::option::Option<::std::string::String>,
-    pub(crate) versions: ::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>>,
-    pub(crate) delete_markers: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>>,
+    pub(crate) versions: ::std::option::Option<::std::vec::Vec<super::types::ObjectVersion>>,
+    pub(crate) delete_markers: ::std::option::Option<::std::vec::Vec<super::types::DeleteMarkerEntry>>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
     pub(crate) delimiter: ::std::option::Option<::std::string::String>,
     pub(crate) max_keys: ::std::option::Option<i32>,
-    pub(crate) common_prefixes: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>,
-    pub(crate) encoding_type: ::std::option::Option<crate::types::EncodingType>,
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub(crate) common_prefixes: ::std::option::Option<::std::vec::Vec<super::types::CommonPrefix>>,
+    pub(crate) encoding_type: ::std::option::Option<super::types::EncodingType>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -220,19 +220,19 @@ impl ListObjectVersionsOutputBuilder {
     /// To override the contents of this collection use [`set_versions`](Self::set_versions).
     ///
     /// <p>Container for version information.</p>
-    pub fn versions(mut self, input: crate::types::ObjectVersion) -> Self {
+    pub fn versions(mut self, input: super::types::ObjectVersion) -> Self {
         let mut v = self.versions.unwrap_or_default();
         v.push(input);
         self.versions = ::std::option::Option::Some(v);
         self
     }
     /// <p>Container for version information.</p>
-    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>>) -> Self {
+    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ObjectVersion>>) -> Self {
         self.versions = input;
         self
     }
     /// <p>Container for version information.</p>
-    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>> {
+    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ObjectVersion>> {
         &self.versions
     }
     /// Appends an item to `delete_markers`.
@@ -240,19 +240,19 @@ impl ListObjectVersionsOutputBuilder {
     /// To override the contents of this collection use [`set_delete_markers`](Self::set_delete_markers).
     ///
     /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
-    pub fn delete_markers(mut self, input: crate::types::DeleteMarkerEntry) -> Self {
+    pub fn delete_markers(mut self, input: super::types::DeleteMarkerEntry) -> Self {
         let mut v = self.delete_markers.unwrap_or_default();
         v.push(input);
         self.delete_markers = ::std::option::Option::Some(v);
         self
     }
     /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
-    pub fn set_delete_markers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>>) -> Self {
+    pub fn set_delete_markers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::DeleteMarkerEntry>>) -> Self {
         self.delete_markers = input;
         self
     }
     /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
-    pub fn get_delete_markers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>> {
+    pub fn get_delete_markers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DeleteMarkerEntry>> {
         &self.delete_markers
     }
     /// <p>The bucket name.</p>
@@ -316,59 +316,59 @@ impl ListObjectVersionsOutputBuilder {
     /// To override the contents of this collection use [`set_common_prefixes`](Self::set_common_prefixes).
     ///
     /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
-    pub fn common_prefixes(mut self, input: crate::types::CommonPrefix) -> Self {
+    pub fn common_prefixes(mut self, input: super::types::CommonPrefix) -> Self {
         let mut v = self.common_prefixes.unwrap_or_default();
         v.push(input);
         self.common_prefixes = ::std::option::Option::Some(v);
         self
     }
     /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
-    pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>) -> Self {
+    pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::CommonPrefix>>) -> Self {
         self.common_prefixes = input;
         self
     }
     /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
-    pub fn get_common_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>> {
+    pub fn get_common_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::CommonPrefix>> {
         &self.common_prefixes
     }
     /// <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
-    pub fn encoding_type(mut self, input: crate::types::EncodingType) -> Self {
+    pub fn encoding_type(mut self, input: super::types::EncodingType) -> Self {
         self.encoding_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
-    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
+    pub fn set_encoding_type(mut self, input: ::std::option::Option<super::types::EncodingType>) -> Self {
         self.encoding_type = input;
         self
     }
     /// <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
-    pub fn get_encoding_type(&self) -> &::std::option::Option<crate::types::EncodingType> {
+    pub fn get_encoding_type(&self) -> &::std::option::Option<super::types::EncodingType> {
         &self.encoding_type
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -390,8 +390,8 @@ impl ListObjectVersionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListObjectVersionsOutput`](crate::operation::list_object_versions::ListObjectVersionsOutput).
-    pub fn build(self) -> crate::operation::list_object_versions::ListObjectVersionsOutput {
-        crate::operation::list_object_versions::ListObjectVersionsOutput {
+    pub fn build(self) -> super::operation::list_object_versions::ListObjectVersionsOutput {
+        super::operation::list_object_versions::ListObjectVersionsOutput {
             is_truncated: self.is_truncated,
             key_marker: self.key_marker,
             version_id_marker: self.version_id_marker,

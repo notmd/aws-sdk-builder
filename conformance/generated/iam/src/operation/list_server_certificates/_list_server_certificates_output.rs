@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListServerCertificatesOutput {
     /// <p>A list of server certificates.</p>
-    pub server_certificate_metadata_list: ::std::vec::Vec<crate::types::ServerCertificateMetadata>,
+    pub server_certificate_metadata_list: ::std::vec::Vec<super::types::ServerCertificateMetadata>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -14,7 +14,7 @@ pub struct ListServerCertificatesOutput {
 }
 impl ListServerCertificatesOutput {
     /// <p>A list of server certificates.</p>
-    pub fn server_certificate_metadata_list(&self) -> &[crate::types::ServerCertificateMetadata] {
+    pub fn server_certificate_metadata_list(&self) -> &[super::types::ServerCertificateMetadata] {
         use std::ops::Deref;
         self.server_certificate_metadata_list.deref()
     }
@@ -34,8 +34,8 @@ impl ::aws_types::request_id::RequestId for ListServerCertificatesOutput {
 }
 impl ListServerCertificatesOutput {
     /// Creates a new builder-style object to manufacture [`ListServerCertificatesOutput`](crate::operation::list_server_certificates::ListServerCertificatesOutput).
-    pub fn builder() -> crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder {
-        crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder::default()
+    pub fn builder() -> super::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder {
+        super::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder::default()
     }
 }
 
@@ -43,7 +43,7 @@ impl ListServerCertificatesOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListServerCertificatesOutputBuilder {
-    pub(crate) server_certificate_metadata_list: ::std::option::Option<::std::vec::Vec<crate::types::ServerCertificateMetadata>>,
+    pub(crate) server_certificate_metadata_list: ::std::option::Option<::std::vec::Vec<super::types::ServerCertificateMetadata>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -54,7 +54,7 @@ impl ListServerCertificatesOutputBuilder {
     /// To override the contents of this collection use [`set_server_certificate_metadata_list`](Self::set_server_certificate_metadata_list).
     ///
     /// <p>A list of server certificates.</p>
-    pub fn server_certificate_metadata_list(mut self, input: crate::types::ServerCertificateMetadata) -> Self {
+    pub fn server_certificate_metadata_list(mut self, input: super::types::ServerCertificateMetadata) -> Self {
         let mut v = self.server_certificate_metadata_list.unwrap_or_default();
         v.push(input);
         self.server_certificate_metadata_list = ::std::option::Option::Some(v);
@@ -63,13 +63,13 @@ impl ListServerCertificatesOutputBuilder {
     /// <p>A list of server certificates.</p>
     pub fn set_server_certificate_metadata_list(
         mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ServerCertificateMetadata>>,
+        input: ::std::option::Option<::std::vec::Vec<super::types::ServerCertificateMetadata>>,
     ) -> Self {
         self.server_certificate_metadata_list = input;
         self
     }
     /// <p>A list of server certificates.</p>
-    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServerCertificateMetadata>> {
+    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ServerCertificateMetadata>> {
         &self.server_certificate_metadata_list
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -115,10 +115,10 @@ impl ListServerCertificatesOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_server_certificates::ListServerCertificatesOutput,
+        super::operation::list_server_certificates::ListServerCertificatesOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_server_certificates::ListServerCertificatesOutput {
+        ::std::result::Result::Ok(super::operation::list_server_certificates::ListServerCertificatesOutput {
             server_certificate_metadata_list: self.server_certificate_metadata_list.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "server_certificate_metadata_list",

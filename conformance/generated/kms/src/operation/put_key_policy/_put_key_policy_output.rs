@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for PutKeyPolicyOutput {
 }
 impl PutKeyPolicyOutput {
     /// Creates a new builder-style object to manufacture [`PutKeyPolicyOutput`](crate::operation::put_key_policy::PutKeyPolicyOutput).
-    pub fn builder() -> crate::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder {
-        crate::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder {
+        super::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl PutKeyPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutKeyPolicyOutput`](crate::operation::put_key_policy::PutKeyPolicyOutput).
-    pub fn build(self) -> crate::operation::put_key_policy::PutKeyPolicyOutput {
-        crate::operation::put_key_policy::PutKeyPolicyOutput {
+    pub fn build(self) -> super::operation::put_key_policy::PutKeyPolicyOutput {
+        super::operation::put_key_policy::PutKeyPolicyOutput {
             _request_id: self._request_id,
         }
     }

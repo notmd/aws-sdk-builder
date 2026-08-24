@@ -23,8 +23,8 @@ impl TagTemplate {
 }
 impl TagTemplate {
     /// Creates a new builder-style object to manufacture [`TagTemplate`](crate::types::TagTemplate).
-    pub fn builder() -> crate::types::builders::TagTemplateBuilder {
-        crate::types::builders::TagTemplateBuilder::default()
+    pub fn builder() -> super::types::builders::TagTemplateBuilder {
+        super::types::builders::TagTemplateBuilder::default()
     }
 }
 
@@ -70,8 +70,8 @@ impl TagTemplateBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](crate::types::builders::TagTemplateBuilder::key)
     /// - [`value`](crate::types::builders::TagTemplateBuilder::value)
-    pub fn build(self) -> ::std::result::Result<crate::types::TagTemplate, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::TagTemplate {
+    pub fn build(self) -> ::std::result::Result<super::types::TagTemplate, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::TagTemplate {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "key",

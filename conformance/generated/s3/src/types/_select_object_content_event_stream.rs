@@ -5,15 +5,15 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub enum SelectObjectContentEventStream {
     /// <p>The Continuation Event.</p>
-    Cont(crate::types::ContinuationEvent),
+    Cont(super::types::ContinuationEvent),
     /// <p>The End Event.</p>
-    End(crate::types::EndEvent),
+    End(super::types::EndEvent),
     /// <p>The Progress Event.</p>
-    Progress(crate::types::ProgressEvent),
+    Progress(super::types::ProgressEvent),
     /// <p>The Records Event.</p>
-    Records(crate::types::RecordsEvent),
+    Records(super::types::RecordsEvent),
     /// <p>The Stats Event.</p>
-    Stats(crate::types::StatsEvent),
+    Stats(super::types::StatsEvent),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -27,7 +27,7 @@ pub enum SelectObjectContentEventStream {
 impl SelectObjectContentEventStream {
     /// Tries to convert the enum instance into [`Cont`](crate::types::SelectObjectContentEventStream::Cont), extracting the inner [`ContinuationEvent`](crate::types::ContinuationEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_cont(&self) -> ::std::result::Result<&crate::types::ContinuationEvent, &Self> {
+    pub fn as_cont(&self) -> ::std::result::Result<&super::types::ContinuationEvent, &Self> {
         if let SelectObjectContentEventStream::Cont(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -40,7 +40,7 @@ impl SelectObjectContentEventStream {
     }
     /// Tries to convert the enum instance into [`End`](crate::types::SelectObjectContentEventStream::End), extracting the inner [`EndEvent`](crate::types::EndEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_end(&self) -> ::std::result::Result<&crate::types::EndEvent, &Self> {
+    pub fn as_end(&self) -> ::std::result::Result<&super::types::EndEvent, &Self> {
         if let SelectObjectContentEventStream::End(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -53,7 +53,7 @@ impl SelectObjectContentEventStream {
     }
     /// Tries to convert the enum instance into [`Progress`](crate::types::SelectObjectContentEventStream::Progress), extracting the inner [`ProgressEvent`](crate::types::ProgressEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_progress(&self) -> ::std::result::Result<&crate::types::ProgressEvent, &Self> {
+    pub fn as_progress(&self) -> ::std::result::Result<&super::types::ProgressEvent, &Self> {
         if let SelectObjectContentEventStream::Progress(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -66,7 +66,7 @@ impl SelectObjectContentEventStream {
     }
     /// Tries to convert the enum instance into [`Records`](crate::types::SelectObjectContentEventStream::Records), extracting the inner [`RecordsEvent`](crate::types::RecordsEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_records(&self) -> ::std::result::Result<&crate::types::RecordsEvent, &Self> {
+    pub fn as_records(&self) -> ::std::result::Result<&super::types::RecordsEvent, &Self> {
         if let SelectObjectContentEventStream::Records(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -79,7 +79,7 @@ impl SelectObjectContentEventStream {
     }
     /// Tries to convert the enum instance into [`Stats`](crate::types::SelectObjectContentEventStream::Stats), extracting the inner [`StatsEvent`](crate::types::StatsEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_stats(&self) -> ::std::result::Result<&crate::types::StatsEvent, &Self> {
+    pub fn as_stats(&self) -> ::std::result::Result<&super::types::StatsEvent, &Self> {
         if let SelectObjectContentEventStream::Stats(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

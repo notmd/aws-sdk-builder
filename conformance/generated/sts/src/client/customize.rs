@@ -3,7 +3,7 @@
 /// `CustomizableOperation` allows for configuring a single operation invocation before it is sent.
 pub struct CustomizableOperation<T, E, B> {
     customizable_send: B,
-    config_override: ::std::option::Option<crate::config::Builder>,
+    config_override: ::std::option::Option<super::config::Builder>,
     interceptors: Vec<::aws_smithy_runtime_api::client::interceptors::SharedInterceptor>,
     runtime_plugins: Vec<::aws_smithy_runtime_api::client::runtime_plugin::SharedRuntimePlugin>,
     _output: ::std::marker::PhantomData<T>,
@@ -24,7 +24,7 @@ impl<T, E, B> CustomizableOperation<T, E, B> {
         }
     }
 
-    pub(crate) fn execute<U>(self, f: impl ::std::ops::FnOnce(B, crate::config::Builder) -> U) -> U {
+    pub(crate) fn execute<U>(self, f: impl ::std::ops::FnOnce(B, super::config::Builder) -> U) -> U {
         let mut config_override = self.config_override.unwrap_or_default();
         self.interceptors.into_iter().for_each(|interceptor| {
             config_override.push_interceptor(interceptor);
@@ -96,16 +96,16 @@ impl<T, E, B> CustomizableOperation<T, E, B> {
     /// | field_1: None,     | field_1: Some(v2),     | field_1: Some(v2), |
     /// | field_2: Some(v1), | field_2: Some(v2),     | field_2: Some(v2), |
     /// | field_3: Some(v1), | field_3: None,         | field_3: Some(v1), |
-    pub fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub fn config_override(mut self, config_override: impl ::std::convert::Into<super::config::Builder>) -> Self {
         self.config_override = Some(config_override.into());
         self
     }
 
     /// Sends the request and returns the response.
-    pub async fn send(self) -> crate::client::customize::internal::SendResult<T, E>
+    pub async fn send(self) -> super::client::customize::internal::SendResult<T, E>
     where
         E: std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        B: crate::client::customize::internal::CustomizableSend<T, E>,
+        B: super::client::customize::internal::CustomizableSend<T, E>,
     {
         self.execute(|sender, config| sender.send(config)).await
     }

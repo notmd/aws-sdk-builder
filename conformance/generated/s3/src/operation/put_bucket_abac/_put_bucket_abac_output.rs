@@ -6,7 +6,7 @@ pub struct PutBucketAbacOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for PutBucketAbacOutput {
+impl super::s3_request_id::RequestIdExt for PutBucketAbacOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for PutBucketAbacOutput {
 }
 impl PutBucketAbacOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketAbacOutput`](crate::operation::put_bucket_abac::PutBucketAbacOutput).
-    pub fn builder() -> crate::operation::put_bucket_abac::builders::PutBucketAbacOutputBuilder {
-        crate::operation::put_bucket_abac::builders::PutBucketAbacOutputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_abac::builders::PutBucketAbacOutputBuilder {
+        super::operation::put_bucket_abac::builders::PutBucketAbacOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl PutBucketAbacOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketAbacOutput`](crate::operation::put_bucket_abac::PutBucketAbacOutput).
-    pub fn build(self) -> crate::operation::put_bucket_abac::PutBucketAbacOutput {
-        crate::operation::put_bucket_abac::PutBucketAbacOutput {
+    pub fn build(self) -> super::operation::put_bucket_abac::PutBucketAbacOutput {
+        super::operation::put_bucket_abac::PutBucketAbacOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

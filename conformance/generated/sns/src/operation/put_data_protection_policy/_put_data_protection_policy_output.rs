@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for PutDataProtectionPolicyOutput {
 }
 impl PutDataProtectionPolicyOutput {
     /// Creates a new builder-style object to manufacture [`PutDataProtectionPolicyOutput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyOutput).
-    pub fn builder() -> crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyOutputBuilder {
-        crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyOutputBuilder {
+        super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl PutDataProtectionPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutDataProtectionPolicyOutput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyOutput).
-    pub fn build(self) -> crate::operation::put_data_protection_policy::PutDataProtectionPolicyOutput {
-        crate::operation::put_data_protection_policy::PutDataProtectionPolicyOutput {
+    pub fn build(self) -> super::operation::put_data_protection_policy::PutDataProtectionPolicyOutput {
+        super::operation::put_data_protection_policy::PutDataProtectionPolicyOutput {
             _request_id: self._request_id,
         }
     }

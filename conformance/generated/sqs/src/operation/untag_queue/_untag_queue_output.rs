@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UntagQueueOutput {
 }
 impl UntagQueueOutput {
     /// Creates a new builder-style object to manufacture [`UntagQueueOutput`](crate::operation::untag_queue::UntagQueueOutput).
-    pub fn builder() -> crate::operation::untag_queue::builders::UntagQueueOutputBuilder {
-        crate::operation::untag_queue::builders::UntagQueueOutputBuilder::default()
+    pub fn builder() -> super::operation::untag_queue::builders::UntagQueueOutputBuilder {
+        super::operation::untag_queue::builders::UntagQueueOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UntagQueueOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UntagQueueOutput`](crate::operation::untag_queue::UntagQueueOutput).
-    pub fn build(self) -> crate::operation::untag_queue::UntagQueueOutput {
-        crate::operation::untag_queue::UntagQueueOutput {
+    pub fn build(self) -> super::operation::untag_queue::UntagQueueOutput {
+        super::operation::untag_queue::UntagQueueOutput {
             _request_id: self._request_id,
         }
     }

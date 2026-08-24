@@ -35,8 +35,8 @@ impl BatchResultErrorEntry {
 }
 impl BatchResultErrorEntry {
     /// Creates a new builder-style object to manufacture [`BatchResultErrorEntry`](crate::types::BatchResultErrorEntry).
-    pub fn builder() -> crate::types::builders::BatchResultErrorEntryBuilder {
-        crate::types::builders::BatchResultErrorEntryBuilder::default()
+    pub fn builder() -> super::types::builders::BatchResultErrorEntryBuilder {
+        super::types::builders::BatchResultErrorEntryBuilder::default()
     }
 }
 
@@ -113,8 +113,8 @@ impl BatchResultErrorEntryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](crate::types::builders::BatchResultErrorEntryBuilder::id)
     /// - [`code`](crate::types::builders::BatchResultErrorEntryBuilder::code)
-    pub fn build(self) -> ::std::result::Result<crate::types::BatchResultErrorEntry, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::BatchResultErrorEntry {
+    pub fn build(self) -> ::std::result::Result<super::types::BatchResultErrorEntry, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::BatchResultErrorEntry {
             id: self.id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "id",

@@ -15,8 +15,8 @@ impl ContextOptions {
 }
 impl ContextOptions {
     /// Creates a new builder-style object to manufacture [`ContextOptions`](crate::types::ContextOptions).
-    pub fn builder() -> crate::types::builders::ContextOptionsBuilder {
-        crate::types::builders::ContextOptionsBuilder::default()
+    pub fn builder() -> super::types::builders::ContextOptionsBuilder {
+        super::types::builders::ContextOptionsBuilder::default()
     }
 }
 
@@ -42,8 +42,8 @@ impl ContextOptionsBuilder {
         &self.replay_children
     }
     /// Consumes the builder and constructs a [`ContextOptions`](crate::types::ContextOptions).
-    pub fn build(self) -> crate::types::ContextOptions {
-        crate::types::ContextOptions {
+    pub fn build(self) -> super::types::ContextOptions {
+        super::types::ContextOptions {
             replay_children: self.replay_children,
         }
     }

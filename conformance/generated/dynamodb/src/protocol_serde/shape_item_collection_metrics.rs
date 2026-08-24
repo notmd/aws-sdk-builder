@@ -3,7 +3,7 @@ pub(crate) fn de_item_collection_metrics<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::ItemCollectionMetrics>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::ItemCollectionMetrics>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,14 +16,14 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::ItemCollectionMetricsBuilder::default();
+            let mut builder = super::types::builders::ItemCollectionMetricsBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "ItemCollectionKey" => {
                             builder = builder.set_item_collection_key(
-                                crate::protocol_serde::shape_item_collection_key_attribute_map::de_item_collection_key_attribute_map(
+                                super::protocol_serde::shape_item_collection_key_attribute_map::de_item_collection_key_attribute_map(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -32,7 +32,7 @@ where
                         }
                         "SizeEstimateRangeGB" => {
                             builder = builder.set_size_estimate_range_gb(
-                                crate::protocol_serde::shape_item_collection_size_estimate_range::de_item_collection_size_estimate_range(
+                                super::protocol_serde::shape_item_collection_size_estimate_range::de_item_collection_size_estimate_range(
                                     tokens,
                                     _value,
                                     depth + 1,

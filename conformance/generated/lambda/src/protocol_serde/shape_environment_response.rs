@@ -3,7 +3,7 @@ pub(crate) fn de_environment_response<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::EnvironmentResponse>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::EnvironmentResponse>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,20 +16,20 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::EnvironmentResponseBuilder::default();
+            let mut builder = super::types::builders::EnvironmentResponseBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "Variables" => {
-                            builder = builder.set_variables(crate::protocol_serde::shape_environment_variables::de_environment_variables(
+                            builder = builder.set_variables(super::protocol_serde::shape_environment_variables::de_environment_variables(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
                         }
                         "Error" => {
-                            builder = builder.set_error(crate::protocol_serde::shape_environment_error::de_environment_error(
+                            builder = builder.set_error(super::protocol_serde::shape_environment_error::de_environment_error(
                                 tokens,
                                 _value,
                                 depth + 1,

@@ -89,7 +89,7 @@ pub struct HeadObjectInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
     /// <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</p>
     pub part_number: ::std::option::Option<i32>,
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -97,7 +97,7 @@ pub struct HeadObjectInput {
     /// <p>To retrieve the checksum, this parameter must be enabled.</p>
     /// <p><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p>
     /// <p><b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
-    pub checksum_mode: ::std::option::Option<crate::types::ChecksumMode>,
+    pub checksum_mode: ::std::option::Option<super::types::ChecksumMode>,
 }
 impl HeadObjectInput {
     /// <p>The name of the bucket that contains the object.</p>
@@ -220,7 +220,7 @@ impl HeadObjectInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
         self.request_payer.as_ref()
     }
     /// <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</p>
@@ -234,7 +234,7 @@ impl HeadObjectInput {
     /// <p>To retrieve the checksum, this parameter must be enabled.</p>
     /// <p><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p>
     /// <p><b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
-    pub fn checksum_mode(&self) -> ::std::option::Option<&crate::types::ChecksumMode> {
+    pub fn checksum_mode(&self) -> ::std::option::Option<&super::types::ChecksumMode> {
         self.checksum_mode.as_ref()
     }
 }
@@ -267,8 +267,8 @@ impl ::std::fmt::Debug for HeadObjectInput {
 }
 impl HeadObjectInput {
     /// Creates a new builder-style object to manufacture [`HeadObjectInput`](crate::operation::head_object::HeadObjectInput).
-    pub fn builder() -> crate::operation::head_object::builders::HeadObjectInputBuilder {
-        crate::operation::head_object::builders::HeadObjectInputBuilder::default()
+    pub fn builder() -> super::operation::head_object::builders::HeadObjectInputBuilder {
+        super::operation::head_object::builders::HeadObjectInputBuilder::default()
     }
 }
 
@@ -293,10 +293,10 @@ pub struct HeadObjectInputBuilder {
     pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
     pub(crate) sse_customer_key: ::std::option::Option<::std::string::String>,
     pub(crate) sse_customer_key_md5: ::std::option::Option<::std::string::String>,
-    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
     pub(crate) part_number: ::std::option::Option<i32>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_mode: ::std::option::Option<crate::types::ChecksumMode>,
+    pub(crate) checksum_mode: ::std::option::Option<super::types::ChecksumMode>,
 }
 impl HeadObjectInputBuilder {
     /// <p>The name of the bucket that contains the object.</p>
@@ -689,21 +689,21 @@ impl HeadObjectInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
         &self.request_payer
     }
     /// <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</p>
@@ -737,26 +737,26 @@ impl HeadObjectInputBuilder {
     /// <p>To retrieve the checksum, this parameter must be enabled.</p>
     /// <p><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p>
     /// <p><b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
-    pub fn checksum_mode(mut self, input: crate::types::ChecksumMode) -> Self {
+    pub fn checksum_mode(mut self, input: super::types::ChecksumMode) -> Self {
         self.checksum_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>To retrieve the checksum, this parameter must be enabled.</p>
     /// <p><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p>
     /// <p><b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
-    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
+    pub fn set_checksum_mode(mut self, input: ::std::option::Option<super::types::ChecksumMode>) -> Self {
         self.checksum_mode = input;
         self
     }
     /// <p>To retrieve the checksum, this parameter must be enabled.</p>
     /// <p><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p>
     /// <p><b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
-    pub fn get_checksum_mode(&self) -> &::std::option::Option<crate::types::ChecksumMode> {
+    pub fn get_checksum_mode(&self) -> &::std::option::Option<super::types::ChecksumMode> {
         &self.checksum_mode
     }
     /// Consumes the builder and constructs a [`HeadObjectInput`](crate::operation::head_object::HeadObjectInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::head_object::HeadObjectInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::head_object::HeadObjectInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::head_object::HeadObjectInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::head_object::HeadObjectInput {
             bucket: self.bucket,
             if_match: self.if_match,
             if_modified_since: self.if_modified_since,

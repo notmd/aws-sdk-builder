@@ -12,7 +12,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DefaultRetention {
     /// <p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Must be used with either <code>Days</code> or <code>Years</code>.</p>
-    pub mode: ::std::option::Option<crate::types::ObjectLockRetentionMode>,
+    pub mode: ::std::option::Option<super::types::ObjectLockRetentionMode>,
     /// <p>The number of days that you want to specify for the default retention period. Must be used with <code>Mode</code>.</p>
     pub days: ::std::option::Option<i32>,
     /// <p>The number of years that you want to specify for the default retention period. Must be used with <code>Mode</code>.</p>
@@ -20,7 +20,7 @@ pub struct DefaultRetention {
 }
 impl DefaultRetention {
     /// <p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Must be used with either <code>Days</code> or <code>Years</code>.</p>
-    pub fn mode(&self) -> ::std::option::Option<&crate::types::ObjectLockRetentionMode> {
+    pub fn mode(&self) -> ::std::option::Option<&super::types::ObjectLockRetentionMode> {
         self.mode.as_ref()
     }
     /// <p>The number of days that you want to specify for the default retention period. Must be used with <code>Mode</code>.</p>
@@ -34,8 +34,8 @@ impl DefaultRetention {
 }
 impl DefaultRetention {
     /// Creates a new builder-style object to manufacture [`DefaultRetention`](crate::types::DefaultRetention).
-    pub fn builder() -> crate::types::builders::DefaultRetentionBuilder {
-        crate::types::builders::DefaultRetentionBuilder::default()
+    pub fn builder() -> super::types::builders::DefaultRetentionBuilder {
+        super::types::builders::DefaultRetentionBuilder::default()
     }
 }
 
@@ -43,23 +43,23 @@ impl DefaultRetention {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DefaultRetentionBuilder {
-    pub(crate) mode: ::std::option::Option<crate::types::ObjectLockRetentionMode>,
+    pub(crate) mode: ::std::option::Option<super::types::ObjectLockRetentionMode>,
     pub(crate) days: ::std::option::Option<i32>,
     pub(crate) years: ::std::option::Option<i32>,
 }
 impl DefaultRetentionBuilder {
     /// <p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Must be used with either <code>Days</code> or <code>Years</code>.</p>
-    pub fn mode(mut self, input: crate::types::ObjectLockRetentionMode) -> Self {
+    pub fn mode(mut self, input: super::types::ObjectLockRetentionMode) -> Self {
         self.mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Must be used with either <code>Days</code> or <code>Years</code>.</p>
-    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockRetentionMode>) -> Self {
+    pub fn set_mode(mut self, input: ::std::option::Option<super::types::ObjectLockRetentionMode>) -> Self {
         self.mode = input;
         self
     }
     /// <p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Must be used with either <code>Days</code> or <code>Years</code>.</p>
-    pub fn get_mode(&self) -> &::std::option::Option<crate::types::ObjectLockRetentionMode> {
+    pub fn get_mode(&self) -> &::std::option::Option<super::types::ObjectLockRetentionMode> {
         &self.mode
     }
     /// <p>The number of days that you want to specify for the default retention period. Must be used with <code>Mode</code>.</p>
@@ -91,8 +91,8 @@ impl DefaultRetentionBuilder {
         &self.years
     }
     /// Consumes the builder and constructs a [`DefaultRetention`](crate::types::DefaultRetention).
-    pub fn build(self) -> crate::types::DefaultRetention {
-        crate::types::DefaultRetention {
+    pub fn build(self) -> super::types::DefaultRetention {
+        super::types::DefaultRetention {
             mode: self.mode,
             days: self.days,
             years: self.years,

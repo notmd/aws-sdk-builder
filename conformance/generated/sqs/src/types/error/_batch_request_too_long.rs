@@ -26,7 +26,7 @@ impl ::std::fmt::Display for BatchRequestTooLong {
     }
 }
 impl ::std::error::Error for BatchRequestTooLong {}
-impl ::aws_types::request_id::RequestId for crate::types::error::BatchRequestTooLong {
+impl ::aws_types::request_id::RequestId for super::types::error::BatchRequestTooLong {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for BatchRequestT
 }
 impl BatchRequestTooLong {
     /// Creates a new builder-style object to manufacture [`BatchRequestTooLong`](crate::types::error::BatchRequestTooLong).
-    pub fn builder() -> crate::types::error::builders::BatchRequestTooLongBuilder {
-        crate::types::error::builders::BatchRequestTooLongBuilder::default()
+    pub fn builder() -> super::types::error::builders::BatchRequestTooLongBuilder {
+        super::types::error::builders::BatchRequestTooLongBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl BatchRequestTooLongBuilder {
         self
     }
     /// Consumes the builder and constructs a [`BatchRequestTooLong`](crate::types::error::BatchRequestTooLong).
-    pub fn build(self) -> crate::types::error::BatchRequestTooLong {
-        crate::types::error::BatchRequestTooLong {
+    pub fn build(self) -> super::types::error::BatchRequestTooLong {
+        super::types::error::BatchRequestTooLong {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

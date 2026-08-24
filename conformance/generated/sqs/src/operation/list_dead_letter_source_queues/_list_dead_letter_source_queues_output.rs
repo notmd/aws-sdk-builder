@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for ListDeadLetterSourceQueuesOutput {
 }
 impl ListDeadLetterSourceQueuesOutput {
     /// Creates a new builder-style object to manufacture [`ListDeadLetterSourceQueuesOutput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput).
-    pub fn builder() -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder {
-        crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder::default()
+    pub fn builder() -> super::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder {
+        super::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder::default()
     }
 }
 
@@ -91,10 +91,10 @@ impl ListDeadLetterSourceQueuesOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput,
+        super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput {
+        ::std::result::Result::Ok(super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput {
             queue_urls: self.queue_urls.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "queue_urls",

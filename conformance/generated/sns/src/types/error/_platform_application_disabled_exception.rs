@@ -26,7 +26,7 @@ impl ::std::fmt::Display for PlatformApplicationDisabledException {
     }
 }
 impl ::std::error::Error for PlatformApplicationDisabledException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::PlatformApplicationDisabledException {
+impl ::aws_types::request_id::RequestId for super::types::error::PlatformApplicationDisabledException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PlatformAppli
 }
 impl PlatformApplicationDisabledException {
     /// Creates a new builder-style object to manufacture [`PlatformApplicationDisabledException`](crate::types::error::PlatformApplicationDisabledException).
-    pub fn builder() -> crate::types::error::builders::PlatformApplicationDisabledExceptionBuilder {
-        crate::types::error::builders::PlatformApplicationDisabledExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::PlatformApplicationDisabledExceptionBuilder {
+        super::types::error::builders::PlatformApplicationDisabledExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl PlatformApplicationDisabledExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PlatformApplicationDisabledException`](crate::types::error::PlatformApplicationDisabledException).
-    pub fn build(self) -> crate::types::error::PlatformApplicationDisabledException {
-        crate::types::error::PlatformApplicationDisabledException {
+    pub fn build(self) -> super::types::error::PlatformApplicationDisabledException {
+        super::types::error::PlatformApplicationDisabledException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteAccessKeyOutput {
 }
 impl DeleteAccessKeyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteAccessKeyOutput`](crate::operation::delete_access_key::DeleteAccessKeyOutput).
-    pub fn builder() -> crate::operation::delete_access_key::builders::DeleteAccessKeyOutputBuilder {
-        crate::operation::delete_access_key::builders::DeleteAccessKeyOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_access_key::builders::DeleteAccessKeyOutputBuilder {
+        super::operation::delete_access_key::builders::DeleteAccessKeyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteAccessKeyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteAccessKeyOutput`](crate::operation::delete_access_key::DeleteAccessKeyOutput).
-    pub fn build(self) -> crate::operation::delete_access_key::DeleteAccessKeyOutput {
-        crate::operation::delete_access_key::DeleteAccessKeyOutput {
+    pub fn build(self) -> super::operation::delete_access_key::DeleteAccessKeyOutput {
+        super::operation::delete_access_key::DeleteAccessKeyOutput {
             _request_id: self._request_id,
         }
     }

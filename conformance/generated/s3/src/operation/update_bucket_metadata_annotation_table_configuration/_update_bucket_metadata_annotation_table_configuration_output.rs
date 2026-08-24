@@ -6,7 +6,7 @@ pub struct UpdateBucketMetadataAnnotationTableConfigurationOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for UpdateBucketMetadataAnnotationTableConfigurationOutput {
+impl super::s3_request_id::RequestIdExt for UpdateBucketMetadataAnnotationTableConfigurationOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for UpdateBucketMetadataAnnotationTableC
 }
 impl UpdateBucketMetadataAnnotationTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataAnnotationTableConfigurationOutput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput).
-    pub fn builder() -> crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder{
-        crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder::default()
+    pub fn builder() -> super::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder{
+        super::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder::default()
     }
 }
 
@@ -52,8 +52,8 @@ impl UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder {
     /// Consumes the builder and constructs a [`UpdateBucketMetadataAnnotationTableConfigurationOutput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput).
     pub fn build(
         self,
-    ) -> crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput {
-        crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput {
+    ) -> super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput {
+        super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

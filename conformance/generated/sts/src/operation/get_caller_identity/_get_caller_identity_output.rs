@@ -33,8 +33,8 @@ impl ::aws_types::request_id::RequestId for GetCallerIdentityOutput {
 }
 impl GetCallerIdentityOutput {
     /// Creates a new builder-style object to manufacture [`GetCallerIdentityOutput`](crate::operation::get_caller_identity::GetCallerIdentityOutput).
-    pub fn builder() -> crate::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder {
-        crate::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder::default()
+    pub fn builder() -> super::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder {
+        super::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder::default()
     }
 }
 
@@ -100,8 +100,8 @@ impl GetCallerIdentityOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetCallerIdentityOutput`](crate::operation::get_caller_identity::GetCallerIdentityOutput).
-    pub fn build(self) -> crate::operation::get_caller_identity::GetCallerIdentityOutput {
-        crate::operation::get_caller_identity::GetCallerIdentityOutput {
+    pub fn build(self) -> super::operation::get_caller_identity::GetCallerIdentityOutput {
+        super::operation::get_caller_identity::GetCallerIdentityOutput {
             user_id: self.user_id,
             account: self.account,
             arn: self.arn,

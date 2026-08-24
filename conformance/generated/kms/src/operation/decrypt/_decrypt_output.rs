@@ -9,7 +9,7 @@ pub struct DecryptOutput {
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
     pub plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
-    pub encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
+    pub encryption_algorithm: ::std::option::Option<super::types::EncryptionAlgorithmSpec>,
     /// <p>The plaintext data encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
@@ -28,7 +28,7 @@ impl DecryptOutput {
         self.plaintext.as_ref()
     }
     /// <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
-    pub fn encryption_algorithm(&self) -> ::std::option::Option<&crate::types::EncryptionAlgorithmSpec> {
+    pub fn encryption_algorithm(&self) -> ::std::option::Option<&super::types::EncryptionAlgorithmSpec> {
         self.encryption_algorithm.as_ref()
     }
     /// <p>The plaintext data encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
@@ -60,8 +60,8 @@ impl ::aws_types::request_id::RequestId for DecryptOutput {
 }
 impl DecryptOutput {
     /// Creates a new builder-style object to manufacture [`DecryptOutput`](crate::operation::decrypt::DecryptOutput).
-    pub fn builder() -> crate::operation::decrypt::builders::DecryptOutputBuilder {
-        crate::operation::decrypt::builders::DecryptOutputBuilder::default()
+    pub fn builder() -> super::operation::decrypt::builders::DecryptOutputBuilder {
+        super::operation::decrypt::builders::DecryptOutputBuilder::default()
     }
 }
 
@@ -71,7 +71,7 @@ impl DecryptOutput {
 pub struct DecryptOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
-    pub(crate) encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
+    pub(crate) encryption_algorithm: ::std::option::Option<super::types::EncryptionAlgorithmSpec>,
     pub(crate) ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -109,17 +109,17 @@ impl DecryptOutputBuilder {
         &self.plaintext
     }
     /// <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
-    pub fn encryption_algorithm(mut self, input: crate::types::EncryptionAlgorithmSpec) -> Self {
+    pub fn encryption_algorithm(mut self, input: super::types::EncryptionAlgorithmSpec) -> Self {
         self.encryption_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
-    pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
+    pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<super::types::EncryptionAlgorithmSpec>) -> Self {
         self.encryption_algorithm = input;
         self
     }
     /// <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
-    pub fn get_encryption_algorithm(&self) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> {
+    pub fn get_encryption_algorithm(&self) -> &::std::option::Option<super::types::EncryptionAlgorithmSpec> {
         &self.encryption_algorithm
     }
     /// <p>The plaintext data encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
@@ -163,8 +163,8 @@ impl DecryptOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DecryptOutput`](crate::operation::decrypt::DecryptOutput).
-    pub fn build(self) -> crate::operation::decrypt::DecryptOutput {
-        crate::operation::decrypt::DecryptOutput {
+    pub fn build(self) -> super::operation::decrypt::DecryptOutput {
+        super::operation::decrypt::DecryptOutput {
             key_id: self.key_id,
             plaintext: self.plaintext,
             encryption_algorithm: self.encryption_algorithm,

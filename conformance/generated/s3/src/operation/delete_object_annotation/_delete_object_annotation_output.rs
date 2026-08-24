@@ -8,7 +8,7 @@ pub struct DeleteObjectAnnotationOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -20,11 +20,11 @@ impl DeleteObjectAnnotationOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for DeleteObjectAnnotationOutput {
+impl super::s3_request_id::RequestIdExt for DeleteObjectAnnotationOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -36,8 +36,8 @@ impl ::aws_types::request_id::RequestId for DeleteObjectAnnotationOutput {
 }
 impl DeleteObjectAnnotationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteObjectAnnotationOutput`](crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput).
-    pub fn builder() -> crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationOutputBuilder {
-        crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_object_annotation::builders::DeleteObjectAnnotationOutputBuilder {
+        super::operation::delete_object_annotation::builders::DeleteObjectAnnotationOutputBuilder::default()
     }
 }
 
@@ -46,7 +46,7 @@ impl DeleteObjectAnnotationOutput {
 #[non_exhaustive]
 pub struct DeleteObjectAnnotationOutputBuilder {
     pub(crate) object_version_id: ::std::option::Option<::std::string::String>,
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -68,21 +68,21 @@ impl DeleteObjectAnnotationOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -104,8 +104,8 @@ impl DeleteObjectAnnotationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteObjectAnnotationOutput`](crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput).
-    pub fn build(self) -> crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput {
-        crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput {
+    pub fn build(self) -> super::operation::delete_object_annotation::DeleteObjectAnnotationOutput {
+        super::operation::delete_object_annotation::DeleteObjectAnnotationOutput {
             object_version_id: self.object_version_id,
             request_charged: self.request_charged,
             _extended_request_id: self._extended_request_id,

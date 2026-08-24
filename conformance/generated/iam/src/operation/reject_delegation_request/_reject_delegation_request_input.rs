@@ -20,8 +20,8 @@ impl RejectDelegationRequestInput {
 }
 impl RejectDelegationRequestInput {
     /// Creates a new builder-style object to manufacture [`RejectDelegationRequestInput`](crate::operation::reject_delegation_request::RejectDelegationRequestInput).
-    pub fn builder() -> crate::operation::reject_delegation_request::builders::RejectDelegationRequestInputBuilder {
-        crate::operation::reject_delegation_request::builders::RejectDelegationRequestInputBuilder::default()
+    pub fn builder() -> super::operation::reject_delegation_request::builders::RejectDelegationRequestInputBuilder {
+        super::operation::reject_delegation_request::builders::RejectDelegationRequestInputBuilder::default()
     }
 }
 
@@ -66,10 +66,10 @@ impl RejectDelegationRequestInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::reject_delegation_request::RejectDelegationRequestInput,
+        super::operation::reject_delegation_request::RejectDelegationRequestInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::reject_delegation_request::RejectDelegationRequestInput {
+        ::std::result::Result::Ok(super::operation::reject_delegation_request::RejectDelegationRequestInput {
             delegation_request_id: self.delegation_request_id,
             notes: self.notes,
         })

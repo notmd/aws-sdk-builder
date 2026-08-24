@@ -34,7 +34,7 @@ impl ::std::fmt::Display for SubnetIpAddressLimitReachedException {
     }
 }
 impl ::std::error::Error for SubnetIpAddressLimitReachedException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::SubnetIpAddressLimitReachedException {
+impl ::aws_types::request_id::RequestId for super::types::error::SubnetIpAddressLimitReachedException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for SubnetIpAddre
 }
 impl SubnetIpAddressLimitReachedException {
     /// Creates a new builder-style object to manufacture [`SubnetIpAddressLimitReachedException`](crate::types::error::SubnetIpAddressLimitReachedException).
-    pub fn builder() -> crate::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder {
-        crate::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder {
+        super::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl SubnetIpAddressLimitReachedExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SubnetIpAddressLimitReachedException`](crate::types::error::SubnetIpAddressLimitReachedException).
-    pub fn build(self) -> crate::types::error::SubnetIpAddressLimitReachedException {
-        crate::types::error::SubnetIpAddressLimitReachedException {
+    pub fn build(self) -> super::types::error::SubnetIpAddressLimitReachedException {
+        super::types::error::SubnetIpAddressLimitReachedException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

@@ -26,7 +26,7 @@ impl ::std::fmt::Display for EntityAlreadyExistsException {
     }
 }
 impl ::std::error::Error for EntityAlreadyExistsException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::EntityAlreadyExistsException {
+impl ::aws_types::request_id::RequestId for super::types::error::EntityAlreadyExistsException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for EntityAlready
 }
 impl EntityAlreadyExistsException {
     /// Creates a new builder-style object to manufacture [`EntityAlreadyExistsException`](crate::types::error::EntityAlreadyExistsException).
-    pub fn builder() -> crate::types::error::builders::EntityAlreadyExistsExceptionBuilder {
-        crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::EntityAlreadyExistsExceptionBuilder {
+        super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl EntityAlreadyExistsExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EntityAlreadyExistsException`](crate::types::error::EntityAlreadyExistsException).
-    pub fn build(self) -> crate::types::error::EntityAlreadyExistsException {
-        crate::types::error::EntityAlreadyExistsException {
+    pub fn build(self) -> super::types::error::EntityAlreadyExistsException {
+        super::types::error::EntityAlreadyExistsException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

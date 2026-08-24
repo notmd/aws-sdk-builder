@@ -24,8 +24,8 @@ impl GetDelegationRequestInput {
 }
 impl GetDelegationRequestInput {
     /// Creates a new builder-style object to manufacture [`GetDelegationRequestInput`](crate::operation::get_delegation_request::GetDelegationRequestInput).
-    pub fn builder() -> crate::operation::get_delegation_request::builders::GetDelegationRequestInputBuilder {
-        crate::operation::get_delegation_request::builders::GetDelegationRequestInputBuilder::default()
+    pub fn builder() -> super::operation::get_delegation_request::builders::GetDelegationRequestInputBuilder {
+        super::operation::get_delegation_request::builders::GetDelegationRequestInputBuilder::default()
     }
 }
 
@@ -75,9 +75,9 @@ impl GetDelegationRequestInputBuilder {
     /// Consumes the builder and constructs a [`GetDelegationRequestInput`](crate::operation::get_delegation_request::GetDelegationRequestInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_delegation_request::GetDelegationRequestInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::get_delegation_request::GetDelegationRequestInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::get_delegation_request::GetDelegationRequestInput {
+        ::std::result::Result::Ok(super::operation::get_delegation_request::GetDelegationRequestInput {
             delegation_request_id: self.delegation_request_id,
             delegation_permission_check: self.delegation_permission_check.unwrap_or_default(),
         })

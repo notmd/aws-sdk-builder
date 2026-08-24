@@ -14,7 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetFunctionEventInvokeConfigError>`](crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError)
     pub fn get_function_event_invoke_config(
         &self,
-    ) -> crate::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigFluentBuilder {
-        crate::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigFluentBuilder {
+        super::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigFluentBuilder::new(self.handle.clone())
     }
 }

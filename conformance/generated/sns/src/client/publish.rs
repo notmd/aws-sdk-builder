@@ -16,7 +16,7 @@ impl super::Client {
     ///   - [`message_id(Option<String>)`](crate::operation::publish::PublishOutput::message_id): <p>Unique identifier assigned to the published message.</p> <p>Length Constraint: Maximum 100 characters</p>
     ///   - [`sequence_number(Option<String>)`](crate::operation::publish::PublishOutput::sequence_number): <p>This response element applies only to FIFO (first-in-first-out) topics.</p> <p>The sequence number is a large, non-consecutive number that Amazon SNS assigns to each message. The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for each <code>MessageGroupId</code>.</p>
     /// - On failure, responds with [`SdkError<PublishError>`](crate::operation::publish::PublishError)
-    pub fn publish(&self) -> crate::operation::publish::builders::PublishFluentBuilder {
-        crate::operation::publish::builders::PublishFluentBuilder::new(self.handle.clone())
+    pub fn publish(&self) -> super::operation::publish::builders::PublishFluentBuilder {
+        super::operation::publish::builders::PublishFluentBuilder::new(self.handle.clone())
     }
 }

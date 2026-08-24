@@ -26,7 +26,7 @@ impl ::std::fmt::Display for SubscriptionLimitExceededException {
     }
 }
 impl ::std::error::Error for SubscriptionLimitExceededException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::SubscriptionLimitExceededException {
+impl ::aws_types::request_id::RequestId for super::types::error::SubscriptionLimitExceededException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for SubscriptionL
 }
 impl SubscriptionLimitExceededException {
     /// Creates a new builder-style object to manufacture [`SubscriptionLimitExceededException`](crate::types::error::SubscriptionLimitExceededException).
-    pub fn builder() -> crate::types::error::builders::SubscriptionLimitExceededExceptionBuilder {
-        crate::types::error::builders::SubscriptionLimitExceededExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::SubscriptionLimitExceededExceptionBuilder {
+        super::types::error::builders::SubscriptionLimitExceededExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl SubscriptionLimitExceededExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SubscriptionLimitExceededException`](crate::types::error::SubscriptionLimitExceededException).
-    pub fn build(self) -> crate::types::error::SubscriptionLimitExceededException {
-        crate::types::error::SubscriptionLimitExceededException {
+    pub fn build(self) -> super::types::error::SubscriptionLimitExceededException {
+        super::types::error::SubscriptionLimitExceededException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

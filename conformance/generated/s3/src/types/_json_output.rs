@@ -15,8 +15,8 @@ impl JsonOutput {
 }
 impl JsonOutput {
     /// Creates a new builder-style object to manufacture [`JsonOutput`](crate::types::JsonOutput).
-    pub fn builder() -> crate::types::builders::JsonOutputBuilder {
-        crate::types::builders::JsonOutputBuilder::default()
+    pub fn builder() -> super::types::builders::JsonOutputBuilder {
+        super::types::builders::JsonOutputBuilder::default()
     }
 }
 
@@ -42,8 +42,8 @@ impl JsonOutputBuilder {
         &self.record_delimiter
     }
     /// Consumes the builder and constructs a [`JsonOutput`](crate::types::JsonOutput).
-    pub fn build(self) -> crate::types::JsonOutput {
-        crate::types::JsonOutput {
+    pub fn build(self) -> super::types::JsonOutput {
+        super::types::JsonOutput {
             record_delimiter: self.record_delimiter,
         }
     }

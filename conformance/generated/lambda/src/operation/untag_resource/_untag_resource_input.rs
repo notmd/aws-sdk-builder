@@ -22,8 +22,8 @@ impl UntagResourceInput {
 }
 impl UntagResourceInput {
     /// Creates a new builder-style object to manufacture [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
-    pub fn builder() -> crate::operation::untag_resource::builders::UntagResourceInputBuilder {
-        crate::operation::untag_resource::builders::UntagResourceInputBuilder::default()
+    pub fn builder() -> super::operation::untag_resource::builders::UntagResourceInputBuilder {
+        super::operation::untag_resource::builders::UntagResourceInputBuilder::default()
     }
 }
 
@@ -73,8 +73,8 @@ impl UntagResourceInputBuilder {
     /// Consumes the builder and constructs a [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::untag_resource::UntagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::untag_resource::UntagResourceInput {
+    ) -> ::std::result::Result<super::operation::untag_resource::UntagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::untag_resource::UntagResourceInput {
             resource: self.resource,
             tag_keys: self.tag_keys,
         })

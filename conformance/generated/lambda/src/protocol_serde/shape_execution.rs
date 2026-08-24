@@ -3,7 +3,7 @@ pub(crate) fn de_execution<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::Execution>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::Execution>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::ExecutionBuilder::default();
+            let mut builder = super::types::builders::ExecutionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -45,7 +45,7 @@ where
                         "Status" => {
                             builder = builder.set_status(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ExecutionStatus::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::ExecutionStatus::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
@@ -77,7 +77,7 @@ where
                     }
                 }
             }
-            Ok(Some(crate::serde_util::execution_correct_errors(builder).build().map_err(|err| {
+            Ok(Some(super::serde_util::execution_correct_errors(builder).build().map_err(|err| {
                 ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
             })?))
         }

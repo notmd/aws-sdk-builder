@@ -7,7 +7,7 @@ pub struct NoncurrentVersionTransition {
     /// <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub noncurrent_days: ::std::option::Option<i32>,
     /// <p>The class of storage used to store the object.</p>
-    pub storage_class: ::std::option::Option<crate::types::TransitionStorageClass>,
+    pub storage_class: ::std::option::Option<super::types::TransitionStorageClass>,
     /// <p>Specifies how many noncurrent versions Amazon S3 will retain in the same storage class before transitioning objects. You can specify up to 100 noncurrent versions to retain. Amazon S3 will transition any additional noncurrent versions beyond the specified number to retain. For more information about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration elements</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub newer_noncurrent_versions: ::std::option::Option<i32>,
 }
@@ -17,7 +17,7 @@ impl NoncurrentVersionTransition {
         self.noncurrent_days
     }
     /// <p>The class of storage used to store the object.</p>
-    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::TransitionStorageClass> {
+    pub fn storage_class(&self) -> ::std::option::Option<&super::types::TransitionStorageClass> {
         self.storage_class.as_ref()
     }
     /// <p>Specifies how many noncurrent versions Amazon S3 will retain in the same storage class before transitioning objects. You can specify up to 100 noncurrent versions to retain. Amazon S3 will transition any additional noncurrent versions beyond the specified number to retain. For more information about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration elements</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -27,8 +27,8 @@ impl NoncurrentVersionTransition {
 }
 impl NoncurrentVersionTransition {
     /// Creates a new builder-style object to manufacture [`NoncurrentVersionTransition`](crate::types::NoncurrentVersionTransition).
-    pub fn builder() -> crate::types::builders::NoncurrentVersionTransitionBuilder {
-        crate::types::builders::NoncurrentVersionTransitionBuilder::default()
+    pub fn builder() -> super::types::builders::NoncurrentVersionTransitionBuilder {
+        super::types::builders::NoncurrentVersionTransitionBuilder::default()
     }
 }
 
@@ -37,7 +37,7 @@ impl NoncurrentVersionTransition {
 #[non_exhaustive]
 pub struct NoncurrentVersionTransitionBuilder {
     pub(crate) noncurrent_days: ::std::option::Option<i32>,
-    pub(crate) storage_class: ::std::option::Option<crate::types::TransitionStorageClass>,
+    pub(crate) storage_class: ::std::option::Option<super::types::TransitionStorageClass>,
     pub(crate) newer_noncurrent_versions: ::std::option::Option<i32>,
 }
 impl NoncurrentVersionTransitionBuilder {
@@ -56,17 +56,17 @@ impl NoncurrentVersionTransitionBuilder {
         &self.noncurrent_days
     }
     /// <p>The class of storage used to store the object.</p>
-    pub fn storage_class(mut self, input: crate::types::TransitionStorageClass) -> Self {
+    pub fn storage_class(mut self, input: super::types::TransitionStorageClass) -> Self {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
     /// <p>The class of storage used to store the object.</p>
-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::TransitionStorageClass>) -> Self {
+    pub fn set_storage_class(mut self, input: ::std::option::Option<super::types::TransitionStorageClass>) -> Self {
         self.storage_class = input;
         self
     }
     /// <p>The class of storage used to store the object.</p>
-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::TransitionStorageClass> {
+    pub fn get_storage_class(&self) -> &::std::option::Option<super::types::TransitionStorageClass> {
         &self.storage_class
     }
     /// <p>Specifies how many noncurrent versions Amazon S3 will retain in the same storage class before transitioning objects. You can specify up to 100 noncurrent versions to retain. Amazon S3 will transition any additional noncurrent versions beyond the specified number to retain. For more information about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration elements</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -84,8 +84,8 @@ impl NoncurrentVersionTransitionBuilder {
         &self.newer_noncurrent_versions
     }
     /// Consumes the builder and constructs a [`NoncurrentVersionTransition`](crate::types::NoncurrentVersionTransition).
-    pub fn build(self) -> crate::types::NoncurrentVersionTransition {
-        crate::types::NoncurrentVersionTransition {
+    pub fn build(self) -> super::types::NoncurrentVersionTransition {
+        super::types::NoncurrentVersionTransition {
             noncurrent_days: self.noncurrent_days,
             storage_class: self.storage_class,
             newer_noncurrent_versions: self.newer_noncurrent_versions,

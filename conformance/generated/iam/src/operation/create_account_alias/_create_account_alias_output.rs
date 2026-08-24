@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for CreateAccountAliasOutput {
 }
 impl CreateAccountAliasOutput {
     /// Creates a new builder-style object to manufacture [`CreateAccountAliasOutput`](crate::operation::create_account_alias::CreateAccountAliasOutput).
-    pub fn builder() -> crate::operation::create_account_alias::builders::CreateAccountAliasOutputBuilder {
-        crate::operation::create_account_alias::builders::CreateAccountAliasOutputBuilder::default()
+    pub fn builder() -> super::operation::create_account_alias::builders::CreateAccountAliasOutputBuilder {
+        super::operation::create_account_alias::builders::CreateAccountAliasOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl CreateAccountAliasOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateAccountAliasOutput`](crate::operation::create_account_alias::CreateAccountAliasOutput).
-    pub fn build(self) -> crate::operation::create_account_alias::CreateAccountAliasOutput {
-        crate::operation::create_account_alias::CreateAccountAliasOutput {
+    pub fn build(self) -> super::operation::create_account_alias::CreateAccountAliasOutput {
+        super::operation::create_account_alias::CreateAccountAliasOutput {
             _request_id: self._request_id,
         }
     }

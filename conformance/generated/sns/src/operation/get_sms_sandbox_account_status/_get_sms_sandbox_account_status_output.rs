@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for GetSmsSandboxAccountStatusOutput {
 }
 impl GetSmsSandboxAccountStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetSmsSandboxAccountStatusOutput`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput).
-    pub fn builder() -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder {
-        crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder::default()
+    pub fn builder() -> super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder {
+        super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder::default()
     }
 }
 
@@ -58,8 +58,8 @@ impl GetSmsSandboxAccountStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetSmsSandboxAccountStatusOutput`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput).
-    pub fn build(self) -> crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput {
-        crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput {
+    pub fn build(self) -> super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput {
+        super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput {
             is_in_sandbox: self.is_in_sandbox.unwrap_or_default(),
             _request_id: self._request_id,
         }

@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`data_protection_policy(impl Into<String>)`](crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyFluentBuilder::data_protection_policy) / [`set_data_protection_policy(Option<String>)`](crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyFluentBuilder::set_data_protection_policy):<br>required: **true**<br><p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p> <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p> <p>Length Constraints: Maximum length of 30,720.</p><br>
     /// - On success, responds with [`PutDataProtectionPolicyOutput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyOutput)
     /// - On failure, responds with [`SdkError<PutDataProtectionPolicyError>`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyError)
-    pub fn put_data_protection_policy(&self) -> crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyFluentBuilder {
-        crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyFluentBuilder::new(self.handle.clone())
+    pub fn put_data_protection_policy(&self) -> super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyFluentBuilder {
+        super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyFluentBuilder::new(self.handle.clone())
     }
 }

@@ -8,7 +8,7 @@ pub struct EnableKinesisStreamingDestinationInput {
     /// <p>The ARN for a Kinesis data stream.</p>
     pub stream_arn: ::std::option::Option<::std::string::String>,
     /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-    pub enable_kinesis_streaming_configuration: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,
+    pub enable_kinesis_streaming_configuration: ::std::option::Option<super::types::EnableKinesisStreamingConfiguration>,
 }
 impl EnableKinesisStreamingDestinationInput {
     /// <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -20,14 +20,14 @@ impl EnableKinesisStreamingDestinationInput {
         self.stream_arn.as_deref()
     }
     /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-    pub fn enable_kinesis_streaming_configuration(&self) -> ::std::option::Option<&crate::types::EnableKinesisStreamingConfiguration> {
+    pub fn enable_kinesis_streaming_configuration(&self) -> ::std::option::Option<&super::types::EnableKinesisStreamingConfiguration> {
         self.enable_kinesis_streaming_configuration.as_ref()
     }
 }
 impl EnableKinesisStreamingDestinationInput {
     /// Creates a new builder-style object to manufacture [`EnableKinesisStreamingDestinationInput`](crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationInput).
-    pub fn builder() -> crate::operation::enable_kinesis_streaming_destination::builders::EnableKinesisStreamingDestinationInputBuilder {
-        crate::operation::enable_kinesis_streaming_destination::builders::EnableKinesisStreamingDestinationInputBuilder::default()
+    pub fn builder() -> super::operation::enable_kinesis_streaming_destination::builders::EnableKinesisStreamingDestinationInputBuilder {
+        super::operation::enable_kinesis_streaming_destination::builders::EnableKinesisStreamingDestinationInputBuilder::default()
     }
 }
 
@@ -37,7 +37,7 @@ impl EnableKinesisStreamingDestinationInput {
 pub struct EnableKinesisStreamingDestinationInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) stream_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) enable_kinesis_streaming_configuration: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,
+    pub(crate) enable_kinesis_streaming_configuration: ::std::option::Option<super::types::EnableKinesisStreamingConfiguration>,
 }
 impl EnableKinesisStreamingDestinationInputBuilder {
     /// <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -71,31 +71,31 @@ impl EnableKinesisStreamingDestinationInputBuilder {
         &self.stream_arn
     }
     /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-    pub fn enable_kinesis_streaming_configuration(mut self, input: crate::types::EnableKinesisStreamingConfiguration) -> Self {
+    pub fn enable_kinesis_streaming_configuration(mut self, input: super::types::EnableKinesisStreamingConfiguration) -> Self {
         self.enable_kinesis_streaming_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The source for the Kinesis streaming information that is being enabled.</p>
     pub fn set_enable_kinesis_streaming_configuration(
         mut self,
-        input: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,
+        input: ::std::option::Option<super::types::EnableKinesisStreamingConfiguration>,
     ) -> Self {
         self.enable_kinesis_streaming_configuration = input;
         self
     }
     /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-    pub fn get_enable_kinesis_streaming_configuration(&self) -> &::std::option::Option<crate::types::EnableKinesisStreamingConfiguration> {
+    pub fn get_enable_kinesis_streaming_configuration(&self) -> &::std::option::Option<super::types::EnableKinesisStreamingConfiguration> {
         &self.enable_kinesis_streaming_configuration
     }
     /// Consumes the builder and constructs a [`EnableKinesisStreamingDestinationInput`](crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationInput).
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationInput,
+        super::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationInput {
+            super::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationInput {
                 table_name: self.table_name,
                 stream_arn: self.stream_arn,
                 enable_kinesis_streaming_configuration: self.enable_kinesis_streaming_configuration,

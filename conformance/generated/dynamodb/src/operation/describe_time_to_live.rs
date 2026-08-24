@@ -10,11 +10,11 @@ impl DescribeTimeToLive {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::describe_time_to_live::DescribeTimeToLiveInput,
+        input: super::operation::describe_time_to_live::DescribeTimeToLiveInput,
     ) -> ::std::result::Result<
-        crate::operation::describe_time_to_live::DescribeTimeToLiveOutput,
+        super::operation::describe_time_to_live::DescribeTimeToLiveOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_time_to_live::DescribeTimeToLiveError,
+            super::operation::describe_time_to_live::DescribeTimeToLiveError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl DescribeTimeToLive {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::describe_time_to_live::DescribeTimeToLiveError>()
+                err.downcast::<super::operation::describe_time_to_live::DescribeTimeToLiveError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl DescribeTimeToLive {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::describe_time_to_live::DescribeTimeToLiveOutput>()
+                .downcast::<super::operation::describe_time_to_live::DescribeTimeToLiveOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::describe_time_to_live::DescribeTimeToLiveInput,
+        input: super::operation::describe_time_to_live::DescribeTimeToLiveInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl DescribeTimeToLive {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl DescribeTimeToLive {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Describ
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("DescribeTimeToLive")
                 .build()
                 .expect("required fields set"),
@@ -136,13 +136,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Describ
                 DescribeTimeToLiveEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::describe_time_to_live::DescribeTimeToLiveError,
+                super::operation::describe_time_to_live::DescribeTimeToLiveError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::describe_time_to_live::DescribeTimeToLiveError,
+                super::operation::describe_time_to_live::DescribeTimeToLiveError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::describe_time_to_live::DescribeTimeToLiveError,
+                super::operation::describe_time_to_live::DescribeTimeToLiveError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -207,11 +207,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DescribeT
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_describe_time_to_live::de_describe_time_to_live_http_error(status, headers, body)
+            super::protocol_serde::shape_describe_time_to_live::de_describe_time_to_live_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_describe_time_to_live::de_describe_time_to_live_http_response(status, headers, body)
+            super::protocol_serde::shape_describe_time_to_live::de_describe_time_to_live_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -224,16 +224,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeTime
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::describe_time_to_live::DescribeTimeToLiveInput>()
+            .downcast::<super::operation::describe_time_to_live::DescribeTimeToLiveInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::describe_time_to_live::DescribeTimeToLiveInput,
+                _input: &super::operation::describe_time_to_live::DescribeTimeToLiveInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -242,7 +242,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeTime
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::describe_time_to_live::DescribeTimeToLiveInput,
+                input: &super::operation::describe_time_to_live::DescribeTimeToLiveInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -258,7 +258,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeTime
             );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_describe_time_to_live::ser_describe_time_to_live_input(
+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_describe_time_to_live::ser_describe_time_to_live_input(
             &input,
         )?);
         if let Some(content_length) = body.content_length() {
@@ -292,7 +292,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeTimeT
             .downcast_ref::<DescribeTimeToLiveInput>()
             .ok_or("failed to downcast to DescribeTimeToLiveInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -328,11 +328,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeTimeT
 #[derive(::std::fmt::Debug)]
 pub enum DescribeTimeToLiveError {
     /// <p>An error occurred on the server side.</p>
-    InternalServerError(crate::types::error::InternalServerError),
+    InternalServerError(super::types::error::InternalServerError),
     #[allow(missing_docs)] // documentation missing in model
-    InvalidEndpointException(crate::types::error::InvalidEndpointException),
+    InvalidEndpointException(super::types::error::InvalidEndpointException),
     /// <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -340,14 +340,14 @@ pub enum DescribeTimeToLiveError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DescribeTimeToLiveError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl DescribeTimeToLiveError {
     /// Creates the `DescribeTimeToLiveError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -355,7 +355,7 @@ impl DescribeTimeToLiveError {
 
     /// Creates the `DescribeTimeToLiveError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -434,21 +434,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Describe
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::describe_time_to_live::DescribeTimeToLiveError {
+impl ::aws_types::request_id::RequestId for super::operation::describe_time_to_live::DescribeTimeToLiveError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::describe_time_to_live::_describe_time_to_live_input::DescribeTimeToLiveInput;
+pub use super::operation::describe_time_to_live::_describe_time_to_live_input::DescribeTimeToLiveInput;
 
-pub use crate::operation::describe_time_to_live::_describe_time_to_live_output::DescribeTimeToLiveOutput;
+pub use super::operation::describe_time_to_live::_describe_time_to_live_output::DescribeTimeToLiveOutput;
 
 mod _describe_time_to_live_input;
 

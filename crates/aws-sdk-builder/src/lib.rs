@@ -98,7 +98,7 @@ pub fn compile_source<O: OperationNames>(
     if out_dir.join("generated").is_dir() {
         output::copy_tree(&out_dir.join("generated"), &stage.path().join("generated"))?;
     }
-    let generated = codegen::generate(stage.path(), true, &[merged])?;
+    let generated = codegen::generate(stage.path(), true, false, &[merged])?;
     let mut next_state = state;
     next_state["services"][source.metadata.key] = serde_json::json!({
         "all_operations": merged_all,
@@ -162,7 +162,7 @@ where
             path: parent.to_owned(),
             source,
         })?;
-    let generated = codegen::generate(stage.path(), false, &selections)?;
+    let generated = codegen::generate(stage.path(), false, true, &selections)?;
     output::install_snapshot(stage.path(), output_dir)?;
     Ok(generated.operations.len())
 }
@@ -182,7 +182,7 @@ impl Builder {
                 path: out_dir.clone(),
                 source,
             })?;
-        let generated = codegen::generate(stage.path(), true, &selections)?;
+        let generated = codegen::generate(stage.path(), true, false, &selections)?;
         output::install(stage.path(), &out_dir, generated.operations)
     }
 }

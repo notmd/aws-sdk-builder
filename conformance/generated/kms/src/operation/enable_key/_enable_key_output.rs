@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for EnableKeyOutput {
 }
 impl EnableKeyOutput {
     /// Creates a new builder-style object to manufacture [`EnableKeyOutput`](crate::operation::enable_key::EnableKeyOutput).
-    pub fn builder() -> crate::operation::enable_key::builders::EnableKeyOutputBuilder {
-        crate::operation::enable_key::builders::EnableKeyOutputBuilder::default()
+    pub fn builder() -> super::operation::enable_key::builders::EnableKeyOutputBuilder {
+        super::operation::enable_key::builders::EnableKeyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl EnableKeyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EnableKeyOutput`](crate::operation::enable_key::EnableKeyOutput).
-    pub fn build(self) -> crate::operation::enable_key::EnableKeyOutput {
-        crate::operation::enable_key::EnableKeyOutput {
+    pub fn build(self) -> super::operation::enable_key::EnableKeyOutput {
+        super::operation::enable_key::EnableKeyOutput {
             _request_id: self._request_id,
         }
     }

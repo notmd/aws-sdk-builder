@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for SetDefaultPolicyVersionOutput {
 }
 impl SetDefaultPolicyVersionOutput {
     /// Creates a new builder-style object to manufacture [`SetDefaultPolicyVersionOutput`](crate::operation::set_default_policy_version::SetDefaultPolicyVersionOutput).
-    pub fn builder() -> crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionOutputBuilder {
-        crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionOutputBuilder::default()
+    pub fn builder() -> super::operation::set_default_policy_version::builders::SetDefaultPolicyVersionOutputBuilder {
+        super::operation::set_default_policy_version::builders::SetDefaultPolicyVersionOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl SetDefaultPolicyVersionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SetDefaultPolicyVersionOutput`](crate::operation::set_default_policy_version::SetDefaultPolicyVersionOutput).
-    pub fn build(self) -> crate::operation::set_default_policy_version::SetDefaultPolicyVersionOutput {
-        crate::operation::set_default_policy_version::SetDefaultPolicyVersionOutput {
+    pub fn build(self) -> super::operation::set_default_policy_version::SetDefaultPolicyVersionOutput {
+        super::operation::set_default_policy_version::SetDefaultPolicyVersionOutput {
             _request_id: self._request_id,
         }
     }

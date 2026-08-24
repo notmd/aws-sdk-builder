@@ -8807,7 +8807,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    Ok(payload)
 +pub fn ser_invoke_async_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::operation::invoke_async::InvokeAsyncInput,
++    input: &super::operation::invoke_async::InvokeAsyncInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.function_name {
 +        object.key("FunctionName").string(var_1.as_str());
@@ -8836,7 +8836,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 +pub fn ser_invoke_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::operation::invoke::InvokeInput,
++    input: &super::operation::invoke::InvokeInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.function_name {
 +        object.key("FunctionName").string(var_1.as_str());
@@ -9126,7 +9126,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 +pub fn ser_invoke_with_response_stream_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
++    input: &super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.function_name {
 +        object.key("FunctionName").string(var_1.as_str());
@@ -11928,7 +11928,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 +pub fn ser_send_durable_execution_callback_success_input_input(
 +    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput,
++    input: &super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput,
 +) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 +    if let Some(var_1) = &input.callback_id {
 +        object.key("CallbackId").string(var_1.as_str());

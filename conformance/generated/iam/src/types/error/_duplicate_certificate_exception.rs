@@ -26,7 +26,7 @@ impl ::std::fmt::Display for DuplicateCertificateException {
     }
 }
 impl ::std::error::Error for DuplicateCertificateException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::DuplicateCertificateException {
+impl ::aws_types::request_id::RequestId for super::types::error::DuplicateCertificateException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DuplicateCert
 }
 impl DuplicateCertificateException {
     /// Creates a new builder-style object to manufacture [`DuplicateCertificateException`](crate::types::error::DuplicateCertificateException).
-    pub fn builder() -> crate::types::error::builders::DuplicateCertificateExceptionBuilder {
-        crate::types::error::builders::DuplicateCertificateExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::DuplicateCertificateExceptionBuilder {
+        super::types::error::builders::DuplicateCertificateExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl DuplicateCertificateExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DuplicateCertificateException`](crate::types::error::DuplicateCertificateException).
-    pub fn build(self) -> crate::types::error::DuplicateCertificateException {
-        crate::types::error::DuplicateCertificateException {
+    pub fn build(self) -> super::types::error::DuplicateCertificateException {
+        super::types::error::DuplicateCertificateException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

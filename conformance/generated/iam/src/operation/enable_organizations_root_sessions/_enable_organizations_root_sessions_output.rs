@@ -6,7 +6,7 @@ pub struct EnableOrganizationsRootSessionsOutput {
     /// <p>The unique identifier (ID) of an organization.</p>
     pub organization_id: ::std::option::Option<::std::string::String>,
     /// <p>The features you have enabled for centralized root access.</p>
-    pub enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
+    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::types::FeatureType>>,
     _request_id: Option<String>,
 }
 impl EnableOrganizationsRootSessionsOutput {
@@ -17,7 +17,7 @@ impl EnableOrganizationsRootSessionsOutput {
     /// <p>The features you have enabled for centralized root access.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_features.is_none()`.
-    pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
+    pub fn enabled_features(&self) -> &[super::types::FeatureType] {
         self.enabled_features.as_deref().unwrap_or_default()
     }
 }
@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for EnableOrganizationsRootSessionsOutpu
 }
 impl EnableOrganizationsRootSessionsOutput {
     /// Creates a new builder-style object to manufacture [`EnableOrganizationsRootSessionsOutput`](crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput).
-    pub fn builder() -> crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder {
-        crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder::default()
+    pub fn builder() -> super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder {
+        super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl EnableOrganizationsRootSessionsOutput {
 #[non_exhaustive]
 pub struct EnableOrganizationsRootSessionsOutputBuilder {
     pub(crate) organization_id: ::std::option::Option<::std::string::String>,
-    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
+    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<super::types::FeatureType>>,
     _request_id: Option<String>,
 }
 impl EnableOrganizationsRootSessionsOutputBuilder {
@@ -61,19 +61,19 @@ impl EnableOrganizationsRootSessionsOutputBuilder {
     /// To override the contents of this collection use [`set_enabled_features`](Self::set_enabled_features).
     ///
     /// <p>The features you have enabled for centralized root access.</p>
-    pub fn enabled_features(mut self, input: crate::types::FeatureType) -> Self {
+    pub fn enabled_features(mut self, input: super::types::FeatureType) -> Self {
         let mut v = self.enabled_features.unwrap_or_default();
         v.push(input);
         self.enabled_features = ::std::option::Option::Some(v);
         self
     }
     /// <p>The features you have enabled for centralized root access.</p>
-    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self {
+    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FeatureType>>) -> Self {
         self.enabled_features = input;
         self
     }
     /// <p>The features you have enabled for centralized root access.</p>
-    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
+    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FeatureType>> {
         &self.enabled_features
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,8 +86,8 @@ impl EnableOrganizationsRootSessionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EnableOrganizationsRootSessionsOutput`](crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput).
-    pub fn build(self) -> crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput {
-        crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput {
+    pub fn build(self) -> super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput {
+        super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput {
             organization_id: self.organization_id,
             enabled_features: self.enabled_features,
             _request_id: self._request_id,

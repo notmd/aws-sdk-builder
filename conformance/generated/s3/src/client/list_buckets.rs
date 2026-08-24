@@ -14,7 +14,7 @@ impl super::Client {
     ///   - [`continuation_token(Option<String>)`](crate::operation::list_buckets::ListBucketsOutput::continuation_token): <p><code>ContinuationToken</code> is included in the response when there are more buckets that can be listed with pagination. The next <code>ListBuckets</code> request to Amazon S3 can be continued with this <code>ContinuationToken</code>. <code>ContinuationToken</code> is obfuscated and is not a real bucket.</p>
     ///   - [`prefix(Option<String>)`](crate::operation::list_buckets::ListBucketsOutput::prefix): <p>If <code>Prefix</code> was sent with the request, it is included in the response.</p> <p>All bucket names in the response begin with the specified bucket name prefix.</p>
     /// - On failure, responds with [`SdkError<ListBucketsError>`](crate::operation::list_buckets::ListBucketsError)
-    pub fn list_buckets(&self) -> crate::operation::list_buckets::builders::ListBucketsFluentBuilder {
-        crate::operation::list_buckets::builders::ListBucketsFluentBuilder::new(self.handle.clone())
+    pub fn list_buckets(&self) -> super::operation::list_buckets::builders::ListBucketsFluentBuilder {
+        super::operation::list_buckets::builders::ListBucketsFluentBuilder::new(self.handle.clone())
     }
 }

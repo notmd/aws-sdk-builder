@@ -10,7 +10,7 @@ pub struct AttributeValueUpdate {
     /// <p>Represents the data for an attribute.</p>
     /// <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub value: ::std::option::Option<crate::types::AttributeValue>,
+    pub value: ::std::option::Option<super::types::AttributeValue>,
     /// <p>Specifies how to perform the update. Valid values are <code>PUT</code> (default), <code>DELETE</code>, and <code>ADD</code>. The behavior depends on whether the specified primary key already exists in the table.</p>
     /// <p><b>If an item with the specified <i>Key</i> is found in the table:</b></p>
     /// <ul>
@@ -42,13 +42,13 @@ pub struct AttributeValueUpdate {
     /// <li>
     /// <p><code>ADD</code> - DynamoDB creates a new item with the supplied primary key and number (or set) for the attribute value. The only data types allowed are number, number set, string set or binary set.</p></li>
     /// </ul>
-    pub action: ::std::option::Option<crate::types::AttributeAction>,
+    pub action: ::std::option::Option<super::types::AttributeAction>,
 }
 impl AttributeValueUpdate {
     /// <p>Represents the data for an attribute.</p>
     /// <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn value(&self) -> ::std::option::Option<&crate::types::AttributeValue> {
+    pub fn value(&self) -> ::std::option::Option<&super::types::AttributeValue> {
         self.value.as_ref()
     }
     /// <p>Specifies how to perform the update. Valid values are <code>PUT</code> (default), <code>DELETE</code>, and <code>ADD</code>. The behavior depends on whether the specified primary key already exists in the table.</p>
@@ -82,14 +82,14 @@ impl AttributeValueUpdate {
     /// <li>
     /// <p><code>ADD</code> - DynamoDB creates a new item with the supplied primary key and number (or set) for the attribute value. The only data types allowed are number, number set, string set or binary set.</p></li>
     /// </ul>
-    pub fn action(&self) -> ::std::option::Option<&crate::types::AttributeAction> {
+    pub fn action(&self) -> ::std::option::Option<&super::types::AttributeAction> {
         self.action.as_ref()
     }
 }
 impl AttributeValueUpdate {
     /// Creates a new builder-style object to manufacture [`AttributeValueUpdate`](crate::types::AttributeValueUpdate).
-    pub fn builder() -> crate::types::builders::AttributeValueUpdateBuilder {
-        crate::types::builders::AttributeValueUpdateBuilder::default()
+    pub fn builder() -> super::types::builders::AttributeValueUpdateBuilder {
+        super::types::builders::AttributeValueUpdateBuilder::default()
     }
 }
 
@@ -97,28 +97,28 @@ impl AttributeValueUpdate {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AttributeValueUpdateBuilder {
-    pub(crate) value: ::std::option::Option<crate::types::AttributeValue>,
-    pub(crate) action: ::std::option::Option<crate::types::AttributeAction>,
+    pub(crate) value: ::std::option::Option<super::types::AttributeValue>,
+    pub(crate) action: ::std::option::Option<super::types::AttributeAction>,
 }
 impl AttributeValueUpdateBuilder {
     /// <p>Represents the data for an attribute.</p>
     /// <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn value(mut self, input: crate::types::AttributeValue) -> Self {
+    pub fn value(mut self, input: super::types::AttributeValue) -> Self {
         self.value = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the data for an attribute.</p>
     /// <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_value(mut self, input: ::std::option::Option<crate::types::AttributeValue>) -> Self {
+    pub fn set_value(mut self, input: ::std::option::Option<super::types::AttributeValue>) -> Self {
         self.value = input;
         self
     }
     /// <p>Represents the data for an attribute.</p>
     /// <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_value(&self) -> &::std::option::Option<crate::types::AttributeValue> {
+    pub fn get_value(&self) -> &::std::option::Option<super::types::AttributeValue> {
         &self.value
     }
     /// <p>Specifies how to perform the update. Valid values are <code>PUT</code> (default), <code>DELETE</code>, and <code>ADD</code>. The behavior depends on whether the specified primary key already exists in the table.</p>
@@ -152,7 +152,7 @@ impl AttributeValueUpdateBuilder {
     /// <li>
     /// <p><code>ADD</code> - DynamoDB creates a new item with the supplied primary key and number (or set) for the attribute value. The only data types allowed are number, number set, string set or binary set.</p></li>
     /// </ul>
-    pub fn action(mut self, input: crate::types::AttributeAction) -> Self {
+    pub fn action(mut self, input: super::types::AttributeAction) -> Self {
         self.action = ::std::option::Option::Some(input);
         self
     }
@@ -187,7 +187,7 @@ impl AttributeValueUpdateBuilder {
     /// <li>
     /// <p><code>ADD</code> - DynamoDB creates a new item with the supplied primary key and number (or set) for the attribute value. The only data types allowed are number, number set, string set or binary set.</p></li>
     /// </ul>
-    pub fn set_action(mut self, input: ::std::option::Option<crate::types::AttributeAction>) -> Self {
+    pub fn set_action(mut self, input: ::std::option::Option<super::types::AttributeAction>) -> Self {
         self.action = input;
         self
     }
@@ -222,12 +222,12 @@ impl AttributeValueUpdateBuilder {
     /// <li>
     /// <p><code>ADD</code> - DynamoDB creates a new item with the supplied primary key and number (or set) for the attribute value. The only data types allowed are number, number set, string set or binary set.</p></li>
     /// </ul>
-    pub fn get_action(&self) -> &::std::option::Option<crate::types::AttributeAction> {
+    pub fn get_action(&self) -> &::std::option::Option<super::types::AttributeAction> {
         &self.action
     }
     /// Consumes the builder and constructs a [`AttributeValueUpdate`](crate::types::AttributeValueUpdate).
-    pub fn build(self) -> crate::types::AttributeValueUpdate {
-        crate::types::AttributeValueUpdate {
+    pub fn build(self) -> super::types::AttributeValueUpdate {
+        super::types::AttributeValueUpdate {
             value: self.value,
             action: self.action,
         }

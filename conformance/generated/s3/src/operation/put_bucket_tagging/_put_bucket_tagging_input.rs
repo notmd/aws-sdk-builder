@@ -10,9 +10,9 @@ pub struct PutBucketTaggingInput {
     pub content_md5: ::std::option::Option<::std::string::String>,
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
     /// <p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>
-    pub tagging: ::std::option::Option<crate::types::Tagging>,
+    pub tagging: ::std::option::Option<super::types::Tagging>,
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
@@ -28,11 +28,11 @@ impl PutBucketTaggingInput {
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
         self.checksum_algorithm.as_ref()
     }
     /// <p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>
-    pub fn tagging(&self) -> ::std::option::Option<&crate::types::Tagging> {
+    pub fn tagging(&self) -> ::std::option::Option<&super::types::Tagging> {
         self.tagging.as_ref()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -42,8 +42,8 @@ impl PutBucketTaggingInput {
 }
 impl PutBucketTaggingInput {
     /// Creates a new builder-style object to manufacture [`PutBucketTaggingInput`](crate::operation::put_bucket_tagging::PutBucketTaggingInput).
-    pub fn builder() -> crate::operation::put_bucket_tagging::builders::PutBucketTaggingInputBuilder {
-        crate::operation::put_bucket_tagging::builders::PutBucketTaggingInputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_tagging::builders::PutBucketTaggingInputBuilder {
+        super::operation::put_bucket_tagging::builders::PutBucketTaggingInputBuilder::default()
     }
 }
 
@@ -53,8 +53,8 @@ impl PutBucketTaggingInput {
 pub struct PutBucketTaggingInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) content_md5: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    pub(crate) tagging: ::std::option::Option<crate::types::Tagging>,
+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
+    pub(crate) tagging: ::std::option::Option<super::types::Tagging>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
 impl PutBucketTaggingInputBuilder {
@@ -92,34 +92,34 @@ impl PutBucketTaggingInputBuilder {
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>
     /// This field is required.
-    pub fn tagging(mut self, input: crate::types::Tagging) -> Self {
+    pub fn tagging(mut self, input: super::types::Tagging) -> Self {
         self.tagging = ::std::option::Option::Some(input);
         self
     }
     /// <p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>
-    pub fn set_tagging(mut self, input: ::std::option::Option<crate::types::Tagging>) -> Self {
+    pub fn set_tagging(mut self, input: ::std::option::Option<super::types::Tagging>) -> Self {
         self.tagging = input;
         self
     }
     /// <p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>
-    pub fn get_tagging(&self) -> &::std::option::Option<crate::types::Tagging> {
+    pub fn get_tagging(&self) -> &::std::option::Option<super::types::Tagging> {
         &self.tagging
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -139,8 +139,8 @@ impl PutBucketTaggingInputBuilder {
     /// Consumes the builder and constructs a [`PutBucketTaggingInput`](crate::operation::put_bucket_tagging::PutBucketTaggingInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_bucket_tagging::PutBucketTaggingInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::put_bucket_tagging::PutBucketTaggingInput {
+    ) -> ::std::result::Result<super::operation::put_bucket_tagging::PutBucketTaggingInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::put_bucket_tagging::PutBucketTaggingInput {
             bucket: self.bucket,
             content_md5: self.content_md5,
             checksum_algorithm: self.checksum_algorithm,

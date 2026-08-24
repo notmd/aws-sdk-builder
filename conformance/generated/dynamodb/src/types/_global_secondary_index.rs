@@ -16,16 +16,16 @@ pub struct GlobalSecondaryIndex {
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub key_schema: ::std::vec::Vec<crate::types::KeySchemaElement>,
+    pub key_schema: ::std::vec::Vec<super::types::KeySchemaElement>,
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-    pub projection: ::std::option::Option<crate::types::Projection>,
+    pub projection: ::std::option::Option<super::types::Projection>,
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    pub provisioned_throughput: ::std::option::Option<super::types::ProvisionedThroughput>,
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-    pub on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
+    pub on_demand_throughput: ::std::option::Option<super::types::OnDemandThroughput>,
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
-    pub warm_throughput: ::std::option::Option<crate::types::WarmThroughput>,
+    pub warm_throughput: ::std::option::Option<super::types::WarmThroughput>,
 }
 impl GlobalSecondaryIndex {
     /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
@@ -43,32 +43,32 @@ impl GlobalSecondaryIndex {
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub fn key_schema(&self) -> &[crate::types::KeySchemaElement] {
+    pub fn key_schema(&self) -> &[super::types::KeySchemaElement] {
         use std::ops::Deref;
         self.key_schema.deref()
     }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-    pub fn projection(&self) -> ::std::option::Option<&crate::types::Projection> {
+    pub fn projection(&self) -> ::std::option::Option<&super::types::Projection> {
         self.projection.as_ref()
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn provisioned_throughput(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
+    pub fn provisioned_throughput(&self) -> ::std::option::Option<&super::types::ProvisionedThroughput> {
         self.provisioned_throughput.as_ref()
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-    pub fn on_demand_throughput(&self) -> ::std::option::Option<&crate::types::OnDemandThroughput> {
+    pub fn on_demand_throughput(&self) -> ::std::option::Option<&super::types::OnDemandThroughput> {
         self.on_demand_throughput.as_ref()
     }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
-    pub fn warm_throughput(&self) -> ::std::option::Option<&crate::types::WarmThroughput> {
+    pub fn warm_throughput(&self) -> ::std::option::Option<&super::types::WarmThroughput> {
         self.warm_throughput.as_ref()
     }
 }
 impl GlobalSecondaryIndex {
     /// Creates a new builder-style object to manufacture [`GlobalSecondaryIndex`](crate::types::GlobalSecondaryIndex).
-    pub fn builder() -> crate::types::builders::GlobalSecondaryIndexBuilder {
-        crate::types::builders::GlobalSecondaryIndexBuilder::default()
+    pub fn builder() -> super::types::builders::GlobalSecondaryIndexBuilder {
+        super::types::builders::GlobalSecondaryIndexBuilder::default()
     }
 }
 
@@ -77,11 +77,11 @@ impl GlobalSecondaryIndex {
 #[non_exhaustive]
 pub struct GlobalSecondaryIndexBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) key_schema: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>,
-    pub(crate) projection: ::std::option::Option<crate::types::Projection>,
-    pub(crate) provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughput>,
-    pub(crate) on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
-    pub(crate) warm_throughput: ::std::option::Option<crate::types::WarmThroughput>,
+    pub(crate) key_schema: ::std::option::Option<::std::vec::Vec<super::types::KeySchemaElement>>,
+    pub(crate) projection: ::std::option::Option<super::types::Projection>,
+    pub(crate) provisioned_throughput: ::std::option::Option<super::types::ProvisionedThroughput>,
+    pub(crate) on_demand_throughput: ::std::option::Option<super::types::OnDemandThroughput>,
+    pub(crate) warm_throughput: ::std::option::Option<super::types::WarmThroughput>,
 }
 impl GlobalSecondaryIndexBuilder {
     /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
@@ -113,7 +113,7 @@ impl GlobalSecondaryIndexBuilder {
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
+    pub fn key_schema(mut self, input: super::types::KeySchemaElement) -> Self {
         let mut v = self.key_schema.unwrap_or_default();
         v.push(input);
         self.key_schema = ::std::option::Option::Some(v);
@@ -129,7 +129,7 @@ impl GlobalSecondaryIndexBuilder {
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::KeySchemaElement>>) -> Self {
         self.key_schema = input;
         self
     }
@@ -143,75 +143,75 @@ impl GlobalSecondaryIndexBuilder {
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<super::types::KeySchemaElement>> {
         &self.key_schema
     }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
     /// This field is required.
-    pub fn projection(mut self, input: crate::types::Projection) -> Self {
+    pub fn projection(mut self, input: super::types::Projection) -> Self {
         self.projection = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
+    pub fn set_projection(mut self, input: ::std::option::Option<super::types::Projection>) -> Self {
         self.projection = input;
         self
     }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> {
+    pub fn get_projection(&self) -> &::std::option::Option<super::types::Projection> {
         &self.projection
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
+    pub fn provisioned_throughput(mut self, input: super::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<super::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput = input;
         self
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<super::types::ProvisionedThroughput> {
         &self.provisioned_throughput
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-    pub fn on_demand_throughput(mut self, input: crate::types::OnDemandThroughput) -> Self {
+    pub fn on_demand_throughput(mut self, input: super::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<super::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput = input;
         self
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<super::types::OnDemandThroughput> {
         &self.on_demand_throughput
     }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
-    pub fn warm_throughput(mut self, input: crate::types::WarmThroughput) -> Self {
+    pub fn warm_throughput(mut self, input: super::types::WarmThroughput) -> Self {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
+    pub fn set_warm_throughput(mut self, input: ::std::option::Option<super::types::WarmThroughput>) -> Self {
         self.warm_throughput = input;
         self
     }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
-    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::WarmThroughput> {
+    pub fn get_warm_throughput(&self) -> &::std::option::Option<super::types::WarmThroughput> {
         &self.warm_throughput
     }
     /// Consumes the builder and constructs a [`GlobalSecondaryIndex`](crate::types::GlobalSecondaryIndex).
     /// This method will fail if any of the following fields are not set:
     /// - [`index_name`](crate::types::builders::GlobalSecondaryIndexBuilder::index_name)
     /// - [`key_schema`](crate::types::builders::GlobalSecondaryIndexBuilder::key_schema)
-    pub fn build(self) -> ::std::result::Result<crate::types::GlobalSecondaryIndex, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::GlobalSecondaryIndex {
+    pub fn build(self) -> ::std::result::Result<super::types::GlobalSecondaryIndex, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::GlobalSecondaryIndex {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "index_name",

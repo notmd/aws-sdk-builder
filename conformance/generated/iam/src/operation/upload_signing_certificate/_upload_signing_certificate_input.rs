@@ -40,8 +40,8 @@ impl UploadSigningCertificateInput {
 }
 impl UploadSigningCertificateInput {
     /// Creates a new builder-style object to manufacture [`UploadSigningCertificateInput`](crate::operation::upload_signing_certificate::UploadSigningCertificateInput).
-    pub fn builder() -> crate::operation::upload_signing_certificate::builders::UploadSigningCertificateInputBuilder {
-        crate::operation::upload_signing_certificate::builders::UploadSigningCertificateInputBuilder::default()
+    pub fn builder() -> super::operation::upload_signing_certificate::builders::UploadSigningCertificateInputBuilder {
+        super::operation::upload_signing_certificate::builders::UploadSigningCertificateInputBuilder::default()
     }
 }
 
@@ -116,10 +116,10 @@ impl UploadSigningCertificateInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::upload_signing_certificate::UploadSigningCertificateInput,
+        super::operation::upload_signing_certificate::UploadSigningCertificateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::upload_signing_certificate::UploadSigningCertificateInput {
+        ::std::result::Result::Ok(super::operation::upload_signing_certificate::UploadSigningCertificateInput {
             user_name: self.user_name,
             certificate_body: self.certificate_body,
         })

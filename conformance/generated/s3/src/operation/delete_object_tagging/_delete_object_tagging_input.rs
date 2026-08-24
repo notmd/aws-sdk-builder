@@ -36,8 +36,8 @@ impl DeleteObjectTaggingInput {
 }
 impl DeleteObjectTaggingInput {
     /// Creates a new builder-style object to manufacture [`DeleteObjectTaggingInput`](crate::operation::delete_object_tagging::DeleteObjectTaggingInput).
-    pub fn builder() -> crate::operation::delete_object_tagging::builders::DeleteObjectTaggingInputBuilder {
-        crate::operation::delete_object_tagging::builders::DeleteObjectTaggingInputBuilder::default()
+    pub fn builder() -> super::operation::delete_object_tagging::builders::DeleteObjectTaggingInputBuilder {
+        super::operation::delete_object_tagging::builders::DeleteObjectTaggingInputBuilder::default()
     }
 }
 
@@ -118,9 +118,9 @@ impl DeleteObjectTaggingInputBuilder {
     /// Consumes the builder and constructs a [`DeleteObjectTaggingInput`](crate::operation::delete_object_tagging::DeleteObjectTaggingInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_object_tagging::DeleteObjectTaggingInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::delete_object_tagging::DeleteObjectTaggingInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::delete_object_tagging::DeleteObjectTaggingInput {
+        ::std::result::Result::Ok(super::operation::delete_object_tagging::DeleteObjectTaggingInput {
             bucket: self.bucket,
             key: self.key,
             version_id: self.version_id,

@@ -4,12 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeleteCapacityProviderOutput {
     /// <p>Information about the deleted capacity provider.</p>
-    pub capacity_provider: ::std::option::Option<crate::types::CapacityProvider>,
+    pub capacity_provider: ::std::option::Option<super::types::CapacityProvider>,
     _request_id: Option<String>,
 }
 impl DeleteCapacityProviderOutput {
     /// <p>Information about the deleted capacity provider.</p>
-    pub fn capacity_provider(&self) -> ::std::option::Option<&crate::types::CapacityProvider> {
+    pub fn capacity_provider(&self) -> ::std::option::Option<&super::types::CapacityProvider> {
         self.capacity_provider.as_ref()
     }
 }
@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for DeleteCapacityProviderOutput {
 }
 impl DeleteCapacityProviderOutput {
     /// Creates a new builder-style object to manufacture [`DeleteCapacityProviderOutput`](crate::operation::delete_capacity_provider::DeleteCapacityProviderOutput).
-    pub fn builder() -> crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderOutputBuilder {
-        crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_capacity_provider::builders::DeleteCapacityProviderOutputBuilder {
+        super::operation::delete_capacity_provider::builders::DeleteCapacityProviderOutputBuilder::default()
     }
 }
 
@@ -29,23 +29,23 @@ impl DeleteCapacityProviderOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteCapacityProviderOutputBuilder {
-    pub(crate) capacity_provider: ::std::option::Option<crate::types::CapacityProvider>,
+    pub(crate) capacity_provider: ::std::option::Option<super::types::CapacityProvider>,
     _request_id: Option<String>,
 }
 impl DeleteCapacityProviderOutputBuilder {
     /// <p>Information about the deleted capacity provider.</p>
     /// This field is required.
-    pub fn capacity_provider(mut self, input: crate::types::CapacityProvider) -> Self {
+    pub fn capacity_provider(mut self, input: super::types::CapacityProvider) -> Self {
         self.capacity_provider = ::std::option::Option::Some(input);
         self
     }
     /// <p>Information about the deleted capacity provider.</p>
-    pub fn set_capacity_provider(mut self, input: ::std::option::Option<crate::types::CapacityProvider>) -> Self {
+    pub fn set_capacity_provider(mut self, input: ::std::option::Option<super::types::CapacityProvider>) -> Self {
         self.capacity_provider = input;
         self
     }
     /// <p>Information about the deleted capacity provider.</p>
-    pub fn get_capacity_provider(&self) -> &::std::option::Option<crate::types::CapacityProvider> {
+    pub fn get_capacity_provider(&self) -> &::std::option::Option<super::types::CapacityProvider> {
         &self.capacity_provider
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -58,8 +58,8 @@ impl DeleteCapacityProviderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteCapacityProviderOutput`](crate::operation::delete_capacity_provider::DeleteCapacityProviderOutput).
-    pub fn build(self) -> crate::operation::delete_capacity_provider::DeleteCapacityProviderOutput {
-        crate::operation::delete_capacity_provider::DeleteCapacityProviderOutput {
+    pub fn build(self) -> super::operation::delete_capacity_provider::DeleteCapacityProviderOutput {
+        super::operation::delete_capacity_provider::DeleteCapacityProviderOutput {
             capacity_provider: self.capacity_provider,
             _request_id: self._request_id,
         }

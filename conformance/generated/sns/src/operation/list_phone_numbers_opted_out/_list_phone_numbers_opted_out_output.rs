@@ -38,8 +38,8 @@ impl ::aws_types::request_id::RequestId for ListPhoneNumbersOptedOutOutput {
 }
 impl ListPhoneNumbersOptedOutOutput {
     /// Creates a new builder-style object to manufacture [`ListPhoneNumbersOptedOutOutput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput).
-    pub fn builder() -> crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutOutputBuilder {
-        crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutOutputBuilder::default()
+    pub fn builder() -> super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutOutputBuilder {
+        super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutOutputBuilder::default()
     }
 }
 
@@ -96,8 +96,8 @@ impl ListPhoneNumbersOptedOutOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListPhoneNumbersOptedOutOutput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput).
-    pub fn build(self) -> crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput {
-        crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput {
+    pub fn build(self) -> super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput {
+        super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput {
             phone_numbers: self.phone_numbers,
             next_token: self.next_token,
             _request_id: self._request_id,

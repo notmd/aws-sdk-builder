@@ -38,8 +38,8 @@ impl ListAttachedRolePoliciesInput {
 }
 impl ListAttachedRolePoliciesInput {
     /// Creates a new builder-style object to manufacture [`ListAttachedRolePoliciesInput`](crate::operation::list_attached_role_policies::ListAttachedRolePoliciesInput).
-    pub fn builder() -> crate::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesInputBuilder {
-        crate::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesInputBuilder::default()
+    pub fn builder() -> super::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesInputBuilder {
+        super::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesInputBuilder::default()
     }
 }
 
@@ -123,10 +123,10 @@ impl ListAttachedRolePoliciesInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_attached_role_policies::ListAttachedRolePoliciesInput,
+        super::operation::list_attached_role_policies::ListAttachedRolePoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_attached_role_policies::ListAttachedRolePoliciesInput {
+        ::std::result::Result::Ok(super::operation::list_attached_role_policies::ListAttachedRolePoliciesInput {
             role_name: self.role_name,
             path_prefix: self.path_prefix,
             marker: self.marker,

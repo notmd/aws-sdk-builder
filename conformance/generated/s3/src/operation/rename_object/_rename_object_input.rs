@@ -90,8 +90,8 @@ impl RenameObjectInput {
 }
 impl RenameObjectInput {
     /// Creates a new builder-style object to manufacture [`RenameObjectInput`](crate::operation::rename_object::RenameObjectInput).
-    pub fn builder() -> crate::operation::rename_object::builders::RenameObjectInputBuilder {
-        crate::operation::rename_object::builders::RenameObjectInputBuilder::default()
+    pub fn builder() -> super::operation::rename_object::builders::RenameObjectInputBuilder {
+        super::operation::rename_object::builders::RenameObjectInputBuilder::default()
     }
 }
 
@@ -302,8 +302,8 @@ impl RenameObjectInputBuilder {
     /// Consumes the builder and constructs a [`RenameObjectInput`](crate::operation::rename_object::RenameObjectInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::rename_object::RenameObjectInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::rename_object::RenameObjectInput {
+    ) -> ::std::result::Result<super::operation::rename_object::RenameObjectInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::rename_object::RenameObjectInput {
             bucket: self.bucket,
             key: self.key,
             rename_source: self.rename_source,

@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for RevokeGrantOutput {
 }
 impl RevokeGrantOutput {
     /// Creates a new builder-style object to manufacture [`RevokeGrantOutput`](crate::operation::revoke_grant::RevokeGrantOutput).
-    pub fn builder() -> crate::operation::revoke_grant::builders::RevokeGrantOutputBuilder {
-        crate::operation::revoke_grant::builders::RevokeGrantOutputBuilder::default()
+    pub fn builder() -> super::operation::revoke_grant::builders::RevokeGrantOutputBuilder {
+        super::operation::revoke_grant::builders::RevokeGrantOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl RevokeGrantOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RevokeGrantOutput`](crate::operation::revoke_grant::RevokeGrantOutput).
-    pub fn build(self) -> crate::operation::revoke_grant::RevokeGrantOutput {
-        crate::operation::revoke_grant::RevokeGrantOutput {
+    pub fn build(self) -> super::operation::revoke_grant::RevokeGrantOutput {
+        super::operation::revoke_grant::RevokeGrantOutput {
             _request_id: self._request_id,
         }
     }

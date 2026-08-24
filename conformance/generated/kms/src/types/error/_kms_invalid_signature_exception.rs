@@ -26,7 +26,7 @@ impl ::std::fmt::Display for KmsInvalidSignatureException {
     }
 }
 impl ::std::error::Error for KmsInvalidSignatureException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::KmsInvalidSignatureException {
+impl ::aws_types::request_id::RequestId for super::types::error::KmsInvalidSignatureException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for KmsInvalidSig
 }
 impl KmsInvalidSignatureException {
     /// Creates a new builder-style object to manufacture [`KmsInvalidSignatureException`](crate::types::error::KmsInvalidSignatureException).
-    pub fn builder() -> crate::types::error::builders::KmsInvalidSignatureExceptionBuilder {
-        crate::types::error::builders::KmsInvalidSignatureExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::KmsInvalidSignatureExceptionBuilder {
+        super::types::error::builders::KmsInvalidSignatureExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl KmsInvalidSignatureExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`KmsInvalidSignatureException`](crate::types::error::KmsInvalidSignatureException).
-    pub fn build(self) -> crate::types::error::KmsInvalidSignatureException {
-        crate::types::error::KmsInvalidSignatureException {
+    pub fn build(self) -> super::types::error::KmsInvalidSignatureException {
+        super::types::error::KmsInvalidSignatureException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

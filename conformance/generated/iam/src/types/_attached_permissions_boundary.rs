@@ -7,13 +7,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AttachedPermissionsBoundary {
     /// <p>The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of <code>Policy</code>.</p>
-    pub permissions_boundary_type: ::std::option::Option<crate::types::PermissionsBoundaryAttachmentType>,
+    pub permissions_boundary_type: ::std::option::Option<super::types::PermissionsBoundaryAttachmentType>,
     /// <p>The ARN of the policy used to set the permissions boundary for the user or role.</p>
     pub permissions_boundary_arn: ::std::option::Option<::std::string::String>,
 }
 impl AttachedPermissionsBoundary {
     /// <p>The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of <code>Policy</code>.</p>
-    pub fn permissions_boundary_type(&self) -> ::std::option::Option<&crate::types::PermissionsBoundaryAttachmentType> {
+    pub fn permissions_boundary_type(&self) -> ::std::option::Option<&super::types::PermissionsBoundaryAttachmentType> {
         self.permissions_boundary_type.as_ref()
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user or role.</p>
@@ -23,8 +23,8 @@ impl AttachedPermissionsBoundary {
 }
 impl AttachedPermissionsBoundary {
     /// Creates a new builder-style object to manufacture [`AttachedPermissionsBoundary`](crate::types::AttachedPermissionsBoundary).
-    pub fn builder() -> crate::types::builders::AttachedPermissionsBoundaryBuilder {
-        crate::types::builders::AttachedPermissionsBoundaryBuilder::default()
+    pub fn builder() -> super::types::builders::AttachedPermissionsBoundaryBuilder {
+        super::types::builders::AttachedPermissionsBoundaryBuilder::default()
     }
 }
 
@@ -32,22 +32,22 @@ impl AttachedPermissionsBoundary {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AttachedPermissionsBoundaryBuilder {
-    pub(crate) permissions_boundary_type: ::std::option::Option<crate::types::PermissionsBoundaryAttachmentType>,
+    pub(crate) permissions_boundary_type: ::std::option::Option<super::types::PermissionsBoundaryAttachmentType>,
     pub(crate) permissions_boundary_arn: ::std::option::Option<::std::string::String>,
 }
 impl AttachedPermissionsBoundaryBuilder {
     /// <p>The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of <code>Policy</code>.</p>
-    pub fn permissions_boundary_type(mut self, input: crate::types::PermissionsBoundaryAttachmentType) -> Self {
+    pub fn permissions_boundary_type(mut self, input: super::types::PermissionsBoundaryAttachmentType) -> Self {
         self.permissions_boundary_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of <code>Policy</code>.</p>
-    pub fn set_permissions_boundary_type(mut self, input: ::std::option::Option<crate::types::PermissionsBoundaryAttachmentType>) -> Self {
+    pub fn set_permissions_boundary_type(mut self, input: ::std::option::Option<super::types::PermissionsBoundaryAttachmentType>) -> Self {
         self.permissions_boundary_type = input;
         self
     }
     /// <p>The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of <code>Policy</code>.</p>
-    pub fn get_permissions_boundary_type(&self) -> &::std::option::Option<crate::types::PermissionsBoundaryAttachmentType> {
+    pub fn get_permissions_boundary_type(&self) -> &::std::option::Option<super::types::PermissionsBoundaryAttachmentType> {
         &self.permissions_boundary_type
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user or role.</p>
@@ -65,8 +65,8 @@ impl AttachedPermissionsBoundaryBuilder {
         &self.permissions_boundary_arn
     }
     /// Consumes the builder and constructs a [`AttachedPermissionsBoundary`](crate::types::AttachedPermissionsBoundary).
-    pub fn build(self) -> crate::types::AttachedPermissionsBoundary {
-        crate::types::AttachedPermissionsBoundary {
+    pub fn build(self) -> super::types::AttachedPermissionsBoundary {
+        super::types::AttachedPermissionsBoundary {
             permissions_boundary_type: self.permissions_boundary_type,
             permissions_boundary_arn: self.permissions_boundary_arn,
         }

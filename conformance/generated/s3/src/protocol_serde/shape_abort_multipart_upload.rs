@@ -5,29 +5,29 @@ pub fn de_abort_multipart_upload_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::abort_multipart_upload::AbortMultipartUploadOutput,
-    crate::operation::abort_multipart_upload::AbortMultipartUploadError,
+    super::operation::abort_multipart_upload::AbortMultipartUploadOutput,
+    super::operation::abort_multipart_upload::AbortMultipartUploadError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::abort_multipart_upload::AbortMultipartUploadError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::abort_multipart_upload::AbortMultipartUploadError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::abort_multipart_upload::AbortMultipartUploadError::unhandled(generic)),
+        None => return Err(super::operation::abort_multipart_upload::AbortMultipartUploadError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchUpload" => crate::operation::abort_multipart_upload::AbortMultipartUploadError::NoSuchUpload({
+        "NoSuchUpload" => super::operation::abort_multipart_upload::AbortMultipartUploadError::NoSuchUpload({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NoSuchUploadBuilder::default();
-                output = crate::protocol_serde::shape_no_such_upload::de_no_such_upload_xml_err(_response_body, output)
-                    .map_err(crate::operation::abort_multipart_upload::AbortMultipartUploadError::unhandled)?;
+                let mut output = super::types::error::builders::NoSuchUploadBuilder::default();
+                output = super::protocol_serde::shape_no_such_upload::de_no_such_upload_xml_err(_response_body, output)
+                    .map_err(super::operation::abort_multipart_upload::AbortMultipartUploadError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -36,7 +36,7 @@ pub fn de_abort_multipart_upload_http_error(
             }
             tmp
         }),
-        _ => crate::operation::abort_multipart_upload::AbortMultipartUploadError::generic(generic),
+        _ => super::operation::abort_multipart_upload::AbortMultipartUploadError::generic(generic),
     })
 }
 
@@ -46,27 +46,27 @@ pub fn de_abort_multipart_upload_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::abort_multipart_upload::AbortMultipartUploadOutput,
-    crate::operation::abort_multipart_upload::AbortMultipartUploadError,
+    super::operation::abort_multipart_upload::AbortMultipartUploadOutput,
+    super::operation::abort_multipart_upload::AbortMultipartUploadError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::abort_multipart_upload::builders::AbortMultipartUploadOutputBuilder::default();
+        let mut output = super::operation::abort_multipart_upload::builders::AbortMultipartUploadOutputBuilder::default();
         output = output.set_request_charged(
-            crate::protocol_serde::shape_abort_multipart_upload_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::abort_multipart_upload::AbortMultipartUploadError::unhandled(
+            super::protocol_serde::shape_abort_multipart_upload_output::de_request_charged_header(_response_headers).map_err(|_| {
+                super::operation::abort_multipart_upload::AbortMultipartUploadError::unhandled(
                     "Failed to parse RequestCharged from header `x-amz-request-charged",
                 )
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_abort_multipart_upload_headers(
-    input: &crate::operation::abort_multipart_upload::AbortMultipartUploadInput,
+    input: &super::operation::abort_multipart_upload::AbortMultipartUploadInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.request_payer {

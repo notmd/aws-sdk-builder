@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for ChangePasswordOutput {
 }
 impl ChangePasswordOutput {
     /// Creates a new builder-style object to manufacture [`ChangePasswordOutput`](crate::operation::change_password::ChangePasswordOutput).
-    pub fn builder() -> crate::operation::change_password::builders::ChangePasswordOutputBuilder {
-        crate::operation::change_password::builders::ChangePasswordOutputBuilder::default()
+    pub fn builder() -> super::operation::change_password::builders::ChangePasswordOutputBuilder {
+        super::operation::change_password::builders::ChangePasswordOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl ChangePasswordOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ChangePasswordOutput`](crate::operation::change_password::ChangePasswordOutput).
-    pub fn build(self) -> crate::operation::change_password::ChangePasswordOutput {
-        crate::operation::change_password::ChangePasswordOutput {
+    pub fn build(self) -> super::operation::change_password::ChangePasswordOutput {
+        super::operation::change_password::ChangePasswordOutput {
             _request_id: self._request_id,
         }
     }

@@ -26,7 +26,7 @@ impl ::std::fmt::Display for GlobalTableNotFoundException {
     }
 }
 impl ::std::error::Error for GlobalTableNotFoundException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::GlobalTableNotFoundException {
+impl ::aws_types::request_id::RequestId for super::types::error::GlobalTableNotFoundException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GlobalTableNo
 }
 impl GlobalTableNotFoundException {
     /// Creates a new builder-style object to manufacture [`GlobalTableNotFoundException`](crate::types::error::GlobalTableNotFoundException).
-    pub fn builder() -> crate::types::error::builders::GlobalTableNotFoundExceptionBuilder {
-        crate::types::error::builders::GlobalTableNotFoundExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::GlobalTableNotFoundExceptionBuilder {
+        super::types::error::builders::GlobalTableNotFoundExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl GlobalTableNotFoundExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GlobalTableNotFoundException`](crate::types::error::GlobalTableNotFoundException).
-    pub fn build(self) -> crate::types::error::GlobalTableNotFoundException {
-        crate::types::error::GlobalTableNotFoundException {
+    pub fn build(self) -> super::types::error::GlobalTableNotFoundException {
+        super::types::error::GlobalTableNotFoundException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

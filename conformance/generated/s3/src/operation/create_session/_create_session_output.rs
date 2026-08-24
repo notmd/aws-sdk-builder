@@ -6,7 +6,7 @@ pub struct CreateSessionOutput {
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     /// <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, this header indicates the ID of the KMS symmetric encryption customer managed key that was used for object encryption.</p>
     pub ssekms_key_id: ::std::option::Option<::std::string::String>,
     /// <p>If present, indicates the Amazon Web Services KMS Encryption Context to use for object encryption. The value of this header is a Base64 encoded string of a UTF-8 encoded JSON, which contains the encryption context as key-value pairs. This value is stored as object metadata and automatically gets passed on to Amazon Web Services KMS for future <code>GetObject</code> operations on this object.</p>
@@ -14,7 +14,7 @@ pub struct CreateSessionOutput {
     /// <p>Indicates whether to use an S3 Bucket Key for server-side encryption with KMS keys (SSE-KMS).</p>
     pub bucket_key_enabled: ::std::option::Option<bool>,
     /// <p>The established temporary security credentials for the created session.</p>
-    pub credentials: ::std::option::Option<crate::types::SessionCredentials>,
+    pub credentials: ::std::option::Option<super::types::SessionCredentials>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -22,7 +22,7 @@ impl CreateSessionOutput {
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
+    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
         self.server_side_encryption.as_ref()
     }
     /// <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, this header indicates the ID of the KMS symmetric encryption customer managed key that was used for object encryption.</p>
@@ -38,7 +38,7 @@ impl CreateSessionOutput {
         self.bucket_key_enabled
     }
     /// <p>The established temporary security credentials for the created session.</p>
-    pub fn credentials(&self) -> ::std::option::Option<&crate::types::SessionCredentials> {
+    pub fn credentials(&self) -> ::std::option::Option<&super::types::SessionCredentials> {
         self.credentials.as_ref()
     }
 }
@@ -55,7 +55,7 @@ impl ::std::fmt::Debug for CreateSessionOutput {
         formatter.finish()
     }
 }
-impl crate::s3_request_id::RequestIdExt for CreateSessionOutput {
+impl super::s3_request_id::RequestIdExt for CreateSessionOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -67,8 +67,8 @@ impl ::aws_types::request_id::RequestId for CreateSessionOutput {
 }
 impl CreateSessionOutput {
     /// Creates a new builder-style object to manufacture [`CreateSessionOutput`](crate::operation::create_session::CreateSessionOutput).
-    pub fn builder() -> crate::operation::create_session::builders::CreateSessionOutputBuilder {
-        crate::operation::create_session::builders::CreateSessionOutputBuilder::default()
+    pub fn builder() -> super::operation::create_session::builders::CreateSessionOutputBuilder {
+        super::operation::create_session::builders::CreateSessionOutputBuilder::default()
     }
 }
 
@@ -76,11 +76,11 @@ impl CreateSessionOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct CreateSessionOutputBuilder {
-    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     pub(crate) ssekms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) ssekms_encryption_context: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
-    pub(crate) credentials: ::std::option::Option<crate::types::SessionCredentials>,
+    pub(crate) credentials: ::std::option::Option<super::types::SessionCredentials>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -88,21 +88,21 @@ impl CreateSessionOutputBuilder {
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
+    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
     }
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
         &self.server_side_encryption
     }
     /// <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, this header indicates the ID of the KMS symmetric encryption customer managed key that was used for object encryption.</p>
@@ -149,17 +149,17 @@ impl CreateSessionOutputBuilder {
     }
     /// <p>The established temporary security credentials for the created session.</p>
     /// This field is required.
-    pub fn credentials(mut self, input: crate::types::SessionCredentials) -> Self {
+    pub fn credentials(mut self, input: super::types::SessionCredentials) -> Self {
         self.credentials = ::std::option::Option::Some(input);
         self
     }
     /// <p>The established temporary security credentials for the created session.</p>
-    pub fn set_credentials(mut self, input: ::std::option::Option<crate::types::SessionCredentials>) -> Self {
+    pub fn set_credentials(mut self, input: ::std::option::Option<super::types::SessionCredentials>) -> Self {
         self.credentials = input;
         self
     }
     /// <p>The established temporary security credentials for the created session.</p>
-    pub fn get_credentials(&self) -> &::std::option::Option<crate::types::SessionCredentials> {
+    pub fn get_credentials(&self) -> &::std::option::Option<super::types::SessionCredentials> {
         &self.credentials
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -181,8 +181,8 @@ impl CreateSessionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateSessionOutput`](crate::operation::create_session::CreateSessionOutput).
-    pub fn build(self) -> crate::operation::create_session::CreateSessionOutput {
-        crate::operation::create_session::CreateSessionOutput {
+    pub fn build(self) -> super::operation::create_session::CreateSessionOutput {
+        super::operation::create_session::CreateSessionOutput {
             server_side_encryption: self.server_side_encryption,
             ssekms_key_id: self.ssekms_key_id,
             ssekms_encryption_context: self.ssekms_encryption_context,

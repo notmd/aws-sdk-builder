@@ -9,7 +9,7 @@ pub struct PutBucketInventoryConfigurationInput {
     /// <p>The ID used to identify the inventory configuration.</p>
     pub id: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the inventory configuration.</p>
-    pub inventory_configuration: ::std::option::Option<crate::types::InventoryConfiguration>,
+    pub inventory_configuration: ::std::option::Option<super::types::InventoryConfiguration>,
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
@@ -26,7 +26,7 @@ impl PutBucketInventoryConfigurationInput {
         self.id.as_deref()
     }
     /// <p>Specifies the inventory configuration.</p>
-    pub fn inventory_configuration(&self) -> ::std::option::Option<&crate::types::InventoryConfiguration> {
+    pub fn inventory_configuration(&self) -> ::std::option::Option<&super::types::InventoryConfiguration> {
         self.inventory_configuration.as_ref()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
@@ -38,8 +38,8 @@ impl PutBucketInventoryConfigurationInput {
 }
 impl PutBucketInventoryConfigurationInput {
     /// Creates a new builder-style object to manufacture [`PutBucketInventoryConfigurationInput`](crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationInput).
-    pub fn builder() -> crate::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationInputBuilder {
-        crate::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationInputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationInputBuilder {
+        super::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationInputBuilder::default()
     }
 }
 
@@ -49,7 +49,7 @@ impl PutBucketInventoryConfigurationInput {
 pub struct PutBucketInventoryConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) id: ::std::option::Option<::std::string::String>,
-    pub(crate) inventory_configuration: ::std::option::Option<crate::types::InventoryConfiguration>,
+    pub(crate) inventory_configuration: ::std::option::Option<super::types::InventoryConfiguration>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
 impl PutBucketInventoryConfigurationInputBuilder {
@@ -88,17 +88,17 @@ impl PutBucketInventoryConfigurationInputBuilder {
     }
     /// <p>Specifies the inventory configuration.</p>
     /// This field is required.
-    pub fn inventory_configuration(mut self, input: crate::types::InventoryConfiguration) -> Self {
+    pub fn inventory_configuration(mut self, input: super::types::InventoryConfiguration) -> Self {
         self.inventory_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the inventory configuration.</p>
-    pub fn set_inventory_configuration(mut self, input: ::std::option::Option<crate::types::InventoryConfiguration>) -> Self {
+    pub fn set_inventory_configuration(mut self, input: ::std::option::Option<super::types::InventoryConfiguration>) -> Self {
         self.inventory_configuration = input;
         self
     }
     /// <p>Specifies the inventory configuration.</p>
-    pub fn get_inventory_configuration(&self) -> &::std::option::Option<crate::types::InventoryConfiguration> {
+    pub fn get_inventory_configuration(&self) -> &::std::option::Option<super::types::InventoryConfiguration> {
         &self.inventory_configuration
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
@@ -125,11 +125,11 @@ impl PutBucketInventoryConfigurationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationInput,
+        super::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationInput {
+            super::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationInput {
                 bucket: self.bucket,
                 id: self.id,
                 inventory_configuration: self.inventory_configuration,

@@ -26,7 +26,7 @@ impl ::std::fmt::Display for ImportNotFoundException {
     }
 }
 impl ::std::error::Error for ImportNotFoundException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ImportNotFoundException {
+impl ::aws_types::request_id::RequestId for super::types::error::ImportNotFoundException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ImportNotFoun
 }
 impl ImportNotFoundException {
     /// Creates a new builder-style object to manufacture [`ImportNotFoundException`](crate::types::error::ImportNotFoundException).
-    pub fn builder() -> crate::types::error::builders::ImportNotFoundExceptionBuilder {
-        crate::types::error::builders::ImportNotFoundExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ImportNotFoundExceptionBuilder {
+        super::types::error::builders::ImportNotFoundExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl ImportNotFoundExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ImportNotFoundException`](crate::types::error::ImportNotFoundException).
-    pub fn build(self) -> crate::types::error::ImportNotFoundException {
-        crate::types::error::ImportNotFoundException {
+    pub fn build(self) -> super::types::error::ImportNotFoundException {
+        super::types::error::ImportNotFoundException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

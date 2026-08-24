@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-use crate::endpoint_lib::diagnostic::DiagnosticCollector;
+use super::endpoint_lib::diagnostic::DiagnosticCollector;
 
 use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
 

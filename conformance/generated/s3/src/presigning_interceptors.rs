@@ -6,8 +6,8 @@
 
 #![allow(dead_code)]
 
-use crate::presigning::{PresigningConfig, PresigningMarker};
-use crate::serialization_settings::HeaderSerializationSettings;
+use super::presigning::{PresigningConfig, PresigningMarker};
+use super::serialization_settings::HeaderSerializationSettings;
 use aws_runtime::auth::{HttpSignatureType, SigV4OperationSigningConfig};
 use aws_runtime::invocation_id::InvocationIdInterceptor;
 use aws_runtime::request_info::RequestInfoInterceptor;

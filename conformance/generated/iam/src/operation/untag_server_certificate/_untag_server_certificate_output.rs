@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UntagServerCertificateOutput {
 }
 impl UntagServerCertificateOutput {
     /// Creates a new builder-style object to manufacture [`UntagServerCertificateOutput`](crate::operation::untag_server_certificate::UntagServerCertificateOutput).
-    pub fn builder() -> crate::operation::untag_server_certificate::builders::UntagServerCertificateOutputBuilder {
-        crate::operation::untag_server_certificate::builders::UntagServerCertificateOutputBuilder::default()
+    pub fn builder() -> super::operation::untag_server_certificate::builders::UntagServerCertificateOutputBuilder {
+        super::operation::untag_server_certificate::builders::UntagServerCertificateOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UntagServerCertificateOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UntagServerCertificateOutput`](crate::operation::untag_server_certificate::UntagServerCertificateOutput).
-    pub fn build(self) -> crate::operation::untag_server_certificate::UntagServerCertificateOutput {
-        crate::operation::untag_server_certificate::UntagServerCertificateOutput {
+    pub fn build(self) -> super::operation::untag_server_certificate::UntagServerCertificateOutput {
+        super::operation::untag_server_certificate::UntagServerCertificateOutput {
             _request_id: self._request_id,
         }
     }

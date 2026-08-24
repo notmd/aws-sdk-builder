@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for TagSamlProviderOutput {
 }
 impl TagSamlProviderOutput {
     /// Creates a new builder-style object to manufacture [`TagSamlProviderOutput`](crate::operation::tag_saml_provider::TagSamlProviderOutput).
-    pub fn builder() -> crate::operation::tag_saml_provider::builders::TagSamlProviderOutputBuilder {
-        crate::operation::tag_saml_provider::builders::TagSamlProviderOutputBuilder::default()
+    pub fn builder() -> super::operation::tag_saml_provider::builders::TagSamlProviderOutputBuilder {
+        super::operation::tag_saml_provider::builders::TagSamlProviderOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl TagSamlProviderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`TagSamlProviderOutput`](crate::operation::tag_saml_provider::TagSamlProviderOutput).
-    pub fn build(self) -> crate::operation::tag_saml_provider::TagSamlProviderOutput {
-        crate::operation::tag_saml_provider::TagSamlProviderOutput {
+    pub fn build(self) -> super::operation::tag_saml_provider::TagSamlProviderOutput {
+        super::operation::tag_saml_provider::TagSamlProviderOutput {
             _request_id: self._request_id,
         }
     }

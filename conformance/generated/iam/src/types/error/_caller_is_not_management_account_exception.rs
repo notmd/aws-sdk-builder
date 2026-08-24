@@ -26,7 +26,7 @@ impl ::std::fmt::Display for CallerIsNotManagementAccountException {
     }
 }
 impl ::std::error::Error for CallerIsNotManagementAccountException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::CallerIsNotManagementAccountException {
+impl ::aws_types::request_id::RequestId for super::types::error::CallerIsNotManagementAccountException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CallerIsNotMa
 }
 impl CallerIsNotManagementAccountException {
     /// Creates a new builder-style object to manufacture [`CallerIsNotManagementAccountException`](crate::types::error::CallerIsNotManagementAccountException).
-    pub fn builder() -> crate::types::error::builders::CallerIsNotManagementAccountExceptionBuilder {
-        crate::types::error::builders::CallerIsNotManagementAccountExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::CallerIsNotManagementAccountExceptionBuilder {
+        super::types::error::builders::CallerIsNotManagementAccountExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl CallerIsNotManagementAccountExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CallerIsNotManagementAccountException`](crate::types::error::CallerIsNotManagementAccountException).
-    pub fn build(self) -> crate::types::error::CallerIsNotManagementAccountException {
-        crate::types::error::CallerIsNotManagementAccountException {
+    pub fn build(self) -> super::types::error::CallerIsNotManagementAccountException {
+        super::types::error::CallerIsNotManagementAccountException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

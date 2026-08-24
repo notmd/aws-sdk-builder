@@ -58,7 +58,7 @@ impl super::Client {
     ///   - [`config_sha256(Option<String>)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::config_sha256): <p>The SHA256 hash of the function configuration.</p>
     ///   - [`durable_config(Option<DurableConfig>)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::durable_config): <p>The function's durable execution configuration settings, if the function is configured for durability.</p>
     /// - On failure, responds with [`SdkError<UpdateFunctionCodeError>`](crate::operation::update_function_code::UpdateFunctionCodeError)
-    pub fn update_function_code(&self) -> crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder {
-        crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::new(self.handle.clone())
+    pub fn update_function_code(&self) -> super::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder {
+        super::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::new(self.handle.clone())
     }
 }

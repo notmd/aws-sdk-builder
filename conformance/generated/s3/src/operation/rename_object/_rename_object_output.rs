@@ -6,7 +6,7 @@ pub struct RenameObjectOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for RenameObjectOutput {
+impl super::s3_request_id::RequestIdExt for RenameObjectOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for RenameObjectOutput {
 }
 impl RenameObjectOutput {
     /// Creates a new builder-style object to manufacture [`RenameObjectOutput`](crate::operation::rename_object::RenameObjectOutput).
-    pub fn builder() -> crate::operation::rename_object::builders::RenameObjectOutputBuilder {
-        crate::operation::rename_object::builders::RenameObjectOutputBuilder::default()
+    pub fn builder() -> super::operation::rename_object::builders::RenameObjectOutputBuilder {
+        super::operation::rename_object::builders::RenameObjectOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl RenameObjectOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RenameObjectOutput`](crate::operation::rename_object::RenameObjectOutput).
-    pub fn build(self) -> crate::operation::rename_object::RenameObjectOutput {
-        crate::operation::rename_object::RenameObjectOutput {
+    pub fn build(self) -> super::operation::rename_object::RenameObjectOutput {
+        super::operation::rename_object::RenameObjectOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

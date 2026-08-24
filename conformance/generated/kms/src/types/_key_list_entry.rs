@@ -21,8 +21,8 @@ impl KeyListEntry {
 }
 impl KeyListEntry {
     /// Creates a new builder-style object to manufacture [`KeyListEntry`](crate::types::KeyListEntry).
-    pub fn builder() -> crate::types::builders::KeyListEntryBuilder {
-        crate::types::builders::KeyListEntryBuilder::default()
+    pub fn builder() -> super::types::builders::KeyListEntryBuilder {
+        super::types::builders::KeyListEntryBuilder::default()
     }
 }
 
@@ -63,8 +63,8 @@ impl KeyListEntryBuilder {
         &self.key_arn
     }
     /// Consumes the builder and constructs a [`KeyListEntry`](crate::types::KeyListEntry).
-    pub fn build(self) -> crate::types::KeyListEntry {
-        crate::types::KeyListEntry {
+    pub fn build(self) -> super::types::KeyListEntry {
+        super::types::KeyListEntry {
             key_id: self.key_id,
             key_arn: self.key_arn,
         }

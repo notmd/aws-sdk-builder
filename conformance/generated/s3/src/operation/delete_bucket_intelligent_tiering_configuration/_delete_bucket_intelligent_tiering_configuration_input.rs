@@ -27,8 +27,8 @@ impl DeleteBucketIntelligentTieringConfigurationInput {
 impl DeleteBucketIntelligentTieringConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketIntelligentTieringConfigurationInput`](crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput).
     pub fn builder(
-    ) -> crate::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder {
-        crate::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder::default(
+    ) -> super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder {
+        super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder::default(
         )
     }
 }
@@ -90,11 +90,11 @@ impl DeleteBucketIntelligentTieringConfigurationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput,
+        super::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput {
+            super::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput {
                 bucket: self.bucket,
                 id: self.id,
                 expected_bucket_owner: self.expected_bucket_owner,

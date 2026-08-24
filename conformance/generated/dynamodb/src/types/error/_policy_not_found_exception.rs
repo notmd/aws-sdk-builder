@@ -27,7 +27,7 @@ impl ::std::fmt::Display for PolicyNotFoundException {
     }
 }
 impl ::std::error::Error for PolicyNotFoundException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::PolicyNotFoundException {
+impl ::aws_types::request_id::RequestId for super::types::error::PolicyNotFoundException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -40,8 +40,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PolicyNotFoun
 }
 impl PolicyNotFoundException {
     /// Creates a new builder-style object to manufacture [`PolicyNotFoundException`](crate::types::error::PolicyNotFoundException).
-    pub fn builder() -> crate::types::error::builders::PolicyNotFoundExceptionBuilder {
-        crate::types::error::builders::PolicyNotFoundExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::PolicyNotFoundExceptionBuilder {
+        super::types::error::builders::PolicyNotFoundExceptionBuilder::default()
     }
 }
 
@@ -79,8 +79,8 @@ impl PolicyNotFoundExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PolicyNotFoundException`](crate::types::error::PolicyNotFoundException).
-    pub fn build(self) -> crate::types::error::PolicyNotFoundException {
-        crate::types::error::PolicyNotFoundException {
+    pub fn build(self) -> super::types::error::PolicyNotFoundException {
+        super::types::error::PolicyNotFoundException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -15,7 +15,7 @@ impl super::Client {
     ///   - [`compatible_runtimes(Option<Vec::<Runtime>>)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::compatible_runtimes): <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
     ///   - [`license_info(Option<String>)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::license_info): <p>The layer's software license.</p>
     /// - On failure, responds with [`SdkError<GetLayerVersionByArnError>`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError)
-    pub fn get_layer_version_by_arn(&self) -> crate::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnFluentBuilder {
-        crate::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnFluentBuilder::new(self.handle.clone())
+    pub fn get_layer_version_by_arn(&self) -> super::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnFluentBuilder {
+        super::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnFluentBuilder::new(self.handle.clone())
     }
 }

@@ -5,9 +5,9 @@ pub(crate) fn de_invoke_with_response_stream_response_event<'a, I>(
     depth: u32,
 ) -> ::std::result::Result<
     Option<
-        crate::event_receiver::EventReceiver<
-            crate::types::InvokeWithResponseStreamResponseEvent,
-            crate::types::error::InvokeWithResponseStreamResponseEventError,
+        super::event_receiver::EventReceiver<
+            super::types::InvokeWithResponseStreamResponseEvent,
+            super::types::error::InvokeWithResponseStreamResponseEventError,
         >,
     >,
     ::aws_smithy_json::deserialize::error::DeserializeError,
@@ -42,11 +42,11 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "PayloadChunk" => Some(crate::event_receiver::EventReceiver<crate::types::InvokeWithResponseStreamResponseEvent, crate::types::error::InvokeWithResponseStreamResponseEventError>::PayloadChunk(crate::protocol_serde::shape_invoke_response_stream_update::de_invoke_response_stream_update(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'PayloadChunk' cannot be null"))?)),
-                        "InvokeComplete" => Some(crate::event_receiver::EventReceiver<crate::types::InvokeWithResponseStreamResponseEvent, crate::types::error::InvokeWithResponseStreamResponseEventError>::InvokeComplete(crate::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'InvokeComplete' cannot be null"))?)),
+                        "PayloadChunk" => Some(super::event_receiver::EventReceiver<super::types::InvokeWithResponseStreamResponseEvent, super::types::error::InvokeWithResponseStreamResponseEventError>::PayloadChunk(super::protocol_serde::shape_invoke_response_stream_update::de_invoke_response_stream_update(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'PayloadChunk' cannot be null"))?)),
+                        "InvokeComplete" => Some(super::event_receiver::EventReceiver<super::types::InvokeWithResponseStreamResponseEvent, super::types::error::InvokeWithResponseStreamResponseEventError>::InvokeComplete(super::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'InvokeComplete' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
-                            Some(crate::event_receiver::EventReceiver<crate::types::InvokeWithResponseStreamResponseEvent, crate::types::error::InvokeWithResponseStreamResponseEventError>::Unknown)
+                            Some(super::event_receiver::EventReceiver<super::types::InvokeWithResponseStreamResponseEvent, super::types::error::InvokeWithResponseStreamResponseEventError>::Unknown)
                         }
                     };
                 }

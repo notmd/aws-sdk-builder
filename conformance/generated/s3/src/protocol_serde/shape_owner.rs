@@ -3,12 +3,12 @@
 pub fn de_owner(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::Owner, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::Owner, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::Owner::builder();
+    let mut builder = super::types::Owner::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("DisplayName") /* DisplayName com.amazonaws.s3#Owner$DisplayName */ =>  {
@@ -44,7 +44,7 @@ pub fn de_owner(
 }
 
 pub fn ser_owner(
-    input: &crate::types::Owner,
+    input: &super::types::Owner,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]

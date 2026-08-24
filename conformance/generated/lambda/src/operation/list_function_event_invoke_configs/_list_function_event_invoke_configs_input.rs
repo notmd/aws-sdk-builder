@@ -46,8 +46,8 @@ impl ListFunctionEventInvokeConfigsInput {
 }
 impl ListFunctionEventInvokeConfigsInput {
     /// Creates a new builder-style object to manufacture [`ListFunctionEventInvokeConfigsInput`](crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput).
-    pub fn builder() -> crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsInputBuilder {
-        crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsInputBuilder::default()
+    pub fn builder() -> super::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsInputBuilder {
+        super::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsInputBuilder::default()
     }
 }
 
@@ -137,11 +137,11 @@ impl ListFunctionEventInvokeConfigsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput,
+        super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput {
+            super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput {
                 function_name: self.function_name,
                 marker: self.marker,
                 max_items: self.max_items,

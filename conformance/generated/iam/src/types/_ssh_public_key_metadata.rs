@@ -10,7 +10,7 @@ pub struct SshPublicKeyMetadata {
     /// <p>The unique identifier for the SSH public key.</p>
     pub ssh_public_key_id: ::std::string::String,
     /// <p>The status of the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
-    pub status: crate::types::StatusType,
+    pub status: super::types::StatusType,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the SSH public key was uploaded.</p>
     pub upload_date: ::aws_smithy_types::DateTime,
 }
@@ -26,7 +26,7 @@ impl SshPublicKeyMetadata {
         self.ssh_public_key_id.deref()
     }
     /// <p>The status of the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
-    pub fn status(&self) -> &crate::types::StatusType {
+    pub fn status(&self) -> &super::types::StatusType {
         &self.status
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the SSH public key was uploaded.</p>
@@ -36,8 +36,8 @@ impl SshPublicKeyMetadata {
 }
 impl SshPublicKeyMetadata {
     /// Creates a new builder-style object to manufacture [`SshPublicKeyMetadata`](crate::types::SshPublicKeyMetadata).
-    pub fn builder() -> crate::types::builders::SshPublicKeyMetadataBuilder {
-        crate::types::builders::SshPublicKeyMetadataBuilder::default()
+    pub fn builder() -> super::types::builders::SshPublicKeyMetadataBuilder {
+        super::types::builders::SshPublicKeyMetadataBuilder::default()
     }
 }
 
@@ -47,7 +47,7 @@ impl SshPublicKeyMetadata {
 pub struct SshPublicKeyMetadataBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
     pub(crate) ssh_public_key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) status: ::std::option::Option<crate::types::StatusType>,
+    pub(crate) status: ::std::option::Option<super::types::StatusType>,
     pub(crate) upload_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl SshPublicKeyMetadataBuilder {
@@ -83,17 +83,17 @@ impl SshPublicKeyMetadataBuilder {
     }
     /// <p>The status of the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
     /// This field is required.
-    pub fn status(mut self, input: crate::types::StatusType) -> Self {
+    pub fn status(mut self, input: super::types::StatusType) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The status of the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<super::types::StatusType>) -> Self {
         self.status = input;
         self
     }
     /// <p>The status of the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> {
+    pub fn get_status(&self) -> &::std::option::Option<super::types::StatusType> {
         &self.status
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the SSH public key was uploaded.</p>
@@ -117,8 +117,8 @@ impl SshPublicKeyMetadataBuilder {
     /// - [`ssh_public_key_id`](crate::types::builders::SshPublicKeyMetadataBuilder::ssh_public_key_id)
     /// - [`status`](crate::types::builders::SshPublicKeyMetadataBuilder::status)
     /// - [`upload_date`](crate::types::builders::SshPublicKeyMetadataBuilder::upload_date)
-    pub fn build(self) -> ::std::result::Result<crate::types::SshPublicKeyMetadata, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::SshPublicKeyMetadata {
+    pub fn build(self) -> ::std::result::Result<super::types::SshPublicKeyMetadata, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::SshPublicKeyMetadata {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "user_name",

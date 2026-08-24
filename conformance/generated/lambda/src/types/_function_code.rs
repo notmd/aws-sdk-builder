@@ -19,7 +19,7 @@ pub struct FunctionCode {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub s3_object_storage_mode: ::std::option::Option<crate::types::S3ObjectStorageMode>,
+    pub s3_object_storage_mode: ::std::option::Option<super::types::S3ObjectStorageMode>,
     /// <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
     pub image_uri: ::std::option::Option<::std::string::String>,
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
@@ -49,7 +49,7 @@ impl FunctionCode {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn s3_object_storage_mode(&self) -> ::std::option::Option<&crate::types::S3ObjectStorageMode> {
+    pub fn s3_object_storage_mode(&self) -> ::std::option::Option<&super::types::S3ObjectStorageMode> {
         self.s3_object_storage_mode.as_ref()
     }
     /// <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
@@ -76,8 +76,8 @@ impl ::std::fmt::Debug for FunctionCode {
 }
 impl FunctionCode {
     /// Creates a new builder-style object to manufacture [`FunctionCode`](crate::types::FunctionCode).
-    pub fn builder() -> crate::types::builders::FunctionCodeBuilder {
-        crate::types::builders::FunctionCodeBuilder::default()
+    pub fn builder() -> super::types::builders::FunctionCodeBuilder {
+        super::types::builders::FunctionCodeBuilder::default()
     }
 }
 
@@ -89,7 +89,7 @@ pub struct FunctionCodeBuilder {
     pub(crate) s3_bucket: ::std::option::Option<::std::string::String>,
     pub(crate) s3_key: ::std::option::Option<::std::string::String>,
     pub(crate) s3_object_version: ::std::option::Option<::std::string::String>,
-    pub(crate) s3_object_storage_mode: ::std::option::Option<crate::types::S3ObjectStorageMode>,
+    pub(crate) s3_object_storage_mode: ::std::option::Option<super::types::S3ObjectStorageMode>,
     pub(crate) image_uri: ::std::option::Option<::std::string::String>,
     pub(crate) source_kms_key_arn: ::std::option::Option<::std::string::String>,
 }
@@ -157,7 +157,7 @@ impl FunctionCodeBuilder {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn s3_object_storage_mode(mut self, input: crate::types::S3ObjectStorageMode) -> Self {
+    pub fn s3_object_storage_mode(mut self, input: super::types::S3ObjectStorageMode) -> Self {
         self.s3_object_storage_mode = ::std::option::Option::Some(input);
         self
     }
@@ -168,7 +168,7 @@ impl FunctionCodeBuilder {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
+    pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<super::types::S3ObjectStorageMode>) -> Self {
         self.s3_object_storage_mode = input;
         self
     }
@@ -179,7 +179,7 @@ impl FunctionCodeBuilder {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
+    pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<super::types::S3ObjectStorageMode> {
         &self.s3_object_storage_mode
     }
     /// <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
@@ -211,8 +211,8 @@ impl FunctionCodeBuilder {
         &self.source_kms_key_arn
     }
     /// Consumes the builder and constructs a [`FunctionCode`](crate::types::FunctionCode).
-    pub fn build(self) -> crate::types::FunctionCode {
-        crate::types::FunctionCode {
+    pub fn build(self) -> super::types::FunctionCode {
+        super::types::FunctionCode {
             zip_file: self.zip_file,
             s3_bucket: self.s3_bucket,
             s3_key: self.s3_key,

@@ -3,12 +3,12 @@
 pub fn de_analytics_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::AnalyticsConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::AnalyticsConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::AnalyticsConfiguration::builder();
+    let mut builder = super::types::AnalyticsConfiguration::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("Id") /* Id com.amazonaws.s3#AnalyticsConfiguration$Id */ =>  {
@@ -27,7 +27,7 @@ pub fn de_analytics_configuration(
             s if s.matches("Filter") /* Filter com.amazonaws.s3#AnalyticsConfiguration$Filter */ =>  {
                 let var_2 =
                     Some(
-                        crate::protocol_serde::shape_analytics_filter::de_analytics_filter(&mut tag, depth + 1)
+                        super::protocol_serde::shape_analytics_filter::de_analytics_filter(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -37,7 +37,7 @@ pub fn de_analytics_configuration(
             s if s.matches("StorageClassAnalysis") /* StorageClassAnalysis com.amazonaws.s3#AnalyticsConfiguration$StorageClassAnalysis */ =>  {
                 let var_3 =
                     Some(
-                        crate::protocol_serde::shape_storage_class_analysis::de_storage_class_analysis(&mut tag, depth + 1)
+                        super::protocol_serde::shape_storage_class_analysis::de_storage_class_analysis(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -47,13 +47,13 @@ pub fn de_analytics_configuration(
             _ => {}
         }
     }
-    Ok(crate::serde_util::analytics_configuration_correct_errors(builder)
+    Ok(super::serde_util::analytics_configuration_correct_errors(builder)
         .build()
         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 
 pub fn ser_analytics_configuration(
-    input: &crate::types::AnalyticsConfiguration,
+    input: &super::types::AnalyticsConfiguration,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]
@@ -64,11 +64,11 @@ pub fn ser_analytics_configuration(
     }
     if let Some(var_4) = &input.filter {
         let inner_writer = scope.start_el("Filter");
-        crate::protocol_serde::shape_analytics_filter::ser_analytics_filter(var_4, inner_writer)?
+        super::protocol_serde::shape_analytics_filter::ser_analytics_filter(var_4, inner_writer)?
     }
     if let Some(var_5) = &input.storage_class_analysis {
         let inner_writer = scope.start_el("StorageClassAnalysis");
-        crate::protocol_serde::shape_storage_class_analysis::ser_storage_class_analysis(var_5, inner_writer)?
+        super::protocol_serde::shape_storage_class_analysis::ser_storage_class_analysis(var_5, inner_writer)?
     }
     scope.finish();
     Ok(())

@@ -5,16 +5,16 @@ pub fn de_list_bucket_intelligent_tiering_configurations_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput,
-    crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError,
+    super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput,
+    super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::generic(generic))
+    Err(super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -23,25 +23,25 @@ pub fn de_list_bucket_intelligent_tiering_configurations_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput,
-    crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError,
+    super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput,
+    super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder::default();
-        output = crate::protocol_serde::shape_list_bucket_intelligent_tiering_configurations::de_list_bucket_intelligent_tiering_configurations(
+        let mut output = super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder::default();
+        output = super::protocol_serde::shape_list_bucket_intelligent_tiering_configurations::de_list_bucket_intelligent_tiering_configurations(
             _response_body,
             output,
         )
-        .map_err(crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::unhandled)?;
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        .map_err(super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::unhandled)?;
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_list_bucket_intelligent_tiering_configurations_headers(
-    input: &crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsInput,
+    input: &super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
@@ -61,9 +61,9 @@ pub fn ser_list_bucket_intelligent_tiering_configurations_headers(
 #[allow(unused_mut)]
 pub fn de_list_bucket_intelligent_tiering_configurations(
     inp: &[u8],
-    mut builder: crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder,
+    mut builder: super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder,
 ) -> std::result::Result<
-    crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder,
+    super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
 > {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -86,10 +86,10 @@ pub fn de_list_bucket_intelligent_tiering_configurations(
             s if s.matches("IntelligentTieringConfiguration") /* IntelligentTieringConfigurationList com.amazonaws.s3.synthetic#ListBucketIntelligentTieringConfigurationsOutput$IntelligentTieringConfigurationList */ =>  {
                 let var_3 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::IntelligentTieringConfiguration>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::IntelligentTieringConfiguration>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_4 = builder.intelligent_tiering_configuration_list.take().unwrap_or_default();
                             list_4.push(
-                                crate::protocol_serde::shape_intelligent_tiering_configuration::de_intelligent_tiering_configuration(&mut tag, depth + 1)
+                                super::protocol_serde::shape_intelligent_tiering_configuration::de_intelligent_tiering_configuration(&mut tag, depth + 1)
                                 ?
                             );
                             list_4

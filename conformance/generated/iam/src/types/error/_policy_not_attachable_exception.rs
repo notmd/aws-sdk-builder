@@ -26,7 +26,7 @@ impl ::std::fmt::Display for PolicyNotAttachableException {
     }
 }
 impl ::std::error::Error for PolicyNotAttachableException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::PolicyNotAttachableException {
+impl ::aws_types::request_id::RequestId for super::types::error::PolicyNotAttachableException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PolicyNotAtta
 }
 impl PolicyNotAttachableException {
     /// Creates a new builder-style object to manufacture [`PolicyNotAttachableException`](crate::types::error::PolicyNotAttachableException).
-    pub fn builder() -> crate::types::error::builders::PolicyNotAttachableExceptionBuilder {
-        crate::types::error::builders::PolicyNotAttachableExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::PolicyNotAttachableExceptionBuilder {
+        super::types::error::builders::PolicyNotAttachableExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl PolicyNotAttachableExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PolicyNotAttachableException`](crate::types::error::PolicyNotAttachableException).
-    pub fn build(self) -> crate::types::error::PolicyNotAttachableException {
-        crate::types::error::PolicyNotAttachableException {
+    pub fn build(self) -> super::types::error::PolicyNotAttachableException {
+        super::types::error::PolicyNotAttachableException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -4,14 +4,14 @@ pub fn de_get_object_tagging_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_object_tagging::GetObjectTaggingOutput, crate::operation::get_object_tagging::GetObjectTaggingError> {
+) -> std::result::Result<super::operation::get_object_tagging::GetObjectTaggingOutput, super::operation::get_object_tagging::GetObjectTaggingError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_object_tagging::GetObjectTaggingError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_object_tagging::GetObjectTaggingError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::get_object_tagging::GetObjectTaggingError::generic(generic))
+    Err(super::operation::get_object_tagging::GetObjectTaggingError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -19,27 +19,27 @@ pub fn de_get_object_tagging_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_object_tagging::GetObjectTaggingOutput, crate::operation::get_object_tagging::GetObjectTaggingError> {
+) -> std::result::Result<super::operation::get_object_tagging::GetObjectTaggingOutput, super::operation::get_object_tagging::GetObjectTaggingError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_object_tagging::de_get_object_tagging(_response_body, output)
-            .map_err(crate::operation::get_object_tagging::GetObjectTaggingError::unhandled)?;
+        let mut output = super::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::default();
+        output = super::protocol_serde::shape_get_object_tagging::de_get_object_tagging(_response_body, output)
+            .map_err(super::operation::get_object_tagging::GetObjectTaggingError::unhandled)?;
         output = output.set_version_id(
-            crate::protocol_serde::shape_get_object_tagging_output::de_version_id_header(_response_headers).map_err(|_| {
-                crate::operation::get_object_tagging::GetObjectTaggingError::unhandled("Failed to parse VersionId from header `x-amz-version-id")
+            super::protocol_serde::shape_get_object_tagging_output::de_version_id_header(_response_headers).map_err(|_| {
+                super::operation::get_object_tagging::GetObjectTaggingError::unhandled("Failed to parse VersionId from header `x-amz-version-id")
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        crate::serde_util::get_object_tagging_output_output_correct_errors(output)
+        super::serde_util::get_object_tagging_output_output_correct_errors(output)
             .build()
-            .map_err(crate::operation::get_object_tagging::GetObjectTaggingError::unhandled)?
+            .map_err(super::operation::get_object_tagging::GetObjectTaggingError::unhandled)?
     })
 }
 
 pub fn ser_get_object_tagging_headers(
-    input: &crate::operation::get_object_tagging::GetObjectTaggingInput,
+    input: &super::operation::get_object_tagging::GetObjectTaggingInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
@@ -70,8 +70,8 @@ pub fn ser_get_object_tagging_headers(
 #[allow(unused_mut)]
 pub fn de_get_object_tagging(
     inp: &[u8],
-    mut builder: crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder,
-) -> std::result::Result<crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    mut builder: super::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder,
+) -> std::result::Result<super::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -90,7 +90,7 @@ pub fn de_get_object_tagging(
             s if s.matches("TagSet") /* TagSet com.amazonaws.s3.synthetic#GetObjectTaggingOutput$TagSet */ =>  {
                 let var_5 =
                     Some(
-                        crate::protocol_serde::shape_tag_set::de_tag_set(&mut tag, depth + 1)
+                        super::protocol_serde::shape_tag_set::de_tag_set(&mut tag, depth + 1)
                         ?
                     )
                 ;

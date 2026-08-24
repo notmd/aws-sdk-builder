@@ -8,7 +8,7 @@ pub struct CheckpointDurableExecutionInput {
     /// <p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>
     pub checkpoint_token: ::std::option::Option<::std::string::String>,
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-    pub updates: ::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>>,
+    pub updates: ::std::option::Option<::std::vec::Vec<super::types::OperationUpdate>>,
     /// <p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
 }
@@ -24,7 +24,7 @@ impl CheckpointDurableExecutionInput {
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.updates.is_none()`.
-    pub fn updates(&self) -> &[crate::types::OperationUpdate] {
+    pub fn updates(&self) -> &[super::types::OperationUpdate] {
         self.updates.as_deref().unwrap_or_default()
     }
     /// <p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>
@@ -34,8 +34,8 @@ impl CheckpointDurableExecutionInput {
 }
 impl CheckpointDurableExecutionInput {
     /// Creates a new builder-style object to manufacture [`CheckpointDurableExecutionInput`](crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput).
-    pub fn builder() -> crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder {
-        crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder::default()
+    pub fn builder() -> super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder {
+        super::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder::default()
     }
 }
 
@@ -45,7 +45,7 @@ impl CheckpointDurableExecutionInput {
 pub struct CheckpointDurableExecutionInputBuilder {
     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
     pub(crate) checkpoint_token: ::std::option::Option<::std::string::String>,
-    pub(crate) updates: ::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>>,
+    pub(crate) updates: ::std::option::Option<::std::vec::Vec<super::types::OperationUpdate>>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
 }
 impl CheckpointDurableExecutionInputBuilder {
@@ -84,19 +84,19 @@ impl CheckpointDurableExecutionInputBuilder {
     /// To override the contents of this collection use [`set_updates`](Self::set_updates).
     ///
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-    pub fn updates(mut self, input: crate::types::OperationUpdate) -> Self {
+    pub fn updates(mut self, input: super::types::OperationUpdate) -> Self {
         let mut v = self.updates.unwrap_or_default();
         v.push(input);
         self.updates = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-    pub fn set_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>>) -> Self {
+    pub fn set_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::OperationUpdate>>) -> Self {
         self.updates = input;
         self
     }
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-    pub fn get_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>> {
+    pub fn get_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::types::OperationUpdate>> {
         &self.updates
     }
     /// <p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>
@@ -117,10 +117,10 @@ impl CheckpointDurableExecutionInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput,
+        super::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput {
+        ::std::result::Result::Ok(super::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput {
             durable_execution_arn: self.durable_execution_arn,
             checkpoint_token: self.checkpoint_token,
             updates: self.updates,

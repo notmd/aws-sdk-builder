@@ -30,8 +30,8 @@ impl ListRolesInput {
 }
 impl ListRolesInput {
     /// Creates a new builder-style object to manufacture [`ListRolesInput`](crate::operation::list_roles::ListRolesInput).
-    pub fn builder() -> crate::operation::list_roles::builders::ListRolesInputBuilder {
-        crate::operation::list_roles::builders::ListRolesInputBuilder::default()
+    pub fn builder() -> super::operation::list_roles::builders::ListRolesInputBuilder {
+        super::operation::list_roles::builders::ListRolesInputBuilder::default()
     }
 }
 
@@ -93,8 +93,8 @@ impl ListRolesInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`ListRolesInput`](crate::operation::list_roles::ListRolesInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_roles::ListRolesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_roles::ListRolesInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::list_roles::ListRolesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_roles::ListRolesInput {
             path_prefix: self.path_prefix,
             marker: self.marker,
             max_items: self.max_items,

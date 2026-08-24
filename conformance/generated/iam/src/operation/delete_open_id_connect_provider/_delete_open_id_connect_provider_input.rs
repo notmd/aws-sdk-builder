@@ -14,8 +14,8 @@ impl DeleteOpenIdConnectProviderInput {
 }
 impl DeleteOpenIdConnectProviderInput {
     /// Creates a new builder-style object to manufacture [`DeleteOpenIdConnectProviderInput`](crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput).
-    pub fn builder() -> crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder {
-        crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder::default()
+    pub fn builder() -> super::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder {
+        super::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderInputBuilder::default()
     }
 }
 
@@ -45,10 +45,10 @@ impl DeleteOpenIdConnectProviderInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput,
+        super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput {
+        ::std::result::Result::Ok(super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput {
             open_id_connect_provider_arn: self.open_id_connect_provider_arn,
         })
     }

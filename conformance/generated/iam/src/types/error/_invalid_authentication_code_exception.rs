@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidAuthenticationCodeException {
     }
 }
 impl ::std::error::Error for InvalidAuthenticationCodeException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidAuthenticationCodeException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidAuthenticationCodeException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidAuthen
 }
 impl InvalidAuthenticationCodeException {
     /// Creates a new builder-style object to manufacture [`InvalidAuthenticationCodeException`](crate::types::error::InvalidAuthenticationCodeException).
-    pub fn builder() -> crate::types::error::builders::InvalidAuthenticationCodeExceptionBuilder {
-        crate::types::error::builders::InvalidAuthenticationCodeExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidAuthenticationCodeExceptionBuilder {
+        super::types::error::builders::InvalidAuthenticationCodeExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidAuthenticationCodeExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidAuthenticationCodeException`](crate::types::error::InvalidAuthenticationCodeException).
-    pub fn build(self) -> crate::types::error::InvalidAuthenticationCodeException {
-        crate::types::error::InvalidAuthenticationCodeException {
+    pub fn build(self) -> super::types::error::InvalidAuthenticationCodeException {
+        super::types::error::InvalidAuthenticationCodeException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

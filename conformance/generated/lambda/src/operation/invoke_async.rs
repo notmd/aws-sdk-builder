@@ -10,11 +10,11 @@ impl InvokeAsync {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::invoke_async::InvokeAsyncInput,
+        input: super::operation::invoke_async::InvokeAsyncInput,
     ) -> ::std::result::Result<
-        crate::operation::invoke_async::InvokeAsyncOutput,
+        super::operation::invoke_async::InvokeAsyncOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::invoke_async::InvokeAsyncError,
+            super::operation::invoke_async::InvokeAsyncError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl InvokeAsync {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::invoke_async::InvokeAsyncError>()
+                err.downcast::<super::operation::invoke_async::InvokeAsyncError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl InvokeAsync {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::invoke_async::InvokeAsyncOutput>()
+                .downcast::<super::operation::invoke_async::InvokeAsyncOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::invoke_async::InvokeAsyncInput,
+        input: super::operation::invoke_async::InvokeAsyncInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl InvokeAsync {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl InvokeAsync {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for InvokeA
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("InvokeAsync")
                 .build()
                 .expect("required fields set"),
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for InvokeA
                 InvokeAsyncEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::invoke_async::InvokeAsyncError,
+                super::operation::invoke_async::InvokeAsyncError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::invoke_async::InvokeAsyncError,
+                super::operation::invoke_async::InvokeAsyncError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::invoke_async::InvokeAsyncError,
+                super::operation::invoke_async::InvokeAsyncError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -204,11 +204,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for InvokeAsy
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 202 || force_error {
-            crate::protocol_serde::shape_invoke_async::de_invoke_async_http_error(status, headers, body)
+            super::protocol_serde::shape_invoke_async::de_invoke_async_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_invoke_async::de_invoke_async_http_response(status, headers, body)
+            super::protocol_serde::shape_invoke_async::de_invoke_async_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -221,16 +221,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeAsyncR
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::invoke_async::InvokeAsyncInput>()
+            .downcast::<super::operation::invoke_async::InvokeAsyncInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::invoke_async::InvokeAsyncInput,
+                _input: &super::operation::invoke_async::InvokeAsyncInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -251,7 +251,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeAsyncR
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::invoke_async::InvokeAsyncInput,
+                input: &super::operation::invoke_async::InvokeAsyncInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -262,7 +262,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeAsyncR
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_invoke_async::ser_invoke_async_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_invoke_async::ser_invoke_async_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -294,7 +294,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for InvokeAsyncEn
             .downcast_ref::<InvokeAsyncInput>()
             .ok_or("failed to downcast to InvokeAsyncInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -317,63 +317,63 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for InvokeAsyncEn
 #[derive(::std::fmt::Debug)]
 pub enum InvokeAsyncError {
     /// <p>Need additional permissions to configure VPC settings.</p>
-    Ec2AccessDeniedException(crate::types::error::Ec2AccessDeniedException),
+    Ec2AccessDeniedException(super::types::error::Ec2AccessDeniedException),
     /// <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
-    Ec2ThrottledException(crate::types::error::Ec2ThrottledException),
+    Ec2ThrottledException(super::types::error::Ec2ThrottledException),
     /// <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
-    Ec2UnexpectedException(crate::types::error::Ec2UnexpectedException),
+    Ec2UnexpectedException(super::types::error::Ec2UnexpectedException),
     /// <p>An error occurred when reading from or writing to a connected file system.</p>
-    EfsioException(crate::types::error::EfsioException),
+    EfsioException(super::types::error::EfsioException),
     /// <p>The Lambda function couldn't make a network connection to the configured file system.</p>
-    EfsMountConnectivityException(crate::types::error::EfsMountConnectivityException),
+    EfsMountConnectivityException(super::types::error::EfsMountConnectivityException),
     /// <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
-    EfsMountFailureException(crate::types::error::EfsMountFailureException),
+    EfsMountFailureException(super::types::error::EfsMountFailureException),
     /// <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
-    EfsMountTimeoutException(crate::types::error::EfsMountTimeoutException),
+    EfsMountTimeoutException(super::types::error::EfsMountTimeoutException),
     /// <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
-    EniLimitReachedException(crate::types::error::EniLimitReachedException),
+    EniLimitReachedException(super::types::error::EniLimitReachedException),
     /// <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
-    InvalidRequestContentException(crate::types::error::InvalidRequestContentException),
+    InvalidRequestContentException(super::types::error::InvalidRequestContentException),
     /// <p>The runtime or runtime version specified is not supported.</p>
-    InvalidRuntimeException(crate::types::error::InvalidRuntimeException),
+    InvalidRuntimeException(super::types::error::InvalidRuntimeException),
     /// <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
-    InvalidSecurityGroupIdException(crate::types::error::InvalidSecurityGroupIdException),
+    InvalidSecurityGroupIdException(super::types::error::InvalidSecurityGroupIdException),
     /// <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
-    InvalidSubnetIdException(crate::types::error::InvalidSubnetIdException),
+    InvalidSubnetIdException(super::types::error::InvalidSubnetIdException),
     /// <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
-    KmsAccessDeniedException(crate::types::error::KmsAccessDeniedException),
+    KmsAccessDeniedException(super::types::error::KmsAccessDeniedException),
     /// <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
-    KmsDisabledException(crate::types::error::KmsDisabledException),
+    KmsDisabledException(super::types::error::KmsDisabledException),
     /// <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
-    KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
+    KmsInvalidStateException(super::types::error::KmsInvalidStateException),
     /// <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
-    KmsNotFoundException(crate::types::error::KmsNotFoundException),
+    KmsNotFoundException(super::types::error::KmsNotFoundException),
     /// <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html">Invoking Lambda functions</a>.</p>
-    ModeNotSupportedException(crate::types::error::ModeNotSupportedException),
+    ModeNotSupportedException(super::types::error::ModeNotSupportedException),
     /// <p>The resource already exists, or another operation is in progress.</p>
-    ResourceConflictException(crate::types::error::ResourceConflictException),
+    ResourceConflictException(super::types::error::ResourceConflictException),
     /// <p>The resource specified in the request does not exist.</p>
-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
     /// <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
-    S3FilesMountConnectivityException(crate::types::error::S3FilesMountConnectivityException),
+    S3FilesMountConnectivityException(super::types::error::S3FilesMountConnectivityException),
     /// <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
-    S3FilesMountFailureException(crate::types::error::S3FilesMountFailureException),
+    S3FilesMountFailureException(super::types::error::S3FilesMountFailureException),
     /// <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
-    S3FilesMountTimeoutException(crate::types::error::S3FilesMountTimeoutException),
+    S3FilesMountTimeoutException(super::types::error::S3FilesMountTimeoutException),
     /// <p>The Lambda service encountered an internal error.</p>
-    ServiceException(crate::types::error::ServiceException),
+    ServiceException(super::types::error::ServiceException),
     /// <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>. To request a quota increase, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
-    ServiceQuotaExceededException(crate::types::error::ServiceQuotaExceededException),
+    ServiceQuotaExceededException(super::types::error::ServiceQuotaExceededException),
     /// <p>The <code>afterRestore()</code> <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
-    SnapStartException(crate::types::error::SnapStartException),
+    SnapStartException(super::types::error::SnapStartException),
     /// <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
-    SnapStartNotReadyException(crate::types::error::SnapStartNotReadyException),
+    SnapStartNotReadyException(super::types::error::SnapStartNotReadyException),
     /// <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a>.</p>
-    SnapStartRegenerationFailureException(crate::types::error::SnapStartRegenerationFailureException),
+    SnapStartRegenerationFailureException(super::types::error::SnapStartRegenerationFailureException),
     /// <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
-    SnapStartTimeoutException(crate::types::error::SnapStartTimeoutException),
+    SnapStartTimeoutException(super::types::error::SnapStartTimeoutException),
     /// <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
-    SubnetIpAddressLimitReachedException(crate::types::error::SubnetIpAddressLimitReachedException),
+    SubnetIpAddressLimitReachedException(super::types::error::SubnetIpAddressLimitReachedException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -381,14 +381,14 @@ pub enum InvokeAsyncError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-InvokeAsyncError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl InvokeAsyncError {
     /// Creates the `InvokeAsyncError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -396,7 +396,7 @@ impl InvokeAsyncError {
 
     /// Creates the `InvokeAsyncError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -683,21 +683,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeAs
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::invoke_async::InvokeAsyncError {
+impl ::aws_types::request_id::RequestId for super::operation::invoke_async::InvokeAsyncError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::invoke_async::_invoke_async_input::InvokeAsyncInput;
+pub use super::operation::invoke_async::_invoke_async_input::InvokeAsyncInput;
 
-pub use crate::operation::invoke_async::_invoke_async_output::InvokeAsyncOutput;
+pub use super::operation::invoke_async::_invoke_async_output::InvokeAsyncOutput;
 
 mod _invoke_async_input;
 

@@ -17,7 +17,7 @@ impl super::Client {
     /// - On success, responds with [`CreateKeyOutput`](crate::operation::create_key::CreateKeyOutput) with field(s):
     ///   - [`key_metadata(Option<KeyMetadata>)`](crate::operation::create_key::CreateKeyOutput::key_metadata): <p>Metadata associated with the KMS key.</p>
     /// - On failure, responds with [`SdkError<CreateKeyError>`](crate::operation::create_key::CreateKeyError)
-    pub fn create_key(&self) -> crate::operation::create_key::builders::CreateKeyFluentBuilder {
-        crate::operation::create_key::builders::CreateKeyFluentBuilder::new(self.handle.clone())
+    pub fn create_key(&self) -> super::operation::create_key::builders::CreateKeyFluentBuilder {
+        super::operation::create_key::builders::CreateKeyFluentBuilder::new(self.handle.clone())
     }
 }

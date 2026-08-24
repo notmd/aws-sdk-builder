@@ -22,7 +22,7 @@ pub struct CreateAliasInput {
     /// <p>A description of the alias.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub routing_config: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
+    pub routing_config: ::std::option::Option<super::types::AliasRoutingConfiguration>,
 }
 impl CreateAliasInput {
     /// <p>The name or ARN of the Lambda function.</p>
@@ -52,14 +52,14 @@ impl CreateAliasInput {
         self.description.as_deref()
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub fn routing_config(&self) -> ::std::option::Option<&crate::types::AliasRoutingConfiguration> {
+    pub fn routing_config(&self) -> ::std::option::Option<&super::types::AliasRoutingConfiguration> {
         self.routing_config.as_ref()
     }
 }
 impl CreateAliasInput {
     /// Creates a new builder-style object to manufacture [`CreateAliasInput`](crate::operation::create_alias::CreateAliasInput).
-    pub fn builder() -> crate::operation::create_alias::builders::CreateAliasInputBuilder {
-        crate::operation::create_alias::builders::CreateAliasInputBuilder::default()
+    pub fn builder() -> super::operation::create_alias::builders::CreateAliasInputBuilder {
+        super::operation::create_alias::builders::CreateAliasInputBuilder::default()
     }
 }
 
@@ -71,7 +71,7 @@ pub struct CreateAliasInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) function_version: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
-    pub(crate) routing_config: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
+    pub(crate) routing_config: ::std::option::Option<super::types::AliasRoutingConfiguration>,
 }
 impl CreateAliasInputBuilder {
     /// <p>The name or ARN of the Lambda function.</p>
@@ -164,22 +164,22 @@ impl CreateAliasInputBuilder {
         &self.description
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub fn routing_config(mut self, input: crate::types::AliasRoutingConfiguration) -> Self {
+    pub fn routing_config(mut self, input: super::types::AliasRoutingConfiguration) -> Self {
         self.routing_config = ::std::option::Option::Some(input);
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub fn set_routing_config(mut self, input: ::std::option::Option<crate::types::AliasRoutingConfiguration>) -> Self {
+    pub fn set_routing_config(mut self, input: ::std::option::Option<super::types::AliasRoutingConfiguration>) -> Self {
         self.routing_config = input;
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub fn get_routing_config(&self) -> &::std::option::Option<crate::types::AliasRoutingConfiguration> {
+    pub fn get_routing_config(&self) -> &::std::option::Option<super::types::AliasRoutingConfiguration> {
         &self.routing_config
     }
     /// Consumes the builder and constructs a [`CreateAliasInput`](crate::operation::create_alias::CreateAliasInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::create_alias::CreateAliasInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_alias::CreateAliasInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::create_alias::CreateAliasInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::create_alias::CreateAliasInput {
             function_name: self.function_name,
             name: self.name,
             function_version: self.function_version,

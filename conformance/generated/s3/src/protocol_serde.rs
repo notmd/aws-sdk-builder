@@ -29,7 +29,7 @@ pub fn parse_http_error_metadata(
         }
         Ok(builder)
     } else {
-        crate::rest_xml_unwrapped_errors::parse_error_metadata(response_body)
+        super::rest_xml_unwrapped_errors::parse_error_metadata(response_body)
     }
 }
 
@@ -500,7 +500,7 @@ pub(crate) mod shape_upload_part_output;
 pub fn parse_event_stream_error_metadata(
     payload: &::bytes::Bytes,
 ) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
-    crate::rest_xml_unwrapped_errors::parse_error_metadata(payload.as_ref())
+    super::rest_xml_unwrapped_errors::parse_error_metadata(payload.as_ref())
 }
 
 pub(crate) mod shape_abac_status;

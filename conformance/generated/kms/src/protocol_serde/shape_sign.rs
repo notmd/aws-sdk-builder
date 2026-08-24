@@ -4,26 +4,26 @@ pub fn de_sign_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::sign::SignOutput, crate::operation::sign::SignError> {
+) -> std::result::Result<super::operation::sign::SignOutput, super::operation::sign::SignError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::sign::SignError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::sign::SignError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::sign::SignError::unhandled(generic)),
+        None => return Err(super::operation::sign::SignError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => crate::operation::sign::SignError::DependencyTimeoutException({
+        "DependencyTimeoutException" => super::operation::sign::SignError::DependencyTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::sign::SignError::unhandled)?;
+                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -32,13 +32,13 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "DisabledException" => crate::operation::sign::SignError::DisabledException({
+        "DisabledException" => super::operation::sign::SignError::DisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::sign::SignError::unhandled)?;
+                let mut output = super::types::error::builders::DisabledExceptionBuilder::default();
+                output = super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
+                    .map_err(super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -47,13 +47,13 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "DryRunOperationException" => crate::operation::sign::SignError::DryRunOperationException({
+        "DryRunOperationException" => super::operation::sign::SignError::DryRunOperationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DryRunOperationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::sign::SignError::unhandled)?;
+                let mut output = super::types::error::builders::DryRunOperationExceptionBuilder::default();
+                output = super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                    .map_err(super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,14 +62,14 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "InvalidGrantTokenException" => crate::operation::sign::SignError::InvalidGrantTokenException({
+        "InvalidGrantTokenException" => super::operation::sign::SignError::InvalidGrantTokenException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
+                let mut output = super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::sign::SignError::unhandled)?;
+                    super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                        .map_err(super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -78,13 +78,13 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "InvalidKeyUsageException" => crate::operation::sign::SignError::InvalidKeyUsageException({
+        "InvalidKeyUsageException" => super::operation::sign::SignError::InvalidKeyUsageException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::sign::SignError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                    .map_err(super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -93,13 +93,13 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "KeyUnavailableException" => crate::operation::sign::SignError::KeyUnavailableException({
+        "KeyUnavailableException" => super::operation::sign::SignError::KeyUnavailableException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KeyUnavailableExceptionBuilder::default();
-                output = crate::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::sign::SignError::unhandled)?;
+                let mut output = super::types::error::builders::KeyUnavailableExceptionBuilder::default();
+                output = super::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
+                    .map_err(super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -108,13 +108,13 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "KMSInternalException" => crate::operation::sign::SignError::KmsInternalException({
+        "KMSInternalException" => super::operation::sign::SignError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::sign::SignError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                    .map_err(super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123,13 +123,13 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => crate::operation::sign::SignError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::operation::sign::SignError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::sign::SignError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -138,13 +138,13 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "NotFoundException" => crate::operation::sign::SignError::NotFoundException({
+        "NotFoundException" => super::operation::sign::SignError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::sign::SignError::unhandled)?;
+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -153,7 +153,7 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        _ => crate::operation::sign::SignError::generic(generic),
+        _ => super::operation::sign::SignError::generic(generic),
     })
 }
 
@@ -162,31 +162,31 @@ pub fn de_sign_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::sign::SignOutput, crate::operation::sign::SignError> {
+) -> std::result::Result<super::operation::sign::SignOutput, super::operation::sign::SignError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::sign::builders::SignOutputBuilder::default();
-        output = crate::protocol_serde::shape_sign::de_sign(_response_body, output).map_err(crate::operation::sign::SignError::unhandled)?;
+        let mut output = super::operation::sign::builders::SignOutputBuilder::default();
+        output = super::protocol_serde::shape_sign::de_sign(_response_body, output).map_err(super::operation::sign::SignError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_sign_input(
-    input: &crate::operation::sign::SignInput,
+    input: &super::operation::sign::SignInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_sign_input::ser_sign_input_input(&mut object, input)?;
+    super::protocol_serde::shape_sign_input::ser_sign_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_sign(
     _value: &[u8],
-    mut builder: crate::operation::sign::builders::SignOutputBuilder,
-) -> ::std::result::Result<crate::operation::sign::builders::SignOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    mut builder: super::operation::sign::builders::SignOutputBuilder,
+) -> ::std::result::Result<super::operation::sign::builders::SignOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -208,7 +208,7 @@ pub(crate) fn de_sign(
                 "SigningAlgorithm" => {
                     builder = builder.set_signing_algorithm(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::SigningAlgorithmSpec::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::SigningAlgorithmSpec::from(u.as_ref())))
                             .transpose()?,
                     );
                 }

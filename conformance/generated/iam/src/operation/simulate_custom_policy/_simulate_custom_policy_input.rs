@@ -30,7 +30,7 @@ pub struct SimulateCustomPolicyInput {
     /// <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p>
     /// <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p>
     /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
-    pub ordered_organization_policy_input_list: ::std::option::Option<::std::vec::Vec<crate::types::OrderedOrganizationPolicyType>>,
+    pub ordered_organization_policy_input_list: ::std::option::Option<::std::vec::Vec<super::types::OrderedOrganizationPolicyType>>,
     /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>. This operation does not support using wildcards (*) in an action name.</p>
     pub action_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is not provided, then the value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response. You can simulate resources that don't exist in your account.</p>
@@ -61,7 +61,7 @@ pub struct SimulateCustomPolicyInput {
     /// <p>You cannot specify the ARN of an assumed role, federated user, or a service principal.</p>
     pub caller_arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-    pub context_entries: ::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>>,
+    pub context_entries: ::std::option::Option<::std::vec::Vec<super::types::ContextEntry>>,
     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
     /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
     /// <ul>
@@ -123,7 +123,7 @@ impl SimulateCustomPolicyInput {
     /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.ordered_organization_policy_input_list.is_none()`.
-    pub fn ordered_organization_policy_input_list(&self) -> &[crate::types::OrderedOrganizationPolicyType] {
+    pub fn ordered_organization_policy_input_list(&self) -> &[super::types::OrderedOrganizationPolicyType] {
         self.ordered_organization_policy_input_list.as_deref().unwrap_or_default()
     }
     /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>. This operation does not support using wildcards (*) in an action name.</p>
@@ -172,7 +172,7 @@ impl SimulateCustomPolicyInput {
     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.context_entries.is_none()`.
-    pub fn context_entries(&self) -> &[crate::types::ContextEntry] {
+    pub fn context_entries(&self) -> &[super::types::ContextEntry] {
         self.context_entries.as_deref().unwrap_or_default()
     }
     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
@@ -206,8 +206,8 @@ impl SimulateCustomPolicyInput {
 }
 impl SimulateCustomPolicyInput {
     /// Creates a new builder-style object to manufacture [`SimulateCustomPolicyInput`](crate::operation::simulate_custom_policy::SimulateCustomPolicyInput).
-    pub fn builder() -> crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyInputBuilder {
-        crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::simulate_custom_policy::builders::SimulateCustomPolicyInputBuilder {
+        super::operation::simulate_custom_policy::builders::SimulateCustomPolicyInputBuilder::default()
     }
 }
 
@@ -217,13 +217,13 @@ impl SimulateCustomPolicyInput {
 pub struct SimulateCustomPolicyInputBuilder {
     pub(crate) policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) ordered_organization_policy_input_list: ::std::option::Option<::std::vec::Vec<crate::types::OrderedOrganizationPolicyType>>,
+    pub(crate) ordered_organization_policy_input_list: ::std::option::Option<::std::vec::Vec<super::types::OrderedOrganizationPolicyType>>,
     pub(crate) action_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) resource_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) resource_policy: ::std::option::Option<::std::string::String>,
     pub(crate) resource_owner: ::std::option::Option<::std::string::String>,
     pub(crate) caller_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) context_entries: ::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>>,
+    pub(crate) context_entries: ::std::option::Option<::std::vec::Vec<super::types::ContextEntry>>,
     pub(crate) resource_handling_option: ::std::option::Option<::std::string::String>,
     pub(crate) max_items: ::std::option::Option<i32>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
@@ -336,7 +336,7 @@ impl SimulateCustomPolicyInputBuilder {
     /// <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p>
     /// <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p>
     /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
-    pub fn ordered_organization_policy_input_list(mut self, input: crate::types::OrderedOrganizationPolicyType) -> Self {
+    pub fn ordered_organization_policy_input_list(mut self, input: super::types::OrderedOrganizationPolicyType) -> Self {
         let mut v = self.ordered_organization_policy_input_list.unwrap_or_default();
         v.push(input);
         self.ordered_organization_policy_input_list = ::std::option::Option::Some(v);
@@ -347,7 +347,7 @@ impl SimulateCustomPolicyInputBuilder {
     /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
     pub fn set_ordered_organization_policy_input_list(
         mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::OrderedOrganizationPolicyType>>,
+        input: ::std::option::Option<::std::vec::Vec<super::types::OrderedOrganizationPolicyType>>,
     ) -> Self {
         self.ordered_organization_policy_input_list = input;
         self
@@ -355,7 +355,7 @@ impl SimulateCustomPolicyInputBuilder {
     /// <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p>
     /// <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p>
     /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
-    pub fn get_ordered_organization_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OrderedOrganizationPolicyType>> {
+    pub fn get_ordered_organization_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::types::OrderedOrganizationPolicyType>> {
         &self.ordered_organization_policy_input_list
     }
     /// Appends an item to `action_names`.
@@ -502,19 +502,19 @@ impl SimulateCustomPolicyInputBuilder {
     /// To override the contents of this collection use [`set_context_entries`](Self::set_context_entries).
     ///
     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-    pub fn context_entries(mut self, input: crate::types::ContextEntry) -> Self {
+    pub fn context_entries(mut self, input: super::types::ContextEntry) -> Self {
         let mut v = self.context_entries.unwrap_or_default();
         v.push(input);
         self.context_entries = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-    pub fn set_context_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>>) -> Self {
+    pub fn set_context_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ContextEntry>>) -> Self {
         self.context_entries = input;
         self
     }
     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-    pub fn get_context_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>> {
+    pub fn get_context_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ContextEntry>> {
         &self.context_entries
     }
     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
@@ -610,9 +610,9 @@ impl SimulateCustomPolicyInputBuilder {
     /// Consumes the builder and constructs a [`SimulateCustomPolicyInput`](crate::operation::simulate_custom_policy::SimulateCustomPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::simulate_custom_policy::SimulateCustomPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::simulate_custom_policy::SimulateCustomPolicyInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::simulate_custom_policy::SimulateCustomPolicyInput {
+        ::std::result::Result::Ok(super::operation::simulate_custom_policy::SimulateCustomPolicyInput {
             policy_input_list: self.policy_input_list,
             permissions_boundary_policy_input_list: self.permissions_boundary_policy_input_list,
             ordered_organization_policy_input_list: self.ordered_organization_policy_input_list,

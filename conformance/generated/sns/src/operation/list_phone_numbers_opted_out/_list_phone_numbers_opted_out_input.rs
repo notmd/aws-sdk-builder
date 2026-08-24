@@ -15,8 +15,8 @@ impl ListPhoneNumbersOptedOutInput {
 }
 impl ListPhoneNumbersOptedOutInput {
     /// Creates a new builder-style object to manufacture [`ListPhoneNumbersOptedOutInput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput).
-    pub fn builder() -> crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder {
-        crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder::default()
+    pub fn builder() -> super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder {
+        super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder::default()
     }
 }
 
@@ -45,9 +45,9 @@ impl ListPhoneNumbersOptedOutInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput,
+        super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput { next_token: self.next_token })
+        ::std::result::Result::Ok(super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput { next_token: self.next_token })
     }
 }

@@ -72,8 +72,8 @@ impl PasswordPolicy {
 }
 impl PasswordPolicy {
     /// Creates a new builder-style object to manufacture [`PasswordPolicy`](crate::types::PasswordPolicy).
-    pub fn builder() -> crate::types::builders::PasswordPolicyBuilder {
-        crate::types::builders::PasswordPolicyBuilder::default()
+    pub fn builder() -> super::types::builders::PasswordPolicyBuilder {
+        super::types::builders::PasswordPolicyBuilder::default()
     }
 }
 
@@ -237,8 +237,8 @@ impl PasswordPolicyBuilder {
         &self.hard_expiry
     }
     /// Consumes the builder and constructs a [`PasswordPolicy`](crate::types::PasswordPolicy).
-    pub fn build(self) -> crate::types::PasswordPolicy {
-        crate::types::PasswordPolicy {
+    pub fn build(self) -> super::types::PasswordPolicy {
+        super::types::PasswordPolicy {
             minimum_password_length: self.minimum_password_length,
             require_symbols: self.require_symbols.unwrap_or_default(),
             require_numbers: self.require_numbers.unwrap_or_default(),

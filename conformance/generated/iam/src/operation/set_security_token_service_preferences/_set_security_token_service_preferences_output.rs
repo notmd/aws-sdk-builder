@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for SetSecurityTokenServicePreferencesOu
 }
 impl SetSecurityTokenServicePreferencesOutput {
     /// Creates a new builder-style object to manufacture [`SetSecurityTokenServicePreferencesOutput`](crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput).
-    pub fn builder() -> crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder {
-        crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder::default()
+    pub fn builder() -> super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder {
+        super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl SetSecurityTokenServicePreferencesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SetSecurityTokenServicePreferencesOutput`](crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput).
-    pub fn build(self) -> crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput {
-        crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput {
+    pub fn build(self) -> super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput {
+        super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput {
             _request_id: self._request_id,
         }
     }

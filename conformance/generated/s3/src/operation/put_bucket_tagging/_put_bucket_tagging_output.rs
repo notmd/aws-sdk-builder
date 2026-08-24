@@ -6,7 +6,7 @@ pub struct PutBucketTaggingOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for PutBucketTaggingOutput {
+impl super::s3_request_id::RequestIdExt for PutBucketTaggingOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for PutBucketTaggingOutput {
 }
 impl PutBucketTaggingOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketTaggingOutput`](crate::operation::put_bucket_tagging::PutBucketTaggingOutput).
-    pub fn builder() -> crate::operation::put_bucket_tagging::builders::PutBucketTaggingOutputBuilder {
-        crate::operation::put_bucket_tagging::builders::PutBucketTaggingOutputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_tagging::builders::PutBucketTaggingOutputBuilder {
+        super::operation::put_bucket_tagging::builders::PutBucketTaggingOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl PutBucketTaggingOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketTaggingOutput`](crate::operation::put_bucket_tagging::PutBucketTaggingOutput).
-    pub fn build(self) -> crate::operation::put_bucket_tagging::PutBucketTaggingOutput {
-        crate::operation::put_bucket_tagging::PutBucketTaggingOutput {
+    pub fn build(self) -> super::operation::put_bucket_tagging::PutBucketTaggingOutput {
+        super::operation::put_bucket_tagging::PutBucketTaggingOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

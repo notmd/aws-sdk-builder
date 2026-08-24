@@ -27,8 +27,8 @@ impl InvokeWithResponseStreamCompleteEvent {
 }
 impl InvokeWithResponseStreamCompleteEvent {
     /// Creates a new builder-style object to manufacture [`InvokeWithResponseStreamCompleteEvent`](crate::types::InvokeWithResponseStreamCompleteEvent).
-    pub fn builder() -> crate::types::builders::InvokeWithResponseStreamCompleteEventBuilder {
-        crate::types::builders::InvokeWithResponseStreamCompleteEventBuilder::default()
+    pub fn builder() -> super::types::builders::InvokeWithResponseStreamCompleteEventBuilder {
+        super::types::builders::InvokeWithResponseStreamCompleteEventBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl InvokeWithResponseStreamCompleteEventBuilder {
         &self.log_result
     }
     /// Consumes the builder and constructs a [`InvokeWithResponseStreamCompleteEvent`](crate::types::InvokeWithResponseStreamCompleteEvent).
-    pub fn build(self) -> crate::types::InvokeWithResponseStreamCompleteEvent {
-        crate::types::InvokeWithResponseStreamCompleteEvent {
+    pub fn build(self) -> super::types::InvokeWithResponseStreamCompleteEvent {
+        super::types::InvokeWithResponseStreamCompleteEvent {
             error_code: self.error_code,
             error_details: self.error_details,
             log_result: self.log_result,

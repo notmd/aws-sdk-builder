@@ -9,11 +9,11 @@ pub struct PutBucketAbacInput {
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
     pub content_md5: ::std::option::Option<::std::string::String>,
     /// <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
     /// <p>The Amazon Web Services account ID of the general purpose bucket's owner.</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
     /// <p>The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">Using tags with S3 general purpose buckets</a>.</p>
-    pub abac_status: ::std::option::Option<crate::types::AbacStatus>,
+    pub abac_status: ::std::option::Option<super::types::AbacStatus>,
 }
 impl PutBucketAbacInput {
     /// <p>The name of the general purpose bucket.</p>
@@ -26,7 +26,7 @@ impl PutBucketAbacInput {
         self.content_md5.as_deref()
     }
     /// <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
         self.checksum_algorithm.as_ref()
     }
     /// <p>The Amazon Web Services account ID of the general purpose bucket's owner.</p>
@@ -34,14 +34,14 @@ impl PutBucketAbacInput {
         self.expected_bucket_owner.as_deref()
     }
     /// <p>The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">Using tags with S3 general purpose buckets</a>.</p>
-    pub fn abac_status(&self) -> ::std::option::Option<&crate::types::AbacStatus> {
+    pub fn abac_status(&self) -> ::std::option::Option<&super::types::AbacStatus> {
         self.abac_status.as_ref()
     }
 }
 impl PutBucketAbacInput {
     /// Creates a new builder-style object to manufacture [`PutBucketAbacInput`](crate::operation::put_bucket_abac::PutBucketAbacInput).
-    pub fn builder() -> crate::operation::put_bucket_abac::builders::PutBucketAbacInputBuilder {
-        crate::operation::put_bucket_abac::builders::PutBucketAbacInputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_abac::builders::PutBucketAbacInputBuilder {
+        super::operation::put_bucket_abac::builders::PutBucketAbacInputBuilder::default()
     }
 }
 
@@ -51,9 +51,9 @@ impl PutBucketAbacInput {
 pub struct PutBucketAbacInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) content_md5: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
-    pub(crate) abac_status: ::std::option::Option<crate::types::AbacStatus>,
+    pub(crate) abac_status: ::std::option::Option<super::types::AbacStatus>,
 }
 impl PutBucketAbacInputBuilder {
     /// <p>The name of the general purpose bucket.</p>
@@ -89,17 +89,17 @@ impl PutBucketAbacInputBuilder {
         &self.content_md5
     }
     /// <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>The Amazon Web Services account ID of the general purpose bucket's owner.</p>
@@ -118,24 +118,24 @@ impl PutBucketAbacInputBuilder {
     }
     /// <p>The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">Using tags with S3 general purpose buckets</a>.</p>
     /// This field is required.
-    pub fn abac_status(mut self, input: crate::types::AbacStatus) -> Self {
+    pub fn abac_status(mut self, input: super::types::AbacStatus) -> Self {
         self.abac_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">Using tags with S3 general purpose buckets</a>.</p>
-    pub fn set_abac_status(mut self, input: ::std::option::Option<crate::types::AbacStatus>) -> Self {
+    pub fn set_abac_status(mut self, input: ::std::option::Option<super::types::AbacStatus>) -> Self {
         self.abac_status = input;
         self
     }
     /// <p>The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">Using tags with S3 general purpose buckets</a>.</p>
-    pub fn get_abac_status(&self) -> &::std::option::Option<crate::types::AbacStatus> {
+    pub fn get_abac_status(&self) -> &::std::option::Option<super::types::AbacStatus> {
         &self.abac_status
     }
     /// Consumes the builder and constructs a [`PutBucketAbacInput`](crate::operation::put_bucket_abac::PutBucketAbacInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_bucket_abac::PutBucketAbacInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::put_bucket_abac::PutBucketAbacInput {
+    ) -> ::std::result::Result<super::operation::put_bucket_abac::PutBucketAbacInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::put_bucket_abac::PutBucketAbacInput {
             bucket: self.bucket,
             content_md5: self.content_md5,
             checksum_algorithm: self.checksum_algorithm,

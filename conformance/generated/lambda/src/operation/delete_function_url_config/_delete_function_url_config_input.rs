@@ -40,8 +40,8 @@ impl DeleteFunctionUrlConfigInput {
 }
 impl DeleteFunctionUrlConfigInput {
     /// Creates a new builder-style object to manufacture [`DeleteFunctionUrlConfigInput`](crate::operation::delete_function_url_config::DeleteFunctionUrlConfigInput).
-    pub fn builder() -> crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigInputBuilder {
-        crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigInputBuilder::default()
+    pub fn builder() -> super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigInputBuilder {
+        super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigInputBuilder::default()
     }
 }
 
@@ -116,10 +116,10 @@ impl DeleteFunctionUrlConfigInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_function_url_config::DeleteFunctionUrlConfigInput,
+        super::operation::delete_function_url_config::DeleteFunctionUrlConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_function_url_config::DeleteFunctionUrlConfigInput {
+        ::std::result::Result::Ok(super::operation::delete_function_url_config::DeleteFunctionUrlConfigInput {
             function_name: self.function_name,
             qualifier: self.qualifier,
         })

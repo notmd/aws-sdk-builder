@@ -13,11 +13,11 @@ pub struct GetSamlProviderOutput {
     /// <p>The expiration date and time for the SAML provider.</p>
     pub valid_until: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
     /// <p>Specifies the encryption setting for the SAML provider.</p>
-    pub assertion_encryption_mode: ::std::option::Option<crate::types::AssertionEncryptionModeType>,
+    pub assertion_encryption_mode: ::std::option::Option<super::types::AssertionEncryptionModeType>,
     /// <p>The private key metadata for the SAML provider.</p>
-    pub private_key_list: ::std::option::Option<::std::vec::Vec<crate::types::SamlPrivateKey>>,
+    pub private_key_list: ::std::option::Option<::std::vec::Vec<super::types::SamlPrivateKey>>,
     _request_id: Option<String>,
 }
 impl GetSamlProviderOutput {
@@ -40,17 +40,17 @@ impl GetSamlProviderOutput {
     /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
     /// <p>Specifies the encryption setting for the SAML provider.</p>
-    pub fn assertion_encryption_mode(&self) -> ::std::option::Option<&crate::types::AssertionEncryptionModeType> {
+    pub fn assertion_encryption_mode(&self) -> ::std::option::Option<&super::types::AssertionEncryptionModeType> {
         self.assertion_encryption_mode.as_ref()
     }
     /// <p>The private key metadata for the SAML provider.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.private_key_list.is_none()`.
-    pub fn private_key_list(&self) -> &[crate::types::SamlPrivateKey] {
+    pub fn private_key_list(&self) -> &[super::types::SamlPrivateKey] {
         self.private_key_list.as_deref().unwrap_or_default()
     }
 }
@@ -61,8 +61,8 @@ impl ::aws_types::request_id::RequestId for GetSamlProviderOutput {
 }
 impl GetSamlProviderOutput {
     /// Creates a new builder-style object to manufacture [`GetSamlProviderOutput`](crate::operation::get_saml_provider::GetSamlProviderOutput).
-    pub fn builder() -> crate::operation::get_saml_provider::builders::GetSamlProviderOutputBuilder {
-        crate::operation::get_saml_provider::builders::GetSamlProviderOutputBuilder::default()
+    pub fn builder() -> super::operation::get_saml_provider::builders::GetSamlProviderOutputBuilder {
+        super::operation::get_saml_provider::builders::GetSamlProviderOutputBuilder::default()
     }
 }
 
@@ -74,9 +74,9 @@ pub struct GetSamlProviderOutputBuilder {
     pub(crate) saml_metadata_document: ::std::option::Option<::std::string::String>,
     pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) valid_until: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    pub(crate) assertion_encryption_mode: ::std::option::Option<crate::types::AssertionEncryptionModeType>,
-    pub(crate) private_key_list: ::std::option::Option<::std::vec::Vec<crate::types::SamlPrivateKey>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
+    pub(crate) assertion_encryption_mode: ::std::option::Option<super::types::AssertionEncryptionModeType>,
+    pub(crate) private_key_list: ::std::option::Option<::std::vec::Vec<super::types::SamlPrivateKey>>,
     _request_id: Option<String>,
 }
 impl GetSamlProviderOutputBuilder {
@@ -141,33 +141,33 @@ impl GetSamlProviderOutputBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     /// <p>Specifies the encryption setting for the SAML provider.</p>
-    pub fn assertion_encryption_mode(mut self, input: crate::types::AssertionEncryptionModeType) -> Self {
+    pub fn assertion_encryption_mode(mut self, input: super::types::AssertionEncryptionModeType) -> Self {
         self.assertion_encryption_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the encryption setting for the SAML provider.</p>
-    pub fn set_assertion_encryption_mode(mut self, input: ::std::option::Option<crate::types::AssertionEncryptionModeType>) -> Self {
+    pub fn set_assertion_encryption_mode(mut self, input: ::std::option::Option<super::types::AssertionEncryptionModeType>) -> Self {
         self.assertion_encryption_mode = input;
         self
     }
     /// <p>Specifies the encryption setting for the SAML provider.</p>
-    pub fn get_assertion_encryption_mode(&self) -> &::std::option::Option<crate::types::AssertionEncryptionModeType> {
+    pub fn get_assertion_encryption_mode(&self) -> &::std::option::Option<super::types::AssertionEncryptionModeType> {
         &self.assertion_encryption_mode
     }
     /// Appends an item to `private_key_list`.
@@ -175,19 +175,19 @@ impl GetSamlProviderOutputBuilder {
     /// To override the contents of this collection use [`set_private_key_list`](Self::set_private_key_list).
     ///
     /// <p>The private key metadata for the SAML provider.</p>
-    pub fn private_key_list(mut self, input: crate::types::SamlPrivateKey) -> Self {
+    pub fn private_key_list(mut self, input: super::types::SamlPrivateKey) -> Self {
         let mut v = self.private_key_list.unwrap_or_default();
         v.push(input);
         self.private_key_list = ::std::option::Option::Some(v);
         self
     }
     /// <p>The private key metadata for the SAML provider.</p>
-    pub fn set_private_key_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SamlPrivateKey>>) -> Self {
+    pub fn set_private_key_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SamlPrivateKey>>) -> Self {
         self.private_key_list = input;
         self
     }
     /// <p>The private key metadata for the SAML provider.</p>
-    pub fn get_private_key_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SamlPrivateKey>> {
+    pub fn get_private_key_list(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SamlPrivateKey>> {
         &self.private_key_list
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -200,8 +200,8 @@ impl GetSamlProviderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetSamlProviderOutput`](crate::operation::get_saml_provider::GetSamlProviderOutput).
-    pub fn build(self) -> crate::operation::get_saml_provider::GetSamlProviderOutput {
-        crate::operation::get_saml_provider::GetSamlProviderOutput {
+    pub fn build(self) -> super::operation::get_saml_provider::GetSamlProviderOutput {
+        super::operation::get_saml_provider::GetSamlProviderOutput {
             saml_provider_uuid: self.saml_provider_uuid,
             saml_metadata_document: self.saml_metadata_document,
             create_date: self.create_date,

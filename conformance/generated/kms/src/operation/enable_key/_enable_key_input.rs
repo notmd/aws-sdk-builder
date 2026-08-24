@@ -32,8 +32,8 @@ impl EnableKeyInput {
 }
 impl EnableKeyInput {
     /// Creates a new builder-style object to manufacture [`EnableKeyInput`](crate::operation::enable_key::EnableKeyInput).
-    pub fn builder() -> crate::operation::enable_key::builders::EnableKeyInputBuilder {
-        crate::operation::enable_key::builders::EnableKeyInputBuilder::default()
+    pub fn builder() -> super::operation::enable_key::builders::EnableKeyInputBuilder {
+        super::operation::enable_key::builders::EnableKeyInputBuilder::default()
     }
 }
 
@@ -87,7 +87,7 @@ impl EnableKeyInputBuilder {
         &self.key_id
     }
     /// Consumes the builder and constructs a [`EnableKeyInput`](crate::operation::enable_key::EnableKeyInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::enable_key::EnableKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::enable_key::EnableKeyInput { key_id: self.key_id })
+    pub fn build(self) -> ::std::result::Result<super::operation::enable_key::EnableKeyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::enable_key::EnableKeyInput { key_id: self.key_id })
     }
 }

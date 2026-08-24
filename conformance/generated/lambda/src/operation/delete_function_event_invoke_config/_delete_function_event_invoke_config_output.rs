@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteFunctionEventInvokeConfigOutpu
 }
 impl DeleteFunctionEventInvokeConfigOutput {
     /// Creates a new builder-style object to manufacture [`DeleteFunctionEventInvokeConfigOutput`](crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigOutput).
-    pub fn builder() -> crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder {
-        crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder {
+        super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteFunctionEventInvokeConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteFunctionEventInvokeConfigOutput`](crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigOutput).
-    pub fn build(self) -> crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigOutput {
-        crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigOutput {
+    pub fn build(self) -> super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigOutput {
+        super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigOutput {
             _request_id: self._request_id,
         }
     }

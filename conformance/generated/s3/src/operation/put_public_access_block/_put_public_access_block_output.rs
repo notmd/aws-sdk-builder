@@ -6,7 +6,7 @@ pub struct PutPublicAccessBlockOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for PutPublicAccessBlockOutput {
+impl super::s3_request_id::RequestIdExt for PutPublicAccessBlockOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for PutPublicAccessBlockOutput {
 }
 impl PutPublicAccessBlockOutput {
     /// Creates a new builder-style object to manufacture [`PutPublicAccessBlockOutput`](crate::operation::put_public_access_block::PutPublicAccessBlockOutput).
-    pub fn builder() -> crate::operation::put_public_access_block::builders::PutPublicAccessBlockOutputBuilder {
-        crate::operation::put_public_access_block::builders::PutPublicAccessBlockOutputBuilder::default()
+    pub fn builder() -> super::operation::put_public_access_block::builders::PutPublicAccessBlockOutputBuilder {
+        super::operation::put_public_access_block::builders::PutPublicAccessBlockOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl PutPublicAccessBlockOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutPublicAccessBlockOutput`](crate::operation::put_public_access_block::PutPublicAccessBlockOutput).
-    pub fn build(self) -> crate::operation::put_public_access_block::PutPublicAccessBlockOutput {
-        crate::operation::put_public_access_block::PutPublicAccessBlockOutput {
+    pub fn build(self) -> super::operation::put_public_access_block::PutPublicAccessBlockOutput {
+        super::operation::put_public_access_block::PutPublicAccessBlockOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

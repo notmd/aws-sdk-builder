@@ -16,8 +16,8 @@ impl ReplacementValueEntry {
 }
 impl ReplacementValueEntry {
     /// Creates a new builder-style object to manufacture [`ReplacementValueEntry`](crate::types::ReplacementValueEntry).
-    pub fn builder() -> crate::types::builders::ReplacementValueEntryBuilder {
-        crate::types::builders::ReplacementValueEntryBuilder::default()
+    pub fn builder() -> super::types::builders::ReplacementValueEntryBuilder {
+        super::types::builders::ReplacementValueEntryBuilder::default()
     }
 }
 
@@ -51,8 +51,8 @@ impl ReplacementValueEntryBuilder {
     /// Consumes the builder and constructs a [`ReplacementValueEntry`](crate::types::ReplacementValueEntry).
     /// This method will fail if any of the following fields are not set:
     /// - [`values`](crate::types::builders::ReplacementValueEntryBuilder::values)
-    pub fn build(self) -> ::std::result::Result<crate::types::ReplacementValueEntry, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ReplacementValueEntry {
+    pub fn build(self) -> ::std::result::Result<super::types::ReplacementValueEntry, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::ReplacementValueEntry {
             values: self.values.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "values",

@@ -39,8 +39,8 @@ impl AliasListEntry {
 }
 impl AliasListEntry {
     /// Creates a new builder-style object to manufacture [`AliasListEntry`](crate::types::AliasListEntry).
-    pub fn builder() -> crate::types::builders::AliasListEntryBuilder {
-        crate::types::builders::AliasListEntryBuilder::default()
+    pub fn builder() -> super::types::builders::AliasListEntryBuilder {
+        super::types::builders::AliasListEntryBuilder::default()
     }
 }
 
@@ -126,8 +126,8 @@ impl AliasListEntryBuilder {
         &self.last_updated_date
     }
     /// Consumes the builder and constructs a [`AliasListEntry`](crate::types::AliasListEntry).
-    pub fn build(self) -> crate::types::AliasListEntry {
-        crate::types::AliasListEntry {
+    pub fn build(self) -> super::types::AliasListEntry {
+        super::types::AliasListEntry {
             alias_name: self.alias_name,
             alias_arn: self.alias_arn,
             target_key_id: self.target_key_id,

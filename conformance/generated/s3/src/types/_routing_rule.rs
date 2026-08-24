@@ -5,24 +5,24 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RoutingRule {
     /// <p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
-    pub condition: ::std::option::Option<crate::types::Condition>,
+    pub condition: ::std::option::Option<super::types::Condition>,
     /// <p>Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.</p>
-    pub redirect: ::std::option::Option<crate::types::Redirect>,
+    pub redirect: ::std::option::Option<super::types::Redirect>,
 }
 impl RoutingRule {
     /// <p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
-    pub fn condition(&self) -> ::std::option::Option<&crate::types::Condition> {
+    pub fn condition(&self) -> ::std::option::Option<&super::types::Condition> {
         self.condition.as_ref()
     }
     /// <p>Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.</p>
-    pub fn redirect(&self) -> ::std::option::Option<&crate::types::Redirect> {
+    pub fn redirect(&self) -> ::std::option::Option<&super::types::Redirect> {
         self.redirect.as_ref()
     }
 }
 impl RoutingRule {
     /// Creates a new builder-style object to manufacture [`RoutingRule`](crate::types::RoutingRule).
-    pub fn builder() -> crate::types::builders::RoutingRuleBuilder {
-        crate::types::builders::RoutingRuleBuilder::default()
+    pub fn builder() -> super::types::builders::RoutingRuleBuilder {
+        super::types::builders::RoutingRuleBuilder::default()
     }
 }
 
@@ -30,42 +30,42 @@ impl RoutingRule {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RoutingRuleBuilder {
-    pub(crate) condition: ::std::option::Option<crate::types::Condition>,
-    pub(crate) redirect: ::std::option::Option<crate::types::Redirect>,
+    pub(crate) condition: ::std::option::Option<super::types::Condition>,
+    pub(crate) redirect: ::std::option::Option<super::types::Redirect>,
 }
 impl RoutingRuleBuilder {
     /// <p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
-    pub fn condition(mut self, input: crate::types::Condition) -> Self {
+    pub fn condition(mut self, input: super::types::Condition) -> Self {
         self.condition = ::std::option::Option::Some(input);
         self
     }
     /// <p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
-    pub fn set_condition(mut self, input: ::std::option::Option<crate::types::Condition>) -> Self {
+    pub fn set_condition(mut self, input: ::std::option::Option<super::types::Condition>) -> Self {
         self.condition = input;
         self
     }
     /// <p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
-    pub fn get_condition(&self) -> &::std::option::Option<crate::types::Condition> {
+    pub fn get_condition(&self) -> &::std::option::Option<super::types::Condition> {
         &self.condition
     }
     /// <p>Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.</p>
     /// This field is required.
-    pub fn redirect(mut self, input: crate::types::Redirect) -> Self {
+    pub fn redirect(mut self, input: super::types::Redirect) -> Self {
         self.redirect = ::std::option::Option::Some(input);
         self
     }
     /// <p>Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.</p>
-    pub fn set_redirect(mut self, input: ::std::option::Option<crate::types::Redirect>) -> Self {
+    pub fn set_redirect(mut self, input: ::std::option::Option<super::types::Redirect>) -> Self {
         self.redirect = input;
         self
     }
     /// <p>Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.</p>
-    pub fn get_redirect(&self) -> &::std::option::Option<crate::types::Redirect> {
+    pub fn get_redirect(&self) -> &::std::option::Option<super::types::Redirect> {
         &self.redirect
     }
     /// Consumes the builder and constructs a [`RoutingRule`](crate::types::RoutingRule).
-    pub fn build(self) -> crate::types::RoutingRule {
-        crate::types::RoutingRule {
+    pub fn build(self) -> super::types::RoutingRule {
+        super::types::RoutingRule {
             condition: self.condition,
             redirect: self.redirect,
         }

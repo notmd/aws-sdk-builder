@@ -22,8 +22,8 @@ impl SamlPrivateKey {
 }
 impl SamlPrivateKey {
     /// Creates a new builder-style object to manufacture [`SamlPrivateKey`](crate::types::SamlPrivateKey).
-    pub fn builder() -> crate::types::builders::SamlPrivateKeyBuilder {
-        crate::types::builders::SamlPrivateKeyBuilder::default()
+    pub fn builder() -> super::types::builders::SamlPrivateKeyBuilder {
+        super::types::builders::SamlPrivateKeyBuilder::default()
     }
 }
 
@@ -64,8 +64,8 @@ impl SamlPrivateKeyBuilder {
         &self.timestamp
     }
     /// Consumes the builder and constructs a [`SamlPrivateKey`](crate::types::SamlPrivateKey).
-    pub fn build(self) -> crate::types::SamlPrivateKey {
-        crate::types::SamlPrivateKey {
+    pub fn build(self) -> super::types::SamlPrivateKey {
+        super::types::SamlPrivateKey {
             key_id: self.key_id,
             timestamp: self.timestamp,
         }

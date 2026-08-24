@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DetachRolePolicyOutput {
 }
 impl DetachRolePolicyOutput {
     /// Creates a new builder-style object to manufacture [`DetachRolePolicyOutput`](crate::operation::detach_role_policy::DetachRolePolicyOutput).
-    pub fn builder() -> crate::operation::detach_role_policy::builders::DetachRolePolicyOutputBuilder {
-        crate::operation::detach_role_policy::builders::DetachRolePolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::detach_role_policy::builders::DetachRolePolicyOutputBuilder {
+        super::operation::detach_role_policy::builders::DetachRolePolicyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DetachRolePolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DetachRolePolicyOutput`](crate::operation::detach_role_policy::DetachRolePolicyOutput).
-    pub fn build(self) -> crate::operation::detach_role_policy::DetachRolePolicyOutput {
-        crate::operation::detach_role_policy::DetachRolePolicyOutput {
+    pub fn build(self) -> super::operation::detach_role_policy::DetachRolePolicyOutput {
+        super::operation::detach_role_policy::DetachRolePolicyOutput {
             _request_id: self._request_id,
         }
     }

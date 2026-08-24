@@ -4,12 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct PutFunctionScalingConfigOutput {
     /// <p>The current state of the function after applying the scaling configuration.</p>
-    pub function_state: ::std::option::Option<crate::types::State>,
+    pub function_state: ::std::option::Option<super::types::State>,
     _request_id: Option<String>,
 }
 impl PutFunctionScalingConfigOutput {
     /// <p>The current state of the function after applying the scaling configuration.</p>
-    pub fn function_state(&self) -> ::std::option::Option<&crate::types::State> {
+    pub fn function_state(&self) -> ::std::option::Option<&super::types::State> {
         self.function_state.as_ref()
     }
 }
@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for PutFunctionScalingConfigOutput {
 }
 impl PutFunctionScalingConfigOutput {
     /// Creates a new builder-style object to manufacture [`PutFunctionScalingConfigOutput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput).
-    pub fn builder() -> crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigOutputBuilder {
-        crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigOutputBuilder::default()
+    pub fn builder() -> super::operation::put_function_scaling_config::builders::PutFunctionScalingConfigOutputBuilder {
+        super::operation::put_function_scaling_config::builders::PutFunctionScalingConfigOutputBuilder::default()
     }
 }
 
@@ -29,22 +29,22 @@ impl PutFunctionScalingConfigOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutFunctionScalingConfigOutputBuilder {
-    pub(crate) function_state: ::std::option::Option<crate::types::State>,
+    pub(crate) function_state: ::std::option::Option<super::types::State>,
     _request_id: Option<String>,
 }
 impl PutFunctionScalingConfigOutputBuilder {
     /// <p>The current state of the function after applying the scaling configuration.</p>
-    pub fn function_state(mut self, input: crate::types::State) -> Self {
+    pub fn function_state(mut self, input: super::types::State) -> Self {
         self.function_state = ::std::option::Option::Some(input);
         self
     }
     /// <p>The current state of the function after applying the scaling configuration.</p>
-    pub fn set_function_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
+    pub fn set_function_state(mut self, input: ::std::option::Option<super::types::State>) -> Self {
         self.function_state = input;
         self
     }
     /// <p>The current state of the function after applying the scaling configuration.</p>
-    pub fn get_function_state(&self) -> &::std::option::Option<crate::types::State> {
+    pub fn get_function_state(&self) -> &::std::option::Option<super::types::State> {
         &self.function_state
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -57,8 +57,8 @@ impl PutFunctionScalingConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutFunctionScalingConfigOutput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput).
-    pub fn build(self) -> crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput {
-        crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput {
+    pub fn build(self) -> super::operation::put_function_scaling_config::PutFunctionScalingConfigOutput {
+        super::operation::put_function_scaling_config::PutFunctionScalingConfigOutput {
             function_state: self.function_state,
             _request_id: self._request_id,
         }

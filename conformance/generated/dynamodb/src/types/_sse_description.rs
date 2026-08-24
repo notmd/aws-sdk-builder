@@ -11,13 +11,13 @@ pub struct SseDescription {
     /// <li>
     /// <p><code>UPDATING</code> - Server-side encryption is being updated.</p></li>
     /// </ul>
-    pub status: ::std::option::Option<crate::types::SseStatus>,
+    pub status: ::std::option::Option<super::types::SseStatus>,
     /// <p>Server-side encryption type. The only supported value is:</p>
     /// <ul>
     /// <li>
     /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
     /// </ul>
-    pub sse_type: ::std::option::Option<crate::types::SseType>,
+    pub sse_type: ::std::option::Option<super::types::SseType>,
     /// <p>The KMS key ARN used for the KMS encryption.</p>
     pub kms_master_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB detects that the table's KMS key is accessible again. DynamoDB will initiate the table archival process when table's KMS key remains inaccessible for more than seven days from this date.</p>
@@ -31,7 +31,7 @@ impl SseDescription {
     /// <li>
     /// <p><code>UPDATING</code> - Server-side encryption is being updated.</p></li>
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::SseStatus> {
+    pub fn status(&self) -> ::std::option::Option<&super::types::SseStatus> {
         self.status.as_ref()
     }
     /// <p>Server-side encryption type. The only supported value is:</p>
@@ -39,7 +39,7 @@ impl SseDescription {
     /// <li>
     /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
     /// </ul>
-    pub fn sse_type(&self) -> ::std::option::Option<&crate::types::SseType> {
+    pub fn sse_type(&self) -> ::std::option::Option<&super::types::SseType> {
         self.sse_type.as_ref()
     }
     /// <p>The KMS key ARN used for the KMS encryption.</p>
@@ -53,8 +53,8 @@ impl SseDescription {
 }
 impl SseDescription {
     /// Creates a new builder-style object to manufacture [`SseDescription`](crate::types::SseDescription).
-    pub fn builder() -> crate::types::builders::SseDescriptionBuilder {
-        crate::types::builders::SseDescriptionBuilder::default()
+    pub fn builder() -> super::types::builders::SseDescriptionBuilder {
+        super::types::builders::SseDescriptionBuilder::default()
     }
 }
 
@@ -62,8 +62,8 @@ impl SseDescription {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SseDescriptionBuilder {
-    pub(crate) status: ::std::option::Option<crate::types::SseStatus>,
-    pub(crate) sse_type: ::std::option::Option<crate::types::SseType>,
+    pub(crate) status: ::std::option::Option<super::types::SseStatus>,
+    pub(crate) sse_type: ::std::option::Option<super::types::SseType>,
     pub(crate) kms_master_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) inaccessible_encryption_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -75,7 +75,7 @@ impl SseDescriptionBuilder {
     /// <li>
     /// <p><code>UPDATING</code> - Server-side encryption is being updated.</p></li>
     /// </ul>
-    pub fn status(mut self, input: crate::types::SseStatus) -> Self {
+    pub fn status(mut self, input: super::types::SseStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
@@ -86,7 +86,7 @@ impl SseDescriptionBuilder {
     /// <li>
     /// <p><code>UPDATING</code> - Server-side encryption is being updated.</p></li>
     /// </ul>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::SseStatus>) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<super::types::SseStatus>) -> Self {
         self.status = input;
         self
     }
@@ -97,7 +97,7 @@ impl SseDescriptionBuilder {
     /// <li>
     /// <p><code>UPDATING</code> - Server-side encryption is being updated.</p></li>
     /// </ul>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::SseStatus> {
+    pub fn get_status(&self) -> &::std::option::Option<super::types::SseStatus> {
         &self.status
     }
     /// <p>Server-side encryption type. The only supported value is:</p>
@@ -105,7 +105,7 @@ impl SseDescriptionBuilder {
     /// <li>
     /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
     /// </ul>
-    pub fn sse_type(mut self, input: crate::types::SseType) -> Self {
+    pub fn sse_type(mut self, input: super::types::SseType) -> Self {
         self.sse_type = ::std::option::Option::Some(input);
         self
     }
@@ -114,7 +114,7 @@ impl SseDescriptionBuilder {
     /// <li>
     /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
     /// </ul>
-    pub fn set_sse_type(mut self, input: ::std::option::Option<crate::types::SseType>) -> Self {
+    pub fn set_sse_type(mut self, input: ::std::option::Option<super::types::SseType>) -> Self {
         self.sse_type = input;
         self
     }
@@ -123,7 +123,7 @@ impl SseDescriptionBuilder {
     /// <li>
     /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
     /// </ul>
-    pub fn get_sse_type(&self) -> &::std::option::Option<crate::types::SseType> {
+    pub fn get_sse_type(&self) -> &::std::option::Option<super::types::SseType> {
         &self.sse_type
     }
     /// <p>The KMS key ARN used for the KMS encryption.</p>
@@ -155,8 +155,8 @@ impl SseDescriptionBuilder {
         &self.inaccessible_encryption_date_time
     }
     /// Consumes the builder and constructs a [`SseDescription`](crate::types::SseDescription).
-    pub fn build(self) -> crate::types::SseDescription {
-        crate::types::SseDescription {
+    pub fn build(self) -> super::types::SseDescription {
+        super::types::SseDescription {
             status: self.status,
             sse_type: self.sse_type,
             kms_master_key_arn: self.kms_master_key_arn,

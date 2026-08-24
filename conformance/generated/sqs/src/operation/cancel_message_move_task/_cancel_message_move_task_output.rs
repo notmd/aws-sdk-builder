@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for CancelMessageMoveTaskOutput {
 }
 impl CancelMessageMoveTaskOutput {
     /// Creates a new builder-style object to manufacture [`CancelMessageMoveTaskOutput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput).
-    pub fn builder() -> crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskOutputBuilder {
-        crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskOutputBuilder::default()
+    pub fn builder() -> super::operation::cancel_message_move_task::builders::CancelMessageMoveTaskOutputBuilder {
+        super::operation::cancel_message_move_task::builders::CancelMessageMoveTaskOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl CancelMessageMoveTaskOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CancelMessageMoveTaskOutput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput).
-    pub fn build(self) -> crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
-        crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
+    pub fn build(self) -> super::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
+        super::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
             approximate_number_of_messages_moved: self.approximate_number_of_messages_moved.unwrap_or_default(),
             _request_id: self._request_id,
         }

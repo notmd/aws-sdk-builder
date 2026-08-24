@@ -3,7 +3,7 @@ pub(crate) fn de_function_event_invoke_config<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::FunctionEventInvokeConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::FunctionEventInvokeConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::FunctionEventInvokeConfigBuilder::default();
+            let mut builder = super::types::builders::FunctionEventInvokeConfigBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -49,7 +49,7 @@ where
                             );
                         }
                         "DestinationConfig" => {
-                            builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+                            builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
                                 tokens,
                                 _value,
                                 depth + 1,

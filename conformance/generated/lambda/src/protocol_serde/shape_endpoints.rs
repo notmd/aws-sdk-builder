@@ -4,7 +4,7 @@ pub(crate) fn de_endpoints<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>>,
+    Option<::std::collections::HashMap<super::types::EndPointType, ::std::vec::Vec<::std::string::String>>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -24,7 +24,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         let key = key.to_unescaped().map(|u| u.into_owned())?;
-                        let value = crate::protocol_serde::shape_endpoint_lists::de_endpoint_lists(tokens, _value, depth + 1)?;
+                        let value = super::protocol_serde::shape_endpoint_lists::de_endpoint_lists(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {
                                 map.insert(key, value);

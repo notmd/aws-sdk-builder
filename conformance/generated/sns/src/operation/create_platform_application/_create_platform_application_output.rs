@@ -21,8 +21,8 @@ impl ::aws_types::request_id::RequestId for CreatePlatformApplicationOutput {
 }
 impl CreatePlatformApplicationOutput {
     /// Creates a new builder-style object to manufacture [`CreatePlatformApplicationOutput`](crate::operation::create_platform_application::CreatePlatformApplicationOutput).
-    pub fn builder() -> crate::operation::create_platform_application::builders::CreatePlatformApplicationOutputBuilder {
-        crate::operation::create_platform_application::builders::CreatePlatformApplicationOutputBuilder::default()
+    pub fn builder() -> super::operation::create_platform_application::builders::CreatePlatformApplicationOutputBuilder {
+        super::operation::create_platform_application::builders::CreatePlatformApplicationOutputBuilder::default()
     }
 }
 
@@ -58,8 +58,8 @@ impl CreatePlatformApplicationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreatePlatformApplicationOutput`](crate::operation::create_platform_application::CreatePlatformApplicationOutput).
-    pub fn build(self) -> crate::operation::create_platform_application::CreatePlatformApplicationOutput {
-        crate::operation::create_platform_application::CreatePlatformApplicationOutput {
+    pub fn build(self) -> super::operation::create_platform_application::CreatePlatformApplicationOutput {
+        super::operation::create_platform_application::CreatePlatformApplicationOutput {
             platform_application_arn: self.platform_application_arn,
             _request_id: self._request_id,
         }

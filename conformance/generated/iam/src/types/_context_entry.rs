@@ -10,7 +10,7 @@ pub struct ContextEntry {
     /// <p>The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a <code>Condition</code> element in an input policy.</p>
     pub context_key_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code> parameter.</p>
-    pub context_key_type: ::std::option::Option<crate::types::ContextKeyTypeEnum>,
+    pub context_key_type: ::std::option::Option<super::types::ContextKeyTypeEnum>,
 }
 impl ContextEntry {
     /// <p>The full name of a condition context key, including the service prefix. For example, <code>aws:SourceIp</code> or <code>s3:VersionId</code>.</p>
@@ -24,14 +24,14 @@ impl ContextEntry {
         self.context_key_values.as_deref().unwrap_or_default()
     }
     /// <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code> parameter.</p>
-    pub fn context_key_type(&self) -> ::std::option::Option<&crate::types::ContextKeyTypeEnum> {
+    pub fn context_key_type(&self) -> ::std::option::Option<&super::types::ContextKeyTypeEnum> {
         self.context_key_type.as_ref()
     }
 }
 impl ContextEntry {
     /// Creates a new builder-style object to manufacture [`ContextEntry`](crate::types::ContextEntry).
-    pub fn builder() -> crate::types::builders::ContextEntryBuilder {
-        crate::types::builders::ContextEntryBuilder::default()
+    pub fn builder() -> super::types::builders::ContextEntryBuilder {
+        super::types::builders::ContextEntryBuilder::default()
     }
 }
 
@@ -41,7 +41,7 @@ impl ContextEntry {
 pub struct ContextEntryBuilder {
     pub(crate) context_key_name: ::std::option::Option<::std::string::String>,
     pub(crate) context_key_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) context_key_type: ::std::option::Option<crate::types::ContextKeyTypeEnum>,
+    pub(crate) context_key_type: ::std::option::Option<super::types::ContextKeyTypeEnum>,
 }
 impl ContextEntryBuilder {
     /// <p>The full name of a condition context key, including the service prefix. For example, <code>aws:SourceIp</code> or <code>s3:VersionId</code>.</p>
@@ -79,22 +79,22 @@ impl ContextEntryBuilder {
         &self.context_key_values
     }
     /// <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code> parameter.</p>
-    pub fn context_key_type(mut self, input: crate::types::ContextKeyTypeEnum) -> Self {
+    pub fn context_key_type(mut self, input: super::types::ContextKeyTypeEnum) -> Self {
         self.context_key_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code> parameter.</p>
-    pub fn set_context_key_type(mut self, input: ::std::option::Option<crate::types::ContextKeyTypeEnum>) -> Self {
+    pub fn set_context_key_type(mut self, input: ::std::option::Option<super::types::ContextKeyTypeEnum>) -> Self {
         self.context_key_type = input;
         self
     }
     /// <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code> parameter.</p>
-    pub fn get_context_key_type(&self) -> &::std::option::Option<crate::types::ContextKeyTypeEnum> {
+    pub fn get_context_key_type(&self) -> &::std::option::Option<super::types::ContextKeyTypeEnum> {
         &self.context_key_type
     }
     /// Consumes the builder and constructs a [`ContextEntry`](crate::types::ContextEntry).
-    pub fn build(self) -> crate::types::ContextEntry {
-        crate::types::ContextEntry {
+    pub fn build(self) -> super::types::ContextEntry {
+        super::types::ContextEntry {
             context_key_name: self.context_key_name,
             context_key_values: self.context_key_values,
             context_key_type: self.context_key_type,

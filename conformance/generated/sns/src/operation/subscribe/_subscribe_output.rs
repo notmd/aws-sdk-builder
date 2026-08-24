@@ -21,8 +21,8 @@ impl ::aws_types::request_id::RequestId for SubscribeOutput {
 }
 impl SubscribeOutput {
     /// Creates a new builder-style object to manufacture [`SubscribeOutput`](crate::operation::subscribe::SubscribeOutput).
-    pub fn builder() -> crate::operation::subscribe::builders::SubscribeOutputBuilder {
-        crate::operation::subscribe::builders::SubscribeOutputBuilder::default()
+    pub fn builder() -> super::operation::subscribe::builders::SubscribeOutputBuilder {
+        super::operation::subscribe::builders::SubscribeOutputBuilder::default()
     }
 }
 
@@ -58,8 +58,8 @@ impl SubscribeOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SubscribeOutput`](crate::operation::subscribe::SubscribeOutput).
-    pub fn build(self) -> crate::operation::subscribe::SubscribeOutput {
-        crate::operation::subscribe::SubscribeOutput {
+    pub fn build(self) -> super::operation::subscribe::SubscribeOutput {
+        super::operation::subscribe::SubscribeOutput {
             subscription_arn: self.subscription_arn,
             _request_id: self._request_id,
         }

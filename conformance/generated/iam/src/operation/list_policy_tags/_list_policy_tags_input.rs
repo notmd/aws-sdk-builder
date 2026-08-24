@@ -30,8 +30,8 @@ impl ListPolicyTagsInput {
 }
 impl ListPolicyTagsInput {
     /// Creates a new builder-style object to manufacture [`ListPolicyTagsInput`](crate::operation::list_policy_tags::ListPolicyTagsInput).
-    pub fn builder() -> crate::operation::list_policy_tags::builders::ListPolicyTagsInputBuilder {
-        crate::operation::list_policy_tags::builders::ListPolicyTagsInputBuilder::default()
+    pub fn builder() -> super::operation::list_policy_tags::builders::ListPolicyTagsInputBuilder {
+        super::operation::list_policy_tags::builders::ListPolicyTagsInputBuilder::default()
     }
 }
 
@@ -96,8 +96,8 @@ impl ListPolicyTagsInputBuilder {
     /// Consumes the builder and constructs a [`ListPolicyTagsInput`](crate::operation::list_policy_tags::ListPolicyTagsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_policy_tags::ListPolicyTagsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_policy_tags::ListPolicyTagsInput {
+    ) -> ::std::result::Result<super::operation::list_policy_tags::ListPolicyTagsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_policy_tags::ListPolicyTagsInput {
             policy_arn: self.policy_arn,
             marker: self.marker,
             max_items: self.max_items,

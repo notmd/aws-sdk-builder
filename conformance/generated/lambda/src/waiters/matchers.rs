@@ -3,13 +3,13 @@
 /// Matcher union: {"output":{"path":"State","expected":"Active","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_configuration_9fb739f92fd5b515a(
     _result: ::std::result::Result<
-        &crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-        &crate::operation::get_function_configuration::GetFunctionConfigurationError,
+        &super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+        &super::operation::get_function_configuration::GetFunctionConfigurationError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-    ) -> ::std::option::Option<&'a crate::types::State> {
+        _output: &'a super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    ) -> ::std::option::Option<&'a super::types::State> {
         let _fld_1 = _output.state.as_ref()?;
         ::std::option::Option::Some(_fld_1)
     }
@@ -29,13 +29,13 @@ pub(crate) fn match_get_function_configuration_9fb739f92fd5b515a(
 /// Matcher union: {"output":{"path":"State","expected":"Failed","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_configuration_87a1a2d4cc2e2d1e1(
     _result: ::std::result::Result<
-        &crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-        &crate::operation::get_function_configuration::GetFunctionConfigurationError,
+        &super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+        &super::operation::get_function_configuration::GetFunctionConfigurationError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-    ) -> ::std::option::Option<&'a crate::types::State> {
+        _output: &'a super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    ) -> ::std::option::Option<&'a super::types::State> {
         let _fld_1 = _output.state.as_ref()?;
         ::std::option::Option::Some(_fld_1)
     }
@@ -55,13 +55,13 @@ pub(crate) fn match_get_function_configuration_87a1a2d4cc2e2d1e1(
 /// Matcher union: {"output":{"path":"State","expected":"Pending","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_configuration_ff08d54fec9077aeb(
     _result: ::std::result::Result<
-        &crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-        &crate::operation::get_function_configuration::GetFunctionConfigurationError,
+        &super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+        &super::operation::get_function_configuration::GetFunctionConfigurationError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-    ) -> ::std::option::Option<&'a crate::types::State> {
+        _output: &'a super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    ) -> ::std::option::Option<&'a super::types::State> {
         let _fld_1 = _output.state.as_ref()?;
         ::std::option::Option::Some(_fld_1)
     }
@@ -80,9 +80,9 @@ pub(crate) fn match_get_function_configuration_ff08d54fec9077aeb(
 
 /// Matcher union: {"output":{"path":"Configuration.State","expected":"Active","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_d9eb800ea4f674f85(
-    _result: ::std::result::Result<&crate::operation::get_function::GetFunctionOutput, &crate::operation::get_function::GetFunctionError>,
+    _result: ::std::result::Result<&super::operation::get_function::GetFunctionOutput, &super::operation::get_function::GetFunctionError>,
 ) -> bool {
-    fn path_traversal<'a>(_output: &'a crate::operation::get_function::GetFunctionOutput) -> ::std::option::Option<&'a crate::types::State> {
+    fn path_traversal<'a>(_output: &'a super::operation::get_function::GetFunctionOutput) -> ::std::option::Option<&'a super::types::State> {
         let _fld_1 = _output.configuration.as_ref()?;
         let _fld_2 = _fld_1.state.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -102,9 +102,9 @@ pub(crate) fn match_get_function_d9eb800ea4f674f85(
 
 /// Matcher union: {"output":{"path":"Configuration.State","expected":"Failed","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_ee0f14a7f1ed34282(
-    _result: ::std::result::Result<&crate::operation::get_function::GetFunctionOutput, &crate::operation::get_function::GetFunctionError>,
+    _result: ::std::result::Result<&super::operation::get_function::GetFunctionOutput, &super::operation::get_function::GetFunctionError>,
 ) -> bool {
-    fn path_traversal<'a>(_output: &'a crate::operation::get_function::GetFunctionOutput) -> ::std::option::Option<&'a crate::types::State> {
+    fn path_traversal<'a>(_output: &'a super::operation::get_function::GetFunctionOutput) -> ::std::option::Option<&'a super::types::State> {
         let _fld_1 = _output.configuration.as_ref()?;
         let _fld_2 = _fld_1.state.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -124,9 +124,9 @@ pub(crate) fn match_get_function_ee0f14a7f1ed34282(
 
 /// Matcher union: {"output":{"path":"Configuration.State","expected":"Pending","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_1248046627b71c232(
-    _result: ::std::result::Result<&crate::operation::get_function::GetFunctionOutput, &crate::operation::get_function::GetFunctionError>,
+    _result: ::std::result::Result<&super::operation::get_function::GetFunctionOutput, &super::operation::get_function::GetFunctionError>,
 ) -> bool {
-    fn path_traversal<'a>(_output: &'a crate::operation::get_function::GetFunctionOutput) -> ::std::option::Option<&'a crate::types::State> {
+    fn path_traversal<'a>(_output: &'a super::operation::get_function::GetFunctionOutput) -> ::std::option::Option<&'a super::types::State> {
         let _fld_1 = _output.configuration.as_ref()?;
         let _fld_2 = _fld_1.state.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -146,14 +146,14 @@ pub(crate) fn match_get_function_1248046627b71c232(
 
 /// Matcher union: {"success":true}
 pub(crate) fn match_get_function_c955e57777ec0d736(
-    _result: ::std::result::Result<&crate::operation::get_function::GetFunctionOutput, &crate::operation::get_function::GetFunctionError>,
+    _result: ::std::result::Result<&super::operation::get_function::GetFunctionOutput, &super::operation::get_function::GetFunctionError>,
 ) -> bool {
     _result.is_ok()
 }
 
 /// Matcher union: {"errorType":"ResourceNotFoundException"}
 pub(crate) fn match_get_function_1cce2c05524fb92d4(
-    _result: ::std::result::Result<&crate::operation::get_function::GetFunctionOutput, &crate::operation::get_function::GetFunctionError>,
+    _result: ::std::result::Result<&super::operation::get_function::GetFunctionOutput, &super::operation::get_function::GetFunctionError>,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
         if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {
@@ -166,13 +166,13 @@ pub(crate) fn match_get_function_1cce2c05524fb92d4(
 /// Matcher union: {"output":{"path":"LastUpdateStatus","expected":"Successful","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_configuration_72b8f2e5744091428(
     _result: ::std::result::Result<
-        &crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-        &crate::operation::get_function_configuration::GetFunctionConfigurationError,
+        &super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+        &super::operation::get_function_configuration::GetFunctionConfigurationError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-    ) -> ::std::option::Option<&'a crate::types::LastUpdateStatus> {
+        _output: &'a super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    ) -> ::std::option::Option<&'a super::types::LastUpdateStatus> {
         let _fld_1 = _output.last_update_status.as_ref()?;
         ::std::option::Option::Some(_fld_1)
     }
@@ -192,13 +192,13 @@ pub(crate) fn match_get_function_configuration_72b8f2e5744091428(
 /// Matcher union: {"output":{"path":"LastUpdateStatus","expected":"Failed","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_configuration_4a2442d74e6aa2cc0(
     _result: ::std::result::Result<
-        &crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-        &crate::operation::get_function_configuration::GetFunctionConfigurationError,
+        &super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+        &super::operation::get_function_configuration::GetFunctionConfigurationError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-    ) -> ::std::option::Option<&'a crate::types::LastUpdateStatus> {
+        _output: &'a super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    ) -> ::std::option::Option<&'a super::types::LastUpdateStatus> {
         let _fld_1 = _output.last_update_status.as_ref()?;
         ::std::option::Option::Some(_fld_1)
     }
@@ -218,13 +218,13 @@ pub(crate) fn match_get_function_configuration_4a2442d74e6aa2cc0(
 /// Matcher union: {"output":{"path":"LastUpdateStatus","expected":"InProgress","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_configuration_ee72e8a7f6fced7db(
     _result: ::std::result::Result<
-        &crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-        &crate::operation::get_function_configuration::GetFunctionConfigurationError,
+        &super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+        &super::operation::get_function_configuration::GetFunctionConfigurationError,
     >,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-    ) -> ::std::option::Option<&'a crate::types::LastUpdateStatus> {
+        _output: &'a super::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    ) -> ::std::option::Option<&'a super::types::LastUpdateStatus> {
         let _fld_1 = _output.last_update_status.as_ref()?;
         ::std::option::Option::Some(_fld_1)
     }
@@ -243,11 +243,11 @@ pub(crate) fn match_get_function_configuration_ee72e8a7f6fced7db(
 
 /// Matcher union: {"output":{"path":"Configuration.LastUpdateStatus","expected":"Successful","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_bb186291d75dc0a7c(
-    _result: ::std::result::Result<&crate::operation::get_function::GetFunctionOutput, &crate::operation::get_function::GetFunctionError>,
+    _result: ::std::result::Result<&super::operation::get_function::GetFunctionOutput, &super::operation::get_function::GetFunctionError>,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::get_function::GetFunctionOutput,
-    ) -> ::std::option::Option<&'a crate::types::LastUpdateStatus> {
+        _output: &'a super::operation::get_function::GetFunctionOutput,
+    ) -> ::std::option::Option<&'a super::types::LastUpdateStatus> {
         let _fld_1 = _output.configuration.as_ref()?;
         let _fld_2 = _fld_1.last_update_status.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -267,11 +267,11 @@ pub(crate) fn match_get_function_bb186291d75dc0a7c(
 
 /// Matcher union: {"output":{"path":"Configuration.LastUpdateStatus","expected":"Failed","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_32170188e7ebc617b(
-    _result: ::std::result::Result<&crate::operation::get_function::GetFunctionOutput, &crate::operation::get_function::GetFunctionError>,
+    _result: ::std::result::Result<&super::operation::get_function::GetFunctionOutput, &super::operation::get_function::GetFunctionError>,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::get_function::GetFunctionOutput,
-    ) -> ::std::option::Option<&'a crate::types::LastUpdateStatus> {
+        _output: &'a super::operation::get_function::GetFunctionOutput,
+    ) -> ::std::option::Option<&'a super::types::LastUpdateStatus> {
         let _fld_1 = _output.configuration.as_ref()?;
         let _fld_2 = _fld_1.last_update_status.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -291,11 +291,11 @@ pub(crate) fn match_get_function_32170188e7ebc617b(
 
 /// Matcher union: {"output":{"path":"Configuration.LastUpdateStatus","expected":"InProgress","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_189e2de3db97bdc77(
-    _result: ::std::result::Result<&crate::operation::get_function::GetFunctionOutput, &crate::operation::get_function::GetFunctionError>,
+    _result: ::std::result::Result<&super::operation::get_function::GetFunctionOutput, &super::operation::get_function::GetFunctionError>,
 ) -> bool {
     fn path_traversal<'a>(
-        _output: &'a crate::operation::get_function::GetFunctionOutput,
-    ) -> ::std::option::Option<&'a crate::types::LastUpdateStatus> {
+        _output: &'a super::operation::get_function::GetFunctionOutput,
+    ) -> ::std::option::Option<&'a super::types::LastUpdateStatus> {
         let _fld_1 = _output.configuration.as_ref()?;
         let _fld_2 = _fld_1.last_update_status.as_ref()?;
         ::std::option::Option::Some(_fld_2)

@@ -9,9 +9,9 @@ pub struct TopicConfiguration {
     /// <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.</p>
     pub topic_arn: ::std::string::String,
     /// <p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub events: ::std::vec::Vec<crate::types::Event>,
+    pub events: ::std::vec::Vec<super::types::Event>,
     /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub filter: ::std::option::Option<crate::types::NotificationConfigurationFilter>,
+    pub filter: ::std::option::Option<super::types::NotificationConfigurationFilter>,
 }
 impl TopicConfiguration {
     /// <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
@@ -24,19 +24,19 @@ impl TopicConfiguration {
         self.topic_arn.deref()
     }
     /// <p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn events(&self) -> &[crate::types::Event] {
+    pub fn events(&self) -> &[super::types::Event] {
         use std::ops::Deref;
         self.events.deref()
     }
     /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn filter(&self) -> ::std::option::Option<&crate::types::NotificationConfigurationFilter> {
+    pub fn filter(&self) -> ::std::option::Option<&super::types::NotificationConfigurationFilter> {
         self.filter.as_ref()
     }
 }
 impl TopicConfiguration {
     /// Creates a new builder-style object to manufacture [`TopicConfiguration`](crate::types::TopicConfiguration).
-    pub fn builder() -> crate::types::builders::TopicConfigurationBuilder {
-        crate::types::builders::TopicConfigurationBuilder::default()
+    pub fn builder() -> super::types::builders::TopicConfigurationBuilder {
+        super::types::builders::TopicConfigurationBuilder::default()
     }
 }
 
@@ -46,8 +46,8 @@ impl TopicConfiguration {
 pub struct TopicConfigurationBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
     pub(crate) topic_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) events: ::std::option::Option<::std::vec::Vec<crate::types::Event>>,
-    pub(crate) filter: ::std::option::Option<crate::types::NotificationConfigurationFilter>,
+    pub(crate) events: ::std::option::Option<::std::vec::Vec<super::types::Event>>,
+    pub(crate) filter: ::std::option::Option<super::types::NotificationConfigurationFilter>,
 }
 impl TopicConfigurationBuilder {
     /// <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
@@ -84,41 +84,41 @@ impl TopicConfigurationBuilder {
     /// To override the contents of this collection use [`set_events`](Self::set_events).
     ///
     /// <p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn events(mut self, input: crate::types::Event) -> Self {
+    pub fn events(mut self, input: super::types::Event) -> Self {
         let mut v = self.events.unwrap_or_default();
         v.push(input);
         self.events = ::std::option::Option::Some(v);
         self
     }
     /// <p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self {
+    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Event>>) -> Self {
         self.events = input;
         self
     }
     /// <p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Event>> {
+    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Event>> {
         &self.events
     }
     /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn filter(mut self, input: crate::types::NotificationConfigurationFilter) -> Self {
+    pub fn filter(mut self, input: super::types::NotificationConfigurationFilter) -> Self {
         self.filter = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::NotificationConfigurationFilter>) -> Self {
+    pub fn set_filter(mut self, input: ::std::option::Option<super::types::NotificationConfigurationFilter>) -> Self {
         self.filter = input;
         self
     }
     /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_filter(&self) -> &::std::option::Option<crate::types::NotificationConfigurationFilter> {
+    pub fn get_filter(&self) -> &::std::option::Option<super::types::NotificationConfigurationFilter> {
         &self.filter
     }
     /// Consumes the builder and constructs a [`TopicConfiguration`](crate::types::TopicConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`topic_arn`](crate::types::builders::TopicConfigurationBuilder::topic_arn)
     /// - [`events`](crate::types::builders::TopicConfigurationBuilder::events)
-    pub fn build(self) -> ::std::result::Result<crate::types::TopicConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::TopicConfiguration {
+    pub fn build(self) -> ::std::result::Result<super::types::TopicConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::TopicConfiguration {
             id: self.id,
             topic_arn: self.topic_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

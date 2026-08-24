@@ -26,7 +26,7 @@ impl ::std::fmt::Display for ReplicatedWriteConflictException {
     }
 }
 impl ::std::error::Error for ReplicatedWriteConflictException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ReplicatedWriteConflictException {
+impl ::aws_types::request_id::RequestId for super::types::error::ReplicatedWriteConflictException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ReplicatedWri
 }
 impl ReplicatedWriteConflictException {
     /// Creates a new builder-style object to manufacture [`ReplicatedWriteConflictException`](crate::types::error::ReplicatedWriteConflictException).
-    pub fn builder() -> crate::types::error::builders::ReplicatedWriteConflictExceptionBuilder {
-        crate::types::error::builders::ReplicatedWriteConflictExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ReplicatedWriteConflictExceptionBuilder {
+        super::types::error::builders::ReplicatedWriteConflictExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl ReplicatedWriteConflictExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ReplicatedWriteConflictException`](crate::types::error::ReplicatedWriteConflictException).
-    pub fn build(self) -> crate::types::error::ReplicatedWriteConflictException {
-        crate::types::error::ReplicatedWriteConflictException {
+    pub fn build(self) -> super::types::error::ReplicatedWriteConflictException {
+        super::types::error::ReplicatedWriteConflictException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

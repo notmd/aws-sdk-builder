@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for SendDurableExecutionCallbackFailureO
 }
 impl SendDurableExecutionCallbackFailureOutput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackFailureOutput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput).
-    pub fn builder() -> crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder {
-        crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder::default()
+    pub fn builder() -> super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder {
+        super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl SendDurableExecutionCallbackFailureOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SendDurableExecutionCallbackFailureOutput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput).
-    pub fn build(self) -> crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput {
-        crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput {
+    pub fn build(self) -> super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput {
+        super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput {
             _request_id: self._request_id,
         }
     }

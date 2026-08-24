@@ -8,9 +8,9 @@ pub struct InvokeWithResponseStreamOutput {
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub executed_version: ::std::option::Option<::std::string::String>,
     /// <p>The stream of response payloads.</p>
-    pub event_stream: crate::event_receiver::EventReceiver<
-        crate::types::InvokeWithResponseStreamResponseEvent,
-        crate::types::error::InvokeWithResponseStreamResponseEventError,
+    pub event_stream: super::event_receiver::EventReceiver<
+        super::types::InvokeWithResponseStreamResponseEvent,
+        super::types::error::InvokeWithResponseStreamResponseEventError,
     >,
     /// <p>The type of data the stream is returning.</p>
     pub response_stream_content_type: ::std::option::Option<::std::string::String>,
@@ -28,9 +28,9 @@ impl InvokeWithResponseStreamOutput {
     /// <p>The stream of response payloads.</p>
     pub fn event_stream(
         &self,
-    ) -> &crate::event_receiver::EventReceiver<
-        crate::types::InvokeWithResponseStreamResponseEvent,
-        crate::types::error::InvokeWithResponseStreamResponseEventError,
+    ) -> &super::event_receiver::EventReceiver<
+        super::types::InvokeWithResponseStreamResponseEvent,
+        super::types::error::InvokeWithResponseStreamResponseEventError,
     > {
         &self.event_stream
     }
@@ -46,8 +46,8 @@ impl ::aws_types::request_id::RequestId for InvokeWithResponseStreamOutput {
 }
 impl InvokeWithResponseStreamOutput {
     /// Creates a new builder-style object to manufacture [`InvokeWithResponseStreamOutput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput).
-    pub fn builder() -> crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder {
-        crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default()
+    pub fn builder() -> super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder {
+        super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default()
     }
 }
 
@@ -58,9 +58,9 @@ pub struct InvokeWithResponseStreamOutputBuilder {
     pub(crate) status_code: ::std::option::Option<i32>,
     pub(crate) executed_version: ::std::option::Option<::std::string::String>,
     pub(crate) event_stream: ::std::option::Option<
-        crate::event_receiver::EventReceiver<
-            crate::types::InvokeWithResponseStreamResponseEvent,
-            crate::types::error::InvokeWithResponseStreamResponseEventError,
+        super::event_receiver::EventReceiver<
+            super::types::InvokeWithResponseStreamResponseEvent,
+            super::types::error::InvokeWithResponseStreamResponseEventError,
         >,
     >,
     pub(crate) response_stream_content_type: ::std::option::Option<::std::string::String>,
@@ -98,9 +98,9 @@ impl InvokeWithResponseStreamOutputBuilder {
     /// <p>The stream of response payloads.</p>
     pub fn event_stream(
         mut self,
-        input: crate::event_receiver::EventReceiver<
-            crate::types::InvokeWithResponseStreamResponseEvent,
-            crate::types::error::InvokeWithResponseStreamResponseEventError,
+        input: super::event_receiver::EventReceiver<
+            super::types::InvokeWithResponseStreamResponseEvent,
+            super::types::error::InvokeWithResponseStreamResponseEventError,
         >,
     ) -> Self {
         self.event_stream = ::std::option::Option::Some(input);
@@ -110,9 +110,9 @@ impl InvokeWithResponseStreamOutputBuilder {
     pub fn set_event_stream(
         mut self,
         input: ::std::option::Option<
-            crate::event_receiver::EventReceiver<
-                crate::types::InvokeWithResponseStreamResponseEvent,
-                crate::types::error::InvokeWithResponseStreamResponseEventError,
+            super::event_receiver::EventReceiver<
+                super::types::InvokeWithResponseStreamResponseEvent,
+                super::types::error::InvokeWithResponseStreamResponseEventError,
             >,
         >,
     ) -> Self {
@@ -123,9 +123,9 @@ impl InvokeWithResponseStreamOutputBuilder {
     pub fn get_event_stream(
         &self,
     ) -> &::std::option::Option<
-        crate::event_receiver::EventReceiver<
-            crate::types::InvokeWithResponseStreamResponseEvent,
-            crate::types::error::InvokeWithResponseStreamResponseEventError,
+        super::event_receiver::EventReceiver<
+            super::types::InvokeWithResponseStreamResponseEvent,
+            super::types::error::InvokeWithResponseStreamResponseEventError,
         >,
     > {
         &self.event_stream
@@ -159,10 +159,10 @@ impl InvokeWithResponseStreamOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
+        super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
+        ::std::result::Result::Ok(super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
             status_code: self.status_code.unwrap_or_default(),
             executed_version: self.executed_version,
             event_stream: self.event_stream.ok_or_else(|| {

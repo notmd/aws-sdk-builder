@@ -32,7 +32,9 @@ The Rust-only implementation is operational but far from exact AWS SDK parity:
   checked-in `conformance/patches/<service>/*.patch` normalization set together.
   The updater parses reference Rust with `syn`, records only the global-import
   `crate::` to `super::` transformation as `diffy` patches, and the comparator
-  applies those patches in memory.
+  applies those patches in memory. The code generator removes inline test modules and
+  emits all-operation comparison snapshots with the relative paths expected by those
+  patches; normal SDK compilation retains its standalone/embedded path handling.
 - The latest conformance report compares 6,398 files: 4,781 exact matches, 845
   mismatches, 715 missing files, and 57 extra files (73.45% arithmetic-average
   match). `just conformance` therefore exits 1 by design until parity is achieved.
@@ -524,12 +526,12 @@ formatting is:
   header separately.
 
 When `just conformance-sync` updates reference data, it parses every included Rust
-source file with `syn`, changes root `use crate::...` imports to `use super::...`, and
-writes the resulting `diffy` unified diff under
+source file with `syn`, changes root `use crate::...` imports to `use super::...`, removes
+inline test modules, and writes the resulting `diffy` unified diff under
 `conformance/patches/<service>/<relative-source>.patch`. The original reference file
 is preserved. During comparison, the patch is loaded and applied to the reference in
-memory; generated Rust is normalized with the same import rule before the pair is
-compared. Invalid Rust, invalid patches, or patches that do not apply are errors.
+memory; generated Rust is compared as written by the snapshot generator. Invalid Rust,
+invalid patches, or patches that do not apply are errors.
 
 Do not strip or otherwise ignore whitespace after formatting, imports in general, docs,
 ordering, or included generated source files. The checked-in

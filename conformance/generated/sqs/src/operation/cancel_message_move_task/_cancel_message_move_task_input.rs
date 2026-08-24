@@ -14,8 +14,8 @@ impl CancelMessageMoveTaskInput {
 }
 impl CancelMessageMoveTaskInput {
     /// Creates a new builder-style object to manufacture [`CancelMessageMoveTaskInput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput).
-    pub fn builder() -> crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskInputBuilder {
-        crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskInputBuilder::default()
+    pub fn builder() -> super::operation::cancel_message_move_task::builders::CancelMessageMoveTaskInputBuilder {
+        super::operation::cancel_message_move_task::builders::CancelMessageMoveTaskInputBuilder::default()
     }
 }
 
@@ -44,9 +44,9 @@ impl CancelMessageMoveTaskInputBuilder {
     /// Consumes the builder and constructs a [`CancelMessageMoveTaskInput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::cancel_message_move_task::CancelMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput {
+        ::std::result::Result::Ok(super::operation::cancel_message_move_task::CancelMessageMoveTaskInput {
             task_handle: self.task_handle,
         })
     }

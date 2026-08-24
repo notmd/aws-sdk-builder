@@ -56,8 +56,8 @@ impl AccessDetail {
 }
 impl AccessDetail {
     /// Creates a new builder-style object to manufacture [`AccessDetail`](crate::types::AccessDetail).
-    pub fn builder() -> crate::types::builders::AccessDetailBuilder {
-        crate::types::builders::AccessDetailBuilder::default()
+    pub fn builder() -> super::types::builders::AccessDetailBuilder {
+        super::types::builders::AccessDetailBuilder::default()
     }
 }
 
@@ -175,8 +175,8 @@ impl AccessDetailBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`service_name`](crate::types::builders::AccessDetailBuilder::service_name)
     /// - [`service_namespace`](crate::types::builders::AccessDetailBuilder::service_namespace)
-    pub fn build(self) -> ::std::result::Result<crate::types::AccessDetail, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AccessDetail {
+    pub fn build(self) -> ::std::result::Result<super::types::AccessDetail, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::AccessDetail {
             service_name: self.service_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "service_name",

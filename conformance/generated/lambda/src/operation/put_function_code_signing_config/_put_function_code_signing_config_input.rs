@@ -40,8 +40,8 @@ impl PutFunctionCodeSigningConfigInput {
 }
 impl PutFunctionCodeSigningConfigInput {
     /// Creates a new builder-style object to manufacture [`PutFunctionCodeSigningConfigInput`](crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigInput).
-    pub fn builder() -> crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigInputBuilder {
-        crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigInputBuilder::default()
+    pub fn builder() -> super::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigInputBuilder {
+        super::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigInputBuilder::default()
     }
 }
 
@@ -117,10 +117,10 @@ impl PutFunctionCodeSigningConfigInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigInput,
+        super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigInput {
+        ::std::result::Result::Ok(super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigInput {
             code_signing_config_arn: self.code_signing_config_arn,
             function_name: self.function_name,
         })

@@ -5,29 +5,29 @@ pub fn de_update_kinesis_streaming_destination_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput,
-    crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError,
+    super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput,
+    super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled(generic)),
+        None => return Err(super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "InternalServerError" => {
-            crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::InternalServerError({
+            super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::InternalServerError({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InternalServerErrorBuilder::default();
-                    output = crate::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
-                        .map_err(crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
+                    let mut output = super::types::error::builders::InternalServerErrorBuilder::default();
+                    output = super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
+                        .map_err(super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -38,13 +38,13 @@ pub fn de_update_kinesis_streaming_destination_http_error(
             })
         }
         "InvalidEndpointException" => {
-            crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::InvalidEndpointException({
+            super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::InvalidEndpointException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
+                    let mut output = super::types::error::builders::InvalidEndpointExceptionBuilder::default();
+                    output = super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                        .map_err(super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -55,13 +55,13 @@ pub fn de_update_kinesis_streaming_destination_http_error(
             })
         }
         "LimitExceededException" => {
-            crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::LimitExceededException({
+            super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::LimitExceededException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
+                    let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
+                    output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                        .map_err(super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -72,13 +72,13 @@ pub fn de_update_kinesis_streaming_destination_http_error(
             })
         }
         "ResourceInUseException" => {
-            crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::ResourceInUseException({
+            super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::ResourceInUseException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::ResourceInUseExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
+                    let mut output = super::types::error::builders::ResourceInUseExceptionBuilder::default();
+                    output = super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
+                        .map_err(super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -89,14 +89,14 @@ pub fn de_update_kinesis_streaming_destination_http_error(
             })
         }
         "ResourceNotFoundException" => {
-            crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::ResourceNotFoundException({
+            super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                            .map_err(crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
+                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -106,7 +106,7 @@ pub fn de_update_kinesis_streaming_destination_http_error(
                 tmp
             })
         }
-        _ => crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::generic(generic),
+        _ => super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::generic(generic),
     })
 }
 
@@ -116,25 +116,25 @@ pub fn de_update_kinesis_streaming_destination_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput,
-    crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError,
+    super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput,
+    super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder::default();
-        output = crate::protocol_serde::shape_update_kinesis_streaming_destination::de_update_kinesis_streaming_destination(_response_body, output)
-            .map_err(crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
+        let mut output = super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder::default();
+        output = super::protocol_serde::shape_update_kinesis_streaming_destination::de_update_kinesis_streaming_destination(_response_body, output)
+            .map_err(super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_update_kinesis_streaming_destination_input(
-    input: &crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput,
+    input: &super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_update_kinesis_streaming_destination_input::ser_update_kinesis_streaming_destination_input_input(
+    super::protocol_serde::shape_update_kinesis_streaming_destination_input::ser_update_kinesis_streaming_destination_input_input(
         &mut object,
         input,
     )?;
@@ -144,12 +144,12 @@ pub fn ser_update_kinesis_streaming_destination_input(
 
 pub(crate) fn de_update_kinesis_streaming_destination(
     _value: &[u8],
-    mut builder: crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder,
+    mut builder: super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder,
+    super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -175,13 +175,13 @@ pub(crate) fn de_update_kinesis_streaming_destination(
                 "DestinationStatus" => {
                     builder = builder.set_destination_status(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::DestinationStatus::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::DestinationStatus::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
                 "UpdateKinesisStreamingConfiguration" => {
                     builder = builder.set_update_kinesis_streaming_configuration(
-                        crate::protocol_serde::shape_update_kinesis_streaming_configuration::de_update_kinesis_streaming_configuration(
+                        super::protocol_serde::shape_update_kinesis_streaming_configuration::de_update_kinesis_streaming_configuration(
                             tokens,
                             _value,
                             depth + 1,

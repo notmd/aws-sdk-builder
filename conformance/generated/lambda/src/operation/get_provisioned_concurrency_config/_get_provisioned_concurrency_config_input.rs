@@ -40,8 +40,8 @@ impl GetProvisionedConcurrencyConfigInput {
 }
 impl GetProvisionedConcurrencyConfigInput {
     /// Creates a new builder-style object to manufacture [`GetProvisionedConcurrencyConfigInput`](crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigInput).
-    pub fn builder() -> crate::operation::get_provisioned_concurrency_config::builders::GetProvisionedConcurrencyConfigInputBuilder {
-        crate::operation::get_provisioned_concurrency_config::builders::GetProvisionedConcurrencyConfigInputBuilder::default()
+    pub fn builder() -> super::operation::get_provisioned_concurrency_config::builders::GetProvisionedConcurrencyConfigInputBuilder {
+        super::operation::get_provisioned_concurrency_config::builders::GetProvisionedConcurrencyConfigInputBuilder::default()
     }
 }
 
@@ -117,11 +117,11 @@ impl GetProvisionedConcurrencyConfigInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigInput,
+        super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigInput {
+            super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigInput {
                 function_name: self.function_name,
                 qualifier: self.qualifier,
             },

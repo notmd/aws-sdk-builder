@@ -3,12 +3,12 @@
 pub fn de_redirect(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::Redirect, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::Redirect, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::Redirect::builder();
+    let mut builder = super::types::Redirect::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("HostName") /* HostName com.amazonaws.s3#Redirect$HostName */ =>  {
@@ -40,8 +40,8 @@ pub fn de_redirect(
             s if s.matches("Protocol") /* Protocol com.amazonaws.s3#Redirect$Protocol */ =>  {
                 let var_3 =
                     Some(
-                        Result::<crate::types::Protocol, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::Protocol::from(
+                        Result::<super::types::Protocol, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::Protocol::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -84,7 +84,7 @@ pub fn de_redirect(
 }
 
 pub fn ser_redirect(
-    input: &crate::types::Redirect,
+    input: &super::types::Redirect,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]

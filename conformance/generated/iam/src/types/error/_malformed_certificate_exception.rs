@@ -26,7 +26,7 @@ impl ::std::fmt::Display for MalformedCertificateException {
     }
 }
 impl ::std::error::Error for MalformedCertificateException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::MalformedCertificateException {
+impl ::aws_types::request_id::RequestId for super::types::error::MalformedCertificateException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for MalformedCert
 }
 impl MalformedCertificateException {
     /// Creates a new builder-style object to manufacture [`MalformedCertificateException`](crate::types::error::MalformedCertificateException).
-    pub fn builder() -> crate::types::error::builders::MalformedCertificateExceptionBuilder {
-        crate::types::error::builders::MalformedCertificateExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::MalformedCertificateExceptionBuilder {
+        super::types::error::builders::MalformedCertificateExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl MalformedCertificateExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`MalformedCertificateException`](crate::types::error::MalformedCertificateException).
-    pub fn build(self) -> crate::types::error::MalformedCertificateException {
-        crate::types::error::MalformedCertificateException {
+    pub fn build(self) -> super::types::error::MalformedCertificateException {
+        super::types::error::MalformedCertificateException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBucketMetadataConfigurationResult {
     /// <p>The metadata configuration for a general purpose bucket.</p>
-    pub metadata_configuration_result: ::std::option::Option<crate::types::MetadataConfigurationResult>,
+    pub metadata_configuration_result: ::std::option::Option<super::types::MetadataConfigurationResult>,
 }
 impl GetBucketMetadataConfigurationResult {
     /// <p>The metadata configuration for a general purpose bucket.</p>
-    pub fn metadata_configuration_result(&self) -> ::std::option::Option<&crate::types::MetadataConfigurationResult> {
+    pub fn metadata_configuration_result(&self) -> ::std::option::Option<&super::types::MetadataConfigurationResult> {
         self.metadata_configuration_result.as_ref()
     }
 }
 impl GetBucketMetadataConfigurationResult {
     /// Creates a new builder-style object to manufacture [`GetBucketMetadataConfigurationResult`](crate::types::GetBucketMetadataConfigurationResult).
-    pub fn builder() -> crate::types::builders::GetBucketMetadataConfigurationResultBuilder {
-        crate::types::builders::GetBucketMetadataConfigurationResultBuilder::default()
+    pub fn builder() -> super::types::builders::GetBucketMetadataConfigurationResultBuilder {
+        super::types::builders::GetBucketMetadataConfigurationResultBuilder::default()
     }
 }
 
@@ -24,27 +24,27 @@ impl GetBucketMetadataConfigurationResult {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketMetadataConfigurationResultBuilder {
-    pub(crate) metadata_configuration_result: ::std::option::Option<crate::types::MetadataConfigurationResult>,
+    pub(crate) metadata_configuration_result: ::std::option::Option<super::types::MetadataConfigurationResult>,
 }
 impl GetBucketMetadataConfigurationResultBuilder {
     /// <p>The metadata configuration for a general purpose bucket.</p>
     /// This field is required.
-    pub fn metadata_configuration_result(mut self, input: crate::types::MetadataConfigurationResult) -> Self {
+    pub fn metadata_configuration_result(mut self, input: super::types::MetadataConfigurationResult) -> Self {
         self.metadata_configuration_result = ::std::option::Option::Some(input);
         self
     }
     /// <p>The metadata configuration for a general purpose bucket.</p>
-    pub fn set_metadata_configuration_result(mut self, input: ::std::option::Option<crate::types::MetadataConfigurationResult>) -> Self {
+    pub fn set_metadata_configuration_result(mut self, input: ::std::option::Option<super::types::MetadataConfigurationResult>) -> Self {
         self.metadata_configuration_result = input;
         self
     }
     /// <p>The metadata configuration for a general purpose bucket.</p>
-    pub fn get_metadata_configuration_result(&self) -> &::std::option::Option<crate::types::MetadataConfigurationResult> {
+    pub fn get_metadata_configuration_result(&self) -> &::std::option::Option<super::types::MetadataConfigurationResult> {
         &self.metadata_configuration_result
     }
     /// Consumes the builder and constructs a [`GetBucketMetadataConfigurationResult`](crate::types::GetBucketMetadataConfigurationResult).
-    pub fn build(self) -> crate::types::GetBucketMetadataConfigurationResult {
-        crate::types::GetBucketMetadataConfigurationResult {
+    pub fn build(self) -> super::types::GetBucketMetadataConfigurationResult {
+        super::types::GetBucketMetadataConfigurationResult {
             metadata_configuration_result: self.metadata_configuration_result,
         }
     }

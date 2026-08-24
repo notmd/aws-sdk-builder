@@ -22,8 +22,8 @@ impl ::std::fmt::Debug for InvokeResponseStreamUpdate {
 }
 impl InvokeResponseStreamUpdate {
     /// Creates a new builder-style object to manufacture [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
-    pub fn builder() -> crate::types::builders::InvokeResponseStreamUpdateBuilder {
-        crate::types::builders::InvokeResponseStreamUpdateBuilder::default()
+    pub fn builder() -> super::types::builders::InvokeResponseStreamUpdateBuilder {
+        super::types::builders::InvokeResponseStreamUpdateBuilder::default()
     }
 }
 
@@ -49,8 +49,8 @@ impl InvokeResponseStreamUpdateBuilder {
         &self.payload
     }
     /// Consumes the builder and constructs a [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
-    pub fn build(self) -> crate::types::InvokeResponseStreamUpdate {
-        crate::types::InvokeResponseStreamUpdate { payload: self.payload }
+    pub fn build(self) -> super::types::InvokeResponseStreamUpdate {
+        super::types::InvokeResponseStreamUpdate { payload: self.payload }
     }
 }
 impl ::std::fmt::Debug for InvokeResponseStreamUpdateBuilder {

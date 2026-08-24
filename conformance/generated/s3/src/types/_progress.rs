@@ -27,8 +27,8 @@ impl Progress {
 }
 impl Progress {
     /// Creates a new builder-style object to manufacture [`Progress`](crate::types::Progress).
-    pub fn builder() -> crate::types::builders::ProgressBuilder {
-        crate::types::builders::ProgressBuilder::default()
+    pub fn builder() -> super::types::builders::ProgressBuilder {
+        super::types::builders::ProgressBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl ProgressBuilder {
         &self.bytes_returned
     }
     /// Consumes the builder and constructs a [`Progress`](crate::types::Progress).
-    pub fn build(self) -> crate::types::Progress {
-        crate::types::Progress {
+    pub fn build(self) -> super::types::Progress {
+        super::types::Progress {
             bytes_scanned: self.bytes_scanned,
             bytes_processed: self.bytes_processed,
             bytes_returned: self.bytes_returned,

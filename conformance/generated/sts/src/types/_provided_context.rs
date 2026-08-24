@@ -21,8 +21,8 @@ impl ProvidedContext {
 }
 impl ProvidedContext {
     /// Creates a new builder-style object to manufacture [`ProvidedContext`](crate::types::ProvidedContext).
-    pub fn builder() -> crate::types::builders::ProvidedContextBuilder {
-        crate::types::builders::ProvidedContextBuilder::default()
+    pub fn builder() -> super::types::builders::ProvidedContextBuilder {
+        super::types::builders::ProvidedContextBuilder::default()
     }
 }
 
@@ -63,8 +63,8 @@ impl ProvidedContextBuilder {
         &self.context_assertion
     }
     /// Consumes the builder and constructs a [`ProvidedContext`](crate::types::ProvidedContext).
-    pub fn build(self) -> crate::types::ProvidedContext {
-        crate::types::ProvidedContext {
+    pub fn build(self) -> super::types::ProvidedContext {
+        super::types::ProvidedContext {
             provider_arn: self.provider_arn,
             context_assertion: self.context_assertion,
         }

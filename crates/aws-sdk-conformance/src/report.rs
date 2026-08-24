@@ -452,20 +452,6 @@ fn compare_service(
                         continue;
                     }
                 };
-                let generated = match apply_generated_normalization(
-                    generated,
-                    patches_root.as_deref().and_then(|root| {
-                        let patch_path = normalize::patch_path(root, &relative_path);
-                        patch_path.exists().then_some(patch_path)
-                    }),
-                    &relative_path,
-                ) {
-                    Ok(bytes) => bytes,
-                    Err(error) => {
-                        report.read_errors.push(error);
-                        continue;
-                    }
-                };
                 let reference = match apply_reference_patch(
                     &reference,
                     patches_root.as_deref().and_then(|root| {
@@ -548,32 +534,6 @@ fn apply_reference_patch(
         source.to_owned()
     };
     normalize::drop_inline_unit_tests(&normalized, relative_path).map(|source| source.into_bytes())
-}
-
-fn apply_generated_normalization(
-    generated: Vec<u8>,
-    patch_path: Option<PathBuf>,
-    relative_path: &Path,
-) -> Result<Vec<u8>, String> {
-    if relative_path
-        .extension()
-        .and_then(|extension| extension.to_str())
-        != Some("rs")
-    {
-        return Ok(generated);
-    }
-    let source = std::str::from_utf8(&generated).map_err(|error| {
-        format!(
-            "generated file {} is not UTF-8: {error}",
-            relative_path.display()
-        )
-    })?;
-    let source = if patch_path.is_some() {
-        normalize::normalize_crate_paths(source, relative_path)?
-    } else {
-        source.to_owned()
-    };
-    normalize::drop_inline_unit_tests(&source, relative_path).map(|source| source.into_bytes())
 }
 
 fn validate_rust_pair(

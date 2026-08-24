@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for SetQueueAttributesOutput {
 }
 impl SetQueueAttributesOutput {
     /// Creates a new builder-style object to manufacture [`SetQueueAttributesOutput`](crate::operation::set_queue_attributes::SetQueueAttributesOutput).
-    pub fn builder() -> crate::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder {
-        crate::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder::default()
+    pub fn builder() -> super::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder {
+        super::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl SetQueueAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SetQueueAttributesOutput`](crate::operation::set_queue_attributes::SetQueueAttributesOutput).
-    pub fn build(self) -> crate::operation::set_queue_attributes::SetQueueAttributesOutput {
-        crate::operation::set_queue_attributes::SetQueueAttributesOutput {
+    pub fn build(self) -> super::operation::set_queue_attributes::SetQueueAttributesOutput {
+        super::operation::set_queue_attributes::SetQueueAttributesOutput {
             _request_id: self._request_id,
         }
     }

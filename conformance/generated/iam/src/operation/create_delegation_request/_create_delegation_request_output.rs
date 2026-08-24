@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for CreateDelegationRequestOutput {
 }
 impl CreateDelegationRequestOutput {
     /// Creates a new builder-style object to manufacture [`CreateDelegationRequestOutput`](crate::operation::create_delegation_request::CreateDelegationRequestOutput).
-    pub fn builder() -> crate::operation::create_delegation_request::builders::CreateDelegationRequestOutputBuilder {
-        crate::operation::create_delegation_request::builders::CreateDelegationRequestOutputBuilder::default()
+    pub fn builder() -> super::operation::create_delegation_request::builders::CreateDelegationRequestOutputBuilder {
+        super::operation::create_delegation_request::builders::CreateDelegationRequestOutputBuilder::default()
     }
 }
 
@@ -83,8 +83,8 @@ impl CreateDelegationRequestOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateDelegationRequestOutput`](crate::operation::create_delegation_request::CreateDelegationRequestOutput).
-    pub fn build(self) -> crate::operation::create_delegation_request::CreateDelegationRequestOutput {
-        crate::operation::create_delegation_request::CreateDelegationRequestOutput {
+    pub fn build(self) -> super::operation::create_delegation_request::CreateDelegationRequestOutput {
+        super::operation::create_delegation_request::CreateDelegationRequestOutput {
             console_deep_link: self.console_deep_link,
             delegation_request_id: self.delegation_request_id,
             _request_id: self._request_id,

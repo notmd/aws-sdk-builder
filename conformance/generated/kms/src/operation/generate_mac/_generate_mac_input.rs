@@ -11,7 +11,7 @@ pub struct GenerateMacInput {
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The MAC algorithm used in the operation.</p>
     /// <p>The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC algorithms that your HMAC KMS key supports, use the <code>DescribeKey</code> operation and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
-    pub mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
+    pub mac_algorithm: ::std::option::Option<super::types::MacAlgorithmSpec>,
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -32,7 +32,7 @@ impl GenerateMacInput {
     }
     /// <p>The MAC algorithm used in the operation.</p>
     /// <p>The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC algorithms that your HMAC KMS key supports, use the <code>DescribeKey</code> operation and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
-    pub fn mac_algorithm(&self) -> ::std::option::Option<&crate::types::MacAlgorithmSpec> {
+    pub fn mac_algorithm(&self) -> ::std::option::Option<&super::types::MacAlgorithmSpec> {
         self.mac_algorithm.as_ref()
     }
     /// <p>A list of grant tokens.</p>
@@ -61,8 +61,8 @@ impl ::std::fmt::Debug for GenerateMacInput {
 }
 impl GenerateMacInput {
     /// Creates a new builder-style object to manufacture [`GenerateMacInput`](crate::operation::generate_mac::GenerateMacInput).
-    pub fn builder() -> crate::operation::generate_mac::builders::GenerateMacInputBuilder {
-        crate::operation::generate_mac::builders::GenerateMacInputBuilder::default()
+    pub fn builder() -> super::operation::generate_mac::builders::GenerateMacInputBuilder {
+        super::operation::generate_mac::builders::GenerateMacInputBuilder::default()
     }
 }
 
@@ -72,7 +72,7 @@ impl GenerateMacInput {
 pub struct GenerateMacInputBuilder {
     pub(crate) message: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
+    pub(crate) mac_algorithm: ::std::option::Option<super::types::MacAlgorithmSpec>,
     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) dry_run: ::std::option::Option<bool>,
 }
@@ -116,19 +116,19 @@ impl GenerateMacInputBuilder {
     /// <p>The MAC algorithm used in the operation.</p>
     /// <p>The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC algorithms that your HMAC KMS key supports, use the <code>DescribeKey</code> operation and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
     /// This field is required.
-    pub fn mac_algorithm(mut self, input: crate::types::MacAlgorithmSpec) -> Self {
+    pub fn mac_algorithm(mut self, input: super::types::MacAlgorithmSpec) -> Self {
         self.mac_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>The MAC algorithm used in the operation.</p>
     /// <p>The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC algorithms that your HMAC KMS key supports, use the <code>DescribeKey</code> operation and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
-    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
+    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<super::types::MacAlgorithmSpec>) -> Self {
         self.mac_algorithm = input;
         self
     }
     /// <p>The MAC algorithm used in the operation.</p>
     /// <p>The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC algorithms that your HMAC KMS key supports, use the <code>DescribeKey</code> operation and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
-    pub fn get_mac_algorithm(&self) -> &::std::option::Option<crate::types::MacAlgorithmSpec> {
+    pub fn get_mac_algorithm(&self) -> &::std::option::Option<super::types::MacAlgorithmSpec> {
         &self.mac_algorithm
     }
     /// Appends an item to `grant_tokens`.
@@ -172,8 +172,8 @@ impl GenerateMacInputBuilder {
         &self.dry_run
     }
     /// Consumes the builder and constructs a [`GenerateMacInput`](crate::operation::generate_mac::GenerateMacInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::generate_mac::GenerateMacInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::generate_mac::GenerateMacInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::generate_mac::GenerateMacInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::generate_mac::GenerateMacInput {
             message: self.message,
             key_id: self.key_id,
             mac_algorithm: self.mac_algorithm,

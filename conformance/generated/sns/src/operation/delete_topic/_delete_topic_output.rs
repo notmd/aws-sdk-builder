@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteTopicOutput {
 }
 impl DeleteTopicOutput {
     /// Creates a new builder-style object to manufacture [`DeleteTopicOutput`](crate::operation::delete_topic::DeleteTopicOutput).
-    pub fn builder() -> crate::operation::delete_topic::builders::DeleteTopicOutputBuilder {
-        crate::operation::delete_topic::builders::DeleteTopicOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_topic::builders::DeleteTopicOutputBuilder {
+        super::operation::delete_topic::builders::DeleteTopicOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteTopicOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteTopicOutput`](crate::operation::delete_topic::DeleteTopicOutput).
-    pub fn build(self) -> crate::operation::delete_topic::DeleteTopicOutput {
-        crate::operation::delete_topic::DeleteTopicOutput {
+    pub fn build(self) -> super::operation::delete_topic::DeleteTopicOutput {
+        super::operation::delete_topic::DeleteTopicOutput {
             _request_id: self._request_id,
         }
     }

@@ -11,7 +11,7 @@ pub struct InvocationCompletedDetails {
     /// <p>The request ID for the invocation.</p>
     pub request_id: ::std::string::String,
     /// <p>Details about the invocation failure.</p>
-    pub error: ::std::option::Option<crate::types::EventError>,
+    pub error: ::std::option::Option<super::types::EventError>,
 }
 impl InvocationCompletedDetails {
     /// <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -28,14 +28,14 @@ impl InvocationCompletedDetails {
         self.request_id.deref()
     }
     /// <p>Details about the invocation failure.</p>
-    pub fn error(&self) -> ::std::option::Option<&crate::types::EventError> {
+    pub fn error(&self) -> ::std::option::Option<&super::types::EventError> {
         self.error.as_ref()
     }
 }
 impl InvocationCompletedDetails {
     /// Creates a new builder-style object to manufacture [`InvocationCompletedDetails`](crate::types::InvocationCompletedDetails).
-    pub fn builder() -> crate::types::builders::InvocationCompletedDetailsBuilder {
-        crate::types::builders::InvocationCompletedDetailsBuilder::default()
+    pub fn builder() -> super::types::builders::InvocationCompletedDetailsBuilder {
+        super::types::builders::InvocationCompletedDetailsBuilder::default()
     }
 }
 
@@ -46,7 +46,7 @@ pub struct InvocationCompletedDetailsBuilder {
     pub(crate) start_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) end_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) request_id: ::std::option::Option<::std::string::String>,
-    pub(crate) error: ::std::option::Option<crate::types::EventError>,
+    pub(crate) error: ::std::option::Option<super::types::EventError>,
 }
 impl InvocationCompletedDetailsBuilder {
     /// <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -95,17 +95,17 @@ impl InvocationCompletedDetailsBuilder {
         &self.request_id
     }
     /// <p>Details about the invocation failure.</p>
-    pub fn error(mut self, input: crate::types::EventError) -> Self {
+    pub fn error(mut self, input: super::types::EventError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
     /// <p>Details about the invocation failure.</p>
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
+    pub fn set_error(mut self, input: ::std::option::Option<super::types::EventError>) -> Self {
         self.error = input;
         self
     }
     /// <p>Details about the invocation failure.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
+    pub fn get_error(&self) -> &::std::option::Option<super::types::EventError> {
         &self.error
     }
     /// Consumes the builder and constructs a [`InvocationCompletedDetails`](crate::types::InvocationCompletedDetails).
@@ -113,8 +113,8 @@ impl InvocationCompletedDetailsBuilder {
     /// - [`start_timestamp`](crate::types::builders::InvocationCompletedDetailsBuilder::start_timestamp)
     /// - [`end_timestamp`](crate::types::builders::InvocationCompletedDetailsBuilder::end_timestamp)
     /// - [`request_id`](crate::types::builders::InvocationCompletedDetailsBuilder::request_id)
-    pub fn build(self) -> ::std::result::Result<crate::types::InvocationCompletedDetails, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::InvocationCompletedDetails {
+    pub fn build(self) -> ::std::result::Result<super::types::InvocationCompletedDetails, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::InvocationCompletedDetails {
             start_timestamp: self.start_timestamp.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "start_timestamp",

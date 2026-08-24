@@ -5,16 +5,16 @@ pub fn de_list_multipart_uploads_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::list_multipart_uploads::ListMultipartUploadsOutput,
-    crate::operation::list_multipart_uploads::ListMultipartUploadsError,
+    super::operation::list_multipart_uploads::ListMultipartUploadsOutput,
+    super::operation::list_multipart_uploads::ListMultipartUploadsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_multipart_uploads::ListMultipartUploadsError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::list_multipart_uploads::ListMultipartUploadsError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::list_multipart_uploads::ListMultipartUploadsError::generic(generic))
+    Err(super::operation::list_multipart_uploads::ListMultipartUploadsError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -23,29 +23,29 @@ pub fn de_list_multipart_uploads_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::list_multipart_uploads::ListMultipartUploadsOutput,
-    crate::operation::list_multipart_uploads::ListMultipartUploadsError,
+    super::operation::list_multipart_uploads::ListMultipartUploadsOutput,
+    super::operation::list_multipart_uploads::ListMultipartUploadsError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder::default();
-        output = crate::protocol_serde::shape_list_multipart_uploads::de_list_multipart_uploads(_response_body, output)
-            .map_err(crate::operation::list_multipart_uploads::ListMultipartUploadsError::unhandled)?;
+        let mut output = super::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder::default();
+        output = super::protocol_serde::shape_list_multipart_uploads::de_list_multipart_uploads(_response_body, output)
+            .map_err(super::operation::list_multipart_uploads::ListMultipartUploadsError::unhandled)?;
         output = output.set_request_charged(
-            crate::protocol_serde::shape_list_multipart_uploads_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::list_multipart_uploads::ListMultipartUploadsError::unhandled(
+            super::protocol_serde::shape_list_multipart_uploads_output::de_request_charged_header(_response_headers).map_err(|_| {
+                super::operation::list_multipart_uploads::ListMultipartUploadsError::unhandled(
                     "Failed to parse RequestCharged from header `x-amz-request-charged",
                 )
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_list_multipart_uploads_headers(
-    input: &crate::operation::list_multipart_uploads::ListMultipartUploadsInput,
+    input: &super::operation::list_multipart_uploads::ListMultipartUploadsInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
@@ -76,9 +76,9 @@ pub fn ser_list_multipart_uploads_headers(
 #[allow(unused_mut)]
 pub fn de_list_multipart_uploads(
     inp: &[u8],
-    mut builder: crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder,
+    mut builder: super::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder,
 ) -> std::result::Result<
-    crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder,
+    super::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
 > {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
@@ -99,10 +99,10 @@ pub fn de_list_multipart_uploads(
             s if s.matches("CommonPrefixes") /* CommonPrefixes com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$CommonPrefixes */ =>  {
                 let var_5 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::CommonPrefix>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::CommonPrefix>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_6 = builder.common_prefixes.take().unwrap_or_default();
                             list_6.push(
-                                crate::protocol_serde::shape_common_prefix::de_common_prefix(&mut tag, depth + 1)
+                                super::protocol_serde::shape_common_prefix::de_common_prefix(&mut tag, depth + 1)
                                 ?
                             );
                             list_6
@@ -155,10 +155,10 @@ pub fn de_list_multipart_uploads(
             s if s.matches("Upload") /* Uploads com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$Uploads */ =>  {
                 let var_10 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::MultipartUpload>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::MultipartUpload>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_11 = builder.uploads.take().unwrap_or_default();
                             list_11.push(
-                                crate::protocol_serde::shape_multipart_upload::de_multipart_upload(&mut tag, depth + 1)
+                                super::protocol_serde::shape_multipart_upload::de_multipart_upload(&mut tag, depth + 1)
                                 ?
                             );
                             list_11
@@ -187,8 +187,8 @@ pub fn de_list_multipart_uploads(
             s if s.matches("EncodingType") /* EncodingType com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$EncodingType */ =>  {
                 let var_13 =
                     Some(
-                        Result::<crate::types::EncodingType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::EncodingType::from(
+                        Result::<super::types::EncodingType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::EncodingType::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )

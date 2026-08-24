@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidMarkerException {
     }
 }
 impl ::std::error::Error for InvalidMarkerException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidMarkerException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidMarkerException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidMarker
 }
 impl InvalidMarkerException {
     /// Creates a new builder-style object to manufacture [`InvalidMarkerException`](crate::types::error::InvalidMarkerException).
-    pub fn builder() -> crate::types::error::builders::InvalidMarkerExceptionBuilder {
-        crate::types::error::builders::InvalidMarkerExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidMarkerExceptionBuilder {
+        super::types::error::builders::InvalidMarkerExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidMarkerExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidMarkerException`](crate::types::error::InvalidMarkerException).
-    pub fn build(self) -> crate::types::error::InvalidMarkerException {
-        crate::types::error::InvalidMarkerException {
+    pub fn build(self) -> super::types::error::InvalidMarkerException {
+        super::types::error::InvalidMarkerException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

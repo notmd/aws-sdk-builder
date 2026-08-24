@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidGrantTokenException {
     }
 }
 impl ::std::error::Error for InvalidGrantTokenException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidGrantTokenException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidGrantTokenException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidGrantT
 }
 impl InvalidGrantTokenException {
     /// Creates a new builder-style object to manufacture [`InvalidGrantTokenException`](crate::types::error::InvalidGrantTokenException).
-    pub fn builder() -> crate::types::error::builders::InvalidGrantTokenExceptionBuilder {
-        crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidGrantTokenExceptionBuilder {
+        super::types::error::builders::InvalidGrantTokenExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidGrantTokenExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidGrantTokenException`](crate::types::error::InvalidGrantTokenException).
-    pub fn build(self) -> crate::types::error::InvalidGrantTokenException {
-        crate::types::error::InvalidGrantTokenException {
+    pub fn build(self) -> super::types::error::InvalidGrantTokenException {
+        super::types::error::InvalidGrantTokenException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

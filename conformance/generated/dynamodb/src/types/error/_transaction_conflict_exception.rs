@@ -26,7 +26,7 @@ impl ::std::fmt::Display for TransactionConflictException {
     }
 }
 impl ::std::error::Error for TransactionConflictException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::TransactionConflictException {
+impl ::aws_types::request_id::RequestId for super::types::error::TransactionConflictException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for TransactionCo
 }
 impl TransactionConflictException {
     /// Creates a new builder-style object to manufacture [`TransactionConflictException`](crate::types::error::TransactionConflictException).
-    pub fn builder() -> crate::types::error::builders::TransactionConflictExceptionBuilder {
-        crate::types::error::builders::TransactionConflictExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::TransactionConflictExceptionBuilder {
+        super::types::error::builders::TransactionConflictExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl TransactionConflictExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`TransactionConflictException`](crate::types::error::TransactionConflictException).
-    pub fn build(self) -> crate::types::error::TransactionConflictException {
-        crate::types::error::TransactionConflictException {
+    pub fn build(self) -> super::types::error::TransactionConflictException {
+        super::types::error::TransactionConflictException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

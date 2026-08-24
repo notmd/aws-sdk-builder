@@ -16,7 +16,7 @@ pub struct ListObjectsInput {
     /// <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response. Responses are encoded only in UTF-8. An object key can contain any Unicode character. However, the XML 1.0 parser can't parse certain characters, such as characters with an ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response. For more information about characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming guidelines</a>.</p><note>
     /// <p>When using the URL encoding type, non-ASCII characters that are used in an object's key name will be percent-encoded according to UTF-8 code values. For example, the object <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</p>
     /// </note>
-    pub encoding_type: ::std::option::Option<crate::types::EncodingType>,
+    pub encoding_type: ::std::option::Option<super::types::EncodingType>,
     /// <p>Marker is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. Marker can be any key in the bucket.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more.</p>
@@ -24,11 +24,11 @@ pub struct ListObjectsInput {
     /// <p>Limits the response to keys that begin with the specified prefix.</p>
     pub prefix: ::std::option::Option<::std::string::String>,
     /// <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
-    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub optional_object_attributes: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>,
+    pub optional_object_attributes: ::std::option::Option<::std::vec::Vec<super::types::OptionalObjectAttributes>>,
 }
 impl ListObjectsInput {
     /// <p>The name of the bucket containing the objects.</p>
@@ -48,7 +48,7 @@ impl ListObjectsInput {
     /// <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response. Responses are encoded only in UTF-8. An object key can contain any Unicode character. However, the XML 1.0 parser can't parse certain characters, such as characters with an ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response. For more information about characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming guidelines</a>.</p><note>
     /// <p>When using the URL encoding type, non-ASCII characters that are used in an object's key name will be percent-encoded according to UTF-8 code values. For example, the object <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</p>
     /// </note>
-    pub fn encoding_type(&self) -> ::std::option::Option<&crate::types::EncodingType> {
+    pub fn encoding_type(&self) -> ::std::option::Option<&super::types::EncodingType> {
         self.encoding_type.as_ref()
     }
     /// <p>Marker is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. Marker can be any key in the bucket.</p>
@@ -64,7 +64,7 @@ impl ListObjectsInput {
         self.prefix.as_deref()
     }
     /// <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
-    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
         self.request_payer.as_ref()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -74,14 +74,14 @@ impl ListObjectsInput {
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.optional_object_attributes.is_none()`.
-    pub fn optional_object_attributes(&self) -> &[crate::types::OptionalObjectAttributes] {
+    pub fn optional_object_attributes(&self) -> &[super::types::OptionalObjectAttributes] {
         self.optional_object_attributes.as_deref().unwrap_or_default()
     }
 }
 impl ListObjectsInput {
     /// Creates a new builder-style object to manufacture [`ListObjectsInput`](crate::operation::list_objects::ListObjectsInput).
-    pub fn builder() -> crate::operation::list_objects::builders::ListObjectsInputBuilder {
-        crate::operation::list_objects::builders::ListObjectsInputBuilder::default()
+    pub fn builder() -> super::operation::list_objects::builders::ListObjectsInputBuilder {
+        super::operation::list_objects::builders::ListObjectsInputBuilder::default()
     }
 }
 
@@ -91,13 +91,13 @@ impl ListObjectsInput {
 pub struct ListObjectsInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) delimiter: ::std::option::Option<::std::string::String>,
-    pub(crate) encoding_type: ::std::option::Option<crate::types::EncodingType>,
+    pub(crate) encoding_type: ::std::option::Option<super::types::EncodingType>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     pub(crate) max_keys: ::std::option::Option<i32>,
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
-    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
-    pub(crate) optional_object_attributes: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>,
+    pub(crate) optional_object_attributes: ::std::option::Option<::std::vec::Vec<super::types::OptionalObjectAttributes>>,
 }
 impl ListObjectsInputBuilder {
     /// <p>The name of the bucket containing the objects.</p>
@@ -150,21 +150,21 @@ impl ListObjectsInputBuilder {
     /// <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response. Responses are encoded only in UTF-8. An object key can contain any Unicode character. However, the XML 1.0 parser can't parse certain characters, such as characters with an ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response. For more information about characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming guidelines</a>.</p><note>
     /// <p>When using the URL encoding type, non-ASCII characters that are used in an object's key name will be percent-encoded according to UTF-8 code values. For example, the object <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</p>
     /// </note>
-    pub fn encoding_type(mut self, input: crate::types::EncodingType) -> Self {
+    pub fn encoding_type(mut self, input: super::types::EncodingType) -> Self {
         self.encoding_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response. Responses are encoded only in UTF-8. An object key can contain any Unicode character. However, the XML 1.0 parser can't parse certain characters, such as characters with an ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response. For more information about characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming guidelines</a>.</p><note>
     /// <p>When using the URL encoding type, non-ASCII characters that are used in an object's key name will be percent-encoded according to UTF-8 code values. For example, the object <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</p>
     /// </note>
-    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
+    pub fn set_encoding_type(mut self, input: ::std::option::Option<super::types::EncodingType>) -> Self {
         self.encoding_type = input;
         self
     }
     /// <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response. Responses are encoded only in UTF-8. An object key can contain any Unicode character. However, the XML 1.0 parser can't parse certain characters, such as characters with an ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response. For more information about characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming guidelines</a>.</p><note>
     /// <p>When using the URL encoding type, non-ASCII characters that are used in an object's key name will be percent-encoded according to UTF-8 code values. For example, the object <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</p>
     /// </note>
-    pub fn get_encoding_type(&self) -> &::std::option::Option<crate::types::EncodingType> {
+    pub fn get_encoding_type(&self) -> &::std::option::Option<super::types::EncodingType> {
         &self.encoding_type
     }
     /// <p>Marker is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. Marker can be any key in the bucket.</p>
@@ -210,17 +210,17 @@ impl ListObjectsInputBuilder {
         &self.prefix
     }
     /// <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
-    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
     /// <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
     /// <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
         &self.request_payer
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -242,24 +242,24 @@ impl ListObjectsInputBuilder {
     /// To override the contents of this collection use [`set_optional_object_attributes`](Self::set_optional_object_attributes).
     ///
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn optional_object_attributes(mut self, input: crate::types::OptionalObjectAttributes) -> Self {
+    pub fn optional_object_attributes(mut self, input: super::types::OptionalObjectAttributes) -> Self {
         let mut v = self.optional_object_attributes.unwrap_or_default();
         v.push(input);
         self.optional_object_attributes = ::std::option::Option::Some(v);
         self
     }
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>) -> Self {
+    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::OptionalObjectAttributes>>) -> Self {
         self.optional_object_attributes = input;
         self
     }
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn get_optional_object_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>> {
+    pub fn get_optional_object_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::OptionalObjectAttributes>> {
         &self.optional_object_attributes
     }
     /// Consumes the builder and constructs a [`ListObjectsInput`](crate::operation::list_objects::ListObjectsInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_objects::ListObjectsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_objects::ListObjectsInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::list_objects::ListObjectsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_objects::ListObjectsInput {
             bucket: self.bucket,
             delimiter: self.delimiter,
             encoding_type: self.encoding_type,

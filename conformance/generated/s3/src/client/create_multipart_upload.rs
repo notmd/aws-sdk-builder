@@ -50,7 +50,7 @@ impl super::Client {
     ///   - [`checksum_algorithm(Option<ChecksumAlgorithm>)`](crate::operation::create_multipart_upload::CreateMultipartUploadOutput::checksum_algorithm): <p>The algorithm that was used to create a checksum of the object.</p>
     ///   - [`checksum_type(Option<ChecksumType>)`](crate::operation::create_multipart_upload::CreateMultipartUploadOutput::checksum_type): <p>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     /// - On failure, responds with [`SdkError<CreateMultipartUploadError>`](crate::operation::create_multipart_upload::CreateMultipartUploadError)
-    pub fn create_multipart_upload(&self) -> crate::operation::create_multipart_upload::builders::CreateMultipartUploadFluentBuilder {
-        crate::operation::create_multipart_upload::builders::CreateMultipartUploadFluentBuilder::new(self.handle.clone())
+    pub fn create_multipart_upload(&self) -> super::operation::create_multipart_upload::builders::CreateMultipartUploadFluentBuilder {
+        super::operation::create_multipart_upload::builders::CreateMultipartUploadFluentBuilder::new(self.handle.clone())
     }
 }

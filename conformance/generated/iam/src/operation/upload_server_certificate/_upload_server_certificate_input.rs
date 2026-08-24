@@ -47,7 +47,7 @@ pub struct UploadServerCertificateInput {
     /// <p>A list of tags that you want to attach to the new IAM server certificate resource. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl UploadServerCertificateInput {
     /// <p>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -106,7 +106,7 @@ impl UploadServerCertificateInput {
     /// </note>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
 }
@@ -124,8 +124,8 @@ impl ::std::fmt::Debug for UploadServerCertificateInput {
 }
 impl UploadServerCertificateInput {
     /// Creates a new builder-style object to manufacture [`UploadServerCertificateInput`](crate::operation::upload_server_certificate::UploadServerCertificateInput).
-    pub fn builder() -> crate::operation::upload_server_certificate::builders::UploadServerCertificateInputBuilder {
-        crate::operation::upload_server_certificate::builders::UploadServerCertificateInputBuilder::default()
+    pub fn builder() -> super::operation::upload_server_certificate::builders::UploadServerCertificateInputBuilder {
+        super::operation::upload_server_certificate::builders::UploadServerCertificateInputBuilder::default()
     }
 }
 
@@ -138,7 +138,7 @@ pub struct UploadServerCertificateInputBuilder {
     pub(crate) certificate_body: ::std::option::Option<::std::string::String>,
     pub(crate) private_key: ::std::option::Option<::std::string::String>,
     pub(crate) certificate_chain: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl UploadServerCertificateInputBuilder {
     /// <p>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -314,7 +314,7 @@ impl UploadServerCertificateInputBuilder {
     /// <p>A list of tags that you want to attach to the new IAM server certificate resource. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
@@ -323,24 +323,24 @@ impl UploadServerCertificateInputBuilder {
     /// <p>A list of tags that you want to attach to the new IAM server certificate resource. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of tags that you want to attach to the new IAM server certificate resource. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`UploadServerCertificateInput`](crate::operation::upload_server_certificate::UploadServerCertificateInput).
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::upload_server_certificate::UploadServerCertificateInput,
+        super::operation::upload_server_certificate::UploadServerCertificateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::upload_server_certificate::UploadServerCertificateInput {
+        ::std::result::Result::Ok(super::operation::upload_server_certificate::UploadServerCertificateInput {
             path: self.path,
             server_certificate_name: self.server_certificate_name,
             certificate_body: self.certificate_body,

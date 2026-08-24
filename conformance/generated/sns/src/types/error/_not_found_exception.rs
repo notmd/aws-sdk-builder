@@ -26,7 +26,7 @@ impl ::std::fmt::Display for NotFoundException {
     }
 }
 impl ::std::error::Error for NotFoundException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::NotFoundException {
+impl ::aws_types::request_id::RequestId for super::types::error::NotFoundException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for NotFoundExcep
 }
 impl NotFoundException {
     /// Creates a new builder-style object to manufacture [`NotFoundException`](crate::types::error::NotFoundException).
-    pub fn builder() -> crate::types::error::builders::NotFoundExceptionBuilder {
-        crate::types::error::builders::NotFoundExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::NotFoundExceptionBuilder {
+        super::types::error::builders::NotFoundExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl NotFoundExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`NotFoundException`](crate::types::error::NotFoundException).
-    pub fn build(self) -> crate::types::error::NotFoundException {
-        crate::types::error::NotFoundException {
+    pub fn build(self) -> super::types::error::NotFoundException {
+        super::types::error::NotFoundException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

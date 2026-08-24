@@ -10,11 +10,11 @@ impl PutObject {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::put_object::PutObjectInput,
+        input: super::operation::put_object::PutObjectInput,
     ) -> ::std::result::Result<
-        crate::operation::put_object::PutObjectOutput,
+        super::operation::put_object::PutObjectOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_object::PutObjectError,
+            super::operation::put_object::PutObjectError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl PutObject {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::put_object::PutObjectError>()
+                err.downcast::<super::operation::put_object::PutObjectError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl PutObject {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::put_object::PutObjectOutput>()
+                .downcast::<super::operation::put_object::PutObjectOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::put_object::PutObjectInput,
+        input: super::operation::put_object::PutObjectInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl PutObject {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl PutObject {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutObje
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("PutObject")
                 .build()
                 .expect("required fields set"),
@@ -134,9 +134,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutObje
                 PutObjectEndpointParamsInterceptor,
             ))
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                crate::http_request_checksum::RequestChecksumInterceptor::new(
+                super::http_request_checksum::RequestChecksumInterceptor::new(
                     |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
-                        let input: &crate::operation::put_object::PutObjectInput = input.downcast_ref().expect("correct type");
+                        let input: &super::operation::put_object::PutObjectInput = input.downcast_ref().expect("correct type");
                         let checksum_algorithm = input.checksum_algorithm();
                         let checksum_algorithm = checksum_algorithm.map(|algorithm| algorithm.as_str());
                         (checksum_algorithm.map(|s| s.to_string()), false)
@@ -166,7 +166,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutObje
                         // From the httpChecksum trait
                         let http_checksum_required = false;
 
-                        let is_presigned_req = cfg.load::<crate::presigning::PresigningMarker>().is_some();
+                        let is_presigned_req = cfg.load::<super::presigning::PresigningMarker>().is_some();
 
                         // If the request is presigned we do not set a default.
                         // If the RequestChecksumCalculation is WhenSupported and the user has not set a checksum value or algo
@@ -194,16 +194,16 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutObje
                 ),
             ))
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                crate::aws_chunked::AwsChunkedContentEncodingInterceptor,
+                super::aws_chunked::AwsChunkedContentEncodingInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::put_object::PutObjectError,
+                super::operation::put_object::PutObjectError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::put_object::PutObjectError,
+                super::operation::put_object::PutObjectError,
             >::new())
             .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::put_object::PutObjectError>::builder()
+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::put_object::PutObjectError>::builder()
                     .transient_errors({
                         let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                         transient_errors.push("InternalError");
@@ -418,11 +418,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for PutObject
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_put_object::de_put_object_http_error(status, headers, body)
+            super::protocol_serde::shape_put_object::de_put_object_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_put_object::de_put_object_http_response(status, headers, body)
+            super::protocol_serde::shape_put_object::de_put_object_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -434,15 +434,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutObjectReq
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input.downcast::<crate::operation::put_object::PutObjectInput>().expect("correct type");
+        let input = input.downcast::<super::operation::put_object::PutObjectInput>().expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::put_object::PutObjectInput,
+                _input: &super::operation::put_object::PutObjectInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -461,7 +461,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutObjectReq
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
-                _input: &crate::operation::put_object::PutObjectInput,
+                _input: &super::operation::put_object::PutObjectInput,
                 mut output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
@@ -470,20 +470,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutObjectReq
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::put_object::PutObjectInput,
+                input: &super::operation::put_object::PutObjectInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_put_object::ser_put_object_headers(input, builder)?;
+                let builder = super::protocol_serde::shape_put_object::ser_put_object_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("PUT").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
             builder
         };
-        let body = crate::protocol_serde::shape_put_object_input::ser_body_http_payload(input.body)?.into_inner();
+        let body = super::protocol_serde::shape_put_object_input::ser_body_http_payload(input.body)?.into_inner();
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -515,16 +515,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for PutObjectEndp
             .downcast_ref::<PutObjectInput>()
             .ok_or("failed to downcast to PutObjectInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
-            .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
-            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
-            .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
-            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
+            .set_force_path_style(cfg.load::<super::config::ForcePathStyle>().map(|ty| ty.0))
+            .set_use_arn_region(cfg.load::<super::config::UseArnRegion>().map(|ty| ty.0))
+            .set_disable_multi_region_access_points(cfg.load::<super::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
+            .set_accelerate(cfg.load::<super::config::Accelerate>().map(|ty| ty.0))
+            .set_disable_s3_express_session_auth(cfg.load::<super::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
             .set_bucket(Some(
                 _input
                     .bucket
@@ -557,13 +557,13 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for PutObjectEndp
 #[derive(::std::fmt::Debug)]
 pub enum PutObjectError {
     /// <p>The existing object was created with a different encryption type. Subsequent write requests must include the appropriate encryption parameters in the request or while creating the session.</p>
-    EncryptionTypeMismatch(crate::types::error::EncryptionTypeMismatch),
+    EncryptionTypeMismatch(super::types::error::EncryptionTypeMismatch),
     /// <p>A parameter or header in your request isn't valid. For details, see the description of this API operation.</p>
-    InvalidRequest(crate::types::error::InvalidRequest),
+    InvalidRequest(super::types::error::InvalidRequest),
     /// <p>The write offset value that you specified does not match the current object size.</p>
-    InvalidWriteOffset(crate::types::error::InvalidWriteOffset),
+    InvalidWriteOffset(super::types::error::InvalidWriteOffset),
     /// <p>You have attempted to add more parts than the maximum of 10000 that are allowed for this object. You can use the CopyObject operation to copy this object to another and then add more data to the newly copied object.</p>
-    TooManyParts(crate::types::error::TooManyParts),
+    TooManyParts(super::types::error::TooManyParts),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -571,14 +571,14 @@ pub enum PutObjectError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-PutObjectError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl PutObjectError {
     /// Creates the `PutObjectError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -586,7 +586,7 @@ impl PutObjectError {
 
     /// Creates the `PutObjectError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -673,26 +673,26 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutObjec
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::put_object::PutObjectError {
+impl super::s3_request_id::RequestIdExt for super::operation::put_object::PutObjectError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::put_object::PutObjectError {
+impl ::aws_types::request_id::RequestId for super::operation::put_object::PutObjectError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::put_object::_put_object_input::PutObjectInput;
+pub use super::operation::put_object::_put_object_input::PutObjectInput;
 
-pub use crate::operation::put_object::_put_object_output::PutObjectOutput;
+pub use super::operation::put_object::_put_object_output::PutObjectOutput;
 
 mod _put_object_input;
 

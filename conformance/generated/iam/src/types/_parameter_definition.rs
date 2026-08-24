@@ -7,7 +7,7 @@ pub struct ParameterDefinition {
     /// <p>The name of the parameter.</p>
     pub name: ::std::string::String,
     /// <p>The data type of the parameter. Valid values are <code>String</code>, <code>StringList</code>, <code>Number</code>, <code>NumberList</code>, <code>Arn</code>, and <code>ArnList</code>.</p>
-    pub r#type: crate::types::ParameterTypeType,
+    pub r#type: super::types::ParameterTypeType,
     /// <p>An optional subtype that further constrains the values that are allowed for the parameter.</p>
     pub sub_type: ::std::option::Option<::std::string::String>,
     /// <p>A description of the parameter.</p>
@@ -26,7 +26,7 @@ impl ParameterDefinition {
         self.name.deref()
     }
     /// <p>The data type of the parameter. Valid values are <code>String</code>, <code>StringList</code>, <code>Number</code>, <code>NumberList</code>, <code>Arn</code>, and <code>ArnList</code>.</p>
-    pub fn r#type(&self) -> &crate::types::ParameterTypeType {
+    pub fn r#type(&self) -> &super::types::ParameterTypeType {
         &self.r#type
     }
     /// <p>An optional subtype that further constrains the values that are allowed for the parameter.</p>
@@ -52,8 +52,8 @@ impl ParameterDefinition {
 }
 impl ParameterDefinition {
     /// Creates a new builder-style object to manufacture [`ParameterDefinition`](crate::types::ParameterDefinition).
-    pub fn builder() -> crate::types::builders::ParameterDefinitionBuilder {
-        crate::types::builders::ParameterDefinitionBuilder::default()
+    pub fn builder() -> super::types::builders::ParameterDefinitionBuilder {
+        super::types::builders::ParameterDefinitionBuilder::default()
     }
 }
 
@@ -62,7 +62,7 @@ impl ParameterDefinition {
 #[non_exhaustive]
 pub struct ParameterDefinitionBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
-    pub(crate) r#type: ::std::option::Option<crate::types::ParameterTypeType>,
+    pub(crate) r#type: ::std::option::Option<super::types::ParameterTypeType>,
     pub(crate) sub_type: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) is_required: ::std::option::Option<bool>,
@@ -87,17 +87,17 @@ impl ParameterDefinitionBuilder {
     }
     /// <p>The data type of the parameter. Valid values are <code>String</code>, <code>StringList</code>, <code>Number</code>, <code>NumberList</code>, <code>Arn</code>, and <code>ArnList</code>.</p>
     /// This field is required.
-    pub fn r#type(mut self, input: crate::types::ParameterTypeType) -> Self {
+    pub fn r#type(mut self, input: super::types::ParameterTypeType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The data type of the parameter. Valid values are <code>String</code>, <code>StringList</code>, <code>Number</code>, <code>NumberList</code>, <code>Arn</code>, and <code>ArnList</code>.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::ParameterTypeType>) -> Self {
+    pub fn set_type(mut self, input: ::std::option::Option<super::types::ParameterTypeType>) -> Self {
         self.r#type = input;
         self
     }
     /// <p>The data type of the parameter. Valid values are <code>String</code>, <code>StringList</code>, <code>Number</code>, <code>NumberList</code>, <code>Arn</code>, and <code>ArnList</code>.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::ParameterTypeType> {
+    pub fn get_type(&self) -> &::std::option::Option<super::types::ParameterTypeType> {
         &self.r#type
     }
     /// <p>An optional subtype that further constrains the values that are allowed for the parameter.</p>
@@ -174,8 +174,8 @@ impl ParameterDefinitionBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::types::builders::ParameterDefinitionBuilder::name)
     /// - [`r#type`](crate::types::builders::ParameterDefinitionBuilder::type)
-    pub fn build(self) -> ::std::result::Result<crate::types::ParameterDefinition, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ParameterDefinition {
+    pub fn build(self) -> ::std::result::Result<super::types::ParameterDefinition, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::ParameterDefinition {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "name",

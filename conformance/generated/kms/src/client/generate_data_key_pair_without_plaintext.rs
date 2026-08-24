@@ -17,8 +17,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GenerateDataKeyPairWithoutPlaintextError>`](crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError)
     pub fn generate_data_key_pair_without_plaintext(
         &self,
-    ) -> crate::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextFluentBuilder {
-        crate::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextFluentBuilder::new(
+    ) -> super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextFluentBuilder {
+        super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextFluentBuilder::new(
             self.handle.clone(),
         )
     }

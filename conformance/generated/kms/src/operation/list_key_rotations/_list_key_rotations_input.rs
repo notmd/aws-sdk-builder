@@ -15,7 +15,7 @@ pub struct ListKeyRotationsInput {
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-    pub include_key_material: ::std::option::Option<crate::types::IncludeKeyMaterial>,
+    pub include_key_material: ::std::option::Option<super::types::IncludeKeyMaterial>,
     /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
     /// <p>This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
     pub limit: ::std::option::Option<i32>,
@@ -37,7 +37,7 @@ impl ListKeyRotationsInput {
         self.key_id.as_deref()
     }
     /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-    pub fn include_key_material(&self) -> ::std::option::Option<&crate::types::IncludeKeyMaterial> {
+    pub fn include_key_material(&self) -> ::std::option::Option<&super::types::IncludeKeyMaterial> {
         self.include_key_material.as_ref()
     }
     /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
@@ -52,8 +52,8 @@ impl ListKeyRotationsInput {
 }
 impl ListKeyRotationsInput {
     /// Creates a new builder-style object to manufacture [`ListKeyRotationsInput`](crate::operation::list_key_rotations::ListKeyRotationsInput).
-    pub fn builder() -> crate::operation::list_key_rotations::builders::ListKeyRotationsInputBuilder {
-        crate::operation::list_key_rotations::builders::ListKeyRotationsInputBuilder::default()
+    pub fn builder() -> super::operation::list_key_rotations::builders::ListKeyRotationsInputBuilder {
+        super::operation::list_key_rotations::builders::ListKeyRotationsInputBuilder::default()
     }
 }
 
@@ -62,7 +62,7 @@ impl ListKeyRotationsInput {
 #[non_exhaustive]
 pub struct ListKeyRotationsInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) include_key_material: ::std::option::Option<crate::types::IncludeKeyMaterial>,
+    pub(crate) include_key_material: ::std::option::Option<super::types::IncludeKeyMaterial>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
 }
@@ -110,17 +110,17 @@ impl ListKeyRotationsInputBuilder {
         &self.key_id
     }
     /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-    pub fn include_key_material(mut self, input: crate::types::IncludeKeyMaterial) -> Self {
+    pub fn include_key_material(mut self, input: super::types::IncludeKeyMaterial) -> Self {
         self.include_key_material = ::std::option::Option::Some(input);
         self
     }
     /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-    pub fn set_include_key_material(mut self, input: ::std::option::Option<crate::types::IncludeKeyMaterial>) -> Self {
+    pub fn set_include_key_material(mut self, input: ::std::option::Option<super::types::IncludeKeyMaterial>) -> Self {
         self.include_key_material = input;
         self
     }
     /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-    pub fn get_include_key_material(&self) -> &::std::option::Option<crate::types::IncludeKeyMaterial> {
+    pub fn get_include_key_material(&self) -> &::std::option::Option<super::types::IncludeKeyMaterial> {
         &self.include_key_material
     }
     /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
@@ -157,8 +157,8 @@ impl ListKeyRotationsInputBuilder {
     /// Consumes the builder and constructs a [`ListKeyRotationsInput`](crate::operation::list_key_rotations::ListKeyRotationsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_key_rotations::ListKeyRotationsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_key_rotations::ListKeyRotationsInput {
+    ) -> ::std::result::Result<super::operation::list_key_rotations::ListKeyRotationsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_key_rotations::ListKeyRotationsInput {
             key_id: self.key_id,
             include_key_material: self.include_key_material,
             limit: self.limit,

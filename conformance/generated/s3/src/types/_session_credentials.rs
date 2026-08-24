@@ -48,8 +48,8 @@ impl ::std::fmt::Debug for SessionCredentials {
 }
 impl SessionCredentials {
     /// Creates a new builder-style object to manufacture [`SessionCredentials`](crate::types::SessionCredentials).
-    pub fn builder() -> crate::types::builders::SessionCredentialsBuilder {
-        crate::types::builders::SessionCredentialsBuilder::default()
+    pub fn builder() -> super::types::builders::SessionCredentialsBuilder {
+        super::types::builders::SessionCredentialsBuilder::default()
     }
 }
 
@@ -129,8 +129,8 @@ impl SessionCredentialsBuilder {
     /// - [`secret_access_key`](crate::types::builders::SessionCredentialsBuilder::secret_access_key)
     /// - [`session_token`](crate::types::builders::SessionCredentialsBuilder::session_token)
     /// - [`expiration`](crate::types::builders::SessionCredentialsBuilder::expiration)
-    pub fn build(self) -> ::std::result::Result<crate::types::SessionCredentials, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::SessionCredentials {
+    pub fn build(self) -> ::std::result::Result<super::types::SessionCredentials, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::SessionCredentials {
             access_key_id: self.access_key_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "access_key_id",

@@ -73,7 +73,7 @@ impl super::Client {
     ///   - [`size(Option<i64>)`](crate::operation::put_object::PutObjectOutput::size): <p>The size of the object in bytes. This value is only be present if you append to an object.</p><note>  <p>This functionality is only supported for objects in the Amazon S3 Express One Zone storage class in directory buckets.</p> </note>
     ///   - [`request_charged(Option<RequestCharged>)`](crate::operation::put_object::PutObjectOutput::request_charged): <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>  <p>This functionality is not supported for directory buckets.</p> </note>
     /// - On failure, responds with [`SdkError<PutObjectError>`](crate::operation::put_object::PutObjectError)
-    pub fn put_object(&self) -> crate::operation::put_object::builders::PutObjectFluentBuilder {
-        crate::operation::put_object::builders::PutObjectFluentBuilder::new(self.handle.clone())
+    pub fn put_object(&self) -> super::operation::put_object::builders::PutObjectFluentBuilder {
+        super::operation::put_object::builders::PutObjectFluentBuilder::new(self.handle.clone())
     }
 }

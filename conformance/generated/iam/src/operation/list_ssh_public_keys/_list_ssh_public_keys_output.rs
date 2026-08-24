@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListSshPublicKeysOutput {
     /// <p>A list of the SSH public keys assigned to IAM user.</p>
-    pub ssh_public_keys: ::std::option::Option<::std::vec::Vec<crate::types::SshPublicKeyMetadata>>,
+    pub ssh_public_keys: ::std::option::Option<::std::vec::Vec<super::types::SshPublicKeyMetadata>>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -16,7 +16,7 @@ impl ListSshPublicKeysOutput {
     /// <p>A list of the SSH public keys assigned to IAM user.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.ssh_public_keys.is_none()`.
-    pub fn ssh_public_keys(&self) -> &[crate::types::SshPublicKeyMetadata] {
+    pub fn ssh_public_keys(&self) -> &[super::types::SshPublicKeyMetadata] {
         self.ssh_public_keys.as_deref().unwrap_or_default()
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -35,8 +35,8 @@ impl ::aws_types::request_id::RequestId for ListSshPublicKeysOutput {
 }
 impl ListSshPublicKeysOutput {
     /// Creates a new builder-style object to manufacture [`ListSshPublicKeysOutput`](crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput).
-    pub fn builder() -> crate::operation::list_ssh_public_keys::builders::ListSshPublicKeysOutputBuilder {
-        crate::operation::list_ssh_public_keys::builders::ListSshPublicKeysOutputBuilder::default()
+    pub fn builder() -> super::operation::list_ssh_public_keys::builders::ListSshPublicKeysOutputBuilder {
+        super::operation::list_ssh_public_keys::builders::ListSshPublicKeysOutputBuilder::default()
     }
 }
 
@@ -44,7 +44,7 @@ impl ListSshPublicKeysOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSshPublicKeysOutputBuilder {
-    pub(crate) ssh_public_keys: ::std::option::Option<::std::vec::Vec<crate::types::SshPublicKeyMetadata>>,
+    pub(crate) ssh_public_keys: ::std::option::Option<::std::vec::Vec<super::types::SshPublicKeyMetadata>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -55,19 +55,19 @@ impl ListSshPublicKeysOutputBuilder {
     /// To override the contents of this collection use [`set_ssh_public_keys`](Self::set_ssh_public_keys).
     ///
     /// <p>A list of the SSH public keys assigned to IAM user.</p>
-    pub fn ssh_public_keys(mut self, input: crate::types::SshPublicKeyMetadata) -> Self {
+    pub fn ssh_public_keys(mut self, input: super::types::SshPublicKeyMetadata) -> Self {
         let mut v = self.ssh_public_keys.unwrap_or_default();
         v.push(input);
         self.ssh_public_keys = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of the SSH public keys assigned to IAM user.</p>
-    pub fn set_ssh_public_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SshPublicKeyMetadata>>) -> Self {
+    pub fn set_ssh_public_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SshPublicKeyMetadata>>) -> Self {
         self.ssh_public_keys = input;
         self
     }
     /// <p>A list of the SSH public keys assigned to IAM user.</p>
-    pub fn get_ssh_public_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SshPublicKeyMetadata>> {
+    pub fn get_ssh_public_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SshPublicKeyMetadata>> {
         &self.ssh_public_keys
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -108,8 +108,8 @@ impl ListSshPublicKeysOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListSshPublicKeysOutput`](crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput).
-    pub fn build(self) -> crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput {
-        crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput {
+    pub fn build(self) -> super::operation::list_ssh_public_keys::ListSshPublicKeysOutput {
+        super::operation::list_ssh_public_keys::ListSshPublicKeysOutput {
             ssh_public_keys: self.ssh_public_keys,
             is_truncated: self.is_truncated.unwrap_or_default(),
             marker: self.marker,

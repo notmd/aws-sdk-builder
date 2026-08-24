@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidAuthorizationMessageException {
     }
 }
 impl ::std::error::Error for InvalidAuthorizationMessageException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidAuthorizationMessageException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidAuthorizationMessageException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidAuthor
 }
 impl InvalidAuthorizationMessageException {
     /// Creates a new builder-style object to manufacture [`InvalidAuthorizationMessageException`](crate::types::error::InvalidAuthorizationMessageException).
-    pub fn builder() -> crate::types::error::builders::InvalidAuthorizationMessageExceptionBuilder {
-        crate::types::error::builders::InvalidAuthorizationMessageExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidAuthorizationMessageExceptionBuilder {
+        super::types::error::builders::InvalidAuthorizationMessageExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidAuthorizationMessageExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidAuthorizationMessageException`](crate::types::error::InvalidAuthorizationMessageException).
-    pub fn build(self) -> crate::types::error::InvalidAuthorizationMessageException {
-        crate::types::error::InvalidAuthorizationMessageException {
+    pub fn build(self) -> super::types::error::InvalidAuthorizationMessageException {
+        super::types::error::InvalidAuthorizationMessageException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

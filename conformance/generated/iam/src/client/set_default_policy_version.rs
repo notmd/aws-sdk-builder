@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`version_id(impl Into<String>)`](crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder::version_id) / [`set_version_id(Option<String>)`](crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder::set_version_id):<br>required: **true**<br><p>The version of the policy to set as the default (operative) version.</p> <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p><br>
     /// - On success, responds with [`SetDefaultPolicyVersionOutput`](crate::operation::set_default_policy_version::SetDefaultPolicyVersionOutput)
     /// - On failure, responds with [`SdkError<SetDefaultPolicyVersionError>`](crate::operation::set_default_policy_version::SetDefaultPolicyVersionError)
-    pub fn set_default_policy_version(&self) -> crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder {
-        crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder::new(self.handle.clone())
+    pub fn set_default_policy_version(&self) -> super::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder {
+        super::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder::new(self.handle.clone())
     }
 }

@@ -34,7 +34,7 @@ impl ::std::fmt::Display for CapacityProviderLimitExceededException {
     }
 }
 impl ::std::error::Error for CapacityProviderLimitExceededException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::CapacityProviderLimitExceededException {
+impl ::aws_types::request_id::RequestId for super::types::error::CapacityProviderLimitExceededException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CapacityProvi
 }
 impl CapacityProviderLimitExceededException {
     /// Creates a new builder-style object to manufacture [`CapacityProviderLimitExceededException`](crate::types::error::CapacityProviderLimitExceededException).
-    pub fn builder() -> crate::types::error::builders::CapacityProviderLimitExceededExceptionBuilder {
-        crate::types::error::builders::CapacityProviderLimitExceededExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::CapacityProviderLimitExceededExceptionBuilder {
+        super::types::error::builders::CapacityProviderLimitExceededExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl CapacityProviderLimitExceededExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CapacityProviderLimitExceededException`](crate::types::error::CapacityProviderLimitExceededException).
-    pub fn build(self) -> crate::types::error::CapacityProviderLimitExceededException {
-        crate::types::error::CapacityProviderLimitExceededException {
+    pub fn build(self) -> super::types::error::CapacityProviderLimitExceededException {
+        super::types::error::CapacityProviderLimitExceededException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

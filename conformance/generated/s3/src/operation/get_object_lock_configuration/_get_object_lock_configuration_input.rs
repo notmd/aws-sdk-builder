@@ -22,8 +22,8 @@ impl GetObjectLockConfigurationInput {
 }
 impl GetObjectLockConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetObjectLockConfigurationInput`](crate::operation::get_object_lock_configuration::GetObjectLockConfigurationInput).
-    pub fn builder() -> crate::operation::get_object_lock_configuration::builders::GetObjectLockConfigurationInputBuilder {
-        crate::operation::get_object_lock_configuration::builders::GetObjectLockConfigurationInputBuilder::default()
+    pub fn builder() -> super::operation::get_object_lock_configuration::builders::GetObjectLockConfigurationInputBuilder {
+        super::operation::get_object_lock_configuration::builders::GetObjectLockConfigurationInputBuilder::default()
     }
 }
 
@@ -71,10 +71,10 @@ impl GetObjectLockConfigurationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_object_lock_configuration::GetObjectLockConfigurationInput,
+        super::operation::get_object_lock_configuration::GetObjectLockConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_object_lock_configuration::GetObjectLockConfigurationInput {
+        ::std::result::Result::Ok(super::operation::get_object_lock_configuration::GetObjectLockConfigurationInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

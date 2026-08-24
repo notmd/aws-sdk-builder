@@ -3,7 +3,7 @@ pub(crate) fn de_replica_auto_scaling_description<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::ReplicaAutoScalingDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::ReplicaAutoScalingDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::ReplicaAutoScalingDescriptionBuilder::default();
+            let mut builder = super::types::builders::ReplicaAutoScalingDescriptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -29,11 +29,11 @@ where
                             );
                         }
                         "GlobalSecondaryIndexes" => {
-                            builder = builder.set_global_secondary_indexes(crate::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description_list::de_replica_global_secondary_index_auto_scaling_description_list(tokens, _value, depth + 1)?);
+                            builder = builder.set_global_secondary_indexes(super::protocol_serde::shape_replica_global_secondary_index_auto_scaling_description_list::de_replica_global_secondary_index_auto_scaling_description_list(tokens, _value, depth + 1)?);
                         }
                         "ReplicaProvisionedReadCapacityAutoScalingSettings" => {
                             builder = builder.set_replica_provisioned_read_capacity_auto_scaling_settings(
-                                crate::protocol_serde::shape_auto_scaling_settings_description::de_auto_scaling_settings_description(
+                                super::protocol_serde::shape_auto_scaling_settings_description::de_auto_scaling_settings_description(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -42,7 +42,7 @@ where
                         }
                         "ReplicaProvisionedWriteCapacityAutoScalingSettings" => {
                             builder = builder.set_replica_provisioned_write_capacity_auto_scaling_settings(
-                                crate::protocol_serde::shape_auto_scaling_settings_description::de_auto_scaling_settings_description(
+                                super::protocol_serde::shape_auto_scaling_settings_description::de_auto_scaling_settings_description(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -52,7 +52,7 @@ where
                         "ReplicaStatus" => {
                             builder = builder.set_replica_status(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ReplicaStatus::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::ReplicaStatus::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

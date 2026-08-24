@@ -34,7 +34,7 @@ impl ::std::fmt::Display for S3FilesMountConnectivityException {
     }
 }
 impl ::std::error::Error for S3FilesMountConnectivityException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::S3FilesMountConnectivityException {
+impl ::aws_types::request_id::RequestId for super::types::error::S3FilesMountConnectivityException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for S3FilesMountC
 }
 impl S3FilesMountConnectivityException {
     /// Creates a new builder-style object to manufacture [`S3FilesMountConnectivityException`](crate::types::error::S3FilesMountConnectivityException).
-    pub fn builder() -> crate::types::error::builders::S3FilesMountConnectivityExceptionBuilder {
-        crate::types::error::builders::S3FilesMountConnectivityExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::S3FilesMountConnectivityExceptionBuilder {
+        super::types::error::builders::S3FilesMountConnectivityExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl S3FilesMountConnectivityExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`S3FilesMountConnectivityException`](crate::types::error::S3FilesMountConnectivityException).
-    pub fn build(self) -> crate::types::error::S3FilesMountConnectivityException {
-        crate::types::error::S3FilesMountConnectivityException {
+    pub fn build(self) -> super::types::error::S3FilesMountConnectivityException {
+        super::types::error::S3FilesMountConnectivityException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

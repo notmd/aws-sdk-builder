@@ -6,8 +6,8 @@
 pub struct ParquetInput {}
 impl ParquetInput {
     /// Creates a new builder-style object to manufacture [`ParquetInput`](crate::types::ParquetInput).
-    pub fn builder() -> crate::types::builders::ParquetInputBuilder {
-        crate::types::builders::ParquetInputBuilder::default()
+    pub fn builder() -> super::types::builders::ParquetInputBuilder {
+        super::types::builders::ParquetInputBuilder::default()
     }
 }
 
@@ -17,7 +17,7 @@ impl ParquetInput {
 pub struct ParquetInputBuilder {}
 impl ParquetInputBuilder {
     /// Consumes the builder and constructs a [`ParquetInput`](crate::types::ParquetInput).
-    pub fn build(self) -> crate::types::ParquetInput {
-        crate::types::ParquetInput {}
+    pub fn build(self) -> super::types::ParquetInput {
+        super::types::ParquetInput {}
     }
 }

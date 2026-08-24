@@ -4,27 +4,27 @@ pub fn de_put_object_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::put_object::PutObjectOutput, crate::operation::put_object::PutObjectError> {
+) -> std::result::Result<super::operation::put_object::PutObjectOutput, super::operation::put_object::PutObjectError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::put_object::PutObjectError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::put_object::PutObjectError::unhandled(generic)),
+        None => return Err(super::operation::put_object::PutObjectError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "EncryptionTypeMismatch" => crate::operation::put_object::PutObjectError::EncryptionTypeMismatch({
+        "EncryptionTypeMismatch" => super::operation::put_object::PutObjectError::EncryptionTypeMismatch({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::EncryptionTypeMismatchBuilder::default();
-                output = crate::protocol_serde::shape_encryption_type_mismatch::de_encryption_type_mismatch_xml_err(_response_body, output)
-                    .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
+                let mut output = super::types::error::builders::EncryptionTypeMismatchBuilder::default();
+                output = super::protocol_serde::shape_encryption_type_mismatch::de_encryption_type_mismatch_xml_err(_response_body, output)
+                    .map_err(super::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -33,13 +33,13 @@ pub fn de_put_object_http_error(
             }
             tmp
         }),
-        "InvalidRequest" => crate::operation::put_object::PutObjectError::InvalidRequest({
+        "InvalidRequest" => super::operation::put_object::PutObjectError::InvalidRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidRequestBuilder::default();
-                output = crate::protocol_serde::shape_invalid_request::de_invalid_request_xml_err(_response_body, output)
-                    .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidRequestBuilder::default();
+                output = super::protocol_serde::shape_invalid_request::de_invalid_request_xml_err(_response_body, output)
+                    .map_err(super::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -48,13 +48,13 @@ pub fn de_put_object_http_error(
             }
             tmp
         }),
-        "InvalidWriteOffset" => crate::operation::put_object::PutObjectError::InvalidWriteOffset({
+        "InvalidWriteOffset" => super::operation::put_object::PutObjectError::InvalidWriteOffset({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidWriteOffsetBuilder::default();
-                output = crate::protocol_serde::shape_invalid_write_offset::de_invalid_write_offset_xml_err(_response_body, output)
-                    .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidWriteOffsetBuilder::default();
+                output = super::protocol_serde::shape_invalid_write_offset::de_invalid_write_offset_xml_err(_response_body, output)
+                    .map_err(super::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63,13 +63,13 @@ pub fn de_put_object_http_error(
             }
             tmp
         }),
-        "TooManyParts" => crate::operation::put_object::PutObjectError::TooManyParts({
+        "TooManyParts" => super::operation::put_object::PutObjectError::TooManyParts({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyPartsBuilder::default();
-                output = crate::protocol_serde::shape_too_many_parts::de_too_many_parts_xml_err(_response_body, output)
-                    .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
+                let mut output = super::types::error::builders::TooManyPartsBuilder::default();
+                output = super::protocol_serde::shape_too_many_parts::de_too_many_parts_xml_err(_response_body, output)
+                    .map_err(super::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -78,7 +78,7 @@ pub fn de_put_object_http_error(
             }
             tmp
         }),
-        _ => crate::operation::put_object::PutObjectError::generic(generic),
+        _ => super::operation::put_object::PutObjectError::generic(generic),
     })
 }
 
@@ -87,136 +87,136 @@ pub fn de_put_object_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::put_object::PutObjectOutput, crate::operation::put_object::PutObjectError> {
+) -> std::result::Result<super::operation::put_object::PutObjectOutput, super::operation::put_object::PutObjectError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::put_object::builders::PutObjectOutputBuilder::default();
+        let mut output = super::operation::put_object::builders::PutObjectOutputBuilder::default();
         output = output.set_bucket_key_enabled(
-            crate::protocol_serde::shape_put_object_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled(
+            super::protocol_serde::shape_put_object_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled(
                     "Failed to parse BucketKeyEnabled from header `x-amz-server-side-encryption-bucket-key-enabled",
                 )
             })?,
         );
         output = output.set_checksum_crc32(
-            crate::protocol_serde::shape_put_object_output::de_checksum_crc32_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC32 from header `x-amz-checksum-crc32")
+            super::protocol_serde::shape_put_object_output::de_checksum_crc32_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC32 from header `x-amz-checksum-crc32")
             })?,
         );
         output = output.set_checksum_crc32_c(
-            crate::protocol_serde::shape_put_object_output::de_checksum_crc32_c_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC32C from header `x-amz-checksum-crc32c")
+            super::protocol_serde::shape_put_object_output::de_checksum_crc32_c_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC32C from header `x-amz-checksum-crc32c")
             })?,
         );
         output = output.set_checksum_crc64_nvme(
-            crate::protocol_serde::shape_put_object_output::de_checksum_crc64_nvme_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme")
+            super::protocol_serde::shape_put_object_output::de_checksum_crc64_nvme_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme")
             })?,
         );
         output = output.set_checksum_md5(
-            crate::protocol_serde::shape_put_object_output::de_checksum_md5_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumMD5 from header `x-amz-checksum-md5")
+            super::protocol_serde::shape_put_object_output::de_checksum_md5_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumMD5 from header `x-amz-checksum-md5")
             })?,
         );
         output = output.set_checksum_sha1(
-            crate::protocol_serde::shape_put_object_output::de_checksum_sha1_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumSHA1 from header `x-amz-checksum-sha1")
+            super::protocol_serde::shape_put_object_output::de_checksum_sha1_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumSHA1 from header `x-amz-checksum-sha1")
             })?,
         );
         output = output.set_checksum_sha256(
-            crate::protocol_serde::shape_put_object_output::de_checksum_sha256_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumSHA256 from header `x-amz-checksum-sha256")
+            super::protocol_serde::shape_put_object_output::de_checksum_sha256_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumSHA256 from header `x-amz-checksum-sha256")
             })?,
         );
         output = output.set_checksum_sha512(
-            crate::protocol_serde::shape_put_object_output::de_checksum_sha512_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumSHA512 from header `x-amz-checksum-sha512")
+            super::protocol_serde::shape_put_object_output::de_checksum_sha512_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumSHA512 from header `x-amz-checksum-sha512")
             })?,
         );
         output = output.set_checksum_type(
-            crate::protocol_serde::shape_put_object_output::de_checksum_type_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumType from header `x-amz-checksum-type")
+            super::protocol_serde::shape_put_object_output::de_checksum_type_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumType from header `x-amz-checksum-type")
             })?,
         );
         output = output.set_checksum_xxhash128(
-            crate::protocol_serde::shape_put_object_output::de_checksum_xxhash128_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128")
+            super::protocol_serde::shape_put_object_output::de_checksum_xxhash128_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128")
             })?,
         );
         output = output.set_checksum_xxhash3(
-            crate::protocol_serde::shape_put_object_output::de_checksum_xxhash3_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3")
+            super::protocol_serde::shape_put_object_output::de_checksum_xxhash3_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3")
             })?,
         );
         output = output.set_checksum_xxhash64(
-            crate::protocol_serde::shape_put_object_output::de_checksum_xxhash64_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64")
+            super::protocol_serde::shape_put_object_output::de_checksum_xxhash64_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64")
             })?,
         );
         output = output.set_e_tag(
-            crate::protocol_serde::shape_put_object_output::de_e_tag_header(_response_headers)
-                .map_err(|_| crate::operation::put_object::PutObjectError::unhandled("Failed to parse ETag from header `ETag"))?,
+            super::protocol_serde::shape_put_object_output::de_e_tag_header(_response_headers)
+                .map_err(|_| super::operation::put_object::PutObjectError::unhandled("Failed to parse ETag from header `ETag"))?,
         );
         output = output.set_expiration(
-            crate::protocol_serde::shape_put_object_output::de_expiration_header(_response_headers)
-                .map_err(|_| crate::operation::put_object::PutObjectError::unhandled("Failed to parse Expiration from header `x-amz-expiration"))?,
+            super::protocol_serde::shape_put_object_output::de_expiration_header(_response_headers)
+                .map_err(|_| super::operation::put_object::PutObjectError::unhandled("Failed to parse Expiration from header `x-amz-expiration"))?,
         );
         output = output.set_request_charged(
-            crate::protocol_serde::shape_put_object_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
+            super::protocol_serde::shape_put_object_output::de_request_charged_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
             })?,
         );
         output = output.set_sse_customer_algorithm(
-            crate::protocol_serde::shape_put_object_output::de_sse_customer_algorithm_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled(
+            super::protocol_serde::shape_put_object_output::de_sse_customer_algorithm_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled(
                     "Failed to parse SSECustomerAlgorithm from header `x-amz-server-side-encryption-customer-algorithm",
                 )
             })?,
         );
         output = output.set_sse_customer_key_md5(
-            crate::protocol_serde::shape_put_object_output::de_sse_customer_key_md5_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled(
+            super::protocol_serde::shape_put_object_output::de_sse_customer_key_md5_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled(
                     "Failed to parse SSECustomerKeyMD5 from header `x-amz-server-side-encryption-customer-key-MD5",
                 )
             })?,
         );
         output = output.set_ssekms_encryption_context(
-            crate::protocol_serde::shape_put_object_output::de_ssekms_encryption_context_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled(
+            super::protocol_serde::shape_put_object_output::de_ssekms_encryption_context_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled(
                     "Failed to parse SSEKMSEncryptionContext from header `x-amz-server-side-encryption-context",
                 )
             })?,
         );
         output = output.set_ssekms_key_id(
-            crate::protocol_serde::shape_put_object_output::de_ssekms_key_id_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled(
+            super::protocol_serde::shape_put_object_output::de_ssekms_key_id_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled(
                     "Failed to parse SSEKMSKeyId from header `x-amz-server-side-encryption-aws-kms-key-id",
                 )
             })?,
         );
         output = output.set_server_side_encryption(
-            crate::protocol_serde::shape_put_object_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled(
+            super::protocol_serde::shape_put_object_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
+                super::operation::put_object::PutObjectError::unhandled(
                     "Failed to parse ServerSideEncryption from header `x-amz-server-side-encryption",
                 )
             })?,
         );
         output = output.set_size(
-            crate::protocol_serde::shape_put_object_output::de_size_header(_response_headers)
-                .map_err(|_| crate::operation::put_object::PutObjectError::unhandled("Failed to parse Size from header `x-amz-object-size"))?,
+            super::protocol_serde::shape_put_object_output::de_size_header(_response_headers)
+                .map_err(|_| super::operation::put_object::PutObjectError::unhandled("Failed to parse Size from header `x-amz-object-size"))?,
         );
         output = output.set_version_id(
-            crate::protocol_serde::shape_put_object_output::de_version_id_header(_response_headers)
-                .map_err(|_| crate::operation::put_object::PutObjectError::unhandled("Failed to parse VersionId from header `x-amz-version-id"))?,
+            super::protocol_serde::shape_put_object_output::de_version_id_header(_response_headers)
+                .map_err(|_| super::operation::put_object::PutObjectError::unhandled("Failed to parse VersionId from header `x-amz-version-id"))?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_object_headers(
-    input: &crate::operation::put_object::PutObjectInput,
+    input: &super::operation::put_object::PutObjectInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.acl {

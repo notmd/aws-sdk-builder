@@ -10,11 +10,11 @@ impl GetObjectAnnotation {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::get_object_annotation::GetObjectAnnotationInput,
+        input: super::operation::get_object_annotation::GetObjectAnnotationInput,
     ) -> ::std::result::Result<
-        crate::operation::get_object_annotation::GetObjectAnnotationOutput,
+        super::operation::get_object_annotation::GetObjectAnnotationOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_object_annotation::GetObjectAnnotationError,
+            super::operation::get_object_annotation::GetObjectAnnotationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl GetObjectAnnotation {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::get_object_annotation::GetObjectAnnotationError>()
+                err.downcast::<super::operation::get_object_annotation::GetObjectAnnotationError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl GetObjectAnnotation {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::get_object_annotation::GetObjectAnnotationOutput>()
+                .downcast::<super::operation::get_object_annotation::GetObjectAnnotationOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::get_object_annotation::GetObjectAnnotationInput,
+        input: super::operation::get_object_annotation::GetObjectAnnotationInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl GetObjectAnnotation {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl GetObjectAnnotation {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("GetObjectAnnotation")
                 .build()
                 .expect("required fields set"),
@@ -126,16 +126,16 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetObjectAnnotationTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetObjectAnnotationEndpointParamsInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(crate::http_response_checksum::ResponseChecksumInterceptor::new(
+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(super::http_response_checksum::ResponseChecksumInterceptor::new(
                                 ["crc64nvme", "crc32", "crc32c", "sha256", "sha1", "sha512", "md5", "xxhash64", "xxhash3", "xxhash128"].as_slice(),
                                 |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
 
-                                    let input: &crate::operation::get_object_annotation::GetObjectAnnotationInput = input.downcast_ref().expect("correct type");
+                                    let input: &super::operation::get_object_annotation::GetObjectAnnotationInput = input.downcast_ref().expect("correct type");
                                     matches!(input.checksum_mode(), ::std::option::Option::Some(crate::types::ChecksumMode::Enabled))
                                 },
                                 |input: &mut ::aws_smithy_runtime_api::client::interceptors::context::Input, cfg: &::aws_smithy_types::config_bag::ConfigBag|  {
                                     let input = input
-                                        .downcast_mut::<crate::operation::get_object_annotation::GetObjectAnnotationInput>()
+                                        .downcast_mut::<super::operation::get_object_annotation::GetObjectAnnotationInput>()
                                         .ok_or("failed to downcast to crate::operation::get_object_annotation::GetObjectAnnotationInput")?;
 
                                     let request_validation_enabled =
@@ -147,7 +147,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
                                             .load::<::aws_smithy_types::checksum_config::ResponseChecksumValidation>()
                                             .unwrap_or(&::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenSupported);
 
-                                        let is_presigned_req = cfg.load::<crate::presigning::PresigningMarker>().is_some();
+                                        let is_presigned_req = cfg.load::<super::presigning::PresigningMarker>().is_some();
 
                                         // For presigned requests we do not enable the checksum-mode header.
                                         if is_presigned_req {
@@ -161,7 +161,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
                                         match response_checksum_validation {
                                             ::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenRequired => {}
                                             ::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenSupported | _ => {
-                                                input.checksum_mode = Some(crate::types::ChecksumMode::Enabled);
+                                                input.checksum_mode = Some(super::types::ChecksumMode::Enabled);
                                             }
                                         }
                                     }
@@ -169,9 +169,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
                                     ::std::result::Result::Ok(())
                                 }
                             )))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_object_annotation::GetObjectAnnotationError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_object_annotation::GetObjectAnnotationError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_object_annotation::GetObjectAnnotationError>::builder().transient_errors({
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::get_object_annotation::GetObjectAnnotationError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::get_object_annotation::GetObjectAnnotationError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::get_object_annotation::GetObjectAnnotationError>::builder().transient_errors({
                                             let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                             transient_errors.push("InternalError");
                                             ::std::borrow::Cow::Owned(transient_errors)
@@ -260,8 +260,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetObject
         if (!response.status().is_success() && response.status().as_u16() != 200) || force_error {
             return ::std::option::Option::None;
         }
-        ::std::option::Option::Some(crate::protocol_serde::type_erase_result(
-            crate::protocol_serde::shape_get_object_annotation::de_get_object_annotation_http_response(response),
+        ::std::option::Option::Some(super::protocol_serde::type_erase_result(
+            super::protocol_serde::shape_get_object_annotation::de_get_object_annotation_http_response(response),
         ))
     }
 
@@ -272,7 +272,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetObject
     ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
         // For streaming operations, we only hit this case if its an error
         let body = response.body().bytes().expect("body loaded");
-        crate::protocol_serde::type_erase_result(crate::protocol_serde::shape_get_object_annotation::de_get_object_annotation_http_error(
+        super::protocol_serde::type_erase_result(super::protocol_serde::shape_get_object_annotation::de_get_object_annotation_http_error(
             response.status().as_u16(),
             response.headers(),
             body,
@@ -289,16 +289,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectAnn
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::get_object_annotation::GetObjectAnnotationInput>()
+            .downcast::<super::operation::get_object_annotation::GetObjectAnnotationInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::get_object_annotation::GetObjectAnnotationInput,
+                _input: &super::operation::get_object_annotation::GetObjectAnnotationInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -317,7 +317,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectAnn
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
-                _input: &crate::operation::get_object_annotation::GetObjectAnnotationInput,
+                _input: &super::operation::get_object_annotation::GetObjectAnnotationInput,
                 mut output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
@@ -343,13 +343,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectAnn
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::get_object_annotation::GetObjectAnnotationInput,
+                input: &super::operation::get_object_annotation::GetObjectAnnotationInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_get_object_annotation::ser_get_object_annotation_headers(input, builder)?;
+                let builder = super::protocol_serde::shape_get_object_annotation::ser_get_object_annotation_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -384,16 +384,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetObjectAnno
             .downcast_ref::<GetObjectAnnotationInput>()
             .ok_or("failed to downcast to GetObjectAnnotationInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
-            .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
-            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
-            .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
-            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
+            .set_force_path_style(cfg.load::<super::config::ForcePathStyle>().map(|ty| ty.0))
+            .set_use_arn_region(cfg.load::<super::config::UseArnRegion>().map(|ty| ty.0))
+            .set_disable_multi_region_access_points(cfg.load::<super::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
+            .set_accelerate(cfg.load::<super::config::Accelerate>().map(|ty| ty.0))
+            .set_disable_s3_express_session_auth(cfg.load::<super::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
             .set_bucket(Some(
                 _input
                     .bucket
@@ -426,11 +426,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetObjectAnno
 #[derive(::std::fmt::Debug)]
 pub enum GetObjectAnnotationError {
     /// <p>The specified annotation does not exist on this object.</p>
-    NoSuchAnnotation(crate::types::error::NoSuchAnnotation),
+    NoSuchAnnotation(super::types::error::NoSuchAnnotation),
     /// <p>The specified bucket does not exist.</p>
-    NoSuchBucket(crate::types::error::NoSuchBucket),
+    NoSuchBucket(super::types::error::NoSuchBucket),
     /// <p>The specified key does not exist.</p>
-    NoSuchKey(crate::types::error::NoSuchKey),
+    NoSuchKey(super::types::error::NoSuchKey),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -438,14 +438,14 @@ pub enum GetObjectAnnotationError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetObjectAnnotationError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl GetObjectAnnotationError {
     /// Creates the `GetObjectAnnotationError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -453,7 +453,7 @@ impl GetObjectAnnotationError {
 
     /// Creates the `GetObjectAnnotationError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -532,26 +532,26 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetObjec
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::get_object_annotation::GetObjectAnnotationError {
+impl super::s3_request_id::RequestIdExt for super::operation::get_object_annotation::GetObjectAnnotationError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::get_object_annotation::GetObjectAnnotationError {
+impl ::aws_types::request_id::RequestId for super::operation::get_object_annotation::GetObjectAnnotationError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::get_object_annotation::_get_object_annotation_input::GetObjectAnnotationInput;
+pub use super::operation::get_object_annotation::_get_object_annotation_input::GetObjectAnnotationInput;
 
-pub use crate::operation::get_object_annotation::_get_object_annotation_output::GetObjectAnnotationOutput;
+pub use super::operation::get_object_annotation::_get_object_annotation_output::GetObjectAnnotationOutput;
 
 mod _get_object_annotation_input;
 

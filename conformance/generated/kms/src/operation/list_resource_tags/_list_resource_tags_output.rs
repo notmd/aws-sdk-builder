@@ -6,7 +6,7 @@ pub struct ListResourceTagsOutput {
     /// <p>A list of tags. Each tag consists of a tag key and a tag value.</p><note>
     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// </note>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
     /// <p>Do not assume or infer any information from this value.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
@@ -20,7 +20,7 @@ impl ListResourceTagsOutput {
     /// </note>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
@@ -40,8 +40,8 @@ impl ::aws_types::request_id::RequestId for ListResourceTagsOutput {
 }
 impl ListResourceTagsOutput {
     /// Creates a new builder-style object to manufacture [`ListResourceTagsOutput`](crate::operation::list_resource_tags::ListResourceTagsOutput).
-    pub fn builder() -> crate::operation::list_resource_tags::builders::ListResourceTagsOutputBuilder {
-        crate::operation::list_resource_tags::builders::ListResourceTagsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_resource_tags::builders::ListResourceTagsOutputBuilder {
+        super::operation::list_resource_tags::builders::ListResourceTagsOutputBuilder::default()
     }
 }
 
@@ -49,7 +49,7 @@ impl ListResourceTagsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListResourceTagsOutputBuilder {
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     pub(crate) truncated: ::std::option::Option<bool>,
     _request_id: Option<String>,
@@ -62,7 +62,7 @@ impl ListResourceTagsOutputBuilder {
     /// <p>A list of tags. Each tag consists of a tag key and a tag value.</p><note>
     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// </note>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
@@ -71,14 +71,14 @@ impl ListResourceTagsOutputBuilder {
     /// <p>A list of tags. Each tag consists of a tag key and a tag value.</p><note>
     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// </note>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of tags. Each tag consists of a tag key and a tag value.</p><note>
     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// </note>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
@@ -122,8 +122,8 @@ impl ListResourceTagsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListResourceTagsOutput`](crate::operation::list_resource_tags::ListResourceTagsOutput).
-    pub fn build(self) -> crate::operation::list_resource_tags::ListResourceTagsOutput {
-        crate::operation::list_resource_tags::ListResourceTagsOutput {
+    pub fn build(self) -> super::operation::list_resource_tags::ListResourceTagsOutput {
+        super::operation::list_resource_tags::ListResourceTagsOutput {
             tags: self.tags,
             next_marker: self.next_marker,
             truncated: self.truncated.unwrap_or_default(),

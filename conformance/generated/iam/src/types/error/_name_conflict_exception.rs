@@ -26,7 +26,7 @@ impl ::std::fmt::Display for NameConflictException {
     }
 }
 impl ::std::error::Error for NameConflictException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::NameConflictException {
+impl ::aws_types::request_id::RequestId for super::types::error::NameConflictException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for NameConflictE
 }
 impl NameConflictException {
     /// Creates a new builder-style object to manufacture [`NameConflictException`](crate::types::error::NameConflictException).
-    pub fn builder() -> crate::types::error::builders::NameConflictExceptionBuilder {
-        crate::types::error::builders::NameConflictExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::NameConflictExceptionBuilder {
+        super::types::error::builders::NameConflictExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl NameConflictExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`NameConflictException`](crate::types::error::NameConflictException).
-    pub fn build(self) -> crate::types::error::NameConflictException {
-        crate::types::error::NameConflictException {
+    pub fn build(self) -> super::types::error::NameConflictException {
+        super::types::error::NameConflictException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -4,27 +4,27 @@ pub fn de_list_objects_v2_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::list_objects_v2::ListObjectsV2Output, crate::operation::list_objects_v2::ListObjectsV2Error> {
+) -> std::result::Result<super::operation::list_objects_v2::ListObjectsV2Output, super::operation::list_objects_v2::ListObjectsV2Error> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_objects_v2::ListObjectsV2Error::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::list_objects_v2::ListObjectsV2Error::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::list_objects_v2::ListObjectsV2Error::unhandled(generic)),
+        None => return Err(super::operation::list_objects_v2::ListObjectsV2Error::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchBucket" => crate::operation::list_objects_v2::ListObjectsV2Error::NoSuchBucket({
+        "NoSuchBucket" => super::operation::list_objects_v2::ListObjectsV2Error::NoSuchBucket({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NoSuchBucketBuilder::default();
-                output = crate::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(_response_body, output)
-                    .map_err(crate::operation::list_objects_v2::ListObjectsV2Error::unhandled)?;
+                let mut output = super::types::error::builders::NoSuchBucketBuilder::default();
+                output = super::protocol_serde::shape_no_such_bucket::de_no_such_bucket_xml_err(_response_body, output)
+                    .map_err(super::operation::list_objects_v2::ListObjectsV2Error::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -33,7 +33,7 @@ pub fn de_list_objects_v2_http_error(
             }
             tmp
         }),
-        _ => crate::operation::list_objects_v2::ListObjectsV2Error::generic(generic),
+        _ => super::operation::list_objects_v2::ListObjectsV2Error::generic(generic),
     })
 }
 
@@ -42,25 +42,25 @@ pub fn de_list_objects_v2_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::list_objects_v2::ListObjectsV2Output, crate::operation::list_objects_v2::ListObjectsV2Error> {
+) -> std::result::Result<super::operation::list_objects_v2::ListObjectsV2Output, super::operation::list_objects_v2::ListObjectsV2Error> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::list_objects_v2::builders::ListObjectsV2OutputBuilder::default();
-        output = crate::protocol_serde::shape_list_objects_v2::de_list_objects_v2(_response_body, output)
-            .map_err(crate::operation::list_objects_v2::ListObjectsV2Error::unhandled)?;
+        let mut output = super::operation::list_objects_v2::builders::ListObjectsV2OutputBuilder::default();
+        output = super::protocol_serde::shape_list_objects_v2::de_list_objects_v2(_response_body, output)
+            .map_err(super::operation::list_objects_v2::ListObjectsV2Error::unhandled)?;
         output = output.set_request_charged(
-            crate::protocol_serde::shape_list_objects_v2_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::list_objects_v2::ListObjectsV2Error::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
+            super::protocol_serde::shape_list_objects_v2_output::de_request_charged_header(_response_headers).map_err(|_| {
+                super::operation::list_objects_v2::ListObjectsV2Error::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_list_objects_v2_headers(
-    input: &crate::operation::list_objects_v2::ListObjectsV2Input,
+    input: &super::operation::list_objects_v2::ListObjectsV2Input,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.request_payer {
@@ -109,8 +109,8 @@ pub fn ser_list_objects_v2_headers(
 #[allow(unused_mut)]
 pub fn de_list_objects_v2(
     inp: &[u8],
-    mut builder: crate::operation::list_objects_v2::builders::ListObjectsV2OutputBuilder,
-) -> std::result::Result<crate::operation::list_objects_v2::builders::ListObjectsV2OutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    mut builder: super::operation::list_objects_v2::builders::ListObjectsV2OutputBuilder,
+) -> std::result::Result<super::operation::list_objects_v2::builders::ListObjectsV2OutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -129,10 +129,10 @@ pub fn de_list_objects_v2(
             s if s.matches("CommonPrefixes") /* CommonPrefixes com.amazonaws.s3.synthetic#ListObjectsV2Output$CommonPrefixes */ =>  {
                 let var_8 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::CommonPrefix>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::CommonPrefix>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_9 = builder.common_prefixes.take().unwrap_or_default();
                             list_9.push(
-                                crate::protocol_serde::shape_common_prefix::de_common_prefix(&mut tag, depth + 1)
+                                super::protocol_serde::shape_common_prefix::de_common_prefix(&mut tag, depth + 1)
                                 ?
                             );
                             list_9
@@ -185,8 +185,8 @@ pub fn de_list_objects_v2(
             s if s.matches("EncodingType") /* EncodingType com.amazonaws.s3.synthetic#ListObjectsV2Output$EncodingType */ =>  {
                 let var_13 =
                     Some(
-                        Result::<crate::types::EncodingType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::EncodingType::from(
+                        Result::<super::types::EncodingType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::EncodingType::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -240,10 +240,10 @@ pub fn de_list_objects_v2(
             s if s.matches("Contents") /* Contents com.amazonaws.s3.synthetic#ListObjectsV2Output$Contents */ =>  {
                 let var_17 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::Object>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::Object>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_18 = builder.contents.take().unwrap_or_default();
                             list_18.push(
-                                crate::protocol_serde::shape_object::de_object(&mut tag, depth + 1)
+                                super::protocol_serde::shape_object::de_object(&mut tag, depth + 1)
                                 ?
                             );
                             list_18

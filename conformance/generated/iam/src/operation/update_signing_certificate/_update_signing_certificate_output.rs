@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateSigningCertificateOutput {
 }
 impl UpdateSigningCertificateOutput {
     /// Creates a new builder-style object to manufacture [`UpdateSigningCertificateOutput`](crate::operation::update_signing_certificate::UpdateSigningCertificateOutput).
-    pub fn builder() -> crate::operation::update_signing_certificate::builders::UpdateSigningCertificateOutputBuilder {
-        crate::operation::update_signing_certificate::builders::UpdateSigningCertificateOutputBuilder::default()
+    pub fn builder() -> super::operation::update_signing_certificate::builders::UpdateSigningCertificateOutputBuilder {
+        super::operation::update_signing_certificate::builders::UpdateSigningCertificateOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateSigningCertificateOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateSigningCertificateOutput`](crate::operation::update_signing_certificate::UpdateSigningCertificateOutput).
-    pub fn build(self) -> crate::operation::update_signing_certificate::UpdateSigningCertificateOutput {
-        crate::operation::update_signing_certificate::UpdateSigningCertificateOutput {
+    pub fn build(self) -> super::operation::update_signing_certificate::UpdateSigningCertificateOutput {
+        super::operation::update_signing_certificate::UpdateSigningCertificateOutput {
             _request_id: self._request_id,
         }
     }

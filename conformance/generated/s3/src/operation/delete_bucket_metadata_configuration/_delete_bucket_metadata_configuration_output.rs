@@ -6,7 +6,7 @@ pub struct DeleteBucketMetadataConfigurationOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for DeleteBucketMetadataConfigurationOutput {
+impl super::s3_request_id::RequestIdExt for DeleteBucketMetadataConfigurationOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for DeleteBucketMetadataConfigurationOut
 }
 impl DeleteBucketMetadataConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketMetadataConfigurationOutput`](crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput).
-    pub fn builder() -> crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationOutputBuilder {
-        crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationOutputBuilder {
+        super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl DeleteBucketMetadataConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketMetadataConfigurationOutput`](crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput {
-        crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput {
+    pub fn build(self) -> super::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput {
+        super::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

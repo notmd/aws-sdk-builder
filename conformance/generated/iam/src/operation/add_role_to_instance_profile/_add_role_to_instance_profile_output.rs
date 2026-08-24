@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for AddRoleToInstanceProfileOutput {
 }
 impl AddRoleToInstanceProfileOutput {
     /// Creates a new builder-style object to manufacture [`AddRoleToInstanceProfileOutput`](crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput).
-    pub fn builder() -> crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileOutputBuilder {
-        crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileOutputBuilder::default()
+    pub fn builder() -> super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileOutputBuilder {
+        super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl AddRoleToInstanceProfileOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AddRoleToInstanceProfileOutput`](crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput).
-    pub fn build(self) -> crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput {
-        crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput {
+    pub fn build(self) -> super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput {
+        super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput {
             _request_id: self._request_id,
         }
     }

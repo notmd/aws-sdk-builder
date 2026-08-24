@@ -4,7 +4,7 @@ pub(crate) fn de_delete_message_batch_result_entry_list<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>>,
+    Option<::std::vec::Vec<super::types::DeleteMessageBatchResultEntry>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -26,7 +26,7 @@ where
                         break;
                     }
                     _ => {
-                        let value = crate::protocol_serde::shape_delete_message_batch_result_entry::de_delete_message_batch_result_entry(
+                        let value = super::protocol_serde::shape_delete_message_batch_result_entry::de_delete_message_batch_result_entry(
                             tokens,
                             _value,
                             depth + 1,

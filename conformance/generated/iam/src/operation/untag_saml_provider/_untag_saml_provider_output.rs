@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UntagSamlProviderOutput {
 }
 impl UntagSamlProviderOutput {
     /// Creates a new builder-style object to manufacture [`UntagSamlProviderOutput`](crate::operation::untag_saml_provider::UntagSamlProviderOutput).
-    pub fn builder() -> crate::operation::untag_saml_provider::builders::UntagSamlProviderOutputBuilder {
-        crate::operation::untag_saml_provider::builders::UntagSamlProviderOutputBuilder::default()
+    pub fn builder() -> super::operation::untag_saml_provider::builders::UntagSamlProviderOutputBuilder {
+        super::operation::untag_saml_provider::builders::UntagSamlProviderOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UntagSamlProviderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UntagSamlProviderOutput`](crate::operation::untag_saml_provider::UntagSamlProviderOutput).
-    pub fn build(self) -> crate::operation::untag_saml_provider::UntagSamlProviderOutput {
-        crate::operation::untag_saml_provider::UntagSamlProviderOutput {
+    pub fn build(self) -> super::operation::untag_saml_provider::UntagSamlProviderOutput {
+        super::operation::untag_saml_provider::UntagSamlProviderOutput {
             _request_id: self._request_id,
         }
     }

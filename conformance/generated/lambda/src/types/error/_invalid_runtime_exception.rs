@@ -34,7 +34,7 @@ impl ::std::fmt::Display for InvalidRuntimeException {
     }
 }
 impl ::std::error::Error for InvalidRuntimeException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidRuntimeException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidRuntimeException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidRuntim
 }
 impl InvalidRuntimeException {
     /// Creates a new builder-style object to manufacture [`InvalidRuntimeException`](crate::types::error::InvalidRuntimeException).
-    pub fn builder() -> crate::types::error::builders::InvalidRuntimeExceptionBuilder {
-        crate::types::error::builders::InvalidRuntimeExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidRuntimeExceptionBuilder {
+        super::types::error::builders::InvalidRuntimeExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl InvalidRuntimeExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidRuntimeException`](crate::types::error::InvalidRuntimeException).
-    pub fn build(self) -> crate::types::error::InvalidRuntimeException {
-        crate::types::error::InvalidRuntimeException {
+    pub fn build(self) -> super::types::error::InvalidRuntimeException {
+        super::types::error::InvalidRuntimeException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

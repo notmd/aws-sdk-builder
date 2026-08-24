@@ -17,8 +17,8 @@ impl ReplicationTimeValue {
 }
 impl ReplicationTimeValue {
     /// Creates a new builder-style object to manufacture [`ReplicationTimeValue`](crate::types::ReplicationTimeValue).
-    pub fn builder() -> crate::types::builders::ReplicationTimeValueBuilder {
-        crate::types::builders::ReplicationTimeValueBuilder::default()
+    pub fn builder() -> super::types::builders::ReplicationTimeValueBuilder {
+        super::types::builders::ReplicationTimeValueBuilder::default()
     }
 }
 
@@ -47,7 +47,7 @@ impl ReplicationTimeValueBuilder {
         &self.minutes
     }
     /// Consumes the builder and constructs a [`ReplicationTimeValue`](crate::types::ReplicationTimeValue).
-    pub fn build(self) -> crate::types::ReplicationTimeValue {
-        crate::types::ReplicationTimeValue { minutes: self.minutes }
+    pub fn build(self) -> super::types::ReplicationTimeValue {
+        super::types::ReplicationTimeValue { minutes: self.minutes }
     }
 }

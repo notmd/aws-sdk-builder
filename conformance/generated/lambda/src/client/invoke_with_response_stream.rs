@@ -16,7 +16,7 @@ impl super::Client {
     ///   - [`event_stream(EventReceiver<InvokeWithResponseStreamResponseEvent, InvokeWithResponseStreamResponseEventError>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::event_stream): <p>The stream of response payloads.</p>
     ///   - [`response_stream_content_type(Option<String>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::response_stream_content_type): <p>The type of data the stream is returning.</p>
     /// - On failure, responds with [`SdkError<InvokeWithResponseStreamError>`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError)
-    pub fn invoke_with_response_stream(&self) -> crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder {
-        crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::new(self.handle.clone())
+    pub fn invoke_with_response_stream(&self) -> super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder {
+        super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::new(self.handle.clone())
     }
 }

@@ -30,8 +30,8 @@ impl ListRoleTagsInput {
 }
 impl ListRoleTagsInput {
     /// Creates a new builder-style object to manufacture [`ListRoleTagsInput`](crate::operation::list_role_tags::ListRoleTagsInput).
-    pub fn builder() -> crate::operation::list_role_tags::builders::ListRoleTagsInputBuilder {
-        crate::operation::list_role_tags::builders::ListRoleTagsInputBuilder::default()
+    pub fn builder() -> super::operation::list_role_tags::builders::ListRoleTagsInputBuilder {
+        super::operation::list_role_tags::builders::ListRoleTagsInputBuilder::default()
     }
 }
 
@@ -96,8 +96,8 @@ impl ListRoleTagsInputBuilder {
     /// Consumes the builder and constructs a [`ListRoleTagsInput`](crate::operation::list_role_tags::ListRoleTagsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_role_tags::ListRoleTagsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_role_tags::ListRoleTagsInput {
+    ) -> ::std::result::Result<super::operation::list_role_tags::ListRoleTagsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_role_tags::ListRoleTagsInput {
             role_name: self.role_name,
             marker: self.marker,
             max_items: self.max_items,

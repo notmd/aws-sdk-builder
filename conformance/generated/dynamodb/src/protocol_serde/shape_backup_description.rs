@@ -3,7 +3,7 @@ pub(crate) fn de_backup_description<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::BackupDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::BackupDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,14 +16,14 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::BackupDescriptionBuilder::default();
+            let mut builder = super::types::builders::BackupDescriptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         match key.to_unescaped()?.as_ref() {
                             "BackupDetails" => {
-                                builder = builder.set_backup_details(crate::protocol_serde::shape_backup_details::de_backup_details(
+                                builder = builder.set_backup_details(super::protocol_serde::shape_backup_details::de_backup_details(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -31,12 +31,12 @@ where
                             }
                             "SourceTableDetails" => {
                                 builder = builder.set_source_table_details(
-                                    crate::protocol_serde::shape_source_table_details::de_source_table_details(tokens, _value, depth + 1)?,
+                                    super::protocol_serde::shape_source_table_details::de_source_table_details(tokens, _value, depth + 1)?,
                                 );
                             }
                             "SourceTableFeatureDetails" => {
                                 builder = builder.set_source_table_feature_details(
-                                    crate::protocol_serde::shape_source_table_feature_details::de_source_table_feature_details(
+                                    super::protocol_serde::shape_source_table_feature_details::de_source_table_feature_details(
                                         tokens,
                                         _value,
                                         depth + 1,

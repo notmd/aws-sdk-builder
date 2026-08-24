@@ -5,16 +5,16 @@ pub fn de_delete_bucket_replication_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput,
-    crate::operation::delete_bucket_replication::DeleteBucketReplicationError,
+    super::operation::delete_bucket_replication::DeleteBucketReplicationOutput,
+    super::operation::delete_bucket_replication::DeleteBucketReplicationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::delete_bucket_replication::DeleteBucketReplicationError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::delete_bucket_replication::DeleteBucketReplicationError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::delete_bucket_replication::DeleteBucketReplicationError::generic(
+    Err(super::operation::delete_bucket_replication::DeleteBucketReplicationError::generic(
         generic,
     ))
 }
@@ -25,20 +25,20 @@ pub fn de_delete_bucket_replication_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::delete_bucket_replication::DeleteBucketReplicationOutput,
-    crate::operation::delete_bucket_replication::DeleteBucketReplicationError,
+    super::operation::delete_bucket_replication::DeleteBucketReplicationOutput,
+    super::operation::delete_bucket_replication::DeleteBucketReplicationError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationOutputBuilder::default();
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        let mut output = super::operation::delete_bucket_replication::builders::DeleteBucketReplicationOutputBuilder::default();
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_delete_bucket_replication_headers(
-    input: &crate::operation::delete_bucket_replication::DeleteBucketReplicationInput,
+    input: &super::operation::delete_bucket_replication::DeleteBucketReplicationInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {

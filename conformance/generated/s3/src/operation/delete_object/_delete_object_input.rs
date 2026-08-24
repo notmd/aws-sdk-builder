@@ -23,7 +23,7 @@ pub struct DeleteObjectInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
     /// <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation. To use this header, you must have the <code>s3:BypassGovernanceRetention</code> permission.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -74,7 +74,7 @@ impl DeleteObjectInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
         self.request_payer.as_ref()
     }
     /// <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation. To use this header, you must have the <code>s3:BypassGovernanceRetention</code> permission.</p><note>
@@ -110,8 +110,8 @@ impl DeleteObjectInput {
 }
 impl DeleteObjectInput {
     /// Creates a new builder-style object to manufacture [`DeleteObjectInput`](crate::operation::delete_object::DeleteObjectInput).
-    pub fn builder() -> crate::operation::delete_object::builders::DeleteObjectInputBuilder {
-        crate::operation::delete_object::builders::DeleteObjectInputBuilder::default()
+    pub fn builder() -> super::operation::delete_object::builders::DeleteObjectInputBuilder {
+        super::operation::delete_object::builders::DeleteObjectInputBuilder::default()
     }
 }
 
@@ -123,7 +123,7 @@ pub struct DeleteObjectInputBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
     pub(crate) mfa: ::std::option::Option<::std::string::String>,
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
-    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
     pub(crate) bypass_governance_retention: ::std::option::Option<bool>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
     pub(crate) if_match: ::std::option::Option<::std::string::String>,
@@ -219,21 +219,21 @@ impl DeleteObjectInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
         &self.request_payer
     }
     /// <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation. To use this header, you must have the <code>s3:BypassGovernanceRetention</code> permission.</p><note>
@@ -339,8 +339,8 @@ impl DeleteObjectInputBuilder {
     /// Consumes the builder and constructs a [`DeleteObjectInput`](crate::operation::delete_object::DeleteObjectInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_object::DeleteObjectInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_object::DeleteObjectInput {
+    ) -> ::std::result::Result<super::operation::delete_object::DeleteObjectInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::delete_object::DeleteObjectInput {
             bucket: self.bucket,
             key: self.key,
             mfa: self.mfa,

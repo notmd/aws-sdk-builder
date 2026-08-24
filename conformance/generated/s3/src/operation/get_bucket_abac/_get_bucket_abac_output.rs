@@ -4,17 +4,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBucketAbacOutput {
     /// <p>The ABAC status of the general purpose bucket.</p>
-    pub abac_status: ::std::option::Option<crate::types::AbacStatus>,
+    pub abac_status: ::std::option::Option<super::types::AbacStatus>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetBucketAbacOutput {
     /// <p>The ABAC status of the general purpose bucket.</p>
-    pub fn abac_status(&self) -> ::std::option::Option<&crate::types::AbacStatus> {
+    pub fn abac_status(&self) -> ::std::option::Option<&super::types::AbacStatus> {
         self.abac_status.as_ref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for GetBucketAbacOutput {
+impl super::s3_request_id::RequestIdExt for GetBucketAbacOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -26,8 +26,8 @@ impl ::aws_types::request_id::RequestId for GetBucketAbacOutput {
 }
 impl GetBucketAbacOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketAbacOutput`](crate::operation::get_bucket_abac::GetBucketAbacOutput).
-    pub fn builder() -> crate::operation::get_bucket_abac::builders::GetBucketAbacOutputBuilder {
-        crate::operation::get_bucket_abac::builders::GetBucketAbacOutputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_abac::builders::GetBucketAbacOutputBuilder {
+        super::operation::get_bucket_abac::builders::GetBucketAbacOutputBuilder::default()
     }
 }
 
@@ -35,23 +35,23 @@ impl GetBucketAbacOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketAbacOutputBuilder {
-    pub(crate) abac_status: ::std::option::Option<crate::types::AbacStatus>,
+    pub(crate) abac_status: ::std::option::Option<super::types::AbacStatus>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetBucketAbacOutputBuilder {
     /// <p>The ABAC status of the general purpose bucket.</p>
-    pub fn abac_status(mut self, input: crate::types::AbacStatus) -> Self {
+    pub fn abac_status(mut self, input: super::types::AbacStatus) -> Self {
         self.abac_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The ABAC status of the general purpose bucket.</p>
-    pub fn set_abac_status(mut self, input: ::std::option::Option<crate::types::AbacStatus>) -> Self {
+    pub fn set_abac_status(mut self, input: ::std::option::Option<super::types::AbacStatus>) -> Self {
         self.abac_status = input;
         self
     }
     /// <p>The ABAC status of the general purpose bucket.</p>
-    pub fn get_abac_status(&self) -> &::std::option::Option<crate::types::AbacStatus> {
+    pub fn get_abac_status(&self) -> &::std::option::Option<super::types::AbacStatus> {
         &self.abac_status
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -73,8 +73,8 @@ impl GetBucketAbacOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketAbacOutput`](crate::operation::get_bucket_abac::GetBucketAbacOutput).
-    pub fn build(self) -> crate::operation::get_bucket_abac::GetBucketAbacOutput {
-        crate::operation::get_bucket_abac::GetBucketAbacOutput {
+    pub fn build(self) -> super::operation::get_bucket_abac::GetBucketAbacOutput {
+        super::operation::get_bucket_abac::GetBucketAbacOutput {
             abac_status: self.abac_status,
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

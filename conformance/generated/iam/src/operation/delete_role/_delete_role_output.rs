@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteRoleOutput {
 }
 impl DeleteRoleOutput {
     /// Creates a new builder-style object to manufacture [`DeleteRoleOutput`](crate::operation::delete_role::DeleteRoleOutput).
-    pub fn builder() -> crate::operation::delete_role::builders::DeleteRoleOutputBuilder {
-        crate::operation::delete_role::builders::DeleteRoleOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_role::builders::DeleteRoleOutputBuilder {
+        super::operation::delete_role::builders::DeleteRoleOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteRoleOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteRoleOutput`](crate::operation::delete_role::DeleteRoleOutput).
-    pub fn build(self) -> crate::operation::delete_role::DeleteRoleOutput {
-        crate::operation::delete_role::DeleteRoleOutput {
+    pub fn build(self) -> super::operation::delete_role::DeleteRoleOutput {
+        super::operation::delete_role::DeleteRoleOutput {
             _request_id: self._request_id,
         }
     }

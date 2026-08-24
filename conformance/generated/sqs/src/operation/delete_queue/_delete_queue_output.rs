@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteQueueOutput {
 }
 impl DeleteQueueOutput {
     /// Creates a new builder-style object to manufacture [`DeleteQueueOutput`](crate::operation::delete_queue::DeleteQueueOutput).
-    pub fn builder() -> crate::operation::delete_queue::builders::DeleteQueueOutputBuilder {
-        crate::operation::delete_queue::builders::DeleteQueueOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_queue::builders::DeleteQueueOutputBuilder {
+        super::operation::delete_queue::builders::DeleteQueueOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteQueueOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteQueueOutput`](crate::operation::delete_queue::DeleteQueueOutput).
-    pub fn build(self) -> crate::operation::delete_queue::DeleteQueueOutput {
-        crate::operation::delete_queue::DeleteQueueOutput {
+    pub fn build(self) -> super::operation::delete_queue::DeleteQueueOutput {
+        super::operation::delete_queue::DeleteQueueOutput {
             _request_id: self._request_id,
         }
     }

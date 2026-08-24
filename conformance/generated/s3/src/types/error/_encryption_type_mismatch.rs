@@ -26,13 +26,13 @@ impl ::std::fmt::Display for EncryptionTypeMismatch {
     }
 }
 impl ::std::error::Error for EncryptionTypeMismatch {}
-impl crate::s3_request_id::RequestIdExt for crate::types::error::EncryptionTypeMismatch {
+impl super::s3_request_id::RequestIdExt for super::types::error::EncryptionTypeMismatch {
     fn extended_request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::types::error::EncryptionTypeMismatch {
+impl ::aws_types::request_id::RequestId for super::types::error::EncryptionTypeMismatch {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -45,8 +45,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for EncryptionTyp
 }
 impl EncryptionTypeMismatch {
     /// Creates a new builder-style object to manufacture [`EncryptionTypeMismatch`](crate::types::error::EncryptionTypeMismatch).
-    pub fn builder() -> crate::types::error::builders::EncryptionTypeMismatchBuilder {
-        crate::types::error::builders::EncryptionTypeMismatchBuilder::default()
+    pub fn builder() -> super::types::error::builders::EncryptionTypeMismatchBuilder {
+        super::types::error::builders::EncryptionTypeMismatchBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl EncryptionTypeMismatchBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EncryptionTypeMismatch`](crate::types::error::EncryptionTypeMismatch).
-    pub fn build(self) -> crate::types::error::EncryptionTypeMismatch {
-        crate::types::error::EncryptionTypeMismatch {
+    pub fn build(self) -> super::types::error::EncryptionTypeMismatch {
+        super::types::error::EncryptionTypeMismatch {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

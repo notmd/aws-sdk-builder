@@ -34,8 +34,8 @@ impl ::aws_types::request_id::RequestId for ListAccountAliasesOutput {
 }
 impl ListAccountAliasesOutput {
     /// Creates a new builder-style object to manufacture [`ListAccountAliasesOutput`](crate::operation::list_account_aliases::ListAccountAliasesOutput).
-    pub fn builder() -> crate::operation::list_account_aliases::builders::ListAccountAliasesOutputBuilder {
-        crate::operation::list_account_aliases::builders::ListAccountAliasesOutputBuilder::default()
+    pub fn builder() -> super::operation::list_account_aliases::builders::ListAccountAliasesOutputBuilder {
+        super::operation::list_account_aliases::builders::ListAccountAliasesOutputBuilder::default()
     }
 }
 
@@ -111,9 +111,9 @@ impl ListAccountAliasesOutputBuilder {
     /// - [`account_aliases`](crate::operation::list_account_aliases::builders::ListAccountAliasesOutputBuilder::account_aliases)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_account_aliases::ListAccountAliasesOutput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::list_account_aliases::ListAccountAliasesOutput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::list_account_aliases::ListAccountAliasesOutput {
+        ::std::result::Result::Ok(super::operation::list_account_aliases::ListAccountAliasesOutput {
             account_aliases: self.account_aliases.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "account_aliases",

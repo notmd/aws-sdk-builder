@@ -34,7 +34,7 @@ impl ::std::fmt::Display for SerializedRequestEntityTooLargeException {
     }
 }
 impl ::std::error::Error for SerializedRequestEntityTooLargeException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::SerializedRequestEntityTooLargeException {
+impl ::aws_types::request_id::RequestId for super::types::error::SerializedRequestEntityTooLargeException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for SerializedReq
 }
 impl SerializedRequestEntityTooLargeException {
     /// Creates a new builder-style object to manufacture [`SerializedRequestEntityTooLargeException`](crate::types::error::SerializedRequestEntityTooLargeException).
-    pub fn builder() -> crate::types::error::builders::SerializedRequestEntityTooLargeExceptionBuilder {
-        crate::types::error::builders::SerializedRequestEntityTooLargeExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::SerializedRequestEntityTooLargeExceptionBuilder {
+        super::types::error::builders::SerializedRequestEntityTooLargeExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl SerializedRequestEntityTooLargeExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SerializedRequestEntityTooLargeException`](crate::types::error::SerializedRequestEntityTooLargeException).
-    pub fn build(self) -> crate::types::error::SerializedRequestEntityTooLargeException {
-        crate::types::error::SerializedRequestEntityTooLargeException {
+    pub fn build(self) -> super::types::error::SerializedRequestEntityTooLargeException {
+        super::types::error::SerializedRequestEntityTooLargeException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

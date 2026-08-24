@@ -3,7 +3,7 @@ pub(crate) fn de_vector_indexes<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<::std::vec::Vec<crate::types::VectorIndexInfo>>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<::std::vec::Vec<super::types::VectorIndexInfo>>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -23,7 +23,7 @@ where
                         break;
                     }
                     _ => {
-                        let value = crate::protocol_serde::shape_vector_index_info::de_vector_index_info(tokens, _value, depth + 1)?;
+                        let value = super::protocol_serde::shape_vector_index_info::de_vector_index_info(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for GenerateServiceLastAccessedDetailsOu
 }
 impl GenerateServiceLastAccessedDetailsOutput {
     /// Creates a new builder-style object to manufacture [`GenerateServiceLastAccessedDetailsOutput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput).
-    pub fn builder() -> crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder {
-        crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder::default()
+    pub fn builder() -> super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder {
+        super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl GenerateServiceLastAccessedDetailsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateServiceLastAccessedDetailsOutput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput).
-    pub fn build(self) -> crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput {
-        crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput {
+    pub fn build(self) -> super::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput {
+        super::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput {
             job_id: self.job_id,
             _request_id: self._request_id,
         }

@@ -26,13 +26,13 @@ impl ::std::fmt::Display for InvalidPrefix {
     }
 }
 impl ::std::error::Error for InvalidPrefix {}
-impl crate::s3_request_id::RequestIdExt for crate::types::error::InvalidPrefix {
+impl super::s3_request_id::RequestIdExt for super::types::error::InvalidPrefix {
     fn extended_request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidPrefix {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidPrefix {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -45,8 +45,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidPrefix
 }
 impl InvalidPrefix {
     /// Creates a new builder-style object to manufacture [`InvalidPrefix`](crate::types::error::InvalidPrefix).
-    pub fn builder() -> crate::types::error::builders::InvalidPrefixBuilder {
-        crate::types::error::builders::InvalidPrefixBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidPrefixBuilder {
+        super::types::error::builders::InvalidPrefixBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl InvalidPrefixBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidPrefix`](crate::types::error::InvalidPrefix).
-    pub fn build(self) -> crate::types::error::InvalidPrefix {
-        crate::types::error::InvalidPrefix {
+    pub fn build(self) -> super::types::error::InvalidPrefix {
+        super::types::error::InvalidPrefix {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

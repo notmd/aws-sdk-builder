@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidUserTypeException {
     }
 }
 impl ::std::error::Error for InvalidUserTypeException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidUserTypeException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidUserTypeException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidUserTy
 }
 impl InvalidUserTypeException {
     /// Creates a new builder-style object to manufacture [`InvalidUserTypeException`](crate::types::error::InvalidUserTypeException).
-    pub fn builder() -> crate::types::error::builders::InvalidUserTypeExceptionBuilder {
-        crate::types::error::builders::InvalidUserTypeExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidUserTypeExceptionBuilder {
+        super::types::error::builders::InvalidUserTypeExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidUserTypeExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidUserTypeException`](crate::types::error::InvalidUserTypeException).
-    pub fn build(self) -> crate::types::error::InvalidUserTypeException {
-        crate::types::error::InvalidUserTypeException {
+    pub fn build(self) -> super::types::error::InvalidUserTypeException {
+        super::types::error::InvalidUserTypeException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

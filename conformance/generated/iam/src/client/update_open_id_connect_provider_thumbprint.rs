@@ -9,8 +9,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateOpenIDConnectProviderThumbprintError>`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError)
     pub fn update_open_id_connect_provider_thumbprint(
         &self,
-    ) -> crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder {
-        crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder::new(
+    ) -> super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder {
+        super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIDConnectProviderThumbprintFluentBuilder::new(
             self.handle.clone(),
         )
     }

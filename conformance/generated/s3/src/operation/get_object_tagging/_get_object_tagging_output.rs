@@ -6,7 +6,7 @@ pub struct GetObjectTaggingOutput {
     /// <p>The versionId of the object for which you got the tagging information.</p>
     pub version_id: ::std::option::Option<::std::string::String>,
     /// <p>Contains the tag set.</p>
-    pub tag_set: ::std::vec::Vec<crate::types::Tag>,
+    pub tag_set: ::std::vec::Vec<super::types::Tag>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -16,12 +16,12 @@ impl GetObjectTaggingOutput {
         self.version_id.as_deref()
     }
     /// <p>Contains the tag set.</p>
-    pub fn tag_set(&self) -> &[crate::types::Tag] {
+    pub fn tag_set(&self) -> &[super::types::Tag] {
         use std::ops::Deref;
         self.tag_set.deref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for GetObjectTaggingOutput {
+impl super::s3_request_id::RequestIdExt for GetObjectTaggingOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -33,8 +33,8 @@ impl ::aws_types::request_id::RequestId for GetObjectTaggingOutput {
 }
 impl GetObjectTaggingOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectTaggingOutput`](crate::operation::get_object_tagging::GetObjectTaggingOutput).
-    pub fn builder() -> crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder {
-        crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::default()
+    pub fn builder() -> super::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder {
+        super::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::default()
     }
 }
 
@@ -43,7 +43,7 @@ impl GetObjectTaggingOutput {
 #[non_exhaustive]
 pub struct GetObjectTaggingOutputBuilder {
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
-    pub(crate) tag_set: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tag_set: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -67,19 +67,19 @@ impl GetObjectTaggingOutputBuilder {
     /// To override the contents of this collection use [`set_tag_set`](Self::set_tag_set).
     ///
     /// <p>Contains the tag set.</p>
-    pub fn tag_set(mut self, input: crate::types::Tag) -> Self {
+    pub fn tag_set(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tag_set.unwrap_or_default();
         v.push(input);
         self.tag_set = ::std::option::Option::Some(v);
         self
     }
     /// <p>Contains the tag set.</p>
-    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tag_set = input;
         self
     }
     /// <p>Contains the tag set.</p>
-    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tag_set
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -105,8 +105,8 @@ impl GetObjectTaggingOutputBuilder {
     /// - [`tag_set`](crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::tag_set)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_object_tagging::GetObjectTaggingOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_object_tagging::GetObjectTaggingOutput {
+    ) -> ::std::result::Result<super::operation::get_object_tagging::GetObjectTaggingOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_object_tagging::GetObjectTaggingOutput {
             version_id: self.version_id,
             tag_set: self.tag_set.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

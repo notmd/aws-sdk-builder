@@ -3,12 +3,12 @@
 pub fn de_noncurrent_version_expiration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::NoncurrentVersionExpiration, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::NoncurrentVersionExpiration, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::NoncurrentVersionExpiration::builder();
+    let mut builder = super::types::NoncurrentVersionExpiration::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("NoncurrentDays") /* NoncurrentDays com.amazonaws.s3#NoncurrentVersionExpiration$NoncurrentDays */ =>  {
@@ -48,7 +48,7 @@ pub fn de_noncurrent_version_expiration(
 }
 
 pub fn ser_noncurrent_version_expiration(
-    input: &crate::types::NoncurrentVersionExpiration,
+    input: &super::types::NoncurrentVersionExpiration,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]

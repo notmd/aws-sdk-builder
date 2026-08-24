@@ -13,11 +13,11 @@ pub struct LayerVersionsListItem {
     /// <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
     pub created_date: ::std::option::Option<::std::string::String>,
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
+    pub compatible_architectures: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>,
     /// <p>The layer's compatible runtimes.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub compatible_runtimes: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>,
+    pub compatible_runtimes: ::std::option::Option<::std::vec::Vec<super::types::Runtime>>,
     /// <p>The layer's open-source license.</p>
     pub license_info: ::std::option::Option<::std::string::String>,
 }
@@ -41,7 +41,7 @@ impl LayerVersionsListItem {
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compatible_architectures.is_none()`.
-    pub fn compatible_architectures(&self) -> &[crate::types::Architecture] {
+    pub fn compatible_architectures(&self) -> &[super::types::Architecture] {
         self.compatible_architectures.as_deref().unwrap_or_default()
     }
     /// <p>The layer's compatible runtimes.</p>
@@ -49,7 +49,7 @@ impl LayerVersionsListItem {
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compatible_runtimes.is_none()`.
-    pub fn compatible_runtimes(&self) -> &[crate::types::Runtime] {
+    pub fn compatible_runtimes(&self) -> &[super::types::Runtime] {
         self.compatible_runtimes.as_deref().unwrap_or_default()
     }
     /// <p>The layer's open-source license.</p>
@@ -59,8 +59,8 @@ impl LayerVersionsListItem {
 }
 impl LayerVersionsListItem {
     /// Creates a new builder-style object to manufacture [`LayerVersionsListItem`](crate::types::LayerVersionsListItem).
-    pub fn builder() -> crate::types::builders::LayerVersionsListItemBuilder {
-        crate::types::builders::LayerVersionsListItemBuilder::default()
+    pub fn builder() -> super::types::builders::LayerVersionsListItemBuilder {
+        super::types::builders::LayerVersionsListItemBuilder::default()
     }
 }
 
@@ -72,8 +72,8 @@ pub struct LayerVersionsListItemBuilder {
     pub(crate) version: ::std::option::Option<i64>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) created_date: ::std::option::Option<::std::string::String>,
-    pub(crate) compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
-    pub(crate) compatible_runtimes: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>,
+    pub(crate) compatible_architectures: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>,
+    pub(crate) compatible_runtimes: ::std::option::Option<::std::vec::Vec<super::types::Runtime>>,
     pub(crate) license_info: ::std::option::Option<::std::string::String>,
 }
 impl LayerVersionsListItemBuilder {
@@ -138,19 +138,19 @@ impl LayerVersionsListItemBuilder {
     /// To override the contents of this collection use [`set_compatible_architectures`](Self::set_compatible_architectures).
     ///
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub fn compatible_architectures(mut self, input: crate::types::Architecture) -> Self {
+    pub fn compatible_architectures(mut self, input: super::types::Architecture) -> Self {
         let mut v = self.compatible_architectures.unwrap_or_default();
         v.push(input);
         self.compatible_architectures = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
+    pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>) -> Self {
         self.compatible_architectures = input;
         self
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
+    pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Architecture>> {
         &self.compatible_architectures
     }
     /// Appends an item to `compatible_runtimes`.
@@ -160,7 +160,7 @@ impl LayerVersionsListItemBuilder {
     /// <p>The layer's compatible runtimes.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub fn compatible_runtimes(mut self, input: crate::types::Runtime) -> Self {
+    pub fn compatible_runtimes(mut self, input: super::types::Runtime) -> Self {
         let mut v = self.compatible_runtimes.unwrap_or_default();
         v.push(input);
         self.compatible_runtimes = ::std::option::Option::Some(v);
@@ -169,14 +169,14 @@ impl LayerVersionsListItemBuilder {
     /// <p>The layer's compatible runtimes.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>) -> Self {
+    pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Runtime>>) -> Self {
         self.compatible_runtimes = input;
         self
     }
     /// <p>The layer's compatible runtimes.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub fn get_compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Runtime>> {
+    pub fn get_compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Runtime>> {
         &self.compatible_runtimes
     }
     /// <p>The layer's open-source license.</p>
@@ -194,8 +194,8 @@ impl LayerVersionsListItemBuilder {
         &self.license_info
     }
     /// Consumes the builder and constructs a [`LayerVersionsListItem`](crate::types::LayerVersionsListItem).
-    pub fn build(self) -> crate::types::LayerVersionsListItem {
-        crate::types::LayerVersionsListItem {
+    pub fn build(self) -> super::types::LayerVersionsListItem {
+        super::types::LayerVersionsListItem {
             layer_version_arn: self.layer_version_arn,
             version: self.version.unwrap_or_default(),
             description: self.description,

@@ -22,8 +22,8 @@ impl Position {
 }
 impl Position {
     /// Creates a new builder-style object to manufacture [`Position`](crate::types::Position).
-    pub fn builder() -> crate::types::builders::PositionBuilder {
-        crate::types::builders::PositionBuilder::default()
+    pub fn builder() -> super::types::builders::PositionBuilder {
+        super::types::builders::PositionBuilder::default()
     }
 }
 
@@ -64,8 +64,8 @@ impl PositionBuilder {
         &self.column
     }
     /// Consumes the builder and constructs a [`Position`](crate::types::Position).
-    pub fn build(self) -> crate::types::Position {
-        crate::types::Position {
+    pub fn build(self) -> super::types::Position {
+        super::types::Position {
             line: self.line.unwrap_or_default(),
             column: self.column.unwrap_or_default(),
         }

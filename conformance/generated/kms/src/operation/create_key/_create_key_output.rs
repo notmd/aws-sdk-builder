@@ -4,12 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateKeyOutput {
     /// <p>Metadata associated with the KMS key.</p>
-    pub key_metadata: ::std::option::Option<crate::types::KeyMetadata>,
+    pub key_metadata: ::std::option::Option<super::types::KeyMetadata>,
     _request_id: Option<String>,
 }
 impl CreateKeyOutput {
     /// <p>Metadata associated with the KMS key.</p>
-    pub fn key_metadata(&self) -> ::std::option::Option<&crate::types::KeyMetadata> {
+    pub fn key_metadata(&self) -> ::std::option::Option<&super::types::KeyMetadata> {
         self.key_metadata.as_ref()
     }
 }
@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for CreateKeyOutput {
 }
 impl CreateKeyOutput {
     /// Creates a new builder-style object to manufacture [`CreateKeyOutput`](crate::operation::create_key::CreateKeyOutput).
-    pub fn builder() -> crate::operation::create_key::builders::CreateKeyOutputBuilder {
-        crate::operation::create_key::builders::CreateKeyOutputBuilder::default()
+    pub fn builder() -> super::operation::create_key::builders::CreateKeyOutputBuilder {
+        super::operation::create_key::builders::CreateKeyOutputBuilder::default()
     }
 }
 
@@ -29,22 +29,22 @@ impl CreateKeyOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateKeyOutputBuilder {
-    pub(crate) key_metadata: ::std::option::Option<crate::types::KeyMetadata>,
+    pub(crate) key_metadata: ::std::option::Option<super::types::KeyMetadata>,
     _request_id: Option<String>,
 }
 impl CreateKeyOutputBuilder {
     /// <p>Metadata associated with the KMS key.</p>
-    pub fn key_metadata(mut self, input: crate::types::KeyMetadata) -> Self {
+    pub fn key_metadata(mut self, input: super::types::KeyMetadata) -> Self {
         self.key_metadata = ::std::option::Option::Some(input);
         self
     }
     /// <p>Metadata associated with the KMS key.</p>
-    pub fn set_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self {
+    pub fn set_key_metadata(mut self, input: ::std::option::Option<super::types::KeyMetadata>) -> Self {
         self.key_metadata = input;
         self
     }
     /// <p>Metadata associated with the KMS key.</p>
-    pub fn get_key_metadata(&self) -> &::std::option::Option<crate::types::KeyMetadata> {
+    pub fn get_key_metadata(&self) -> &::std::option::Option<super::types::KeyMetadata> {
         &self.key_metadata
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -57,8 +57,8 @@ impl CreateKeyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateKeyOutput`](crate::operation::create_key::CreateKeyOutput).
-    pub fn build(self) -> crate::operation::create_key::CreateKeyOutput {
-        crate::operation::create_key::CreateKeyOutput {
+    pub fn build(self) -> super::operation::create_key::CreateKeyOutput {
+        super::operation::create_key::CreateKeyOutput {
             key_metadata: self.key_metadata,
             _request_id: self._request_id,
         }

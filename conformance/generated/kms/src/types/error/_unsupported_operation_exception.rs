@@ -26,7 +26,7 @@ impl ::std::fmt::Display for UnsupportedOperationException {
     }
 }
 impl ::std::error::Error for UnsupportedOperationException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::UnsupportedOperationException {
+impl ::aws_types::request_id::RequestId for super::types::error::UnsupportedOperationException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UnsupportedOp
 }
 impl UnsupportedOperationException {
     /// Creates a new builder-style object to manufacture [`UnsupportedOperationException`](crate::types::error::UnsupportedOperationException).
-    pub fn builder() -> crate::types::error::builders::UnsupportedOperationExceptionBuilder {
-        crate::types::error::builders::UnsupportedOperationExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::UnsupportedOperationExceptionBuilder {
+        super::types::error::builders::UnsupportedOperationExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl UnsupportedOperationExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UnsupportedOperationException`](crate::types::error::UnsupportedOperationException).
-    pub fn build(self) -> crate::types::error::UnsupportedOperationException {
-        crate::types::error::UnsupportedOperationException {
+    pub fn build(self) -> super::types::error::UnsupportedOperationException {
+        super::types::error::UnsupportedOperationException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

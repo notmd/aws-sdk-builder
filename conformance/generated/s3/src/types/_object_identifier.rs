@@ -60,8 +60,8 @@ impl ObjectIdentifier {
 }
 impl ObjectIdentifier {
     /// Creates a new builder-style object to manufacture [`ObjectIdentifier`](crate::types::ObjectIdentifier).
-    pub fn builder() -> crate::types::builders::ObjectIdentifierBuilder {
-        crate::types::builders::ObjectIdentifierBuilder::default()
+    pub fn builder() -> super::types::builders::ObjectIdentifierBuilder {
+        super::types::builders::ObjectIdentifierBuilder::default()
     }
 }
 
@@ -180,8 +180,8 @@ impl ObjectIdentifierBuilder {
     /// Consumes the builder and constructs a [`ObjectIdentifier`](crate::types::ObjectIdentifier).
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](crate::types::builders::ObjectIdentifierBuilder::key)
-    pub fn build(self) -> ::std::result::Result<crate::types::ObjectIdentifier, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ObjectIdentifier {
+    pub fn build(self) -> ::std::result::Result<super::types::ObjectIdentifier, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::ObjectIdentifier {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "key",

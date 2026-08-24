@@ -22,8 +22,8 @@ impl UntagQueueInput {
 }
 impl UntagQueueInput {
     /// Creates a new builder-style object to manufacture [`UntagQueueInput`](crate::operation::untag_queue::UntagQueueInput).
-    pub fn builder() -> crate::operation::untag_queue::builders::UntagQueueInputBuilder {
-        crate::operation::untag_queue::builders::UntagQueueInputBuilder::default()
+    pub fn builder() -> super::operation::untag_queue::builders::UntagQueueInputBuilder {
+        super::operation::untag_queue::builders::UntagQueueInputBuilder::default()
     }
 }
 
@@ -71,8 +71,8 @@ impl UntagQueueInputBuilder {
         &self.tag_keys
     }
     /// Consumes the builder and constructs a [`UntagQueueInput`](crate::operation::untag_queue::UntagQueueInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::untag_queue::UntagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::untag_queue::UntagQueueInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::untag_queue::UntagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::untag_queue::UntagQueueInput {
             queue_url: self.queue_url,
             tag_keys: self.tag_keys,
         })

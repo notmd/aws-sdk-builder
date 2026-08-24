@@ -37,8 +37,8 @@ impl GetServiceLastAccessedDetailsWithEntitiesInput {
 impl GetServiceLastAccessedDetailsWithEntitiesInput {
     /// Creates a new builder-style object to manufacture [`GetServiceLastAccessedDetailsWithEntitiesInput`](crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesInput).
     pub fn builder(
-    ) -> crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder {
-        crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder::default()
+    ) -> super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder {
+        super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder::default()
     }
 }
 
@@ -120,11 +120,11 @@ impl GetServiceLastAccessedDetailsWithEntitiesInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesInput,
+        super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesInput {
+            super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesInput {
                 job_id: self.job_id,
                 service_namespace: self.service_namespace,
                 max_items: self.max_items,

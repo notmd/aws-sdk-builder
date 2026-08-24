@@ -3,7 +3,7 @@ pub(crate) fn de_context_succeeded_details<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::ContextSucceededDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::ContextSucceededDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,13 +16,13 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::ContextSucceededDetailsBuilder::default();
+            let mut builder = super::types::builders::ContextSucceededDetailsBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "Result" => {
-                            builder = builder.set_result(crate::protocol_serde::shape_event_result::de_event_result(tokens, _value, depth + 1)?);
+                            builder = builder.set_result(super::protocol_serde::shape_event_result::de_event_result(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
@@ -33,7 +33,7 @@ where
                     }
                 }
             }
-            Ok(Some(crate::serde_util::context_succeeded_details_correct_errors(builder).build()))
+            Ok(Some(super::serde_util::context_succeeded_details_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

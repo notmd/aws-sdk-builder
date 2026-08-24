@@ -25,7 +25,7 @@ pub struct ReplicaDescription {
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
     /// </note></li>
     /// </ul>
-    pub replica_status: ::std::option::Option<crate::types::ReplicaStatus>,
+    pub replica_status: ::std::option::Option<super::types::ReplicaStatus>,
     /// <p>The Amazon Resource Name (ARN) of the global table replica.</p>
     pub replica_arn: ::std::option::Option<::std::string::String>,
     /// <p>Detailed information about the replica status.</p>
@@ -35,17 +35,17 @@ pub struct ReplicaDescription {
     /// <p>The KMS key of the replica that will be used for KMS encryption.</p>
     pub kms_master_key_id: ::std::option::Option<::std::string::String>,
     /// <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
-    pub provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
+    pub provisioned_throughput_override: ::std::option::Option<super::types::ProvisionedThroughputOverride>,
     /// <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
-    pub on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughputOverride>,
+    pub on_demand_throughput_override: ::std::option::Option<super::types::OnDemandThroughputOverride>,
     /// <p>Represents the warm throughput value for this replica.</p>
-    pub warm_throughput: ::std::option::Option<crate::types::TableWarmThroughputDescription>,
+    pub warm_throughput: ::std::option::Option<super::types::TableWarmThroughputDescription>,
     /// <p>Replica-specific global secondary index settings.</p>
-    pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>>,
+    pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::types::ReplicaGlobalSecondaryIndexDescription>>,
     /// <p>The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the <code>ReplicaStatus</code> property.</p>
     pub replica_inaccessible_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>Contains details of the table class.</p>
-    pub replica_table_class_summary: ::std::option::Option<crate::types::TableClassSummary>,
+    pub replica_table_class_summary: ::std::option::Option<super::types::TableClassSummary>,
     /// <p>Indicates one of the settings synchronization modes for the global table replica:</p>
     /// <ul>
     /// <li>
@@ -55,7 +55,7 @@ pub struct ReplicaDescription {
     /// <li>
     /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
     /// </ul>
-    pub global_table_settings_replication_mode: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
+    pub global_table_settings_replication_mode: ::std::option::Option<super::types::GlobalTableSettingsReplicationMode>,
 }
 impl ReplicaDescription {
     /// <p>The name of the Region.</p>
@@ -81,7 +81,7 @@ impl ReplicaDescription {
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
     /// </note></li>
     /// </ul>
-    pub fn replica_status(&self) -> ::std::option::Option<&crate::types::ReplicaStatus> {
+    pub fn replica_status(&self) -> ::std::option::Option<&super::types::ReplicaStatus> {
         self.replica_status.as_ref()
     }
     /// <p>The Amazon Resource Name (ARN) of the global table replica.</p>
@@ -101,21 +101,21 @@ impl ReplicaDescription {
         self.kms_master_key_id.as_deref()
     }
     /// <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
-    pub fn provisioned_throughput_override(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughputOverride> {
+    pub fn provisioned_throughput_override(&self) -> ::std::option::Option<&super::types::ProvisionedThroughputOverride> {
         self.provisioned_throughput_override.as_ref()
     }
     /// <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
-    pub fn on_demand_throughput_override(&self) -> ::std::option::Option<&crate::types::OnDemandThroughputOverride> {
+    pub fn on_demand_throughput_override(&self) -> ::std::option::Option<&super::types::OnDemandThroughputOverride> {
         self.on_demand_throughput_override.as_ref()
     }
     /// <p>Represents the warm throughput value for this replica.</p>
-    pub fn warm_throughput(&self) -> ::std::option::Option<&crate::types::TableWarmThroughputDescription> {
+    pub fn warm_throughput(&self) -> ::std::option::Option<&super::types::TableWarmThroughputDescription> {
         self.warm_throughput.as_ref()
     }
     /// <p>Replica-specific global secondary index settings.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_indexes.is_none()`.
-    pub fn global_secondary_indexes(&self) -> &[crate::types::ReplicaGlobalSecondaryIndexDescription] {
+    pub fn global_secondary_indexes(&self) -> &[super::types::ReplicaGlobalSecondaryIndexDescription] {
         self.global_secondary_indexes.as_deref().unwrap_or_default()
     }
     /// <p>The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the <code>ReplicaStatus</code> property.</p>
@@ -123,7 +123,7 @@ impl ReplicaDescription {
         self.replica_inaccessible_date_time.as_ref()
     }
     /// <p>Contains details of the table class.</p>
-    pub fn replica_table_class_summary(&self) -> ::std::option::Option<&crate::types::TableClassSummary> {
+    pub fn replica_table_class_summary(&self) -> ::std::option::Option<&super::types::TableClassSummary> {
         self.replica_table_class_summary.as_ref()
     }
     /// <p>Indicates one of the settings synchronization modes for the global table replica:</p>
@@ -135,14 +135,14 @@ impl ReplicaDescription {
     /// <li>
     /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
     /// </ul>
-    pub fn global_table_settings_replication_mode(&self) -> ::std::option::Option<&crate::types::GlobalTableSettingsReplicationMode> {
+    pub fn global_table_settings_replication_mode(&self) -> ::std::option::Option<&super::types::GlobalTableSettingsReplicationMode> {
         self.global_table_settings_replication_mode.as_ref()
     }
 }
 impl ReplicaDescription {
     /// Creates a new builder-style object to manufacture [`ReplicaDescription`](crate::types::ReplicaDescription).
-    pub fn builder() -> crate::types::builders::ReplicaDescriptionBuilder {
-        crate::types::builders::ReplicaDescriptionBuilder::default()
+    pub fn builder() -> super::types::builders::ReplicaDescriptionBuilder {
+        super::types::builders::ReplicaDescriptionBuilder::default()
     }
 }
 
@@ -151,18 +151,18 @@ impl ReplicaDescription {
 #[non_exhaustive]
 pub struct ReplicaDescriptionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
-    pub(crate) replica_status: ::std::option::Option<crate::types::ReplicaStatus>,
+    pub(crate) replica_status: ::std::option::Option<super::types::ReplicaStatus>,
     pub(crate) replica_arn: ::std::option::Option<::std::string::String>,
     pub(crate) replica_status_description: ::std::option::Option<::std::string::String>,
     pub(crate) replica_status_percent_progress: ::std::option::Option<::std::string::String>,
     pub(crate) kms_master_key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
-    pub(crate) on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughputOverride>,
-    pub(crate) warm_throughput: ::std::option::Option<crate::types::TableWarmThroughputDescription>,
-    pub(crate) global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>>,
+    pub(crate) provisioned_throughput_override: ::std::option::Option<super::types::ProvisionedThroughputOverride>,
+    pub(crate) on_demand_throughput_override: ::std::option::Option<super::types::OnDemandThroughputOverride>,
+    pub(crate) warm_throughput: ::std::option::Option<super::types::TableWarmThroughputDescription>,
+    pub(crate) global_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::types::ReplicaGlobalSecondaryIndexDescription>>,
     pub(crate) replica_inaccessible_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) replica_table_class_summary: ::std::option::Option<crate::types::TableClassSummary>,
-    pub(crate) global_table_settings_replication_mode: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
+    pub(crate) replica_table_class_summary: ::std::option::Option<super::types::TableClassSummary>,
+    pub(crate) global_table_settings_replication_mode: ::std::option::Option<super::types::GlobalTableSettingsReplicationMode>,
 }
 impl ReplicaDescriptionBuilder {
     /// <p>The name of the Region.</p>
@@ -198,7 +198,7 @@ impl ReplicaDescriptionBuilder {
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
     /// </note></li>
     /// </ul>
-    pub fn replica_status(mut self, input: crate::types::ReplicaStatus) -> Self {
+    pub fn replica_status(mut self, input: super::types::ReplicaStatus) -> Self {
         self.replica_status = ::std::option::Option::Some(input);
         self
     }
@@ -221,7 +221,7 @@ impl ReplicaDescriptionBuilder {
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
     /// </note></li>
     /// </ul>
-    pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
+    pub fn set_replica_status(mut self, input: ::std::option::Option<super::types::ReplicaStatus>) -> Self {
         self.replica_status = input;
         self
     }
@@ -244,7 +244,7 @@ impl ReplicaDescriptionBuilder {
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
     /// </note></li>
     /// </ul>
-    pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> {
+    pub fn get_replica_status(&self) -> &::std::option::Option<super::types::ReplicaStatus> {
         &self.replica_status
     }
     /// <p>The Amazon Resource Name (ARN) of the global table replica.</p>
@@ -304,45 +304,45 @@ impl ReplicaDescriptionBuilder {
         &self.kms_master_key_id
     }
     /// <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
-    pub fn provisioned_throughput_override(mut self, input: crate::types::ProvisionedThroughputOverride) -> Self {
+    pub fn provisioned_throughput_override(mut self, input: super::types::ProvisionedThroughputOverride) -> Self {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
     /// <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
-    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
+    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<super::types::ProvisionedThroughputOverride>) -> Self {
         self.provisioned_throughput_override = input;
         self
     }
     /// <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
-    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> {
+    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<super::types::ProvisionedThroughputOverride> {
         &self.provisioned_throughput_override
     }
     /// <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
-    pub fn on_demand_throughput_override(mut self, input: crate::types::OnDemandThroughputOverride) -> Self {
+    pub fn on_demand_throughput_override(mut self, input: super::types::OnDemandThroughputOverride) -> Self {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
     /// <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
-    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
+    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<super::types::OnDemandThroughputOverride>) -> Self {
         self.on_demand_throughput_override = input;
         self
     }
     /// <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
-    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
+    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<super::types::OnDemandThroughputOverride> {
         &self.on_demand_throughput_override
     }
     /// <p>Represents the warm throughput value for this replica.</p>
-    pub fn warm_throughput(mut self, input: crate::types::TableWarmThroughputDescription) -> Self {
+    pub fn warm_throughput(mut self, input: super::types::TableWarmThroughputDescription) -> Self {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the warm throughput value for this replica.</p>
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::TableWarmThroughputDescription>) -> Self {
+    pub fn set_warm_throughput(mut self, input: ::std::option::Option<super::types::TableWarmThroughputDescription>) -> Self {
         self.warm_throughput = input;
         self
     }
     /// <p>Represents the warm throughput value for this replica.</p>
-    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::TableWarmThroughputDescription> {
+    pub fn get_warm_throughput(&self) -> &::std::option::Option<super::types::TableWarmThroughputDescription> {
         &self.warm_throughput
     }
     /// Appends an item to `global_secondary_indexes`.
@@ -350,7 +350,7 @@ impl ReplicaDescriptionBuilder {
     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
     ///
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndexDescription) -> Self {
+    pub fn global_secondary_indexes(mut self, input: super::types::ReplicaGlobalSecondaryIndexDescription) -> Self {
         let mut v = self.global_secondary_indexes.unwrap_or_default();
         v.push(input);
         self.global_secondary_indexes = ::std::option::Option::Some(v);
@@ -359,13 +359,13 @@ impl ReplicaDescriptionBuilder {
     /// <p>Replica-specific global secondary index settings.</p>
     pub fn set_global_secondary_indexes(
         mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>>,
+        input: ::std::option::Option<::std::vec::Vec<super::types::ReplicaGlobalSecondaryIndexDescription>>,
     ) -> Self {
         self.global_secondary_indexes = input;
         self
     }
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>> {
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ReplicaGlobalSecondaryIndexDescription>> {
         &self.global_secondary_indexes
     }
     /// <p>The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the <code>ReplicaStatus</code> property.</p>
@@ -383,17 +383,17 @@ impl ReplicaDescriptionBuilder {
         &self.replica_inaccessible_date_time
     }
     /// <p>Contains details of the table class.</p>
-    pub fn replica_table_class_summary(mut self, input: crate::types::TableClassSummary) -> Self {
+    pub fn replica_table_class_summary(mut self, input: super::types::TableClassSummary) -> Self {
         self.replica_table_class_summary = ::std::option::Option::Some(input);
         self
     }
     /// <p>Contains details of the table class.</p>
-    pub fn set_replica_table_class_summary(mut self, input: ::std::option::Option<crate::types::TableClassSummary>) -> Self {
+    pub fn set_replica_table_class_summary(mut self, input: ::std::option::Option<super::types::TableClassSummary>) -> Self {
         self.replica_table_class_summary = input;
         self
     }
     /// <p>Contains details of the table class.</p>
-    pub fn get_replica_table_class_summary(&self) -> &::std::option::Option<crate::types::TableClassSummary> {
+    pub fn get_replica_table_class_summary(&self) -> &::std::option::Option<super::types::TableClassSummary> {
         &self.replica_table_class_summary
     }
     /// <p>Indicates one of the settings synchronization modes for the global table replica:</p>
@@ -405,7 +405,7 @@ impl ReplicaDescriptionBuilder {
     /// <li>
     /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
     /// </ul>
-    pub fn global_table_settings_replication_mode(mut self, input: crate::types::GlobalTableSettingsReplicationMode) -> Self {
+    pub fn global_table_settings_replication_mode(mut self, input: super::types::GlobalTableSettingsReplicationMode) -> Self {
         self.global_table_settings_replication_mode = ::std::option::Option::Some(input);
         self
     }
@@ -420,7 +420,7 @@ impl ReplicaDescriptionBuilder {
     /// </ul>
     pub fn set_global_table_settings_replication_mode(
         mut self,
-        input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
+        input: ::std::option::Option<super::types::GlobalTableSettingsReplicationMode>,
     ) -> Self {
         self.global_table_settings_replication_mode = input;
         self
@@ -434,12 +434,12 @@ impl ReplicaDescriptionBuilder {
     /// <li>
     /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
     /// </ul>
-    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
+    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<super::types::GlobalTableSettingsReplicationMode> {
         &self.global_table_settings_replication_mode
     }
     /// Consumes the builder and constructs a [`ReplicaDescription`](crate::types::ReplicaDescription).
-    pub fn build(self) -> crate::types::ReplicaDescription {
-        crate::types::ReplicaDescription {
+    pub fn build(self) -> super::types::ReplicaDescription {
+        super::types::ReplicaDescription {
             region_name: self.region_name,
             replica_status: self.replica_status,
             replica_arn: self.replica_arn,

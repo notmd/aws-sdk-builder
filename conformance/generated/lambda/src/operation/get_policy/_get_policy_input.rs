@@ -40,8 +40,8 @@ impl GetPolicyInput {
 }
 impl GetPolicyInput {
     /// Creates a new builder-style object to manufacture [`GetPolicyInput`](crate::operation::get_policy::GetPolicyInput).
-    pub fn builder() -> crate::operation::get_policy::builders::GetPolicyInputBuilder {
-        crate::operation::get_policy::builders::GetPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::get_policy::builders::GetPolicyInputBuilder {
+        super::operation::get_policy::builders::GetPolicyInputBuilder::default()
     }
 }
 
@@ -113,8 +113,8 @@ impl GetPolicyInputBuilder {
         &self.qualifier
     }
     /// Consumes the builder and constructs a [`GetPolicyInput`](crate::operation::get_policy::GetPolicyInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_policy::GetPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_policy::GetPolicyInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::get_policy::GetPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_policy::GetPolicyInput {
             function_name: self.function_name,
             qualifier: self.qualifier,
         })

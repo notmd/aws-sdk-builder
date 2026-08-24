@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeletePlatformApplicationOutput {
 }
 impl DeletePlatformApplicationOutput {
     /// Creates a new builder-style object to manufacture [`DeletePlatformApplicationOutput`](crate::operation::delete_platform_application::DeletePlatformApplicationOutput).
-    pub fn builder() -> crate::operation::delete_platform_application::builders::DeletePlatformApplicationOutputBuilder {
-        crate::operation::delete_platform_application::builders::DeletePlatformApplicationOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_platform_application::builders::DeletePlatformApplicationOutputBuilder {
+        super::operation::delete_platform_application::builders::DeletePlatformApplicationOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeletePlatformApplicationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeletePlatformApplicationOutput`](crate::operation::delete_platform_application::DeletePlatformApplicationOutput).
-    pub fn build(self) -> crate::operation::delete_platform_application::DeletePlatformApplicationOutput {
-        crate::operation::delete_platform_application::DeletePlatformApplicationOutput {
+    pub fn build(self) -> super::operation::delete_platform_application::DeletePlatformApplicationOutput {
+        super::operation::delete_platform_application::DeletePlatformApplicationOutput {
             _request_id: self._request_id,
         }
     }

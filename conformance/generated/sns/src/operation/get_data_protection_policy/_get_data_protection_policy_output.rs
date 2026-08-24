@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for GetDataProtectionPolicyOutput {
 }
 impl GetDataProtectionPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetDataProtectionPolicyOutput`](crate::operation::get_data_protection_policy::GetDataProtectionPolicyOutput).
-    pub fn builder() -> crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyOutputBuilder {
-        crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::get_data_protection_policy::builders::GetDataProtectionPolicyOutputBuilder {
+        super::operation::get_data_protection_policy::builders::GetDataProtectionPolicyOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl GetDataProtectionPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetDataProtectionPolicyOutput`](crate::operation::get_data_protection_policy::GetDataProtectionPolicyOutput).
-    pub fn build(self) -> crate::operation::get_data_protection_policy::GetDataProtectionPolicyOutput {
-        crate::operation::get_data_protection_policy::GetDataProtectionPolicyOutput {
+    pub fn build(self) -> super::operation::get_data_protection_policy::GetDataProtectionPolicyOutput {
+        super::operation::get_data_protection_policy::GetDataProtectionPolicyOutput {
             data_protection_policy: self.data_protection_policy,
             _request_id: self._request_id,
         }

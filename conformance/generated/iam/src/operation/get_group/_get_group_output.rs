@@ -5,9 +5,9 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetGroupOutput {
     /// <p>A structure that contains details about the group.</p>
-    pub group: ::std::option::Option<crate::types::Group>,
+    pub group: ::std::option::Option<super::types::Group>,
     /// <p>A list of users in the group.</p>
-    pub users: ::std::vec::Vec<crate::types::User>,
+    pub users: ::std::vec::Vec<super::types::User>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -16,11 +16,11 @@ pub struct GetGroupOutput {
 }
 impl GetGroupOutput {
     /// <p>A structure that contains details about the group.</p>
-    pub fn group(&self) -> ::std::option::Option<&crate::types::Group> {
+    pub fn group(&self) -> ::std::option::Option<&super::types::Group> {
         self.group.as_ref()
     }
     /// <p>A list of users in the group.</p>
-    pub fn users(&self) -> &[crate::types::User] {
+    pub fn users(&self) -> &[super::types::User] {
         use std::ops::Deref;
         self.users.deref()
     }
@@ -40,8 +40,8 @@ impl ::aws_types::request_id::RequestId for GetGroupOutput {
 }
 impl GetGroupOutput {
     /// Creates a new builder-style object to manufacture [`GetGroupOutput`](crate::operation::get_group::GetGroupOutput).
-    pub fn builder() -> crate::operation::get_group::builders::GetGroupOutputBuilder {
-        crate::operation::get_group::builders::GetGroupOutputBuilder::default()
+    pub fn builder() -> super::operation::get_group::builders::GetGroupOutputBuilder {
+        super::operation::get_group::builders::GetGroupOutputBuilder::default()
     }
 }
 
@@ -49,8 +49,8 @@ impl GetGroupOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetGroupOutputBuilder {
-    pub(crate) group: ::std::option::Option<crate::types::Group>,
-    pub(crate) users: ::std::option::Option<::std::vec::Vec<crate::types::User>>,
+    pub(crate) group: ::std::option::Option<super::types::Group>,
+    pub(crate) users: ::std::option::Option<::std::vec::Vec<super::types::User>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -58,17 +58,17 @@ pub struct GetGroupOutputBuilder {
 impl GetGroupOutputBuilder {
     /// <p>A structure that contains details about the group.</p>
     /// This field is required.
-    pub fn group(mut self, input: crate::types::Group) -> Self {
+    pub fn group(mut self, input: super::types::Group) -> Self {
         self.group = ::std::option::Option::Some(input);
         self
     }
     /// <p>A structure that contains details about the group.</p>
-    pub fn set_group(mut self, input: ::std::option::Option<crate::types::Group>) -> Self {
+    pub fn set_group(mut self, input: ::std::option::Option<super::types::Group>) -> Self {
         self.group = input;
         self
     }
     /// <p>A structure that contains details about the group.</p>
-    pub fn get_group(&self) -> &::std::option::Option<crate::types::Group> {
+    pub fn get_group(&self) -> &::std::option::Option<super::types::Group> {
         &self.group
     }
     /// Appends an item to `users`.
@@ -76,19 +76,19 @@ impl GetGroupOutputBuilder {
     /// To override the contents of this collection use [`set_users`](Self::set_users).
     ///
     /// <p>A list of users in the group.</p>
-    pub fn users(mut self, input: crate::types::User) -> Self {
+    pub fn users(mut self, input: super::types::User) -> Self {
         let mut v = self.users.unwrap_or_default();
         v.push(input);
         self.users = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of users in the group.</p>
-    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::User>>) -> Self {
+    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::User>>) -> Self {
         self.users = input;
         self
     }
     /// <p>A list of users in the group.</p>
-    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::User>> {
+    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::types::User>> {
         &self.users
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -131,8 +131,8 @@ impl GetGroupOutputBuilder {
     /// Consumes the builder and constructs a [`GetGroupOutput`](crate::operation::get_group::GetGroupOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`users`](crate::operation::get_group::builders::GetGroupOutputBuilder::users)
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_group::GetGroupOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_group::GetGroupOutput {
+    pub fn build(self) -> ::std::result::Result<super::operation::get_group::GetGroupOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_group::GetGroupOutput {
             group: self.group,
             users: self.users.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

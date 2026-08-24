@@ -42,7 +42,7 @@ impl super::Client {
     ///   - [`server_side_encryption(Option<ServerSideEncryption>)`](crate::operation::put_object_annotation::PutObjectAnnotationOutput::server_side_encryption): <p>The server-side encryption algorithm used to encrypt the annotation.</p>
     ///   - [`request_charged(Option<RequestCharged>)`](crate::operation::put_object_annotation::PutObjectAnnotationOutput::request_charged): <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>  <p>This functionality is not supported for directory buckets.</p> </note>
     /// - On failure, responds with [`SdkError<PutObjectAnnotationError>`](crate::operation::put_object_annotation::PutObjectAnnotationError)
-    pub fn put_object_annotation(&self) -> crate::operation::put_object_annotation::builders::PutObjectAnnotationFluentBuilder {
-        crate::operation::put_object_annotation::builders::PutObjectAnnotationFluentBuilder::new(self.handle.clone())
+    pub fn put_object_annotation(&self) -> super::operation::put_object_annotation::builders::PutObjectAnnotationFluentBuilder {
+        super::operation::put_object_annotation::builders::PutObjectAnnotationFluentBuilder::new(self.handle.clone())
     }
 }

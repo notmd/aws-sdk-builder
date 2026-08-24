@@ -4,18 +4,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetServiceLinkedRoleDeletionStatusOutput {
     /// <p>The status of the deletion.</p>
-    pub status: crate::types::DeletionTaskStatusType,
+    pub status: super::types::DeletionTaskStatusType,
     /// <p>An object that contains details about the reason the deletion failed.</p>
-    pub reason: ::std::option::Option<crate::types::DeletionTaskFailureReasonType>,
+    pub reason: ::std::option::Option<super::types::DeletionTaskFailureReasonType>,
     _request_id: Option<String>,
 }
 impl GetServiceLinkedRoleDeletionStatusOutput {
     /// <p>The status of the deletion.</p>
-    pub fn status(&self) -> &crate::types::DeletionTaskStatusType {
+    pub fn status(&self) -> &super::types::DeletionTaskStatusType {
         &self.status
     }
     /// <p>An object that contains details about the reason the deletion failed.</p>
-    pub fn reason(&self) -> ::std::option::Option<&crate::types::DeletionTaskFailureReasonType> {
+    pub fn reason(&self) -> ::std::option::Option<&super::types::DeletionTaskFailureReasonType> {
         self.reason.as_ref()
     }
 }
@@ -26,8 +26,8 @@ impl ::aws_types::request_id::RequestId for GetServiceLinkedRoleDeletionStatusOu
 }
 impl GetServiceLinkedRoleDeletionStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetServiceLinkedRoleDeletionStatusOutput`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput).
-    pub fn builder() -> crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder {
-        crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder::default()
+    pub fn builder() -> super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder {
+        super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder::default()
     }
 }
 
@@ -35,38 +35,38 @@ impl GetServiceLinkedRoleDeletionStatusOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetServiceLinkedRoleDeletionStatusOutputBuilder {
-    pub(crate) status: ::std::option::Option<crate::types::DeletionTaskStatusType>,
-    pub(crate) reason: ::std::option::Option<crate::types::DeletionTaskFailureReasonType>,
+    pub(crate) status: ::std::option::Option<super::types::DeletionTaskStatusType>,
+    pub(crate) reason: ::std::option::Option<super::types::DeletionTaskFailureReasonType>,
     _request_id: Option<String>,
 }
 impl GetServiceLinkedRoleDeletionStatusOutputBuilder {
     /// <p>The status of the deletion.</p>
     /// This field is required.
-    pub fn status(mut self, input: crate::types::DeletionTaskStatusType) -> Self {
+    pub fn status(mut self, input: super::types::DeletionTaskStatusType) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The status of the deletion.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::DeletionTaskStatusType>) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<super::types::DeletionTaskStatusType>) -> Self {
         self.status = input;
         self
     }
     /// <p>The status of the deletion.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::DeletionTaskStatusType> {
+    pub fn get_status(&self) -> &::std::option::Option<super::types::DeletionTaskStatusType> {
         &self.status
     }
     /// <p>An object that contains details about the reason the deletion failed.</p>
-    pub fn reason(mut self, input: crate::types::DeletionTaskFailureReasonType) -> Self {
+    pub fn reason(mut self, input: super::types::DeletionTaskFailureReasonType) -> Self {
         self.reason = ::std::option::Option::Some(input);
         self
     }
     /// <p>An object that contains details about the reason the deletion failed.</p>
-    pub fn set_reason(mut self, input: ::std::option::Option<crate::types::DeletionTaskFailureReasonType>) -> Self {
+    pub fn set_reason(mut self, input: ::std::option::Option<super::types::DeletionTaskFailureReasonType>) -> Self {
         self.reason = input;
         self
     }
     /// <p>An object that contains details about the reason the deletion failed.</p>
-    pub fn get_reason(&self) -> &::std::option::Option<crate::types::DeletionTaskFailureReasonType> {
+    pub fn get_reason(&self) -> &::std::option::Option<super::types::DeletionTaskFailureReasonType> {
         &self.reason
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -84,11 +84,11 @@ impl GetServiceLinkedRoleDeletionStatusOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput,
+        super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput {
+            super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput {
                 status: self.status.ok_or_else(|| {
                     ::aws_smithy_types::error::operation::BuildError::missing_field(
                         "status",

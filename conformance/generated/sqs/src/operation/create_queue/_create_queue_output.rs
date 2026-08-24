@@ -21,8 +21,8 @@ impl ::aws_types::request_id::RequestId for CreateQueueOutput {
 }
 impl CreateQueueOutput {
     /// Creates a new builder-style object to manufacture [`CreateQueueOutput`](crate::operation::create_queue::CreateQueueOutput).
-    pub fn builder() -> crate::operation::create_queue::builders::CreateQueueOutputBuilder {
-        crate::operation::create_queue::builders::CreateQueueOutputBuilder::default()
+    pub fn builder() -> super::operation::create_queue::builders::CreateQueueOutputBuilder {
+        super::operation::create_queue::builders::CreateQueueOutputBuilder::default()
     }
 }
 
@@ -58,8 +58,8 @@ impl CreateQueueOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateQueueOutput`](crate::operation::create_queue::CreateQueueOutput).
-    pub fn build(self) -> crate::operation::create_queue::CreateQueueOutput {
-        crate::operation::create_queue::CreateQueueOutput {
+    pub fn build(self) -> super::operation::create_queue::CreateQueueOutput {
+        super::operation::create_queue::CreateQueueOutput {
             queue_url: self.queue_url,
             _request_id: self._request_id,
         }

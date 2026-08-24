@@ -3,7 +3,7 @@ pub(crate) fn de_event_source_mapping_configuration<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::EventSourceMappingConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::EventSourceMappingConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::EventSourceMappingConfigurationBuilder::default();
+            let mut builder = super::types::builders::EventSourceMappingConfigurationBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,7 +32,7 @@ where
                             "StartingPosition" => {
                                 builder = builder.set_starting_position(
                                     ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
+                                        .map(|s| s.to_unescaped().map(|u| super::types::EventSourcePosition::from(u.as_ref())))
                                         .transpose()?,
                                 );
                             }
@@ -71,7 +71,7 @@ where
                                 );
                             }
                             "FilterCriteria" => {
-                                builder = builder.set_filter_criteria(crate::protocol_serde::shape_filter_criteria::de_filter_criteria(
+                                builder = builder.set_filter_criteria(super::protocol_serde::shape_filter_criteria::de_filter_criteria(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -79,7 +79,7 @@ where
                             }
                             "FilterCriteriaError" => {
                                 builder = builder.set_filter_criteria_error(
-                                    crate::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?,
+                                    super::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(tokens, _value, depth + 1)?,
                                 );
                             }
                             "KMSKeyArn" => {
@@ -91,7 +91,7 @@ where
                             }
                             "MetricsConfig" => {
                                 builder = builder.set_metrics_config(
-                                    crate::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
+                                    super::protocol_serde::shape_event_source_mapping_metrics_config::de_event_source_mapping_metrics_config(
                                         tokens,
                                         _value,
                                         depth + 1,
@@ -100,7 +100,7 @@ where
                             }
                             "LoggingConfig" => {
                                 builder = builder.set_logging_config(
-                                    crate::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
+                                    super::protocol_serde::shape_event_source_mapping_logging_config::de_event_source_mapping_logging_config(
                                         tokens,
                                         _value,
                                         depth + 1,
@@ -108,7 +108,7 @@ where
                                 );
                             }
                             "ScalingConfig" => {
-                                builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(
+                                builder = builder.set_scaling_config(super::protocol_serde::shape_scaling_config::de_scaling_config(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -149,21 +149,21 @@ where
                                 );
                             }
                             "DestinationConfig" => {
-                                builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
+                                builder = builder.set_destination_config(super::protocol_serde::shape_destination_config::de_destination_config(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?);
                             }
                             "Topics" => {
-                                builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
+                                builder = builder.set_topics(super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
                             }
                             "Queues" => {
-                                builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+                                builder = builder.set_queues(super::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
                             }
                             "SourceAccessConfigurations" => {
                                 builder = builder.set_source_access_configurations(
-                                    crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(
+                                    super::protocol_serde::shape_source_access_configurations::de_source_access_configurations(
                                         tokens,
                                         _value,
                                         depth + 1,
@@ -172,7 +172,7 @@ where
                             }
                             "SelfManagedEventSource" => {
                                 builder = builder.set_self_managed_event_source(
-                                    crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
+                                    super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
                                 );
                             }
                             "MaximumRecordAgeInSeconds" => {
@@ -202,7 +202,7 @@ where
                             }
                             "FunctionResponseTypes" => {
                                 builder = builder.set_function_response_types(
-                                    crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(
+                                    super::protocol_serde::shape_function_response_type_list::de_function_response_type_list(
                                         tokens,
                                         _value,
                                         depth + 1,
@@ -210,11 +210,11 @@ where
                                 );
                             }
                             "AmazonManagedKafkaEventSourceConfig" => {
-                                builder = builder.set_amazon_managed_kafka_event_source_config(crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
+                                builder = builder.set_amazon_managed_kafka_event_source_config(super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
                             }
                             "SelfManagedKafkaEventSourceConfig" => {
                                 builder = builder.set_self_managed_kafka_event_source_config(
-                                    crate::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(
+                                    super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(
                                         tokens,
                                         _value,
                                         depth + 1,
@@ -223,7 +223,7 @@ where
                             }
                             "DocumentDBEventSourceConfig" => {
                                 builder = builder.set_document_db_event_source_config(
-                                    crate::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(
+                                    super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(
                                         tokens,
                                         _value,
                                         depth + 1,
@@ -239,7 +239,7 @@ where
                             }
                             "ProvisionedPollerConfig" => {
                                 builder = builder.set_provisioned_poller_config(
-                                    crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
+                                    super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
                                 );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

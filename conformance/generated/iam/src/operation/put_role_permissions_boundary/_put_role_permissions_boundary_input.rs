@@ -24,8 +24,8 @@ impl PutRolePermissionsBoundaryInput {
 }
 impl PutRolePermissionsBoundaryInput {
     /// Creates a new builder-style object to manufacture [`PutRolePermissionsBoundaryInput`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput).
-    pub fn builder() -> crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryInputBuilder {
-        crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryInputBuilder::default()
+    pub fn builder() -> super::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryInputBuilder {
+        super::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryInputBuilder::default()
     }
 }
 
@@ -77,10 +77,10 @@ impl PutRolePermissionsBoundaryInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput,
+        super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput {
+        ::std::result::Result::Ok(super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput {
             role_name: self.role_name,
             permissions_boundary: self.permissions_boundary,
         })

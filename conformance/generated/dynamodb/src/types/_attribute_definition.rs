@@ -15,7 +15,7 @@ pub struct AttributeDefinition {
     /// <li>
     /// <p><code>B</code> - the attribute is of type Binary</p></li>
     /// </ul>
-    pub attribute_type: crate::types::ScalarAttributeType,
+    pub attribute_type: super::types::ScalarAttributeType,
 }
 impl AttributeDefinition {
     /// <p>A name for the attribute.</p>
@@ -32,14 +32,14 @@ impl AttributeDefinition {
     /// <li>
     /// <p><code>B</code> - the attribute is of type Binary</p></li>
     /// </ul>
-    pub fn attribute_type(&self) -> &crate::types::ScalarAttributeType {
+    pub fn attribute_type(&self) -> &super::types::ScalarAttributeType {
         &self.attribute_type
     }
 }
 impl AttributeDefinition {
     /// Creates a new builder-style object to manufacture [`AttributeDefinition`](crate::types::AttributeDefinition).
-    pub fn builder() -> crate::types::builders::AttributeDefinitionBuilder {
-        crate::types::builders::AttributeDefinitionBuilder::default()
+    pub fn builder() -> super::types::builders::AttributeDefinitionBuilder {
+        super::types::builders::AttributeDefinitionBuilder::default()
     }
 }
 
@@ -48,7 +48,7 @@ impl AttributeDefinition {
 #[non_exhaustive]
 pub struct AttributeDefinitionBuilder {
     pub(crate) attribute_name: ::std::option::Option<::std::string::String>,
-    pub(crate) attribute_type: ::std::option::Option<crate::types::ScalarAttributeType>,
+    pub(crate) attribute_type: ::std::option::Option<super::types::ScalarAttributeType>,
 }
 impl AttributeDefinitionBuilder {
     /// <p>A name for the attribute.</p>
@@ -76,7 +76,7 @@ impl AttributeDefinitionBuilder {
     /// <p><code>B</code> - the attribute is of type Binary</p></li>
     /// </ul>
     /// This field is required.
-    pub fn attribute_type(mut self, input: crate::types::ScalarAttributeType) -> Self {
+    pub fn attribute_type(mut self, input: super::types::ScalarAttributeType) -> Self {
         self.attribute_type = ::std::option::Option::Some(input);
         self
     }
@@ -89,7 +89,7 @@ impl AttributeDefinitionBuilder {
     /// <li>
     /// <p><code>B</code> - the attribute is of type Binary</p></li>
     /// </ul>
-    pub fn set_attribute_type(mut self, input: ::std::option::Option<crate::types::ScalarAttributeType>) -> Self {
+    pub fn set_attribute_type(mut self, input: ::std::option::Option<super::types::ScalarAttributeType>) -> Self {
         self.attribute_type = input;
         self
     }
@@ -102,15 +102,15 @@ impl AttributeDefinitionBuilder {
     /// <li>
     /// <p><code>B</code> - the attribute is of type Binary</p></li>
     /// </ul>
-    pub fn get_attribute_type(&self) -> &::std::option::Option<crate::types::ScalarAttributeType> {
+    pub fn get_attribute_type(&self) -> &::std::option::Option<super::types::ScalarAttributeType> {
         &self.attribute_type
     }
     /// Consumes the builder and constructs a [`AttributeDefinition`](crate::types::AttributeDefinition).
     /// This method will fail if any of the following fields are not set:
     /// - [`attribute_name`](crate::types::builders::AttributeDefinitionBuilder::attribute_name)
     /// - [`attribute_type`](crate::types::builders::AttributeDefinitionBuilder::attribute_type)
-    pub fn build(self) -> ::std::result::Result<crate::types::AttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AttributeDefinition {
+    pub fn build(self) -> ::std::result::Result<super::types::AttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::AttributeDefinition {
             attribute_name: self.attribute_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "attribute_name",

@@ -7,18 +7,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ReplicaModifications {
     /// <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
-    pub status: crate::types::ReplicaModificationsStatus,
+    pub status: super::types::ReplicaModificationsStatus,
 }
 impl ReplicaModifications {
     /// <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
-    pub fn status(&self) -> &crate::types::ReplicaModificationsStatus {
+    pub fn status(&self) -> &super::types::ReplicaModificationsStatus {
         &self.status
     }
 }
 impl ReplicaModifications {
     /// Creates a new builder-style object to manufacture [`ReplicaModifications`](crate::types::ReplicaModifications).
-    pub fn builder() -> crate::types::builders::ReplicaModificationsBuilder {
-        crate::types::builders::ReplicaModificationsBuilder::default()
+    pub fn builder() -> super::types::builders::ReplicaModificationsBuilder {
+        super::types::builders::ReplicaModificationsBuilder::default()
     }
 }
 
@@ -26,29 +26,29 @@ impl ReplicaModifications {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ReplicaModificationsBuilder {
-    pub(crate) status: ::std::option::Option<crate::types::ReplicaModificationsStatus>,
+    pub(crate) status: ::std::option::Option<super::types::ReplicaModificationsStatus>,
 }
 impl ReplicaModificationsBuilder {
     /// <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
     /// This field is required.
-    pub fn status(mut self, input: crate::types::ReplicaModificationsStatus) -> Self {
+    pub fn status(mut self, input: super::types::ReplicaModificationsStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicaModificationsStatus>) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<super::types::ReplicaModificationsStatus>) -> Self {
         self.status = input;
         self
     }
     /// <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ReplicaModificationsStatus> {
+    pub fn get_status(&self) -> &::std::option::Option<super::types::ReplicaModificationsStatus> {
         &self.status
     }
     /// Consumes the builder and constructs a [`ReplicaModifications`](crate::types::ReplicaModifications).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](crate::types::builders::ReplicaModificationsBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::ReplicaModifications, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ReplicaModifications {
+    pub fn build(self) -> ::std::result::Result<super::types::ReplicaModifications, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::ReplicaModifications {
             status: self.status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "status",

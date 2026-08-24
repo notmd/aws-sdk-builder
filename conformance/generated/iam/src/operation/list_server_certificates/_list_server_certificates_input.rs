@@ -30,8 +30,8 @@ impl ListServerCertificatesInput {
 }
 impl ListServerCertificatesInput {
     /// Creates a new builder-style object to manufacture [`ListServerCertificatesInput`](crate::operation::list_server_certificates::ListServerCertificatesInput).
-    pub fn builder() -> crate::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder {
-        crate::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder::default()
+    pub fn builder() -> super::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder {
+        super::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder::default()
     }
 }
 
@@ -96,10 +96,10 @@ impl ListServerCertificatesInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_server_certificates::ListServerCertificatesInput,
+        super::operation::list_server_certificates::ListServerCertificatesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_server_certificates::ListServerCertificatesInput {
+        ::std::result::Result::Ok(super::operation::list_server_certificates::ListServerCertificatesInput {
             path_prefix: self.path_prefix,
             marker: self.marker,
             max_items: self.max_items,

@@ -4,14 +4,14 @@ pub fn de_get_bucket_website_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_bucket_website::GetBucketWebsiteOutput, crate::operation::get_bucket_website::GetBucketWebsiteError> {
+) -> std::result::Result<super::operation::get_bucket_website::GetBucketWebsiteOutput, super::operation::get_bucket_website::GetBucketWebsiteError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_bucket_website::GetBucketWebsiteError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_bucket_website::GetBucketWebsiteError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::get_bucket_website::GetBucketWebsiteError::generic(generic))
+    Err(super::operation::get_bucket_website::GetBucketWebsiteError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -19,20 +19,20 @@ pub fn de_get_bucket_website_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_bucket_website::GetBucketWebsiteOutput, crate::operation::get_bucket_website::GetBucketWebsiteError> {
+) -> std::result::Result<super::operation::get_bucket_website::GetBucketWebsiteOutput, super::operation::get_bucket_website::GetBucketWebsiteError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_bucket_website::de_get_bucket_website(_response_body, output)
-            .map_err(crate::operation::get_bucket_website::GetBucketWebsiteError::unhandled)?;
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        let mut output = super::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder::default();
+        output = super::protocol_serde::shape_get_bucket_website::de_get_bucket_website(_response_body, output)
+            .map_err(super::operation::get_bucket_website::GetBucketWebsiteError::unhandled)?;
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_get_bucket_website_headers(
-    input: &crate::operation::get_bucket_website::GetBucketWebsiteInput,
+    input: &super::operation::get_bucket_website::GetBucketWebsiteInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
@@ -52,8 +52,8 @@ pub fn ser_get_bucket_website_headers(
 #[allow(unused_mut)]
 pub fn de_get_bucket_website(
     inp: &[u8],
-    mut builder: crate::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder,
-) -> std::result::Result<crate::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    mut builder: super::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder,
+) -> std::result::Result<super::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -72,7 +72,7 @@ pub fn de_get_bucket_website(
             s if s.matches("IndexDocument") /* IndexDocument com.amazonaws.s3.synthetic#GetBucketWebsiteOutput$IndexDocument */ =>  {
                 let var_3 =
                     Some(
-                        crate::protocol_serde::shape_index_document::de_index_document(&mut tag, depth + 1)
+                        super::protocol_serde::shape_index_document::de_index_document(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -82,7 +82,7 @@ pub fn de_get_bucket_website(
             s if s.matches("RedirectAllRequestsTo") /* RedirectAllRequestsTo com.amazonaws.s3.synthetic#GetBucketWebsiteOutput$RedirectAllRequestsTo */ =>  {
                 let var_4 =
                     Some(
-                        crate::protocol_serde::shape_redirect_all_requests_to::de_redirect_all_requests_to(&mut tag, depth + 1)
+                        super::protocol_serde::shape_redirect_all_requests_to::de_redirect_all_requests_to(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -92,7 +92,7 @@ pub fn de_get_bucket_website(
             s if s.matches("RoutingRules") /* RoutingRules com.amazonaws.s3.synthetic#GetBucketWebsiteOutput$RoutingRules */ =>  {
                 let var_5 =
                     Some(
-                        crate::protocol_serde::shape_routing_rules::de_routing_rules(&mut tag, depth + 1)
+                        super::protocol_serde::shape_routing_rules::de_routing_rules(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -102,7 +102,7 @@ pub fn de_get_bucket_website(
             s if s.matches("ErrorDocument") /* ErrorDocument com.amazonaws.s3.synthetic#GetBucketWebsiteOutput$ErrorDocument */ =>  {
                 let var_6 =
                     Some(
-                        crate::protocol_serde::shape_error_document::de_error_document(&mut tag, depth + 1)
+                        super::protocol_serde::shape_error_document::de_error_document(&mut tag, depth + 1)
                         ?
                     )
                 ;

@@ -4,14 +4,14 @@ pub fn de_get_bucket_cors_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_bucket_cors::GetBucketCorsOutput, crate::operation::get_bucket_cors::GetBucketCorsError> {
+) -> std::result::Result<super::operation::get_bucket_cors::GetBucketCorsOutput, super::operation::get_bucket_cors::GetBucketCorsError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_bucket_cors::GetBucketCorsError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_bucket_cors::GetBucketCorsError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::get_bucket_cors::GetBucketCorsError::generic(generic))
+    Err(super::operation::get_bucket_cors::GetBucketCorsError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -19,20 +19,20 @@ pub fn de_get_bucket_cors_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_bucket_cors::GetBucketCorsOutput, crate::operation::get_bucket_cors::GetBucketCorsError> {
+) -> std::result::Result<super::operation::get_bucket_cors::GetBucketCorsOutput, super::operation::get_bucket_cors::GetBucketCorsError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_bucket_cors::de_get_bucket_cors(_response_body, output)
-            .map_err(crate::operation::get_bucket_cors::GetBucketCorsError::unhandled)?;
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        let mut output = super::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder::default();
+        output = super::protocol_serde::shape_get_bucket_cors::de_get_bucket_cors(_response_body, output)
+            .map_err(super::operation::get_bucket_cors::GetBucketCorsError::unhandled)?;
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_get_bucket_cors_headers(
-    input: &crate::operation::get_bucket_cors::GetBucketCorsInput,
+    input: &super::operation::get_bucket_cors::GetBucketCorsInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
@@ -52,8 +52,8 @@ pub fn ser_get_bucket_cors_headers(
 #[allow(unused_mut)]
 pub fn de_get_bucket_cors(
     inp: &[u8],
-    mut builder: crate::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder,
-) -> std::result::Result<crate::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    mut builder: super::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder,
+) -> std::result::Result<super::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -72,10 +72,10 @@ pub fn de_get_bucket_cors(
             s if s.matches("CORSRule") /* CORSRules com.amazonaws.s3.synthetic#GetBucketCorsOutput$CORSRules */ =>  {
                 let var_3 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::CorsRule>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::CorsRule>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_4 = builder.cors_rules.take().unwrap_or_default();
                             list_4.push(
-                                crate::protocol_serde::shape_cors_rule::de_cors_rule(&mut tag, depth + 1)
+                                super::protocol_serde::shape_cors_rule::de_cors_rule(&mut tag, depth + 1)
                                 ?
                             );
                             list_4

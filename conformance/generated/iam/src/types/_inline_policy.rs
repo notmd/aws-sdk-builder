@@ -23,8 +23,8 @@ impl InlinePolicy {
 }
 impl InlinePolicy {
     /// Creates a new builder-style object to manufacture [`InlinePolicy`](crate::types::InlinePolicy).
-    pub fn builder() -> crate::types::builders::InlinePolicyBuilder {
-        crate::types::builders::InlinePolicyBuilder::default()
+    pub fn builder() -> super::types::builders::InlinePolicyBuilder {
+        super::types::builders::InlinePolicyBuilder::default()
     }
 }
 
@@ -70,8 +70,8 @@ impl InlinePolicyBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`policy_name`](crate::types::builders::InlinePolicyBuilder::policy_name)
     /// - [`policy_document`](crate::types::builders::InlinePolicyBuilder::policy_document)
-    pub fn build(self) -> ::std::result::Result<crate::types::InlinePolicy, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::InlinePolicy {
+    pub fn build(self) -> ::std::result::Result<super::types::InlinePolicy, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::InlinePolicy {
             policy_name: self.policy_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "policy_name",

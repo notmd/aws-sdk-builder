@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteSigningCertificateOutput {
 }
 impl DeleteSigningCertificateOutput {
     /// Creates a new builder-style object to manufacture [`DeleteSigningCertificateOutput`](crate::operation::delete_signing_certificate::DeleteSigningCertificateOutput).
-    pub fn builder() -> crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateOutputBuilder {
-        crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_signing_certificate::builders::DeleteSigningCertificateOutputBuilder {
+        super::operation::delete_signing_certificate::builders::DeleteSigningCertificateOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteSigningCertificateOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteSigningCertificateOutput`](crate::operation::delete_signing_certificate::DeleteSigningCertificateOutput).
-    pub fn build(self) -> crate::operation::delete_signing_certificate::DeleteSigningCertificateOutput {
-        crate::operation::delete_signing_certificate::DeleteSigningCertificateOutput {
+    pub fn build(self) -> super::operation::delete_signing_certificate::DeleteSigningCertificateOutput {
+        super::operation::delete_signing_certificate::DeleteSigningCertificateOutput {
             _request_id: self._request_id,
         }
     }

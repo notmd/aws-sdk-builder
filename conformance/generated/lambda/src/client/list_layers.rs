@@ -12,7 +12,7 @@ impl super::Client {
     ///   - [`next_marker(Option<String>)`](crate::operation::list_layers::ListLayersOutput::next_marker): <p>A pagination token returned when the response doesn't contain all layers.</p>
     ///   - [`layers(Option<Vec::<LayersListItem>>)`](crate::operation::list_layers::ListLayersOutput::layers): <p>A list of function layers.</p>
     /// - On failure, responds with [`SdkError<ListLayersError>`](crate::operation::list_layers::ListLayersError)
-    pub fn list_layers(&self) -> crate::operation::list_layers::builders::ListLayersFluentBuilder {
-        crate::operation::list_layers::builders::ListLayersFluentBuilder::new(self.handle.clone())
+    pub fn list_layers(&self) -> super::operation::list_layers::builders::ListLayersFluentBuilder {
+        super::operation::list_layers::builders::ListLayersFluentBuilder::new(self.handle.clone())
     }
 }

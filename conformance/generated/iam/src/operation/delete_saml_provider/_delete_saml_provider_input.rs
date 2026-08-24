@@ -14,8 +14,8 @@ impl DeleteSamlProviderInput {
 }
 impl DeleteSamlProviderInput {
     /// Creates a new builder-style object to manufacture [`DeleteSamlProviderInput`](crate::operation::delete_saml_provider::DeleteSamlProviderInput).
-    pub fn builder() -> crate::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder {
-        crate::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder::default()
+    pub fn builder() -> super::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder {
+        super::operation::delete_saml_provider::builders::DeleteSamlProviderInputBuilder::default()
     }
 }
 
@@ -44,9 +44,9 @@ impl DeleteSamlProviderInputBuilder {
     /// Consumes the builder and constructs a [`DeleteSamlProviderInput`](crate::operation::delete_saml_provider::DeleteSamlProviderInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_saml_provider::DeleteSamlProviderInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::delete_saml_provider::DeleteSamlProviderInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::delete_saml_provider::DeleteSamlProviderInput {
+        ::std::result::Result::Ok(super::operation::delete_saml_provider::DeleteSamlProviderInput {
             saml_provider_arn: self.saml_provider_arn,
         })
     }

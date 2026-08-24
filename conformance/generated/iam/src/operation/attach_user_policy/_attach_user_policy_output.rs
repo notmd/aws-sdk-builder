@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for AttachUserPolicyOutput {
 }
 impl AttachUserPolicyOutput {
     /// Creates a new builder-style object to manufacture [`AttachUserPolicyOutput`](crate::operation::attach_user_policy::AttachUserPolicyOutput).
-    pub fn builder() -> crate::operation::attach_user_policy::builders::AttachUserPolicyOutputBuilder {
-        crate::operation::attach_user_policy::builders::AttachUserPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::attach_user_policy::builders::AttachUserPolicyOutputBuilder {
+        super::operation::attach_user_policy::builders::AttachUserPolicyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl AttachUserPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AttachUserPolicyOutput`](crate::operation::attach_user_policy::AttachUserPolicyOutput).
-    pub fn build(self) -> crate::operation::attach_user_policy::AttachUserPolicyOutput {
-        crate::operation::attach_user_policy::AttachUserPolicyOutput {
+    pub fn build(self) -> super::operation::attach_user_policy::AttachUserPolicyOutput {
+        super::operation::attach_user_policy::AttachUserPolicyOutput {
             _request_id: self._request_id,
         }
     }

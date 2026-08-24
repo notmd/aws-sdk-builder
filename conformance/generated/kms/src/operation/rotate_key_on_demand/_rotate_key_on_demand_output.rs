@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for RotateKeyOnDemandOutput {
 }
 impl RotateKeyOnDemandOutput {
     /// Creates a new builder-style object to manufacture [`RotateKeyOnDemandOutput`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput).
-    pub fn builder() -> crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder {
-        crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder::default()
+    pub fn builder() -> super::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder {
+        super::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl RotateKeyOnDemandOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RotateKeyOnDemandOutput`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput).
-    pub fn build(self) -> crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput {
-        crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput {
+    pub fn build(self) -> super::operation::rotate_key_on_demand::RotateKeyOnDemandOutput {
+        super::operation::rotate_key_on_demand::RotateKeyOnDemandOutput {
             key_id: self.key_id,
             _request_id: self._request_id,
         }

@@ -4,7 +4,7 @@ pub(crate) fn de_function_versions_by_capacity_provider_list<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>>,
+    Option<::std::vec::Vec<super::types::FunctionVersionsByCapacityProviderListItem>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -26,7 +26,7 @@ where
                         break;
                     }
                     _ => {
-                        let value = crate::protocol_serde::shape_function_versions_by_capacity_provider_list_item::de_function_versions_by_capacity_provider_list_item(tokens, _value, depth + 1)?;
+                        let value = super::protocol_serde::shape_function_versions_by_capacity_provider_list_item::de_function_versions_by_capacity_provider_list_item(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

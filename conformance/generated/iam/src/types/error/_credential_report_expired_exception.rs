@@ -26,7 +26,7 @@ impl ::std::fmt::Display for CredentialReportExpiredException {
     }
 }
 impl ::std::error::Error for CredentialReportExpiredException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::CredentialReportExpiredException {
+impl ::aws_types::request_id::RequestId for super::types::error::CredentialReportExpiredException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CredentialRep
 }
 impl CredentialReportExpiredException {
     /// Creates a new builder-style object to manufacture [`CredentialReportExpiredException`](crate::types::error::CredentialReportExpiredException).
-    pub fn builder() -> crate::types::error::builders::CredentialReportExpiredExceptionBuilder {
-        crate::types::error::builders::CredentialReportExpiredExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::CredentialReportExpiredExceptionBuilder {
+        super::types::error::builders::CredentialReportExpiredExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl CredentialReportExpiredExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CredentialReportExpiredException`](crate::types::error::CredentialReportExpiredException).
-    pub fn build(self) -> crate::types::error::CredentialReportExpiredException {
-        crate::types::error::CredentialReportExpiredException {
+    pub fn build(self) -> super::types::error::CredentialReportExpiredException {
+        super::types::error::CredentialReportExpiredException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -5,29 +5,29 @@ pub fn de_get_object_attributes_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_object_attributes::GetObjectAttributesOutput,
-    crate::operation::get_object_attributes::GetObjectAttributesError,
+    super::operation::get_object_attributes::GetObjectAttributesOutput,
+    super::operation::get_object_attributes::GetObjectAttributesError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(generic)),
+        None => return Err(super::operation::get_object_attributes::GetObjectAttributesError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchKey" => crate::operation::get_object_attributes::GetObjectAttributesError::NoSuchKey({
+        "NoSuchKey" => super::operation::get_object_attributes::GetObjectAttributesError::NoSuchKey({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NoSuchKeyBuilder::default();
-                output = crate::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
-                    .map_err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
+                let mut output = super::types::error::builders::NoSuchKeyBuilder::default();
+                output = super::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
+                    .map_err(super::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -36,7 +36,7 @@ pub fn de_get_object_attributes_http_error(
             }
             tmp
         }),
-        _ => crate::operation::get_object_attributes::GetObjectAttributesError::generic(generic),
+        _ => super::operation::get_object_attributes::GetObjectAttributesError::generic(generic),
     })
 }
 
@@ -46,50 +46,50 @@ pub fn de_get_object_attributes_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_object_attributes::GetObjectAttributesOutput,
-    crate::operation::get_object_attributes::GetObjectAttributesError,
+    super::operation::get_object_attributes::GetObjectAttributesOutput,
+    super::operation::get_object_attributes::GetObjectAttributesError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_object_attributes::de_get_object_attributes(_response_body, output)
-            .map_err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
+        let mut output = super::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder::default();
+        output = super::protocol_serde::shape_get_object_attributes::de_get_object_attributes(_response_body, output)
+            .map_err(super::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
         output = output.set_delete_marker(
-            crate::protocol_serde::shape_get_object_attributes_output::de_delete_marker_header(_response_headers).map_err(|_| {
-                crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
+            super::protocol_serde::shape_get_object_attributes_output::de_delete_marker_header(_response_headers).map_err(|_| {
+                super::operation::get_object_attributes::GetObjectAttributesError::unhandled(
                     "Failed to parse DeleteMarker from header `x-amz-delete-marker",
                 )
             })?,
         );
         output = output.set_last_modified(
-            crate::protocol_serde::shape_get_object_attributes_output::de_last_modified_header(_response_headers).map_err(|_| {
-                crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
+            super::protocol_serde::shape_get_object_attributes_output::de_last_modified_header(_response_headers).map_err(|_| {
+                super::operation::get_object_attributes::GetObjectAttributesError::unhandled(
                     "Failed to parse LastModified from header `Last-Modified",
                 )
             })?,
         );
         output = output.set_request_charged(
-            crate::protocol_serde::shape_get_object_attributes_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
+            super::protocol_serde::shape_get_object_attributes_output::de_request_charged_header(_response_headers).map_err(|_| {
+                super::operation::get_object_attributes::GetObjectAttributesError::unhandled(
                     "Failed to parse RequestCharged from header `x-amz-request-charged",
                 )
             })?,
         );
         output = output.set_version_id(
-            crate::protocol_serde::shape_get_object_attributes_output::de_version_id_header(_response_headers).map_err(|_| {
-                crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
+            super::protocol_serde::shape_get_object_attributes_output::de_version_id_header(_response_headers).map_err(|_| {
+                super::operation::get_object_attributes::GetObjectAttributesError::unhandled(
                     "Failed to parse VersionId from header `x-amz-version-id",
                 )
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_get_object_attributes_headers(
-    input: &crate::operation::get_object_attributes::GetObjectAttributesInput,
+    input: &super::operation::get_object_attributes::GetObjectAttributesInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.max_parts {
@@ -194,8 +194,8 @@ pub fn ser_get_object_attributes_headers(
 #[allow(unused_mut)]
 pub fn de_get_object_attributes(
     inp: &[u8],
-    mut builder: crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder,
-) -> std::result::Result<crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+    mut builder: super::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder,
+) -> std::result::Result<super::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
 {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
@@ -223,7 +223,7 @@ pub fn de_get_object_attributes(
             s if s.matches("Checksum") /* Checksum com.amazonaws.s3.synthetic#GetObjectAttributesOutput$Checksum */ =>  {
                 let var_19 =
                     Some(
-                        crate::protocol_serde::shape_checksum::de_checksum(&mut tag, depth + 1)
+                        super::protocol_serde::shape_checksum::de_checksum(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -233,8 +233,8 @@ pub fn de_get_object_attributes(
             s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3.synthetic#GetObjectAttributesOutput$StorageClass */ =>  {
                 let var_20 =
                     Some(
-                        Result::<crate::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::StorageClass::from(
+                        Result::<super::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::StorageClass::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -262,7 +262,7 @@ pub fn de_get_object_attributes(
             s if s.matches("ObjectParts") /* ObjectParts com.amazonaws.s3.synthetic#GetObjectAttributesOutput$ObjectParts */ =>  {
                 let var_22 =
                     Some(
-                        crate::protocol_serde::shape_get_object_attributes_parts::de_get_object_attributes_parts(&mut tag, depth + 1)
+                        super::protocol_serde::shape_get_object_attributes_parts::de_get_object_attributes_parts(&mut tag, depth + 1)
                         ?
                     )
                 ;

@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct XksProxyConfigurationType {
     /// <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint service to communicate with KMS.</p>
-    pub connectivity: ::std::option::Option<crate::types::XksProxyConnectivityType>,
+    pub connectivity: ::std::option::Option<super::types::XksProxyConnectivityType>,
     /// <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a> that uniquely identifies the secret access key.</p>
     pub access_key_id: ::std::option::Option<::std::string::String>,
     /// <p>The URI endpoint for the external key store proxy.</p>
@@ -21,7 +21,7 @@ pub struct XksProxyConfigurationType {
 }
 impl XksProxyConfigurationType {
     /// <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint service to communicate with KMS.</p>
-    pub fn connectivity(&self) -> ::std::option::Option<&crate::types::XksProxyConnectivityType> {
+    pub fn connectivity(&self) -> ::std::option::Option<&super::types::XksProxyConnectivityType> {
         self.connectivity.as_ref()
     }
     /// <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a> that uniquely identifies the secret access key.</p>
@@ -61,8 +61,8 @@ impl ::std::fmt::Debug for XksProxyConfigurationType {
 }
 impl XksProxyConfigurationType {
     /// Creates a new builder-style object to manufacture [`XksProxyConfigurationType`](crate::types::XksProxyConfigurationType).
-    pub fn builder() -> crate::types::builders::XksProxyConfigurationTypeBuilder {
-        crate::types::builders::XksProxyConfigurationTypeBuilder::default()
+    pub fn builder() -> super::types::builders::XksProxyConfigurationTypeBuilder {
+        super::types::builders::XksProxyConfigurationTypeBuilder::default()
     }
 }
 
@@ -70,7 +70,7 @@ impl XksProxyConfigurationType {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct XksProxyConfigurationTypeBuilder {
-    pub(crate) connectivity: ::std::option::Option<crate::types::XksProxyConnectivityType>,
+    pub(crate) connectivity: ::std::option::Option<super::types::XksProxyConnectivityType>,
     pub(crate) access_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) uri_endpoint: ::std::option::Option<::std::string::String>,
     pub(crate) uri_path: ::std::option::Option<::std::string::String>,
@@ -79,17 +79,17 @@ pub struct XksProxyConfigurationTypeBuilder {
 }
 impl XksProxyConfigurationTypeBuilder {
     /// <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint service to communicate with KMS.</p>
-    pub fn connectivity(mut self, input: crate::types::XksProxyConnectivityType) -> Self {
+    pub fn connectivity(mut self, input: super::types::XksProxyConnectivityType) -> Self {
         self.connectivity = ::std::option::Option::Some(input);
         self
     }
     /// <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint service to communicate with KMS.</p>
-    pub fn set_connectivity(mut self, input: ::std::option::Option<crate::types::XksProxyConnectivityType>) -> Self {
+    pub fn set_connectivity(mut self, input: ::std::option::Option<super::types::XksProxyConnectivityType>) -> Self {
         self.connectivity = input;
         self
     }
     /// <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint service to communicate with KMS.</p>
-    pub fn get_connectivity(&self) -> &::std::option::Option<crate::types::XksProxyConnectivityType> {
+    pub fn get_connectivity(&self) -> &::std::option::Option<super::types::XksProxyConnectivityType> {
         &self.connectivity
     }
     /// <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a> that uniquely identifies the secret access key.</p>
@@ -169,8 +169,8 @@ impl XksProxyConfigurationTypeBuilder {
         &self.vpc_endpoint_service_owner
     }
     /// Consumes the builder and constructs a [`XksProxyConfigurationType`](crate::types::XksProxyConfigurationType).
-    pub fn build(self) -> crate::types::XksProxyConfigurationType {
-        crate::types::XksProxyConfigurationType {
+    pub fn build(self) -> super::types::XksProxyConfigurationType {
+        super::types::XksProxyConfigurationType {
             connectivity: self.connectivity,
             access_key_id: self.access_key_id,
             uri_endpoint: self.uri_endpoint,

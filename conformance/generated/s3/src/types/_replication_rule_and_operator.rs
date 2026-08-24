@@ -14,7 +14,7 @@ pub struct ReplicationRuleAndOperator {
     /// <p>An object key name prefix that identifies the subset of objects to which the rule applies.</p>
     pub prefix: ::std::option::Option<::std::string::String>,
     /// <p>An array of tags containing key and value pairs.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl ReplicationRuleAndOperator {
     /// <p>An object key name prefix that identifies the subset of objects to which the rule applies.</p>
@@ -24,14 +24,14 @@ impl ReplicationRuleAndOperator {
     /// <p>An array of tags containing key and value pairs.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
 }
 impl ReplicationRuleAndOperator {
     /// Creates a new builder-style object to manufacture [`ReplicationRuleAndOperator`](crate::types::ReplicationRuleAndOperator).
-    pub fn builder() -> crate::types::builders::ReplicationRuleAndOperatorBuilder {
-        crate::types::builders::ReplicationRuleAndOperatorBuilder::default()
+    pub fn builder() -> super::types::builders::ReplicationRuleAndOperatorBuilder {
+        super::types::builders::ReplicationRuleAndOperatorBuilder::default()
     }
 }
 
@@ -40,7 +40,7 @@ impl ReplicationRuleAndOperator {
 #[non_exhaustive]
 pub struct ReplicationRuleAndOperatorBuilder {
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl ReplicationRuleAndOperatorBuilder {
     /// <p>An object key name prefix that identifies the subset of objects to which the rule applies.</p>
@@ -62,24 +62,24 @@ impl ReplicationRuleAndOperatorBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>An array of tags containing key and value pairs.</p>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of tags containing key and value pairs.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>An array of tags containing key and value pairs.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`ReplicationRuleAndOperator`](crate::types::ReplicationRuleAndOperator).
-    pub fn build(self) -> crate::types::ReplicationRuleAndOperator {
-        crate::types::ReplicationRuleAndOperator {
+    pub fn build(self) -> super::types::ReplicationRuleAndOperator {
+        super::types::ReplicationRuleAndOperator {
             prefix: self.prefix,
             tags: self.tags,
         }

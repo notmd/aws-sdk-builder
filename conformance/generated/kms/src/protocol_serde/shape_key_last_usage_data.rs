@@ -3,7 +3,7 @@ pub(crate) fn de_key_last_usage_data<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::KeyLastUsageData>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::KeyLastUsageData>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::KeyLastUsageDataBuilder::default();
+            let mut builder = super::types::builders::KeyLastUsageDataBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -24,7 +24,7 @@ where
                         "Operation" => {
                             builder = builder.set_operation(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::KeyLastUsageTrackingOperation::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::KeyLastUsageTrackingOperation::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

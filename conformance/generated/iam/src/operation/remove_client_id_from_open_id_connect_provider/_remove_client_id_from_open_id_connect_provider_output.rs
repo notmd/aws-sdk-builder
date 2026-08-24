@@ -13,8 +13,8 @@ impl ::aws_types::request_id::RequestId for RemoveClientIdFromOpenIdConnectProvi
 impl RemoveClientIdFromOpenIdConnectProviderOutput {
     /// Creates a new builder-style object to manufacture [`RemoveClientIdFromOpenIdConnectProviderOutput`](crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput).
     pub fn builder(
-    ) -> crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderOutputBuilder {
-        crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderOutputBuilder::default()
+    ) -> super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderOutputBuilder {
+        super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderOutputBuilder::default()
     }
 }
 
@@ -35,8 +35,8 @@ impl RemoveClientIdFromOpenIdConnectProviderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RemoveClientIdFromOpenIdConnectProviderOutput`](crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput).
-    pub fn build(self) -> crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput {
-        crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput {
+    pub fn build(self) -> super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput {
+        super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput {
             _request_id: self._request_id,
         }
     }

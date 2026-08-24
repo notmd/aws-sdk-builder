@@ -10,11 +10,11 @@ impl ListBucketInventoryConfigurations {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
+        input: super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
     ) -> ::std::result::Result<
-        crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput,
+        super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError,
+            super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl ListBucketInventoryConfigurations {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError>()
+                err.downcast::<super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl ListBucketInventoryConfigurations {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput>()
+                .downcast::<super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
+        input: super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -72,8 +72,8 @@ impl ListBucketInventoryConfigurations {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -81,7 +81,7 @@ impl ListBucketInventoryConfigurations {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -102,7 +102,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListBuc
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("ListBucketInventoryConfigurations")
                 .build()
                 .expect("required fields set"),
@@ -143,14 +143,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListBuc
                 ListBucketInventoryConfigurationsEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError,
+                super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError,
+                super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError,
             >::new())
             .with_retry_classifier(
                 ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError,
+                    super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError,
                 >::builder()
                 .transient_errors({
                     let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -236,15 +236,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListBucke
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_list_bucket_inventory_configurations::de_list_bucket_inventory_configurations_http_error(
+            super::protocol_serde::shape_list_bucket_inventory_configurations::de_list_bucket_inventory_configurations_http_error(
                 status, headers, body,
             )
         } else {
-            crate::protocol_serde::shape_list_bucket_inventory_configurations::de_list_bucket_inventory_configurations_http_response(
+            super::protocol_serde::shape_list_bucket_inventory_configurations::de_list_bucket_inventory_configurations_http_response(
                 status, headers, body,
             )
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -257,16 +257,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListBucketIn
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput>()
+            .downcast::<super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
+                _input: &super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -274,7 +274,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListBucketIn
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
-                _input: &crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
+                _input: &super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
                 mut output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
@@ -289,13 +289,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListBucketIn
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
+                input: &super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_list_bucket_inventory_configurations::ser_list_bucket_inventory_configurations_headers(
+                let builder = super::protocol_serde::shape_list_bucket_inventory_configurations::ser_list_bucket_inventory_configurations_headers(
                     input, builder,
                 )?;
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
@@ -332,16 +332,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListBucketInv
             .downcast_ref::<ListBucketInventoryConfigurationsInput>()
             .ok_or("failed to downcast to ListBucketInventoryConfigurationsInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
-            .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
-            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
-            .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
-            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
+            .set_force_path_style(cfg.load::<super::config::ForcePathStyle>().map(|ty| ty.0))
+            .set_use_arn_region(cfg.load::<super::config::UseArnRegion>().map(|ty| ty.0))
+            .set_disable_multi_region_access_points(cfg.load::<super::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
+            .set_accelerate(cfg.load::<super::config::Accelerate>().map(|ty| ty.0))
+            .set_disable_s3_express_session_auth(cfg.load::<super::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
             .set_use_s3_express_control_endpoint(Some(true))
             .set_bucket(Some(
                 _input
@@ -374,14 +374,14 @@ pub enum ListBucketInventoryConfigurationsError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListBucketInventoryConfigurationsError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl ListBucketInventoryConfigurationsError {
     /// Creates the `ListBucketInventoryConfigurationsError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -389,7 +389,7 @@ impl ListBucketInventoryConfigurationsError {
 
     /// Creates the `ListBucketInventoryConfigurationsError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -444,26 +444,26 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListBuck
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError {
+impl super::s3_request_id::RequestIdExt for super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError {
+impl ::aws_types::request_id::RequestId for super::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::list_bucket_inventory_configurations::_list_bucket_inventory_configurations_input::ListBucketInventoryConfigurationsInput;
+pub use super::operation::list_bucket_inventory_configurations::_list_bucket_inventory_configurations_input::ListBucketInventoryConfigurationsInput;
 
-pub use crate::operation::list_bucket_inventory_configurations::_list_bucket_inventory_configurations_output::ListBucketInventoryConfigurationsOutput;
+pub use super::operation::list_bucket_inventory_configurations::_list_bucket_inventory_configurations_output::ListBucketInventoryConfigurationsOutput;
 
 mod _list_bucket_inventory_configurations_input;
 

@@ -26,7 +26,7 @@ impl ::std::fmt::Display for IncorrectKeyMaterialException {
     }
 }
 impl ::std::error::Error for IncorrectKeyMaterialException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::IncorrectKeyMaterialException {
+impl ::aws_types::request_id::RequestId for super::types::error::IncorrectKeyMaterialException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for IncorrectKeyM
 }
 impl IncorrectKeyMaterialException {
     /// Creates a new builder-style object to manufacture [`IncorrectKeyMaterialException`](crate::types::error::IncorrectKeyMaterialException).
-    pub fn builder() -> crate::types::error::builders::IncorrectKeyMaterialExceptionBuilder {
-        crate::types::error::builders::IncorrectKeyMaterialExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::IncorrectKeyMaterialExceptionBuilder {
+        super::types::error::builders::IncorrectKeyMaterialExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl IncorrectKeyMaterialExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`IncorrectKeyMaterialException`](crate::types::error::IncorrectKeyMaterialException).
-    pub fn build(self) -> crate::types::error::IncorrectKeyMaterialException {
-        crate::types::error::IncorrectKeyMaterialException {
+    pub fn build(self) -> super::types::error::IncorrectKeyMaterialException {
+        super::types::error::IncorrectKeyMaterialException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

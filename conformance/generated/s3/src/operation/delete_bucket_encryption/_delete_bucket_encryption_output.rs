@@ -6,7 +6,7 @@ pub struct DeleteBucketEncryptionOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for DeleteBucketEncryptionOutput {
+impl super::s3_request_id::RequestIdExt for DeleteBucketEncryptionOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for DeleteBucketEncryptionOutput {
 }
 impl DeleteBucketEncryptionOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketEncryptionOutput`](crate::operation::delete_bucket_encryption::DeleteBucketEncryptionOutput).
-    pub fn builder() -> crate::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionOutputBuilder {
-        crate::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionOutputBuilder {
+        super::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl DeleteBucketEncryptionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketEncryptionOutput`](crate::operation::delete_bucket_encryption::DeleteBucketEncryptionOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_encryption::DeleteBucketEncryptionOutput {
-        crate::operation::delete_bucket_encryption::DeleteBucketEncryptionOutput {
+    pub fn build(self) -> super::operation::delete_bucket_encryption::DeleteBucketEncryptionOutput {
+        super::operation::delete_bucket_encryption::DeleteBucketEncryptionOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

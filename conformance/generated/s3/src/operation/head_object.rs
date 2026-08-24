@@ -10,11 +10,11 @@ impl HeadObject {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::head_object::HeadObjectInput,
+        input: super::operation::head_object::HeadObjectInput,
     ) -> ::std::result::Result<
-        crate::operation::head_object::HeadObjectOutput,
+        super::operation::head_object::HeadObjectOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::head_object::HeadObjectError,
+            super::operation::head_object::HeadObjectError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl HeadObject {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::head_object::HeadObjectError>()
+                err.downcast::<super::operation::head_object::HeadObjectError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl HeadObject {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::head_object::HeadObjectOutput>()
+                .downcast::<super::operation::head_object::HeadObjectOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::head_object::HeadObjectInput,
+        input: super::operation::head_object::HeadObjectInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl HeadObject {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl HeadObject {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for HeadObj
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("HeadObject")
                 .build()
                 .expect("required fields set"),
@@ -134,16 +134,16 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for HeadObj
                 HeadObjectEndpointParamsInterceptor,
             ))
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                crate::s3_expires_interceptor::S3ExpiresInterceptor,
+                super::s3_expires_interceptor::S3ExpiresInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::head_object::HeadObjectError,
+                super::operation::head_object::HeadObjectError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::head_object::HeadObjectError,
+                super::operation::head_object::HeadObjectError,
             >::new())
             .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::head_object::HeadObjectError>::builder()
+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::head_object::HeadObjectError>::builder()
                     .transient_errors({
                         let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                         transient_errors.push("InternalError");
@@ -283,11 +283,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for HeadObjec
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_head_object::de_head_object_http_error(status, headers, body)
+            super::protocol_serde::shape_head_object::de_head_object_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_head_object::de_head_object_http_response(status, headers, body)
+            super::protocol_serde::shape_head_object::de_head_object_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -299,15 +299,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for HeadObjectRe
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input.downcast::<crate::operation::head_object::HeadObjectInput>().expect("correct type");
+        let input = input.downcast::<super::operation::head_object::HeadObjectInput>().expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::head_object::HeadObjectInput,
+                _input: &super::operation::head_object::HeadObjectInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -326,7 +326,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for HeadObjectRe
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
-                _input: &crate::operation::head_object::HeadObjectInput,
+                _input: &super::operation::head_object::HeadObjectInput,
                 mut output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
@@ -377,13 +377,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for HeadObjectRe
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::head_object::HeadObjectInput,
+                input: &super::operation::head_object::HeadObjectInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_head_object::ser_head_object_headers(input, builder)?;
+                let builder = super::protocol_serde::shape_head_object::ser_head_object_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("HEAD").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -418,16 +418,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for HeadObjectEnd
             .downcast_ref::<HeadObjectInput>()
             .ok_or("failed to downcast to HeadObjectInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
-            .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
-            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
-            .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
-            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
+            .set_force_path_style(cfg.load::<super::config::ForcePathStyle>().map(|ty| ty.0))
+            .set_use_arn_region(cfg.load::<super::config::UseArnRegion>().map(|ty| ty.0))
+            .set_disable_multi_region_access_points(cfg.load::<super::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
+            .set_accelerate(cfg.load::<super::config::Accelerate>().map(|ty| ty.0))
+            .set_disable_s3_express_session_auth(cfg.load::<super::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
             .set_bucket(Some(
                 _input
                     .bucket
@@ -460,7 +460,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for HeadObjectEnd
 #[derive(::std::fmt::Debug)]
 pub enum HeadObjectError {
     /// <p>The specified content does not exist.</p>
-    NotFound(crate::types::error::NotFound),
+    NotFound(super::types::error::NotFound),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -468,14 +468,14 @@ pub enum HeadObjectError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-HeadObjectError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl HeadObjectError {
     /// Creates the `HeadObjectError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -483,7 +483,7 @@ impl HeadObjectError {
 
     /// Creates the `HeadObjectError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -546,26 +546,26 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for HeadObje
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::head_object::HeadObjectError {
+impl super::s3_request_id::RequestIdExt for super::operation::head_object::HeadObjectError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::head_object::HeadObjectError {
+impl ::aws_types::request_id::RequestId for super::operation::head_object::HeadObjectError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::head_object::_head_object_input::HeadObjectInput;
+pub use super::operation::head_object::_head_object_input::HeadObjectInput;
 
-pub use crate::operation::head_object::_head_object_output::HeadObjectOutput;
+pub use super::operation::head_object::_head_object_output::HeadObjectOutput;
 
 mod _head_object_input;
 

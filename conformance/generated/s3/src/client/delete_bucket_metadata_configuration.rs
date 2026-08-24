@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteBucketMetadataConfigurationError>`](crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationError)
     pub fn delete_bucket_metadata_configuration(
         &self,
-    ) -> crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder {
-        crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder {
+        super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

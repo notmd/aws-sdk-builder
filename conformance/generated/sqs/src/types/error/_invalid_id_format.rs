@@ -27,7 +27,7 @@ impl ::std::fmt::Display for InvalidIdFormat {
     }
 }
 impl ::std::error::Error for InvalidIdFormat {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidIdFormat {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidIdFormat {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -40,8 +40,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidIdForm
 }
 impl InvalidIdFormat {
     /// Creates a new builder-style object to manufacture [`InvalidIdFormat`](crate::types::error::InvalidIdFormat).
-    pub fn builder() -> crate::types::error::builders::InvalidIdFormatBuilder {
-        crate::types::error::builders::InvalidIdFormatBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidIdFormatBuilder {
+        super::types::error::builders::InvalidIdFormatBuilder::default()
     }
 }
 
@@ -79,8 +79,8 @@ impl InvalidIdFormatBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidIdFormat`](crate::types::error::InvalidIdFormat).
-    pub fn build(self) -> crate::types::error::InvalidIdFormat {
-        crate::types::error::InvalidIdFormat {
+    pub fn build(self) -> super::types::error::InvalidIdFormat {
+        super::types::error::InvalidIdFormat {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

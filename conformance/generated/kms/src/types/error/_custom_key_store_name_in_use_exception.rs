@@ -26,7 +26,7 @@ impl ::std::fmt::Display for CustomKeyStoreNameInUseException {
     }
 }
 impl ::std::error::Error for CustomKeyStoreNameInUseException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::CustomKeyStoreNameInUseException {
+impl ::aws_types::request_id::RequestId for super::types::error::CustomKeyStoreNameInUseException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CustomKeyStor
 }
 impl CustomKeyStoreNameInUseException {
     /// Creates a new builder-style object to manufacture [`CustomKeyStoreNameInUseException`](crate::types::error::CustomKeyStoreNameInUseException).
-    pub fn builder() -> crate::types::error::builders::CustomKeyStoreNameInUseExceptionBuilder {
-        crate::types::error::builders::CustomKeyStoreNameInUseExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::CustomKeyStoreNameInUseExceptionBuilder {
+        super::types::error::builders::CustomKeyStoreNameInUseExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl CustomKeyStoreNameInUseExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CustomKeyStoreNameInUseException`](crate::types::error::CustomKeyStoreNameInUseException).
-    pub fn build(self) -> crate::types::error::CustomKeyStoreNameInUseException {
-        crate::types::error::CustomKeyStoreNameInUseException {
+    pub fn build(self) -> super::types::error::CustomKeyStoreNameInUseException {
+        super::types::error::CustomKeyStoreNameInUseException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

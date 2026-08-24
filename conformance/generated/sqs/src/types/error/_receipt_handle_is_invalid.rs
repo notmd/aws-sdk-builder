@@ -26,7 +26,7 @@ impl ::std::fmt::Display for ReceiptHandleIsInvalid {
     }
 }
 impl ::std::error::Error for ReceiptHandleIsInvalid {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ReceiptHandleIsInvalid {
+impl ::aws_types::request_id::RequestId for super::types::error::ReceiptHandleIsInvalid {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ReceiptHandle
 }
 impl ReceiptHandleIsInvalid {
     /// Creates a new builder-style object to manufacture [`ReceiptHandleIsInvalid`](crate::types::error::ReceiptHandleIsInvalid).
-    pub fn builder() -> crate::types::error::builders::ReceiptHandleIsInvalidBuilder {
-        crate::types::error::builders::ReceiptHandleIsInvalidBuilder::default()
+    pub fn builder() -> super::types::error::builders::ReceiptHandleIsInvalidBuilder {
+        super::types::error::builders::ReceiptHandleIsInvalidBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl ReceiptHandleIsInvalidBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ReceiptHandleIsInvalid`](crate::types::error::ReceiptHandleIsInvalid).
-    pub fn build(self) -> crate::types::error::ReceiptHandleIsInvalid {
-        crate::types::error::ReceiptHandleIsInvalid {
+    pub fn build(self) -> super::types::error::ReceiptHandleIsInvalid {
+        super::types::error::ReceiptHandleIsInvalid {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

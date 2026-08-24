@@ -4,26 +4,26 @@ pub fn de_get_public_key_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_public_key::GetPublicKeyOutput, crate::operation::get_public_key::GetPublicKeyError> {
+) -> std::result::Result<super::operation::get_public_key::GetPublicKeyOutput, super::operation::get_public_key::GetPublicKeyError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::get_public_key::GetPublicKeyError::unhandled(generic)),
+        None => return Err(super::operation::get_public_key::GetPublicKeyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => crate::operation::get_public_key::GetPublicKeyError::DependencyTimeoutException({
+        "DependencyTimeoutException" => super::operation::get_public_key::GetPublicKeyError::DependencyTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -32,13 +32,13 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        "DisabledException" => crate::operation::get_public_key::GetPublicKeyError::DisabledException({
+        "DisabledException" => super::operation::get_public_key::GetPublicKeyError::DisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                let mut output = super::types::error::builders::DisabledExceptionBuilder::default();
+                output = super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -47,13 +47,13 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        "InvalidArnException" => crate::operation::get_public_key::GetPublicKeyError::InvalidArnException({
+        "InvalidArnException" => super::operation::get_public_key::GetPublicKeyError::InvalidArnException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidArnExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidArnExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,14 +62,14 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        "InvalidGrantTokenException" => crate::operation::get_public_key::GetPublicKeyError::InvalidGrantTokenException({
+        "InvalidGrantTokenException" => super::operation::get_public_key::GetPublicKeyError::InvalidGrantTokenException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
+                let mut output = super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                    super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                        .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -78,13 +78,13 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        "InvalidKeyUsageException" => crate::operation::get_public_key::GetPublicKeyError::InvalidKeyUsageException({
+        "InvalidKeyUsageException" => super::operation::get_public_key::GetPublicKeyError::InvalidKeyUsageException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -93,13 +93,13 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        "KeyUnavailableException" => crate::operation::get_public_key::GetPublicKeyError::KeyUnavailableException({
+        "KeyUnavailableException" => super::operation::get_public_key::GetPublicKeyError::KeyUnavailableException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KeyUnavailableExceptionBuilder::default();
-                output = crate::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                let mut output = super::types::error::builders::KeyUnavailableExceptionBuilder::default();
+                output = super::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -108,13 +108,13 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        "KMSInternalException" => crate::operation::get_public_key::GetPublicKeyError::KmsInternalException({
+        "KMSInternalException" => super::operation::get_public_key::GetPublicKeyError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123,13 +123,13 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => crate::operation::get_public_key::GetPublicKeyError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::operation::get_public_key::GetPublicKeyError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -138,13 +138,13 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        "NotFoundException" => crate::operation::get_public_key::GetPublicKeyError::NotFoundException({
+        "NotFoundException" => super::operation::get_public_key::GetPublicKeyError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -153,14 +153,14 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        "UnsupportedOperationException" => crate::operation::get_public_key::GetPublicKeyError::UnsupportedOperationException({
+        "UnsupportedOperationException" => super::operation::get_public_key::GetPublicKeyError::UnsupportedOperationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
+                let mut output = super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                    super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -169,7 +169,7 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        _ => crate::operation::get_public_key::GetPublicKeyError::generic(generic),
+        _ => super::operation::get_public_key::GetPublicKeyError::generic(generic),
     })
 }
 
@@ -178,35 +178,35 @@ pub fn de_get_public_key_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_public_key::GetPublicKeyOutput, crate::operation::get_public_key::GetPublicKeyError> {
+) -> std::result::Result<super::operation::get_public_key::GetPublicKeyOutput, super::operation::get_public_key::GetPublicKeyError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_public_key::builders::GetPublicKeyOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_public_key::de_get_public_key(_response_body, output)
-            .map_err(crate::operation::get_public_key::GetPublicKeyError::unhandled)?;
+        let mut output = super::operation::get_public_key::builders::GetPublicKeyOutputBuilder::default();
+        output = super::protocol_serde::shape_get_public_key::de_get_public_key(_response_body, output)
+            .map_err(super::operation::get_public_key::GetPublicKeyError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_get_public_key_input(
-    input: &crate::operation::get_public_key::GetPublicKeyInput,
+    input: &super::operation::get_public_key::GetPublicKeyInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_get_public_key_input::ser_get_public_key_input_input(&mut object, input)?;
+    super::protocol_serde::shape_get_public_key_input::ser_get_public_key_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_get_public_key(
     _value: &[u8],
-    mut builder: crate::operation::get_public_key::builders::GetPublicKeyOutputBuilder,
+    mut builder: super::operation::get_public_key::builders::GetPublicKeyOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::get_public_key::builders::GetPublicKeyOutputBuilder,
+    super::operation::get_public_key::builders::GetPublicKeyOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -228,37 +228,37 @@ pub(crate) fn de_get_public_key(
                 "CustomerMasterKeySpec" => {
                     builder = builder.set_customer_master_key_spec(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::CustomerMasterKeySpec::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::CustomerMasterKeySpec::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
                 "KeySpec" => {
                     builder = builder.set_key_spec(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::KeySpec::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::KeySpec::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
                 "KeyUsage" => {
                     builder = builder.set_key_usage(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::KeyUsageType::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::KeyUsageType::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
                 "EncryptionAlgorithms" => {
                     builder = builder.set_encryption_algorithms(
-                        crate::protocol_serde::shape_encryption_algorithm_spec_list::de_encryption_algorithm_spec_list(tokens, _value, depth + 1)?,
+                        super::protocol_serde::shape_encryption_algorithm_spec_list::de_encryption_algorithm_spec_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "SigningAlgorithms" => {
                     builder = builder.set_signing_algorithms(
-                        crate::protocol_serde::shape_signing_algorithm_spec_list::de_signing_algorithm_spec_list(tokens, _value, depth + 1)?,
+                        super::protocol_serde::shape_signing_algorithm_spec_list::de_signing_algorithm_spec_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "KeyAgreementAlgorithms" => {
                     builder = builder.set_key_agreement_algorithms(
-                        crate::protocol_serde::shape_key_agreement_algorithm_spec_list::de_key_agreement_algorithm_spec_list(
+                        super::protocol_serde::shape_key_agreement_algorithm_spec_list::de_key_agreement_algorithm_spec_list(
                             tokens,
                             _value,
                             depth + 1,

@@ -26,7 +26,7 @@ impl ::std::fmt::Display for ItemCollectionSizeLimitExceededException {
     }
 }
 impl ::std::error::Error for ItemCollectionSizeLimitExceededException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ItemCollectionSizeLimitExceededException {
+impl ::aws_types::request_id::RequestId for super::types::error::ItemCollectionSizeLimitExceededException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ItemCollectio
 }
 impl ItemCollectionSizeLimitExceededException {
     /// Creates a new builder-style object to manufacture [`ItemCollectionSizeLimitExceededException`](crate::types::error::ItemCollectionSizeLimitExceededException).
-    pub fn builder() -> crate::types::error::builders::ItemCollectionSizeLimitExceededExceptionBuilder {
-        crate::types::error::builders::ItemCollectionSizeLimitExceededExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ItemCollectionSizeLimitExceededExceptionBuilder {
+        super::types::error::builders::ItemCollectionSizeLimitExceededExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl ItemCollectionSizeLimitExceededExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ItemCollectionSizeLimitExceededException`](crate::types::error::ItemCollectionSizeLimitExceededException).
-    pub fn build(self) -> crate::types::error::ItemCollectionSizeLimitExceededException {
-        crate::types::error::ItemCollectionSizeLimitExceededException {
+    pub fn build(self) -> super::types::error::ItemCollectionSizeLimitExceededException {
+        super::types::error::ItemCollectionSizeLimitExceededException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

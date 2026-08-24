@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for CreateCustomKeyStoreOutput {
 }
 impl CreateCustomKeyStoreOutput {
     /// Creates a new builder-style object to manufacture [`CreateCustomKeyStoreOutput`](crate::operation::create_custom_key_store::CreateCustomKeyStoreOutput).
-    pub fn builder() -> crate::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder {
-        crate::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder::default()
+    pub fn builder() -> super::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder {
+        super::operation::create_custom_key_store::builders::CreateCustomKeyStoreOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl CreateCustomKeyStoreOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateCustomKeyStoreOutput`](crate::operation::create_custom_key_store::CreateCustomKeyStoreOutput).
-    pub fn build(self) -> crate::operation::create_custom_key_store::CreateCustomKeyStoreOutput {
-        crate::operation::create_custom_key_store::CreateCustomKeyStoreOutput {
+    pub fn build(self) -> super::operation::create_custom_key_store::CreateCustomKeyStoreOutput {
+        super::operation::create_custom_key_store::CreateCustomKeyStoreOutput {
             custom_key_store_id: self.custom_key_store_id,
             _request_id: self._request_id,
         }

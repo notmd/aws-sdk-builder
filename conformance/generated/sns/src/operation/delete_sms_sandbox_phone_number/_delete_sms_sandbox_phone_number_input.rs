@@ -21,8 +21,8 @@ impl ::std::fmt::Debug for DeleteSmsSandboxPhoneNumberInput {
 }
 impl DeleteSmsSandboxPhoneNumberInput {
     /// Creates a new builder-style object to manufacture [`DeleteSmsSandboxPhoneNumberInput`](crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput).
-    pub fn builder() -> crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder {
-        crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder::default()
+    pub fn builder() -> super::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder {
+        super::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder::default()
     }
 }
 
@@ -52,10 +52,10 @@ impl DeleteSmsSandboxPhoneNumberInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput,
+        super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput {
+        ::std::result::Result::Ok(super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput {
             phone_number: self.phone_number,
         })
     }

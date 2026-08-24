@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for RemovePermissionOutput {
 }
 impl RemovePermissionOutput {
     /// Creates a new builder-style object to manufacture [`RemovePermissionOutput`](crate::operation::remove_permission::RemovePermissionOutput).
-    pub fn builder() -> crate::operation::remove_permission::builders::RemovePermissionOutputBuilder {
-        crate::operation::remove_permission::builders::RemovePermissionOutputBuilder::default()
+    pub fn builder() -> super::operation::remove_permission::builders::RemovePermissionOutputBuilder {
+        super::operation::remove_permission::builders::RemovePermissionOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl RemovePermissionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RemovePermissionOutput`](crate::operation::remove_permission::RemovePermissionOutput).
-    pub fn build(self) -> crate::operation::remove_permission::RemovePermissionOutput {
-        crate::operation::remove_permission::RemovePermissionOutput {
+    pub fn build(self) -> super::operation::remove_permission::RemovePermissionOutput {
+        super::operation::remove_permission::RemovePermissionOutput {
             _request_id: self._request_id,
         }
     }

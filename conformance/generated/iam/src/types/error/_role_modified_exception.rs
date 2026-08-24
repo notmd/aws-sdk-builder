@@ -26,7 +26,7 @@ impl ::std::fmt::Display for RoleModifiedException {
     }
 }
 impl ::std::error::Error for RoleModifiedException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::RoleModifiedException {
+impl ::aws_types::request_id::RequestId for super::types::error::RoleModifiedException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for RoleModifiedE
 }
 impl RoleModifiedException {
     /// Creates a new builder-style object to manufacture [`RoleModifiedException`](crate::types::error::RoleModifiedException).
-    pub fn builder() -> crate::types::error::builders::RoleModifiedExceptionBuilder {
-        crate::types::error::builders::RoleModifiedExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::RoleModifiedExceptionBuilder {
+        super::types::error::builders::RoleModifiedExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl RoleModifiedExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RoleModifiedException`](crate::types::error::RoleModifiedException).
-    pub fn build(self) -> crate::types::error::RoleModifiedException {
-        crate::types::error::RoleModifiedException {
+    pub fn build(self) -> super::types::error::RoleModifiedException {
+        super::types::error::RoleModifiedException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

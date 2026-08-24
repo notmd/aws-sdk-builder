@@ -34,8 +34,8 @@ impl GetBucketPolicyInput {
 }
 impl GetBucketPolicyInput {
     /// Creates a new builder-style object to manufacture [`GetBucketPolicyInput`](crate::operation::get_bucket_policy::GetBucketPolicyInput).
-    pub fn builder() -> crate::operation::get_bucket_policy::builders::GetBucketPolicyInputBuilder {
-        crate::operation::get_bucket_policy::builders::GetBucketPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_policy::builders::GetBucketPolicyInputBuilder {
+        super::operation::get_bucket_policy::builders::GetBucketPolicyInputBuilder::default()
     }
 }
 
@@ -100,8 +100,8 @@ impl GetBucketPolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketPolicyInput`](crate::operation::get_bucket_policy::GetBucketPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_bucket_policy::GetBucketPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_bucket_policy::GetBucketPolicyInput {
+    ) -> ::std::result::Result<super::operation::get_bucket_policy::GetBucketPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_bucket_policy::GetBucketPolicyInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

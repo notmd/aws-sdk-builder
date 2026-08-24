@@ -10,7 +10,7 @@ pub struct AccessKeyMetadata {
     /// <p>The ID for this access key.</p>
     pub access_key_id: ::std::option::Option<::std::string::String>,
     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls; <code>Inactive</code> means it is not.</p>
-    pub status: ::std::option::Option<crate::types::StatusType>,
+    pub status: ::std::option::Option<super::types::StatusType>,
     /// <p>The date when the access key was created.</p>
     pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -24,7 +24,7 @@ impl AccessKeyMetadata {
         self.access_key_id.as_deref()
     }
     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls; <code>Inactive</code> means it is not.</p>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::StatusType> {
+    pub fn status(&self) -> ::std::option::Option<&super::types::StatusType> {
         self.status.as_ref()
     }
     /// <p>The date when the access key was created.</p>
@@ -34,8 +34,8 @@ impl AccessKeyMetadata {
 }
 impl AccessKeyMetadata {
     /// Creates a new builder-style object to manufacture [`AccessKeyMetadata`](crate::types::AccessKeyMetadata).
-    pub fn builder() -> crate::types::builders::AccessKeyMetadataBuilder {
-        crate::types::builders::AccessKeyMetadataBuilder::default()
+    pub fn builder() -> super::types::builders::AccessKeyMetadataBuilder {
+        super::types::builders::AccessKeyMetadataBuilder::default()
     }
 }
 
@@ -45,7 +45,7 @@ impl AccessKeyMetadata {
 pub struct AccessKeyMetadataBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
     pub(crate) access_key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) status: ::std::option::Option<crate::types::StatusType>,
+    pub(crate) status: ::std::option::Option<super::types::StatusType>,
     pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl AccessKeyMetadataBuilder {
@@ -78,17 +78,17 @@ impl AccessKeyMetadataBuilder {
         &self.access_key_id
     }
     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls; <code>Inactive</code> means it is not.</p>
-    pub fn status(mut self, input: crate::types::StatusType) -> Self {
+    pub fn status(mut self, input: super::types::StatusType) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls; <code>Inactive</code> means it is not.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<super::types::StatusType>) -> Self {
         self.status = input;
         self
     }
     /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls; <code>Inactive</code> means it is not.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> {
+    pub fn get_status(&self) -> &::std::option::Option<super::types::StatusType> {
         &self.status
     }
     /// <p>The date when the access key was created.</p>
@@ -106,8 +106,8 @@ impl AccessKeyMetadataBuilder {
         &self.create_date
     }
     /// Consumes the builder and constructs a [`AccessKeyMetadata`](crate::types::AccessKeyMetadata).
-    pub fn build(self) -> crate::types::AccessKeyMetadata {
-        crate::types::AccessKeyMetadata {
+    pub fn build(self) -> super::types::AccessKeyMetadata {
+        super::types::AccessKeyMetadata {
             user_name: self.user_name,
             access_key_id: self.access_key_id,
             status: self.status,

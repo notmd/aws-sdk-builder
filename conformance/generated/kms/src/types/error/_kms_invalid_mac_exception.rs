@@ -26,7 +26,7 @@ impl ::std::fmt::Display for KmsInvalidMacException {
     }
 }
 impl ::std::error::Error for KmsInvalidMacException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::KmsInvalidMacException {
+impl ::aws_types::request_id::RequestId for super::types::error::KmsInvalidMacException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for KmsInvalidMac
 }
 impl KmsInvalidMacException {
     /// Creates a new builder-style object to manufacture [`KmsInvalidMacException`](crate::types::error::KmsInvalidMacException).
-    pub fn builder() -> crate::types::error::builders::KmsInvalidMacExceptionBuilder {
-        crate::types::error::builders::KmsInvalidMacExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::KmsInvalidMacExceptionBuilder {
+        super::types::error::builders::KmsInvalidMacExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl KmsInvalidMacExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`KmsInvalidMacException`](crate::types::error::KmsInvalidMacException).
-    pub fn build(self) -> crate::types::error::KmsInvalidMacException {
-        crate::types::error::KmsInvalidMacException {
+    pub fn build(self) -> super::types::error::KmsInvalidMacException {
+        super::types::error::KmsInvalidMacException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

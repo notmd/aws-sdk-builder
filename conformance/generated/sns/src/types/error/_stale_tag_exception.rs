@@ -26,7 +26,7 @@ impl ::std::fmt::Display for StaleTagException {
     }
 }
 impl ::std::error::Error for StaleTagException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::StaleTagException {
+impl ::aws_types::request_id::RequestId for super::types::error::StaleTagException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for StaleTagExcep
 }
 impl StaleTagException {
     /// Creates a new builder-style object to manufacture [`StaleTagException`](crate::types::error::StaleTagException).
-    pub fn builder() -> crate::types::error::builders::StaleTagExceptionBuilder {
-        crate::types::error::builders::StaleTagExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::StaleTagExceptionBuilder {
+        super::types::error::builders::StaleTagExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl StaleTagExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`StaleTagException`](crate::types::error::StaleTagException).
-    pub fn build(self) -> crate::types::error::StaleTagException {
-        crate::types::error::StaleTagException {
+    pub fn build(self) -> super::types::error::StaleTagException {
+        super::types::error::StaleTagException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

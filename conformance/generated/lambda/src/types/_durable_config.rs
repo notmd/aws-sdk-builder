@@ -27,8 +27,8 @@ impl DurableConfig {
 }
 impl DurableConfig {
     /// Creates a new builder-style object to manufacture [`DurableConfig`](crate::types::DurableConfig).
-    pub fn builder() -> crate::types::builders::DurableConfigBuilder {
-        crate::types::builders::DurableConfigBuilder::default()
+    pub fn builder() -> super::types::builders::DurableConfigBuilder {
+        super::types::builders::DurableConfigBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl DurableConfigBuilder {
         &self.execution_timeout
     }
     /// Consumes the builder and constructs a [`DurableConfig`](crate::types::DurableConfig).
-    pub fn build(self) -> crate::types::DurableConfig {
-        crate::types::DurableConfig {
+    pub fn build(self) -> super::types::DurableConfig {
+        super::types::DurableConfig {
             kms_key_arn: self.kms_key_arn,
             retention_period_in_days: self.retention_period_in_days,
             execution_timeout: self.execution_timeout,

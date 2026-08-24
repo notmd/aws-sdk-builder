@@ -14,7 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListBucketInventoryConfigurationsError>`](crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsError)
     pub fn list_bucket_inventory_configurations(
         &self,
-    ) -> crate::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsFluentBuilder {
-        crate::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsFluentBuilder {
+        super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsFluentBuilder::new(self.handle.clone())
     }
 }

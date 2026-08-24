@@ -10,11 +10,11 @@ impl UpdateBucketMetadataJournalTableConfiguration {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
+        input: super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
     ) -> ::std::result::Result<
-        crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput,
+        super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError,
+            super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,19 +23,19 @@ impl UpdateBucketMetadataJournalTableConfiguration {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                                err.downcast::<crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError>().expect("correct error type")
+                                err.downcast::<super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError>().expect("correct error type")
                             })
         };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
             .await
             .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(output.downcast::<crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput>().expect("correct output type"))
+        ::std::result::Result::Ok(output.downcast::<super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput>().expect("correct output type"))
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
+        input: super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -67,8 +67,8 @@ impl UpdateBucketMetadataJournalTableConfiguration {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -76,7 +76,7 @@ impl UpdateBucketMetadataJournalTableConfiguration {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -97,7 +97,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateB
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("UpdateBucketMetadataJournalTableConfiguration")
                 .build()
                 .expect("required fields set"),
@@ -107,7 +107,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateB
             "UpdateBucketMetadataJournalTableConfiguration",
             "S3",
         ));
-        cfg.store_put(crate::s3_express::checksum::provide_default_checksum_algorithm());
+        cfg.store_put(super::s3_express::checksum::provide_default_checksum_algorithm());
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
         signing_options.content_sha256_header = true;
@@ -131,9 +131,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateB
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateBucketMetadataJournalTableConfigurationTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateBucketMetadataJournalTableConfigurationEndpointParamsInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(crate::http_request_checksum::RequestChecksumInterceptor::new(
+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(super::http_request_checksum::RequestChecksumInterceptor::new(
                                 |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
-                                    let input: &crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput = input.downcast_ref().expect("correct type");
+                                    let input: &super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput = input.downcast_ref().expect("correct type");
                                     let checksum_algorithm = input.checksum_algorithm();
                                     let checksum_algorithm = checksum_algorithm.map(|algorithm| algorithm.as_str());
                                     (checksum_algorithm.map(|s| s.to_string()), true)
@@ -167,7 +167,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateB
                                     // From the httpChecksum trait
                                     let http_checksum_required = true;
 
-                                    let is_presigned_req = cfg.load::<crate::presigning::PresigningMarker>().is_some();
+                                    let is_presigned_req = cfg.load::<super::presigning::PresigningMarker>().is_some();
 
                                     // If the request is presigned we do not set a default.
                                     // If the RequestChecksumCalculation is WhenSupported and the user has not set a checksum value or algo
@@ -193,9 +193,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateB
                                     Ok(user_set_checksum_value)
                                 }
                                 )))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError>::builder().transient_errors({
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError>::builder().transient_errors({
                                             let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                             transient_errors.push("InternalError");
                                             ::std::borrow::Cow::Owned(transient_errors)
@@ -277,11 +277,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for UpdateBuc
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_update_bucket_metadata_journal_table_configuration::de_update_bucket_metadata_journal_table_configuration_http_error(status, headers, body)
+            super::protocol_serde::shape_update_bucket_metadata_journal_table_configuration::de_update_bucket_metadata_journal_table_configuration_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_update_bucket_metadata_journal_table_configuration::de_update_bucket_metadata_journal_table_configuration_http_response(status, headers, body)
+            super::protocol_serde::shape_update_bucket_metadata_journal_table_configuration::de_update_bucket_metadata_journal_table_configuration_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -294,16 +294,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateBucket
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput>()
+            .downcast::<super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
+                _input: &super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -311,7 +311,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateBucket
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
-                _input: &crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
+                _input: &super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
                 mut output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
@@ -320,13 +320,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateBucket
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
+                input: &super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_update_bucket_metadata_journal_table_configuration::ser_update_bucket_metadata_journal_table_configuration_headers(input, builder)?;
+                let builder = super::protocol_serde::shape_update_bucket_metadata_journal_table_configuration::ser_update_bucket_metadata_journal_table_configuration_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("PUT").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -334,7 +334,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateBucket
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_update_bucket_metadata_journal_table_configuration_input::ser_journal_table_configuration_http_payload(
+            super::protocol_serde::shape_update_bucket_metadata_journal_table_configuration_input::ser_journal_table_configuration_http_payload(
                 &input.journal_table_configuration,
             )?,
         );
@@ -369,16 +369,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateBucketM
             .downcast_ref::<UpdateBucketMetadataJournalTableConfigurationInput>()
             .ok_or("failed to downcast to UpdateBucketMetadataJournalTableConfigurationInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
-            .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
-            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
-            .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
-            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
+            .set_force_path_style(cfg.load::<super::config::ForcePathStyle>().map(|ty| ty.0))
+            .set_use_arn_region(cfg.load::<super::config::UseArnRegion>().map(|ty| ty.0))
+            .set_disable_multi_region_access_points(cfg.load::<super::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
+            .set_accelerate(cfg.load::<super::config::Accelerate>().map(|ty| ty.0))
+            .set_disable_s3_express_session_auth(cfg.load::<super::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
             .set_use_s3_express_control_endpoint(Some(true))
             .set_bucket(Some(
                 _input
@@ -411,14 +411,14 @@ pub enum UpdateBucketMetadataJournalTableConfigurationError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UpdateBucketMetadataJournalTableConfigurationError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl UpdateBucketMetadataJournalTableConfigurationError {
     /// Creates the `UpdateBucketMetadataJournalTableConfigurationError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -426,7 +426,7 @@ impl UpdateBucketMetadataJournalTableConfigurationError {
 
     /// Creates the `UpdateBucketMetadataJournalTableConfigurationError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -481,30 +481,30 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateBu
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt
-    for crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError
+impl super::s3_request_id::RequestIdExt
+    for super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError
 {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
 impl ::aws_types::request_id::RequestId
-    for crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError
+    for super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError
 {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::update_bucket_metadata_journal_table_configuration::_update_bucket_metadata_journal_table_configuration_input::UpdateBucketMetadataJournalTableConfigurationInput;
+pub use super::operation::update_bucket_metadata_journal_table_configuration::_update_bucket_metadata_journal_table_configuration_input::UpdateBucketMetadataJournalTableConfigurationInput;
 
-pub use crate::operation::update_bucket_metadata_journal_table_configuration::_update_bucket_metadata_journal_table_configuration_output::UpdateBucketMetadataJournalTableConfigurationOutput;
+pub use super::operation::update_bucket_metadata_journal_table_configuration::_update_bucket_metadata_journal_table_configuration_output::UpdateBucketMetadataJournalTableConfigurationOutput;
 
 mod _update_bucket_metadata_journal_table_configuration_input;
 

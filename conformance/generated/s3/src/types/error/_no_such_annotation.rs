@@ -26,13 +26,13 @@ impl ::std::fmt::Display for NoSuchAnnotation {
     }
 }
 impl ::std::error::Error for NoSuchAnnotation {}
-impl crate::s3_request_id::RequestIdExt for crate::types::error::NoSuchAnnotation {
+impl super::s3_request_id::RequestIdExt for super::types::error::NoSuchAnnotation {
     fn extended_request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::types::error::NoSuchAnnotation {
+impl ::aws_types::request_id::RequestId for super::types::error::NoSuchAnnotation {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -45,8 +45,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for NoSuchAnnotat
 }
 impl NoSuchAnnotation {
     /// Creates a new builder-style object to manufacture [`NoSuchAnnotation`](crate::types::error::NoSuchAnnotation).
-    pub fn builder() -> crate::types::error::builders::NoSuchAnnotationBuilder {
-        crate::types::error::builders::NoSuchAnnotationBuilder::default()
+    pub fn builder() -> super::types::error::builders::NoSuchAnnotationBuilder {
+        super::types::error::builders::NoSuchAnnotationBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl NoSuchAnnotationBuilder {
         self
     }
     /// Consumes the builder and constructs a [`NoSuchAnnotation`](crate::types::error::NoSuchAnnotation).
-    pub fn build(self) -> crate::types::error::NoSuchAnnotation {
-        crate::types::error::NoSuchAnnotation {
+    pub fn build(self) -> super::types::error::NoSuchAnnotation {
+        super::types::error::NoSuchAnnotation {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

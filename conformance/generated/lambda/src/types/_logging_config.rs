@@ -5,25 +5,25 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct LoggingConfig {
     /// <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>
-    pub log_format: ::std::option::Option<crate::types::LogFormat>,
+    pub log_format: ::std::option::Option<super::types::LogFormat>,
     /// <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
-    pub application_log_level: ::std::option::Option<crate::types::ApplicationLogLevel>,
+    pub application_log_level: ::std::option::Option<super::types::ApplicationLogLevel>,
     /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-    pub system_log_level: ::std::option::Option<crate::types::SystemLogLevel>,
+    pub system_log_level: ::std::option::Option<super::types::SystemLogLevel>,
     /// <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&amp;lt;function name&amp;gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
     pub log_group: ::std::option::Option<::std::string::String>,
 }
 impl LoggingConfig {
     /// <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>
-    pub fn log_format(&self) -> ::std::option::Option<&crate::types::LogFormat> {
+    pub fn log_format(&self) -> ::std::option::Option<&super::types::LogFormat> {
         self.log_format.as_ref()
     }
     /// <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
-    pub fn application_log_level(&self) -> ::std::option::Option<&crate::types::ApplicationLogLevel> {
+    pub fn application_log_level(&self) -> ::std::option::Option<&super::types::ApplicationLogLevel> {
         self.application_log_level.as_ref()
     }
     /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-    pub fn system_log_level(&self) -> ::std::option::Option<&crate::types::SystemLogLevel> {
+    pub fn system_log_level(&self) -> ::std::option::Option<&super::types::SystemLogLevel> {
         self.system_log_level.as_ref()
     }
     /// <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&amp;lt;function name&amp;gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
@@ -33,8 +33,8 @@ impl LoggingConfig {
 }
 impl LoggingConfig {
     /// Creates a new builder-style object to manufacture [`LoggingConfig`](crate::types::LoggingConfig).
-    pub fn builder() -> crate::types::builders::LoggingConfigBuilder {
-        crate::types::builders::LoggingConfigBuilder::default()
+    pub fn builder() -> super::types::builders::LoggingConfigBuilder {
+        super::types::builders::LoggingConfigBuilder::default()
     }
 }
 
@@ -42,52 +42,52 @@ impl LoggingConfig {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LoggingConfigBuilder {
-    pub(crate) log_format: ::std::option::Option<crate::types::LogFormat>,
-    pub(crate) application_log_level: ::std::option::Option<crate::types::ApplicationLogLevel>,
-    pub(crate) system_log_level: ::std::option::Option<crate::types::SystemLogLevel>,
+    pub(crate) log_format: ::std::option::Option<super::types::LogFormat>,
+    pub(crate) application_log_level: ::std::option::Option<super::types::ApplicationLogLevel>,
+    pub(crate) system_log_level: ::std::option::Option<super::types::SystemLogLevel>,
     pub(crate) log_group: ::std::option::Option<::std::string::String>,
 }
 impl LoggingConfigBuilder {
     /// <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>
-    pub fn log_format(mut self, input: crate::types::LogFormat) -> Self {
+    pub fn log_format(mut self, input: super::types::LogFormat) -> Self {
         self.log_format = ::std::option::Option::Some(input);
         self
     }
     /// <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>
-    pub fn set_log_format(mut self, input: ::std::option::Option<crate::types::LogFormat>) -> Self {
+    pub fn set_log_format(mut self, input: ::std::option::Option<super::types::LogFormat>) -> Self {
         self.log_format = input;
         self
     }
     /// <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>
-    pub fn get_log_format(&self) -> &::std::option::Option<crate::types::LogFormat> {
+    pub fn get_log_format(&self) -> &::std::option::Option<super::types::LogFormat> {
         &self.log_format
     }
     /// <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
-    pub fn application_log_level(mut self, input: crate::types::ApplicationLogLevel) -> Self {
+    pub fn application_log_level(mut self, input: super::types::ApplicationLogLevel) -> Self {
         self.application_log_level = ::std::option::Option::Some(input);
         self
     }
     /// <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
-    pub fn set_application_log_level(mut self, input: ::std::option::Option<crate::types::ApplicationLogLevel>) -> Self {
+    pub fn set_application_log_level(mut self, input: ::std::option::Option<super::types::ApplicationLogLevel>) -> Self {
         self.application_log_level = input;
         self
     }
     /// <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
-    pub fn get_application_log_level(&self) -> &::std::option::Option<crate::types::ApplicationLogLevel> {
+    pub fn get_application_log_level(&self) -> &::std::option::Option<super::types::ApplicationLogLevel> {
         &self.application_log_level
     }
     /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-    pub fn system_log_level(mut self, input: crate::types::SystemLogLevel) -> Self {
+    pub fn system_log_level(mut self, input: super::types::SystemLogLevel) -> Self {
         self.system_log_level = ::std::option::Option::Some(input);
         self
     }
     /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-    pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::SystemLogLevel>) -> Self {
+    pub fn set_system_log_level(mut self, input: ::std::option::Option<super::types::SystemLogLevel>) -> Self {
         self.system_log_level = input;
         self
     }
     /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-    pub fn get_system_log_level(&self) -> &::std::option::Option<crate::types::SystemLogLevel> {
+    pub fn get_system_log_level(&self) -> &::std::option::Option<super::types::SystemLogLevel> {
         &self.system_log_level
     }
     /// <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&amp;lt;function name&amp;gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
@@ -105,8 +105,8 @@ impl LoggingConfigBuilder {
         &self.log_group
     }
     /// Consumes the builder and constructs a [`LoggingConfig`](crate::types::LoggingConfig).
-    pub fn build(self) -> crate::types::LoggingConfig {
-        crate::types::LoggingConfig {
+    pub fn build(self) -> super::types::LoggingConfig {
+        super::types::LoggingConfig {
             log_format: self.log_format,
             application_log_level: self.application_log_level,
             system_log_level: self.system_log_level,

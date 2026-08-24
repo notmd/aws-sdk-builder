@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListOpenIDConnectProvidersError>`](crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError)
     pub fn list_open_id_connect_providers(
         &self,
-    ) -> crate::operation::list_open_id_connect_providers::builders::ListOpenIDConnectProvidersFluentBuilder {
-        crate::operation::list_open_id_connect_providers::builders::ListOpenIDConnectProvidersFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::list_open_id_connect_providers::builders::ListOpenIDConnectProvidersFluentBuilder {
+        super::operation::list_open_id_connect_providers::builders::ListOpenIDConnectProvidersFluentBuilder::new(self.handle.clone())
     }
 }

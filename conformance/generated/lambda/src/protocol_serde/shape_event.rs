@@ -3,7 +3,7 @@ pub(crate) fn de_event<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::Event>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::Event>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::EventBuilder::default();
+            let mut builder = super::types::builders::EventBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -24,7 +24,7 @@ where
                         "EventType" => {
                             builder = builder.set_event_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::EventType::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::EventType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
@@ -71,46 +71,46 @@ where
                         }
                         "ExecutionStartedDetails" => {
                             builder = builder.set_execution_started_details(
-                                crate::protocol_serde::shape_execution_started_details::de_execution_started_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_execution_started_details::de_execution_started_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ExecutionSucceededDetails" => {
                             builder = builder.set_execution_succeeded_details(
-                                crate::protocol_serde::shape_execution_succeeded_details::de_execution_succeeded_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_execution_succeeded_details::de_execution_succeeded_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ExecutionFailedDetails" => {
                             builder = builder.set_execution_failed_details(
-                                crate::protocol_serde::shape_execution_failed_details::de_execution_failed_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_execution_failed_details::de_execution_failed_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ExecutionTimedOutDetails" => {
                             builder = builder.set_execution_timed_out_details(
-                                crate::protocol_serde::shape_execution_timed_out_details::de_execution_timed_out_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_execution_timed_out_details::de_execution_timed_out_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ExecutionStoppedDetails" => {
                             builder = builder.set_execution_stopped_details(
-                                crate::protocol_serde::shape_execution_stopped_details::de_execution_stopped_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_execution_stopped_details::de_execution_stopped_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ContextStartedDetails" => {
                             builder = builder.set_context_started_details(
-                                crate::protocol_serde::shape_context_started_details::de_context_started_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_context_started_details::de_context_started_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ContextSucceededDetails" => {
                             builder = builder.set_context_succeeded_details(
-                                crate::protocol_serde::shape_context_succeeded_details::de_context_succeeded_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_context_succeeded_details::de_context_succeeded_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ContextFailedDetails" => {
                             builder = builder.set_context_failed_details(
-                                crate::protocol_serde::shape_context_failed_details::de_context_failed_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_context_failed_details::de_context_failed_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "WaitStartedDetails" => {
-                            builder = builder.set_wait_started_details(crate::protocol_serde::shape_wait_started_details::de_wait_started_details(
+                            builder = builder.set_wait_started_details(super::protocol_serde::shape_wait_started_details::de_wait_started_details(
                                 tokens,
                                 _value,
                                 depth + 1,
@@ -118,16 +118,16 @@ where
                         }
                         "WaitSucceededDetails" => {
                             builder = builder.set_wait_succeeded_details(
-                                crate::protocol_serde::shape_wait_succeeded_details::de_wait_succeeded_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_wait_succeeded_details::de_wait_succeeded_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "WaitCancelledDetails" => {
                             builder = builder.set_wait_cancelled_details(
-                                crate::protocol_serde::shape_wait_cancelled_details::de_wait_cancelled_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_wait_cancelled_details::de_wait_cancelled_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "StepStartedDetails" => {
-                            builder = builder.set_step_started_details(crate::protocol_serde::shape_step_started_details::de_step_started_details(
+                            builder = builder.set_step_started_details(super::protocol_serde::shape_step_started_details::de_step_started_details(
                                 tokens,
                                 _value,
                                 depth + 1,
@@ -135,11 +135,11 @@ where
                         }
                         "StepSucceededDetails" => {
                             builder = builder.set_step_succeeded_details(
-                                crate::protocol_serde::shape_step_succeeded_details::de_step_succeeded_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_step_succeeded_details::de_step_succeeded_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "StepFailedDetails" => {
-                            builder = builder.set_step_failed_details(crate::protocol_serde::shape_step_failed_details::de_step_failed_details(
+                            builder = builder.set_step_failed_details(super::protocol_serde::shape_step_failed_details::de_step_failed_details(
                                 tokens,
                                 _value,
                                 depth + 1,
@@ -147,7 +147,7 @@ where
                         }
                         "ChainedInvokeStartedDetails" => {
                             builder = builder.set_chained_invoke_started_details(
-                                crate::protocol_serde::shape_chained_invoke_started_details::de_chained_invoke_started_details(
+                                super::protocol_serde::shape_chained_invoke_started_details::de_chained_invoke_started_details(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -156,7 +156,7 @@ where
                         }
                         "ChainedInvokeSucceededDetails" => {
                             builder = builder.set_chained_invoke_succeeded_details(
-                                crate::protocol_serde::shape_chained_invoke_succeeded_details::de_chained_invoke_succeeded_details(
+                                super::protocol_serde::shape_chained_invoke_succeeded_details::de_chained_invoke_succeeded_details(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -165,7 +165,7 @@ where
                         }
                         "ChainedInvokeFailedDetails" => {
                             builder = builder.set_chained_invoke_failed_details(
-                                crate::protocol_serde::shape_chained_invoke_failed_details::de_chained_invoke_failed_details(
+                                super::protocol_serde::shape_chained_invoke_failed_details::de_chained_invoke_failed_details(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -174,7 +174,7 @@ where
                         }
                         "ChainedInvokeTimedOutDetails" => {
                             builder = builder.set_chained_invoke_timed_out_details(
-                                crate::protocol_serde::shape_chained_invoke_timed_out_details::de_chained_invoke_timed_out_details(
+                                super::protocol_serde::shape_chained_invoke_timed_out_details::de_chained_invoke_timed_out_details(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -183,7 +183,7 @@ where
                         }
                         "ChainedInvokeStoppedDetails" => {
                             builder = builder.set_chained_invoke_stopped_details(
-                                crate::protocol_serde::shape_chained_invoke_stopped_details::de_chained_invoke_stopped_details(
+                                super::protocol_serde::shape_chained_invoke_stopped_details::de_chained_invoke_stopped_details(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -192,27 +192,27 @@ where
                         }
                         "CallbackStartedDetails" => {
                             builder = builder.set_callback_started_details(
-                                crate::protocol_serde::shape_callback_started_details::de_callback_started_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_callback_started_details::de_callback_started_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "CallbackSucceededDetails" => {
                             builder = builder.set_callback_succeeded_details(
-                                crate::protocol_serde::shape_callback_succeeded_details::de_callback_succeeded_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_callback_succeeded_details::de_callback_succeeded_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "CallbackFailedDetails" => {
                             builder = builder.set_callback_failed_details(
-                                crate::protocol_serde::shape_callback_failed_details::de_callback_failed_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_callback_failed_details::de_callback_failed_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "CallbackTimedOutDetails" => {
                             builder = builder.set_callback_timed_out_details(
-                                crate::protocol_serde::shape_callback_timed_out_details::de_callback_timed_out_details(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_callback_timed_out_details::de_callback_timed_out_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "InvocationCompletedDetails" => {
                             builder = builder.set_invocation_completed_details(
-                                crate::protocol_serde::shape_invocation_completed_details::de_invocation_completed_details(
+                                super::protocol_serde::shape_invocation_completed_details::de_invocation_completed_details(
                                     tokens,
                                     _value,
                                     depth + 1,

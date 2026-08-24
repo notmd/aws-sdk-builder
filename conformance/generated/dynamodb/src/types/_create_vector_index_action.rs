@@ -7,15 +7,15 @@ pub struct CreateVectorIndexAction {
     /// <p>The name of the vector index. Must be unique within the table.</p>
     pub index_name: ::std::string::String,
     /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
-    pub vector_attribute: ::std::option::Option<crate::types::VectorAttributeDefinition>,
+    pub vector_attribute: ::std::option::Option<super::types::VectorAttributeDefinition>,
     /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
-    pub search_schema: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>,
+    pub search_schema: ::std::option::Option<::std::vec::Vec<super::types::SearchSchemaElement>>,
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub projection: ::std::option::Option<crate::types::Projection>,
+    pub projection: ::std::option::Option<super::types::Projection>,
     /// <p>The number of dimensions in each vector.</p>
     pub dimensions: i64,
     /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
-    pub distance_function: crate::types::VectorDistanceFunction,
+    pub distance_function: super::types::VectorDistanceFunction,
 }
 impl CreateVectorIndexAction {
     /// <p>The name of the vector index. Must be unique within the table.</p>
@@ -24,17 +24,17 @@ impl CreateVectorIndexAction {
         self.index_name.deref()
     }
     /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
-    pub fn vector_attribute(&self) -> ::std::option::Option<&crate::types::VectorAttributeDefinition> {
+    pub fn vector_attribute(&self) -> ::std::option::Option<&super::types::VectorAttributeDefinition> {
         self.vector_attribute.as_ref()
     }
     /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.search_schema.is_none()`.
-    pub fn search_schema(&self) -> &[crate::types::SearchSchemaElement] {
+    pub fn search_schema(&self) -> &[super::types::SearchSchemaElement] {
         self.search_schema.as_deref().unwrap_or_default()
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn projection(&self) -> ::std::option::Option<&crate::types::Projection> {
+    pub fn projection(&self) -> ::std::option::Option<&super::types::Projection> {
         self.projection.as_ref()
     }
     /// <p>The number of dimensions in each vector.</p>
@@ -42,14 +42,14 @@ impl CreateVectorIndexAction {
         self.dimensions
     }
     /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
-    pub fn distance_function(&self) -> &crate::types::VectorDistanceFunction {
+    pub fn distance_function(&self) -> &super::types::VectorDistanceFunction {
         &self.distance_function
     }
 }
 impl CreateVectorIndexAction {
     /// Creates a new builder-style object to manufacture [`CreateVectorIndexAction`](crate::types::CreateVectorIndexAction).
-    pub fn builder() -> crate::types::builders::CreateVectorIndexActionBuilder {
-        crate::types::builders::CreateVectorIndexActionBuilder::default()
+    pub fn builder() -> super::types::builders::CreateVectorIndexActionBuilder {
+        super::types::builders::CreateVectorIndexActionBuilder::default()
     }
 }
 
@@ -58,11 +58,11 @@ impl CreateVectorIndexAction {
 #[non_exhaustive]
 pub struct CreateVectorIndexActionBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) vector_attribute: ::std::option::Option<crate::types::VectorAttributeDefinition>,
-    pub(crate) search_schema: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>,
-    pub(crate) projection: ::std::option::Option<crate::types::Projection>,
+    pub(crate) vector_attribute: ::std::option::Option<super::types::VectorAttributeDefinition>,
+    pub(crate) search_schema: ::std::option::Option<::std::vec::Vec<super::types::SearchSchemaElement>>,
+    pub(crate) projection: ::std::option::Option<super::types::Projection>,
     pub(crate) dimensions: ::std::option::Option<i64>,
-    pub(crate) distance_function: ::std::option::Option<crate::types::VectorDistanceFunction>,
+    pub(crate) distance_function: ::std::option::Option<super::types::VectorDistanceFunction>,
 }
 impl CreateVectorIndexActionBuilder {
     /// <p>The name of the vector index. Must be unique within the table.</p>
@@ -82,17 +82,17 @@ impl CreateVectorIndexActionBuilder {
     }
     /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
     /// This field is required.
-    pub fn vector_attribute(mut self, input: crate::types::VectorAttributeDefinition) -> Self {
+    pub fn vector_attribute(mut self, input: super::types::VectorAttributeDefinition) -> Self {
         self.vector_attribute = ::std::option::Option::Some(input);
         self
     }
     /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
-    pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self {
+    pub fn set_vector_attribute(mut self, input: ::std::option::Option<super::types::VectorAttributeDefinition>) -> Self {
         self.vector_attribute = input;
         self
     }
     /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
-    pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
+    pub fn get_vector_attribute(&self) -> &::std::option::Option<super::types::VectorAttributeDefinition> {
         &self.vector_attribute
     }
     /// Appends an item to `search_schema`.
@@ -100,34 +100,34 @@ impl CreateVectorIndexActionBuilder {
     /// To override the contents of this collection use [`set_search_schema`](Self::set_search_schema).
     ///
     /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
-    pub fn search_schema(mut self, input: crate::types::SearchSchemaElement) -> Self {
+    pub fn search_schema(mut self, input: super::types::SearchSchemaElement) -> Self {
         let mut v = self.search_schema.unwrap_or_default();
         v.push(input);
         self.search_schema = ::std::option::Option::Some(v);
         self
     }
     /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
-    pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self {
+    pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SearchSchemaElement>>) -> Self {
         self.search_schema = input;
         self
     }
     /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
-    pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>> {
+    pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SearchSchemaElement>> {
         &self.search_schema
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
     /// This field is required.
-    pub fn projection(mut self, input: crate::types::Projection) -> Self {
+    pub fn projection(mut self, input: super::types::Projection) -> Self {
         self.projection = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
+    pub fn set_projection(mut self, input: ::std::option::Option<super::types::Projection>) -> Self {
         self.projection = input;
         self
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> {
+    pub fn get_projection(&self) -> &::std::option::Option<super::types::Projection> {
         &self.projection
     }
     /// <p>The number of dimensions in each vector.</p>
@@ -147,17 +147,17 @@ impl CreateVectorIndexActionBuilder {
     }
     /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
     /// This field is required.
-    pub fn distance_function(mut self, input: crate::types::VectorDistanceFunction) -> Self {
+    pub fn distance_function(mut self, input: super::types::VectorDistanceFunction) -> Self {
         self.distance_function = ::std::option::Option::Some(input);
         self
     }
     /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
-    pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
+    pub fn set_distance_function(mut self, input: ::std::option::Option<super::types::VectorDistanceFunction>) -> Self {
         self.distance_function = input;
         self
     }
     /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
-    pub fn get_distance_function(&self) -> &::std::option::Option<crate::types::VectorDistanceFunction> {
+    pub fn get_distance_function(&self) -> &::std::option::Option<super::types::VectorDistanceFunction> {
         &self.distance_function
     }
     /// Consumes the builder and constructs a [`CreateVectorIndexAction`](crate::types::CreateVectorIndexAction).
@@ -165,8 +165,8 @@ impl CreateVectorIndexActionBuilder {
     /// - [`index_name`](crate::types::builders::CreateVectorIndexActionBuilder::index_name)
     /// - [`dimensions`](crate::types::builders::CreateVectorIndexActionBuilder::dimensions)
     /// - [`distance_function`](crate::types::builders::CreateVectorIndexActionBuilder::distance_function)
-    pub fn build(self) -> ::std::result::Result<crate::types::CreateVectorIndexAction, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::CreateVectorIndexAction {
+    pub fn build(self) -> ::std::result::Result<super::types::CreateVectorIndexAction, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::CreateVectorIndexAction {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "index_name",

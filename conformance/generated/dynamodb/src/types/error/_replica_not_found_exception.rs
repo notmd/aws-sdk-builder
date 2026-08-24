@@ -26,7 +26,7 @@ impl ::std::fmt::Display for ReplicaNotFoundException {
     }
 }
 impl ::std::error::Error for ReplicaNotFoundException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ReplicaNotFoundException {
+impl ::aws_types::request_id::RequestId for super::types::error::ReplicaNotFoundException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ReplicaNotFou
 }
 impl ReplicaNotFoundException {
     /// Creates a new builder-style object to manufacture [`ReplicaNotFoundException`](crate::types::error::ReplicaNotFoundException).
-    pub fn builder() -> crate::types::error::builders::ReplicaNotFoundExceptionBuilder {
-        crate::types::error::builders::ReplicaNotFoundExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ReplicaNotFoundExceptionBuilder {
+        super::types::error::builders::ReplicaNotFoundExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl ReplicaNotFoundExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ReplicaNotFoundException`](crate::types::error::ReplicaNotFoundException).
-    pub fn build(self) -> crate::types::error::ReplicaNotFoundException {
-        crate::types::error::ReplicaNotFoundException {
+    pub fn build(self) -> super::types::error::ReplicaNotFoundException {
+        super::types::error::ReplicaNotFoundException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

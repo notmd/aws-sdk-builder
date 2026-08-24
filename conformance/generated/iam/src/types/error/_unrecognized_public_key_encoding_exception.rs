@@ -26,7 +26,7 @@ impl ::std::fmt::Display for UnrecognizedPublicKeyEncodingException {
     }
 }
 impl ::std::error::Error for UnrecognizedPublicKeyEncodingException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::UnrecognizedPublicKeyEncodingException {
+impl ::aws_types::request_id::RequestId for super::types::error::UnrecognizedPublicKeyEncodingException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UnrecognizedP
 }
 impl UnrecognizedPublicKeyEncodingException {
     /// Creates a new builder-style object to manufacture [`UnrecognizedPublicKeyEncodingException`](crate::types::error::UnrecognizedPublicKeyEncodingException).
-    pub fn builder() -> crate::types::error::builders::UnrecognizedPublicKeyEncodingExceptionBuilder {
-        crate::types::error::builders::UnrecognizedPublicKeyEncodingExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::UnrecognizedPublicKeyEncodingExceptionBuilder {
+        super::types::error::builders::UnrecognizedPublicKeyEncodingExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl UnrecognizedPublicKeyEncodingExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UnrecognizedPublicKeyEncodingException`](crate::types::error::UnrecognizedPublicKeyEncodingException).
-    pub fn build(self) -> crate::types::error::UnrecognizedPublicKeyEncodingException {
-        crate::types::error::UnrecognizedPublicKeyEncodingException {
+    pub fn build(self) -> super::types::error::UnrecognizedPublicKeyEncodingException {
+        super::types::error::UnrecognizedPublicKeyEncodingException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

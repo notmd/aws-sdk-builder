@@ -6,8 +6,8 @@
 pub struct ContextStartedDetails {}
 impl ContextStartedDetails {
     /// Creates a new builder-style object to manufacture [`ContextStartedDetails`](crate::types::ContextStartedDetails).
-    pub fn builder() -> crate::types::builders::ContextStartedDetailsBuilder {
-        crate::types::builders::ContextStartedDetailsBuilder::default()
+    pub fn builder() -> super::types::builders::ContextStartedDetailsBuilder {
+        super::types::builders::ContextStartedDetailsBuilder::default()
     }
 }
 
@@ -17,7 +17,7 @@ impl ContextStartedDetails {
 pub struct ContextStartedDetailsBuilder {}
 impl ContextStartedDetailsBuilder {
     /// Consumes the builder and constructs a [`ContextStartedDetails`](crate::types::ContextStartedDetails).
-    pub fn build(self) -> crate::types::ContextStartedDetails {
-        crate::types::ContextStartedDetails {}
+    pub fn build(self) -> super::types::ContextStartedDetails {
+        super::types::ContextStartedDetails {}
     }
 }

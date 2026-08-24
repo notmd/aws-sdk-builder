@@ -24,8 +24,8 @@ impl RemoveUserFromGroupInput {
 }
 impl RemoveUserFromGroupInput {
     /// Creates a new builder-style object to manufacture [`RemoveUserFromGroupInput`](crate::operation::remove_user_from_group::RemoveUserFromGroupInput).
-    pub fn builder() -> crate::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder {
-        crate::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder::default()
+    pub fn builder() -> super::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder {
+        super::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder::default()
     }
 }
 
@@ -76,9 +76,9 @@ impl RemoveUserFromGroupInputBuilder {
     /// Consumes the builder and constructs a [`RemoveUserFromGroupInput`](crate::operation::remove_user_from_group::RemoveUserFromGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::remove_user_from_group::RemoveUserFromGroupInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::remove_user_from_group::RemoveUserFromGroupInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::remove_user_from_group::RemoveUserFromGroupInput {
+        ::std::result::Result::Ok(super::operation::remove_user_from_group::RemoveUserFromGroupInput {
             group_name: self.group_name,
             user_name: self.user_name,
         })

@@ -10,11 +10,11 @@ impl GetWebIdentityToken {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::get_web_identity_token::GetWebIdentityTokenInput,
+        input: super::operation::get_web_identity_token::GetWebIdentityTokenInput,
     ) -> ::std::result::Result<
-        crate::operation::get_web_identity_token::GetWebIdentityTokenOutput,
+        super::operation::get_web_identity_token::GetWebIdentityTokenOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_web_identity_token::GetWebIdentityTokenError,
+            super::operation::get_web_identity_token::GetWebIdentityTokenError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl GetWebIdentityToken {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::get_web_identity_token::GetWebIdentityTokenError>()
+                err.downcast::<super::operation::get_web_identity_token::GetWebIdentityTokenError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl GetWebIdentityToken {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::get_web_identity_token::GetWebIdentityTokenOutput>()
+                .downcast::<super::operation::get_web_identity_token::GetWebIdentityTokenOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::get_web_identity_token::GetWebIdentityTokenInput,
+        input: super::operation::get_web_identity_token::GetWebIdentityTokenInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl GetWebIdentityToken {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl GetWebIdentityToken {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetWebI
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("GetWebIdentityToken")
                 .build()
                 .expect("required fields set"),
@@ -137,13 +137,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetWebI
                 GetWebIdentityTokenEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::get_web_identity_token::GetWebIdentityTokenError,
+                super::operation::get_web_identity_token::GetWebIdentityTokenError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::get_web_identity_token::GetWebIdentityTokenError,
+                super::operation::get_web_identity_token::GetWebIdentityTokenError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::get_web_identity_token::GetWebIdentityTokenError,
+                super::operation::get_web_identity_token::GetWebIdentityTokenError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -208,11 +208,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetWebIde
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_get_web_identity_token::de_get_web_identity_token_http_error(status, headers, body)
+            super::protocol_serde::shape_get_web_identity_token::de_get_web_identity_token_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_get_web_identity_token::de_get_web_identity_token_http_response(status, headers, body)
+            super::protocol_serde::shape_get_web_identity_token::de_get_web_identity_token_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -225,16 +225,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetWebIdenti
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::get_web_identity_token::GetWebIdentityTokenInput>()
+            .downcast::<super::operation::get_web_identity_token::GetWebIdentityTokenInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::get_web_identity_token::GetWebIdentityTokenInput,
+                _input: &super::operation::get_web_identity_token::GetWebIdentityTokenInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -243,7 +243,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetWebIdenti
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::get_web_identity_token::GetWebIdentityTokenInput,
+                input: &super::operation::get_web_identity_token::GetWebIdentityTokenInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -255,7 +255,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetWebIdenti
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_op_input(&input)?,
+            super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_op_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -288,7 +288,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetWebIdentit
             .downcast_ref::<GetWebIdentityTokenInput>()
             .ok_or("failed to downcast to GetWebIdentityTokenInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -311,11 +311,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetWebIdentit
 #[derive(::std::fmt::Debug)]
 pub enum GetWebIdentityTokenError {
     /// <p>The requested token payload size exceeds the maximum allowed size. Reduce the number of request tags included in the <code>GetWebIdentityToken</code> API call to reduce the token payload size.</p>
-    JwtPayloadSizeExceededException(crate::types::error::JwtPayloadSizeExceededException),
+    JwtPayloadSizeExceededException(super::types::error::JwtPayloadSizeExceededException),
     /// <p>The outbound web identity federation feature is not enabled for this account. To use this feature, you must first enable it through the Amazon Web Services Management Console or API.</p>
-    OutboundWebIdentityFederationDisabledException(crate::types::error::OutboundWebIdentityFederationDisabledException),
+    OutboundWebIdentityFederationDisabledException(super::types::error::OutboundWebIdentityFederationDisabledException),
     /// <p>The requested token duration would extend the session beyond its original expiration time. You cannot use this operation to extend the lifetime of a session beyond what was granted when the session was originally created.</p>
-    SessionDurationEscalationException(crate::types::error::SessionDurationEscalationException),
+    SessionDurationEscalationException(super::types::error::SessionDurationEscalationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -323,14 +323,14 @@ pub enum GetWebIdentityTokenError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetWebIdentityTokenError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl GetWebIdentityTokenError {
     /// Creates the `GetWebIdentityTokenError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -338,7 +338,7 @@ impl GetWebIdentityTokenError {
 
     /// Creates the `GetWebIdentityTokenError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -417,21 +417,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetWebId
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::get_web_identity_token::GetWebIdentityTokenError {
+impl ::aws_types::request_id::RequestId for super::operation::get_web_identity_token::GetWebIdentityTokenError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::get_web_identity_token::_get_web_identity_token_input::GetWebIdentityTokenInput;
+pub use super::operation::get_web_identity_token::_get_web_identity_token_input::GetWebIdentityTokenInput;
 
-pub use crate::operation::get_web_identity_token::_get_web_identity_token_output::GetWebIdentityTokenOutput;
+pub use super::operation::get_web_identity_token::_get_web_identity_token_output::GetWebIdentityTokenOutput;
 
 mod _get_web_identity_token_input;
 

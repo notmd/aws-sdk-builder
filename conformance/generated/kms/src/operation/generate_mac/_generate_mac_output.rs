@@ -7,7 +7,7 @@ pub struct GenerateMacOutput {
     /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
     pub mac: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The MAC algorithm that was used to generate the HMAC.</p>
-    pub mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
+    pub mac_algorithm: ::std::option::Option<super::types::MacAlgorithmSpec>,
     /// <p>The HMAC KMS key used in the operation.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -19,7 +19,7 @@ impl GenerateMacOutput {
         self.mac.as_ref()
     }
     /// <p>The MAC algorithm that was used to generate the HMAC.</p>
-    pub fn mac_algorithm(&self) -> ::std::option::Option<&crate::types::MacAlgorithmSpec> {
+    pub fn mac_algorithm(&self) -> ::std::option::Option<&super::types::MacAlgorithmSpec> {
         self.mac_algorithm.as_ref()
     }
     /// <p>The HMAC KMS key used in the operation.</p>
@@ -34,8 +34,8 @@ impl ::aws_types::request_id::RequestId for GenerateMacOutput {
 }
 impl GenerateMacOutput {
     /// Creates a new builder-style object to manufacture [`GenerateMacOutput`](crate::operation::generate_mac::GenerateMacOutput).
-    pub fn builder() -> crate::operation::generate_mac::builders::GenerateMacOutputBuilder {
-        crate::operation::generate_mac::builders::GenerateMacOutputBuilder::default()
+    pub fn builder() -> super::operation::generate_mac::builders::GenerateMacOutputBuilder {
+        super::operation::generate_mac::builders::GenerateMacOutputBuilder::default()
     }
 }
 
@@ -44,7 +44,7 @@ impl GenerateMacOutput {
 #[non_exhaustive]
 pub struct GenerateMacOutputBuilder {
     pub(crate) mac: ::std::option::Option<::aws_smithy_types::Blob>,
-    pub(crate) mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
+    pub(crate) mac_algorithm: ::std::option::Option<super::types::MacAlgorithmSpec>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -67,17 +67,17 @@ impl GenerateMacOutputBuilder {
         &self.mac
     }
     /// <p>The MAC algorithm that was used to generate the HMAC.</p>
-    pub fn mac_algorithm(mut self, input: crate::types::MacAlgorithmSpec) -> Self {
+    pub fn mac_algorithm(mut self, input: super::types::MacAlgorithmSpec) -> Self {
         self.mac_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>The MAC algorithm that was used to generate the HMAC.</p>
-    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
+    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<super::types::MacAlgorithmSpec>) -> Self {
         self.mac_algorithm = input;
         self
     }
     /// <p>The MAC algorithm that was used to generate the HMAC.</p>
-    pub fn get_mac_algorithm(&self) -> &::std::option::Option<crate::types::MacAlgorithmSpec> {
+    pub fn get_mac_algorithm(&self) -> &::std::option::Option<super::types::MacAlgorithmSpec> {
         &self.mac_algorithm
     }
     /// <p>The HMAC KMS key used in the operation.</p>
@@ -104,8 +104,8 @@ impl GenerateMacOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateMacOutput`](crate::operation::generate_mac::GenerateMacOutput).
-    pub fn build(self) -> crate::operation::generate_mac::GenerateMacOutput {
-        crate::operation::generate_mac::GenerateMacOutput {
+    pub fn build(self) -> super::operation::generate_mac::GenerateMacOutput {
+        super::operation::generate_mac::GenerateMacOutput {
             mac: self.mac,
             mac_algorithm: self.mac_algorithm,
             key_id: self.key_id,

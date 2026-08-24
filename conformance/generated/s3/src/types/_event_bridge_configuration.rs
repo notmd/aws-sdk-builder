@@ -6,8 +6,8 @@
 pub struct EventBridgeConfiguration {}
 impl EventBridgeConfiguration {
     /// Creates a new builder-style object to manufacture [`EventBridgeConfiguration`](crate::types::EventBridgeConfiguration).
-    pub fn builder() -> crate::types::builders::EventBridgeConfigurationBuilder {
-        crate::types::builders::EventBridgeConfigurationBuilder::default()
+    pub fn builder() -> super::types::builders::EventBridgeConfigurationBuilder {
+        super::types::builders::EventBridgeConfigurationBuilder::default()
     }
 }
 
@@ -17,7 +17,7 @@ impl EventBridgeConfiguration {
 pub struct EventBridgeConfigurationBuilder {}
 impl EventBridgeConfigurationBuilder {
     /// Consumes the builder and constructs a [`EventBridgeConfiguration`](crate::types::EventBridgeConfiguration).
-    pub fn build(self) -> crate::types::EventBridgeConfiguration {
-        crate::types::EventBridgeConfiguration {}
+    pub fn build(self) -> super::types::EventBridgeConfiguration {
+        super::types::EventBridgeConfiguration {}
     }
 }

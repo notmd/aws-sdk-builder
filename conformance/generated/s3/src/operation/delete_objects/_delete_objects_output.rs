@@ -4,13 +4,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeleteObjectsOutput {
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
-    pub deleted: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>,
+    pub deleted: ::std::option::Option<::std::vec::Vec<super::types::DeletedObject>>,
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
-    pub errors: ::std::option::Option<::std::vec::Vec<crate::types::Error>>,
+    pub errors: ::std::option::Option<::std::vec::Vec<super::types::Error>>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -18,23 +18,23 @@ impl DeleteObjectsOutput {
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.deleted.is_none()`.
-    pub fn deleted(&self) -> &[crate::types::DeletedObject] {
+    pub fn deleted(&self) -> &[super::types::DeletedObject] {
         self.deleted.as_deref().unwrap_or_default()
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.errors.is_none()`.
-    pub fn errors(&self) -> &[crate::types::Error] {
+    pub fn errors(&self) -> &[super::types::Error] {
         self.errors.as_deref().unwrap_or_default()
     }
 }
-impl crate::s3_request_id::RequestIdExt for DeleteObjectsOutput {
+impl super::s3_request_id::RequestIdExt for DeleteObjectsOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -46,8 +46,8 @@ impl ::aws_types::request_id::RequestId for DeleteObjectsOutput {
 }
 impl DeleteObjectsOutput {
     /// Creates a new builder-style object to manufacture [`DeleteObjectsOutput`](crate::operation::delete_objects::DeleteObjectsOutput).
-    pub fn builder() -> crate::operation::delete_objects::builders::DeleteObjectsOutputBuilder {
-        crate::operation::delete_objects::builders::DeleteObjectsOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_objects::builders::DeleteObjectsOutputBuilder {
+        super::operation::delete_objects::builders::DeleteObjectsOutputBuilder::default()
     }
 }
 
@@ -55,9 +55,9 @@ impl DeleteObjectsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteObjectsOutputBuilder {
-    pub(crate) deleted: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>,
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
-    pub(crate) errors: ::std::option::Option<::std::vec::Vec<crate::types::Error>>,
+    pub(crate) deleted: ::std::option::Option<::std::vec::Vec<super::types::DeletedObject>>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
+    pub(crate) errors: ::std::option::Option<::std::vec::Vec<super::types::Error>>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -67,39 +67,39 @@ impl DeleteObjectsOutputBuilder {
     /// To override the contents of this collection use [`set_deleted`](Self::set_deleted).
     ///
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
-    pub fn deleted(mut self, input: crate::types::DeletedObject) -> Self {
+    pub fn deleted(mut self, input: super::types::DeletedObject) -> Self {
         let mut v = self.deleted.unwrap_or_default();
         v.push(input);
         self.deleted = ::std::option::Option::Some(v);
         self
     }
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
-    pub fn set_deleted(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>) -> Self {
+    pub fn set_deleted(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::DeletedObject>>) -> Self {
         self.deleted = input;
         self
     }
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
-    pub fn get_deleted(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>> {
+    pub fn get_deleted(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DeletedObject>> {
         &self.deleted
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     /// Appends an item to `errors`.
@@ -107,19 +107,19 @@ impl DeleteObjectsOutputBuilder {
     /// To override the contents of this collection use [`set_errors`](Self::set_errors).
     ///
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
-    pub fn errors(mut self, input: crate::types::Error) -> Self {
+    pub fn errors(mut self, input: super::types::Error) -> Self {
         let mut v = self.errors.unwrap_or_default();
         v.push(input);
         self.errors = ::std::option::Option::Some(v);
         self
     }
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
-    pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Error>>) -> Self {
+    pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Error>>) -> Self {
         self.errors = input;
         self
     }
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
-    pub fn get_errors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Error>> {
+    pub fn get_errors(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Error>> {
         &self.errors
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -141,8 +141,8 @@ impl DeleteObjectsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteObjectsOutput`](crate::operation::delete_objects::DeleteObjectsOutput).
-    pub fn build(self) -> crate::operation::delete_objects::DeleteObjectsOutput {
-        crate::operation::delete_objects::DeleteObjectsOutput {
+    pub fn build(self) -> super::operation::delete_objects::DeleteObjectsOutput {
+        super::operation::delete_objects::DeleteObjectsOutput {
             deleted: self.deleted,
             request_charged: self.request_charged,
             errors: self.errors,

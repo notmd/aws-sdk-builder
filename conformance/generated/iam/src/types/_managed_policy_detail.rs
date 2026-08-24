@@ -35,7 +35,7 @@ pub struct ManagedPolicyDetail {
     /// <p>When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.</p>
     pub update_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>A list containing information about the versions of the policy.</p>
-    pub policy_version_list: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>,
+    pub policy_version_list: ::std::option::Option<::std::vec::Vec<super::types::PolicyVersion>>,
 }
 impl ManagedPolicyDetail {
     /// <p>The friendly name (not ARN) identifying the policy.</p>
@@ -91,14 +91,14 @@ impl ManagedPolicyDetail {
     /// <p>A list containing information about the versions of the policy.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_version_list.is_none()`.
-    pub fn policy_version_list(&self) -> &[crate::types::PolicyVersion] {
+    pub fn policy_version_list(&self) -> &[super::types::PolicyVersion] {
         self.policy_version_list.as_deref().unwrap_or_default()
     }
 }
 impl ManagedPolicyDetail {
     /// Creates a new builder-style object to manufacture [`ManagedPolicyDetail`](crate::types::ManagedPolicyDetail).
-    pub fn builder() -> crate::types::builders::ManagedPolicyDetailBuilder {
-        crate::types::builders::ManagedPolicyDetailBuilder::default()
+    pub fn builder() -> super::types::builders::ManagedPolicyDetailBuilder {
+        super::types::builders::ManagedPolicyDetailBuilder::default()
     }
 }
 
@@ -117,7 +117,7 @@ pub struct ManagedPolicyDetailBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) update_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) policy_version_list: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>,
+    pub(crate) policy_version_list: ::std::option::Option<::std::vec::Vec<super::types::PolicyVersion>>,
 }
 impl ManagedPolicyDetailBuilder {
     /// <p>The friendly name (not ARN) identifying the policy.</p>
@@ -297,24 +297,24 @@ impl ManagedPolicyDetailBuilder {
     /// To override the contents of this collection use [`set_policy_version_list`](Self::set_policy_version_list).
     ///
     /// <p>A list containing information about the versions of the policy.</p>
-    pub fn policy_version_list(mut self, input: crate::types::PolicyVersion) -> Self {
+    pub fn policy_version_list(mut self, input: super::types::PolicyVersion) -> Self {
         let mut v = self.policy_version_list.unwrap_or_default();
         v.push(input);
         self.policy_version_list = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list containing information about the versions of the policy.</p>
-    pub fn set_policy_version_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>) -> Self {
+    pub fn set_policy_version_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PolicyVersion>>) -> Self {
         self.policy_version_list = input;
         self
     }
     /// <p>A list containing information about the versions of the policy.</p>
-    pub fn get_policy_version_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>> {
+    pub fn get_policy_version_list(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PolicyVersion>> {
         &self.policy_version_list
     }
     /// Consumes the builder and constructs a [`ManagedPolicyDetail`](crate::types::ManagedPolicyDetail).
-    pub fn build(self) -> crate::types::ManagedPolicyDetail {
-        crate::types::ManagedPolicyDetail {
+    pub fn build(self) -> super::types::ManagedPolicyDetail {
+        super::types::ManagedPolicyDetail {
             policy_name: self.policy_name,
             policy_id: self.policy_id,
             arn: self.arn,

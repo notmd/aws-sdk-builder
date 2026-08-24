@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateAccessKeyOutput {
 }
 impl UpdateAccessKeyOutput {
     /// Creates a new builder-style object to manufacture [`UpdateAccessKeyOutput`](crate::operation::update_access_key::UpdateAccessKeyOutput).
-    pub fn builder() -> crate::operation::update_access_key::builders::UpdateAccessKeyOutputBuilder {
-        crate::operation::update_access_key::builders::UpdateAccessKeyOutputBuilder::default()
+    pub fn builder() -> super::operation::update_access_key::builders::UpdateAccessKeyOutputBuilder {
+        super::operation::update_access_key::builders::UpdateAccessKeyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateAccessKeyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateAccessKeyOutput`](crate::operation::update_access_key::UpdateAccessKeyOutput).
-    pub fn build(self) -> crate::operation::update_access_key::UpdateAccessKeyOutput {
-        crate::operation::update_access_key::UpdateAccessKeyOutput {
+    pub fn build(self) -> super::operation::update_access_key::UpdateAccessKeyOutput {
+        super::operation::update_access_key::UpdateAccessKeyOutput {
             _request_id: self._request_id,
         }
     }

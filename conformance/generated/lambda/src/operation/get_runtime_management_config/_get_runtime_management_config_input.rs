@@ -40,8 +40,8 @@ impl GetRuntimeManagementConfigInput {
 }
 impl GetRuntimeManagementConfigInput {
     /// Creates a new builder-style object to manufacture [`GetRuntimeManagementConfigInput`](crate::operation::get_runtime_management_config::GetRuntimeManagementConfigInput).
-    pub fn builder() -> crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigInputBuilder {
-        crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigInputBuilder::default()
+    pub fn builder() -> super::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigInputBuilder {
+        super::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigInputBuilder::default()
     }
 }
 
@@ -116,10 +116,10 @@ impl GetRuntimeManagementConfigInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_runtime_management_config::GetRuntimeManagementConfigInput,
+        super::operation::get_runtime_management_config::GetRuntimeManagementConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_runtime_management_config::GetRuntimeManagementConfigInput {
+        ::std::result::Result::Ok(super::operation::get_runtime_management_config::GetRuntimeManagementConfigInput {
             function_name: self.function_name,
             qualifier: self.qualifier,
         })

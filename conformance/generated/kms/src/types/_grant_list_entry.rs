@@ -20,9 +20,9 @@ pub struct GrantListEntry {
     /// <p>The Amazon Web Services account under which the grant was issued.</p>
     pub issuing_account: ::std::option::Option<::std::string::String>,
     /// <p>The list of operations permitted by the grant.</p>
-    pub operations: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>,
+    pub operations: ::std::option::Option<::std::vec::Vec<super::types::GrantOperation>>,
     /// <p>The constraints on the grant, such as encryption context pairs or a SourceArn, that restrict the subsequent operations the grant allows.</p>
-    pub constraints: ::std::option::Option<crate::types::GrantConstraints>,
+    pub constraints: ::std::option::Option<super::types::GrantConstraints>,
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that gets the permissions in the grant.</p>
     pub grantee_service_principal: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that can retire the grant.</p>
@@ -61,11 +61,11 @@ impl GrantListEntry {
     /// <p>The list of operations permitted by the grant.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.operations.is_none()`.
-    pub fn operations(&self) -> &[crate::types::GrantOperation] {
+    pub fn operations(&self) -> &[super::types::GrantOperation] {
         self.operations.as_deref().unwrap_or_default()
     }
     /// <p>The constraints on the grant, such as encryption context pairs or a SourceArn, that restrict the subsequent operations the grant allows.</p>
-    pub fn constraints(&self) -> ::std::option::Option<&crate::types::GrantConstraints> {
+    pub fn constraints(&self) -> ::std::option::Option<&super::types::GrantConstraints> {
         self.constraints.as_ref()
     }
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that gets the permissions in the grant.</p>
@@ -79,8 +79,8 @@ impl GrantListEntry {
 }
 impl GrantListEntry {
     /// Creates a new builder-style object to manufacture [`GrantListEntry`](crate::types::GrantListEntry).
-    pub fn builder() -> crate::types::builders::GrantListEntryBuilder {
-        crate::types::builders::GrantListEntryBuilder::default()
+    pub fn builder() -> super::types::builders::GrantListEntryBuilder {
+        super::types::builders::GrantListEntryBuilder::default()
     }
 }
 
@@ -95,8 +95,8 @@ pub struct GrantListEntryBuilder {
     pub(crate) grantee_principal: ::std::option::Option<::std::string::String>,
     pub(crate) retiring_principal: ::std::option::Option<::std::string::String>,
     pub(crate) issuing_account: ::std::option::Option<::std::string::String>,
-    pub(crate) operations: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>,
-    pub(crate) constraints: ::std::option::Option<crate::types::GrantConstraints>,
+    pub(crate) operations: ::std::option::Option<::std::vec::Vec<super::types::GrantOperation>>,
+    pub(crate) constraints: ::std::option::Option<super::types::GrantConstraints>,
     pub(crate) grantee_service_principal: ::std::option::Option<::std::string::String>,
     pub(crate) retiring_service_principal: ::std::option::Option<::std::string::String>,
 }
@@ -207,33 +207,33 @@ impl GrantListEntryBuilder {
     /// To override the contents of this collection use [`set_operations`](Self::set_operations).
     ///
     /// <p>The list of operations permitted by the grant.</p>
-    pub fn operations(mut self, input: crate::types::GrantOperation) -> Self {
+    pub fn operations(mut self, input: super::types::GrantOperation) -> Self {
         let mut v = self.operations.unwrap_or_default();
         v.push(input);
         self.operations = ::std::option::Option::Some(v);
         self
     }
     /// <p>The list of operations permitted by the grant.</p>
-    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>) -> Self {
+    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GrantOperation>>) -> Self {
         self.operations = input;
         self
     }
     /// <p>The list of operations permitted by the grant.</p>
-    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>> {
+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GrantOperation>> {
         &self.operations
     }
     /// <p>The constraints on the grant, such as encryption context pairs or a SourceArn, that restrict the subsequent operations the grant allows.</p>
-    pub fn constraints(mut self, input: crate::types::GrantConstraints) -> Self {
+    pub fn constraints(mut self, input: super::types::GrantConstraints) -> Self {
         self.constraints = ::std::option::Option::Some(input);
         self
     }
     /// <p>The constraints on the grant, such as encryption context pairs or a SourceArn, that restrict the subsequent operations the grant allows.</p>
-    pub fn set_constraints(mut self, input: ::std::option::Option<crate::types::GrantConstraints>) -> Self {
+    pub fn set_constraints(mut self, input: ::std::option::Option<super::types::GrantConstraints>) -> Self {
         self.constraints = input;
         self
     }
     /// <p>The constraints on the grant, such as encryption context pairs or a SourceArn, that restrict the subsequent operations the grant allows.</p>
-    pub fn get_constraints(&self) -> &::std::option::Option<crate::types::GrantConstraints> {
+    pub fn get_constraints(&self) -> &::std::option::Option<super::types::GrantConstraints> {
         &self.constraints
     }
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that gets the permissions in the grant.</p>
@@ -265,8 +265,8 @@ impl GrantListEntryBuilder {
         &self.retiring_service_principal
     }
     /// Consumes the builder and constructs a [`GrantListEntry`](crate::types::GrantListEntry).
-    pub fn build(self) -> crate::types::GrantListEntry {
-        crate::types::GrantListEntry {
+    pub fn build(self) -> super::types::GrantListEntry {
+        super::types::GrantListEntry {
             key_id: self.key_id,
             grant_id: self.grant_id,
             name: self.name,

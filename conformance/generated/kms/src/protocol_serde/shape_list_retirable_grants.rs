@@ -5,28 +5,28 @@ pub fn de_list_retirable_grants_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::list_retirable_grants::ListRetirableGrantsOutput,
-    crate::operation::list_retirable_grants::ListRetirableGrantsError,
+    super::operation::list_retirable_grants::ListRetirableGrantsOutput,
+    super::operation::list_retirable_grants::ListRetirableGrantsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::list_retirable_grants::ListRetirableGrantsError::unhandled(generic)),
+        None => return Err(super::operation::list_retirable_grants::ListRetirableGrantsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::DependencyTimeoutException({
+        "DependencyTimeoutException" => super::operation::list_retirable_grants::ListRetirableGrantsError::DependencyTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
+                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_list_retirable_grants_http_error(
             }
             tmp
         }),
-        "InvalidArnException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::InvalidArnException({
+        "InvalidArnException" => super::operation::list_retirable_grants::ListRetirableGrantsError::InvalidArnException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidArnExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidArnExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
+                    .map_err(super::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_list_retirable_grants_http_error(
             }
             tmp
         }),
-        "InvalidMarkerException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::InvalidMarkerException({
+        "InvalidMarkerException" => super::operation::list_retirable_grants::ListRetirableGrantsError::InvalidMarkerException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidMarkerExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_marker_exception::de_invalid_marker_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidMarkerExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_marker_exception::de_invalid_marker_exception_json_err(_response_body, output)
+                    .map_err(super::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,13 +65,13 @@ pub fn de_list_retirable_grants_http_error(
             }
             tmp
         }),
-        "KMSInternalException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::KmsInternalException({
+        "KMSInternalException" => super::operation::list_retirable_grants::ListRetirableGrantsError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                    .map_err(super::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,13 +80,13 @@ pub fn de_list_retirable_grants_http_error(
             }
             tmp
         }),
-        "NotFoundException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::NotFoundException({
+        "NotFoundException" => super::operation::list_retirable_grants::ListRetirableGrantsError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -95,7 +95,7 @@ pub fn de_list_retirable_grants_http_error(
             }
             tmp
         }),
-        _ => crate::operation::list_retirable_grants::ListRetirableGrantsError::generic(generic),
+        _ => super::operation::list_retirable_grants::ListRetirableGrantsError::generic(generic),
     })
 }
 
@@ -105,37 +105,37 @@ pub fn de_list_retirable_grants_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::list_retirable_grants::ListRetirableGrantsOutput,
-    crate::operation::list_retirable_grants::ListRetirableGrantsError,
+    super::operation::list_retirable_grants::ListRetirableGrantsOutput,
+    super::operation::list_retirable_grants::ListRetirableGrantsError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::list_retirable_grants::builders::ListRetirableGrantsOutputBuilder::default();
-        output = crate::protocol_serde::shape_list_retirable_grants::de_list_retirable_grants(_response_body, output)
-            .map_err(crate::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
+        let mut output = super::operation::list_retirable_grants::builders::ListRetirableGrantsOutputBuilder::default();
+        output = super::protocol_serde::shape_list_retirable_grants::de_list_retirable_grants(_response_body, output)
+            .map_err(super::operation::list_retirable_grants::ListRetirableGrantsError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_list_retirable_grants_input(
-    input: &crate::operation::list_retirable_grants::ListRetirableGrantsInput,
+    input: &super::operation::list_retirable_grants::ListRetirableGrantsInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_list_retirable_grants_input::ser_list_retirable_grants_input_input(&mut object, input)?;
+    super::protocol_serde::shape_list_retirable_grants_input::ser_list_retirable_grants_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_list_retirable_grants(
     _value: &[u8],
-    mut builder: crate::operation::list_retirable_grants::builders::ListRetirableGrantsOutputBuilder,
+    mut builder: super::operation::list_retirable_grants::builders::ListRetirableGrantsOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::list_retirable_grants::builders::ListRetirableGrantsOutputBuilder,
+    super::operation::list_retirable_grants::builders::ListRetirableGrantsOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -145,7 +145,7 @@ pub(crate) fn de_list_retirable_grants(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Grants" => {
-                    builder = builder.set_grants(crate::protocol_serde::shape_grant_list::de_grant_list(tokens, _value, depth + 1)?);
+                    builder = builder.set_grants(super::protocol_serde::shape_grant_list::de_grant_list(tokens, _value, depth + 1)?);
                 }
                 "NextMarker" => {
                     builder = builder.set_next_marker(

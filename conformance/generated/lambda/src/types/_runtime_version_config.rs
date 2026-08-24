@@ -7,7 +7,7 @@ pub struct RuntimeVersionConfig {
     /// <p>The ARN of the runtime version you want the function to use.</p>
     pub runtime_version_arn: ::std::option::Option<::std::string::String>,
     /// <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
-    pub error: ::std::option::Option<crate::types::RuntimeVersionError>,
+    pub error: ::std::option::Option<super::types::RuntimeVersionError>,
 }
 impl RuntimeVersionConfig {
     /// <p>The ARN of the runtime version you want the function to use.</p>
@@ -15,14 +15,14 @@ impl RuntimeVersionConfig {
         self.runtime_version_arn.as_deref()
     }
     /// <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
-    pub fn error(&self) -> ::std::option::Option<&crate::types::RuntimeVersionError> {
+    pub fn error(&self) -> ::std::option::Option<&super::types::RuntimeVersionError> {
         self.error.as_ref()
     }
 }
 impl RuntimeVersionConfig {
     /// Creates a new builder-style object to manufacture [`RuntimeVersionConfig`](crate::types::RuntimeVersionConfig).
-    pub fn builder() -> crate::types::builders::RuntimeVersionConfigBuilder {
-        crate::types::builders::RuntimeVersionConfigBuilder::default()
+    pub fn builder() -> super::types::builders::RuntimeVersionConfigBuilder {
+        super::types::builders::RuntimeVersionConfigBuilder::default()
     }
 }
 
@@ -31,7 +31,7 @@ impl RuntimeVersionConfig {
 #[non_exhaustive]
 pub struct RuntimeVersionConfigBuilder {
     pub(crate) runtime_version_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) error: ::std::option::Option<crate::types::RuntimeVersionError>,
+    pub(crate) error: ::std::option::Option<super::types::RuntimeVersionError>,
 }
 impl RuntimeVersionConfigBuilder {
     /// <p>The ARN of the runtime version you want the function to use.</p>
@@ -49,22 +49,22 @@ impl RuntimeVersionConfigBuilder {
         &self.runtime_version_arn
     }
     /// <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
-    pub fn error(mut self, input: crate::types::RuntimeVersionError) -> Self {
+    pub fn error(mut self, input: super::types::RuntimeVersionError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
     /// <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::RuntimeVersionError>) -> Self {
+    pub fn set_error(mut self, input: ::std::option::Option<super::types::RuntimeVersionError>) -> Self {
         self.error = input;
         self
     }
     /// <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::RuntimeVersionError> {
+    pub fn get_error(&self) -> &::std::option::Option<super::types::RuntimeVersionError> {
         &self.error
     }
     /// Consumes the builder and constructs a [`RuntimeVersionConfig`](crate::types::RuntimeVersionConfig).
-    pub fn build(self) -> crate::types::RuntimeVersionConfig {
-        crate::types::RuntimeVersionConfig {
+    pub fn build(self) -> super::types::RuntimeVersionConfig {
+        super::types::RuntimeVersionConfig {
             runtime_version_arn: self.runtime_version_arn,
             error: self.error,
         }

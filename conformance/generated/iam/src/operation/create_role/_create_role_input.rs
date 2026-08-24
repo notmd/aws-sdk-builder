@@ -36,7 +36,7 @@ pub struct CreateRoleInput {
     /// <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl CreateRoleInput {
     /// <p>The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -86,14 +86,14 @@ impl CreateRoleInput {
     /// </note>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
 }
 impl CreateRoleInput {
     /// Creates a new builder-style object to manufacture [`CreateRoleInput`](crate::operation::create_role::CreateRoleInput).
-    pub fn builder() -> crate::operation::create_role::builders::CreateRoleInputBuilder {
-        crate::operation::create_role::builders::CreateRoleInputBuilder::default()
+    pub fn builder() -> super::operation::create_role::builders::CreateRoleInputBuilder {
+        super::operation::create_role::builders::CreateRoleInputBuilder::default()
     }
 }
 
@@ -107,7 +107,7 @@ pub struct CreateRoleInputBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) max_session_duration: ::std::option::Option<i32>,
     pub(crate) permissions_boundary: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl CreateRoleInputBuilder {
     /// <p>The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -257,7 +257,7 @@ impl CreateRoleInputBuilder {
     /// <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
@@ -266,19 +266,19 @@ impl CreateRoleInputBuilder {
     /// <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateRoleInput`](crate::operation::create_role::CreateRoleInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::create_role::CreateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_role::CreateRoleInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::create_role::CreateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::create_role::CreateRoleInput {
             path: self.path,
             role_name: self.role_name,
             assume_role_policy_document: self.assume_role_policy_document,

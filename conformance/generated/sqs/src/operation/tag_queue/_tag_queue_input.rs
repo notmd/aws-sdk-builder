@@ -20,8 +20,8 @@ impl TagQueueInput {
 }
 impl TagQueueInput {
     /// Creates a new builder-style object to manufacture [`TagQueueInput`](crate::operation::tag_queue::TagQueueInput).
-    pub fn builder() -> crate::operation::tag_queue::builders::TagQueueInputBuilder {
-        crate::operation::tag_queue::builders::TagQueueInputBuilder::default()
+    pub fn builder() -> super::operation::tag_queue::builders::TagQueueInputBuilder {
+        super::operation::tag_queue::builders::TagQueueInputBuilder::default()
     }
 }
 
@@ -69,8 +69,8 @@ impl TagQueueInputBuilder {
         &self.tags
     }
     /// Consumes the builder and constructs a [`TagQueueInput`](crate::operation::tag_queue::TagQueueInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::tag_queue::TagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::tag_queue::TagQueueInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::tag_queue::TagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::tag_queue::TagQueueInput {
             queue_url: self.queue_url,
             tags: self.tags,
         })

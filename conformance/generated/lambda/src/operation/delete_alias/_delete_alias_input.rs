@@ -40,8 +40,8 @@ impl DeleteAliasInput {
 }
 impl DeleteAliasInput {
     /// Creates a new builder-style object to manufacture [`DeleteAliasInput`](crate::operation::delete_alias::DeleteAliasInput).
-    pub fn builder() -> crate::operation::delete_alias::builders::DeleteAliasInputBuilder {
-        crate::operation::delete_alias::builders::DeleteAliasInputBuilder::default()
+    pub fn builder() -> super::operation::delete_alias::builders::DeleteAliasInputBuilder {
+        super::operation::delete_alias::builders::DeleteAliasInputBuilder::default()
     }
 }
 
@@ -114,8 +114,8 @@ impl DeleteAliasInputBuilder {
         &self.name
     }
     /// Consumes the builder and constructs a [`DeleteAliasInput`](crate::operation::delete_alias::DeleteAliasInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::delete_alias::DeleteAliasInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_alias::DeleteAliasInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::delete_alias::DeleteAliasInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::delete_alias::DeleteAliasInput {
             function_name: self.function_name,
             name: self.name,
         })

@@ -3,7 +3,7 @@ pub(crate) fn de_wait_started_details<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::WaitStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::WaitStartedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::WaitStartedDetailsBuilder::default();
+            let mut builder = super::types::builders::WaitStartedDetailsBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -43,7 +43,7 @@ where
                     }
                 }
             }
-            Ok(Some(crate::serde_util::wait_started_details_correct_errors(builder).build().map_err(
+            Ok(Some(super::serde_util::wait_started_details_correct_errors(builder).build().map_err(
                 |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
             )?))
         }

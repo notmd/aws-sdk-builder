@@ -26,7 +26,7 @@ impl ::std::fmt::Display for ValidationException {
     }
 }
 impl ::std::error::Error for ValidationException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ValidationException {
+impl ::aws_types::request_id::RequestId for super::types::error::ValidationException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ValidationExc
 }
 impl ValidationException {
     /// Creates a new builder-style object to manufacture [`ValidationException`](crate::types::error::ValidationException).
-    pub fn builder() -> crate::types::error::builders::ValidationExceptionBuilder {
-        crate::types::error::builders::ValidationExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ValidationExceptionBuilder {
+        super::types::error::builders::ValidationExceptionBuilder::default()
     }
 }
 
@@ -81,8 +81,8 @@ impl ValidationExceptionBuilder {
     /// Consumes the builder and constructs a [`ValidationException`](crate::types::error::ValidationException).
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::error::builders::ValidationExceptionBuilder::message)
-    pub fn build(self) -> ::std::result::Result<crate::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::error::ValidationException {
+    pub fn build(self) -> ::std::result::Result<super::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::error::ValidationException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "message",

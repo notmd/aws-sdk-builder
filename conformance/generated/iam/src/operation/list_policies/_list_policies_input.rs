@@ -6,7 +6,7 @@ pub struct ListPoliciesInput {
     /// <p>The scope to use for filtering the results.</p>
     /// <p>To list only Amazon Web Services managed policies, set <code>Scope</code> to <code>AWS</code>. To list only the customer managed policies in your Amazon Web Services account, set <code>Scope</code> to <code>Local</code>.</p>
     /// <p>This parameter is optional. If it is not included, or if it is set to <code>All</code>, all policies are returned.</p>
-    pub scope: ::std::option::Option<crate::types::PolicyScopeType>,
+    pub scope: ::std::option::Option<super::types::PolicyScopeType>,
     /// <p>A flag to filter the results to only the attached policies.</p>
     /// <p>When <code>OnlyAttached</code> is <code>true</code>, the returned list contains only the policies that are attached to an IAM user, group, or role. When <code>OnlyAttached</code> is <code>false</code>, or when the parameter is not included, all policies are returned.</p>
     pub only_attached: ::std::option::Option<bool>,
@@ -15,7 +15,7 @@ pub struct ListPoliciesInput {
     /// <p>The policy usage method to use for filtering the results.</p>
     /// <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p>
     /// <p>This parameter is optional. If it is not included, all policies are returned.</p>
-    pub policy_usage_filter: ::std::option::Option<crate::types::PolicyUsageType>,
+    pub policy_usage_filter: ::std::option::Option<super::types::PolicyUsageType>,
     /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -26,7 +26,7 @@ impl ListPoliciesInput {
     /// <p>The scope to use for filtering the results.</p>
     /// <p>To list only Amazon Web Services managed policies, set <code>Scope</code> to <code>AWS</code>. To list only the customer managed policies in your Amazon Web Services account, set <code>Scope</code> to <code>Local</code>.</p>
     /// <p>This parameter is optional. If it is not included, or if it is set to <code>All</code>, all policies are returned.</p>
-    pub fn scope(&self) -> ::std::option::Option<&crate::types::PolicyScopeType> {
+    pub fn scope(&self) -> ::std::option::Option<&super::types::PolicyScopeType> {
         self.scope.as_ref()
     }
     /// <p>A flag to filter the results to only the attached policies.</p>
@@ -41,7 +41,7 @@ impl ListPoliciesInput {
     /// <p>The policy usage method to use for filtering the results.</p>
     /// <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p>
     /// <p>This parameter is optional. If it is not included, all policies are returned.</p>
-    pub fn policy_usage_filter(&self) -> ::std::option::Option<&crate::types::PolicyUsageType> {
+    pub fn policy_usage_filter(&self) -> ::std::option::Option<&super::types::PolicyUsageType> {
         self.policy_usage_filter.as_ref()
     }
     /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
@@ -56,8 +56,8 @@ impl ListPoliciesInput {
 }
 impl ListPoliciesInput {
     /// Creates a new builder-style object to manufacture [`ListPoliciesInput`](crate::operation::list_policies::ListPoliciesInput).
-    pub fn builder() -> crate::operation::list_policies::builders::ListPoliciesInputBuilder {
-        crate::operation::list_policies::builders::ListPoliciesInputBuilder::default()
+    pub fn builder() -> super::operation::list_policies::builders::ListPoliciesInputBuilder {
+        super::operation::list_policies::builders::ListPoliciesInputBuilder::default()
     }
 }
 
@@ -65,10 +65,10 @@ impl ListPoliciesInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPoliciesInputBuilder {
-    pub(crate) scope: ::std::option::Option<crate::types::PolicyScopeType>,
+    pub(crate) scope: ::std::option::Option<super::types::PolicyScopeType>,
     pub(crate) only_attached: ::std::option::Option<bool>,
     pub(crate) path_prefix: ::std::option::Option<::std::string::String>,
-    pub(crate) policy_usage_filter: ::std::option::Option<crate::types::PolicyUsageType>,
+    pub(crate) policy_usage_filter: ::std::option::Option<super::types::PolicyUsageType>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     pub(crate) max_items: ::std::option::Option<i32>,
 }
@@ -76,21 +76,21 @@ impl ListPoliciesInputBuilder {
     /// <p>The scope to use for filtering the results.</p>
     /// <p>To list only Amazon Web Services managed policies, set <code>Scope</code> to <code>AWS</code>. To list only the customer managed policies in your Amazon Web Services account, set <code>Scope</code> to <code>Local</code>.</p>
     /// <p>This parameter is optional. If it is not included, or if it is set to <code>All</code>, all policies are returned.</p>
-    pub fn scope(mut self, input: crate::types::PolicyScopeType) -> Self {
+    pub fn scope(mut self, input: super::types::PolicyScopeType) -> Self {
         self.scope = ::std::option::Option::Some(input);
         self
     }
     /// <p>The scope to use for filtering the results.</p>
     /// <p>To list only Amazon Web Services managed policies, set <code>Scope</code> to <code>AWS</code>. To list only the customer managed policies in your Amazon Web Services account, set <code>Scope</code> to <code>Local</code>.</p>
     /// <p>This parameter is optional. If it is not included, or if it is set to <code>All</code>, all policies are returned.</p>
-    pub fn set_scope(mut self, input: ::std::option::Option<crate::types::PolicyScopeType>) -> Self {
+    pub fn set_scope(mut self, input: ::std::option::Option<super::types::PolicyScopeType>) -> Self {
         self.scope = input;
         self
     }
     /// <p>The scope to use for filtering the results.</p>
     /// <p>To list only Amazon Web Services managed policies, set <code>Scope</code> to <code>AWS</code>. To list only the customer managed policies in your Amazon Web Services account, set <code>Scope</code> to <code>Local</code>.</p>
     /// <p>This parameter is optional. If it is not included, or if it is set to <code>All</code>, all policies are returned.</p>
-    pub fn get_scope(&self) -> &::std::option::Option<crate::types::PolicyScopeType> {
+    pub fn get_scope(&self) -> &::std::option::Option<super::types::PolicyScopeType> {
         &self.scope
     }
     /// <p>A flag to filter the results to only the attached policies.</p>
@@ -127,21 +127,21 @@ impl ListPoliciesInputBuilder {
     /// <p>The policy usage method to use for filtering the results.</p>
     /// <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p>
     /// <p>This parameter is optional. If it is not included, all policies are returned.</p>
-    pub fn policy_usage_filter(mut self, input: crate::types::PolicyUsageType) -> Self {
+    pub fn policy_usage_filter(mut self, input: super::types::PolicyUsageType) -> Self {
         self.policy_usage_filter = ::std::option::Option::Some(input);
         self
     }
     /// <p>The policy usage method to use for filtering the results.</p>
     /// <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p>
     /// <p>This parameter is optional. If it is not included, all policies are returned.</p>
-    pub fn set_policy_usage_filter(mut self, input: ::std::option::Option<crate::types::PolicyUsageType>) -> Self {
+    pub fn set_policy_usage_filter(mut self, input: ::std::option::Option<super::types::PolicyUsageType>) -> Self {
         self.policy_usage_filter = input;
         self
     }
     /// <p>The policy usage method to use for filtering the results.</p>
     /// <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p>
     /// <p>This parameter is optional. If it is not included, all policies are returned.</p>
-    pub fn get_policy_usage_filter(&self) -> &::std::option::Option<crate::types::PolicyUsageType> {
+    pub fn get_policy_usage_filter(&self) -> &::std::option::Option<super::types::PolicyUsageType> {
         &self.policy_usage_filter
     }
     /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
@@ -178,8 +178,8 @@ impl ListPoliciesInputBuilder {
     /// Consumes the builder and constructs a [`ListPoliciesInput`](crate::operation::list_policies::ListPoliciesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_policies::ListPoliciesInput {
+    ) -> ::std::result::Result<super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_policies::ListPoliciesInput {
             scope: self.scope,
             only_attached: self.only_attached.unwrap_or_default(),
             path_prefix: self.path_prefix,

@@ -11,8 +11,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetBucketIntelligentTieringConfigurationError>`](crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError)
     pub fn get_bucket_intelligent_tiering_configuration(
         &self,
-    ) -> crate::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationFluentBuilder {
-        crate::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationFluentBuilder::new(
+    ) -> super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationFluentBuilder {
+        super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationFluentBuilder::new(
             self.handle.clone(),
         )
     }

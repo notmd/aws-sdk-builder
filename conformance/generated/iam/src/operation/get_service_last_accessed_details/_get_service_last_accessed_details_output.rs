@@ -4,13 +4,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetServiceLastAccessedDetailsOutput {
     /// <p>The status of the job.</p>
-    pub job_status: crate::types::JobStatusType,
+    pub job_status: super::types::JobStatusType,
     /// <p>The type of job. Service jobs return information about when each service was last accessed. Action jobs also include information about when tracked actions within the service were last accessed.</p>
-    pub job_type: ::std::option::Option<crate::types::AccessAdvisorUsageGranularityType>,
+    pub job_type: ::std::option::Option<super::types::AccessAdvisorUsageGranularityType>,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
     pub job_creation_date: ::aws_smithy_types::DateTime,
     /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
-    pub services_last_accessed: ::std::vec::Vec<crate::types::ServiceLastAccessed>,
+    pub services_last_accessed: ::std::vec::Vec<super::types::ServiceLastAccessed>,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p>
     /// <p>This field is null if the job is still in progress, as indicated by a job status value of <code>IN_PROGRESS</code>.</p>
     pub job_completion_date: ::aws_smithy_types::DateTime,
@@ -19,16 +19,16 @@ pub struct GetServiceLastAccessedDetailsOutput {
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>An object that contains details about the reason the operation failed.</p>
-    pub error: ::std::option::Option<crate::types::ErrorDetails>,
+    pub error: ::std::option::Option<super::types::ErrorDetails>,
     _request_id: Option<String>,
 }
 impl GetServiceLastAccessedDetailsOutput {
     /// <p>The status of the job.</p>
-    pub fn job_status(&self) -> &crate::types::JobStatusType {
+    pub fn job_status(&self) -> &super::types::JobStatusType {
         &self.job_status
     }
     /// <p>The type of job. Service jobs return information about when each service was last accessed. Action jobs also include information about when tracked actions within the service were last accessed.</p>
-    pub fn job_type(&self) -> ::std::option::Option<&crate::types::AccessAdvisorUsageGranularityType> {
+    pub fn job_type(&self) -> ::std::option::Option<&super::types::AccessAdvisorUsageGranularityType> {
         self.job_type.as_ref()
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
@@ -36,7 +36,7 @@ impl GetServiceLastAccessedDetailsOutput {
         &self.job_creation_date
     }
     /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
-    pub fn services_last_accessed(&self) -> &[crate::types::ServiceLastAccessed] {
+    pub fn services_last_accessed(&self) -> &[super::types::ServiceLastAccessed] {
         use std::ops::Deref;
         self.services_last_accessed.deref()
     }
@@ -54,7 +54,7 @@ impl GetServiceLastAccessedDetailsOutput {
         self.marker.as_deref()
     }
     /// <p>An object that contains details about the reason the operation failed.</p>
-    pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
+    pub fn error(&self) -> ::std::option::Option<&super::types::ErrorDetails> {
         self.error.as_ref()
     }
 }
@@ -65,8 +65,8 @@ impl ::aws_types::request_id::RequestId for GetServiceLastAccessedDetailsOutput 
 }
 impl GetServiceLastAccessedDetailsOutput {
     /// Creates a new builder-style object to manufacture [`GetServiceLastAccessedDetailsOutput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput).
-    pub fn builder() -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder {
-        crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::default()
+    pub fn builder() -> super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder {
+        super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::default()
     }
 }
 
@@ -74,44 +74,44 @@ impl GetServiceLastAccessedDetailsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetServiceLastAccessedDetailsOutputBuilder {
-    pub(crate) job_status: ::std::option::Option<crate::types::JobStatusType>,
-    pub(crate) job_type: ::std::option::Option<crate::types::AccessAdvisorUsageGranularityType>,
+    pub(crate) job_status: ::std::option::Option<super::types::JobStatusType>,
+    pub(crate) job_type: ::std::option::Option<super::types::AccessAdvisorUsageGranularityType>,
     pub(crate) job_creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) services_last_accessed: ::std::option::Option<::std::vec::Vec<crate::types::ServiceLastAccessed>>,
+    pub(crate) services_last_accessed: ::std::option::Option<::std::vec::Vec<super::types::ServiceLastAccessed>>,
     pub(crate) job_completion_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
-    pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
+    pub(crate) error: ::std::option::Option<super::types::ErrorDetails>,
     _request_id: Option<String>,
 }
 impl GetServiceLastAccessedDetailsOutputBuilder {
     /// <p>The status of the job.</p>
     /// This field is required.
-    pub fn job_status(mut self, input: crate::types::JobStatusType) -> Self {
+    pub fn job_status(mut self, input: super::types::JobStatusType) -> Self {
         self.job_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The status of the job.</p>
-    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::JobStatusType>) -> Self {
+    pub fn set_job_status(mut self, input: ::std::option::Option<super::types::JobStatusType>) -> Self {
         self.job_status = input;
         self
     }
     /// <p>The status of the job.</p>
-    pub fn get_job_status(&self) -> &::std::option::Option<crate::types::JobStatusType> {
+    pub fn get_job_status(&self) -> &::std::option::Option<super::types::JobStatusType> {
         &self.job_status
     }
     /// <p>The type of job. Service jobs return information about when each service was last accessed. Action jobs also include information about when tracked actions within the service were last accessed.</p>
-    pub fn job_type(mut self, input: crate::types::AccessAdvisorUsageGranularityType) -> Self {
+    pub fn job_type(mut self, input: super::types::AccessAdvisorUsageGranularityType) -> Self {
         self.job_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The type of job. Service jobs return information about when each service was last accessed. Action jobs also include information about when tracked actions within the service were last accessed.</p>
-    pub fn set_job_type(mut self, input: ::std::option::Option<crate::types::AccessAdvisorUsageGranularityType>) -> Self {
+    pub fn set_job_type(mut self, input: ::std::option::Option<super::types::AccessAdvisorUsageGranularityType>) -> Self {
         self.job_type = input;
         self
     }
     /// <p>The type of job. Service jobs return information about when each service was last accessed. Action jobs also include information about when tracked actions within the service were last accessed.</p>
-    pub fn get_job_type(&self) -> &::std::option::Option<crate::types::AccessAdvisorUsageGranularityType> {
+    pub fn get_job_type(&self) -> &::std::option::Option<super::types::AccessAdvisorUsageGranularityType> {
         &self.job_type
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
@@ -134,19 +134,19 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
     /// To override the contents of this collection use [`set_services_last_accessed`](Self::set_services_last_accessed).
     ///
     /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
-    pub fn services_last_accessed(mut self, input: crate::types::ServiceLastAccessed) -> Self {
+    pub fn services_last_accessed(mut self, input: super::types::ServiceLastAccessed) -> Self {
         let mut v = self.services_last_accessed.unwrap_or_default();
         v.push(input);
         self.services_last_accessed = ::std::option::Option::Some(v);
         self
     }
     /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
-    pub fn set_services_last_accessed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceLastAccessed>>) -> Self {
+    pub fn set_services_last_accessed(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ServiceLastAccessed>>) -> Self {
         self.services_last_accessed = input;
         self
     }
     /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
-    pub fn get_services_last_accessed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceLastAccessed>> {
+    pub fn get_services_last_accessed(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ServiceLastAccessed>> {
         &self.services_last_accessed
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p>
@@ -196,17 +196,17 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         &self.marker
     }
     /// <p>An object that contains details about the reason the operation failed.</p>
-    pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
+    pub fn error(mut self, input: super::types::ErrorDetails) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
     /// <p>An object that contains details about the reason the operation failed.</p>
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
+    pub fn set_error(mut self, input: ::std::option::Option<super::types::ErrorDetails>) -> Self {
         self.error = input;
         self
     }
     /// <p>An object that contains details about the reason the operation failed.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
+    pub fn get_error(&self) -> &::std::option::Option<super::types::ErrorDetails> {
         &self.error
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -227,10 +227,10 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
+        super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput {
+        ::std::result::Result::Ok(super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput {
             job_status: self.job_status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "job_status",

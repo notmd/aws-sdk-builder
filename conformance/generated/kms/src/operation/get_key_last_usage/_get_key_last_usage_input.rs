@@ -32,8 +32,8 @@ impl GetKeyLastUsageInput {
 }
 impl GetKeyLastUsageInput {
     /// Creates a new builder-style object to manufacture [`GetKeyLastUsageInput`](crate::operation::get_key_last_usage::GetKeyLastUsageInput).
-    pub fn builder() -> crate::operation::get_key_last_usage::builders::GetKeyLastUsageInputBuilder {
-        crate::operation::get_key_last_usage::builders::GetKeyLastUsageInputBuilder::default()
+    pub fn builder() -> super::operation::get_key_last_usage::builders::GetKeyLastUsageInputBuilder {
+        super::operation::get_key_last_usage::builders::GetKeyLastUsageInputBuilder::default()
     }
 }
 
@@ -89,7 +89,7 @@ impl GetKeyLastUsageInputBuilder {
     /// Consumes the builder and constructs a [`GetKeyLastUsageInput`](crate::operation::get_key_last_usage::GetKeyLastUsageInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_key_last_usage::GetKeyLastUsageInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_key_last_usage::GetKeyLastUsageInput { key_id: self.key_id })
+    ) -> ::std::result::Result<super::operation::get_key_last_usage::GetKeyLastUsageInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_key_last_usage::GetKeyLastUsageInput { key_id: self.key_id })
     }
 }

@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct PutRuntimeManagementConfigOutput {
     /// <p>The runtime update mode.</p>
-    pub update_runtime_on: crate::types::UpdateRuntimeOn,
+    pub update_runtime_on: super::types::UpdateRuntimeOn,
     /// <p>The ARN of the function</p>
     pub function_arn: ::std::string::String,
     /// <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
@@ -13,7 +13,7 @@ pub struct PutRuntimeManagementConfigOutput {
 }
 impl PutRuntimeManagementConfigOutput {
     /// <p>The runtime update mode.</p>
-    pub fn update_runtime_on(&self) -> &crate::types::UpdateRuntimeOn {
+    pub fn update_runtime_on(&self) -> &super::types::UpdateRuntimeOn {
         &self.update_runtime_on
     }
     /// <p>The ARN of the function</p>
@@ -33,8 +33,8 @@ impl ::aws_types::request_id::RequestId for PutRuntimeManagementConfigOutput {
 }
 impl PutRuntimeManagementConfigOutput {
     /// Creates a new builder-style object to manufacture [`PutRuntimeManagementConfigOutput`](crate::operation::put_runtime_management_config::PutRuntimeManagementConfigOutput).
-    pub fn builder() -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder {
-        crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder::default()
+    pub fn builder() -> super::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder {
+        super::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder::default()
     }
 }
 
@@ -42,7 +42,7 @@ impl PutRuntimeManagementConfigOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutRuntimeManagementConfigOutputBuilder {
-    pub(crate) update_runtime_on: ::std::option::Option<crate::types::UpdateRuntimeOn>,
+    pub(crate) update_runtime_on: ::std::option::Option<super::types::UpdateRuntimeOn>,
     pub(crate) function_arn: ::std::option::Option<::std::string::String>,
     pub(crate) runtime_version_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -50,17 +50,17 @@ pub struct PutRuntimeManagementConfigOutputBuilder {
 impl PutRuntimeManagementConfigOutputBuilder {
     /// <p>The runtime update mode.</p>
     /// This field is required.
-    pub fn update_runtime_on(mut self, input: crate::types::UpdateRuntimeOn) -> Self {
+    pub fn update_runtime_on(mut self, input: super::types::UpdateRuntimeOn) -> Self {
         self.update_runtime_on = ::std::option::Option::Some(input);
         self
     }
     /// <p>The runtime update mode.</p>
-    pub fn set_update_runtime_on(mut self, input: ::std::option::Option<crate::types::UpdateRuntimeOn>) -> Self {
+    pub fn set_update_runtime_on(mut self, input: ::std::option::Option<super::types::UpdateRuntimeOn>) -> Self {
         self.update_runtime_on = input;
         self
     }
     /// <p>The runtime update mode.</p>
-    pub fn get_update_runtime_on(&self) -> &::std::option::Option<crate::types::UpdateRuntimeOn> {
+    pub fn get_update_runtime_on(&self) -> &::std::option::Option<super::types::UpdateRuntimeOn> {
         &self.update_runtime_on
     }
     /// <p>The ARN of the function</p>
@@ -108,10 +108,10 @@ impl PutRuntimeManagementConfigOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::put_runtime_management_config::PutRuntimeManagementConfigOutput,
+        super::operation::put_runtime_management_config::PutRuntimeManagementConfigOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_runtime_management_config::PutRuntimeManagementConfigOutput {
+        ::std::result::Result::Ok(super::operation::put_runtime_management_config::PutRuntimeManagementConfigOutput {
             update_runtime_on: self.update_runtime_on.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "update_runtime_on",

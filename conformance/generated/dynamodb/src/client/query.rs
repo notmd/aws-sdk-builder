@@ -28,7 +28,7 @@ impl super::Client {
     ///   - [`last_evaluated_key(Option<HashMap::<String, AttributeValue>>)`](crate::operation::query::QueryOutput::last_evaluated_key): <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p> <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p> <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
     ///   - [`consumed_capacity(Option<ConsumedCapacity>)`](crate::operation::query::QueryOutput::consumed_capacity): <p>The capacity units consumed by the <code>Query</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// - On failure, responds with [`SdkError<QueryError>`](crate::operation::query::QueryError)
-    pub fn query(&self) -> crate::operation::query::builders::QueryFluentBuilder {
-        crate::operation::query::builders::QueryFluentBuilder::new(self.handle.clone())
+    pub fn query(&self) -> super::operation::query::builders::QueryFluentBuilder {
+        super::operation::query::builders::QueryFluentBuilder::new(self.handle.clone())
     }
 }

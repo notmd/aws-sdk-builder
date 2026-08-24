@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`rotation_period_in_days(i32)`](crate::operation::enable_key_rotation::builders::EnableKeyRotationFluentBuilder::rotation_period_in_days) / [`set_rotation_period_in_days(Option<i32>)`](crate::operation::enable_key_rotation::builders::EnableKeyRotationFluentBuilder::set_rotation_period_in_days):<br>required: **false**<br><p>Use this parameter to specify a custom period of time between each rotation date. If no value is specified, the default value is 365 days.</p> <p>The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.</p> <p>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days"> <code>kms:RotationPeriodInDays</code> </a> condition key to further constrain the values that principals can specify in the <code>RotationPeriodInDays</code> parameter.</p> <p></p><br>
     /// - On success, responds with [`EnableKeyRotationOutput`](crate::operation::enable_key_rotation::EnableKeyRotationOutput)
     /// - On failure, responds with [`SdkError<EnableKeyRotationError>`](crate::operation::enable_key_rotation::EnableKeyRotationError)
-    pub fn enable_key_rotation(&self) -> crate::operation::enable_key_rotation::builders::EnableKeyRotationFluentBuilder {
-        crate::operation::enable_key_rotation::builders::EnableKeyRotationFluentBuilder::new(self.handle.clone())
+    pub fn enable_key_rotation(&self) -> super::operation::enable_key_rotation::builders::EnableKeyRotationFluentBuilder {
+        super::operation::enable_key_rotation::builders::EnableKeyRotationFluentBuilder::new(self.handle.clone())
     }
 }

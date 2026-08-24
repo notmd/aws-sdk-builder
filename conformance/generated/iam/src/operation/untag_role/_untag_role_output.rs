@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UntagRoleOutput {
 }
 impl UntagRoleOutput {
     /// Creates a new builder-style object to manufacture [`UntagRoleOutput`](crate::operation::untag_role::UntagRoleOutput).
-    pub fn builder() -> crate::operation::untag_role::builders::UntagRoleOutputBuilder {
-        crate::operation::untag_role::builders::UntagRoleOutputBuilder::default()
+    pub fn builder() -> super::operation::untag_role::builders::UntagRoleOutputBuilder {
+        super::operation::untag_role::builders::UntagRoleOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UntagRoleOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UntagRoleOutput`](crate::operation::untag_role::UntagRoleOutput).
-    pub fn build(self) -> crate::operation::untag_role::UntagRoleOutput {
-        crate::operation::untag_role::UntagRoleOutput {
+    pub fn build(self) -> super::operation::untag_role::UntagRoleOutput {
+        super::operation::untag_role::UntagRoleOutput {
             _request_id: self._request_id,
         }
     }

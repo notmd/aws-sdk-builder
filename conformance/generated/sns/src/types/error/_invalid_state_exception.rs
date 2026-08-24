@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidStateException {
     }
 }
 impl ::std::error::Error for InvalidStateException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidStateException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidStateException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidStateE
 }
 impl InvalidStateException {
     /// Creates a new builder-style object to manufacture [`InvalidStateException`](crate::types::error::InvalidStateException).
-    pub fn builder() -> crate::types::error::builders::InvalidStateExceptionBuilder {
-        crate::types::error::builders::InvalidStateExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidStateExceptionBuilder {
+        super::types::error::builders::InvalidStateExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidStateExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidStateException`](crate::types::error::InvalidStateException).
-    pub fn build(self) -> crate::types::error::InvalidStateException {
-        crate::types::error::InvalidStateException {
+    pub fn build(self) -> super::types::error::InvalidStateException {
+        super::types::error::InvalidStateException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

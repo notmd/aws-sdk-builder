@@ -14,8 +14,8 @@ impl DecodeAuthorizationMessageInput {
 }
 impl DecodeAuthorizationMessageInput {
     /// Creates a new builder-style object to manufacture [`DecodeAuthorizationMessageInput`](crate::operation::decode_authorization_message::DecodeAuthorizationMessageInput).
-    pub fn builder() -> crate::operation::decode_authorization_message::builders::DecodeAuthorizationMessageInputBuilder {
-        crate::operation::decode_authorization_message::builders::DecodeAuthorizationMessageInputBuilder::default()
+    pub fn builder() -> super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageInputBuilder {
+        super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageInputBuilder::default()
     }
 }
 
@@ -45,10 +45,10 @@ impl DecodeAuthorizationMessageInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::decode_authorization_message::DecodeAuthorizationMessageInput,
+        super::operation::decode_authorization_message::DecodeAuthorizationMessageInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
+        ::std::result::Result::Ok(super::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
             encoded_message: self.encoded_message,
         })
     }

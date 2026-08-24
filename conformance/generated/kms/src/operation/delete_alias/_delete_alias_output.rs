@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteAliasOutput {
 }
 impl DeleteAliasOutput {
     /// Creates a new builder-style object to manufacture [`DeleteAliasOutput`](crate::operation::delete_alias::DeleteAliasOutput).
-    pub fn builder() -> crate::operation::delete_alias::builders::DeleteAliasOutputBuilder {
-        crate::operation::delete_alias::builders::DeleteAliasOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_alias::builders::DeleteAliasOutputBuilder {
+        super::operation::delete_alias::builders::DeleteAliasOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteAliasOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteAliasOutput`](crate::operation::delete_alias::DeleteAliasOutput).
-    pub fn build(self) -> crate::operation::delete_alias::DeleteAliasOutput {
-        crate::operation::delete_alias::DeleteAliasOutput {
+    pub fn build(self) -> super::operation::delete_alias::DeleteAliasOutput {
+        super::operation::delete_alias::DeleteAliasOutput {
             _request_id: self._request_id,
         }
     }

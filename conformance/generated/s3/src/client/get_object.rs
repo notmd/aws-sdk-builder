@@ -70,7 +70,7 @@ impl super::Client {
     ///   - [`expires(Option<DateTime>)`](crate::operation::get_object::GetObjectOutput::expires): <p>The date and time at which the object is no longer cacheable.</p>
     ///   - [`expires_string(Option<String>)`](crate::operation::get_object::GetObjectOutput::expires_string): <p>The date and time at which the object is no longer cacheable.</p>
     /// - On failure, responds with [`SdkError<GetObjectError>`](crate::operation::get_object::GetObjectError)
-    pub fn get_object(&self) -> crate::operation::get_object::builders::GetObjectFluentBuilder {
-        crate::operation::get_object::builders::GetObjectFluentBuilder::new(self.handle.clone())
+    pub fn get_object(&self) -> super::operation::get_object::builders::GetObjectFluentBuilder {
+        super::operation::get_object::builders::GetObjectFluentBuilder::new(self.handle.clone())
     }
 }

@@ -35,9 +35,9 @@ pub struct User {
     /// <p>This value is returned only in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a> operations.</p>
     pub password_last_used: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-    pub permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
+    pub permissions_boundary: ::std::option::Option<super::types::AttachedPermissionsBoundary>,
     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl User {
     /// <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -78,20 +78,20 @@ impl User {
         self.password_last_used.as_ref()
     }
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-    pub fn permissions_boundary(&self) -> ::std::option::Option<&crate::types::AttachedPermissionsBoundary> {
+    pub fn permissions_boundary(&self) -> ::std::option::Option<&super::types::AttachedPermissionsBoundary> {
         self.permissions_boundary.as_ref()
     }
     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
 }
 impl User {
     /// Creates a new builder-style object to manufacture [`User`](crate::types::User).
-    pub fn builder() -> crate::types::builders::UserBuilder {
-        crate::types::builders::UserBuilder::default()
+    pub fn builder() -> super::types::builders::UserBuilder {
+        super::types::builders::UserBuilder::default()
     }
 }
 
@@ -105,8 +105,8 @@ pub struct UserBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) password_last_used: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) permissions_boundary: ::std::option::Option<super::types::AttachedPermissionsBoundary>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl UserBuilder {
     /// <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -226,17 +226,17 @@ impl UserBuilder {
         &self.password_last_used
     }
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-    pub fn permissions_boundary(mut self, input: crate::types::AttachedPermissionsBoundary) -> Self {
+    pub fn permissions_boundary(mut self, input: super::types::AttachedPermissionsBoundary) -> Self {
         self.permissions_boundary = ::std::option::Option::Some(input);
         self
     }
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
+    pub fn set_permissions_boundary(mut self, input: ::std::option::Option<super::types::AttachedPermissionsBoundary>) -> Self {
         self.permissions_boundary = input;
         self
     }
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
+    pub fn get_permissions_boundary(&self) -> &::std::option::Option<super::types::AttachedPermissionsBoundary> {
         &self.permissions_boundary
     }
     /// Appends an item to `tags`.
@@ -244,19 +244,19 @@ impl UserBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`User`](crate::types::User).
@@ -266,8 +266,8 @@ impl UserBuilder {
     /// - [`user_id`](crate::types::builders::UserBuilder::user_id)
     /// - [`arn`](crate::types::builders::UserBuilder::arn)
     /// - [`create_date`](crate::types::builders::UserBuilder::create_date)
-    pub fn build(self) -> ::std::result::Result<crate::types::User, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::User {
+    pub fn build(self) -> ::std::result::Result<super::types::User, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::User {
             path: self.path.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "path",

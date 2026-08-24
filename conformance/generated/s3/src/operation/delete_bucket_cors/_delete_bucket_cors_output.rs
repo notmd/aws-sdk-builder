@@ -6,7 +6,7 @@ pub struct DeleteBucketCorsOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for DeleteBucketCorsOutput {
+impl super::s3_request_id::RequestIdExt for DeleteBucketCorsOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for DeleteBucketCorsOutput {
 }
 impl DeleteBucketCorsOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketCorsOutput`](crate::operation::delete_bucket_cors::DeleteBucketCorsOutput).
-    pub fn builder() -> crate::operation::delete_bucket_cors::builders::DeleteBucketCorsOutputBuilder {
-        crate::operation::delete_bucket_cors::builders::DeleteBucketCorsOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_cors::builders::DeleteBucketCorsOutputBuilder {
+        super::operation::delete_bucket_cors::builders::DeleteBucketCorsOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl DeleteBucketCorsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketCorsOutput`](crate::operation::delete_bucket_cors::DeleteBucketCorsOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_cors::DeleteBucketCorsOutput {
-        crate::operation::delete_bucket_cors::DeleteBucketCorsOutput {
+    pub fn build(self) -> super::operation::delete_bucket_cors::DeleteBucketCorsOutput {
+        super::operation::delete_bucket_cors::DeleteBucketCorsOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

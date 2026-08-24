@@ -60,8 +60,8 @@ impl ::aws_types::request_id::RequestId for GenerateDataKeyOutput {
 }
 impl GenerateDataKeyOutput {
     /// Creates a new builder-style object to manufacture [`GenerateDataKeyOutput`](crate::operation::generate_data_key::GenerateDataKeyOutput).
-    pub fn builder() -> crate::operation::generate_data_key::builders::GenerateDataKeyOutputBuilder {
-        crate::operation::generate_data_key::builders::GenerateDataKeyOutputBuilder::default()
+    pub fn builder() -> super::operation::generate_data_key::builders::GenerateDataKeyOutputBuilder {
+        super::operation::generate_data_key::builders::GenerateDataKeyOutputBuilder::default()
     }
 }
 
@@ -163,8 +163,8 @@ impl GenerateDataKeyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateDataKeyOutput`](crate::operation::generate_data_key::GenerateDataKeyOutput).
-    pub fn build(self) -> crate::operation::generate_data_key::GenerateDataKeyOutput {
-        crate::operation::generate_data_key::GenerateDataKeyOutput {
+    pub fn build(self) -> super::operation::generate_data_key::GenerateDataKeyOutput {
+        super::operation::generate_data_key::GenerateDataKeyOutput {
             ciphertext_blob: self.ciphertext_blob,
             plaintext: self.plaintext,
             key_id: self.key_id,

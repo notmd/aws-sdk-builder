@@ -26,7 +26,7 @@ impl ::std::fmt::Display for CredentialReportNotPresentException {
     }
 }
 impl ::std::error::Error for CredentialReportNotPresentException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::CredentialReportNotPresentException {
+impl ::aws_types::request_id::RequestId for super::types::error::CredentialReportNotPresentException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CredentialRep
 }
 impl CredentialReportNotPresentException {
     /// Creates a new builder-style object to manufacture [`CredentialReportNotPresentException`](crate::types::error::CredentialReportNotPresentException).
-    pub fn builder() -> crate::types::error::builders::CredentialReportNotPresentExceptionBuilder {
-        crate::types::error::builders::CredentialReportNotPresentExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::CredentialReportNotPresentExceptionBuilder {
+        super::types::error::builders::CredentialReportNotPresentExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl CredentialReportNotPresentExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CredentialReportNotPresentException`](crate::types::error::CredentialReportNotPresentException).
-    pub fn build(self) -> crate::types::error::CredentialReportNotPresentException {
-        crate::types::error::CredentialReportNotPresentException {
+    pub fn build(self) -> super::types::error::CredentialReportNotPresentException {
+        super::types::error::CredentialReportNotPresentException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

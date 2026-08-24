@@ -155,8 +155,8 @@ impl ErrorDetails {
 }
 impl ErrorDetails {
     /// Creates a new builder-style object to manufacture [`ErrorDetails`](crate::types::ErrorDetails).
-    pub fn builder() -> crate::types::builders::ErrorDetailsBuilder {
-        crate::types::builders::ErrorDetailsBuilder::default()
+    pub fn builder() -> super::types::builders::ErrorDetailsBuilder {
+        super::types::builders::ErrorDetailsBuilder::default()
     }
 }
 
@@ -395,8 +395,8 @@ impl ErrorDetailsBuilder {
         &self.error_message
     }
     /// Consumes the builder and constructs a [`ErrorDetails`](crate::types::ErrorDetails).
-    pub fn build(self) -> crate::types::ErrorDetails {
-        crate::types::ErrorDetails {
+    pub fn build(self) -> super::types::ErrorDetails {
+        super::types::ErrorDetails {
             error_code: self.error_code,
             error_message: self.error_message,
         }

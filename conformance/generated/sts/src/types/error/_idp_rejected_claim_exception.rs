@@ -27,7 +27,7 @@ impl ::std::fmt::Display for IdpRejectedClaimException {
     }
 }
 impl ::std::error::Error for IdpRejectedClaimException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::IdpRejectedClaimException {
+impl ::aws_types::request_id::RequestId for super::types::error::IdpRejectedClaimException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -40,8 +40,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for IdpRejectedCl
 }
 impl IdpRejectedClaimException {
     /// Creates a new builder-style object to manufacture [`IdpRejectedClaimException`](crate::types::error::IdpRejectedClaimException).
-    pub fn builder() -> crate::types::error::builders::IdpRejectedClaimExceptionBuilder {
-        crate::types::error::builders::IdpRejectedClaimExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::IdpRejectedClaimExceptionBuilder {
+        super::types::error::builders::IdpRejectedClaimExceptionBuilder::default()
     }
 }
 
@@ -79,8 +79,8 @@ impl IdpRejectedClaimExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`IdpRejectedClaimException`](crate::types::error::IdpRejectedClaimException).
-    pub fn build(self) -> crate::types::error::IdpRejectedClaimException {
-        crate::types::error::IdpRejectedClaimException {
+    pub fn build(self) -> super::types::error::IdpRejectedClaimException {
+        super::types::error::IdpRejectedClaimException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

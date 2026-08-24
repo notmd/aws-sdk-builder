@@ -16,8 +16,8 @@ impl DeleteMessageBatchResultEntry {
 }
 impl DeleteMessageBatchResultEntry {
     /// Creates a new builder-style object to manufacture [`DeleteMessageBatchResultEntry`](crate::types::DeleteMessageBatchResultEntry).
-    pub fn builder() -> crate::types::builders::DeleteMessageBatchResultEntryBuilder {
-        crate::types::builders::DeleteMessageBatchResultEntryBuilder::default()
+    pub fn builder() -> super::types::builders::DeleteMessageBatchResultEntryBuilder {
+        super::types::builders::DeleteMessageBatchResultEntryBuilder::default()
     }
 }
 
@@ -46,8 +46,8 @@ impl DeleteMessageBatchResultEntryBuilder {
     /// Consumes the builder and constructs a [`DeleteMessageBatchResultEntry`](crate::types::DeleteMessageBatchResultEntry).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](crate::types::builders::DeleteMessageBatchResultEntryBuilder::id)
-    pub fn build(self) -> ::std::result::Result<crate::types::DeleteMessageBatchResultEntry, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::DeleteMessageBatchResultEntry {
+    pub fn build(self) -> ::std::result::Result<super::types::DeleteMessageBatchResultEntry, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::DeleteMessageBatchResultEntry {
             id: self.id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "id",

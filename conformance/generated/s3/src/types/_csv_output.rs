@@ -11,7 +11,7 @@ pub struct CsvOutput {
     /// <li>
     /// <p><code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p></li>
     /// </ul>
-    pub quote_fields: ::std::option::Option<crate::types::QuoteFields>,
+    pub quote_fields: ::std::option::Option<super::types::QuoteFields>,
     /// <p>The single character used for escaping the quote character inside an already escaped value.</p>
     pub quote_escape_character: ::std::option::Option<::std::string::String>,
     /// <p>A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.</p>
@@ -29,7 +29,7 @@ impl CsvOutput {
     /// <li>
     /// <p><code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p></li>
     /// </ul>
-    pub fn quote_fields(&self) -> ::std::option::Option<&crate::types::QuoteFields> {
+    pub fn quote_fields(&self) -> ::std::option::Option<&super::types::QuoteFields> {
         self.quote_fields.as_ref()
     }
     /// <p>The single character used for escaping the quote character inside an already escaped value.</p>
@@ -51,8 +51,8 @@ impl CsvOutput {
 }
 impl CsvOutput {
     /// Creates a new builder-style object to manufacture [`CsvOutput`](crate::types::CsvOutput).
-    pub fn builder() -> crate::types::builders::CsvOutputBuilder {
-        crate::types::builders::CsvOutputBuilder::default()
+    pub fn builder() -> super::types::builders::CsvOutputBuilder {
+        super::types::builders::CsvOutputBuilder::default()
     }
 }
 
@@ -60,7 +60,7 @@ impl CsvOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CsvOutputBuilder {
-    pub(crate) quote_fields: ::std::option::Option<crate::types::QuoteFields>,
+    pub(crate) quote_fields: ::std::option::Option<super::types::QuoteFields>,
     pub(crate) quote_escape_character: ::std::option::Option<::std::string::String>,
     pub(crate) record_delimiter: ::std::option::Option<::std::string::String>,
     pub(crate) field_delimiter: ::std::option::Option<::std::string::String>,
@@ -74,7 +74,7 @@ impl CsvOutputBuilder {
     /// <li>
     /// <p><code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p></li>
     /// </ul>
-    pub fn quote_fields(mut self, input: crate::types::QuoteFields) -> Self {
+    pub fn quote_fields(mut self, input: super::types::QuoteFields) -> Self {
         self.quote_fields = ::std::option::Option::Some(input);
         self
     }
@@ -85,7 +85,7 @@ impl CsvOutputBuilder {
     /// <li>
     /// <p><code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p></li>
     /// </ul>
-    pub fn set_quote_fields(mut self, input: ::std::option::Option<crate::types::QuoteFields>) -> Self {
+    pub fn set_quote_fields(mut self, input: ::std::option::Option<super::types::QuoteFields>) -> Self {
         self.quote_fields = input;
         self
     }
@@ -96,7 +96,7 @@ impl CsvOutputBuilder {
     /// <li>
     /// <p><code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p></li>
     /// </ul>
-    pub fn get_quote_fields(&self) -> &::std::option::Option<crate::types::QuoteFields> {
+    pub fn get_quote_fields(&self) -> &::std::option::Option<super::types::QuoteFields> {
         &self.quote_fields
     }
     /// <p>The single character used for escaping the quote character inside an already escaped value.</p>
@@ -156,8 +156,8 @@ impl CsvOutputBuilder {
         &self.quote_character
     }
     /// Consumes the builder and constructs a [`CsvOutput`](crate::types::CsvOutput).
-    pub fn build(self) -> crate::types::CsvOutput {
-        crate::types::CsvOutput {
+    pub fn build(self) -> super::types::CsvOutput {
+        super::types::CsvOutput {
             quote_fields: self.quote_fields,
             quote_escape_character: self.quote_escape_character,
             record_delimiter: self.record_delimiter,

@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteEndpointOutput {
 }
 impl DeleteEndpointOutput {
     /// Creates a new builder-style object to manufacture [`DeleteEndpointOutput`](crate::operation::delete_endpoint::DeleteEndpointOutput).
-    pub fn builder() -> crate::operation::delete_endpoint::builders::DeleteEndpointOutputBuilder {
-        crate::operation::delete_endpoint::builders::DeleteEndpointOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_endpoint::builders::DeleteEndpointOutputBuilder {
+        super::operation::delete_endpoint::builders::DeleteEndpointOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteEndpointOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteEndpointOutput`](crate::operation::delete_endpoint::DeleteEndpointOutput).
-    pub fn build(self) -> crate::operation::delete_endpoint::DeleteEndpointOutput {
-        crate::operation::delete_endpoint::DeleteEndpointOutput {
+    pub fn build(self) -> super::operation::delete_endpoint::DeleteEndpointOutput {
+        super::operation::delete_endpoint::DeleteEndpointOutput {
             _request_id: self._request_id,
         }
     }

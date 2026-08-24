@@ -66,7 +66,7 @@ impl super::Client {
     ///   - [`event_source_mapping_arn(Option<String>)`](crate::operation::create_event_source_mapping::CreateEventSourceMappingOutput::event_source_mapping_arn): <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
     ///   - [`provisioned_poller_config(Option<ProvisionedPollerConfig>)`](crate::operation::create_event_source_mapping::CreateEventSourceMappingOutput::provisioned_poller_config): <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
     /// - On failure, responds with [`SdkError<CreateEventSourceMappingError>`](crate::operation::create_event_source_mapping::CreateEventSourceMappingError)
-    pub fn create_event_source_mapping(&self) -> crate::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder {
-        crate::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder::new(self.handle.clone())
+    pub fn create_event_source_mapping(&self) -> super::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder {
+        super::operation::create_event_source_mapping::builders::CreateEventSourceMappingFluentBuilder::new(self.handle.clone())
     }
 }

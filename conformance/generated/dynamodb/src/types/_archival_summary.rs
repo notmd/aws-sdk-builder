@@ -35,8 +35,8 @@ impl ArchivalSummary {
 }
 impl ArchivalSummary {
     /// Creates a new builder-style object to manufacture [`ArchivalSummary`](crate::types::ArchivalSummary).
-    pub fn builder() -> crate::types::builders::ArchivalSummaryBuilder {
-        crate::types::builders::ArchivalSummaryBuilder::default()
+    pub fn builder() -> super::types::builders::ArchivalSummaryBuilder {
+        super::types::builders::ArchivalSummaryBuilder::default()
     }
 }
 
@@ -104,8 +104,8 @@ impl ArchivalSummaryBuilder {
         &self.archival_backup_arn
     }
     /// Consumes the builder and constructs a [`ArchivalSummary`](crate::types::ArchivalSummary).
-    pub fn build(self) -> crate::types::ArchivalSummary {
-        crate::types::ArchivalSummary {
+    pub fn build(self) -> super::types::ArchivalSummary {
+        super::types::ArchivalSummary {
             archival_date_time: self.archival_date_time,
             archival_reason: self.archival_reason,
             archival_backup_arn: self.archival_backup_arn,

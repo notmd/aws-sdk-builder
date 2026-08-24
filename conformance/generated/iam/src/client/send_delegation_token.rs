@@ -6,7 +6,7 @@ impl super::Client {
     ///   - [`delegation_request_id(impl Into<String>)`](crate::operation::send_delegation_token::builders::SendDelegationTokenFluentBuilder::delegation_request_id) / [`set_delegation_request_id(Option<String>)`](crate::operation::send_delegation_token::builders::SendDelegationTokenFluentBuilder::set_delegation_request_id):<br>required: **true**<br><p>The unique identifier of the delegation request for which to send the token.</p><br>
     /// - On success, responds with [`SendDelegationTokenOutput`](crate::operation::send_delegation_token::SendDelegationTokenOutput)
     /// - On failure, responds with [`SdkError<SendDelegationTokenError>`](crate::operation::send_delegation_token::SendDelegationTokenError)
-    pub fn send_delegation_token(&self) -> crate::operation::send_delegation_token::builders::SendDelegationTokenFluentBuilder {
-        crate::operation::send_delegation_token::builders::SendDelegationTokenFluentBuilder::new(self.handle.clone())
+    pub fn send_delegation_token(&self) -> super::operation::send_delegation_token::builders::SendDelegationTokenFluentBuilder {
+        super::operation::send_delegation_token::builders::SendDelegationTokenFluentBuilder::new(self.handle.clone())
     }
 }

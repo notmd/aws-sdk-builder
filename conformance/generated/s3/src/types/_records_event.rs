@@ -15,8 +15,8 @@ impl RecordsEvent {
 }
 impl RecordsEvent {
     /// Creates a new builder-style object to manufacture [`RecordsEvent`](crate::types::RecordsEvent).
-    pub fn builder() -> crate::types::builders::RecordsEventBuilder {
-        crate::types::builders::RecordsEventBuilder::default()
+    pub fn builder() -> super::types::builders::RecordsEventBuilder {
+        super::types::builders::RecordsEventBuilder::default()
     }
 }
 
@@ -42,7 +42,7 @@ impl RecordsEventBuilder {
         &self.payload
     }
     /// Consumes the builder and constructs a [`RecordsEvent`](crate::types::RecordsEvent).
-    pub fn build(self) -> crate::types::RecordsEvent {
-        crate::types::RecordsEvent { payload: self.payload }
+    pub fn build(self) -> super::types::RecordsEvent {
+        super::types::RecordsEvent { payload: self.payload }
     }
 }

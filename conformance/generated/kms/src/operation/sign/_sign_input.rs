@@ -50,13 +50,13 @@ pub struct SignInput {
     /// <li>
     /// <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li>
     /// </ul>
-    pub message_type: ::std::option::Option<crate::types::MessageType>,
+    pub message_type: ::std::option::Option<super::types::MessageType>,
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>Specifies the signing algorithm to use when signing the message.</p>
     /// <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
-    pub signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
+    pub signing_algorithm: ::std::option::Option<super::types::SigningAlgorithmSpec>,
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
     /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub dry_run: ::std::option::Option<bool>,
@@ -113,7 +113,7 @@ impl SignInput {
     /// <li>
     /// <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li>
     /// </ul>
-    pub fn message_type(&self) -> ::std::option::Option<&crate::types::MessageType> {
+    pub fn message_type(&self) -> ::std::option::Option<&super::types::MessageType> {
         self.message_type.as_ref()
     }
     /// <p>A list of grant tokens.</p>
@@ -125,7 +125,7 @@ impl SignInput {
     }
     /// <p>Specifies the signing algorithm to use when signing the message.</p>
     /// <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
-    pub fn signing_algorithm(&self) -> ::std::option::Option<&crate::types::SigningAlgorithmSpec> {
+    pub fn signing_algorithm(&self) -> ::std::option::Option<&super::types::SigningAlgorithmSpec> {
         self.signing_algorithm.as_ref()
     }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
@@ -148,8 +148,8 @@ impl ::std::fmt::Debug for SignInput {
 }
 impl SignInput {
     /// Creates a new builder-style object to manufacture [`SignInput`](crate::operation::sign::SignInput).
-    pub fn builder() -> crate::operation::sign::builders::SignInputBuilder {
-        crate::operation::sign::builders::SignInputBuilder::default()
+    pub fn builder() -> super::operation::sign::builders::SignInputBuilder {
+        super::operation::sign::builders::SignInputBuilder::default()
     }
 }
 
@@ -159,9 +159,9 @@ impl SignInput {
 pub struct SignInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) message: ::std::option::Option<::aws_smithy_types::Blob>,
-    pub(crate) message_type: ::std::option::Option<crate::types::MessageType>,
+    pub(crate) message_type: ::std::option::Option<super::types::MessageType>,
     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
+    pub(crate) signing_algorithm: ::std::option::Option<super::types::SigningAlgorithmSpec>,
     pub(crate) dry_run: ::std::option::Option<bool>,
 }
 impl SignInputBuilder {
@@ -266,7 +266,7 @@ impl SignInputBuilder {
     /// <li>
     /// <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li>
     /// </ul>
-    pub fn message_type(mut self, input: crate::types::MessageType) -> Self {
+    pub fn message_type(mut self, input: super::types::MessageType) -> Self {
         self.message_type = ::std::option::Option::Some(input);
         self
     }
@@ -299,7 +299,7 @@ impl SignInputBuilder {
     /// <li>
     /// <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li>
     /// </ul>
-    pub fn set_message_type(mut self, input: ::std::option::Option<crate::types::MessageType>) -> Self {
+    pub fn set_message_type(mut self, input: ::std::option::Option<super::types::MessageType>) -> Self {
         self.message_type = input;
         self
     }
@@ -332,7 +332,7 @@ impl SignInputBuilder {
     /// <li>
     /// <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li>
     /// </ul>
-    pub fn get_message_type(&self) -> &::std::option::Option<crate::types::MessageType> {
+    pub fn get_message_type(&self) -> &::std::option::Option<super::types::MessageType> {
         &self.message_type
     }
     /// Appends an item to `grant_tokens`.
@@ -361,19 +361,19 @@ impl SignInputBuilder {
     /// <p>Specifies the signing algorithm to use when signing the message.</p>
     /// <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
     /// This field is required.
-    pub fn signing_algorithm(mut self, input: crate::types::SigningAlgorithmSpec) -> Self {
+    pub fn signing_algorithm(mut self, input: super::types::SigningAlgorithmSpec) -> Self {
         self.signing_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the signing algorithm to use when signing the message.</p>
     /// <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
-    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
+    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<super::types::SigningAlgorithmSpec>) -> Self {
         self.signing_algorithm = input;
         self
     }
     /// <p>Specifies the signing algorithm to use when signing the message.</p>
     /// <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
-    pub fn get_signing_algorithm(&self) -> &::std::option::Option<crate::types::SigningAlgorithmSpec> {
+    pub fn get_signing_algorithm(&self) -> &::std::option::Option<super::types::SigningAlgorithmSpec> {
         &self.signing_algorithm
     }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
@@ -394,8 +394,8 @@ impl SignInputBuilder {
         &self.dry_run
     }
     /// Consumes the builder and constructs a [`SignInput`](crate::operation::sign::SignInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::sign::SignInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::sign::SignInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::sign::SignInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::sign::SignInput {
             key_id: self.key_id,
             message: self.message,
             message_type: self.message_type,

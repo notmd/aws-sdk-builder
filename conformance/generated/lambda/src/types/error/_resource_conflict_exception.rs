@@ -34,7 +34,7 @@ impl ::std::fmt::Display for ResourceConflictException {
     }
 }
 impl ::std::error::Error for ResourceConflictException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ResourceConflictException {
+impl ::aws_types::request_id::RequestId for super::types::error::ResourceConflictException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResourceConfl
 }
 impl ResourceConflictException {
     /// Creates a new builder-style object to manufacture [`ResourceConflictException`](crate::types::error::ResourceConflictException).
-    pub fn builder() -> crate::types::error::builders::ResourceConflictExceptionBuilder {
-        crate::types::error::builders::ResourceConflictExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ResourceConflictExceptionBuilder {
+        super::types::error::builders::ResourceConflictExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl ResourceConflictExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ResourceConflictException`](crate::types::error::ResourceConflictException).
-    pub fn build(self) -> crate::types::error::ResourceConflictException {
-        crate::types::error::ResourceConflictException {
+    pub fn build(self) -> super::types::error::ResourceConflictException {
+        super::types::error::ResourceConflictException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

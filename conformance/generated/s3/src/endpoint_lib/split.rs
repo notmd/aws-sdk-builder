@@ -4,7 +4,7 @@
  *  SPDX-License-Identifier: Apache-2.0
  */
 
-use crate::endpoint_lib::diagnostic::DiagnosticCollector;
+use super::endpoint_lib::diagnostic::DiagnosticCollector;
 
 /// Splits a string into an array of substrings based on a delimiter.
 /// Specification for this function can be found in the [Smithy spec](https://smithy.io/2.0/additional-specs/rules-engine/standard-library.html#split-function).

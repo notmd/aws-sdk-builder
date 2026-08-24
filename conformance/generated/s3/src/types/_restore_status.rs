@@ -33,8 +33,8 @@ impl RestoreStatus {
 }
 impl RestoreStatus {
     /// Creates a new builder-style object to manufacture [`RestoreStatus`](crate::types::RestoreStatus).
-    pub fn builder() -> crate::types::builders::RestoreStatusBuilder {
-        crate::types::builders::RestoreStatusBuilder::default()
+    pub fn builder() -> super::types::builders::RestoreStatusBuilder {
+        super::types::builders::RestoreStatusBuilder::default()
     }
 }
 
@@ -90,8 +90,8 @@ impl RestoreStatusBuilder {
         &self.restore_expiry_date
     }
     /// Consumes the builder and constructs a [`RestoreStatus`](crate::types::RestoreStatus).
-    pub fn build(self) -> crate::types::RestoreStatus {
-        crate::types::RestoreStatus {
+    pub fn build(self) -> super::types::RestoreStatus {
+        super::types::RestoreStatus {
             is_restore_in_progress: self.is_restore_in_progress,
             restore_expiry_date: self.restore_expiry_date,
         }

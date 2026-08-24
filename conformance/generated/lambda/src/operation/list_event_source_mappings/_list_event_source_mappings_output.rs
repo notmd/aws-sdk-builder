@@ -6,7 +6,7 @@ pub struct ListEventSourceMappingsOutput {
     /// <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A list of event source mappings.</p>
-    pub event_source_mappings: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>>,
+    pub event_source_mappings: ::std::option::Option<::std::vec::Vec<super::types::EventSourceMappingConfiguration>>,
     _request_id: Option<String>,
 }
 impl ListEventSourceMappingsOutput {
@@ -17,7 +17,7 @@ impl ListEventSourceMappingsOutput {
     /// <p>A list of event source mappings.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.event_source_mappings.is_none()`.
-    pub fn event_source_mappings(&self) -> &[crate::types::EventSourceMappingConfiguration] {
+    pub fn event_source_mappings(&self) -> &[super::types::EventSourceMappingConfiguration] {
         self.event_source_mappings.as_deref().unwrap_or_default()
     }
 }
@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for ListEventSourceMappingsOutput {
 }
 impl ListEventSourceMappingsOutput {
     /// Creates a new builder-style object to manufacture [`ListEventSourceMappingsOutput`](crate::operation::list_event_source_mappings::ListEventSourceMappingsOutput).
-    pub fn builder() -> crate::operation::list_event_source_mappings::builders::ListEventSourceMappingsOutputBuilder {
-        crate::operation::list_event_source_mappings::builders::ListEventSourceMappingsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_event_source_mappings::builders::ListEventSourceMappingsOutputBuilder {
+        super::operation::list_event_source_mappings::builders::ListEventSourceMappingsOutputBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl ListEventSourceMappingsOutput {
 #[non_exhaustive]
 pub struct ListEventSourceMappingsOutputBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
-    pub(crate) event_source_mappings: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>>,
+    pub(crate) event_source_mappings: ::std::option::Option<::std::vec::Vec<super::types::EventSourceMappingConfiguration>>,
     _request_id: Option<String>,
 }
 impl ListEventSourceMappingsOutputBuilder {
@@ -61,19 +61,19 @@ impl ListEventSourceMappingsOutputBuilder {
     /// To override the contents of this collection use [`set_event_source_mappings`](Self::set_event_source_mappings).
     ///
     /// <p>A list of event source mappings.</p>
-    pub fn event_source_mappings(mut self, input: crate::types::EventSourceMappingConfiguration) -> Self {
+    pub fn event_source_mappings(mut self, input: super::types::EventSourceMappingConfiguration) -> Self {
         let mut v = self.event_source_mappings.unwrap_or_default();
         v.push(input);
         self.event_source_mappings = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of event source mappings.</p>
-    pub fn set_event_source_mappings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>>) -> Self {
+    pub fn set_event_source_mappings(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EventSourceMappingConfiguration>>) -> Self {
         self.event_source_mappings = input;
         self
     }
     /// <p>A list of event source mappings.</p>
-    pub fn get_event_source_mappings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>> {
+    pub fn get_event_source_mappings(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EventSourceMappingConfiguration>> {
         &self.event_source_mappings
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,8 +86,8 @@ impl ListEventSourceMappingsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListEventSourceMappingsOutput`](crate::operation::list_event_source_mappings::ListEventSourceMappingsOutput).
-    pub fn build(self) -> crate::operation::list_event_source_mappings::ListEventSourceMappingsOutput {
-        crate::operation::list_event_source_mappings::ListEventSourceMappingsOutput {
+    pub fn build(self) -> super::operation::list_event_source_mappings::ListEventSourceMappingsOutput {
+        super::operation::list_event_source_mappings::ListEventSourceMappingsOutput {
             next_marker: self.next_marker,
             event_source_mappings: self.event_source_mappings,
             _request_id: self._request_id,

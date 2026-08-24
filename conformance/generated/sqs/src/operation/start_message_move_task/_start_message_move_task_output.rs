@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for StartMessageMoveTaskOutput {
 }
 impl StartMessageMoveTaskOutput {
     /// Creates a new builder-style object to manufacture [`StartMessageMoveTaskOutput`](crate::operation::start_message_move_task::StartMessageMoveTaskOutput).
-    pub fn builder() -> crate::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder {
-        crate::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder::default()
+    pub fn builder() -> super::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder {
+        super::operation::start_message_move_task::builders::StartMessageMoveTaskOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl StartMessageMoveTaskOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`StartMessageMoveTaskOutput`](crate::operation::start_message_move_task::StartMessageMoveTaskOutput).
-    pub fn build(self) -> crate::operation::start_message_move_task::StartMessageMoveTaskOutput {
-        crate::operation::start_message_move_task::StartMessageMoveTaskOutput {
+    pub fn build(self) -> super::operation::start_message_move_task::StartMessageMoveTaskOutput {
+        super::operation::start_message_move_task::StartMessageMoveTaskOutput {
             task_handle: self.task_handle,
             _request_id: self._request_id,
         }

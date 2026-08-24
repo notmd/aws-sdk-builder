@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateGroupOutput {
 }
 impl UpdateGroupOutput {
     /// Creates a new builder-style object to manufacture [`UpdateGroupOutput`](crate::operation::update_group::UpdateGroupOutput).
-    pub fn builder() -> crate::operation::update_group::builders::UpdateGroupOutputBuilder {
-        crate::operation::update_group::builders::UpdateGroupOutputBuilder::default()
+    pub fn builder() -> super::operation::update_group::builders::UpdateGroupOutputBuilder {
+        super::operation::update_group::builders::UpdateGroupOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateGroupOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateGroupOutput`](crate::operation::update_group::UpdateGroupOutput).
-    pub fn build(self) -> crate::operation::update_group::UpdateGroupOutput {
-        crate::operation::update_group::UpdateGroupOutput {
+    pub fn build(self) -> super::operation::update_group::UpdateGroupOutput {
+        super::operation::update_group::UpdateGroupOutput {
             _request_id: self._request_id,
         }
     }

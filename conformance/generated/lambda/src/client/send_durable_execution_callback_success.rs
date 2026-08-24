@@ -9,8 +9,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SendDurableExecutionCallbackSuccessError>`](crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError)
     pub fn send_durable_execution_callback_success(
         &self,
-    ) -> crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder {
-        crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder::new(
+    ) -> super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder {
+        super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder::new(
             self.handle.clone(),
         )
     }

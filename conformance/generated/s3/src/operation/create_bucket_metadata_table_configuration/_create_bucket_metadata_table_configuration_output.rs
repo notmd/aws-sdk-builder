@@ -6,7 +6,7 @@ pub struct CreateBucketMetadataTableConfigurationOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for CreateBucketMetadataTableConfigurationOutput {
+impl super::s3_request_id::RequestIdExt for CreateBucketMetadataTableConfigurationOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for CreateBucketMetadataTableConfigurati
 }
 impl CreateBucketMetadataTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`CreateBucketMetadataTableConfigurationOutput`](crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput).
-    pub fn builder() -> crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder {
-        crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder::default()
+    pub fn builder() -> super::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder {
+        super::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl CreateBucketMetadataTableConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateBucketMetadataTableConfigurationOutput`](crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput).
-    pub fn build(self) -> crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput {
-        crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput {
+    pub fn build(self) -> super::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput {
+        super::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

@@ -164,8 +164,8 @@ pub(crate) mod identity_cache {
 pub(crate) mod identity_provider {
     use std::time::{Duration, SystemTime};
 
-    use crate::s3_express::identity_cache::S3ExpressIdentityCache;
-    use crate::types::SessionCredentials;
+    use super::s3_express::identity_cache::S3ExpressIdentityCache;
+    use super::types::SessionCredentials;
     use aws_credential_types::credential_feature::AwsCredentialFeature;
     use aws_credential_types::provider::error::CredentialsError;
     use aws_credential_types::Credentials;
@@ -182,7 +182,7 @@ pub(crate) mod identity_provider {
 
     #[derive(Debug)]
     pub(crate) struct DefaultS3ExpressIdentityProvider {
-        behavior_version: crate::config::BehaviorVersion,
+        behavior_version: super::config::BehaviorVersion,
         cache: S3ExpressIdentityCache,
     }
 
@@ -239,7 +239,7 @@ pub(crate) mod identity_provider {
         fn bucket_name<'a>(&'a self, config_bag: &'a ConfigBag) -> Result<&'a str, BoxError> {
             let params = config_bag.load::<EndpointResolverParams>().expect("endpoint resolver params must be set");
             let params = params
-                .get::<crate::config::endpoint::Params>()
+                .get::<super::config::endpoint::Params>()
                 .expect("`Params` should be wrapped in `EndpointResolverParams`");
             params.bucket().ok_or("A bucket was not set in endpoint params".into())
         }
@@ -250,7 +250,7 @@ pub(crate) mod identity_provider {
             runtime_components: &'a RuntimeComponents,
             config_bag: &'a ConfigBag,
         ) -> Result<SessionCredentials, BoxError> {
-            let mut config_builder = crate::config::Builder::from_config_bag(config_bag).behavior_version(self.behavior_version);
+            let mut config_builder = super::config::Builder::from_config_bag(config_bag).behavior_version(self.behavior_version);
 
             // inherits all runtime components from a current S3 operation but clears out
             // out interceptors configured for that operation
@@ -258,7 +258,7 @@ pub(crate) mod identity_provider {
             rc_builder.set_interceptors(std::iter::empty::<SharedInterceptor>());
             config_builder.runtime_components = rc_builder;
 
-            let client = crate::Client::from_conf(config_builder.build());
+            let client = super::Client::from_conf(config_builder.build());
             let response = client.create_session().bucket(bucket_name).send().await?;
 
             response.credentials.ok_or("no session credentials in response".into())
@@ -267,17 +267,17 @@ pub(crate) mod identity_provider {
 
     #[derive(Default)]
     pub(crate) struct Builder {
-        behavior_version: Option<crate::config::BehaviorVersion>,
+        behavior_version: Option<super::config::BehaviorVersion>,
         time_source: Option<SharedTimeSource>,
         buffer_time: Option<Duration>,
     }
 
     impl Builder {
-        pub(crate) fn behavior_version(mut self, behavior_version: crate::config::BehaviorVersion) -> Self {
+        pub(crate) fn behavior_version(mut self, behavior_version: super::config::BehaviorVersion) -> Self {
             self.set_behavior_version(Some(behavior_version));
             self
         }
-        pub(crate) fn set_behavior_version(&mut self, behavior_version: Option<crate::config::BehaviorVersion>) -> &mut Self {
+        pub(crate) fn set_behavior_version(&mut self, behavior_version: Option<super::config::BehaviorVersion>) -> &mut Self {
             self.behavior_version = behavior_version;
             self
         }
@@ -349,25 +349,25 @@ pub(crate) mod runtime_plugin {
         // `new` will be called as `additional_client_plugins` within `base_client_runtime_plugins`.
         // This guarantees that `new` receives a fully constructed service config, with required
         // runtime components registered with `RuntimeComponents`.
-        pub(crate) fn new(service_config: crate::config::Config) -> Self {
+        pub(crate) fn new(service_config: super::config::Config) -> Self {
             Self::new_with(service_config, Env::real())
         }
 
-        fn new_with(service_config: crate::config::Config, env: Env) -> Self {
+        fn new_with(service_config: super::config::Config, env: Env) -> Self {
             Self {
-                config: config(service_config.config.load::<crate::config::DisableS3ExpressSessionAuth>().cloned(), env),
+                config: config(service_config.config.load::<super::config::DisableS3ExpressSessionAuth>().cloned(), env),
                 runtime_components_builder: runtime_components_builder(service_config),
             }
         }
     }
 
-    fn config(disable_s3_express_session_token: Option<crate::config::DisableS3ExpressSessionAuth>, env: Env) -> FrozenLayer {
+    fn config(disable_s3_express_session_token: Option<super::config::DisableS3ExpressSessionAuth>, env: Env) -> FrozenLayer {
         let mut layer = Layer::new("S3ExpressRuntimePlugin");
         if disable_s3_express_session_token.is_none() {
             match env.get(env::S3_DISABLE_EXPRESS_SESSION_AUTH) {
                 Ok(value) if value.eq_ignore_ascii_case("true") || value.eq_ignore_ascii_case("false") => {
                     let value = value.to_lowercase().parse::<bool>().expect("just checked to be a bool-valued string");
-                    layer.store_or_unset(Some(crate::config::DisableS3ExpressSessionAuth(value)));
+                    layer.store_or_unset(Some(super::config::DisableS3ExpressSessionAuth(value)));
                 }
                 Ok(value) => {
                     tracing::warn!(
@@ -385,7 +385,7 @@ pub(crate) mod runtime_plugin {
 
         let session_token_name_override = SigV4SessionTokenNameOverride::new(|settings: &SigningSettings, cfg: &ConfigBag| {
             // Not configured for S3 express, use the original session token name override
-            if !crate::s3_express::utils::for_s3_express(cfg) {
+            if !super::s3_express::utils::for_s3_express(cfg) {
                 return Ok(settings.session_token_name_override);
             }
 
@@ -405,7 +405,7 @@ pub(crate) mod runtime_plugin {
         layer.freeze()
     }
 
-    fn runtime_components_builder(service_config: crate::config::Config) -> RuntimeComponentsBuilder {
+    fn runtime_components_builder(service_config: super::config::Config) -> RuntimeComponentsBuilder {
         match (
             service_config.runtime_components.identity_resolver(&super::auth::SCHEME_ID),
             service_config.runtime_components.identity_resolver(&aws_runtime::auth::sigv4::SCHEME_ID),
@@ -438,11 +438,11 @@ pub(crate) mod runtime_plugin {
 }
 
 pub(crate) mod checksum {
-    use crate::http_request_checksum::DefaultRequestChecksumOverride;
+    use super::http_request_checksum::DefaultRequestChecksumOverride;
     use aws_smithy_checksums::ChecksumAlgorithm;
     use aws_smithy_types::config_bag::ConfigBag;
 
-    pub(crate) fn provide_default_checksum_algorithm() -> crate::http_request_checksum::DefaultRequestChecksumOverride {
+    pub(crate) fn provide_default_checksum_algorithm() -> super::http_request_checksum::DefaultRequestChecksumOverride {
         fn _provide_default_checksum_algorithm(original_checksum: Option<ChecksumAlgorithm>, cfg: &ConfigBag) -> Option<ChecksumAlgorithm> {
             // S3 does not have the `ChecksumAlgorithm::Md5`, therefore customers cannot set it
             // from outside.
@@ -450,7 +450,7 @@ pub(crate) mod checksum {
                 return original_checksum;
             }
 
-            if crate::s3_express::utils::for_s3_express(cfg) {
+            if super::s3_express::utils::for_s3_express(cfg) {
                 // S3 Express requires setting the default checksum algorithm to CRC-32
                 Some(ChecksumAlgorithm::Crc32)
             } else {
@@ -467,14 +467,14 @@ pub(crate) mod utils {
     pub(crate) fn for_s3_express(cfg: &ConfigBag) -> bool {
         // logic borrowed from aws_smithy_runtime::client::orchestrator::auth::extract_endpoint_auth_scheme_config
         let endpoint = cfg
-            .load::<crate::config::endpoint::Endpoint>()
+            .load::<super::config::endpoint::Endpoint>()
             .expect("endpoint added to config bag by endpoint orchestrator");
 
         let typed_schemes = endpoint.auth_schemes();
         if !typed_schemes.is_empty() {
             return typed_schemes
                 .iter()
-                .any(|scheme| scheme.name() == crate::s3_express::auth::SCHEME_ID.as_str());
+                .any(|scheme| scheme.name() == super::s3_express::auth::SCHEME_ID.as_str());
         }
 
         let auth_schemes = match endpoint.properties().get("authSchemes") {
@@ -483,7 +483,7 @@ pub(crate) mod utils {
         };
         auth_schemes.iter().any(|doc| {
             let config_scheme_id = doc.as_object().and_then(|object| object.get("name")).and_then(Document::as_string);
-            config_scheme_id == Some(crate::s3_express::auth::SCHEME_ID.as_str())
+            config_scheme_id == Some(super::s3_express::auth::SCHEME_ID.as_str())
         })
     }
 }

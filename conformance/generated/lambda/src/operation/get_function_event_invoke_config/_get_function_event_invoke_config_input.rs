@@ -40,8 +40,8 @@ impl GetFunctionEventInvokeConfigInput {
 }
 impl GetFunctionEventInvokeConfigInput {
     /// Creates a new builder-style object to manufacture [`GetFunctionEventInvokeConfigInput`](crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput).
-    pub fn builder() -> crate::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigInputBuilder {
-        crate::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigInputBuilder::default()
+    pub fn builder() -> super::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigInputBuilder {
+        super::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigInputBuilder::default()
     }
 }
 
@@ -116,10 +116,10 @@ impl GetFunctionEventInvokeConfigInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput,
+        super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput {
+        ::std::result::Result::Ok(super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput {
             function_name: self.function_name,
             qualifier: self.qualifier,
         })

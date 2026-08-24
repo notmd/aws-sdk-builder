@@ -26,7 +26,7 @@ impl ::std::fmt::Display for PointInTimeRecoveryUnavailableException {
     }
 }
 impl ::std::error::Error for PointInTimeRecoveryUnavailableException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::PointInTimeRecoveryUnavailableException {
+impl ::aws_types::request_id::RequestId for super::types::error::PointInTimeRecoveryUnavailableException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PointInTimeRe
 }
 impl PointInTimeRecoveryUnavailableException {
     /// Creates a new builder-style object to manufacture [`PointInTimeRecoveryUnavailableException`](crate::types::error::PointInTimeRecoveryUnavailableException).
-    pub fn builder() -> crate::types::error::builders::PointInTimeRecoveryUnavailableExceptionBuilder {
-        crate::types::error::builders::PointInTimeRecoveryUnavailableExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::PointInTimeRecoveryUnavailableExceptionBuilder {
+        super::types::error::builders::PointInTimeRecoveryUnavailableExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl PointInTimeRecoveryUnavailableExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PointInTimeRecoveryUnavailableException`](crate::types::error::PointInTimeRecoveryUnavailableException).
-    pub fn build(self) -> crate::types::error::PointInTimeRecoveryUnavailableException {
-        crate::types::error::PointInTimeRecoveryUnavailableException {
+    pub fn build(self) -> super::types::error::PointInTimeRecoveryUnavailableException {
+        super::types::error::PointInTimeRecoveryUnavailableException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

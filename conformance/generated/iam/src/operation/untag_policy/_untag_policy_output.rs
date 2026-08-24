@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UntagPolicyOutput {
 }
 impl UntagPolicyOutput {
     /// Creates a new builder-style object to manufacture [`UntagPolicyOutput`](crate::operation::untag_policy::UntagPolicyOutput).
-    pub fn builder() -> crate::operation::untag_policy::builders::UntagPolicyOutputBuilder {
-        crate::operation::untag_policy::builders::UntagPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::untag_policy::builders::UntagPolicyOutputBuilder {
+        super::operation::untag_policy::builders::UntagPolicyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UntagPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UntagPolicyOutput`](crate::operation::untag_policy::UntagPolicyOutput).
-    pub fn build(self) -> crate::operation::untag_policy::UntagPolicyOutput {
-        crate::operation::untag_policy::UntagPolicyOutput {
+    pub fn build(self) -> super::operation::untag_policy::UntagPolicyOutput {
+        super::operation::untag_policy::UntagPolicyOutput {
             _request_id: self._request_id,
         }
     }

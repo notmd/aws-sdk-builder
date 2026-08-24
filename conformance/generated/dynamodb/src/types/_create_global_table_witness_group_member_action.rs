@@ -32,8 +32,8 @@ impl CreateGlobalTableWitnessGroupMemberAction {
 }
 impl CreateGlobalTableWitnessGroupMemberAction {
     /// Creates a new builder-style object to manufacture [`CreateGlobalTableWitnessGroupMemberAction`](crate::types::CreateGlobalTableWitnessGroupMemberAction).
-    pub fn builder() -> crate::types::builders::CreateGlobalTableWitnessGroupMemberActionBuilder {
-        crate::types::builders::CreateGlobalTableWitnessGroupMemberActionBuilder::default()
+    pub fn builder() -> super::types::builders::CreateGlobalTableWitnessGroupMemberActionBuilder {
+        super::types::builders::CreateGlobalTableWitnessGroupMemberActionBuilder::default()
     }
 }
 
@@ -88,8 +88,8 @@ impl CreateGlobalTableWitnessGroupMemberActionBuilder {
     /// - [`region_name`](crate::types::builders::CreateGlobalTableWitnessGroupMemberActionBuilder::region_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::CreateGlobalTableWitnessGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::CreateGlobalTableWitnessGroupMemberAction {
+    ) -> ::std::result::Result<super::types::CreateGlobalTableWitnessGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::CreateGlobalTableWitnessGroupMemberAction {
             region_name: self.region_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "region_name",

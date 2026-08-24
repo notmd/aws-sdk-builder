@@ -52,8 +52,8 @@ impl RemovePermissionInput {
 }
 impl RemovePermissionInput {
     /// Creates a new builder-style object to manufacture [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
-    pub fn builder() -> crate::operation::remove_permission::builders::RemovePermissionInputBuilder {
-        crate::operation::remove_permission::builders::RemovePermissionInputBuilder::default()
+    pub fn builder() -> super::operation::remove_permission::builders::RemovePermissionInputBuilder {
+        super::operation::remove_permission::builders::RemovePermissionInputBuilder::default()
     }
 }
 
@@ -158,8 +158,8 @@ impl RemovePermissionInputBuilder {
     /// Consumes the builder and constructs a [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::remove_permission::RemovePermissionInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::remove_permission::RemovePermissionInput {
+    ) -> ::std::result::Result<super::operation::remove_permission::RemovePermissionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::remove_permission::RemovePermissionInput {
             function_name: self.function_name,
             statement_id: self.statement_id,
             qualifier: self.qualifier,

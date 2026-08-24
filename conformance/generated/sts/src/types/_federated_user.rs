@@ -23,8 +23,8 @@ impl FederatedUser {
 }
 impl FederatedUser {
     /// Creates a new builder-style object to manufacture [`FederatedUser`](crate::types::FederatedUser).
-    pub fn builder() -> crate::types::builders::FederatedUserBuilder {
-        crate::types::builders::FederatedUserBuilder::default()
+    pub fn builder() -> super::types::builders::FederatedUserBuilder {
+        super::types::builders::FederatedUserBuilder::default()
     }
 }
 
@@ -70,8 +70,8 @@ impl FederatedUserBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`federated_user_id`](crate::types::builders::FederatedUserBuilder::federated_user_id)
     /// - [`arn`](crate::types::builders::FederatedUserBuilder::arn)
-    pub fn build(self) -> ::std::result::Result<crate::types::FederatedUser, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::FederatedUser {
+    pub fn build(self) -> ::std::result::Result<super::types::FederatedUser, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::FederatedUser {
             federated_user_id: self.federated_user_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "federated_user_id",

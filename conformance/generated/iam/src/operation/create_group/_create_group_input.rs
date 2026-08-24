@@ -26,8 +26,8 @@ impl CreateGroupInput {
 }
 impl CreateGroupInput {
     /// Creates a new builder-style object to manufacture [`CreateGroupInput`](crate::operation::create_group::CreateGroupInput).
-    pub fn builder() -> crate::operation::create_group::builders::CreateGroupInputBuilder {
-        crate::operation::create_group::builders::CreateGroupInputBuilder::default()
+    pub fn builder() -> super::operation::create_group::builders::CreateGroupInputBuilder {
+        super::operation::create_group::builders::CreateGroupInputBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl CreateGroupInputBuilder {
         &self.group_name
     }
     /// Consumes the builder and constructs a [`CreateGroupInput`](crate::operation::create_group::CreateGroupInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::create_group::CreateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_group::CreateGroupInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::create_group::CreateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::create_group::CreateGroupInput {
             path: self.path,
             group_name: self.group_name,
         })

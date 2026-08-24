@@ -3,12 +3,12 @@
 pub fn de_inventory_s3_bucket_destination(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::InventoryS3BucketDestination, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::InventoryS3BucketDestination, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::InventoryS3BucketDestination::builder();
+    let mut builder = super::types::InventoryS3BucketDestination::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("AccountId") /* AccountId com.amazonaws.s3#InventoryS3BucketDestination$AccountId */ =>  {
@@ -40,8 +40,8 @@ pub fn de_inventory_s3_bucket_destination(
             s if s.matches("Format") /* Format com.amazonaws.s3#InventoryS3BucketDestination$Format */ =>  {
                 let var_3 =
                     Some(
-                        Result::<crate::types::InventoryFormat, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::InventoryFormat::from(
+                        Result::<super::types::InventoryFormat, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::InventoryFormat::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -67,7 +67,7 @@ pub fn de_inventory_s3_bucket_destination(
             s if s.matches("Encryption") /* Encryption com.amazonaws.s3#InventoryS3BucketDestination$Encryption */ =>  {
                 let var_5 =
                     Some(
-                        crate::protocol_serde::shape_inventory_encryption::de_inventory_encryption(&mut tag, depth + 1)
+                        super::protocol_serde::shape_inventory_encryption::de_inventory_encryption(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -77,13 +77,13 @@ pub fn de_inventory_s3_bucket_destination(
             _ => {}
         }
     }
-    Ok(crate::serde_util::inventory_s3_bucket_destination_correct_errors(builder)
+    Ok(super::serde_util::inventory_s3_bucket_destination_correct_errors(builder)
         .build()
         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 
 pub fn ser_inventory_s3_bucket_destination(
-    input: &crate::types::InventoryS3BucketDestination,
+    input: &super::types::InventoryS3BucketDestination,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]
@@ -106,7 +106,7 @@ pub fn ser_inventory_s3_bucket_destination(
     }
     if let Some(var_8) = &input.encryption {
         let inner_writer = scope.start_el("Encryption");
-        crate::protocol_serde::shape_inventory_encryption::ser_inventory_encryption(var_8, inner_writer)?
+        super::protocol_serde::shape_inventory_encryption::ser_inventory_encryption(var_8, inner_writer)?
     }
     scope.finish();
     Ok(())

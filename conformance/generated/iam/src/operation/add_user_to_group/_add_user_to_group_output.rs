@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for AddUserToGroupOutput {
 }
 impl AddUserToGroupOutput {
     /// Creates a new builder-style object to manufacture [`AddUserToGroupOutput`](crate::operation::add_user_to_group::AddUserToGroupOutput).
-    pub fn builder() -> crate::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder {
-        crate::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder::default()
+    pub fn builder() -> super::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder {
+        super::operation::add_user_to_group::builders::AddUserToGroupOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl AddUserToGroupOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AddUserToGroupOutput`](crate::operation::add_user_to_group::AddUserToGroupOutput).
-    pub fn build(self) -> crate::operation::add_user_to_group::AddUserToGroupOutput {
-        crate::operation::add_user_to_group::AddUserToGroupOutput {
+    pub fn build(self) -> super::operation::add_user_to_group::AddUserToGroupOutput {
+        super::operation::add_user_to_group::AddUserToGroupOutput {
             _request_id: self._request_id,
         }
     }

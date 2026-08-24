@@ -8,13 +8,13 @@ pub trait CustomizableSend<T, E>: ::std::marker::Send + ::std::marker::Sync {
     // Takes an owned `self` as the implementation will internally call methods that take `self`.
     // If it took `&self`, that would make this trait object safe, but some implementing types do not
     // derive `Clone`, unable to yield `self` from `&self`.
-    fn send(self, config_override: crate::config::Builder) -> BoxFuture<SendResult<T, E>>;
+    fn send(self, config_override: super::config::Builder) -> BoxFuture<SendResult<T, E>>;
 }
 
 pub trait CustomizablePresigned<E>: ::std::marker::Send + ::std::marker::Sync {
     fn presign(
         self,
-        config_override: crate::config::Builder,
-        presigning_config: crate::presigning::PresigningConfig,
-    ) -> BoxFuture<SendResult<crate::presigning::PresignedRequest, E>>;
+        config_override: super::config::Builder,
+        presigning_config: super::presigning::PresigningConfig,
+    ) -> BoxFuture<SendResult<super::presigning::PresignedRequest, E>>;
 }

@@ -6,7 +6,7 @@ pub struct ListOrganizationsFeaturesOutput {
     /// <p>The unique identifier (ID) of an organization.</p>
     pub organization_id: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the features that are currently available in your organization.</p>
-    pub enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
+    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::types::FeatureType>>,
     _request_id: Option<String>,
 }
 impl ListOrganizationsFeaturesOutput {
@@ -17,7 +17,7 @@ impl ListOrganizationsFeaturesOutput {
     /// <p>Specifies the features that are currently available in your organization.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_features.is_none()`.
-    pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
+    pub fn enabled_features(&self) -> &[super::types::FeatureType] {
         self.enabled_features.as_deref().unwrap_or_default()
     }
 }
@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for ListOrganizationsFeaturesOutput {
 }
 impl ListOrganizationsFeaturesOutput {
     /// Creates a new builder-style object to manufacture [`ListOrganizationsFeaturesOutput`](crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput).
-    pub fn builder() -> crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder {
-        crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder::default()
+    pub fn builder() -> super::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder {
+        super::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl ListOrganizationsFeaturesOutput {
 #[non_exhaustive]
 pub struct ListOrganizationsFeaturesOutputBuilder {
     pub(crate) organization_id: ::std::option::Option<::std::string::String>,
-    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
+    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<super::types::FeatureType>>,
     _request_id: Option<String>,
 }
 impl ListOrganizationsFeaturesOutputBuilder {
@@ -61,19 +61,19 @@ impl ListOrganizationsFeaturesOutputBuilder {
     /// To override the contents of this collection use [`set_enabled_features`](Self::set_enabled_features).
     ///
     /// <p>Specifies the features that are currently available in your organization.</p>
-    pub fn enabled_features(mut self, input: crate::types::FeatureType) -> Self {
+    pub fn enabled_features(mut self, input: super::types::FeatureType) -> Self {
         let mut v = self.enabled_features.unwrap_or_default();
         v.push(input);
         self.enabled_features = ::std::option::Option::Some(v);
         self
     }
     /// <p>Specifies the features that are currently available in your organization.</p>
-    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self {
+    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FeatureType>>) -> Self {
         self.enabled_features = input;
         self
     }
     /// <p>Specifies the features that are currently available in your organization.</p>
-    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
+    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FeatureType>> {
         &self.enabled_features
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,8 +86,8 @@ impl ListOrganizationsFeaturesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListOrganizationsFeaturesOutput`](crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput).
-    pub fn build(self) -> crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput {
-        crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput {
+    pub fn build(self) -> super::operation::list_organizations_features::ListOrganizationsFeaturesOutput {
+        super::operation::list_organizations_features::ListOrganizationsFeaturesOutput {
             organization_id: self.organization_id,
             enabled_features: self.enabled_features,
             _request_id: self._request_id,

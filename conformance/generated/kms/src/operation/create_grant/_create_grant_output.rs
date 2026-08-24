@@ -30,8 +30,8 @@ impl ::aws_types::request_id::RequestId for CreateGrantOutput {
 }
 impl CreateGrantOutput {
     /// Creates a new builder-style object to manufacture [`CreateGrantOutput`](crate::operation::create_grant::CreateGrantOutput).
-    pub fn builder() -> crate::operation::create_grant::builders::CreateGrantOutputBuilder {
-        crate::operation::create_grant::builders::CreateGrantOutputBuilder::default()
+    pub fn builder() -> super::operation::create_grant::builders::CreateGrantOutputBuilder {
+        super::operation::create_grant::builders::CreateGrantOutputBuilder::default()
     }
 }
 
@@ -88,8 +88,8 @@ impl CreateGrantOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateGrantOutput`](crate::operation::create_grant::CreateGrantOutput).
-    pub fn build(self) -> crate::operation::create_grant::CreateGrantOutput {
-        crate::operation::create_grant::CreateGrantOutput {
+    pub fn build(self) -> super::operation::create_grant::CreateGrantOutput {
+        super::operation::create_grant::CreateGrantOutput {
             grant_token: self.grant_token,
             grant_id: self.grant_id,
             _request_id: self._request_id,

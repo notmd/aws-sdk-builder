@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for SendDurableExecutionCallbackHeartbea
 }
 impl SendDurableExecutionCallbackHeartbeatOutput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackHeartbeatOutput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput).
-    pub fn builder() -> crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder {
-        crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default()
+    pub fn builder() -> super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder {
+        super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl SendDurableExecutionCallbackHeartbeatOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SendDurableExecutionCallbackHeartbeatOutput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput).
-    pub fn build(self) -> crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput {
-        crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput {
+    pub fn build(self) -> super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput {
+        super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput {
             _request_id: self._request_id,
         }
     }

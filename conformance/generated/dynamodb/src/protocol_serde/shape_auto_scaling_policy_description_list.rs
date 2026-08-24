@@ -3,7 +3,7 @@ pub(crate) fn de_auto_scaling_policy_description_list<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<::std::vec::Vec<crate::types::AutoScalingPolicyDescription>>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<::std::vec::Vec<super::types::AutoScalingPolicyDescription>>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -23,7 +23,7 @@ where
                         break;
                     }
                     _ => {
-                        let value = crate::protocol_serde::shape_auto_scaling_policy_description::de_auto_scaling_policy_description(
+                        let value = super::protocol_serde::shape_auto_scaling_policy_description::de_auto_scaling_policy_description(
                             tokens,
                             _value,
                             depth + 1,

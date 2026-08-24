@@ -3,7 +3,7 @@ pub(crate) fn de_import_table_description<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::ImportTableDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::ImportTableDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::ImportTableDescriptionBuilder::default();
+            let mut builder = super::types::builders::ImportTableDescriptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -32,7 +32,7 @@ where
                             "ImportStatus" => {
                                 builder = builder.set_import_status(
                                     ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| crate::types::ImportStatus::from(u.as_ref())))
+                                        .map(|s| s.to_unescaped().map(|u| super::types::ImportStatus::from(u.as_ref())))
                                         .transpose()?,
                                 );
                             }
@@ -58,7 +58,7 @@ where
                                 );
                             }
                             "S3BucketSource" => {
-                                builder = builder.set_s3_bucket_source(crate::protocol_serde::shape_s3_bucket_source::de_s3_bucket_source(
+                                builder = builder.set_s3_bucket_source(super::protocol_serde::shape_s3_bucket_source::de_s3_bucket_source(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -81,25 +81,25 @@ where
                             "InputFormat" => {
                                 builder = builder.set_input_format(
                                     ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| crate::types::InputFormat::from(u.as_ref())))
+                                        .map(|s| s.to_unescaped().map(|u| super::types::InputFormat::from(u.as_ref())))
                                         .transpose()?,
                                 );
                             }
                             "InputFormatOptions" => {
                                 builder = builder.set_input_format_options(
-                                    crate::protocol_serde::shape_input_format_options::de_input_format_options(tokens, _value, depth + 1)?,
+                                    super::protocol_serde::shape_input_format_options::de_input_format_options(tokens, _value, depth + 1)?,
                                 );
                             }
                             "InputCompressionType" => {
                                 builder = builder.set_input_compression_type(
                                     ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| crate::types::InputCompressionType::from(u.as_ref())))
+                                        .map(|s| s.to_unescaped().map(|u| super::types::InputCompressionType::from(u.as_ref())))
                                         .transpose()?,
                                 );
                             }
                             "TableCreationParameters" => {
                                 builder = builder.set_table_creation_parameters(
-                                    crate::protocol_serde::shape_table_creation_parameters::de_table_creation_parameters(tokens, _value, depth + 1)?,
+                                    super::protocol_serde::shape_table_creation_parameters::de_table_creation_parameters(tokens, _value, depth + 1)?,
                                 );
                             }
                             "StartTime" => {

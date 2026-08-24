@@ -26,8 +26,8 @@ impl DeleteBucketPolicyInput {
 }
 impl DeleteBucketPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketPolicyInput`](crate::operation::delete_bucket_policy::DeleteBucketPolicyInput).
-    pub fn builder() -> crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyInputBuilder {
-        crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_policy::builders::DeleteBucketPolicyInputBuilder {
+        super::operation::delete_bucket_policy::builders::DeleteBucketPolicyInputBuilder::default()
     }
 }
 
@@ -80,9 +80,9 @@ impl DeleteBucketPolicyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteBucketPolicyInput`](crate::operation::delete_bucket_policy::DeleteBucketPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_bucket_policy::DeleteBucketPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::delete_bucket_policy::DeleteBucketPolicyInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::delete_bucket_policy::DeleteBucketPolicyInput {
+        ::std::result::Result::Ok(super::operation::delete_bucket_policy::DeleteBucketPolicyInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

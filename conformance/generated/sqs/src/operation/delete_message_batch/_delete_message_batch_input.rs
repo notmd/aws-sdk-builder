@@ -8,7 +8,7 @@ pub struct DeleteMessageBatchInput {
     /// <p>Queue URLs and names are case-sensitive.</p>
     pub queue_url: ::std::option::Option<::std::string::String>,
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
-    pub entries: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>,
+    pub entries: ::std::option::Option<::std::vec::Vec<super::types::DeleteMessageBatchRequestEntry>>,
 }
 impl DeleteMessageBatchInput {
     /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
@@ -19,14 +19,14 @@ impl DeleteMessageBatchInput {
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.entries.is_none()`.
-    pub fn entries(&self) -> &[crate::types::DeleteMessageBatchRequestEntry] {
+    pub fn entries(&self) -> &[super::types::DeleteMessageBatchRequestEntry] {
         self.entries.as_deref().unwrap_or_default()
     }
 }
 impl DeleteMessageBatchInput {
     /// Creates a new builder-style object to manufacture [`DeleteMessageBatchInput`](crate::operation::delete_message_batch::DeleteMessageBatchInput).
-    pub fn builder() -> crate::operation::delete_message_batch::builders::DeleteMessageBatchInputBuilder {
-        crate::operation::delete_message_batch::builders::DeleteMessageBatchInputBuilder::default()
+    pub fn builder() -> super::operation::delete_message_batch::builders::DeleteMessageBatchInputBuilder {
+        super::operation::delete_message_batch::builders::DeleteMessageBatchInputBuilder::default()
     }
 }
 
@@ -35,7 +35,7 @@ impl DeleteMessageBatchInput {
 #[non_exhaustive]
 pub struct DeleteMessageBatchInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
-    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>,
+    pub(crate) entries: ::std::option::Option<::std::vec::Vec<super::types::DeleteMessageBatchRequestEntry>>,
 }
 impl DeleteMessageBatchInputBuilder {
     /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
@@ -61,27 +61,27 @@ impl DeleteMessageBatchInputBuilder {
     /// To override the contents of this collection use [`set_entries`](Self::set_entries).
     ///
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
-    pub fn entries(mut self, input: crate::types::DeleteMessageBatchRequestEntry) -> Self {
+    pub fn entries(mut self, input: super::types::DeleteMessageBatchRequestEntry) -> Self {
         let mut v = self.entries.unwrap_or_default();
         v.push(input);
         self.entries = ::std::option::Option::Some(v);
         self
     }
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
-    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>) -> Self {
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::DeleteMessageBatchRequestEntry>>) -> Self {
         self.entries = input;
         self
     }
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
-    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::types::DeleteMessageBatchRequestEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`DeleteMessageBatchInput`](crate::operation::delete_message_batch::DeleteMessageBatchInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_message_batch::DeleteMessageBatchInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::delete_message_batch::DeleteMessageBatchInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::delete_message_batch::DeleteMessageBatchInput {
+        ::std::result::Result::Ok(super::operation::delete_message_batch::DeleteMessageBatchInput {
             queue_url: self.queue_url,
             entries: self.entries,
         })

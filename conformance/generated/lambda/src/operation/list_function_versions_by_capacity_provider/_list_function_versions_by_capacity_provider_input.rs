@@ -26,8 +26,8 @@ impl ListFunctionVersionsByCapacityProviderInput {
 }
 impl ListFunctionVersionsByCapacityProviderInput {
     /// Creates a new builder-style object to manufacture [`ListFunctionVersionsByCapacityProviderInput`](crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput).
-    pub fn builder() -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder {
-        crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder::default()
+    pub fn builder() -> super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder {
+        super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder::default()
     }
 }
 
@@ -87,11 +87,11 @@ impl ListFunctionVersionsByCapacityProviderInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput,
+        super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput {
+            super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput {
                 capacity_provider_name: self.capacity_provider_name,
                 marker: self.marker,
                 max_items: self.max_items,

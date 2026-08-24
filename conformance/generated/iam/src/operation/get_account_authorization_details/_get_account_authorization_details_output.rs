@@ -5,13 +5,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetAccountAuthorizationDetailsOutput {
     /// <p>A list containing information about IAM users.</p>
-    pub user_detail_list: ::std::option::Option<::std::vec::Vec<crate::types::UserDetail>>,
+    pub user_detail_list: ::std::option::Option<::std::vec::Vec<super::types::UserDetail>>,
     /// <p>A list containing information about IAM groups.</p>
-    pub group_detail_list: ::std::option::Option<::std::vec::Vec<crate::types::GroupDetail>>,
+    pub group_detail_list: ::std::option::Option<::std::vec::Vec<super::types::GroupDetail>>,
     /// <p>A list containing information about IAM roles.</p>
-    pub role_detail_list: ::std::option::Option<::std::vec::Vec<crate::types::RoleDetail>>,
+    pub role_detail_list: ::std::option::Option<::std::vec::Vec<super::types::RoleDetail>>,
     /// <p>A list containing information about managed policies.</p>
-    pub policies: ::std::option::Option<::std::vec::Vec<crate::types::ManagedPolicyDetail>>,
+    pub policies: ::std::option::Option<::std::vec::Vec<super::types::ManagedPolicyDetail>>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -22,25 +22,25 @@ impl GetAccountAuthorizationDetailsOutput {
     /// <p>A list containing information about IAM users.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_detail_list.is_none()`.
-    pub fn user_detail_list(&self) -> &[crate::types::UserDetail] {
+    pub fn user_detail_list(&self) -> &[super::types::UserDetail] {
         self.user_detail_list.as_deref().unwrap_or_default()
     }
     /// <p>A list containing information about IAM groups.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.group_detail_list.is_none()`.
-    pub fn group_detail_list(&self) -> &[crate::types::GroupDetail] {
+    pub fn group_detail_list(&self) -> &[super::types::GroupDetail] {
         self.group_detail_list.as_deref().unwrap_or_default()
     }
     /// <p>A list containing information about IAM roles.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_detail_list.is_none()`.
-    pub fn role_detail_list(&self) -> &[crate::types::RoleDetail] {
+    pub fn role_detail_list(&self) -> &[super::types::RoleDetail] {
         self.role_detail_list.as_deref().unwrap_or_default()
     }
     /// <p>A list containing information about managed policies.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policies.is_none()`.
-    pub fn policies(&self) -> &[crate::types::ManagedPolicyDetail] {
+    pub fn policies(&self) -> &[super::types::ManagedPolicyDetail] {
         self.policies.as_deref().unwrap_or_default()
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -59,8 +59,8 @@ impl ::aws_types::request_id::RequestId for GetAccountAuthorizationDetailsOutput
 }
 impl GetAccountAuthorizationDetailsOutput {
     /// Creates a new builder-style object to manufacture [`GetAccountAuthorizationDetailsOutput`](crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput).
-    pub fn builder() -> crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder {
-        crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder::default()
+    pub fn builder() -> super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder {
+        super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder::default()
     }
 }
 
@@ -68,10 +68,10 @@ impl GetAccountAuthorizationDetailsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountAuthorizationDetailsOutputBuilder {
-    pub(crate) user_detail_list: ::std::option::Option<::std::vec::Vec<crate::types::UserDetail>>,
-    pub(crate) group_detail_list: ::std::option::Option<::std::vec::Vec<crate::types::GroupDetail>>,
-    pub(crate) role_detail_list: ::std::option::Option<::std::vec::Vec<crate::types::RoleDetail>>,
-    pub(crate) policies: ::std::option::Option<::std::vec::Vec<crate::types::ManagedPolicyDetail>>,
+    pub(crate) user_detail_list: ::std::option::Option<::std::vec::Vec<super::types::UserDetail>>,
+    pub(crate) group_detail_list: ::std::option::Option<::std::vec::Vec<super::types::GroupDetail>>,
+    pub(crate) role_detail_list: ::std::option::Option<::std::vec::Vec<super::types::RoleDetail>>,
+    pub(crate) policies: ::std::option::Option<::std::vec::Vec<super::types::ManagedPolicyDetail>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -82,19 +82,19 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
     /// To override the contents of this collection use [`set_user_detail_list`](Self::set_user_detail_list).
     ///
     /// <p>A list containing information about IAM users.</p>
-    pub fn user_detail_list(mut self, input: crate::types::UserDetail) -> Self {
+    pub fn user_detail_list(mut self, input: super::types::UserDetail) -> Self {
         let mut v = self.user_detail_list.unwrap_or_default();
         v.push(input);
         self.user_detail_list = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list containing information about IAM users.</p>
-    pub fn set_user_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UserDetail>>) -> Self {
+    pub fn set_user_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::UserDetail>>) -> Self {
         self.user_detail_list = input;
         self
     }
     /// <p>A list containing information about IAM users.</p>
-    pub fn get_user_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UserDetail>> {
+    pub fn get_user_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<super::types::UserDetail>> {
         &self.user_detail_list
     }
     /// Appends an item to `group_detail_list`.
@@ -102,19 +102,19 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
     /// To override the contents of this collection use [`set_group_detail_list`](Self::set_group_detail_list).
     ///
     /// <p>A list containing information about IAM groups.</p>
-    pub fn group_detail_list(mut self, input: crate::types::GroupDetail) -> Self {
+    pub fn group_detail_list(mut self, input: super::types::GroupDetail) -> Self {
         let mut v = self.group_detail_list.unwrap_or_default();
         v.push(input);
         self.group_detail_list = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list containing information about IAM groups.</p>
-    pub fn set_group_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GroupDetail>>) -> Self {
+    pub fn set_group_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::GroupDetail>>) -> Self {
         self.group_detail_list = input;
         self
     }
     /// <p>A list containing information about IAM groups.</p>
-    pub fn get_group_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GroupDetail>> {
+    pub fn get_group_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<super::types::GroupDetail>> {
         &self.group_detail_list
     }
     /// Appends an item to `role_detail_list`.
@@ -122,19 +122,19 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
     /// To override the contents of this collection use [`set_role_detail_list`](Self::set_role_detail_list).
     ///
     /// <p>A list containing information about IAM roles.</p>
-    pub fn role_detail_list(mut self, input: crate::types::RoleDetail) -> Self {
+    pub fn role_detail_list(mut self, input: super::types::RoleDetail) -> Self {
         let mut v = self.role_detail_list.unwrap_or_default();
         v.push(input);
         self.role_detail_list = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list containing information about IAM roles.</p>
-    pub fn set_role_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RoleDetail>>) -> Self {
+    pub fn set_role_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::RoleDetail>>) -> Self {
         self.role_detail_list = input;
         self
     }
     /// <p>A list containing information about IAM roles.</p>
-    pub fn get_role_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RoleDetail>> {
+    pub fn get_role_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<super::types::RoleDetail>> {
         &self.role_detail_list
     }
     /// Appends an item to `policies`.
@@ -142,19 +142,19 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
     /// To override the contents of this collection use [`set_policies`](Self::set_policies).
     ///
     /// <p>A list containing information about managed policies.</p>
-    pub fn policies(mut self, input: crate::types::ManagedPolicyDetail) -> Self {
+    pub fn policies(mut self, input: super::types::ManagedPolicyDetail) -> Self {
         let mut v = self.policies.unwrap_or_default();
         v.push(input);
         self.policies = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list containing information about managed policies.</p>
-    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ManagedPolicyDetail>>) -> Self {
+    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ManagedPolicyDetail>>) -> Self {
         self.policies = input;
         self
     }
     /// <p>A list containing information about managed policies.</p>
-    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ManagedPolicyDetail>> {
+    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ManagedPolicyDetail>> {
         &self.policies
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -195,8 +195,8 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAccountAuthorizationDetailsOutput`](crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput).
-    pub fn build(self) -> crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput {
-        crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput {
+    pub fn build(self) -> super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput {
+        super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput {
             user_detail_list: self.user_detail_list,
             group_detail_list: self.group_detail_list,
             role_detail_list: self.role_detail_list,

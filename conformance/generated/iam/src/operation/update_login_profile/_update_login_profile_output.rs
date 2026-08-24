@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateLoginProfileOutput {
 }
 impl UpdateLoginProfileOutput {
     /// Creates a new builder-style object to manufacture [`UpdateLoginProfileOutput`](crate::operation::update_login_profile::UpdateLoginProfileOutput).
-    pub fn builder() -> crate::operation::update_login_profile::builders::UpdateLoginProfileOutputBuilder {
-        crate::operation::update_login_profile::builders::UpdateLoginProfileOutputBuilder::default()
+    pub fn builder() -> super::operation::update_login_profile::builders::UpdateLoginProfileOutputBuilder {
+        super::operation::update_login_profile::builders::UpdateLoginProfileOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateLoginProfileOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateLoginProfileOutput`](crate::operation::update_login_profile::UpdateLoginProfileOutput).
-    pub fn build(self) -> crate::operation::update_login_profile::UpdateLoginProfileOutput {
-        crate::operation::update_login_profile::UpdateLoginProfileOutput {
+    pub fn build(self) -> super::operation::update_login_profile::UpdateLoginProfileOutput {
+        super::operation::update_login_profile::UpdateLoginProfileOutput {
             _request_id: self._request_id,
         }
     }

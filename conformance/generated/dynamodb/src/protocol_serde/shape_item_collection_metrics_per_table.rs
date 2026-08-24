@@ -4,7 +4,7 @@ pub(crate) fn de_item_collection_metrics_per_table<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
+    Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::types::ItemCollectionMetrics>>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -24,7 +24,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         let key = key.to_unescaped().map(|u| u.into_owned())?;
-                        let value = crate::protocol_serde::shape_item_collection_metrics_multiple::de_item_collection_metrics_multiple(
+                        let value = super::protocol_serde::shape_item_collection_metrics_multiple::de_item_collection_metrics_multiple(
                             tokens,
                             _value,
                             depth + 1,

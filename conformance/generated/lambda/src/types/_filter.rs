@@ -15,8 +15,8 @@ impl Filter {
 }
 impl Filter {
     /// Creates a new builder-style object to manufacture [`Filter`](crate::types::Filter).
-    pub fn builder() -> crate::types::builders::FilterBuilder {
-        crate::types::builders::FilterBuilder::default()
+    pub fn builder() -> super::types::builders::FilterBuilder {
+        super::types::builders::FilterBuilder::default()
     }
 }
 
@@ -42,7 +42,7 @@ impl FilterBuilder {
         &self.pattern
     }
     /// Consumes the builder and constructs a [`Filter`](crate::types::Filter).
-    pub fn build(self) -> crate::types::Filter {
-        crate::types::Filter { pattern: self.pattern }
+    pub fn build(self) -> super::types::Filter {
+        super::types::Filter { pattern: self.pattern }
     }
 }

@@ -32,8 +32,8 @@ impl ::aws_types::request_id::RequestId for GenerateDataKeyWithoutPlaintextOutpu
 }
 impl GenerateDataKeyWithoutPlaintextOutput {
     /// Creates a new builder-style object to manufacture [`GenerateDataKeyWithoutPlaintextOutput`](crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput).
-    pub fn builder() -> crate::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextOutputBuilder {
-        crate::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextOutputBuilder::default()
+    pub fn builder() -> super::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextOutputBuilder {
+        super::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextOutputBuilder::default()
     }
 }
 
@@ -99,8 +99,8 @@ impl GenerateDataKeyWithoutPlaintextOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateDataKeyWithoutPlaintextOutput`](crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput).
-    pub fn build(self) -> crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput {
-        crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput {
+    pub fn build(self) -> super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput {
+        super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput {
             ciphertext_blob: self.ciphertext_blob,
             key_id: self.key_id,
             key_material_id: self.key_material_id,

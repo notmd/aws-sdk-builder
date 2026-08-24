@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct StorageClassAnalysis {
     /// <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.</p>
-    pub data_export: ::std::option::Option<crate::types::StorageClassAnalysisDataExport>,
+    pub data_export: ::std::option::Option<super::types::StorageClassAnalysisDataExport>,
 }
 impl StorageClassAnalysis {
     /// <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.</p>
-    pub fn data_export(&self) -> ::std::option::Option<&crate::types::StorageClassAnalysisDataExport> {
+    pub fn data_export(&self) -> ::std::option::Option<&super::types::StorageClassAnalysisDataExport> {
         self.data_export.as_ref()
     }
 }
 impl StorageClassAnalysis {
     /// Creates a new builder-style object to manufacture [`StorageClassAnalysis`](crate::types::StorageClassAnalysis).
-    pub fn builder() -> crate::types::builders::StorageClassAnalysisBuilder {
-        crate::types::builders::StorageClassAnalysisBuilder::default()
+    pub fn builder() -> super::types::builders::StorageClassAnalysisBuilder {
+        super::types::builders::StorageClassAnalysisBuilder::default()
     }
 }
 
@@ -24,26 +24,26 @@ impl StorageClassAnalysis {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StorageClassAnalysisBuilder {
-    pub(crate) data_export: ::std::option::Option<crate::types::StorageClassAnalysisDataExport>,
+    pub(crate) data_export: ::std::option::Option<super::types::StorageClassAnalysisDataExport>,
 }
 impl StorageClassAnalysisBuilder {
     /// <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.</p>
-    pub fn data_export(mut self, input: crate::types::StorageClassAnalysisDataExport) -> Self {
+    pub fn data_export(mut self, input: super::types::StorageClassAnalysisDataExport) -> Self {
         self.data_export = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.</p>
-    pub fn set_data_export(mut self, input: ::std::option::Option<crate::types::StorageClassAnalysisDataExport>) -> Self {
+    pub fn set_data_export(mut self, input: ::std::option::Option<super::types::StorageClassAnalysisDataExport>) -> Self {
         self.data_export = input;
         self
     }
     /// <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.</p>
-    pub fn get_data_export(&self) -> &::std::option::Option<crate::types::StorageClassAnalysisDataExport> {
+    pub fn get_data_export(&self) -> &::std::option::Option<super::types::StorageClassAnalysisDataExport> {
         &self.data_export
     }
     /// Consumes the builder and constructs a [`StorageClassAnalysis`](crate::types::StorageClassAnalysis).
-    pub fn build(self) -> crate::types::StorageClassAnalysis {
-        crate::types::StorageClassAnalysis {
+    pub fn build(self) -> super::types::StorageClassAnalysis {
+        super::types::StorageClassAnalysis {
             data_export: self.data_export,
         }
     }

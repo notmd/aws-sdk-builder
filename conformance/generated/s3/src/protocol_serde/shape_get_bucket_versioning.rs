@@ -5,16 +5,16 @@ pub fn de_get_bucket_versioning_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_bucket_versioning::GetBucketVersioningOutput,
-    crate::operation::get_bucket_versioning::GetBucketVersioningError,
+    super::operation::get_bucket_versioning::GetBucketVersioningOutput,
+    super::operation::get_bucket_versioning::GetBucketVersioningError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_bucket_versioning::GetBucketVersioningError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_bucket_versioning::GetBucketVersioningError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::get_bucket_versioning::GetBucketVersioningError::generic(generic))
+    Err(super::operation::get_bucket_versioning::GetBucketVersioningError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -23,22 +23,22 @@ pub fn de_get_bucket_versioning_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_bucket_versioning::GetBucketVersioningOutput,
-    crate::operation::get_bucket_versioning::GetBucketVersioningError,
+    super::operation::get_bucket_versioning::GetBucketVersioningOutput,
+    super::operation::get_bucket_versioning::GetBucketVersioningError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_bucket_versioning::builders::GetBucketVersioningOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_bucket_versioning::de_get_bucket_versioning(_response_body, output)
-            .map_err(crate::operation::get_bucket_versioning::GetBucketVersioningError::unhandled)?;
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        let mut output = super::operation::get_bucket_versioning::builders::GetBucketVersioningOutputBuilder::default();
+        output = super::protocol_serde::shape_get_bucket_versioning::de_get_bucket_versioning(_response_body, output)
+            .map_err(super::operation::get_bucket_versioning::GetBucketVersioningError::unhandled)?;
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_get_bucket_versioning_headers(
-    input: &crate::operation::get_bucket_versioning::GetBucketVersioningInput,
+    input: &super::operation::get_bucket_versioning::GetBucketVersioningInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
@@ -58,8 +58,8 @@ pub fn ser_get_bucket_versioning_headers(
 #[allow(unused_mut)]
 pub fn de_get_bucket_versioning(
     inp: &[u8],
-    mut builder: crate::operation::get_bucket_versioning::builders::GetBucketVersioningOutputBuilder,
-) -> std::result::Result<crate::operation::get_bucket_versioning::builders::GetBucketVersioningOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+    mut builder: super::operation::get_bucket_versioning::builders::GetBucketVersioningOutputBuilder,
+) -> std::result::Result<super::operation::get_bucket_versioning::builders::GetBucketVersioningOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
 {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
@@ -79,8 +79,8 @@ pub fn de_get_bucket_versioning(
             s if s.matches("Status") /* Status com.amazonaws.s3.synthetic#GetBucketVersioningOutput$Status */ =>  {
                 let var_3 =
                     Some(
-                        Result::<crate::types::BucketVersioningStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::BucketVersioningStatus::from(
+                        Result::<super::types::BucketVersioningStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::BucketVersioningStatus::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -93,8 +93,8 @@ pub fn de_get_bucket_versioning(
             s if s.matches("MfaDelete") /* MFADelete com.amazonaws.s3.synthetic#GetBucketVersioningOutput$MFADelete */ =>  {
                 let var_4 =
                     Some(
-                        Result::<crate::types::MfaDeleteStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::MfaDeleteStatus::from(
+                        Result::<super::types::MfaDeleteStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::MfaDeleteStatus::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )

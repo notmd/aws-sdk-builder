@@ -35,6 +35,27 @@ full audit trail.
 - Next action: continue the highest-impact generic codegen mismatch loop while
   retaining this patch and caller-owned-module contract.
 
+### Checkpoint: 2026-08-24 — Keep conformance normalization reference-only
+- State: in progress
+- Changed: removed generated-side path/test normalization from
+  `aws-sdk-conformance/src/report.rs`. `aws-sdk-builder::generate_all` now writes
+  conformance snapshots with relative `super::` paths directly, while normal
+  `compile()`/`include_sdk!()` output retains standalone `crate::` paths and codegen
+  removes inline unit-test modules before writing either output.
+- Evidence: the pinned Smithy-RS checkout remains `/tmp/smithy-rs` at
+  `f1b64a9c0`; `just conformance` completed generation and formatting, and the
+  comparison retained `4904/6396` exact matches (`75.50%` average). No generated-side
+  normalizer remains in the comparator.
+- Conformance: `4904/724/713/55` matched/mismatched/missing/extra, unchanged in
+  exact-match coverage from the previous checkpoint; the command exits 1 because
+  broader generator parity is still incomplete.
+- Verification: `cargo check -p aws-sdk-builder -p aws-sdk-conformance`, formatting,
+  and `git diff --check` pass.
+- Blocker: remaining source parity mismatches and missing files are unrelated to
+  normalization ownership.
+- Next action: run the workspace tests and inspect the resulting generated snapshot
+  diff before committing this checkpoint.
+
 ### Checkpoint: 2026-08-23 — Emit the complete pinned S3 integration asset tree
 - State: in progress
 - Changed: expanded the generic registry-backed integration-asset plan to include

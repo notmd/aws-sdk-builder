@@ -46,8 +46,8 @@ impl ListFunctionUrlConfigsInput {
 }
 impl ListFunctionUrlConfigsInput {
     /// Creates a new builder-style object to manufacture [`ListFunctionUrlConfigsInput`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsInput).
-    pub fn builder() -> crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder {
-        crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder::default()
+    pub fn builder() -> super::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder {
+        super::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder::default()
     }
 }
 
@@ -137,10 +137,10 @@ impl ListFunctionUrlConfigsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_function_url_configs::ListFunctionUrlConfigsInput,
+        super::operation::list_function_url_configs::ListFunctionUrlConfigsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_function_url_configs::ListFunctionUrlConfigsInput {
+        ::std::result::Result::Ok(super::operation::list_function_url_configs::ListFunctionUrlConfigsInput {
             function_name: self.function_name,
             marker: self.marker,
             max_items: self.max_items,

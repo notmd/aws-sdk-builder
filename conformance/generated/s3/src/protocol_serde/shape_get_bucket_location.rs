@@ -4,15 +4,15 @@ pub fn de_get_bucket_location_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_bucket_location::GetBucketLocationOutput, crate::operation::get_bucket_location::GetBucketLocationError>
+) -> std::result::Result<super::operation::get_bucket_location::GetBucketLocationOutput, super::operation::get_bucket_location::GetBucketLocationError>
 {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_bucket_location::GetBucketLocationError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_bucket_location::GetBucketLocationError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::get_bucket_location::GetBucketLocationError::generic(generic))
+    Err(super::operation::get_bucket_location::GetBucketLocationError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -20,21 +20,21 @@ pub fn de_get_bucket_location_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_bucket_location::GetBucketLocationOutput, crate::operation::get_bucket_location::GetBucketLocationError>
+) -> std::result::Result<super::operation::get_bucket_location::GetBucketLocationOutput, super::operation::get_bucket_location::GetBucketLocationError>
 {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_bucket_location::builders::GetBucketLocationOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_bucket_location::de_get_bucket_location(_response_body, output)
-            .map_err(crate::operation::get_bucket_location::GetBucketLocationError::unhandled)?;
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        let mut output = super::operation::get_bucket_location::builders::GetBucketLocationOutputBuilder::default();
+        output = super::protocol_serde::shape_get_bucket_location::de_get_bucket_location(_response_body, output)
+            .map_err(super::operation::get_bucket_location::GetBucketLocationError::unhandled)?;
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_get_bucket_location_headers(
-    input: &crate::operation::get_bucket_location::GetBucketLocationInput,
+    input: &super::operation::get_bucket_location::GetBucketLocationInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
@@ -54,8 +54,8 @@ pub fn ser_get_bucket_location_headers(
 #[allow(unused_mut)]
 pub fn de_get_bucket_location(
     inp: &[u8],
-    mut builder: crate::operation::get_bucket_location::builders::GetBucketLocationOutputBuilder,
-) -> std::result::Result<crate::operation::get_bucket_location::builders::GetBucketLocationOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    mut builder: super::operation::get_bucket_location::builders::GetBucketLocationOutputBuilder,
+) -> std::result::Result<super::operation::get_bucket_location::builders::GetBucketLocationOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -68,8 +68,8 @@ pub fn de_get_bucket_location(
         s if s.matches("LocationConstraint") /* LocationConstraint com.amazonaws.s3.synthetic#GetBucketLocationOutput$LocationConstraint */ =>  {
             let var_3 =
                 Some(
-                    Result::<crate::types::BucketLocationConstraint, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                        crate::types::BucketLocationConstraint::from(
+                    Result::<super::types::BucketLocationConstraint, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        super::types::BucketLocationConstraint::from(
                             ::aws_smithy_xml::decode::try_data(&mut decoder)?.as_ref()
                         )
                     )

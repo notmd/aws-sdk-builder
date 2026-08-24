@@ -8,11 +8,11 @@ pub struct UpdateGlobalSecondaryIndexAction {
     pub index_name: ::std::string::String,
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    pub provisioned_throughput: ::std::option::Option<super::types::ProvisionedThroughput>,
     /// <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
+    pub on_demand_throughput: ::std::option::Option<super::types::OnDemandThroughput>,
     /// <p>Represents the warm throughput value of the new provisioned throughput settings to be applied to a global secondary index.</p>
-    pub warm_throughput: ::std::option::Option<crate::types::WarmThroughput>,
+    pub warm_throughput: ::std::option::Option<super::types::WarmThroughput>,
 }
 impl UpdateGlobalSecondaryIndexAction {
     /// <p>The name of the global secondary index to be updated.</p>
@@ -22,22 +22,22 @@ impl UpdateGlobalSecondaryIndexAction {
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn provisioned_throughput(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
+    pub fn provisioned_throughput(&self) -> ::std::option::Option<&super::types::ProvisionedThroughput> {
         self.provisioned_throughput.as_ref()
     }
     /// <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn on_demand_throughput(&self) -> ::std::option::Option<&crate::types::OnDemandThroughput> {
+    pub fn on_demand_throughput(&self) -> ::std::option::Option<&super::types::OnDemandThroughput> {
         self.on_demand_throughput.as_ref()
     }
     /// <p>Represents the warm throughput value of the new provisioned throughput settings to be applied to a global secondary index.</p>
-    pub fn warm_throughput(&self) -> ::std::option::Option<&crate::types::WarmThroughput> {
+    pub fn warm_throughput(&self) -> ::std::option::Option<&super::types::WarmThroughput> {
         self.warm_throughput.as_ref()
     }
 }
 impl UpdateGlobalSecondaryIndexAction {
     /// Creates a new builder-style object to manufacture [`UpdateGlobalSecondaryIndexAction`](crate::types::UpdateGlobalSecondaryIndexAction).
-    pub fn builder() -> crate::types::builders::UpdateGlobalSecondaryIndexActionBuilder {
-        crate::types::builders::UpdateGlobalSecondaryIndexActionBuilder::default()
+    pub fn builder() -> super::types::builders::UpdateGlobalSecondaryIndexActionBuilder {
+        super::types::builders::UpdateGlobalSecondaryIndexActionBuilder::default()
     }
 }
 
@@ -46,9 +46,9 @@ impl UpdateGlobalSecondaryIndexAction {
 #[non_exhaustive]
 pub struct UpdateGlobalSecondaryIndexActionBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughput>,
-    pub(crate) on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
-    pub(crate) warm_throughput: ::std::option::Option<crate::types::WarmThroughput>,
+    pub(crate) provisioned_throughput: ::std::option::Option<super::types::ProvisionedThroughput>,
+    pub(crate) on_demand_throughput: ::std::option::Option<super::types::OnDemandThroughput>,
+    pub(crate) warm_throughput: ::std::option::Option<super::types::WarmThroughput>,
 }
 impl UpdateGlobalSecondaryIndexActionBuilder {
     /// <p>The name of the global secondary index to be updated.</p>
@@ -68,54 +68,54 @@ impl UpdateGlobalSecondaryIndexActionBuilder {
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
+    pub fn provisioned_throughput(mut self, input: super::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<super::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput = input;
         self
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<super::types::ProvisionedThroughput> {
         &self.provisioned_throughput
     }
     /// <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn on_demand_throughput(mut self, input: crate::types::OnDemandThroughput) -> Self {
+    pub fn on_demand_throughput(mut self, input: super::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<super::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput = input;
         self
     }
     /// <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<super::types::OnDemandThroughput> {
         &self.on_demand_throughput
     }
     /// <p>Represents the warm throughput value of the new provisioned throughput settings to be applied to a global secondary index.</p>
-    pub fn warm_throughput(mut self, input: crate::types::WarmThroughput) -> Self {
+    pub fn warm_throughput(mut self, input: super::types::WarmThroughput) -> Self {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the warm throughput value of the new provisioned throughput settings to be applied to a global secondary index.</p>
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
+    pub fn set_warm_throughput(mut self, input: ::std::option::Option<super::types::WarmThroughput>) -> Self {
         self.warm_throughput = input;
         self
     }
     /// <p>Represents the warm throughput value of the new provisioned throughput settings to be applied to a global secondary index.</p>
-    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::WarmThroughput> {
+    pub fn get_warm_throughput(&self) -> &::std::option::Option<super::types::WarmThroughput> {
         &self.warm_throughput
     }
     /// Consumes the builder and constructs a [`UpdateGlobalSecondaryIndexAction`](crate::types::UpdateGlobalSecondaryIndexAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`index_name`](crate::types::builders::UpdateGlobalSecondaryIndexActionBuilder::index_name)
-    pub fn build(self) -> ::std::result::Result<crate::types::UpdateGlobalSecondaryIndexAction, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::UpdateGlobalSecondaryIndexAction {
+    pub fn build(self) -> ::std::result::Result<super::types::UpdateGlobalSecondaryIndexAction, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::UpdateGlobalSecondaryIndexAction {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "index_name",

@@ -15,8 +15,8 @@ impl WaitOptions {
 }
 impl WaitOptions {
     /// Creates a new builder-style object to manufacture [`WaitOptions`](crate::types::WaitOptions).
-    pub fn builder() -> crate::types::builders::WaitOptionsBuilder {
-        crate::types::builders::WaitOptionsBuilder::default()
+    pub fn builder() -> super::types::builders::WaitOptionsBuilder {
+        super::types::builders::WaitOptionsBuilder::default()
     }
 }
 
@@ -42,8 +42,8 @@ impl WaitOptionsBuilder {
         &self.wait_seconds
     }
     /// Consumes the builder and constructs a [`WaitOptions`](crate::types::WaitOptions).
-    pub fn build(self) -> crate::types::WaitOptions {
-        crate::types::WaitOptions {
+    pub fn build(self) -> super::types::WaitOptions {
+        super::types::WaitOptions {
             wait_seconds: self.wait_seconds,
         }
     }

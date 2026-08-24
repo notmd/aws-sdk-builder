@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListObjectAnnotationsOutput {
     /// <p>The list of annotations attached to the object.</p>
-    pub annotations: ::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>>,
+    pub annotations: ::std::option::Option<::std::vec::Vec<super::types::AnnotationEntry>>,
     /// <p>The bucket name.</p>
     pub bucket: ::std::option::Option<::std::string::String>,
     /// <p>The object key.</p>
@@ -24,7 +24,7 @@ pub struct ListObjectAnnotationsOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -32,7 +32,7 @@ impl ListObjectAnnotationsOutput {
     /// <p>The list of annotations attached to the object.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.annotations.is_none()`.
-    pub fn annotations(&self) -> &[crate::types::AnnotationEntry] {
+    pub fn annotations(&self) -> &[super::types::AnnotationEntry] {
         self.annotations.as_deref().unwrap_or_default()
     }
     /// <p>The bucket name.</p>
@@ -70,11 +70,11 @@ impl ListObjectAnnotationsOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for ListObjectAnnotationsOutput {
+impl super::s3_request_id::RequestIdExt for ListObjectAnnotationsOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -86,8 +86,8 @@ impl ::aws_types::request_id::RequestId for ListObjectAnnotationsOutput {
 }
 impl ListObjectAnnotationsOutput {
     /// Creates a new builder-style object to manufacture [`ListObjectAnnotationsOutput`](crate::operation::list_object_annotations::ListObjectAnnotationsOutput).
-    pub fn builder() -> crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder {
-        crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder {
+        super::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder::default()
     }
 }
 
@@ -95,7 +95,7 @@ impl ListObjectAnnotationsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListObjectAnnotationsOutputBuilder {
-    pub(crate) annotations: ::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>>,
+    pub(crate) annotations: ::std::option::Option<::std::vec::Vec<super::types::AnnotationEntry>>,
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) key: ::std::option::Option<::std::string::String>,
     pub(crate) object_version_id: ::std::option::Option<::std::string::String>,
@@ -104,7 +104,7 @@ pub struct ListObjectAnnotationsOutputBuilder {
     pub(crate) annotation_count: ::std::option::Option<i32>,
     pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) next_continuation_token: ::std::option::Option<::std::string::String>,
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -114,19 +114,19 @@ impl ListObjectAnnotationsOutputBuilder {
     /// To override the contents of this collection use [`set_annotations`](Self::set_annotations).
     ///
     /// <p>The list of annotations attached to the object.</p>
-    pub fn annotations(mut self, input: crate::types::AnnotationEntry) -> Self {
+    pub fn annotations(mut self, input: super::types::AnnotationEntry) -> Self {
         let mut v = self.annotations.unwrap_or_default();
         v.push(input);
         self.annotations = ::std::option::Option::Some(v);
         self
     }
     /// <p>The list of annotations attached to the object.</p>
-    pub fn set_annotations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>>) -> Self {
+    pub fn set_annotations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AnnotationEntry>>) -> Self {
         self.annotations = input;
         self
     }
     /// <p>The list of annotations attached to the object.</p>
-    pub fn get_annotations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>> {
+    pub fn get_annotations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AnnotationEntry>> {
         &self.annotations
     }
     /// <p>The bucket name.</p>
@@ -244,21 +244,21 @@ impl ListObjectAnnotationsOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -280,8 +280,8 @@ impl ListObjectAnnotationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListObjectAnnotationsOutput`](crate::operation::list_object_annotations::ListObjectAnnotationsOutput).
-    pub fn build(self) -> crate::operation::list_object_annotations::ListObjectAnnotationsOutput {
-        crate::operation::list_object_annotations::ListObjectAnnotationsOutput {
+    pub fn build(self) -> super::operation::list_object_annotations::ListObjectAnnotationsOutput {
+        super::operation::list_object_annotations::ListObjectAnnotationsOutput {
             annotations: self.annotations,
             bucket: self.bucket,
             key: self.key,

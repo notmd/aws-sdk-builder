@@ -3,12 +3,12 @@
 pub fn de_annotation_entry(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::AnnotationEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::AnnotationEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::AnnotationEntry::builder();
+    let mut builder = super::types::AnnotationEntry::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("AnnotationName") /* AnnotationName com.amazonaws.s3#AnnotationEntry$AnnotationName */ =>  {
@@ -54,11 +54,11 @@ pub fn de_annotation_entry(
             s if s.matches("ChecksumAlgorithm") /* ChecksumAlgorithm com.amazonaws.s3#AnnotationEntry$ChecksumAlgorithm */ =>  {
                 let var_4 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::ChecksumAlgorithm>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::ChecksumAlgorithm>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_5 = builder.checksum_algorithm.take().unwrap_or_default();
                             list_5.push(
-                                Result::<crate::types::ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                                    crate::types::ChecksumAlgorithm::from(
+                                Result::<super::types::ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                                    super::types::ChecksumAlgorithm::from(
                                         ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                                     )
                                 )
@@ -90,8 +90,8 @@ pub fn de_annotation_entry(
             s if s.matches("ReplicationStatus") /* ReplicationStatus com.amazonaws.s3#AnnotationEntry$ReplicationStatus */ =>  {
                 let var_7 =
                     Some(
-                        Result::<crate::types::ReplicationStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::ReplicationStatus::from(
+                        Result::<super::types::ReplicationStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::ReplicationStatus::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -104,7 +104,7 @@ pub fn de_annotation_entry(
             _ => {}
         }
     }
-    Ok(crate::serde_util::annotation_entry_correct_errors(builder)
+    Ok(super::serde_util::annotation_entry_correct_errors(builder)
         .build()
         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }

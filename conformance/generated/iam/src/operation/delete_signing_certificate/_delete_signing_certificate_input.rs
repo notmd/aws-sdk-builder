@@ -24,8 +24,8 @@ impl DeleteSigningCertificateInput {
 }
 impl DeleteSigningCertificateInput {
     /// Creates a new builder-style object to manufacture [`DeleteSigningCertificateInput`](crate::operation::delete_signing_certificate::DeleteSigningCertificateInput).
-    pub fn builder() -> crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateInputBuilder {
-        crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateInputBuilder::default()
+    pub fn builder() -> super::operation::delete_signing_certificate::builders::DeleteSigningCertificateInputBuilder {
+        super::operation::delete_signing_certificate::builders::DeleteSigningCertificateInputBuilder::default()
     }
 }
 
@@ -76,10 +76,10 @@ impl DeleteSigningCertificateInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_signing_certificate::DeleteSigningCertificateInput,
+        super::operation::delete_signing_certificate::DeleteSigningCertificateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_signing_certificate::DeleteSigningCertificateInput {
+        ::std::result::Result::Ok(super::operation::delete_signing_certificate::DeleteSigningCertificateInput {
             user_name: self.user_name,
             certificate_id: self.certificate_id,
         })

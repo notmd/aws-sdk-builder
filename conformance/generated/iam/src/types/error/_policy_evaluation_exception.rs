@@ -26,7 +26,7 @@ impl ::std::fmt::Display for PolicyEvaluationException {
     }
 }
 impl ::std::error::Error for PolicyEvaluationException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::PolicyEvaluationException {
+impl ::aws_types::request_id::RequestId for super::types::error::PolicyEvaluationException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PolicyEvaluat
 }
 impl PolicyEvaluationException {
     /// Creates a new builder-style object to manufacture [`PolicyEvaluationException`](crate::types::error::PolicyEvaluationException).
-    pub fn builder() -> crate::types::error::builders::PolicyEvaluationExceptionBuilder {
-        crate::types::error::builders::PolicyEvaluationExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::PolicyEvaluationExceptionBuilder {
+        super::types::error::builders::PolicyEvaluationExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl PolicyEvaluationExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PolicyEvaluationException`](crate::types::error::PolicyEvaluationException).
-    pub fn build(self) -> crate::types::error::PolicyEvaluationException {
-        crate::types::error::PolicyEvaluationException {
+    pub fn build(self) -> super::types::error::PolicyEvaluationException {
+        super::types::error::PolicyEvaluationException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -4,13 +4,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct CreateSessionInput {
     /// <p>Specifies the mode of the session that will be created, either <code>ReadWrite</code> or <code>ReadOnly</code>. If no session mode is specified, the default behavior attempts to create a session with the maximum allowable privilege. It will first attempt to create a <code>ReadWrite</code> session, and if that is not allowed by permissions, it will attempt to create a <code>ReadOnly</code> session. If neither session type is allowed, the request will return an Access Denied error. A <code>ReadWrite</code> session is capable of executing all the Zonal endpoint API operations on a directory bucket. A <code>ReadOnly</code> session is constrained to execute the following Zonal endpoint API operations: <code>GetObject</code>, <code>HeadObject</code>, <code>ListObjectsV2</code>, <code>GetObjectAttributes</code>, <code>ListParts</code>, and <code>ListMultipartUploads</code>.</p>
-    pub session_mode: ::std::option::Option<crate::types::SessionMode>,
+    pub session_mode: ::std::option::Option<super::types::SessionMode>,
     /// <p>The name of the bucket that you create a session for.</p>
     pub bucket: ::std::option::Option<::std::string::String>,
     /// <p>The server-side encryption algorithm to use when you store objects in the directory bucket.</p>
     /// <p>For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). By default, Amazon S3 encrypts data with SSE-S3. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p>
-    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     /// <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, you must specify the <code> x-amz-server-side-encryption-aws-kms-key-id</code> header with the ID (Key ID or Key ARN) of the KMS symmetric encryption customer managed key to use. Otherwise, you get an HTTP <code>400 Bad Request</code> error. Only use the key ID or key ARN. The key alias format of the KMS key isn't supported. Also, if the KMS key doesn't exist in the same account that't issuing the command, you must use the full Key ARN not the Key ID.</p>
     /// <p>Your SSE-KMS configuration can only support 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a> per directory bucket's lifetime. The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a> (<code>aws/s3</code>) isn't supported.</p>
     pub ssekms_key_id: ::std::option::Option<::std::string::String>,
@@ -24,7 +24,7 @@ pub struct CreateSessionInput {
 }
 impl CreateSessionInput {
     /// <p>Specifies the mode of the session that will be created, either <code>ReadWrite</code> or <code>ReadOnly</code>. If no session mode is specified, the default behavior attempts to create a session with the maximum allowable privilege. It will first attempt to create a <code>ReadWrite</code> session, and if that is not allowed by permissions, it will attempt to create a <code>ReadOnly</code> session. If neither session type is allowed, the request will return an Access Denied error. A <code>ReadWrite</code> session is capable of executing all the Zonal endpoint API operations on a directory bucket. A <code>ReadOnly</code> session is constrained to execute the following Zonal endpoint API operations: <code>GetObject</code>, <code>HeadObject</code>, <code>ListObjectsV2</code>, <code>GetObjectAttributes</code>, <code>ListParts</code>, and <code>ListMultipartUploads</code>.</p>
-    pub fn session_mode(&self) -> ::std::option::Option<&crate::types::SessionMode> {
+    pub fn session_mode(&self) -> ::std::option::Option<&super::types::SessionMode> {
         self.session_mode.as_ref()
     }
     /// <p>The name of the bucket that you create a session for.</p>
@@ -34,7 +34,7 @@ impl CreateSessionInput {
     /// <p>The server-side encryption algorithm to use when you store objects in the directory bucket.</p>
     /// <p>For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). By default, Amazon S3 encrypts data with SSE-S3. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p>
-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
+    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
         self.server_side_encryption.as_ref()
     }
     /// <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, you must specify the <code> x-amz-server-side-encryption-aws-kms-key-id</code> header with the ID (Key ID or Key ARN) of the KMS symmetric encryption customer managed key to use. Otherwise, you get an HTTP <code>400 Bad Request</code> error. Only use the key ID or key ARN. The key alias format of the KMS key isn't supported. Also, if the KMS key doesn't exist in the same account that't issuing the command, you must use the full Key ARN not the Key ID.</p>
@@ -68,8 +68,8 @@ impl ::std::fmt::Debug for CreateSessionInput {
 }
 impl CreateSessionInput {
     /// Creates a new builder-style object to manufacture [`CreateSessionInput`](crate::operation::create_session::CreateSessionInput).
-    pub fn builder() -> crate::operation::create_session::builders::CreateSessionInputBuilder {
-        crate::operation::create_session::builders::CreateSessionInputBuilder::default()
+    pub fn builder() -> super::operation::create_session::builders::CreateSessionInputBuilder {
+        super::operation::create_session::builders::CreateSessionInputBuilder::default()
     }
 }
 
@@ -77,26 +77,26 @@ impl CreateSessionInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct CreateSessionInputBuilder {
-    pub(crate) session_mode: ::std::option::Option<crate::types::SessionMode>,
+    pub(crate) session_mode: ::std::option::Option<super::types::SessionMode>,
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
-    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     pub(crate) ssekms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) ssekms_encryption_context: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
 }
 impl CreateSessionInputBuilder {
     /// <p>Specifies the mode of the session that will be created, either <code>ReadWrite</code> or <code>ReadOnly</code>. If no session mode is specified, the default behavior attempts to create a session with the maximum allowable privilege. It will first attempt to create a <code>ReadWrite</code> session, and if that is not allowed by permissions, it will attempt to create a <code>ReadOnly</code> session. If neither session type is allowed, the request will return an Access Denied error. A <code>ReadWrite</code> session is capable of executing all the Zonal endpoint API operations on a directory bucket. A <code>ReadOnly</code> session is constrained to execute the following Zonal endpoint API operations: <code>GetObject</code>, <code>HeadObject</code>, <code>ListObjectsV2</code>, <code>GetObjectAttributes</code>, <code>ListParts</code>, and <code>ListMultipartUploads</code>.</p>
-    pub fn session_mode(mut self, input: crate::types::SessionMode) -> Self {
+    pub fn session_mode(mut self, input: super::types::SessionMode) -> Self {
         self.session_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the mode of the session that will be created, either <code>ReadWrite</code> or <code>ReadOnly</code>. If no session mode is specified, the default behavior attempts to create a session with the maximum allowable privilege. It will first attempt to create a <code>ReadWrite</code> session, and if that is not allowed by permissions, it will attempt to create a <code>ReadOnly</code> session. If neither session type is allowed, the request will return an Access Denied error. A <code>ReadWrite</code> session is capable of executing all the Zonal endpoint API operations on a directory bucket. A <code>ReadOnly</code> session is constrained to execute the following Zonal endpoint API operations: <code>GetObject</code>, <code>HeadObject</code>, <code>ListObjectsV2</code>, <code>GetObjectAttributes</code>, <code>ListParts</code>, and <code>ListMultipartUploads</code>.</p>
-    pub fn set_session_mode(mut self, input: ::std::option::Option<crate::types::SessionMode>) -> Self {
+    pub fn set_session_mode(mut self, input: ::std::option::Option<super::types::SessionMode>) -> Self {
         self.session_mode = input;
         self
     }
     /// <p>Specifies the mode of the session that will be created, either <code>ReadWrite</code> or <code>ReadOnly</code>. If no session mode is specified, the default behavior attempts to create a session with the maximum allowable privilege. It will first attempt to create a <code>ReadWrite</code> session, and if that is not allowed by permissions, it will attempt to create a <code>ReadOnly</code> session. If neither session type is allowed, the request will return an Access Denied error. A <code>ReadWrite</code> session is capable of executing all the Zonal endpoint API operations on a directory bucket. A <code>ReadOnly</code> session is constrained to execute the following Zonal endpoint API operations: <code>GetObject</code>, <code>HeadObject</code>, <code>ListObjectsV2</code>, <code>GetObjectAttributes</code>, <code>ListParts</code>, and <code>ListMultipartUploads</code>.</p>
-    pub fn get_session_mode(&self) -> &::std::option::Option<crate::types::SessionMode> {
+    pub fn get_session_mode(&self) -> &::std::option::Option<super::types::SessionMode> {
         &self.session_mode
     }
     /// <p>The name of the bucket that you create a session for.</p>
@@ -117,21 +117,21 @@ impl CreateSessionInputBuilder {
     /// <p>The server-side encryption algorithm to use when you store objects in the directory bucket.</p>
     /// <p>For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). By default, Amazon S3 encrypts data with SSE-S3. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p>
-    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
+    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
     /// <p>The server-side encryption algorithm to use when you store objects in the directory bucket.</p>
     /// <p>For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). By default, Amazon S3 encrypts data with SSE-S3. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p>
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
     }
     /// <p>The server-side encryption algorithm to use when you store objects in the directory bucket.</p>
     /// <p>For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). By default, Amazon S3 encrypts data with SSE-S3. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
         &self.server_side_encryption
     }
     /// <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, you must specify the <code> x-amz-server-side-encryption-aws-kms-key-id</code> header with the ID (Key ID or Key ARN) of the KMS symmetric encryption customer managed key to use. Otherwise, you get an HTTP <code>400 Bad Request</code> error. Only use the key ID or key ARN. The key alias format of the KMS key isn't supported. Also, if the KMS key doesn't exist in the same account that't issuing the command, you must use the full Key ARN not the Key ID.</p>
@@ -191,8 +191,8 @@ impl CreateSessionInputBuilder {
     /// Consumes the builder and constructs a [`CreateSessionInput`](crate::operation::create_session::CreateSessionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_session::CreateSessionInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_session::CreateSessionInput {
+    ) -> ::std::result::Result<super::operation::create_session::CreateSessionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::create_session::CreateSessionInput {
             session_mode: self.session_mode,
             bucket: self.bucket,
             server_side_encryption: self.server_side_encryption,

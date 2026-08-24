@@ -14,8 +14,8 @@ impl ConnectCustomKeyStoreInput {
 }
 impl ConnectCustomKeyStoreInput {
     /// Creates a new builder-style object to manufacture [`ConnectCustomKeyStoreInput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput).
-    pub fn builder() -> crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder {
-        crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder::default()
+    pub fn builder() -> super::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder {
+        super::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder::default()
     }
 }
 
@@ -44,9 +44,9 @@ impl ConnectCustomKeyStoreInputBuilder {
     /// Consumes the builder and constructs a [`ConnectCustomKeyStoreInput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::connect_custom_key_store::ConnectCustomKeyStoreInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::connect_custom_key_store::ConnectCustomKeyStoreInput {
+        ::std::result::Result::Ok(super::operation::connect_custom_key_store::ConnectCustomKeyStoreInput {
             custom_key_store_id: self.custom_key_store_id,
         })
     }

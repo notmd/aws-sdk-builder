@@ -5,28 +5,28 @@ pub fn de_rotate_key_on_demand_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput,
-    crate::operation::rotate_key_on_demand::RotateKeyOnDemandError,
+    super::operation::rotate_key_on_demand::RotateKeyOnDemandOutput,
+    super::operation::rotate_key_on_demand::RotateKeyOnDemandError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled(generic)),
+        None => return Err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConflictException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::ConflictException({
+        "ConflictException" => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::ConflictException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ConflictExceptionBuilder::default();
-                output = crate::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+                let mut output = super::types::error::builders::ConflictExceptionBuilder::default();
+                output = super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                    .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "DependencyTimeoutException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::DependencyTimeoutException({
+        "DependencyTimeoutException" => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::DependencyTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "DisabledException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::DisabledException({
+        "DisabledException" => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::DisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+                let mut output = super::types::error::builders::DisabledExceptionBuilder::default();
+                output = super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
+                    .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,13 +65,13 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "InvalidArnException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::InvalidArnException({
+        "InvalidArnException" => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::InvalidArnException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidArnExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidArnExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
+                    .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,13 +80,13 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "KMSInternalException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInternalException({
+        "KMSInternalException" => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                    .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -95,13 +95,13 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -110,13 +110,13 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "LimitExceededException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::LimitExceededException({
+        "LimitExceededException" => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+                let mut output = super::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                    .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125,13 +125,13 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "NotFoundException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::NotFoundException({
+        "NotFoundException" => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -140,14 +140,14 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        "UnsupportedOperationException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::UnsupportedOperationException({
+        "UnsupportedOperationException" => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::UnsupportedOperationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
+                let mut output = super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+                    super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -156,7 +156,7 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        _ => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::generic(generic),
+        _ => super::operation::rotate_key_on_demand::RotateKeyOnDemandError::generic(generic),
     })
 }
 
@@ -166,37 +166,37 @@ pub fn de_rotate_key_on_demand_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput,
-    crate::operation::rotate_key_on_demand::RotateKeyOnDemandError,
+    super::operation::rotate_key_on_demand::RotateKeyOnDemandOutput,
+    super::operation::rotate_key_on_demand::RotateKeyOnDemandError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder::default();
-        output = crate::protocol_serde::shape_rotate_key_on_demand::de_rotate_key_on_demand(_response_body, output)
-            .map_err(crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
+        let mut output = super::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder::default();
+        output = super::protocol_serde::shape_rotate_key_on_demand::de_rotate_key_on_demand(_response_body, output)
+            .map_err(super::operation::rotate_key_on_demand::RotateKeyOnDemandError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_rotate_key_on_demand_input(
-    input: &crate::operation::rotate_key_on_demand::RotateKeyOnDemandInput,
+    input: &super::operation::rotate_key_on_demand::RotateKeyOnDemandInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_rotate_key_on_demand_input::ser_rotate_key_on_demand_input_input(&mut object, input)?;
+    super::protocol_serde::shape_rotate_key_on_demand_input::ser_rotate_key_on_demand_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_rotate_key_on_demand(
     _value: &[u8],
-    mut builder: crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder,
+    mut builder: super::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder,
+    super::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;

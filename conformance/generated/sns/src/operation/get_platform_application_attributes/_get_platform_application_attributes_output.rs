@@ -69,8 +69,8 @@ impl ::aws_types::request_id::RequestId for GetPlatformApplicationAttributesOutp
 }
 impl GetPlatformApplicationAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetPlatformApplicationAttributesOutput`](crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput).
-    pub fn builder() -> crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder {
-        crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder::default()
+    pub fn builder() -> super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder {
+        super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder::default()
     }
 }
 
@@ -184,8 +184,8 @@ impl GetPlatformApplicationAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetPlatformApplicationAttributesOutput`](crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput).
-    pub fn build(self) -> crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput {
-        crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput {
+    pub fn build(self) -> super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput {
+        super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput {
             attributes: self.attributes,
             _request_id: self._request_id,
         }

@@ -13,24 +13,24 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ReplicaUpdate {
     /// <p>The parameters required for creating a replica on an existing global table.</p>
-    pub create: ::std::option::Option<crate::types::CreateReplicaAction>,
+    pub create: ::std::option::Option<super::types::CreateReplicaAction>,
     /// <p>The name of the existing replica to be removed.</p>
-    pub delete: ::std::option::Option<crate::types::DeleteReplicaAction>,
+    pub delete: ::std::option::Option<super::types::DeleteReplicaAction>,
 }
 impl ReplicaUpdate {
     /// <p>The parameters required for creating a replica on an existing global table.</p>
-    pub fn create(&self) -> ::std::option::Option<&crate::types::CreateReplicaAction> {
+    pub fn create(&self) -> ::std::option::Option<&super::types::CreateReplicaAction> {
         self.create.as_ref()
     }
     /// <p>The name of the existing replica to be removed.</p>
-    pub fn delete(&self) -> ::std::option::Option<&crate::types::DeleteReplicaAction> {
+    pub fn delete(&self) -> ::std::option::Option<&super::types::DeleteReplicaAction> {
         self.delete.as_ref()
     }
 }
 impl ReplicaUpdate {
     /// Creates a new builder-style object to manufacture [`ReplicaUpdate`](crate::types::ReplicaUpdate).
-    pub fn builder() -> crate::types::builders::ReplicaUpdateBuilder {
-        crate::types::builders::ReplicaUpdateBuilder::default()
+    pub fn builder() -> super::types::builders::ReplicaUpdateBuilder {
+        super::types::builders::ReplicaUpdateBuilder::default()
     }
 }
 
@@ -38,41 +38,41 @@ impl ReplicaUpdate {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ReplicaUpdateBuilder {
-    pub(crate) create: ::std::option::Option<crate::types::CreateReplicaAction>,
-    pub(crate) delete: ::std::option::Option<crate::types::DeleteReplicaAction>,
+    pub(crate) create: ::std::option::Option<super::types::CreateReplicaAction>,
+    pub(crate) delete: ::std::option::Option<super::types::DeleteReplicaAction>,
 }
 impl ReplicaUpdateBuilder {
     /// <p>The parameters required for creating a replica on an existing global table.</p>
-    pub fn create(mut self, input: crate::types::CreateReplicaAction) -> Self {
+    pub fn create(mut self, input: super::types::CreateReplicaAction) -> Self {
         self.create = ::std::option::Option::Some(input);
         self
     }
     /// <p>The parameters required for creating a replica on an existing global table.</p>
-    pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateReplicaAction>) -> Self {
+    pub fn set_create(mut self, input: ::std::option::Option<super::types::CreateReplicaAction>) -> Self {
         self.create = input;
         self
     }
     /// <p>The parameters required for creating a replica on an existing global table.</p>
-    pub fn get_create(&self) -> &::std::option::Option<crate::types::CreateReplicaAction> {
+    pub fn get_create(&self) -> &::std::option::Option<super::types::CreateReplicaAction> {
         &self.create
     }
     /// <p>The name of the existing replica to be removed.</p>
-    pub fn delete(mut self, input: crate::types::DeleteReplicaAction) -> Self {
+    pub fn delete(mut self, input: super::types::DeleteReplicaAction) -> Self {
         self.delete = ::std::option::Option::Some(input);
         self
     }
     /// <p>The name of the existing replica to be removed.</p>
-    pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteReplicaAction>) -> Self {
+    pub fn set_delete(mut self, input: ::std::option::Option<super::types::DeleteReplicaAction>) -> Self {
         self.delete = input;
         self
     }
     /// <p>The name of the existing replica to be removed.</p>
-    pub fn get_delete(&self) -> &::std::option::Option<crate::types::DeleteReplicaAction> {
+    pub fn get_delete(&self) -> &::std::option::Option<super::types::DeleteReplicaAction> {
         &self.delete
     }
     /// Consumes the builder and constructs a [`ReplicaUpdate`](crate::types::ReplicaUpdate).
-    pub fn build(self) -> crate::types::ReplicaUpdate {
-        crate::types::ReplicaUpdate {
+    pub fn build(self) -> super::types::ReplicaUpdate {
+        super::types::ReplicaUpdate {
             create: self.create,
             delete: self.delete,
         }

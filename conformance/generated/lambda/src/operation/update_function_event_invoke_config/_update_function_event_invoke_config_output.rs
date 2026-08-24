@@ -27,7 +27,7 @@ pub struct UpdateFunctionEventInvokeConfigOutput {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub destination_config: ::std::option::Option<crate::types::DestinationConfig>,
+    pub destination_config: ::std::option::Option<super::types::DestinationConfig>,
     _request_id: Option<String>,
 }
 impl UpdateFunctionEventInvokeConfigOutput {
@@ -63,7 +63,7 @@ impl UpdateFunctionEventInvokeConfigOutput {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
+    pub fn destination_config(&self) -> ::std::option::Option<&super::types::DestinationConfig> {
         self.destination_config.as_ref()
     }
 }
@@ -74,8 +74,8 @@ impl ::aws_types::request_id::RequestId for UpdateFunctionEventInvokeConfigOutpu
 }
 impl UpdateFunctionEventInvokeConfigOutput {
     /// Creates a new builder-style object to manufacture [`UpdateFunctionEventInvokeConfigOutput`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput).
-    pub fn builder() -> crate::operation::update_function_event_invoke_config::builders::UpdateFunctionEventInvokeConfigOutputBuilder {
-        crate::operation::update_function_event_invoke_config::builders::UpdateFunctionEventInvokeConfigOutputBuilder::default()
+    pub fn builder() -> super::operation::update_function_event_invoke_config::builders::UpdateFunctionEventInvokeConfigOutputBuilder {
+        super::operation::update_function_event_invoke_config::builders::UpdateFunctionEventInvokeConfigOutputBuilder::default()
     }
 }
 
@@ -87,7 +87,7 @@ pub struct UpdateFunctionEventInvokeConfigOutputBuilder {
     pub(crate) function_arn: ::std::option::Option<::std::string::String>,
     pub(crate) maximum_retry_attempts: ::std::option::Option<i32>,
     pub(crate) maximum_event_age_in_seconds: ::std::option::Option<i32>,
-    pub(crate) destination_config: ::std::option::Option<crate::types::DestinationConfig>,
+    pub(crate) destination_config: ::std::option::Option<super::types::DestinationConfig>,
     _request_id: Option<String>,
 }
 impl UpdateFunctionEventInvokeConfigOutputBuilder {
@@ -163,7 +163,7 @@ impl UpdateFunctionEventInvokeConfigOutputBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
+    pub fn destination_config(mut self, input: super::types::DestinationConfig) -> Self {
         self.destination_config = ::std::option::Option::Some(input);
         self
     }
@@ -183,7 +183,7 @@ impl UpdateFunctionEventInvokeConfigOutputBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
+    pub fn set_destination_config(mut self, input: ::std::option::Option<super::types::DestinationConfig>) -> Self {
         self.destination_config = input;
         self
     }
@@ -203,7 +203,7 @@ impl UpdateFunctionEventInvokeConfigOutputBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
+    pub fn get_destination_config(&self) -> &::std::option::Option<super::types::DestinationConfig> {
         &self.destination_config
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -216,8 +216,8 @@ impl UpdateFunctionEventInvokeConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateFunctionEventInvokeConfigOutput`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput).
-    pub fn build(self) -> crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput {
-        crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput {
+    pub fn build(self) -> super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput {
+        super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput {
             last_modified: self.last_modified,
             function_arn: self.function_arn,
             maximum_retry_attempts: self.maximum_retry_attempts,

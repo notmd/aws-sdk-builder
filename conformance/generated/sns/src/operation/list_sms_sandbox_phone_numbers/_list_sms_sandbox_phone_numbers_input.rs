@@ -20,8 +20,8 @@ impl ListSmsSandboxPhoneNumbersInput {
 }
 impl ListSmsSandboxPhoneNumbersInput {
     /// Creates a new builder-style object to manufacture [`ListSmsSandboxPhoneNumbersInput`](crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput).
-    pub fn builder() -> crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder {
-        crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder::default()
+    pub fn builder() -> super::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder {
+        super::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder::default()
     }
 }
 
@@ -65,10 +65,10 @@ impl ListSmsSandboxPhoneNumbersInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput,
+        super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput {
+        ::std::result::Result::Ok(super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput {
             next_token: self.next_token,
             max_results: self.max_results,
         })

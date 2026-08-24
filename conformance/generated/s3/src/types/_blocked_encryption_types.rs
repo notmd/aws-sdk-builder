@@ -25,7 +25,7 @@ pub struct BlockedEncryptionTypes {
     /// <p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p><note>
     /// <p>Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
     /// </note>
-    pub encryption_type: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>>,
+    pub encryption_type: ::std::option::Option<::std::vec::Vec<super::types::EncryptionType>>,
 }
 impl BlockedEncryptionTypes {
     /// <p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p><note>
@@ -33,14 +33,14 @@ impl BlockedEncryptionTypes {
     /// </note>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.encryption_type.is_none()`.
-    pub fn encryption_type(&self) -> &[crate::types::EncryptionType] {
+    pub fn encryption_type(&self) -> &[super::types::EncryptionType] {
         self.encryption_type.as_deref().unwrap_or_default()
     }
 }
 impl BlockedEncryptionTypes {
     /// Creates a new builder-style object to manufacture [`BlockedEncryptionTypes`](crate::types::BlockedEncryptionTypes).
-    pub fn builder() -> crate::types::builders::BlockedEncryptionTypesBuilder {
-        crate::types::builders::BlockedEncryptionTypesBuilder::default()
+    pub fn builder() -> super::types::builders::BlockedEncryptionTypesBuilder {
+        super::types::builders::BlockedEncryptionTypesBuilder::default()
     }
 }
 
@@ -48,7 +48,7 @@ impl BlockedEncryptionTypes {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BlockedEncryptionTypesBuilder {
-    pub(crate) encryption_type: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>>,
+    pub(crate) encryption_type: ::std::option::Option<::std::vec::Vec<super::types::EncryptionType>>,
 }
 impl BlockedEncryptionTypesBuilder {
     /// Appends an item to `encryption_type`.
@@ -58,7 +58,7 @@ impl BlockedEncryptionTypesBuilder {
     /// <p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p><note>
     /// <p>Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
     /// </note>
-    pub fn encryption_type(mut self, input: crate::types::EncryptionType) -> Self {
+    pub fn encryption_type(mut self, input: super::types::EncryptionType) -> Self {
         let mut v = self.encryption_type.unwrap_or_default();
         v.push(input);
         self.encryption_type = ::std::option::Option::Some(v);
@@ -67,19 +67,19 @@ impl BlockedEncryptionTypesBuilder {
     /// <p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p><note>
     /// <p>Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
     /// </note>
-    pub fn set_encryption_type(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>>) -> Self {
+    pub fn set_encryption_type(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EncryptionType>>) -> Self {
         self.encryption_type = input;
         self
     }
     /// <p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p><note>
     /// <p>Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
     /// </note>
-    pub fn get_encryption_type(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EncryptionType>> {
+    pub fn get_encryption_type(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EncryptionType>> {
         &self.encryption_type
     }
     /// Consumes the builder and constructs a [`BlockedEncryptionTypes`](crate::types::BlockedEncryptionTypes).
-    pub fn build(self) -> crate::types::BlockedEncryptionTypes {
-        crate::types::BlockedEncryptionTypes {
+    pub fn build(self) -> super::types::BlockedEncryptionTypes {
+        super::types::BlockedEncryptionTypes {
             encryption_type: self.encryption_type,
         }
     }

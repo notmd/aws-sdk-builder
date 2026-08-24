@@ -26,8 +26,8 @@ impl DeleteBucketEncryptionInput {
 }
 impl DeleteBucketEncryptionInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketEncryptionInput`](crate::operation::delete_bucket_encryption::DeleteBucketEncryptionInput).
-    pub fn builder() -> crate::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionInputBuilder {
-        crate::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionInputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionInputBuilder {
+        super::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionInputBuilder::default()
     }
 }
 
@@ -81,10 +81,10 @@ impl DeleteBucketEncryptionInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_bucket_encryption::DeleteBucketEncryptionInput,
+        super::operation::delete_bucket_encryption::DeleteBucketEncryptionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_bucket_encryption::DeleteBucketEncryptionInput {
+        ::std::result::Result::Ok(super::operation::delete_bucket_encryption::DeleteBucketEncryptionInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DisableKeyOutput {
 }
 impl DisableKeyOutput {
     /// Creates a new builder-style object to manufacture [`DisableKeyOutput`](crate::operation::disable_key::DisableKeyOutput).
-    pub fn builder() -> crate::operation::disable_key::builders::DisableKeyOutputBuilder {
-        crate::operation::disable_key::builders::DisableKeyOutputBuilder::default()
+    pub fn builder() -> super::operation::disable_key::builders::DisableKeyOutputBuilder {
+        super::operation::disable_key::builders::DisableKeyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DisableKeyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DisableKeyOutput`](crate::operation::disable_key::DisableKeyOutput).
-    pub fn build(self) -> crate::operation::disable_key::DisableKeyOutput {
-        crate::operation::disable_key::DisableKeyOutput {
+    pub fn build(self) -> super::operation::disable_key::DisableKeyOutput {
+        super::operation::disable_key::DisableKeyOutput {
             _request_id: self._request_id,
         }
     }

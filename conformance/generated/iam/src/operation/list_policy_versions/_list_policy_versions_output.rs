@@ -6,7 +6,7 @@
 pub struct ListPolicyVersionsOutput {
     /// <p>A list of policy versions.</p>
     /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
-    pub versions: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>,
+    pub versions: ::std::option::Option<::std::vec::Vec<super::types::PolicyVersion>>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -18,7 +18,7 @@ impl ListPolicyVersionsOutput {
     /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.versions.is_none()`.
-    pub fn versions(&self) -> &[crate::types::PolicyVersion] {
+    pub fn versions(&self) -> &[super::types::PolicyVersion] {
         self.versions.as_deref().unwrap_or_default()
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -37,8 +37,8 @@ impl ::aws_types::request_id::RequestId for ListPolicyVersionsOutput {
 }
 impl ListPolicyVersionsOutput {
     /// Creates a new builder-style object to manufacture [`ListPolicyVersionsOutput`](crate::operation::list_policy_versions::ListPolicyVersionsOutput).
-    pub fn builder() -> crate::operation::list_policy_versions::builders::ListPolicyVersionsOutputBuilder {
-        crate::operation::list_policy_versions::builders::ListPolicyVersionsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_policy_versions::builders::ListPolicyVersionsOutputBuilder {
+        super::operation::list_policy_versions::builders::ListPolicyVersionsOutputBuilder::default()
     }
 }
 
@@ -46,7 +46,7 @@ impl ListPolicyVersionsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPolicyVersionsOutputBuilder {
-    pub(crate) versions: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>,
+    pub(crate) versions: ::std::option::Option<::std::vec::Vec<super::types::PolicyVersion>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -58,7 +58,7 @@ impl ListPolicyVersionsOutputBuilder {
     ///
     /// <p>A list of policy versions.</p>
     /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn versions(mut self, input: crate::types::PolicyVersion) -> Self {
+    pub fn versions(mut self, input: super::types::PolicyVersion) -> Self {
         let mut v = self.versions.unwrap_or_default();
         v.push(input);
         self.versions = ::std::option::Option::Some(v);
@@ -66,13 +66,13 @@ impl ListPolicyVersionsOutputBuilder {
     }
     /// <p>A list of policy versions.</p>
     /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>) -> Self {
+    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PolicyVersion>>) -> Self {
         self.versions = input;
         self
     }
     /// <p>A list of policy versions.</p>
     /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>> {
+    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PolicyVersion>> {
         &self.versions
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -113,8 +113,8 @@ impl ListPolicyVersionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListPolicyVersionsOutput`](crate::operation::list_policy_versions::ListPolicyVersionsOutput).
-    pub fn build(self) -> crate::operation::list_policy_versions::ListPolicyVersionsOutput {
-        crate::operation::list_policy_versions::ListPolicyVersionsOutput {
+    pub fn build(self) -> super::operation::list_policy_versions::ListPolicyVersionsOutput {
+        super::operation::list_policy_versions::ListPolicyVersionsOutput {
             versions: self.versions,
             is_truncated: self.is_truncated.unwrap_or_default(),
             marker: self.marker,

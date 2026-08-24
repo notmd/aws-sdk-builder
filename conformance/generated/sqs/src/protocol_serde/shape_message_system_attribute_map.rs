@@ -4,7 +4,7 @@ pub(crate) fn de_message_system_attribute_map<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>>,
+    Option<::std::collections::HashMap<super::types::MessageSystemAttributeName, ::std::string::String>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where

@@ -6,7 +6,7 @@ pub struct ListAliasesOutput {
     /// <p>The pagination token that's included if more results are available.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A list of aliases.</p>
-    pub aliases: ::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>>,
+    pub aliases: ::std::option::Option<::std::vec::Vec<super::types::AliasConfiguration>>,
     _request_id: Option<String>,
 }
 impl ListAliasesOutput {
@@ -17,7 +17,7 @@ impl ListAliasesOutput {
     /// <p>A list of aliases.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aliases.is_none()`.
-    pub fn aliases(&self) -> &[crate::types::AliasConfiguration] {
+    pub fn aliases(&self) -> &[super::types::AliasConfiguration] {
         self.aliases.as_deref().unwrap_or_default()
     }
 }
@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for ListAliasesOutput {
 }
 impl ListAliasesOutput {
     /// Creates a new builder-style object to manufacture [`ListAliasesOutput`](crate::operation::list_aliases::ListAliasesOutput).
-    pub fn builder() -> crate::operation::list_aliases::builders::ListAliasesOutputBuilder {
-        crate::operation::list_aliases::builders::ListAliasesOutputBuilder::default()
+    pub fn builder() -> super::operation::list_aliases::builders::ListAliasesOutputBuilder {
+        super::operation::list_aliases::builders::ListAliasesOutputBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl ListAliasesOutput {
 #[non_exhaustive]
 pub struct ListAliasesOutputBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
-    pub(crate) aliases: ::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>>,
+    pub(crate) aliases: ::std::option::Option<::std::vec::Vec<super::types::AliasConfiguration>>,
     _request_id: Option<String>,
 }
 impl ListAliasesOutputBuilder {
@@ -61,19 +61,19 @@ impl ListAliasesOutputBuilder {
     /// To override the contents of this collection use [`set_aliases`](Self::set_aliases).
     ///
     /// <p>A list of aliases.</p>
-    pub fn aliases(mut self, input: crate::types::AliasConfiguration) -> Self {
+    pub fn aliases(mut self, input: super::types::AliasConfiguration) -> Self {
         let mut v = self.aliases.unwrap_or_default();
         v.push(input);
         self.aliases = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of aliases.</p>
-    pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>>) -> Self {
+    pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AliasConfiguration>>) -> Self {
         self.aliases = input;
         self
     }
     /// <p>A list of aliases.</p>
-    pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>> {
+    pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AliasConfiguration>> {
         &self.aliases
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,8 +86,8 @@ impl ListAliasesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListAliasesOutput`](crate::operation::list_aliases::ListAliasesOutput).
-    pub fn build(self) -> crate::operation::list_aliases::ListAliasesOutput {
-        crate::operation::list_aliases::ListAliasesOutput {
+    pub fn build(self) -> super::operation::list_aliases::ListAliasesOutput {
+        super::operation::list_aliases::ListAliasesOutput {
             next_marker: self.next_marker,
             aliases: self.aliases,
             _request_id: self._request_id,

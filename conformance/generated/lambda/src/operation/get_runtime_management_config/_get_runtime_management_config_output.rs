@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetRuntimeManagementConfigOutput {
     /// <p>The current runtime update mode of the function.</p>
-    pub update_runtime_on: ::std::option::Option<crate::types::UpdateRuntimeOn>,
+    pub update_runtime_on: ::std::option::Option<super::types::UpdateRuntimeOn>,
     /// <p>The Amazon Resource Name (ARN) of your function.</p>
     pub function_arn: ::std::option::Option<::std::string::String>,
     /// <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
@@ -13,7 +13,7 @@ pub struct GetRuntimeManagementConfigOutput {
 }
 impl GetRuntimeManagementConfigOutput {
     /// <p>The current runtime update mode of the function.</p>
-    pub fn update_runtime_on(&self) -> ::std::option::Option<&crate::types::UpdateRuntimeOn> {
+    pub fn update_runtime_on(&self) -> ::std::option::Option<&super::types::UpdateRuntimeOn> {
         self.update_runtime_on.as_ref()
     }
     /// <p>The Amazon Resource Name (ARN) of your function.</p>
@@ -32,8 +32,8 @@ impl ::aws_types::request_id::RequestId for GetRuntimeManagementConfigOutput {
 }
 impl GetRuntimeManagementConfigOutput {
     /// Creates a new builder-style object to manufacture [`GetRuntimeManagementConfigOutput`](crate::operation::get_runtime_management_config::GetRuntimeManagementConfigOutput).
-    pub fn builder() -> crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigOutputBuilder {
-        crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigOutputBuilder::default()
+    pub fn builder() -> super::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigOutputBuilder {
+        super::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigOutputBuilder::default()
     }
 }
 
@@ -41,24 +41,24 @@ impl GetRuntimeManagementConfigOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetRuntimeManagementConfigOutputBuilder {
-    pub(crate) update_runtime_on: ::std::option::Option<crate::types::UpdateRuntimeOn>,
+    pub(crate) update_runtime_on: ::std::option::Option<super::types::UpdateRuntimeOn>,
     pub(crate) function_arn: ::std::option::Option<::std::string::String>,
     pub(crate) runtime_version_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetRuntimeManagementConfigOutputBuilder {
     /// <p>The current runtime update mode of the function.</p>
-    pub fn update_runtime_on(mut self, input: crate::types::UpdateRuntimeOn) -> Self {
+    pub fn update_runtime_on(mut self, input: super::types::UpdateRuntimeOn) -> Self {
         self.update_runtime_on = ::std::option::Option::Some(input);
         self
     }
     /// <p>The current runtime update mode of the function.</p>
-    pub fn set_update_runtime_on(mut self, input: ::std::option::Option<crate::types::UpdateRuntimeOn>) -> Self {
+    pub fn set_update_runtime_on(mut self, input: ::std::option::Option<super::types::UpdateRuntimeOn>) -> Self {
         self.update_runtime_on = input;
         self
     }
     /// <p>The current runtime update mode of the function.</p>
-    pub fn get_update_runtime_on(&self) -> &::std::option::Option<crate::types::UpdateRuntimeOn> {
+    pub fn get_update_runtime_on(&self) -> &::std::option::Option<super::types::UpdateRuntimeOn> {
         &self.update_runtime_on
     }
     /// <p>The Amazon Resource Name (ARN) of your function.</p>
@@ -99,8 +99,8 @@ impl GetRuntimeManagementConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetRuntimeManagementConfigOutput`](crate::operation::get_runtime_management_config::GetRuntimeManagementConfigOutput).
-    pub fn build(self) -> crate::operation::get_runtime_management_config::GetRuntimeManagementConfigOutput {
-        crate::operation::get_runtime_management_config::GetRuntimeManagementConfigOutput {
+    pub fn build(self) -> super::operation::get_runtime_management_config::GetRuntimeManagementConfigOutput {
+        super::operation::get_runtime_management_config::GetRuntimeManagementConfigOutput {
             update_runtime_on: self.update_runtime_on,
             function_arn: self.function_arn,
             runtime_version_arn: self.runtime_version_arn,

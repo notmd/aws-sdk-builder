@@ -27,7 +27,7 @@ impl ::std::fmt::Display for XksKeyNotFoundException {
     }
 }
 impl ::std::error::Error for XksKeyNotFoundException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::XksKeyNotFoundException {
+impl ::aws_types::request_id::RequestId for super::types::error::XksKeyNotFoundException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -40,8 +40,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for XksKeyNotFoun
 }
 impl XksKeyNotFoundException {
     /// Creates a new builder-style object to manufacture [`XksKeyNotFoundException`](crate::types::error::XksKeyNotFoundException).
-    pub fn builder() -> crate::types::error::builders::XksKeyNotFoundExceptionBuilder {
-        crate::types::error::builders::XksKeyNotFoundExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::XksKeyNotFoundExceptionBuilder {
+        super::types::error::builders::XksKeyNotFoundExceptionBuilder::default()
     }
 }
 
@@ -79,8 +79,8 @@ impl XksKeyNotFoundExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`XksKeyNotFoundException`](crate::types::error::XksKeyNotFoundException).
-    pub fn build(self) -> crate::types::error::XksKeyNotFoundException {
-        crate::types::error::XksKeyNotFoundException {
+    pub fn build(self) -> super::types::error::XksKeyNotFoundException {
+        super::types::error::XksKeyNotFoundException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

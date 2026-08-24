@@ -30,8 +30,8 @@ impl ListMfaDevicesInput {
 }
 impl ListMfaDevicesInput {
     /// Creates a new builder-style object to manufacture [`ListMfaDevicesInput`](crate::operation::list_mfa_devices::ListMfaDevicesInput).
-    pub fn builder() -> crate::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder {
-        crate::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder::default()
+    pub fn builder() -> super::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder {
+        super::operation::list_mfa_devices::builders::ListMfaDevicesInputBuilder::default()
     }
 }
 
@@ -95,8 +95,8 @@ impl ListMfaDevicesInputBuilder {
     /// Consumes the builder and constructs a [`ListMfaDevicesInput`](crate::operation::list_mfa_devices::ListMfaDevicesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_mfa_devices::ListMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_mfa_devices::ListMfaDevicesInput {
+    ) -> ::std::result::Result<super::operation::list_mfa_devices::ListMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_mfa_devices::ListMfaDevicesInput {
             user_name: self.user_name,
             marker: self.marker,
             max_items: self.max_items,

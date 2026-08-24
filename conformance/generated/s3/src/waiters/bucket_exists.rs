@@ -13,36 +13,36 @@
 ///
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct BucketExistsFluentBuilder {
-    handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::head_bucket::builders::HeadBucketInputBuilder,
+    handle: ::std::sync::Arc<super::client::Handle>,
+    inner: super::operation::head_bucket::builders::HeadBucketInputBuilder,
 }
 impl BucketExistsFluentBuilder {
     /// Creates a new `BucketExistsFluentBuilder`.
-    pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+    pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
         Self {
             handle,
             inner: ::std::default::Default::default(),
         }
     }
     /// Access the HeadBucket as a reference.
-    pub fn as_input(&self) -> &crate::operation::head_bucket::builders::HeadBucketInputBuilder {
+    pub fn as_input(&self) -> &super::operation::head_bucket::builders::HeadBucketInputBuilder {
         &self.inner
     }
     /// Wait for `bucket_exists`
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<crate::waiters::bucket_exists::BucketExistsFinalPoll, crate::waiters::bucket_exists::WaitUntilBucketExistsError> {
+    ) -> ::std::result::Result<super::waiters::bucket_exists::BucketExistsFinalPoll, super::waiters::bucket_exists::WaitUntilBucketExistsError> {
         let input = self
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
-        let runtime_plugins = crate::operation::head_bucket::HeadBucket::operation_runtime_plugins(
+        let runtime_plugins = super::operation::head_bucket::HeadBucket::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             ::std::option::Option::None,
         )
-        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
+        .with_operation_plugin(super::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
@@ -52,15 +52,15 @@ impl BucketExistsFluentBuilder {
         let time_source = time_components.time_source().expect("a time source is required by waiters");
 
         let acceptor = move |result: ::std::result::Result<
-            &crate::operation::head_bucket::HeadBucketOutput,
-            &crate::operation::head_bucket::HeadBucketError,
+            &super::operation::head_bucket::HeadBucketOutput,
+            &super::operation::head_bucket::HeadBucketError,
         >| {
             // Matches: {"success":true}
-            if crate::waiters::matchers::match_head_bucket_c955e57777ec0d736(result) {
+            if super::waiters::matchers::match_head_bucket_c955e57777ec0d736(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
             }
             // Matches: {"errorType":"NotFound"}
-            if crate::waiters::matchers::match_head_bucket_01223db2f9ae15f05(result) {
+            if super::waiters::matchers::match_head_bucket_01223db2f9ae15f05(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
             }
             ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
@@ -68,7 +68,7 @@ impl BucketExistsFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move { crate::operation::head_bucket::HeadBucket::orchestrate(&runtime_plugins, input).await }
+            async move { super::operation::head_bucket::HeadBucket::orchestrate(&runtime_plugins, input).await }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(5))
@@ -131,15 +131,15 @@ impl BucketExistsFluentBuilder {
 
 /// Successful return type for the `bucket_exists` waiter.
 pub type BucketExistsFinalPoll = ::aws_smithy_runtime_api::client::waiters::FinalPoll<
-    crate::operation::head_bucket::HeadBucketOutput,
+    super::operation::head_bucket::HeadBucketOutput,
     ::aws_smithy_runtime_api::client::result::SdkError<
-        crate::operation::head_bucket::HeadBucketError,
+        super::operation::head_bucket::HeadBucketError,
         ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
     >,
 >;
 
 /// Error type for the `bucket_exists` waiter.
 pub type WaitUntilBucketExistsError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
-    crate::operation::head_bucket::HeadBucketOutput,
-    crate::operation::head_bucket::HeadBucketError,
+    super::operation::head_bucket::HeadBucketOutput,
+    super::operation::head_bucket::HeadBucketError,
 >;

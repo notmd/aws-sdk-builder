@@ -24,8 +24,8 @@ impl GetUserPolicyInput {
 }
 impl GetUserPolicyInput {
     /// Creates a new builder-style object to manufacture [`GetUserPolicyInput`](crate::operation::get_user_policy::GetUserPolicyInput).
-    pub fn builder() -> crate::operation::get_user_policy::builders::GetUserPolicyInputBuilder {
-        crate::operation::get_user_policy::builders::GetUserPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::get_user_policy::builders::GetUserPolicyInputBuilder {
+        super::operation::get_user_policy::builders::GetUserPolicyInputBuilder::default()
     }
 }
 
@@ -76,8 +76,8 @@ impl GetUserPolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetUserPolicyInput`](crate::operation::get_user_policy::GetUserPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_user_policy::GetUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_user_policy::GetUserPolicyInput {
+    ) -> ::std::result::Result<super::operation::get_user_policy::GetUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_user_policy::GetUserPolicyInput {
             user_name: self.user_name,
             policy_name: self.policy_name,
         })

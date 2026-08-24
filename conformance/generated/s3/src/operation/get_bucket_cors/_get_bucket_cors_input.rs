@@ -24,8 +24,8 @@ impl GetBucketCorsInput {
 }
 impl GetBucketCorsInput {
     /// Creates a new builder-style object to manufacture [`GetBucketCorsInput`](crate::operation::get_bucket_cors::GetBucketCorsInput).
-    pub fn builder() -> crate::operation::get_bucket_cors::builders::GetBucketCorsInputBuilder {
-        crate::operation::get_bucket_cors::builders::GetBucketCorsInputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_cors::builders::GetBucketCorsInputBuilder {
+        super::operation::get_bucket_cors::builders::GetBucketCorsInputBuilder::default()
     }
 }
 
@@ -75,8 +75,8 @@ impl GetBucketCorsInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketCorsInput`](crate::operation::get_bucket_cors::GetBucketCorsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_bucket_cors::GetBucketCorsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_bucket_cors::GetBucketCorsInput {
+    ) -> ::std::result::Result<super::operation::get_bucket_cors::GetBucketCorsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_bucket_cors::GetBucketCorsInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

@@ -3,12 +3,12 @@
 pub fn de_tiering(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::Tiering, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::Tiering, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::Tiering::builder();
+    let mut builder = super::types::Tiering::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("Days") /* Days com.amazonaws.s3#Tiering$Days */ =>  {
@@ -29,8 +29,8 @@ pub fn de_tiering(
             s if s.matches("AccessTier") /* AccessTier com.amazonaws.s3#Tiering$AccessTier */ =>  {
                 let var_2 =
                     Some(
-                        Result::<crate::types::IntelligentTieringAccessTier, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::IntelligentTieringAccessTier::from(
+                        Result::<super::types::IntelligentTieringAccessTier, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::IntelligentTieringAccessTier::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -43,13 +43,13 @@ pub fn de_tiering(
             _ => {}
         }
     }
-    Ok(crate::serde_util::tiering_correct_errors(builder)
+    Ok(super::serde_util::tiering_correct_errors(builder)
         .build()
         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 
 pub fn ser_tiering(
-    input: &crate::types::Tiering,
+    input: &super::types::Tiering,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]

@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`notes(impl Into<String>)`](crate::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder::notes) / [`set_notes(Option<String>)`](crate::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder::set_notes):<br>required: **false**<br><p>Additional notes or comments to add to the delegation request.</p><br>
     /// - On success, responds with [`UpdateDelegationRequestOutput`](crate::operation::update_delegation_request::UpdateDelegationRequestOutput)
     /// - On failure, responds with [`SdkError<UpdateDelegationRequestError>`](crate::operation::update_delegation_request::UpdateDelegationRequestError)
-    pub fn update_delegation_request(&self) -> crate::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder {
-        crate::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder::new(self.handle.clone())
+    pub fn update_delegation_request(&self) -> super::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder {
+        super::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder::new(self.handle.clone())
     }
 }

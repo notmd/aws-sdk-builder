@@ -12,7 +12,7 @@ pub struct SigningCertificate {
     /// <p>The contents of the signing certificate.</p>
     pub certificate_body: ::std::string::String,
     /// <p>The status of the signing certificate. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
-    pub status: crate::types::StatusType,
+    pub status: super::types::StatusType,
     /// <p>The date when the signing certificate was uploaded.</p>
     pub upload_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -33,7 +33,7 @@ impl SigningCertificate {
         self.certificate_body.deref()
     }
     /// <p>The status of the signing certificate. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
-    pub fn status(&self) -> &crate::types::StatusType {
+    pub fn status(&self) -> &super::types::StatusType {
         &self.status
     }
     /// <p>The date when the signing certificate was uploaded.</p>
@@ -43,8 +43,8 @@ impl SigningCertificate {
 }
 impl SigningCertificate {
     /// Creates a new builder-style object to manufacture [`SigningCertificate`](crate::types::SigningCertificate).
-    pub fn builder() -> crate::types::builders::SigningCertificateBuilder {
-        crate::types::builders::SigningCertificateBuilder::default()
+    pub fn builder() -> super::types::builders::SigningCertificateBuilder {
+        super::types::builders::SigningCertificateBuilder::default()
     }
 }
 
@@ -55,7 +55,7 @@ pub struct SigningCertificateBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
     pub(crate) certificate_id: ::std::option::Option<::std::string::String>,
     pub(crate) certificate_body: ::std::option::Option<::std::string::String>,
-    pub(crate) status: ::std::option::Option<crate::types::StatusType>,
+    pub(crate) status: ::std::option::Option<super::types::StatusType>,
     pub(crate) upload_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl SigningCertificateBuilder {
@@ -106,17 +106,17 @@ impl SigningCertificateBuilder {
     }
     /// <p>The status of the signing certificate. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
     /// This field is required.
-    pub fn status(mut self, input: crate::types::StatusType) -> Self {
+    pub fn status(mut self, input: super::types::StatusType) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The status of the signing certificate. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<super::types::StatusType>) -> Self {
         self.status = input;
         self
     }
     /// <p>The status of the signing certificate. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> {
+    pub fn get_status(&self) -> &::std::option::Option<super::types::StatusType> {
         &self.status
     }
     /// <p>The date when the signing certificate was uploaded.</p>
@@ -139,8 +139,8 @@ impl SigningCertificateBuilder {
     /// - [`certificate_id`](crate::types::builders::SigningCertificateBuilder::certificate_id)
     /// - [`certificate_body`](crate::types::builders::SigningCertificateBuilder::certificate_body)
     /// - [`status`](crate::types::builders::SigningCertificateBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::SigningCertificate, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::SigningCertificate {
+    pub fn build(self) -> ::std::result::Result<super::types::SigningCertificate, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::SigningCertificate {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "user_name",

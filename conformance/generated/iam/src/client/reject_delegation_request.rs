@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`notes(impl Into<String>)`](crate::operation::reject_delegation_request::builders::RejectDelegationRequestFluentBuilder::notes) / [`set_notes(Option<String>)`](crate::operation::reject_delegation_request::builders::RejectDelegationRequestFluentBuilder::set_notes):<br>required: **false**<br><p>Optional notes explaining the reason for rejecting the delegation request.</p><br>
     /// - On success, responds with [`RejectDelegationRequestOutput`](crate::operation::reject_delegation_request::RejectDelegationRequestOutput)
     /// - On failure, responds with [`SdkError<RejectDelegationRequestError>`](crate::operation::reject_delegation_request::RejectDelegationRequestError)
-    pub fn reject_delegation_request(&self) -> crate::operation::reject_delegation_request::builders::RejectDelegationRequestFluentBuilder {
-        crate::operation::reject_delegation_request::builders::RejectDelegationRequestFluentBuilder::new(self.handle.clone())
+    pub fn reject_delegation_request(&self) -> super::operation::reject_delegation_request::builders::RejectDelegationRequestFluentBuilder {
+        super::operation::reject_delegation_request::builders::RejectDelegationRequestFluentBuilder::new(self.handle.clone())
     }
 }

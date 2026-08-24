@@ -3,18 +3,18 @@
 pub fn de_notification_configuration_filter(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::NotificationConfigurationFilter, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::NotificationConfigurationFilter, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::NotificationConfigurationFilter::builder();
+    let mut builder = super::types::NotificationConfigurationFilter::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("S3Key") /* Key com.amazonaws.s3#NotificationConfigurationFilter$Key */ =>  {
                 let var_1 =
                     Some(
-                        crate::protocol_serde::shape_s3_key_filter::de_s3_key_filter(&mut tag, depth + 1)
+                        super::protocol_serde::shape_s3_key_filter::de_s3_key_filter(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -28,14 +28,14 @@ pub fn de_notification_configuration_filter(
 }
 
 pub fn ser_notification_configuration_filter(
-    input: &crate::types::NotificationConfigurationFilter,
+    input: &super::types::NotificationConfigurationFilter,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]
     let mut scope = writer.finish();
     if let Some(var_2) = &input.key {
         let inner_writer = scope.start_el("S3Key");
-        crate::protocol_serde::shape_s3_key_filter::ser_s3_key_filter(var_2, inner_writer)?
+        super::protocol_serde::shape_s3_key_filter::ser_s3_key_filter(var_2, inner_writer)?
     }
     scope.finish();
     Ok(())

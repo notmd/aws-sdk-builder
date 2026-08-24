@@ -30,8 +30,8 @@ impl MfaDevice {
 }
 impl MfaDevice {
     /// Creates a new builder-style object to manufacture [`MfaDevice`](crate::types::MfaDevice).
-    pub fn builder() -> crate::types::builders::MfaDeviceBuilder {
-        crate::types::builders::MfaDeviceBuilder::default()
+    pub fn builder() -> super::types::builders::MfaDeviceBuilder {
+        super::types::builders::MfaDeviceBuilder::default()
     }
 }
 
@@ -94,8 +94,8 @@ impl MfaDeviceBuilder {
     /// - [`user_name`](crate::types::builders::MfaDeviceBuilder::user_name)
     /// - [`serial_number`](crate::types::builders::MfaDeviceBuilder::serial_number)
     /// - [`enable_date`](crate::types::builders::MfaDeviceBuilder::enable_date)
-    pub fn build(self) -> ::std::result::Result<crate::types::MfaDevice, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::MfaDevice {
+    pub fn build(self) -> ::std::result::Result<super::types::MfaDevice, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::MfaDevice {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "user_name",

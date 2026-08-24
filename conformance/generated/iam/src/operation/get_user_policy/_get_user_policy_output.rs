@@ -38,8 +38,8 @@ impl ::aws_types::request_id::RequestId for GetUserPolicyOutput {
 }
 impl GetUserPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetUserPolicyOutput`](crate::operation::get_user_policy::GetUserPolicyOutput).
-    pub fn builder() -> crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder {
-        crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::get_user_policy::builders::GetUserPolicyOutputBuilder {
+        super::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::default()
     }
 }
 
@@ -117,8 +117,8 @@ impl GetUserPolicyOutputBuilder {
     /// - [`policy_document`](crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::policy_document)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_user_policy::GetUserPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_user_policy::GetUserPolicyOutput {
+    ) -> ::std::result::Result<super::operation::get_user_policy::GetUserPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_user_policy::GetUserPolicyOutput {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "user_name",

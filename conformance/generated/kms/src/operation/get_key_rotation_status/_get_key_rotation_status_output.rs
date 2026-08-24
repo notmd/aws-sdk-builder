@@ -46,8 +46,8 @@ impl ::aws_types::request_id::RequestId for GetKeyRotationStatusOutput {
 }
 impl GetKeyRotationStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetKeyRotationStatusOutput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput).
-    pub fn builder() -> crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusOutputBuilder {
-        crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusOutputBuilder::default()
+    pub fn builder() -> super::operation::get_key_rotation_status::builders::GetKeyRotationStatusOutputBuilder {
+        super::operation::get_key_rotation_status::builders::GetKeyRotationStatusOutputBuilder::default()
     }
 }
 
@@ -146,8 +146,8 @@ impl GetKeyRotationStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetKeyRotationStatusOutput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput).
-    pub fn build(self) -> crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
-        crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
+    pub fn build(self) -> super::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
+        super::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
             key_rotation_enabled: self.key_rotation_enabled.unwrap_or_default(),
             key_id: self.key_id,
             rotation_period_in_days: self.rotation_period_in_days,

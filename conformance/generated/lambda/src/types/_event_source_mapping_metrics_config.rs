@@ -14,7 +14,7 @@ pub struct EventSourceMappingMetricsConfig {
     /// <p><code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p></li>
     /// </ul>
     /// <p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics"> Event source mapping metrics</a>.</p>
-    pub metrics: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>,
+    pub metrics: ::std::option::Option<::std::vec::Vec<super::types::EventSourceMappingMetric>>,
 }
 impl EventSourceMappingMetricsConfig {
     /// <p>The metrics you want your event source mapping to produce, including <code>EventCount</code>, <code>ErrorCount</code>, <code>KafkaMetrics</code>.</p>
@@ -29,14 +29,14 @@ impl EventSourceMappingMetricsConfig {
     /// <p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics"> Event source mapping metrics</a>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.metrics.is_none()`.
-    pub fn metrics(&self) -> &[crate::types::EventSourceMappingMetric] {
+    pub fn metrics(&self) -> &[super::types::EventSourceMappingMetric] {
         self.metrics.as_deref().unwrap_or_default()
     }
 }
 impl EventSourceMappingMetricsConfig {
     /// Creates a new builder-style object to manufacture [`EventSourceMappingMetricsConfig`](crate::types::EventSourceMappingMetricsConfig).
-    pub fn builder() -> crate::types::builders::EventSourceMappingMetricsConfigBuilder {
-        crate::types::builders::EventSourceMappingMetricsConfigBuilder::default()
+    pub fn builder() -> super::types::builders::EventSourceMappingMetricsConfigBuilder {
+        super::types::builders::EventSourceMappingMetricsConfigBuilder::default()
     }
 }
 
@@ -44,7 +44,7 @@ impl EventSourceMappingMetricsConfig {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventSourceMappingMetricsConfigBuilder {
-    pub(crate) metrics: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>,
+    pub(crate) metrics: ::std::option::Option<::std::vec::Vec<super::types::EventSourceMappingMetric>>,
 }
 impl EventSourceMappingMetricsConfigBuilder {
     /// Appends an item to `metrics`.
@@ -61,7 +61,7 @@ impl EventSourceMappingMetricsConfigBuilder {
     /// <p><code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p></li>
     /// </ul>
     /// <p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics"> Event source mapping metrics</a>.</p>
-    pub fn metrics(mut self, input: crate::types::EventSourceMappingMetric) -> Self {
+    pub fn metrics(mut self, input: super::types::EventSourceMappingMetric) -> Self {
         let mut v = self.metrics.unwrap_or_default();
         v.push(input);
         self.metrics = ::std::option::Option::Some(v);
@@ -77,7 +77,7 @@ impl EventSourceMappingMetricsConfigBuilder {
     /// <p><code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p></li>
     /// </ul>
     /// <p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics"> Event source mapping metrics</a>.</p>
-    pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>) -> Self {
+    pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::EventSourceMappingMetric>>) -> Self {
         self.metrics = input;
         self
     }
@@ -91,11 +91,11 @@ impl EventSourceMappingMetricsConfigBuilder {
     /// <p><code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p></li>
     /// </ul>
     /// <p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics"> Event source mapping metrics</a>.</p>
-    pub fn get_metrics(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>> {
+    pub fn get_metrics(&self) -> &::std::option::Option<::std::vec::Vec<super::types::EventSourceMappingMetric>> {
         &self.metrics
     }
     /// Consumes the builder and constructs a [`EventSourceMappingMetricsConfig`](crate::types::EventSourceMappingMetricsConfig).
-    pub fn build(self) -> crate::types::EventSourceMappingMetricsConfig {
-        crate::types::EventSourceMappingMetricsConfig { metrics: self.metrics }
+    pub fn build(self) -> super::types::EventSourceMappingMetricsConfig {
+        super::types::EventSourceMappingMetricsConfig { metrics: self.metrics }
     }
 }

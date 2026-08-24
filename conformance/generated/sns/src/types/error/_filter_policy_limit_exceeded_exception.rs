@@ -26,7 +26,7 @@ impl ::std::fmt::Display for FilterPolicyLimitExceededException {
     }
 }
 impl ::std::error::Error for FilterPolicyLimitExceededException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::FilterPolicyLimitExceededException {
+impl ::aws_types::request_id::RequestId for super::types::error::FilterPolicyLimitExceededException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for FilterPolicyL
 }
 impl FilterPolicyLimitExceededException {
     /// Creates a new builder-style object to manufacture [`FilterPolicyLimitExceededException`](crate::types::error::FilterPolicyLimitExceededException).
-    pub fn builder() -> crate::types::error::builders::FilterPolicyLimitExceededExceptionBuilder {
-        crate::types::error::builders::FilterPolicyLimitExceededExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::FilterPolicyLimitExceededExceptionBuilder {
+        super::types::error::builders::FilterPolicyLimitExceededExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl FilterPolicyLimitExceededExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`FilterPolicyLimitExceededException`](crate::types::error::FilterPolicyLimitExceededException).
-    pub fn build(self) -> crate::types::error::FilterPolicyLimitExceededException {
-        crate::types::error::FilterPolicyLimitExceededException {
+    pub fn build(self) -> super::types::error::FilterPolicyLimitExceededException {
+        super::types::error::FilterPolicyLimitExceededException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

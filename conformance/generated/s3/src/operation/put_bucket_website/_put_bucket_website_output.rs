@@ -6,7 +6,7 @@ pub struct PutBucketWebsiteOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for PutBucketWebsiteOutput {
+impl super::s3_request_id::RequestIdExt for PutBucketWebsiteOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for PutBucketWebsiteOutput {
 }
 impl PutBucketWebsiteOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketWebsiteOutput`](crate::operation::put_bucket_website::PutBucketWebsiteOutput).
-    pub fn builder() -> crate::operation::put_bucket_website::builders::PutBucketWebsiteOutputBuilder {
-        crate::operation::put_bucket_website::builders::PutBucketWebsiteOutputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_website::builders::PutBucketWebsiteOutputBuilder {
+        super::operation::put_bucket_website::builders::PutBucketWebsiteOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl PutBucketWebsiteOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketWebsiteOutput`](crate::operation::put_bucket_website::PutBucketWebsiteOutput).
-    pub fn build(self) -> crate::operation::put_bucket_website::PutBucketWebsiteOutput {
-        crate::operation::put_bucket_website::PutBucketWebsiteOutput {
+    pub fn build(self) -> super::operation::put_bucket_website::PutBucketWebsiteOutput {
+        super::operation::put_bucket_website::PutBucketWebsiteOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

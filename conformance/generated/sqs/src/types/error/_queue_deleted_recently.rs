@@ -26,7 +26,7 @@ impl ::std::fmt::Display for QueueDeletedRecently {
     }
 }
 impl ::std::error::Error for QueueDeletedRecently {}
-impl ::aws_types::request_id::RequestId for crate::types::error::QueueDeletedRecently {
+impl ::aws_types::request_id::RequestId for super::types::error::QueueDeletedRecently {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for QueueDeletedR
 }
 impl QueueDeletedRecently {
     /// Creates a new builder-style object to manufacture [`QueueDeletedRecently`](crate::types::error::QueueDeletedRecently).
-    pub fn builder() -> crate::types::error::builders::QueueDeletedRecentlyBuilder {
-        crate::types::error::builders::QueueDeletedRecentlyBuilder::default()
+    pub fn builder() -> super::types::error::builders::QueueDeletedRecentlyBuilder {
+        super::types::error::builders::QueueDeletedRecentlyBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl QueueDeletedRecentlyBuilder {
         self
     }
     /// Consumes the builder and constructs a [`QueueDeletedRecently`](crate::types::error::QueueDeletedRecently).
-    pub fn build(self) -> crate::types::error::QueueDeletedRecently {
-        crate::types::error::QueueDeletedRecently {
+    pub fn build(self) -> super::types::error::QueueDeletedRecently {
+        super::types::error::QueueDeletedRecently {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -4,14 +4,14 @@ pub fn de_list_buckets_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::list_buckets::ListBucketsOutput, crate::operation::list_buckets::ListBucketsError> {
+) -> std::result::Result<super::operation::list_buckets::ListBucketsOutput, super::operation::list_buckets::ListBucketsError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_buckets::ListBucketsError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::list_buckets::ListBucketsError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::list_buckets::ListBucketsError::generic(generic))
+    Err(super::operation::list_buckets::ListBucketsError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -19,13 +19,13 @@ pub fn de_list_buckets_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::list_buckets::ListBucketsOutput, crate::operation::list_buckets::ListBucketsError> {
+) -> std::result::Result<super::operation::list_buckets::ListBucketsOutput, super::operation::list_buckets::ListBucketsError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::list_buckets::builders::ListBucketsOutputBuilder::default();
-        output = crate::protocol_serde::shape_list_buckets::de_list_buckets(_response_body, output)
-            .map_err(crate::operation::list_buckets::ListBucketsError::unhandled)?;
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        let mut output = super::operation::list_buckets::builders::ListBucketsOutputBuilder::default();
+        output = super::protocol_serde::shape_list_buckets::de_list_buckets(_response_body, output)
+            .map_err(super::operation::list_buckets::ListBucketsError::unhandled)?;
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -34,8 +34,8 @@ pub fn de_list_buckets_http_response(
 #[allow(unused_mut)]
 pub fn de_list_buckets(
     inp: &[u8],
-    mut builder: crate::operation::list_buckets::builders::ListBucketsOutputBuilder,
-) -> std::result::Result<crate::operation::list_buckets::builders::ListBucketsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    mut builder: super::operation::list_buckets::builders::ListBucketsOutputBuilder,
+) -> std::result::Result<super::operation::list_buckets::builders::ListBucketsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -54,7 +54,7 @@ pub fn de_list_buckets(
             s if s.matches("Owner") /* Owner com.amazonaws.s3.synthetic#ListBucketsOutput$Owner */ =>  {
                 let var_1 =
                     Some(
-                        crate::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
+                        super::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -90,7 +90,7 @@ pub fn de_list_buckets(
             s if s.matches("Buckets") /* Buckets com.amazonaws.s3.synthetic#ListBucketsOutput$Buckets */ =>  {
                 let var_4 =
                     Some(
-                        crate::protocol_serde::shape_buckets::de_buckets(&mut tag, depth + 1)
+                        super::protocol_serde::shape_buckets::de_buckets(&mut tag, depth + 1)
                         ?
                     )
                 ;

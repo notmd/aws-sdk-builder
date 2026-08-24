@@ -11,7 +11,7 @@ pub struct PointInTimeRecoveryDescription {
     /// <li>
     /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
     /// </ul>
-    pub point_in_time_recovery_status: ::std::option::Option<crate::types::PointInTimeRecoveryStatus>,
+    pub point_in_time_recovery_status: ::std::option::Option<super::types::PointInTimeRecoveryStatus>,
     /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional.</p>
     pub recovery_period_in_days: ::std::option::Option<i32>,
     /// <p>Specifies the earliest point in time you can restore your table to. You can restore your table to any point in time during the last 35 days.</p>
@@ -27,7 +27,7 @@ impl PointInTimeRecoveryDescription {
     /// <li>
     /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
     /// </ul>
-    pub fn point_in_time_recovery_status(&self) -> ::std::option::Option<&crate::types::PointInTimeRecoveryStatus> {
+    pub fn point_in_time_recovery_status(&self) -> ::std::option::Option<&super::types::PointInTimeRecoveryStatus> {
         self.point_in_time_recovery_status.as_ref()
     }
     /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional.</p>
@@ -45,8 +45,8 @@ impl PointInTimeRecoveryDescription {
 }
 impl PointInTimeRecoveryDescription {
     /// Creates a new builder-style object to manufacture [`PointInTimeRecoveryDescription`](crate::types::PointInTimeRecoveryDescription).
-    pub fn builder() -> crate::types::builders::PointInTimeRecoveryDescriptionBuilder {
-        crate::types::builders::PointInTimeRecoveryDescriptionBuilder::default()
+    pub fn builder() -> super::types::builders::PointInTimeRecoveryDescriptionBuilder {
+        super::types::builders::PointInTimeRecoveryDescriptionBuilder::default()
     }
 }
 
@@ -54,7 +54,7 @@ impl PointInTimeRecoveryDescription {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PointInTimeRecoveryDescriptionBuilder {
-    pub(crate) point_in_time_recovery_status: ::std::option::Option<crate::types::PointInTimeRecoveryStatus>,
+    pub(crate) point_in_time_recovery_status: ::std::option::Option<super::types::PointInTimeRecoveryStatus>,
     pub(crate) recovery_period_in_days: ::std::option::Option<i32>,
     pub(crate) earliest_restorable_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) latest_restorable_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -67,7 +67,7 @@ impl PointInTimeRecoveryDescriptionBuilder {
     /// <li>
     /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
     /// </ul>
-    pub fn point_in_time_recovery_status(mut self, input: crate::types::PointInTimeRecoveryStatus) -> Self {
+    pub fn point_in_time_recovery_status(mut self, input: super::types::PointInTimeRecoveryStatus) -> Self {
         self.point_in_time_recovery_status = ::std::option::Option::Some(input);
         self
     }
@@ -78,7 +78,7 @@ impl PointInTimeRecoveryDescriptionBuilder {
     /// <li>
     /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
     /// </ul>
-    pub fn set_point_in_time_recovery_status(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoveryStatus>) -> Self {
+    pub fn set_point_in_time_recovery_status(mut self, input: ::std::option::Option<super::types::PointInTimeRecoveryStatus>) -> Self {
         self.point_in_time_recovery_status = input;
         self
     }
@@ -89,7 +89,7 @@ impl PointInTimeRecoveryDescriptionBuilder {
     /// <li>
     /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
     /// </ul>
-    pub fn get_point_in_time_recovery_status(&self) -> &::std::option::Option<crate::types::PointInTimeRecoveryStatus> {
+    pub fn get_point_in_time_recovery_status(&self) -> &::std::option::Option<super::types::PointInTimeRecoveryStatus> {
         &self.point_in_time_recovery_status
     }
     /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional.</p>
@@ -135,8 +135,8 @@ impl PointInTimeRecoveryDescriptionBuilder {
         &self.latest_restorable_date_time
     }
     /// Consumes the builder and constructs a [`PointInTimeRecoveryDescription`](crate::types::PointInTimeRecoveryDescription).
-    pub fn build(self) -> crate::types::PointInTimeRecoveryDescription {
-        crate::types::PointInTimeRecoveryDescription {
+    pub fn build(self) -> super::types::PointInTimeRecoveryDescription {
+        super::types::PointInTimeRecoveryDescription {
             point_in_time_recovery_status: self.point_in_time_recovery_status,
             recovery_period_in_days: self.recovery_period_in_days,
             earliest_restorable_date_time: self.earliest_restorable_date_time,

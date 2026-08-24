@@ -34,8 +34,8 @@ impl DeleteFunctionConcurrencyInput {
 }
 impl DeleteFunctionConcurrencyInput {
     /// Creates a new builder-style object to manufacture [`DeleteFunctionConcurrencyInput`](crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput).
-    pub fn builder() -> crate::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyInputBuilder {
-        crate::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyInputBuilder::default()
+    pub fn builder() -> super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyInputBuilder {
+        super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyInputBuilder::default()
     }
 }
 
@@ -95,10 +95,10 @@ impl DeleteFunctionConcurrencyInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput,
+        super::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput {
+        ::std::result::Result::Ok(super::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput {
             function_name: self.function_name,
         })
     }

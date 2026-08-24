@@ -7,7 +7,7 @@ pub struct FunctionVersionsByCapacityProviderListItem {
     /// <p>The Amazon Resource Name (ARN) of the function version.</p>
     pub function_arn: ::std::string::String,
     /// <p>The current state of the function version.</p>
-    pub state: crate::types::State,
+    pub state: super::types::State,
 }
 impl FunctionVersionsByCapacityProviderListItem {
     /// <p>The Amazon Resource Name (ARN) of the function version.</p>
@@ -16,14 +16,14 @@ impl FunctionVersionsByCapacityProviderListItem {
         self.function_arn.deref()
     }
     /// <p>The current state of the function version.</p>
-    pub fn state(&self) -> &crate::types::State {
+    pub fn state(&self) -> &super::types::State {
         &self.state
     }
 }
 impl FunctionVersionsByCapacityProviderListItem {
     /// Creates a new builder-style object to manufacture [`FunctionVersionsByCapacityProviderListItem`](crate::types::FunctionVersionsByCapacityProviderListItem).
-    pub fn builder() -> crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder {
-        crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder::default()
+    pub fn builder() -> super::types::builders::FunctionVersionsByCapacityProviderListItemBuilder {
+        super::types::builders::FunctionVersionsByCapacityProviderListItemBuilder::default()
     }
 }
 
@@ -32,7 +32,7 @@ impl FunctionVersionsByCapacityProviderListItem {
 #[non_exhaustive]
 pub struct FunctionVersionsByCapacityProviderListItemBuilder {
     pub(crate) function_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) state: ::std::option::Option<crate::types::State>,
+    pub(crate) state: ::std::option::Option<super::types::State>,
 }
 impl FunctionVersionsByCapacityProviderListItemBuilder {
     /// <p>The Amazon Resource Name (ARN) of the function version.</p>
@@ -52,17 +52,17 @@ impl FunctionVersionsByCapacityProviderListItemBuilder {
     }
     /// <p>The current state of the function version.</p>
     /// This field is required.
-    pub fn state(mut self, input: crate::types::State) -> Self {
+    pub fn state(mut self, input: super::types::State) -> Self {
         self.state = ::std::option::Option::Some(input);
         self
     }
     /// <p>The current state of the function version.</p>
-    pub fn set_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<super::types::State>) -> Self {
         self.state = input;
         self
     }
     /// <p>The current state of the function version.</p>
-    pub fn get_state(&self) -> &::std::option::Option<crate::types::State> {
+    pub fn get_state(&self) -> &::std::option::Option<super::types::State> {
         &self.state
     }
     /// Consumes the builder and constructs a [`FunctionVersionsByCapacityProviderListItem`](crate::types::FunctionVersionsByCapacityProviderListItem).
@@ -71,8 +71,8 @@ impl FunctionVersionsByCapacityProviderListItemBuilder {
     /// - [`state`](crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder::state)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::FunctionVersionsByCapacityProviderListItem {
+    ) -> ::std::result::Result<super::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::FunctionVersionsByCapacityProviderListItem {
             function_arn: self.function_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "function_arn",

@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`tags(impl Into<String>, impl Into<String>)`](crate::operation::tag_queue::builders::TagQueueFluentBuilder::tags) / [`set_tags(Option<HashMap::<String, String>>)`](crate::operation::tag_queue::builders::TagQueueFluentBuilder::set_tags):<br>required: **true**<br><p>The list of tags to be added to the specified queue.</p><br>
     /// - On success, responds with [`TagQueueOutput`](crate::operation::tag_queue::TagQueueOutput)
     /// - On failure, responds with [`SdkError<TagQueueError>`](crate::operation::tag_queue::TagQueueError)
-    pub fn tag_queue(&self) -> crate::operation::tag_queue::builders::TagQueueFluentBuilder {
-        crate::operation::tag_queue::builders::TagQueueFluentBuilder::new(self.handle.clone())
+    pub fn tag_queue(&self) -> super::operation::tag_queue::builders::TagQueueFluentBuilder {
+        super::operation::tag_queue::builders::TagQueueFluentBuilder::new(self.handle.clone())
     }
 }

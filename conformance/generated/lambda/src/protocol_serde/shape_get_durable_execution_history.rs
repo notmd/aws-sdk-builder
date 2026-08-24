@@ -5,32 +5,32 @@ pub fn de_get_durable_execution_history_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput,
-    crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
+    super::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput,
+    super::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled(generic)),
+        None => return Err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "InvalidParameterValueException" => {
-            crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::InvalidParameterValueException({
+            super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::InvalidParameterValueException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                         _response_body,
                         output,
                     )
-                    .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                    .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -40,13 +40,13 @@ pub fn de_get_durable_execution_history_http_error(
                 tmp
             })
         }
-        "KMSAccessDeniedException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsAccessDeniedException({
+        "KMSAccessDeniedException" => super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsAccessDeniedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                let mut output = super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -55,13 +55,13 @@ pub fn de_get_durable_execution_history_http_error(
             }
             tmp
         }),
-        "KMSDisabledException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsDisabledException({
+        "KMSDisabledException" => super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsDisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsDisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                let mut output = super::types::error::builders::KmsDisabledExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -70,13 +70,13 @@ pub fn de_get_durable_execution_history_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -85,13 +85,13 @@ pub fn de_get_durable_execution_history_http_error(
             }
             tmp
         }),
-        "KMSNotFoundException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsNotFoundException({
+        "KMSNotFoundException" => super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::KmsNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                let mut output = super::types::error::builders::KmsNotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -100,13 +100,13 @@ pub fn de_get_durable_execution_history_http_error(
             }
             tmp
         }),
-        "ResourceNotFoundException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -115,13 +115,13 @@ pub fn de_get_durable_execution_history_http_error(
             }
             tmp
         }),
-        "ServiceException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::ServiceException({
+        "ServiceException" => super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::ServiceException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                let mut output = super::types::error::builders::ServiceExceptionBuilder::default();
+                output = super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -130,13 +130,13 @@ pub fn de_get_durable_execution_history_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::TooManyRequestsException({
+        "TooManyRequestsException" => super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+                let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -145,7 +145,7 @@ pub fn de_get_durable_execution_history_http_error(
             }
             tmp
         }),
-        _ => crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::generic(generic),
+        _ => super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::generic(generic),
     })
 }
 
@@ -155,39 +155,39 @@ pub fn de_get_durable_execution_history_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput,
-    crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
+    super::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput,
+    super::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_durable_execution_history::de_get_durable_execution_history(_response_body, output)
-            .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+        let mut output = super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder::default();
+        output = super::protocol_serde::shape_get_durable_execution_history::de_get_durable_execution_history(_response_body, output)
+            .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        crate::serde_util::get_durable_execution_history_output_output_correct_errors(output)
+        super::serde_util::get_durable_execution_history_output_output_correct_errors(output)
             .build()
-            .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?
+            .map_err(super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?
     })
 }
 
 pub fn ser_get_durable_execution_history_input(
-    input: &crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
+    input: &super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_get_durable_execution_history_input::ser_get_durable_execution_history_input_input(&mut object, input)?;
+    super::protocol_serde::shape_get_durable_execution_history_input::ser_get_durable_execution_history_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_get_durable_execution_history(
     _value: &[u8],
-    mut builder: crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
+    mut builder: super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
+    super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -197,7 +197,7 @@ pub(crate) fn de_get_durable_execution_history(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Events" => {
-                    builder = builder.set_events(crate::protocol_serde::shape_events::de_events(tokens, _value, depth + 1)?);
+                    builder = builder.set_events(super::protocol_serde::shape_events::de_events(tokens, _value, depth + 1)?);
                 }
                 "NextMarker" => {
                     builder = builder.set_next_marker(

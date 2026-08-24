@@ -15,7 +15,7 @@ impl super::Client {
     /// - On success, responds with [`CreateCapacityProviderOutput`](crate::operation::create_capacity_provider::CreateCapacityProviderOutput) with field(s):
     ///   - [`capacity_provider(Option<CapacityProvider>)`](crate::operation::create_capacity_provider::CreateCapacityProviderOutput::capacity_provider): <p>Information about the capacity provider that was created.</p>
     /// - On failure, responds with [`SdkError<CreateCapacityProviderError>`](crate::operation::create_capacity_provider::CreateCapacityProviderError)
-    pub fn create_capacity_provider(&self) -> crate::operation::create_capacity_provider::builders::CreateCapacityProviderFluentBuilder {
-        crate::operation::create_capacity_provider::builders::CreateCapacityProviderFluentBuilder::new(self.handle.clone())
+    pub fn create_capacity_provider(&self) -> super::operation::create_capacity_provider::builders::CreateCapacityProviderFluentBuilder {
+        super::operation::create_capacity_provider::builders::CreateCapacityProviderFluentBuilder::new(self.handle.clone())
     }
 }

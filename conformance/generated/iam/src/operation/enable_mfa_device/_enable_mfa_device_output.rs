@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for EnableMfaDeviceOutput {
 }
 impl EnableMfaDeviceOutput {
     /// Creates a new builder-style object to manufacture [`EnableMfaDeviceOutput`](crate::operation::enable_mfa_device::EnableMfaDeviceOutput).
-    pub fn builder() -> crate::operation::enable_mfa_device::builders::EnableMfaDeviceOutputBuilder {
-        crate::operation::enable_mfa_device::builders::EnableMfaDeviceOutputBuilder::default()
+    pub fn builder() -> super::operation::enable_mfa_device::builders::EnableMfaDeviceOutputBuilder {
+        super::operation::enable_mfa_device::builders::EnableMfaDeviceOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl EnableMfaDeviceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EnableMfaDeviceOutput`](crate::operation::enable_mfa_device::EnableMfaDeviceOutput).
-    pub fn build(self) -> crate::operation::enable_mfa_device::EnableMfaDeviceOutput {
-        crate::operation::enable_mfa_device::EnableMfaDeviceOutput {
+    pub fn build(self) -> super::operation::enable_mfa_device::EnableMfaDeviceOutput {
+        super::operation::enable_mfa_device::EnableMfaDeviceOutput {
             _request_id: self._request_id,
         }
     }

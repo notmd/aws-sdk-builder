@@ -21,8 +21,8 @@ impl WaitStartedDetails {
 }
 impl WaitStartedDetails {
     /// Creates a new builder-style object to manufacture [`WaitStartedDetails`](crate::types::WaitStartedDetails).
-    pub fn builder() -> crate::types::builders::WaitStartedDetailsBuilder {
-        crate::types::builders::WaitStartedDetailsBuilder::default()
+    pub fn builder() -> super::types::builders::WaitStartedDetailsBuilder {
+        super::types::builders::WaitStartedDetailsBuilder::default()
     }
 }
 
@@ -68,8 +68,8 @@ impl WaitStartedDetailsBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`duration`](crate::types::builders::WaitStartedDetailsBuilder::duration)
     /// - [`scheduled_end_timestamp`](crate::types::builders::WaitStartedDetailsBuilder::scheduled_end_timestamp)
-    pub fn build(self) -> ::std::result::Result<crate::types::WaitStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::WaitStartedDetails {
+    pub fn build(self) -> ::std::result::Result<super::types::WaitStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::WaitStartedDetails {
             duration: self.duration.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "duration",

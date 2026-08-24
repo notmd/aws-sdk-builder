@@ -34,7 +34,7 @@ impl ::std::fmt::Display for InvalidRequestContentException {
     }
 }
 impl ::std::error::Error for InvalidRequestContentException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidRequestContentException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidRequestContentException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidReques
 }
 impl InvalidRequestContentException {
     /// Creates a new builder-style object to manufacture [`InvalidRequestContentException`](crate::types::error::InvalidRequestContentException).
-    pub fn builder() -> crate::types::error::builders::InvalidRequestContentExceptionBuilder {
-        crate::types::error::builders::InvalidRequestContentExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidRequestContentExceptionBuilder {
+        super::types::error::builders::InvalidRequestContentExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl InvalidRequestContentExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidRequestContentException`](crate::types::error::InvalidRequestContentException).
-    pub fn build(self) -> crate::types::error::InvalidRequestContentException {
-        crate::types::error::InvalidRequestContentException {
+    pub fn build(self) -> super::types::error::InvalidRequestContentException {
+        super::types::error::InvalidRequestContentException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

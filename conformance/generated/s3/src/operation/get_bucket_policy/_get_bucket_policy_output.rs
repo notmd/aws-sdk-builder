@@ -14,7 +14,7 @@ impl GetBucketPolicyOutput {
         self.policy.as_deref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for GetBucketPolicyOutput {
+impl super::s3_request_id::RequestIdExt for GetBucketPolicyOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -26,8 +26,8 @@ impl ::aws_types::request_id::RequestId for GetBucketPolicyOutput {
 }
 impl GetBucketPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketPolicyOutput`](crate::operation::get_bucket_policy::GetBucketPolicyOutput).
-    pub fn builder() -> crate::operation::get_bucket_policy::builders::GetBucketPolicyOutputBuilder {
-        crate::operation::get_bucket_policy::builders::GetBucketPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_policy::builders::GetBucketPolicyOutputBuilder {
+        super::operation::get_bucket_policy::builders::GetBucketPolicyOutputBuilder::default()
     }
 }
 
@@ -73,8 +73,8 @@ impl GetBucketPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketPolicyOutput`](crate::operation::get_bucket_policy::GetBucketPolicyOutput).
-    pub fn build(self) -> crate::operation::get_bucket_policy::GetBucketPolicyOutput {
-        crate::operation::get_bucket_policy::GetBucketPolicyOutput {
+    pub fn build(self) -> super::operation::get_bucket_policy::GetBucketPolicyOutput {
+        super::operation::get_bucket_policy::GetBucketPolicyOutput {
             policy: self.policy,
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

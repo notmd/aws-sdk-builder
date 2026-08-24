@@ -8,8 +8,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SendDurableExecutionCallbackHeartbeatError>`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError)
     pub fn send_durable_execution_callback_heartbeat(
         &self,
-    ) -> crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatFluentBuilder {
-        crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatFluentBuilder::new(
+    ) -> super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatFluentBuilder {
+        super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatFluentBuilder::new(
             self.handle.clone(),
         )
     }

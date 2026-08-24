@@ -3,7 +3,7 @@ pub(crate) fn de_batch_statement_error<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::BatchStatementError>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::BatchStatementError>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::BatchStatementErrorBuilder::default();
+            let mut builder = super::types::builders::BatchStatementErrorBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -24,7 +24,7 @@ where
                         "Code" => {
                             builder = builder.set_code(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::BatchStatementErrorCodeEnum::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::BatchStatementErrorCodeEnum::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
@@ -36,7 +36,7 @@ where
                             );
                         }
                         "Item" => {
-                            builder = builder.set_item(crate::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?);
+                            builder = builder.set_item(super::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

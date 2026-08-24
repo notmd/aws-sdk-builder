@@ -24,8 +24,8 @@ impl UntagMfaDeviceInput {
 }
 impl UntagMfaDeviceInput {
     /// Creates a new builder-style object to manufacture [`UntagMfaDeviceInput`](crate::operation::untag_mfa_device::UntagMfaDeviceInput).
-    pub fn builder() -> crate::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder {
-        crate::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder::default()
+    pub fn builder() -> super::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder {
+        super::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl UntagMfaDeviceInputBuilder {
     /// Consumes the builder and constructs a [`UntagMfaDeviceInput`](crate::operation::untag_mfa_device::UntagMfaDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::untag_mfa_device::UntagMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::untag_mfa_device::UntagMfaDeviceInput {
+    ) -> ::std::result::Result<super::operation::untag_mfa_device::UntagMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::untag_mfa_device::UntagMfaDeviceInput {
             serial_number: self.serial_number,
             tag_keys: self.tag_keys,
         })

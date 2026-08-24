@@ -16,18 +16,18 @@ pub struct GetObjectAttributesOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     /// <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
     pub e_tag: ::std::option::Option<::std::string::String>,
     /// <p>The checksum or digest of the object.</p>
-    pub checksum: ::std::option::Option<crate::types::Checksum>,
+    pub checksum: ::std::option::Option<super::types::Checksum>,
     /// <p>A collection of parts associated with a multipart upload.</p>
-    pub object_parts: ::std::option::Option<crate::types::GetObjectAttributesParts>,
+    pub object_parts: ::std::option::Option<super::types::GetObjectAttributesParts>,
     /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub storage_class: ::std::option::Option<crate::types::StorageClass>,
+    pub storage_class: ::std::option::Option<super::types::StorageClass>,
     /// <p>The size of the object in bytes.</p>
     pub object_size: ::std::option::Option<i64>,
     _extended_request_id: Option<String>,
@@ -53,7 +53,7 @@ impl GetObjectAttributesOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
     /// <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
@@ -61,18 +61,18 @@ impl GetObjectAttributesOutput {
         self.e_tag.as_deref()
     }
     /// <p>The checksum or digest of the object.</p>
-    pub fn checksum(&self) -> ::std::option::Option<&crate::types::Checksum> {
+    pub fn checksum(&self) -> ::std::option::Option<&super::types::Checksum> {
         self.checksum.as_ref()
     }
     /// <p>A collection of parts associated with a multipart upload.</p>
-    pub fn object_parts(&self) -> ::std::option::Option<&crate::types::GetObjectAttributesParts> {
+    pub fn object_parts(&self) -> ::std::option::Option<&super::types::GetObjectAttributesParts> {
         self.object_parts.as_ref()
     }
     /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::StorageClass> {
+    pub fn storage_class(&self) -> ::std::option::Option<&super::types::StorageClass> {
         self.storage_class.as_ref()
     }
     /// <p>The size of the object in bytes.</p>
@@ -80,7 +80,7 @@ impl GetObjectAttributesOutput {
         self.object_size
     }
 }
-impl crate::s3_request_id::RequestIdExt for GetObjectAttributesOutput {
+impl super::s3_request_id::RequestIdExt for GetObjectAttributesOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -92,8 +92,8 @@ impl ::aws_types::request_id::RequestId for GetObjectAttributesOutput {
 }
 impl GetObjectAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectAttributesOutput`](crate::operation::get_object_attributes::GetObjectAttributesOutput).
-    pub fn builder() -> crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder {
-        crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder::default()
+    pub fn builder() -> super::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder {
+        super::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder::default()
     }
 }
 
@@ -104,11 +104,11 @@ pub struct GetObjectAttributesOutputBuilder {
     pub(crate) delete_marker: ::std::option::Option<bool>,
     pub(crate) last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
     pub(crate) e_tag: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum: ::std::option::Option<crate::types::Checksum>,
-    pub(crate) object_parts: ::std::option::Option<crate::types::GetObjectAttributesParts>,
-    pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
+    pub(crate) checksum: ::std::option::Option<super::types::Checksum>,
+    pub(crate) object_parts: ::std::option::Option<super::types::GetObjectAttributesParts>,
+    pub(crate) storage_class: ::std::option::Option<super::types::StorageClass>,
     pub(crate) object_size: ::std::option::Option<i64>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
@@ -171,21 +171,21 @@ impl GetObjectAttributesOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     /// <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
@@ -203,38 +203,38 @@ impl GetObjectAttributesOutputBuilder {
         &self.e_tag
     }
     /// <p>The checksum or digest of the object.</p>
-    pub fn checksum(mut self, input: crate::types::Checksum) -> Self {
+    pub fn checksum(mut self, input: super::types::Checksum) -> Self {
         self.checksum = ::std::option::Option::Some(input);
         self
     }
     /// <p>The checksum or digest of the object.</p>
-    pub fn set_checksum(mut self, input: ::std::option::Option<crate::types::Checksum>) -> Self {
+    pub fn set_checksum(mut self, input: ::std::option::Option<super::types::Checksum>) -> Self {
         self.checksum = input;
         self
     }
     /// <p>The checksum or digest of the object.</p>
-    pub fn get_checksum(&self) -> &::std::option::Option<crate::types::Checksum> {
+    pub fn get_checksum(&self) -> &::std::option::Option<super::types::Checksum> {
         &self.checksum
     }
     /// <p>A collection of parts associated with a multipart upload.</p>
-    pub fn object_parts(mut self, input: crate::types::GetObjectAttributesParts) -> Self {
+    pub fn object_parts(mut self, input: super::types::GetObjectAttributesParts) -> Self {
         self.object_parts = ::std::option::Option::Some(input);
         self
     }
     /// <p>A collection of parts associated with a multipart upload.</p>
-    pub fn set_object_parts(mut self, input: ::std::option::Option<crate::types::GetObjectAttributesParts>) -> Self {
+    pub fn set_object_parts(mut self, input: ::std::option::Option<super::types::GetObjectAttributesParts>) -> Self {
         self.object_parts = input;
         self
     }
     /// <p>A collection of parts associated with a multipart upload.</p>
-    pub fn get_object_parts(&self) -> &::std::option::Option<crate::types::GetObjectAttributesParts> {
+    pub fn get_object_parts(&self) -> &::std::option::Option<super::types::GetObjectAttributesParts> {
         &self.object_parts
     }
     /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
+    pub fn storage_class(mut self, input: super::types::StorageClass) -> Self {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
@@ -242,7 +242,7 @@ impl GetObjectAttributesOutputBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
+    pub fn set_storage_class(mut self, input: ::std::option::Option<super::types::StorageClass>) -> Self {
         self.storage_class = input;
         self
     }
@@ -250,7 +250,7 @@ impl GetObjectAttributesOutputBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
+    pub fn get_storage_class(&self) -> &::std::option::Option<super::types::StorageClass> {
         &self.storage_class
     }
     /// <p>The size of the object in bytes.</p>
@@ -286,8 +286,8 @@ impl GetObjectAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetObjectAttributesOutput`](crate::operation::get_object_attributes::GetObjectAttributesOutput).
-    pub fn build(self) -> crate::operation::get_object_attributes::GetObjectAttributesOutput {
-        crate::operation::get_object_attributes::GetObjectAttributesOutput {
+    pub fn build(self) -> super::operation::get_object_attributes::GetObjectAttributesOutput {
+        super::operation::get_object_attributes::GetObjectAttributesOutput {
             delete_marker: self.delete_marker,
             last_modified: self.last_modified,
             version_id: self.version_id,

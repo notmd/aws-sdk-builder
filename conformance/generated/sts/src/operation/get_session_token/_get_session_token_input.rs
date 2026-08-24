@@ -30,8 +30,8 @@ impl GetSessionTokenInput {
 }
 impl GetSessionTokenInput {
     /// Creates a new builder-style object to manufacture [`GetSessionTokenInput`](crate::operation::get_session_token::GetSessionTokenInput).
-    pub fn builder() -> crate::operation::get_session_token::builders::GetSessionTokenInputBuilder {
-        crate::operation::get_session_token::builders::GetSessionTokenInputBuilder::default()
+    pub fn builder() -> super::operation::get_session_token::builders::GetSessionTokenInputBuilder {
+        super::operation::get_session_token::builders::GetSessionTokenInputBuilder::default()
     }
 }
 
@@ -95,8 +95,8 @@ impl GetSessionTokenInputBuilder {
     /// Consumes the builder and constructs a [`GetSessionTokenInput`](crate::operation::get_session_token::GetSessionTokenInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_session_token::GetSessionTokenInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_session_token::GetSessionTokenInput {
+    ) -> ::std::result::Result<super::operation::get_session_token::GetSessionTokenInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_session_token::GetSessionTokenInput {
             duration_seconds: self.duration_seconds,
             serial_number: self.serial_number,
             token_code: self.token_code,

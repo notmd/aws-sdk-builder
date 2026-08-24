@@ -6,7 +6,7 @@ impl super::Client {
     ///   - [`subscription_arn(impl Into<String>)`](crate::operation::unsubscribe::builders::UnsubscribeFluentBuilder::subscription_arn) / [`set_subscription_arn(Option<String>)`](crate::operation::unsubscribe::builders::UnsubscribeFluentBuilder::set_subscription_arn):<br>required: **true**<br><p>The ARN of the subscription to be deleted.</p><br>
     /// - On success, responds with [`UnsubscribeOutput`](crate::operation::unsubscribe::UnsubscribeOutput)
     /// - On failure, responds with [`SdkError<UnsubscribeError>`](crate::operation::unsubscribe::UnsubscribeError)
-    pub fn unsubscribe(&self) -> crate::operation::unsubscribe::builders::UnsubscribeFluentBuilder {
-        crate::operation::unsubscribe::builders::UnsubscribeFluentBuilder::new(self.handle.clone())
+    pub fn unsubscribe(&self) -> super::operation::unsubscribe::builders::UnsubscribeFluentBuilder {
+        super::operation::unsubscribe::builders::UnsubscribeFluentBuilder::new(self.handle.clone())
     }
 }

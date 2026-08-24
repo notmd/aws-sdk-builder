@@ -21,8 +21,8 @@ impl GetSmsAttributesInput {
 }
 impl GetSmsAttributesInput {
     /// Creates a new builder-style object to manufacture [`GetSmsAttributesInput`](crate::operation::get_sms_attributes::GetSmsAttributesInput).
-    pub fn builder() -> crate::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder {
-        crate::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder::default()
+    pub fn builder() -> super::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder {
+        super::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder::default()
     }
 }
 
@@ -62,7 +62,7 @@ impl GetSmsAttributesInputBuilder {
     /// Consumes the builder and constructs a [`GetSmsAttributesInput`](crate::operation::get_sms_attributes::GetSmsAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_sms_attributes::GetSmsAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_sms_attributes::GetSmsAttributesInput { attributes: self.attributes })
+    ) -> ::std::result::Result<super::operation::get_sms_attributes::GetSmsAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_sms_attributes::GetSmsAttributesInput { attributes: self.attributes })
     }
 }

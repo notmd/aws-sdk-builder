@@ -6,7 +6,7 @@ pub struct PutBucketEncryptionOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for PutBucketEncryptionOutput {
+impl super::s3_request_id::RequestIdExt for PutBucketEncryptionOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for PutBucketEncryptionOutput {
 }
 impl PutBucketEncryptionOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketEncryptionOutput`](crate::operation::put_bucket_encryption::PutBucketEncryptionOutput).
-    pub fn builder() -> crate::operation::put_bucket_encryption::builders::PutBucketEncryptionOutputBuilder {
-        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionOutputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_encryption::builders::PutBucketEncryptionOutputBuilder {
+        super::operation::put_bucket_encryption::builders::PutBucketEncryptionOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl PutBucketEncryptionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketEncryptionOutput`](crate::operation::put_bucket_encryption::PutBucketEncryptionOutput).
-    pub fn build(self) -> crate::operation::put_bucket_encryption::PutBucketEncryptionOutput {
-        crate::operation::put_bucket_encryption::PutBucketEncryptionOutput {
+    pub fn build(self) -> super::operation::put_bucket_encryption::PutBucketEncryptionOutput {
+        super::operation::put_bucket_encryption::PutBucketEncryptionOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

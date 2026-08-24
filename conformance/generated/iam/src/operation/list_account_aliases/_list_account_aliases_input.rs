@@ -22,8 +22,8 @@ impl ListAccountAliasesInput {
 }
 impl ListAccountAliasesInput {
     /// Creates a new builder-style object to manufacture [`ListAccountAliasesInput`](crate::operation::list_account_aliases::ListAccountAliasesInput).
-    pub fn builder() -> crate::operation::list_account_aliases::builders::ListAccountAliasesInputBuilder {
-        crate::operation::list_account_aliases::builders::ListAccountAliasesInputBuilder::default()
+    pub fn builder() -> super::operation::list_account_aliases::builders::ListAccountAliasesInputBuilder {
+        super::operation::list_account_aliases::builders::ListAccountAliasesInputBuilder::default()
     }
 }
 
@@ -69,9 +69,9 @@ impl ListAccountAliasesInputBuilder {
     /// Consumes the builder and constructs a [`ListAccountAliasesInput`](crate::operation::list_account_aliases::ListAccountAliasesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_account_aliases::ListAccountAliasesInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::list_account_aliases::ListAccountAliasesInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::list_account_aliases::ListAccountAliasesInput {
+        ::std::result::Result::Ok(super::operation::list_account_aliases::ListAccountAliasesInput {
             marker: self.marker,
             max_items: self.max_items,
         })

@@ -6,7 +6,7 @@ pub struct DeleteBucketWebsiteOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for DeleteBucketWebsiteOutput {
+impl super::s3_request_id::RequestIdExt for DeleteBucketWebsiteOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for DeleteBucketWebsiteOutput {
 }
 impl DeleteBucketWebsiteOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketWebsiteOutput`](crate::operation::delete_bucket_website::DeleteBucketWebsiteOutput).
-    pub fn builder() -> crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteOutputBuilder {
-        crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_website::builders::DeleteBucketWebsiteOutputBuilder {
+        super::operation::delete_bucket_website::builders::DeleteBucketWebsiteOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl DeleteBucketWebsiteOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketWebsiteOutput`](crate::operation::delete_bucket_website::DeleteBucketWebsiteOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_website::DeleteBucketWebsiteOutput {
-        crate::operation::delete_bucket_website::DeleteBucketWebsiteOutput {
+    pub fn build(self) -> super::operation::delete_bucket_website::DeleteBucketWebsiteOutput {
+        super::operation::delete_bucket_website::DeleteBucketWebsiteOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

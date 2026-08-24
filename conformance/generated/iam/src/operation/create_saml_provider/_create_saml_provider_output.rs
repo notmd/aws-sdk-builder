@@ -7,7 +7,7 @@ pub struct CreateSamlProviderOutput {
     /// <p>The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.</p>
     pub saml_provider_arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
     _request_id: Option<String>,
 }
 impl CreateSamlProviderOutput {
@@ -18,7 +18,7 @@ impl CreateSamlProviderOutput {
     /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
 }
@@ -29,8 +29,8 @@ impl ::aws_types::request_id::RequestId for CreateSamlProviderOutput {
 }
 impl CreateSamlProviderOutput {
     /// Creates a new builder-style object to manufacture [`CreateSamlProviderOutput`](crate::operation::create_saml_provider::CreateSamlProviderOutput).
-    pub fn builder() -> crate::operation::create_saml_provider::builders::CreateSamlProviderOutputBuilder {
-        crate::operation::create_saml_provider::builders::CreateSamlProviderOutputBuilder::default()
+    pub fn builder() -> super::operation::create_saml_provider::builders::CreateSamlProviderOutputBuilder {
+        super::operation::create_saml_provider::builders::CreateSamlProviderOutputBuilder::default()
     }
 }
 
@@ -39,7 +39,7 @@ impl CreateSamlProviderOutput {
 #[non_exhaustive]
 pub struct CreateSamlProviderOutputBuilder {
     pub(crate) saml_provider_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
     _request_id: Option<String>,
 }
 impl CreateSamlProviderOutputBuilder {
@@ -62,19 +62,19 @@ impl CreateSamlProviderOutputBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -87,8 +87,8 @@ impl CreateSamlProviderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateSamlProviderOutput`](crate::operation::create_saml_provider::CreateSamlProviderOutput).
-    pub fn build(self) -> crate::operation::create_saml_provider::CreateSamlProviderOutput {
-        crate::operation::create_saml_provider::CreateSamlProviderOutput {
+    pub fn build(self) -> super::operation::create_saml_provider::CreateSamlProviderOutput {
+        super::operation::create_saml_provider::CreateSamlProviderOutput {
             saml_provider_arn: self.saml_provider_arn,
             tags: self.tags,
             _request_id: self._request_id,

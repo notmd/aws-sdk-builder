@@ -13,7 +13,7 @@ pub struct GenerateDataKeyPairOutput {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The type of data key pair that was generated.</p>
-    pub key_pair_spec: ::std::option::Option<crate::types::DataKeyPairSpec>,
+    pub key_pair_spec: ::std::option::Option<super::types::DataKeyPairSpec>,
     /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
@@ -40,7 +40,7 @@ impl GenerateDataKeyPairOutput {
         self.key_id.as_deref()
     }
     /// <p>The type of data key pair that was generated.</p>
-    pub fn key_pair_spec(&self) -> ::std::option::Option<&crate::types::DataKeyPairSpec> {
+    pub fn key_pair_spec(&self) -> ::std::option::Option<&super::types::DataKeyPairSpec> {
         self.key_pair_spec.as_ref()
     }
     /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
@@ -74,8 +74,8 @@ impl ::aws_types::request_id::RequestId for GenerateDataKeyPairOutput {
 }
 impl GenerateDataKeyPairOutput {
     /// Creates a new builder-style object to manufacture [`GenerateDataKeyPairOutput`](crate::operation::generate_data_key_pair::GenerateDataKeyPairOutput).
-    pub fn builder() -> crate::operation::generate_data_key_pair::builders::GenerateDataKeyPairOutputBuilder {
-        crate::operation::generate_data_key_pair::builders::GenerateDataKeyPairOutputBuilder::default()
+    pub fn builder() -> super::operation::generate_data_key_pair::builders::GenerateDataKeyPairOutputBuilder {
+        super::operation::generate_data_key_pair::builders::GenerateDataKeyPairOutputBuilder::default()
     }
 }
 
@@ -87,7 +87,7 @@ pub struct GenerateDataKeyPairOutputBuilder {
     pub(crate) private_key_plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) public_key: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) key_pair_spec: ::std::option::Option<crate::types::DataKeyPairSpec>,
+    pub(crate) key_pair_spec: ::std::option::Option<super::types::DataKeyPairSpec>,
     pub(crate) ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -153,17 +153,17 @@ impl GenerateDataKeyPairOutputBuilder {
         &self.key_id
     }
     /// <p>The type of data key pair that was generated.</p>
-    pub fn key_pair_spec(mut self, input: crate::types::DataKeyPairSpec) -> Self {
+    pub fn key_pair_spec(mut self, input: super::types::DataKeyPairSpec) -> Self {
         self.key_pair_spec = ::std::option::Option::Some(input);
         self
     }
     /// <p>The type of data key pair that was generated.</p>
-    pub fn set_key_pair_spec(mut self, input: ::std::option::Option<crate::types::DataKeyPairSpec>) -> Self {
+    pub fn set_key_pair_spec(mut self, input: ::std::option::Option<super::types::DataKeyPairSpec>) -> Self {
         self.key_pair_spec = input;
         self
     }
     /// <p>The type of data key pair that was generated.</p>
-    pub fn get_key_pair_spec(&self) -> &::std::option::Option<crate::types::DataKeyPairSpec> {
+    pub fn get_key_pair_spec(&self) -> &::std::option::Option<super::types::DataKeyPairSpec> {
         &self.key_pair_spec
     }
     /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
@@ -207,8 +207,8 @@ impl GenerateDataKeyPairOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateDataKeyPairOutput`](crate::operation::generate_data_key_pair::GenerateDataKeyPairOutput).
-    pub fn build(self) -> crate::operation::generate_data_key_pair::GenerateDataKeyPairOutput {
-        crate::operation::generate_data_key_pair::GenerateDataKeyPairOutput {
+    pub fn build(self) -> super::operation::generate_data_key_pair::GenerateDataKeyPairOutput {
+        super::operation::generate_data_key_pair::GenerateDataKeyPairOutput {
             private_key_ciphertext_blob: self.private_key_ciphertext_blob,
             private_key_plaintext: self.private_key_plaintext,
             public_key: self.public_key,

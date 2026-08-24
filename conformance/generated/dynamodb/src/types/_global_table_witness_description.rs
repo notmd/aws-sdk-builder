@@ -7,7 +7,7 @@ pub struct GlobalTableWitnessDescription {
     /// <p>The name of the Amazon Web Services Region that serves as a witness for the MRSC global table.</p>
     pub region_name: ::std::option::Option<::std::string::String>,
     /// <p>The current status of the witness Region in the MRSC global table.</p>
-    pub witness_status: ::std::option::Option<crate::types::WitnessStatus>,
+    pub witness_status: ::std::option::Option<super::types::WitnessStatus>,
 }
 impl GlobalTableWitnessDescription {
     /// <p>The name of the Amazon Web Services Region that serves as a witness for the MRSC global table.</p>
@@ -15,14 +15,14 @@ impl GlobalTableWitnessDescription {
         self.region_name.as_deref()
     }
     /// <p>The current status of the witness Region in the MRSC global table.</p>
-    pub fn witness_status(&self) -> ::std::option::Option<&crate::types::WitnessStatus> {
+    pub fn witness_status(&self) -> ::std::option::Option<&super::types::WitnessStatus> {
         self.witness_status.as_ref()
     }
 }
 impl GlobalTableWitnessDescription {
     /// Creates a new builder-style object to manufacture [`GlobalTableWitnessDescription`](crate::types::GlobalTableWitnessDescription).
-    pub fn builder() -> crate::types::builders::GlobalTableWitnessDescriptionBuilder {
-        crate::types::builders::GlobalTableWitnessDescriptionBuilder::default()
+    pub fn builder() -> super::types::builders::GlobalTableWitnessDescriptionBuilder {
+        super::types::builders::GlobalTableWitnessDescriptionBuilder::default()
     }
 }
 
@@ -31,7 +31,7 @@ impl GlobalTableWitnessDescription {
 #[non_exhaustive]
 pub struct GlobalTableWitnessDescriptionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
-    pub(crate) witness_status: ::std::option::Option<crate::types::WitnessStatus>,
+    pub(crate) witness_status: ::std::option::Option<super::types::WitnessStatus>,
 }
 impl GlobalTableWitnessDescriptionBuilder {
     /// <p>The name of the Amazon Web Services Region that serves as a witness for the MRSC global table.</p>
@@ -49,22 +49,22 @@ impl GlobalTableWitnessDescriptionBuilder {
         &self.region_name
     }
     /// <p>The current status of the witness Region in the MRSC global table.</p>
-    pub fn witness_status(mut self, input: crate::types::WitnessStatus) -> Self {
+    pub fn witness_status(mut self, input: super::types::WitnessStatus) -> Self {
         self.witness_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The current status of the witness Region in the MRSC global table.</p>
-    pub fn set_witness_status(mut self, input: ::std::option::Option<crate::types::WitnessStatus>) -> Self {
+    pub fn set_witness_status(mut self, input: ::std::option::Option<super::types::WitnessStatus>) -> Self {
         self.witness_status = input;
         self
     }
     /// <p>The current status of the witness Region in the MRSC global table.</p>
-    pub fn get_witness_status(&self) -> &::std::option::Option<crate::types::WitnessStatus> {
+    pub fn get_witness_status(&self) -> &::std::option::Option<super::types::WitnessStatus> {
         &self.witness_status
     }
     /// Consumes the builder and constructs a [`GlobalTableWitnessDescription`](crate::types::GlobalTableWitnessDescription).
-    pub fn build(self) -> crate::types::GlobalTableWitnessDescription {
-        crate::types::GlobalTableWitnessDescription {
+    pub fn build(self) -> super::types::GlobalTableWitnessDescription {
+        super::types::GlobalTableWitnessDescription {
             region_name: self.region_name,
             witness_status: self.witness_status,
         }

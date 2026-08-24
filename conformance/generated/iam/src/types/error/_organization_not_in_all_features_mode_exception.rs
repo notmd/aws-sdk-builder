@@ -26,7 +26,7 @@ impl ::std::fmt::Display for OrganizationNotInAllFeaturesModeException {
     }
 }
 impl ::std::error::Error for OrganizationNotInAllFeaturesModeException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::OrganizationNotInAllFeaturesModeException {
+impl ::aws_types::request_id::RequestId for super::types::error::OrganizationNotInAllFeaturesModeException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for OrganizationN
 }
 impl OrganizationNotInAllFeaturesModeException {
     /// Creates a new builder-style object to manufacture [`OrganizationNotInAllFeaturesModeException`](crate::types::error::OrganizationNotInAllFeaturesModeException).
-    pub fn builder() -> crate::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder {
-        crate::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder {
+        super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl OrganizationNotInAllFeaturesModeExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`OrganizationNotInAllFeaturesModeException`](crate::types::error::OrganizationNotInAllFeaturesModeException).
-    pub fn build(self) -> crate::types::error::OrganizationNotInAllFeaturesModeException {
-        crate::types::error::OrganizationNotInAllFeaturesModeException {
+    pub fn build(self) -> super::types::error::OrganizationNotInAllFeaturesModeException {
+        super::types::error::OrganizationNotInAllFeaturesModeException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

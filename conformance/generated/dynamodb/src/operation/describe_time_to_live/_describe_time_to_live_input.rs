@@ -14,8 +14,8 @@ impl DescribeTimeToLiveInput {
 }
 impl DescribeTimeToLiveInput {
     /// Creates a new builder-style object to manufacture [`DescribeTimeToLiveInput`](crate::operation::describe_time_to_live::DescribeTimeToLiveInput).
-    pub fn builder() -> crate::operation::describe_time_to_live::builders::DescribeTimeToLiveInputBuilder {
-        crate::operation::describe_time_to_live::builders::DescribeTimeToLiveInputBuilder::default()
+    pub fn builder() -> super::operation::describe_time_to_live::builders::DescribeTimeToLiveInputBuilder {
+        super::operation::describe_time_to_live::builders::DescribeTimeToLiveInputBuilder::default()
     }
 }
 
@@ -44,8 +44,8 @@ impl DescribeTimeToLiveInputBuilder {
     /// Consumes the builder and constructs a [`DescribeTimeToLiveInput`](crate::operation::describe_time_to_live::DescribeTimeToLiveInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::describe_time_to_live::DescribeTimeToLiveInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::describe_time_to_live::DescribeTimeToLiveInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::describe_time_to_live::DescribeTimeToLiveInput { table_name: self.table_name })
+        ::std::result::Result::Ok(super::operation::describe_time_to_live::DescribeTimeToLiveInput { table_name: self.table_name })
     }
 }

@@ -8,9 +8,9 @@ pub struct CreateFunctionUrlConfigOutput {
     /// <p>The Amazon Resource Name (ARN) of your function.</p>
     pub function_arn: ::std::string::String,
     /// <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
-    pub auth_type: crate::types::FunctionUrlAuthType,
+    pub auth_type: super::types::FunctionUrlAuthType,
     /// <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
-    pub cors: ::std::option::Option<crate::types::Cors>,
+    pub cors: ::std::option::Option<super::types::Cors>,
     /// <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub creation_time: ::std::string::String,
     /// <p>Use one of the following options:</p>
@@ -20,7 +20,7 @@ pub struct CreateFunctionUrlConfigOutput {
     /// <li>
     /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
     /// </ul>
-    pub invoke_mode: ::std::option::Option<crate::types::InvokeMode>,
+    pub invoke_mode: ::std::option::Option<super::types::InvokeMode>,
     _request_id: Option<String>,
 }
 impl CreateFunctionUrlConfigOutput {
@@ -35,11 +35,11 @@ impl CreateFunctionUrlConfigOutput {
         self.function_arn.deref()
     }
     /// <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
-    pub fn auth_type(&self) -> &crate::types::FunctionUrlAuthType {
+    pub fn auth_type(&self) -> &super::types::FunctionUrlAuthType {
         &self.auth_type
     }
     /// <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
-    pub fn cors(&self) -> ::std::option::Option<&crate::types::Cors> {
+    pub fn cors(&self) -> ::std::option::Option<&super::types::Cors> {
         self.cors.as_ref()
     }
     /// <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -54,7 +54,7 @@ impl CreateFunctionUrlConfigOutput {
     /// <li>
     /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
     /// </ul>
-    pub fn invoke_mode(&self) -> ::std::option::Option<&crate::types::InvokeMode> {
+    pub fn invoke_mode(&self) -> ::std::option::Option<&super::types::InvokeMode> {
         self.invoke_mode.as_ref()
     }
 }
@@ -65,8 +65,8 @@ impl ::aws_types::request_id::RequestId for CreateFunctionUrlConfigOutput {
 }
 impl CreateFunctionUrlConfigOutput {
     /// Creates a new builder-style object to manufacture [`CreateFunctionUrlConfigOutput`](crate::operation::create_function_url_config::CreateFunctionUrlConfigOutput).
-    pub fn builder() -> crate::operation::create_function_url_config::builders::CreateFunctionUrlConfigOutputBuilder {
-        crate::operation::create_function_url_config::builders::CreateFunctionUrlConfigOutputBuilder::default()
+    pub fn builder() -> super::operation::create_function_url_config::builders::CreateFunctionUrlConfigOutputBuilder {
+        super::operation::create_function_url_config::builders::CreateFunctionUrlConfigOutputBuilder::default()
     }
 }
 
@@ -76,10 +76,10 @@ impl CreateFunctionUrlConfigOutput {
 pub struct CreateFunctionUrlConfigOutputBuilder {
     pub(crate) function_url: ::std::option::Option<::std::string::String>,
     pub(crate) function_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) auth_type: ::std::option::Option<crate::types::FunctionUrlAuthType>,
-    pub(crate) cors: ::std::option::Option<crate::types::Cors>,
+    pub(crate) auth_type: ::std::option::Option<super::types::FunctionUrlAuthType>,
+    pub(crate) cors: ::std::option::Option<super::types::Cors>,
     pub(crate) creation_time: ::std::option::Option<::std::string::String>,
-    pub(crate) invoke_mode: ::std::option::Option<crate::types::InvokeMode>,
+    pub(crate) invoke_mode: ::std::option::Option<super::types::InvokeMode>,
     _request_id: Option<String>,
 }
 impl CreateFunctionUrlConfigOutputBuilder {
@@ -115,31 +115,31 @@ impl CreateFunctionUrlConfigOutputBuilder {
     }
     /// <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
     /// This field is required.
-    pub fn auth_type(mut self, input: crate::types::FunctionUrlAuthType) -> Self {
+    pub fn auth_type(mut self, input: super::types::FunctionUrlAuthType) -> Self {
         self.auth_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
-    pub fn set_auth_type(mut self, input: ::std::option::Option<crate::types::FunctionUrlAuthType>) -> Self {
+    pub fn set_auth_type(mut self, input: ::std::option::Option<super::types::FunctionUrlAuthType>) -> Self {
         self.auth_type = input;
         self
     }
     /// <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
-    pub fn get_auth_type(&self) -> &::std::option::Option<crate::types::FunctionUrlAuthType> {
+    pub fn get_auth_type(&self) -> &::std::option::Option<super::types::FunctionUrlAuthType> {
         &self.auth_type
     }
     /// <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
-    pub fn cors(mut self, input: crate::types::Cors) -> Self {
+    pub fn cors(mut self, input: super::types::Cors) -> Self {
         self.cors = ::std::option::Option::Some(input);
         self
     }
     /// <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
-    pub fn set_cors(mut self, input: ::std::option::Option<crate::types::Cors>) -> Self {
+    pub fn set_cors(mut self, input: ::std::option::Option<super::types::Cors>) -> Self {
         self.cors = input;
         self
     }
     /// <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
-    pub fn get_cors(&self) -> &::std::option::Option<crate::types::Cors> {
+    pub fn get_cors(&self) -> &::std::option::Option<super::types::Cors> {
         &self.cors
     }
     /// <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
@@ -164,7 +164,7 @@ impl CreateFunctionUrlConfigOutputBuilder {
     /// <li>
     /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
     /// </ul>
-    pub fn invoke_mode(mut self, input: crate::types::InvokeMode) -> Self {
+    pub fn invoke_mode(mut self, input: super::types::InvokeMode) -> Self {
         self.invoke_mode = ::std::option::Option::Some(input);
         self
     }
@@ -175,7 +175,7 @@ impl CreateFunctionUrlConfigOutputBuilder {
     /// <li>
     /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
     /// </ul>
-    pub fn set_invoke_mode(mut self, input: ::std::option::Option<crate::types::InvokeMode>) -> Self {
+    pub fn set_invoke_mode(mut self, input: ::std::option::Option<super::types::InvokeMode>) -> Self {
         self.invoke_mode = input;
         self
     }
@@ -186,7 +186,7 @@ impl CreateFunctionUrlConfigOutputBuilder {
     /// <li>
     /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
     /// </ul>
-    pub fn get_invoke_mode(&self) -> &::std::option::Option<crate::types::InvokeMode> {
+    pub fn get_invoke_mode(&self) -> &::std::option::Option<super::types::InvokeMode> {
         &self.invoke_mode
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -207,10 +207,10 @@ impl CreateFunctionUrlConfigOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::create_function_url_config::CreateFunctionUrlConfigOutput,
+        super::operation::create_function_url_config::CreateFunctionUrlConfigOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::create_function_url_config::CreateFunctionUrlConfigOutput {
+        ::std::result::Result::Ok(super::operation::create_function_url_config::CreateFunctionUrlConfigOutput {
             function_url: self.function_url.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "function_url",

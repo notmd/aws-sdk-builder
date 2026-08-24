@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListSigningCertificatesOutput {
     /// <p>A list of the user's signing certificate information.</p>
-    pub certificates: ::std::vec::Vec<crate::types::SigningCertificate>,
+    pub certificates: ::std::vec::Vec<super::types::SigningCertificate>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -14,7 +14,7 @@ pub struct ListSigningCertificatesOutput {
 }
 impl ListSigningCertificatesOutput {
     /// <p>A list of the user's signing certificate information.</p>
-    pub fn certificates(&self) -> &[crate::types::SigningCertificate] {
+    pub fn certificates(&self) -> &[super::types::SigningCertificate] {
         use std::ops::Deref;
         self.certificates.deref()
     }
@@ -34,8 +34,8 @@ impl ::aws_types::request_id::RequestId for ListSigningCertificatesOutput {
 }
 impl ListSigningCertificatesOutput {
     /// Creates a new builder-style object to manufacture [`ListSigningCertificatesOutput`](crate::operation::list_signing_certificates::ListSigningCertificatesOutput).
-    pub fn builder() -> crate::operation::list_signing_certificates::builders::ListSigningCertificatesOutputBuilder {
-        crate::operation::list_signing_certificates::builders::ListSigningCertificatesOutputBuilder::default()
+    pub fn builder() -> super::operation::list_signing_certificates::builders::ListSigningCertificatesOutputBuilder {
+        super::operation::list_signing_certificates::builders::ListSigningCertificatesOutputBuilder::default()
     }
 }
 
@@ -43,7 +43,7 @@ impl ListSigningCertificatesOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSigningCertificatesOutputBuilder {
-    pub(crate) certificates: ::std::option::Option<::std::vec::Vec<crate::types::SigningCertificate>>,
+    pub(crate) certificates: ::std::option::Option<::std::vec::Vec<super::types::SigningCertificate>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -54,19 +54,19 @@ impl ListSigningCertificatesOutputBuilder {
     /// To override the contents of this collection use [`set_certificates`](Self::set_certificates).
     ///
     /// <p>A list of the user's signing certificate information.</p>
-    pub fn certificates(mut self, input: crate::types::SigningCertificate) -> Self {
+    pub fn certificates(mut self, input: super::types::SigningCertificate) -> Self {
         let mut v = self.certificates.unwrap_or_default();
         v.push(input);
         self.certificates = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of the user's signing certificate information.</p>
-    pub fn set_certificates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SigningCertificate>>) -> Self {
+    pub fn set_certificates(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::SigningCertificate>>) -> Self {
         self.certificates = input;
         self
     }
     /// <p>A list of the user's signing certificate information.</p>
-    pub fn get_certificates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SigningCertificate>> {
+    pub fn get_certificates(&self) -> &::std::option::Option<::std::vec::Vec<super::types::SigningCertificate>> {
         &self.certificates
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -112,10 +112,10 @@ impl ListSigningCertificatesOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_signing_certificates::ListSigningCertificatesOutput,
+        super::operation::list_signing_certificates::ListSigningCertificatesOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_signing_certificates::ListSigningCertificatesOutput {
+        ::std::result::Result::Ok(super::operation::list_signing_certificates::ListSigningCertificatesOutput {
             certificates: self.certificates.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "certificates",

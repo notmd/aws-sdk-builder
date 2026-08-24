@@ -8,7 +8,7 @@ pub struct PutFunctionScalingConfigInput {
     /// <p>Specify a version or alias to set the scaling configuration for a published version of the function.</p>
     pub qualifier: ::std::option::Option<::std::string::String>,
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub function_scaling_config: ::std::option::Option<crate::types::FunctionScalingConfig>,
+    pub function_scaling_config: ::std::option::Option<super::types::FunctionScalingConfig>,
 }
 impl PutFunctionScalingConfigInput {
     /// <p>The name or ARN of the Lambda function.</p>
@@ -20,14 +20,14 @@ impl PutFunctionScalingConfigInput {
         self.qualifier.as_deref()
     }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn function_scaling_config(&self) -> ::std::option::Option<&crate::types::FunctionScalingConfig> {
+    pub fn function_scaling_config(&self) -> ::std::option::Option<&super::types::FunctionScalingConfig> {
         self.function_scaling_config.as_ref()
     }
 }
 impl PutFunctionScalingConfigInput {
     /// Creates a new builder-style object to manufacture [`PutFunctionScalingConfigInput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput).
-    pub fn builder() -> crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigInputBuilder {
-        crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigInputBuilder::default()
+    pub fn builder() -> super::operation::put_function_scaling_config::builders::PutFunctionScalingConfigInputBuilder {
+        super::operation::put_function_scaling_config::builders::PutFunctionScalingConfigInputBuilder::default()
     }
 }
 
@@ -37,7 +37,7 @@ impl PutFunctionScalingConfigInput {
 pub struct PutFunctionScalingConfigInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
-    pub(crate) function_scaling_config: ::std::option::Option<crate::types::FunctionScalingConfig>,
+    pub(crate) function_scaling_config: ::std::option::Option<super::types::FunctionScalingConfig>,
 }
 impl PutFunctionScalingConfigInputBuilder {
     /// <p>The name or ARN of the Lambda function.</p>
@@ -71,27 +71,27 @@ impl PutFunctionScalingConfigInputBuilder {
         &self.qualifier
     }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn function_scaling_config(mut self, input: crate::types::FunctionScalingConfig) -> Self {
+    pub fn function_scaling_config(mut self, input: super::types::FunctionScalingConfig) -> Self {
         self.function_scaling_config = ::std::option::Option::Some(input);
         self
     }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn set_function_scaling_config(mut self, input: ::std::option::Option<crate::types::FunctionScalingConfig>) -> Self {
+    pub fn set_function_scaling_config(mut self, input: ::std::option::Option<super::types::FunctionScalingConfig>) -> Self {
         self.function_scaling_config = input;
         self
     }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn get_function_scaling_config(&self) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
+    pub fn get_function_scaling_config(&self) -> &::std::option::Option<super::types::FunctionScalingConfig> {
         &self.function_scaling_config
     }
     /// Consumes the builder and constructs a [`PutFunctionScalingConfigInput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput).
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput,
+        super::operation::put_function_scaling_config::PutFunctionScalingConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput {
+        ::std::result::Result::Ok(super::operation::put_function_scaling_config::PutFunctionScalingConfigInput {
             function_name: self.function_name,
             qualifier: self.qualifier,
             function_scaling_config: self.function_scaling_config,

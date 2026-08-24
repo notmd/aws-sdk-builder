@@ -24,8 +24,8 @@ impl AttachUserPolicyInput {
 }
 impl AttachUserPolicyInput {
     /// Creates a new builder-style object to manufacture [`AttachUserPolicyInput`](crate::operation::attach_user_policy::AttachUserPolicyInput).
-    pub fn builder() -> crate::operation::attach_user_policy::builders::AttachUserPolicyInputBuilder {
-        crate::operation::attach_user_policy::builders::AttachUserPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::attach_user_policy::builders::AttachUserPolicyInputBuilder {
+        super::operation::attach_user_policy::builders::AttachUserPolicyInputBuilder::default()
     }
 }
 
@@ -76,8 +76,8 @@ impl AttachUserPolicyInputBuilder {
     /// Consumes the builder and constructs a [`AttachUserPolicyInput`](crate::operation::attach_user_policy::AttachUserPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::attach_user_policy::AttachUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::attach_user_policy::AttachUserPolicyInput {
+    ) -> ::std::result::Result<super::operation::attach_user_policy::AttachUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::attach_user_policy::AttachUserPolicyInput {
             user_name: self.user_name,
             policy_arn: self.policy_arn,
         })

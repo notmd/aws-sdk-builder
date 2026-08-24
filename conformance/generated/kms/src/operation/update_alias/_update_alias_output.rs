@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateAliasOutput {
 }
 impl UpdateAliasOutput {
     /// Creates a new builder-style object to manufacture [`UpdateAliasOutput`](crate::operation::update_alias::UpdateAliasOutput).
-    pub fn builder() -> crate::operation::update_alias::builders::UpdateAliasOutputBuilder {
-        crate::operation::update_alias::builders::UpdateAliasOutputBuilder::default()
+    pub fn builder() -> super::operation::update_alias::builders::UpdateAliasOutputBuilder {
+        super::operation::update_alias::builders::UpdateAliasOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateAliasOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateAliasOutput`](crate::operation::update_alias::UpdateAliasOutput).
-    pub fn build(self) -> crate::operation::update_alias::UpdateAliasOutput {
-        crate::operation::update_alias::UpdateAliasOutput {
+    pub fn build(self) -> super::operation::update_alias::UpdateAliasOutput {
+        super::operation::update_alias::UpdateAliasOutput {
             _request_id: self._request_id,
         }
     }

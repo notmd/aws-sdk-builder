@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for GetAccessKeyInfoOutput {
 }
 impl GetAccessKeyInfoOutput {
     /// Creates a new builder-style object to manufacture [`GetAccessKeyInfoOutput`](crate::operation::get_access_key_info::GetAccessKeyInfoOutput).
-    pub fn builder() -> crate::operation::get_access_key_info::builders::GetAccessKeyInfoOutputBuilder {
-        crate::operation::get_access_key_info::builders::GetAccessKeyInfoOutputBuilder::default()
+    pub fn builder() -> super::operation::get_access_key_info::builders::GetAccessKeyInfoOutputBuilder {
+        super::operation::get_access_key_info::builders::GetAccessKeyInfoOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl GetAccessKeyInfoOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAccessKeyInfoOutput`](crate::operation::get_access_key_info::GetAccessKeyInfoOutput).
-    pub fn build(self) -> crate::operation::get_access_key_info::GetAccessKeyInfoOutput {
-        crate::operation::get_access_key_info::GetAccessKeyInfoOutput {
+    pub fn build(self) -> super::operation::get_access_key_info::GetAccessKeyInfoOutput {
+        super::operation::get_access_key_info::GetAccessKeyInfoOutput {
             account: self.account,
             _request_id: self._request_id,
         }

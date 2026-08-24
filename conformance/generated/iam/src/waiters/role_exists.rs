@@ -13,36 +13,36 @@
 ///
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct RoleExistsFluentBuilder {
-    handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::get_role::builders::GetRoleInputBuilder,
+    handle: ::std::sync::Arc<super::client::Handle>,
+    inner: super::operation::get_role::builders::GetRoleInputBuilder,
 }
 impl RoleExistsFluentBuilder {
     /// Creates a new `RoleExistsFluentBuilder`.
-    pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+    pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
         Self {
             handle,
             inner: ::std::default::Default::default(),
         }
     }
     /// Access the GetRole as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_role::builders::GetRoleInputBuilder {
+    pub fn as_input(&self) -> &super::operation::get_role::builders::GetRoleInputBuilder {
         &self.inner
     }
     /// Wait for `role_exists`
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<crate::waiters::role_exists::RoleExistsFinalPoll, crate::waiters::role_exists::WaitUntilRoleExistsError> {
+    ) -> ::std::result::Result<super::waiters::role_exists::RoleExistsFinalPoll, super::waiters::role_exists::WaitUntilRoleExistsError> {
         let input = self
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_role::GetRole::operation_runtime_plugins(
+        let runtime_plugins = super::operation::get_role::GetRole::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             ::std::option::Option::None,
         )
-        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
+        .with_operation_plugin(super::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
@@ -51,13 +51,13 @@ impl RoleExistsFluentBuilder {
         let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
         let time_source = time_components.time_source().expect("a time source is required by waiters");
 
-        let acceptor = move |result: ::std::result::Result<&crate::operation::get_role::GetRoleOutput, &crate::operation::get_role::GetRoleError>| {
+        let acceptor = move |result: ::std::result::Result<&super::operation::get_role::GetRoleOutput, &super::operation::get_role::GetRoleError>| {
             // Matches: {"success":true}
-            if crate::waiters::matchers::match_get_role_c955e57777ec0d736(result) {
+            if super::waiters::matchers::match_get_role_c955e57777ec0d736(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
             }
             // Matches: {"errorType":"NoSuchEntity"}
-            if crate::waiters::matchers::match_get_role_606386b4be9df73c9(result) {
+            if super::waiters::matchers::match_get_role_606386b4be9df73c9(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
             }
             ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
@@ -65,7 +65,7 @@ impl RoleExistsFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move { crate::operation::get_role::GetRole::orchestrate(&runtime_plugins, input).await }
+            async move { super::operation::get_role::GetRole::orchestrate(&runtime_plugins, input).await }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(1))
@@ -99,15 +99,15 @@ impl RoleExistsFluentBuilder {
 
 /// Successful return type for the `role_exists` waiter.
 pub type RoleExistsFinalPoll = ::aws_smithy_runtime_api::client::waiters::FinalPoll<
-    crate::operation::get_role::GetRoleOutput,
+    super::operation::get_role::GetRoleOutput,
     ::aws_smithy_runtime_api::client::result::SdkError<
-        crate::operation::get_role::GetRoleError,
+        super::operation::get_role::GetRoleError,
         ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
     >,
 >;
 
 /// Error type for the `role_exists` waiter.
 pub type WaitUntilRoleExistsError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
-    crate::operation::get_role::GetRoleOutput,
-    crate::operation::get_role::GetRoleError,
+    super::operation::get_role::GetRoleOutput,
+    super::operation::get_role::GetRoleError,
 >;

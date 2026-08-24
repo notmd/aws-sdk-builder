@@ -25,8 +25,8 @@ impl Condition {
 }
 impl Condition {
     /// Creates a new builder-style object to manufacture [`Condition`](crate::types::Condition).
-    pub fn builder() -> crate::types::builders::ConditionBuilder {
-        crate::types::builders::ConditionBuilder::default()
+    pub fn builder() -> super::types::builders::ConditionBuilder {
+        super::types::builders::ConditionBuilder::default()
     }
 }
 
@@ -73,8 +73,8 @@ impl ConditionBuilder {
         &self.key_prefix_equals
     }
     /// Consumes the builder and constructs a [`Condition`](crate::types::Condition).
-    pub fn build(self) -> crate::types::Condition {
-        crate::types::Condition {
+    pub fn build(self) -> super::types::Condition {
+        super::types::Condition {
             http_error_code_returned_equals: self.http_error_code_returned_equals,
             key_prefix_equals: self.key_prefix_equals,
         }

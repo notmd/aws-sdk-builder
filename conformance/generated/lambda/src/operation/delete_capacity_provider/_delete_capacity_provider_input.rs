@@ -14,8 +14,8 @@ impl DeleteCapacityProviderInput {
 }
 impl DeleteCapacityProviderInput {
     /// Creates a new builder-style object to manufacture [`DeleteCapacityProviderInput`](crate::operation::delete_capacity_provider::DeleteCapacityProviderInput).
-    pub fn builder() -> crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderInputBuilder {
-        crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderInputBuilder::default()
+    pub fn builder() -> super::operation::delete_capacity_provider::builders::DeleteCapacityProviderInputBuilder {
+        super::operation::delete_capacity_provider::builders::DeleteCapacityProviderInputBuilder::default()
     }
 }
 
@@ -45,10 +45,10 @@ impl DeleteCapacityProviderInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_capacity_provider::DeleteCapacityProviderInput,
+        super::operation::delete_capacity_provider::DeleteCapacityProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_capacity_provider::DeleteCapacityProviderInput {
+        ::std::result::Result::Ok(super::operation::delete_capacity_provider::DeleteCapacityProviderInput {
             capacity_provider_name: self.capacity_provider_name,
         })
     }

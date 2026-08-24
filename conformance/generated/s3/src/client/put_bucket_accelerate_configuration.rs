@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutBucketAccelerateConfigurationError>`](crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationError)
     pub fn put_bucket_accelerate_configuration(
         &self,
-    ) -> crate::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationFluentBuilder {
-        crate::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationFluentBuilder {
+        super::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

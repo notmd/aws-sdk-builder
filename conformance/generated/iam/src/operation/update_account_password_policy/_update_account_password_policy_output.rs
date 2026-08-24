@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateAccountPasswordPolicyOutput {
 }
 impl UpdateAccountPasswordPolicyOutput {
     /// Creates a new builder-style object to manufacture [`UpdateAccountPasswordPolicyOutput`](crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput).
-    pub fn builder() -> crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyOutputBuilder {
-        crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyOutputBuilder {
+        super::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateAccountPasswordPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateAccountPasswordPolicyOutput`](crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput).
-    pub fn build(self) -> crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput {
-        crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput {
+    pub fn build(self) -> super::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput {
+        super::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput {
             _request_id: self._request_id,
         }
     }

@@ -4,7 +4,7 @@ pub(crate) fn de_auto_scaling_target_tracking_scaling_policy_configuration_descr
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription>,
+    Option<super::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -19,7 +19,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder::default();
+            let mut builder = super::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -56,7 +56,7 @@ where
                 }
             }
             Ok(Some(
-                crate::serde_util::auto_scaling_target_tracking_scaling_policy_configuration_description_correct_errors(builder)
+                super::serde_util::auto_scaling_target_tracking_scaling_policy_configuration_description_correct_errors(builder)
                     .build()
                     .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
             ))

@@ -32,11 +32,11 @@ pub struct PutObjectOutput {
     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. This header is present if the object was uploaded with the <code>XXHASH128</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub checksum_xxhash128: ::std::option::Option<::std::string::String>,
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. For <code>PutObject</code> uploads, the checksum type is always <code>FULL_OBJECT</code>. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub checksum_type: ::std::option::Option<crate::types::ChecksumType>,
+    pub checksum_type: ::std::option::Option<super::types::ChecksumType>,
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     /// <p>Version ID of the object.</p>
     /// <p>If you enable versioning for a bucket, Amazon S3 automatically generates a unique version ID for the object being stored. Amazon S3 returns this ID in the response. When you enable versioning for a bucket, if Amazon S3 receives multiple write requests for the same object simultaneously, it stores all of the objects. For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding Objects to Versioning-Enabled Buckets</a> in the <i>Amazon S3 User Guide</i>. For information about returning the versioning state of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
@@ -63,7 +63,7 @@ pub struct PutObjectOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -121,13 +121,13 @@ impl PutObjectOutput {
         self.checksum_xxhash128.as_deref()
     }
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. For <code>PutObject</code> uploads, the checksum type is always <code>FULL_OBJECT</code>. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_type(&self) -> ::std::option::Option<&crate::types::ChecksumType> {
+    pub fn checksum_type(&self) -> ::std::option::Option<&super::types::ChecksumType> {
         self.checksum_type.as_ref()
     }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
+    pub fn server_side_encryption(&self) -> ::std::option::Option<&super::types::ServerSideEncryption> {
         self.server_side_encryption.as_ref()
     }
     /// <p>Version ID of the object.</p>
@@ -170,7 +170,7 @@ impl PutObjectOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
 }
@@ -204,7 +204,7 @@ impl ::std::fmt::Debug for PutObjectOutput {
         formatter.finish()
     }
 }
-impl crate::s3_request_id::RequestIdExt for PutObjectOutput {
+impl super::s3_request_id::RequestIdExt for PutObjectOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -216,8 +216,8 @@ impl ::aws_types::request_id::RequestId for PutObjectOutput {
 }
 impl PutObjectOutput {
     /// Creates a new builder-style object to manufacture [`PutObjectOutput`](crate::operation::put_object::PutObjectOutput).
-    pub fn builder() -> crate::operation::put_object::builders::PutObjectOutputBuilder {
-        crate::operation::put_object::builders::PutObjectOutputBuilder::default()
+    pub fn builder() -> super::operation::put_object::builders::PutObjectOutputBuilder {
+        super::operation::put_object::builders::PutObjectOutputBuilder::default()
     }
 }
 
@@ -237,8 +237,8 @@ pub struct PutObjectOutputBuilder {
     pub(crate) checksum_xxhash64: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_xxhash3: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_xxhash128: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_type: ::std::option::Option<crate::types::ChecksumType>,
-    pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
+    pub(crate) checksum_type: ::std::option::Option<super::types::ChecksumType>,
+    pub(crate) server_side_encryption: ::std::option::Option<super::types::ServerSideEncryption>,
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
     pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
     pub(crate) sse_customer_key_md5: ::std::option::Option<::std::string::String>,
@@ -246,7 +246,7 @@ pub struct PutObjectOutputBuilder {
     pub(crate) ssekms_encryption_context: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
     pub(crate) size: ::std::option::Option<i64>,
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -432,37 +432,37 @@ impl PutObjectOutputBuilder {
         &self.checksum_xxhash128
     }
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. For <code>PutObject</code> uploads, the checksum type is always <code>FULL_OBJECT</code>. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
+    pub fn checksum_type(mut self, input: super::types::ChecksumType) -> Self {
         self.checksum_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. For <code>PutObject</code> uploads, the checksum type is always <code>FULL_OBJECT</code>. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
+    pub fn set_checksum_type(mut self, input: ::std::option::Option<super::types::ChecksumType>) -> Self {
         self.checksum_type = input;
         self
     }
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. For <code>PutObject</code> uploads, the checksum type is always <code>FULL_OBJECT</code>. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
+    pub fn get_checksum_type(&self) -> &::std::option::Option<super::types::ChecksumType> {
         &self.checksum_type
     }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(mut self, input: crate::types::ServerSideEncryption) -> Self {
+    pub fn server_side_encryption(mut self, input: super::types::ServerSideEncryption) -> Self {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<super::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
     }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<super::types::ServerSideEncryption> {
         &self.server_side_encryption
     }
     /// <p>Version ID of the object.</p>
@@ -593,21 +593,21 @@ impl PutObjectOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -629,8 +629,8 @@ impl PutObjectOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutObjectOutput`](crate::operation::put_object::PutObjectOutput).
-    pub fn build(self) -> crate::operation::put_object::PutObjectOutput {
-        crate::operation::put_object::PutObjectOutput {
+    pub fn build(self) -> super::operation::put_object::PutObjectOutput {
+        super::operation::put_object::PutObjectOutput {
             expiration: self.expiration,
             e_tag: self.e_tag,
             checksum_crc32: self.checksum_crc32,

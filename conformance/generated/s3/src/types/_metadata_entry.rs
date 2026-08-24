@@ -21,8 +21,8 @@ impl MetadataEntry {
 }
 impl MetadataEntry {
     /// Creates a new builder-style object to manufacture [`MetadataEntry`](crate::types::MetadataEntry).
-    pub fn builder() -> crate::types::builders::MetadataEntryBuilder {
-        crate::types::builders::MetadataEntryBuilder::default()
+    pub fn builder() -> super::types::builders::MetadataEntryBuilder {
+        super::types::builders::MetadataEntryBuilder::default()
     }
 }
 
@@ -63,8 +63,8 @@ impl MetadataEntryBuilder {
         &self.value
     }
     /// Consumes the builder and constructs a [`MetadataEntry`](crate::types::MetadataEntry).
-    pub fn build(self) -> crate::types::MetadataEntry {
-        crate::types::MetadataEntry {
+    pub fn build(self) -> super::types::MetadataEntry {
+        super::types::MetadataEntry {
             name: self.name,
             value: self.value,
         }

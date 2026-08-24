@@ -10,11 +10,11 @@ impl ListKeys {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::list_keys::ListKeysInput,
+        input: super::operation::list_keys::ListKeysInput,
     ) -> ::std::result::Result<
-        crate::operation::list_keys::ListKeysOutput,
+        super::operation::list_keys::ListKeysOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_keys::ListKeysError,
+            super::operation::list_keys::ListKeysError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -22,21 +22,21 @@ impl ListKeys {
             |err: ::aws_smithy_runtime_api::client::result::SdkError<
                 ::aws_smithy_runtime_api::client::interceptors::context::Error,
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-            >| { err.map_service_error(|err| err.downcast::<crate::operation::list_keys::ListKeysError>().expect("correct error type")) };
+            >| { err.map_service_error(|err| err.downcast::<super::operation::list_keys::ListKeysError>().expect("correct error type")) };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
             .await
             .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::list_keys::ListKeysOutput>()
+                .downcast::<super::operation::list_keys::ListKeysOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::list_keys::ListKeysInput,
+        input: super::operation::list_keys::ListKeysInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -62,8 +62,8 @@ impl ListKeys {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -71,7 +71,7 @@ impl ListKeys {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -92,7 +92,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListKey
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("ListKeys")
                 .build()
                 .expect("required fields set"),
@@ -129,13 +129,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListKey
                 ListKeysEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::list_keys::ListKeysError,
+                super::operation::list_keys::ListKeysError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::list_keys::ListKeysError,
+                super::operation::list_keys::ListKeysError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::list_keys::ListKeysError,
+                super::operation::list_keys::ListKeysError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -200,11 +200,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListKeysR
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_list_keys::de_list_keys_http_error(status, headers, body)
+            super::protocol_serde::shape_list_keys::de_list_keys_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_list_keys::de_list_keys_http_response(status, headers, body)
+            super::protocol_serde::shape_list_keys::de_list_keys_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -216,15 +216,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListKeysRequ
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input.downcast::<crate::operation::list_keys::ListKeysInput>().expect("correct type");
+        let input = input.downcast::<super::operation::list_keys::ListKeysInput>().expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::list_keys::ListKeysInput,
+                _input: &super::operation::list_keys::ListKeysInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -233,7 +233,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListKeysRequ
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::list_keys::ListKeysInput,
+                input: &super::operation::list_keys::ListKeysInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -249,7 +249,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListKeysRequ
             );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_keys::ser_list_keys_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_list_keys::ser_list_keys_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -281,7 +281,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListKeysEndpo
             .downcast_ref::<ListKeysInput>()
             .ok_or("failed to downcast to ListKeysInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -304,11 +304,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListKeysEndpo
 #[derive(::std::fmt::Debug)]
 pub enum ListKeysError {
     /// <p>The system timed out while trying to fulfill the request. You can retry the request.</p>
-    DependencyTimeoutException(crate::types::error::DependencyTimeoutException),
+    DependencyTimeoutException(super::types::error::DependencyTimeoutException),
     /// <p>The request was rejected because the marker that specifies where pagination should next begin is not valid.</p>
-    InvalidMarkerException(crate::types::error::InvalidMarkerException),
+    InvalidMarkerException(super::types::error::InvalidMarkerException),
     /// <p>The request was rejected because an internal exception occurred. The request can be retried.</p>
-    KmsInternalException(crate::types::error::KmsInternalException),
+    KmsInternalException(super::types::error::KmsInternalException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -316,14 +316,14 @@ pub enum ListKeysError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListKeysError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl ListKeysError {
     /// Creates the `ListKeysError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -331,7 +331,7 @@ impl ListKeysError {
 
     /// Creates the `ListKeysError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -410,21 +410,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListKeys
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::list_keys::ListKeysError {
+impl ::aws_types::request_id::RequestId for super::operation::list_keys::ListKeysError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::list_keys::_list_keys_input::ListKeysInput;
+pub use super::operation::list_keys::_list_keys_input::ListKeysInput;
 
-pub use crate::operation::list_keys::_list_keys_output::ListKeysOutput;
+pub use super::operation::list_keys::_list_keys_output::ListKeysOutput;
 
 mod _list_keys_input;
 

@@ -5,13 +5,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EventError {
     /// <p>The error payload.</p>
-    pub payload: ::std::option::Option<crate::types::ErrorObject>,
+    pub payload: ::std::option::Option<super::types::ErrorObject>,
     /// <p>Indicates if the error payload was truncated due to size limits.</p>
     pub truncated: ::std::option::Option<bool>,
 }
 impl EventError {
     /// <p>The error payload.</p>
-    pub fn payload(&self) -> ::std::option::Option<&crate::types::ErrorObject> {
+    pub fn payload(&self) -> ::std::option::Option<&super::types::ErrorObject> {
         self.payload.as_ref()
     }
     /// <p>Indicates if the error payload was truncated due to size limits.</p>
@@ -21,8 +21,8 @@ impl EventError {
 }
 impl EventError {
     /// Creates a new builder-style object to manufacture [`EventError`](crate::types::EventError).
-    pub fn builder() -> crate::types::builders::EventErrorBuilder {
-        crate::types::builders::EventErrorBuilder::default()
+    pub fn builder() -> super::types::builders::EventErrorBuilder {
+        super::types::builders::EventErrorBuilder::default()
     }
 }
 
@@ -30,22 +30,22 @@ impl EventError {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventErrorBuilder {
-    pub(crate) payload: ::std::option::Option<crate::types::ErrorObject>,
+    pub(crate) payload: ::std::option::Option<super::types::ErrorObject>,
     pub(crate) truncated: ::std::option::Option<bool>,
 }
 impl EventErrorBuilder {
     /// <p>The error payload.</p>
-    pub fn payload(mut self, input: crate::types::ErrorObject) -> Self {
+    pub fn payload(mut self, input: super::types::ErrorObject) -> Self {
         self.payload = ::std::option::Option::Some(input);
         self
     }
     /// <p>The error payload.</p>
-    pub fn set_payload(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
+    pub fn set_payload(mut self, input: ::std::option::Option<super::types::ErrorObject>) -> Self {
         self.payload = input;
         self
     }
     /// <p>The error payload.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<crate::types::ErrorObject> {
+    pub fn get_payload(&self) -> &::std::option::Option<super::types::ErrorObject> {
         &self.payload
     }
     /// <p>Indicates if the error payload was truncated due to size limits.</p>
@@ -63,8 +63,8 @@ impl EventErrorBuilder {
         &self.truncated
     }
     /// Consumes the builder and constructs a [`EventError`](crate::types::EventError).
-    pub fn build(self) -> crate::types::EventError {
-        crate::types::EventError {
+    pub fn build(self) -> super::types::EventError {
+        super::types::EventError {
             payload: self.payload,
             truncated: self.truncated,
         }

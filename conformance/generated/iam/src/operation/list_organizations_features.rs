@@ -10,11 +10,11 @@ impl ListOrganizationsFeatures {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::list_organizations_features::ListOrganizationsFeaturesInput,
+        input: super::operation::list_organizations_features::ListOrganizationsFeaturesInput,
     ) -> ::std::result::Result<
-        crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput,
+        super::operation::list_organizations_features::ListOrganizationsFeaturesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
+            super::operation::list_organizations_features::ListOrganizationsFeaturesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl ListOrganizationsFeatures {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::list_organizations_features::ListOrganizationsFeaturesError>()
+                err.downcast::<super::operation::list_organizations_features::ListOrganizationsFeaturesError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl ListOrganizationsFeatures {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput>()
+                .downcast::<super::operation::list_organizations_features::ListOrganizationsFeaturesOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::list_organizations_features::ListOrganizationsFeaturesInput,
+        input: super::operation::list_organizations_features::ListOrganizationsFeaturesInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl ListOrganizationsFeatures {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl ListOrganizationsFeatures {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListOrg
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("ListOrganizationsFeatures")
                 .build()
                 .expect("required fields set"),
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListOrg
                 ListOrganizationsFeaturesEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
+                super::operation::list_organizations_features::ListOrganizationsFeaturesError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
+                super::operation::list_organizations_features::ListOrganizationsFeaturesError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
+                super::operation::list_organizations_features::ListOrganizationsFeaturesError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -161,11 +161,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListOrgan
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_list_organizations_features::de_list_organizations_features_http_error(status, headers, body)
+            super::protocol_serde::shape_list_organizations_features::de_list_organizations_features_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_list_organizations_features::de_list_organizations_features_http_response(status, headers, body)
+            super::protocol_serde::shape_list_organizations_features::de_list_organizations_features_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -178,16 +178,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListOrganiza
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::list_organizations_features::ListOrganizationsFeaturesInput>()
+            .downcast::<super::operation::list_organizations_features::ListOrganizationsFeaturesInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::list_organizations_features::ListOrganizationsFeaturesInput,
+                _input: &super::operation::list_organizations_features::ListOrganizationsFeaturesInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -196,7 +196,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListOrganiza
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::list_organizations_features::ListOrganizationsFeaturesInput,
+                input: &super::operation::list_organizations_features::ListOrganizationsFeaturesInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -235,7 +235,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListOrganizat
             .downcast_ref::<ListOrganizationsFeaturesInput>()
             .ok_or("failed to downcast to ListOrganizationsFeaturesInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
@@ -258,13 +258,13 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListOrganizat
 #[derive(::std::fmt::Debug)]
 pub enum ListOrganizationsFeaturesError {
     /// <p>The request was rejected because the account making the request is not the management account or delegated administrator account for <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management">centralized root access</a>.</p>
-    AccountNotManagementOrDelegatedAdministratorException(crate::types::error::AccountNotManagementOrDelegatedAdministratorException),
+    AccountNotManagementOrDelegatedAdministratorException(super::types::error::AccountNotManagementOrDelegatedAdministratorException),
     /// <p>The request was rejected because no organization is associated with your account.</p>
-    OrganizationNotFoundException(crate::types::error::OrganizationNotFoundException),
+    OrganizationNotFoundException(super::types::error::OrganizationNotFoundException),
     /// <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
-    OrganizationNotInAllFeaturesModeException(crate::types::error::OrganizationNotInAllFeaturesModeException),
+    OrganizationNotInAllFeaturesModeException(super::types::error::OrganizationNotInAllFeaturesModeException),
     /// <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
-    ServiceAccessNotEnabledException(crate::types::error::ServiceAccessNotEnabledException),
+    ServiceAccessNotEnabledException(super::types::error::ServiceAccessNotEnabledException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -272,14 +272,14 @@ pub enum ListOrganizationsFeaturesError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListOrganizationsFeaturesError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl ListOrganizationsFeaturesError {
     /// Creates the `ListOrganizationsFeaturesError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -287,7 +287,7 @@ impl ListOrganizationsFeaturesError {
 
     /// Creates the `ListOrganizationsFeaturesError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -376,21 +376,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListOrga
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::list_organizations_features::ListOrganizationsFeaturesError {
+impl ::aws_types::request_id::RequestId for super::operation::list_organizations_features::ListOrganizationsFeaturesError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::list_organizations_features::_list_organizations_features_input::ListOrganizationsFeaturesInput;
+pub use super::operation::list_organizations_features::_list_organizations_features_input::ListOrganizationsFeaturesInput;
 
-pub use crate::operation::list_organizations_features::_list_organizations_features_output::ListOrganizationsFeaturesOutput;
+pub use super::operation::list_organizations_features::_list_organizations_features_output::ListOrganizationsFeaturesOutput;
 
 mod _list_organizations_features_input;
 

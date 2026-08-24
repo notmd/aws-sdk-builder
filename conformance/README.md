@@ -24,6 +24,8 @@ matches; 100.00% means fully matched. File counts live in the reports rather tha
 Normal conformance runs use checked-in data and do not clone or invoke an external
 code generator. Checked-in reference patches are applied in memory and never modify
 `conformance/reference`; `just conformance-sync` is the explicit network operation
-that regenerates them. Rust normalization rewrites parsed `crate::...` paths to
+that regenerates them. Reference normalization rewrites parsed `crate::...` paths to
 `super::...` and removes inline `#[cfg(test)]` modules, including their attached
-test-only attributes, before comparison.
+test-only attributes. The code generator removes those modules from generated output
+and emits the all-operation snapshot with relative paths, so the comparator normalizes
+the reference side only.

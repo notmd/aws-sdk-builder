@@ -13,8 +13,8 @@ impl ::aws_types::request_id::RequestId for SetSmsAttributesOutput {
 }
 impl SetSmsAttributesOutput {
     /// Creates a new builder-style object to manufacture [`SetSmsAttributesOutput`](crate::operation::set_sms_attributes::SetSmsAttributesOutput).
-    pub fn builder() -> crate::operation::set_sms_attributes::builders::SetSmsAttributesOutputBuilder {
-        crate::operation::set_sms_attributes::builders::SetSmsAttributesOutputBuilder::default()
+    pub fn builder() -> super::operation::set_sms_attributes::builders::SetSmsAttributesOutputBuilder {
+        super::operation::set_sms_attributes::builders::SetSmsAttributesOutputBuilder::default()
     }
 }
 
@@ -35,8 +35,8 @@ impl SetSmsAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SetSmsAttributesOutput`](crate::operation::set_sms_attributes::SetSmsAttributesOutput).
-    pub fn build(self) -> crate::operation::set_sms_attributes::SetSmsAttributesOutput {
-        crate::operation::set_sms_attributes::SetSmsAttributesOutput {
+    pub fn build(self) -> super::operation::set_sms_attributes::SetSmsAttributesOutput {
+        super::operation::set_sms_attributes::SetSmsAttributesOutput {
             _request_id: self._request_id,
         }
     }

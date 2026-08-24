@@ -14,8 +14,8 @@ impl DeleteBackupInput {
 }
 impl DeleteBackupInput {
     /// Creates a new builder-style object to manufacture [`DeleteBackupInput`](crate::operation::delete_backup::DeleteBackupInput).
-    pub fn builder() -> crate::operation::delete_backup::builders::DeleteBackupInputBuilder {
-        crate::operation::delete_backup::builders::DeleteBackupInputBuilder::default()
+    pub fn builder() -> super::operation::delete_backup::builders::DeleteBackupInputBuilder {
+        super::operation::delete_backup::builders::DeleteBackupInputBuilder::default()
     }
 }
 
@@ -44,7 +44,7 @@ impl DeleteBackupInputBuilder {
     /// Consumes the builder and constructs a [`DeleteBackupInput`](crate::operation::delete_backup::DeleteBackupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_backup::DeleteBackupInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_backup::DeleteBackupInput { backup_arn: self.backup_arn })
+    ) -> ::std::result::Result<super::operation::delete_backup::DeleteBackupInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::delete_backup::DeleteBackupInput { backup_arn: self.backup_arn })
     }
 }

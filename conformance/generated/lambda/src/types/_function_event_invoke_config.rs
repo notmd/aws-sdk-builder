@@ -27,7 +27,7 @@ pub struct FunctionEventInvokeConfig {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub destination_config: ::std::option::Option<crate::types::DestinationConfig>,
+    pub destination_config: ::std::option::Option<super::types::DestinationConfig>,
 }
 impl FunctionEventInvokeConfig {
     /// <p>The date and time that the configuration was last updated.</p>
@@ -62,14 +62,14 @@ impl FunctionEventInvokeConfig {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
+    pub fn destination_config(&self) -> ::std::option::Option<&super::types::DestinationConfig> {
         self.destination_config.as_ref()
     }
 }
 impl FunctionEventInvokeConfig {
     /// Creates a new builder-style object to manufacture [`FunctionEventInvokeConfig`](crate::types::FunctionEventInvokeConfig).
-    pub fn builder() -> crate::types::builders::FunctionEventInvokeConfigBuilder {
-        crate::types::builders::FunctionEventInvokeConfigBuilder::default()
+    pub fn builder() -> super::types::builders::FunctionEventInvokeConfigBuilder {
+        super::types::builders::FunctionEventInvokeConfigBuilder::default()
     }
 }
 
@@ -81,7 +81,7 @@ pub struct FunctionEventInvokeConfigBuilder {
     pub(crate) function_arn: ::std::option::Option<::std::string::String>,
     pub(crate) maximum_retry_attempts: ::std::option::Option<i32>,
     pub(crate) maximum_event_age_in_seconds: ::std::option::Option<i32>,
-    pub(crate) destination_config: ::std::option::Option<crate::types::DestinationConfig>,
+    pub(crate) destination_config: ::std::option::Option<super::types::DestinationConfig>,
 }
 impl FunctionEventInvokeConfigBuilder {
     /// <p>The date and time that the configuration was last updated.</p>
@@ -156,7 +156,7 @@ impl FunctionEventInvokeConfigBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
+    pub fn destination_config(mut self, input: super::types::DestinationConfig) -> Self {
         self.destination_config = ::std::option::Option::Some(input);
         self
     }
@@ -176,7 +176,7 @@ impl FunctionEventInvokeConfigBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
+    pub fn set_destination_config(mut self, input: ::std::option::Option<super::types::DestinationConfig>) -> Self {
         self.destination_config = input;
         self
     }
@@ -196,12 +196,12 @@ impl FunctionEventInvokeConfigBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
+    pub fn get_destination_config(&self) -> &::std::option::Option<super::types::DestinationConfig> {
         &self.destination_config
     }
     /// Consumes the builder and constructs a [`FunctionEventInvokeConfig`](crate::types::FunctionEventInvokeConfig).
-    pub fn build(self) -> crate::types::FunctionEventInvokeConfig {
-        crate::types::FunctionEventInvokeConfig {
+    pub fn build(self) -> super::types::FunctionEventInvokeConfig {
+        super::types::FunctionEventInvokeConfig {
             last_modified: self.last_modified,
             function_arn: self.function_arn,
             maximum_retry_attempts: self.maximum_retry_attempts,

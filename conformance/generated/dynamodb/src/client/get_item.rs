@@ -14,7 +14,7 @@ impl super::Client {
     ///   - [`item(Option<HashMap::<String, AttributeValue>>)`](crate::operation::get_item::GetItemOutput::item): <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
     ///   - [`consumed_capacity(Option<ConsumedCapacity>)`](crate::operation::get_item::GetItemOutput::consumed_capacity): <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// - On failure, responds with [`SdkError<GetItemError>`](crate::operation::get_item::GetItemError)
-    pub fn get_item(&self) -> crate::operation::get_item::builders::GetItemFluentBuilder {
-        crate::operation::get_item::builders::GetItemFluentBuilder::new(self.handle.clone())
+    pub fn get_item(&self) -> super::operation::get_item::builders::GetItemFluentBuilder {
+        super::operation::get_item::builders::GetItemFluentBuilder::new(self.handle.clone())
     }
 }

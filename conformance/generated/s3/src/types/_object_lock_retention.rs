@@ -5,13 +5,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ObjectLockRetention {
     /// <p>Indicates the Retention mode for the specified object.</p>
-    pub mode: ::std::option::Option<crate::types::ObjectLockRetentionMode>,
+    pub mode: ::std::option::Option<super::types::ObjectLockRetentionMode>,
     /// <p>The date on which this Object Lock Retention will expire.</p>
     pub retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl ObjectLockRetention {
     /// <p>Indicates the Retention mode for the specified object.</p>
-    pub fn mode(&self) -> ::std::option::Option<&crate::types::ObjectLockRetentionMode> {
+    pub fn mode(&self) -> ::std::option::Option<&super::types::ObjectLockRetentionMode> {
         self.mode.as_ref()
     }
     /// <p>The date on which this Object Lock Retention will expire.</p>
@@ -21,8 +21,8 @@ impl ObjectLockRetention {
 }
 impl ObjectLockRetention {
     /// Creates a new builder-style object to manufacture [`ObjectLockRetention`](crate::types::ObjectLockRetention).
-    pub fn builder() -> crate::types::builders::ObjectLockRetentionBuilder {
-        crate::types::builders::ObjectLockRetentionBuilder::default()
+    pub fn builder() -> super::types::builders::ObjectLockRetentionBuilder {
+        super::types::builders::ObjectLockRetentionBuilder::default()
     }
 }
 
@@ -30,22 +30,22 @@ impl ObjectLockRetention {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ObjectLockRetentionBuilder {
-    pub(crate) mode: ::std::option::Option<crate::types::ObjectLockRetentionMode>,
+    pub(crate) mode: ::std::option::Option<super::types::ObjectLockRetentionMode>,
     pub(crate) retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl ObjectLockRetentionBuilder {
     /// <p>Indicates the Retention mode for the specified object.</p>
-    pub fn mode(mut self, input: crate::types::ObjectLockRetentionMode) -> Self {
+    pub fn mode(mut self, input: super::types::ObjectLockRetentionMode) -> Self {
         self.mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>Indicates the Retention mode for the specified object.</p>
-    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockRetentionMode>) -> Self {
+    pub fn set_mode(mut self, input: ::std::option::Option<super::types::ObjectLockRetentionMode>) -> Self {
         self.mode = input;
         self
     }
     /// <p>Indicates the Retention mode for the specified object.</p>
-    pub fn get_mode(&self) -> &::std::option::Option<crate::types::ObjectLockRetentionMode> {
+    pub fn get_mode(&self) -> &::std::option::Option<super::types::ObjectLockRetentionMode> {
         &self.mode
     }
     /// <p>The date on which this Object Lock Retention will expire.</p>
@@ -63,8 +63,8 @@ impl ObjectLockRetentionBuilder {
         &self.retain_until_date
     }
     /// Consumes the builder and constructs a [`ObjectLockRetention`](crate::types::ObjectLockRetention).
-    pub fn build(self) -> crate::types::ObjectLockRetention {
-        crate::types::ObjectLockRetention {
+    pub fn build(self) -> super::types::ObjectLockRetention {
+        super::types::ObjectLockRetention {
             mode: self.mode,
             retain_until_date: self.retain_until_date,
         }

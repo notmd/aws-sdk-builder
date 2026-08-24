@@ -10,7 +10,7 @@ pub struct HeadBucketOutput {
     /// <p>The type of location where the bucket is created.</p><note>
     /// <p>This functionality is only supported by directory buckets.</p>
     /// </note>
-    pub bucket_location_type: ::std::option::Option<crate::types::LocationType>,
+    pub bucket_location_type: ::std::option::Option<super::types::LocationType>,
     /// <p>The name of the location where the bucket will be created.</p>
     /// <p>For directory buckets, the Zone ID of the Availability Zone or the Local Zone where the bucket is created. An example Zone ID value for an Availability Zone is <code>usw2-az1</code>.</p><note>
     /// <p>This functionality is only supported by directory buckets.</p>
@@ -35,7 +35,7 @@ impl HeadBucketOutput {
     /// <p>The type of location where the bucket is created.</p><note>
     /// <p>This functionality is only supported by directory buckets.</p>
     /// </note>
-    pub fn bucket_location_type(&self) -> ::std::option::Option<&crate::types::LocationType> {
+    pub fn bucket_location_type(&self) -> ::std::option::Option<&super::types::LocationType> {
         self.bucket_location_type.as_ref()
     }
     /// <p>The name of the location where the bucket will be created.</p>
@@ -56,7 +56,7 @@ impl HeadBucketOutput {
         self.access_point_alias
     }
 }
-impl crate::s3_request_id::RequestIdExt for HeadBucketOutput {
+impl super::s3_request_id::RequestIdExt for HeadBucketOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -68,8 +68,8 @@ impl ::aws_types::request_id::RequestId for HeadBucketOutput {
 }
 impl HeadBucketOutput {
     /// Creates a new builder-style object to manufacture [`HeadBucketOutput`](crate::operation::head_bucket::HeadBucketOutput).
-    pub fn builder() -> crate::operation::head_bucket::builders::HeadBucketOutputBuilder {
-        crate::operation::head_bucket::builders::HeadBucketOutputBuilder::default()
+    pub fn builder() -> super::operation::head_bucket::builders::HeadBucketOutputBuilder {
+        super::operation::head_bucket::builders::HeadBucketOutputBuilder::default()
     }
 }
 
@@ -78,7 +78,7 @@ impl HeadBucketOutput {
 #[non_exhaustive]
 pub struct HeadBucketOutputBuilder {
     pub(crate) bucket_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) bucket_location_type: ::std::option::Option<crate::types::LocationType>,
+    pub(crate) bucket_location_type: ::std::option::Option<super::types::LocationType>,
     pub(crate) bucket_location_name: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_region: ::std::option::Option<::std::string::String>,
     pub(crate) access_point_alias: ::std::option::Option<bool>,
@@ -109,21 +109,21 @@ impl HeadBucketOutputBuilder {
     /// <p>The type of location where the bucket is created.</p><note>
     /// <p>This functionality is only supported by directory buckets.</p>
     /// </note>
-    pub fn bucket_location_type(mut self, input: crate::types::LocationType) -> Self {
+    pub fn bucket_location_type(mut self, input: super::types::LocationType) -> Self {
         self.bucket_location_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The type of location where the bucket is created.</p><note>
     /// <p>This functionality is only supported by directory buckets.</p>
     /// </note>
-    pub fn set_bucket_location_type(mut self, input: ::std::option::Option<crate::types::LocationType>) -> Self {
+    pub fn set_bucket_location_type(mut self, input: ::std::option::Option<super::types::LocationType>) -> Self {
         self.bucket_location_type = input;
         self
     }
     /// <p>The type of location where the bucket is created.</p><note>
     /// <p>This functionality is only supported by directory buckets.</p>
     /// </note>
-    pub fn get_bucket_location_type(&self) -> &::std::option::Option<crate::types::LocationType> {
+    pub fn get_bucket_location_type(&self) -> &::std::option::Option<super::types::LocationType> {
         &self.bucket_location_type
     }
     /// <p>The name of the location where the bucket will be created.</p>
@@ -202,8 +202,8 @@ impl HeadBucketOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`HeadBucketOutput`](crate::operation::head_bucket::HeadBucketOutput).
-    pub fn build(self) -> crate::operation::head_bucket::HeadBucketOutput {
-        crate::operation::head_bucket::HeadBucketOutput {
+    pub fn build(self) -> super::operation::head_bucket::HeadBucketOutput {
+        super::operation::head_bucket::HeadBucketOutput {
             bucket_arn: self.bucket_arn,
             bucket_location_type: self.bucket_location_type,
             bucket_location_name: self.bucket_location_name,

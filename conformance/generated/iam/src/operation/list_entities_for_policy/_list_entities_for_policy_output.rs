@@ -5,11 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListEntitiesForPolicyOutput {
     /// <p>A list of IAM groups that the policy is attached to.</p>
-    pub policy_groups: ::std::option::Option<::std::vec::Vec<crate::types::PolicyGroup>>,
+    pub policy_groups: ::std::option::Option<::std::vec::Vec<super::types::PolicyGroup>>,
     /// <p>A list of IAM users that the policy is attached to.</p>
-    pub policy_users: ::std::option::Option<::std::vec::Vec<crate::types::PolicyUser>>,
+    pub policy_users: ::std::option::Option<::std::vec::Vec<super::types::PolicyUser>>,
     /// <p>A list of IAM roles that the policy is attached to.</p>
-    pub policy_roles: ::std::option::Option<::std::vec::Vec<crate::types::PolicyRole>>,
+    pub policy_roles: ::std::option::Option<::std::vec::Vec<super::types::PolicyRole>>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -20,19 +20,19 @@ impl ListEntitiesForPolicyOutput {
     /// <p>A list of IAM groups that the policy is attached to.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_groups.is_none()`.
-    pub fn policy_groups(&self) -> &[crate::types::PolicyGroup] {
+    pub fn policy_groups(&self) -> &[super::types::PolicyGroup] {
         self.policy_groups.as_deref().unwrap_or_default()
     }
     /// <p>A list of IAM users that the policy is attached to.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_users.is_none()`.
-    pub fn policy_users(&self) -> &[crate::types::PolicyUser] {
+    pub fn policy_users(&self) -> &[super::types::PolicyUser] {
         self.policy_users.as_deref().unwrap_or_default()
     }
     /// <p>A list of IAM roles that the policy is attached to.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_roles.is_none()`.
-    pub fn policy_roles(&self) -> &[crate::types::PolicyRole] {
+    pub fn policy_roles(&self) -> &[super::types::PolicyRole] {
         self.policy_roles.as_deref().unwrap_or_default()
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -51,8 +51,8 @@ impl ::aws_types::request_id::RequestId for ListEntitiesForPolicyOutput {
 }
 impl ListEntitiesForPolicyOutput {
     /// Creates a new builder-style object to manufacture [`ListEntitiesForPolicyOutput`](crate::operation::list_entities_for_policy::ListEntitiesForPolicyOutput).
-    pub fn builder() -> crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyOutputBuilder {
-        crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::list_entities_for_policy::builders::ListEntitiesForPolicyOutputBuilder {
+        super::operation::list_entities_for_policy::builders::ListEntitiesForPolicyOutputBuilder::default()
     }
 }
 
@@ -60,9 +60,9 @@ impl ListEntitiesForPolicyOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListEntitiesForPolicyOutputBuilder {
-    pub(crate) policy_groups: ::std::option::Option<::std::vec::Vec<crate::types::PolicyGroup>>,
-    pub(crate) policy_users: ::std::option::Option<::std::vec::Vec<crate::types::PolicyUser>>,
-    pub(crate) policy_roles: ::std::option::Option<::std::vec::Vec<crate::types::PolicyRole>>,
+    pub(crate) policy_groups: ::std::option::Option<::std::vec::Vec<super::types::PolicyGroup>>,
+    pub(crate) policy_users: ::std::option::Option<::std::vec::Vec<super::types::PolicyUser>>,
+    pub(crate) policy_roles: ::std::option::Option<::std::vec::Vec<super::types::PolicyRole>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -73,19 +73,19 @@ impl ListEntitiesForPolicyOutputBuilder {
     /// To override the contents of this collection use [`set_policy_groups`](Self::set_policy_groups).
     ///
     /// <p>A list of IAM groups that the policy is attached to.</p>
-    pub fn policy_groups(mut self, input: crate::types::PolicyGroup) -> Self {
+    pub fn policy_groups(mut self, input: super::types::PolicyGroup) -> Self {
         let mut v = self.policy_groups.unwrap_or_default();
         v.push(input);
         self.policy_groups = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of IAM groups that the policy is attached to.</p>
-    pub fn set_policy_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyGroup>>) -> Self {
+    pub fn set_policy_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PolicyGroup>>) -> Self {
         self.policy_groups = input;
         self
     }
     /// <p>A list of IAM groups that the policy is attached to.</p>
-    pub fn get_policy_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyGroup>> {
+    pub fn get_policy_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PolicyGroup>> {
         &self.policy_groups
     }
     /// Appends an item to `policy_users`.
@@ -93,19 +93,19 @@ impl ListEntitiesForPolicyOutputBuilder {
     /// To override the contents of this collection use [`set_policy_users`](Self::set_policy_users).
     ///
     /// <p>A list of IAM users that the policy is attached to.</p>
-    pub fn policy_users(mut self, input: crate::types::PolicyUser) -> Self {
+    pub fn policy_users(mut self, input: super::types::PolicyUser) -> Self {
         let mut v = self.policy_users.unwrap_or_default();
         v.push(input);
         self.policy_users = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of IAM users that the policy is attached to.</p>
-    pub fn set_policy_users(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyUser>>) -> Self {
+    pub fn set_policy_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PolicyUser>>) -> Self {
         self.policy_users = input;
         self
     }
     /// <p>A list of IAM users that the policy is attached to.</p>
-    pub fn get_policy_users(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyUser>> {
+    pub fn get_policy_users(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PolicyUser>> {
         &self.policy_users
     }
     /// Appends an item to `policy_roles`.
@@ -113,19 +113,19 @@ impl ListEntitiesForPolicyOutputBuilder {
     /// To override the contents of this collection use [`set_policy_roles`](Self::set_policy_roles).
     ///
     /// <p>A list of IAM roles that the policy is attached to.</p>
-    pub fn policy_roles(mut self, input: crate::types::PolicyRole) -> Self {
+    pub fn policy_roles(mut self, input: super::types::PolicyRole) -> Self {
         let mut v = self.policy_roles.unwrap_or_default();
         v.push(input);
         self.policy_roles = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of IAM roles that the policy is attached to.</p>
-    pub fn set_policy_roles(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyRole>>) -> Self {
+    pub fn set_policy_roles(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::PolicyRole>>) -> Self {
         self.policy_roles = input;
         self
     }
     /// <p>A list of IAM roles that the policy is attached to.</p>
-    pub fn get_policy_roles(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyRole>> {
+    pub fn get_policy_roles(&self) -> &::std::option::Option<::std::vec::Vec<super::types::PolicyRole>> {
         &self.policy_roles
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -166,8 +166,8 @@ impl ListEntitiesForPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListEntitiesForPolicyOutput`](crate::operation::list_entities_for_policy::ListEntitiesForPolicyOutput).
-    pub fn build(self) -> crate::operation::list_entities_for_policy::ListEntitiesForPolicyOutput {
-        crate::operation::list_entities_for_policy::ListEntitiesForPolicyOutput {
+    pub fn build(self) -> super::operation::list_entities_for_policy::ListEntitiesForPolicyOutput {
+        super::operation::list_entities_for_policy::ListEntitiesForPolicyOutput {
             policy_groups: self.policy_groups,
             policy_users: self.policy_users,
             policy_roles: self.policy_roles,

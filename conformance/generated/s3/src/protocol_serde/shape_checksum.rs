@@ -3,12 +3,12 @@
 pub fn de_checksum(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::Checksum, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::Checksum, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::Checksum::builder();
+    let mut builder = super::types::Checksum::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("ChecksumCRC32") /* ChecksumCRC32 com.amazonaws.s3#Checksum$ChecksumCRC32 */ =>  {
@@ -144,8 +144,8 @@ pub fn de_checksum(
             s if s.matches("ChecksumType") /* ChecksumType com.amazonaws.s3#Checksum$ChecksumType */ =>  {
                 let var_11 =
                     Some(
-                        Result::<crate::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::ChecksumType::from(
+                        Result::<super::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::ChecksumType::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )

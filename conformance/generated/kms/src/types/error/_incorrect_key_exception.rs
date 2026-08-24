@@ -26,7 +26,7 @@ impl ::std::fmt::Display for IncorrectKeyException {
     }
 }
 impl ::std::error::Error for IncorrectKeyException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::IncorrectKeyException {
+impl ::aws_types::request_id::RequestId for super::types::error::IncorrectKeyException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for IncorrectKeyE
 }
 impl IncorrectKeyException {
     /// Creates a new builder-style object to manufacture [`IncorrectKeyException`](crate::types::error::IncorrectKeyException).
-    pub fn builder() -> crate::types::error::builders::IncorrectKeyExceptionBuilder {
-        crate::types::error::builders::IncorrectKeyExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::IncorrectKeyExceptionBuilder {
+        super::types::error::builders::IncorrectKeyExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl IncorrectKeyExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`IncorrectKeyException`](crate::types::error::IncorrectKeyException).
-    pub fn build(self) -> crate::types::error::IncorrectKeyException {
-        crate::types::error::IncorrectKeyException {
+    pub fn build(self) -> super::types::error::IncorrectKeyException {
+        super::types::error::IncorrectKeyException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

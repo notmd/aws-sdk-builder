@@ -36,8 +36,8 @@ impl LifecycleExpiration {
 }
 impl LifecycleExpiration {
     /// Creates a new builder-style object to manufacture [`LifecycleExpiration`](crate::types::LifecycleExpiration).
-    pub fn builder() -> crate::types::builders::LifecycleExpirationBuilder {
-        crate::types::builders::LifecycleExpirationBuilder::default()
+    pub fn builder() -> super::types::builders::LifecycleExpirationBuilder {
+        super::types::builders::LifecycleExpirationBuilder::default()
     }
 }
 
@@ -105,8 +105,8 @@ impl LifecycleExpirationBuilder {
         &self.expired_object_delete_marker
     }
     /// Consumes the builder and constructs a [`LifecycleExpiration`](crate::types::LifecycleExpiration).
-    pub fn build(self) -> crate::types::LifecycleExpiration {
-        crate::types::LifecycleExpiration {
+    pub fn build(self) -> super::types::LifecycleExpiration {
+        super::types::LifecycleExpiration {
             date: self.date,
             days: self.days,
             expired_object_delete_marker: self.expired_object_delete_marker,

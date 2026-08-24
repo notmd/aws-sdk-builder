@@ -6,13 +6,13 @@ pub struct PutBucketCorsInput {
     /// <p>Specifies the bucket impacted by the <code>cors</code>configuration.</p>
     pub bucket: ::std::option::Option<::std::string::String>,
     /// <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub cors_configuration: ::std::option::Option<crate::types::CorsConfiguration>,
+    pub cors_configuration: ::std::option::Option<super::types::CorsConfiguration>,
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.</a></p>
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
     pub content_md5: ::std::option::Option<::std::string::String>,
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    pub checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
@@ -22,7 +22,7 @@ impl PutBucketCorsInput {
         self.bucket.as_deref()
     }
     /// <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn cors_configuration(&self) -> ::std::option::Option<&crate::types::CorsConfiguration> {
+    pub fn cors_configuration(&self) -> ::std::option::Option<&super::types::CorsConfiguration> {
         self.cors_configuration.as_ref()
     }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.</a></p>
@@ -32,7 +32,7 @@ impl PutBucketCorsInput {
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
+    pub fn checksum_algorithm(&self) -> ::std::option::Option<&super::types::ChecksumAlgorithm> {
         self.checksum_algorithm.as_ref()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -42,8 +42,8 @@ impl PutBucketCorsInput {
 }
 impl PutBucketCorsInput {
     /// Creates a new builder-style object to manufacture [`PutBucketCorsInput`](crate::operation::put_bucket_cors::PutBucketCorsInput).
-    pub fn builder() -> crate::operation::put_bucket_cors::builders::PutBucketCorsInputBuilder {
-        crate::operation::put_bucket_cors::builders::PutBucketCorsInputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_cors::builders::PutBucketCorsInputBuilder {
+        super::operation::put_bucket_cors::builders::PutBucketCorsInputBuilder::default()
     }
 }
 
@@ -52,9 +52,9 @@ impl PutBucketCorsInput {
 #[non_exhaustive]
 pub struct PutBucketCorsInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
-    pub(crate) cors_configuration: ::std::option::Option<crate::types::CorsConfiguration>,
+    pub(crate) cors_configuration: ::std::option::Option<super::types::CorsConfiguration>,
     pub(crate) content_md5: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    pub(crate) checksum_algorithm: ::std::option::Option<super::types::ChecksumAlgorithm>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
 impl PutBucketCorsInputBuilder {
@@ -75,17 +75,17 @@ impl PutBucketCorsInputBuilder {
     }
     /// <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// This field is required.
-    pub fn cors_configuration(mut self, input: crate::types::CorsConfiguration) -> Self {
+    pub fn cors_configuration(mut self, input: super::types::CorsConfiguration) -> Self {
         self.cors_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_cors_configuration(mut self, input: ::std::option::Option<crate::types::CorsConfiguration>) -> Self {
+    pub fn set_cors_configuration(mut self, input: ::std::option::Option<super::types::CorsConfiguration>) -> Self {
         self.cors_configuration = input;
         self
     }
     /// <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_cors_configuration(&self) -> &::std::option::Option<crate::types::CorsConfiguration> {
+    pub fn get_cors_configuration(&self) -> &::std::option::Option<super::types::CorsConfiguration> {
         &self.cors_configuration
     }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.</a></p>
@@ -107,19 +107,19 @@ impl PutBucketCorsInputBuilder {
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<super::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<super::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -139,8 +139,8 @@ impl PutBucketCorsInputBuilder {
     /// Consumes the builder and constructs a [`PutBucketCorsInput`](crate::operation::put_bucket_cors::PutBucketCorsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_bucket_cors::PutBucketCorsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::put_bucket_cors::PutBucketCorsInput {
+    ) -> ::std::result::Result<super::operation::put_bucket_cors::PutBucketCorsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::put_bucket_cors::PutBucketCorsInput {
             bucket: self.bucket,
             cors_configuration: self.cors_configuration,
             content_md5: self.content_md5,

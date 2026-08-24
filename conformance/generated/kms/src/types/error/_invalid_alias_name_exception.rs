@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidAliasNameException {
     }
 }
 impl ::std::error::Error for InvalidAliasNameException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidAliasNameException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidAliasNameException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidAliasN
 }
 impl InvalidAliasNameException {
     /// Creates a new builder-style object to manufacture [`InvalidAliasNameException`](crate::types::error::InvalidAliasNameException).
-    pub fn builder() -> crate::types::error::builders::InvalidAliasNameExceptionBuilder {
-        crate::types::error::builders::InvalidAliasNameExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidAliasNameExceptionBuilder {
+        super::types::error::builders::InvalidAliasNameExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidAliasNameExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidAliasNameException`](crate::types::error::InvalidAliasNameException).
-    pub fn build(self) -> crate::types::error::InvalidAliasNameException {
-        crate::types::error::InvalidAliasNameException {
+    pub fn build(self) -> super::types::error::InvalidAliasNameException {
+        super::types::error::InvalidAliasNameException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

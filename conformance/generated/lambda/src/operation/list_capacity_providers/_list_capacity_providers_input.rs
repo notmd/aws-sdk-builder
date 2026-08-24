@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListCapacityProvidersInput {
     /// <p>Filter capacity providers by their current state.</p>
-    pub state: ::std::option::Option<crate::types::CapacityProviderState>,
+    pub state: ::std::option::Option<super::types::CapacityProviderState>,
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of capacity providers to return.</p>
@@ -12,7 +12,7 @@ pub struct ListCapacityProvidersInput {
 }
 impl ListCapacityProvidersInput {
     /// <p>Filter capacity providers by their current state.</p>
-    pub fn state(&self) -> ::std::option::Option<&crate::types::CapacityProviderState> {
+    pub fn state(&self) -> ::std::option::Option<&super::types::CapacityProviderState> {
         self.state.as_ref()
     }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
@@ -26,8 +26,8 @@ impl ListCapacityProvidersInput {
 }
 impl ListCapacityProvidersInput {
     /// Creates a new builder-style object to manufacture [`ListCapacityProvidersInput`](crate::operation::list_capacity_providers::ListCapacityProvidersInput).
-    pub fn builder() -> crate::operation::list_capacity_providers::builders::ListCapacityProvidersInputBuilder {
-        crate::operation::list_capacity_providers::builders::ListCapacityProvidersInputBuilder::default()
+    pub fn builder() -> super::operation::list_capacity_providers::builders::ListCapacityProvidersInputBuilder {
+        super::operation::list_capacity_providers::builders::ListCapacityProvidersInputBuilder::default()
     }
 }
 
@@ -35,23 +35,23 @@ impl ListCapacityProvidersInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListCapacityProvidersInputBuilder {
-    pub(crate) state: ::std::option::Option<crate::types::CapacityProviderState>,
+    pub(crate) state: ::std::option::Option<super::types::CapacityProviderState>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     pub(crate) max_items: ::std::option::Option<i32>,
 }
 impl ListCapacityProvidersInputBuilder {
     /// <p>Filter capacity providers by their current state.</p>
-    pub fn state(mut self, input: crate::types::CapacityProviderState) -> Self {
+    pub fn state(mut self, input: super::types::CapacityProviderState) -> Self {
         self.state = ::std::option::Option::Some(input);
         self
     }
     /// <p>Filter capacity providers by their current state.</p>
-    pub fn set_state(mut self, input: ::std::option::Option<crate::types::CapacityProviderState>) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<super::types::CapacityProviderState>) -> Self {
         self.state = input;
         self
     }
     /// <p>Filter capacity providers by their current state.</p>
-    pub fn get_state(&self) -> &::std::option::Option<crate::types::CapacityProviderState> {
+    pub fn get_state(&self) -> &::std::option::Option<super::types::CapacityProviderState> {
         &self.state
     }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
@@ -85,9 +85,9 @@ impl ListCapacityProvidersInputBuilder {
     /// Consumes the builder and constructs a [`ListCapacityProvidersInput`](crate::operation::list_capacity_providers::ListCapacityProvidersInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_capacity_providers::ListCapacityProvidersInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::list_capacity_providers::ListCapacityProvidersInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::list_capacity_providers::ListCapacityProvidersInput {
+        ::std::result::Result::Ok(super::operation::list_capacity_providers::ListCapacityProvidersInput {
             state: self.state,
             marker: self.marker,
             max_items: self.max_items,

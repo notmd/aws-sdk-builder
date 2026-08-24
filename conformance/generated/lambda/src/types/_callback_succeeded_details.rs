@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CallbackSucceededDetails {
     /// <p>The response payload from the successful operation.</p>
-    pub result: ::std::option::Option<crate::types::EventResult>,
+    pub result: ::std::option::Option<super::types::EventResult>,
 }
 impl CallbackSucceededDetails {
     /// <p>The response payload from the successful operation.</p>
-    pub fn result(&self) -> ::std::option::Option<&crate::types::EventResult> {
+    pub fn result(&self) -> ::std::option::Option<&super::types::EventResult> {
         self.result.as_ref()
     }
 }
 impl CallbackSucceededDetails {
     /// Creates a new builder-style object to manufacture [`CallbackSucceededDetails`](crate::types::CallbackSucceededDetails).
-    pub fn builder() -> crate::types::builders::CallbackSucceededDetailsBuilder {
-        crate::types::builders::CallbackSucceededDetailsBuilder::default()
+    pub fn builder() -> super::types::builders::CallbackSucceededDetailsBuilder {
+        super::types::builders::CallbackSucceededDetailsBuilder::default()
     }
 }
 
@@ -24,26 +24,26 @@ impl CallbackSucceededDetails {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CallbackSucceededDetailsBuilder {
-    pub(crate) result: ::std::option::Option<crate::types::EventResult>,
+    pub(crate) result: ::std::option::Option<super::types::EventResult>,
 }
 impl CallbackSucceededDetailsBuilder {
     /// <p>The response payload from the successful operation.</p>
     /// This field is required.
-    pub fn result(mut self, input: crate::types::EventResult) -> Self {
+    pub fn result(mut self, input: super::types::EventResult) -> Self {
         self.result = ::std::option::Option::Some(input);
         self
     }
     /// <p>The response payload from the successful operation.</p>
-    pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
+    pub fn set_result(mut self, input: ::std::option::Option<super::types::EventResult>) -> Self {
         self.result = input;
         self
     }
     /// <p>The response payload from the successful operation.</p>
-    pub fn get_result(&self) -> &::std::option::Option<crate::types::EventResult> {
+    pub fn get_result(&self) -> &::std::option::Option<super::types::EventResult> {
         &self.result
     }
     /// Consumes the builder and constructs a [`CallbackSucceededDetails`](crate::types::CallbackSucceededDetails).
-    pub fn build(self) -> crate::types::CallbackSucceededDetails {
-        crate::types::CallbackSucceededDetails { result: self.result }
+    pub fn build(self) -> super::types::CallbackSucceededDetails {
+        super::types::CallbackSucceededDetails { result: self.result }
     }
 }

@@ -29,7 +29,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EndpointOverr
 /// Endpoint resolver trait specific to Amazon Simple Storage Service
 pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
     /// Resolve an endpoint with the given parameters
-    fn resolve_endpoint<'a>(&'a self, params: &'a crate::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
+    fn resolve_endpoint<'a>(&'a self, params: &'a super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
 
     /// Convert this service-specific resolver into a `SharedEndpointResolver`
     ///
@@ -52,7 +52,7 @@ where
         &'a self,
         params: &'a ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams,
     ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-        let ep = match params.get::<crate::config::endpoint::Params>() {
+        let ep = match params.get::<super::config::endpoint::Params>() {
             Some(params) => self.0.resolve_endpoint(params),
             None => ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(Err("params of expected type was not present".into())),
         };
@@ -63,7 +63,7 @@ where
 #[derive(Debug)]
 /// The default endpoint resolver.
 pub struct DefaultResolver {
-    partition_resolver: &'static crate::endpoint_lib::partition::PartitionResolver,
+    partition_resolver: &'static super::endpoint_lib::partition::PartitionResolver,
     endpoint_cache: ::arc_swap::ArcSwap<::std::option::Option<(Params, ::aws_smithy_types::endpoint::Endpoint)>>,
 }
 
@@ -77,7 +77,7 @@ impl DefaultResolver {
     /// Create a new DefaultResolver
     pub fn new() -> Self {
         Self {
-            partition_resolver: &crate::endpoint_lib::DEFAULT_PARTITION_RESOLVER,
+            partition_resolver: &super::endpoint_lib::DEFAULT_PARTITION_RESOLVER,
             endpoint_cache: ::arc_swap::ArcSwap::from_pointee(None),
         }
     }
@@ -97,9 +97,9 @@ impl DefaultResolver {
     )]
     fn resolve_endpoint<'a>(
         &'a self,
-        params: &'a crate::config::endpoint::Params,
+        params: &'a super::config::endpoint::Params,
     ) -> ::std::result::Result<::aws_smithy_types::endpoint::Endpoint, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let mut _diagnostic_collector = crate::endpoint_lib::diagnostic::DiagnosticCollector::new();
+        let mut _diagnostic_collector = super::endpoint_lib::diagnostic::DiagnosticCollector::new();
         #[allow(unused_mut)]
         let mut context = ConditionContext::default();
 
@@ -2265,9 +2265,9 @@ impl DefaultResolver {
                         3 => (use_dual_stack) == (&true),
                         4 => endpoint.is_some(),
                         5 => bucket.is_some(),
-                        6 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        6 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     0,
@@ -2282,9 +2282,9 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("--x-s3")
                         })(&mut _diagnostic_collector),
-                        7 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        7 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     0,
@@ -2299,7 +2299,7 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("--xa-s3")
                         })(&mut _diagnostic_collector),
-                        8 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        8 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &mut context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             {
@@ -2309,11 +2309,11 @@ impl DefaultResolver {
                                 partition_result.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        9 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        9 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let access_point_suffix = &mut context.access_point_suffix;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *access_point_suffix = crate::endpoint_lib::substring::substring(
+                                *access_point_suffix = super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     0,
                                     7,
@@ -2324,16 +2324,16 @@ impl DefaultResolver {
                                 access_point_suffix.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        10 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        10 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let access_point_suffix = &context.access_point_suffix;
                             let partition_resolver = &self.partition_resolver;
                             (access_point_suffix) == &mut Some(("--op-s3".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        11 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        11 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let region_prefix = &mut context.region_prefix;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *region_prefix = crate::endpoint_lib::substring::substring(
+                                *region_prefix = super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     8,
                                     12,
@@ -2344,11 +2344,11 @@ impl DefaultResolver {
                                 region_prefix.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        12 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        12 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let outpost_id_ssa_2 = &mut context.outpost_id_ssa_2;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *outpost_id_ssa_2 = crate::endpoint_lib::substring::substring(
+                                *outpost_id_ssa_2 = super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     32,
                                     49,
@@ -2359,11 +2359,11 @@ impl DefaultResolver {
                                 outpost_id_ssa_2.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        13 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        13 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let hardware_type = &mut context.hardware_type;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *hardware_type = crate::endpoint_lib::substring::substring(
+                                *hardware_type = super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     49,
                                     50,
@@ -2375,7 +2375,7 @@ impl DefaultResolver {
                             }
                         })(&mut _diagnostic_collector),
                         14 => (force_path_style) == (&true),
-                        15 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        15 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &context.partition_result;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = partition_result {
@@ -2384,37 +2384,37 @@ impl DefaultResolver {
                                 return false;
                             }) == ("aws-cn")
                         })(&mut _diagnostic_collector),
-                        16 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        16 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let s3_e_ds = &mut context.s3_e_ds;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *s3_e_ds = Some(crate::endpoint_lib::ite::ite!(use_dual_stack, ".dualstack".to_string(), "".to_string()).into());
+                                *s3_e_ds = Some(super::endpoint_lib::ite::ite!(use_dual_stack, ".dualstack".to_string(), "".to_string()).into());
                                 true
                             }
                         })(&mut _diagnostic_collector),
-                        17 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        17 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let outpost_id_ssa_2 = &context.outpost_id_ssa_2;
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::host::is_valid_host_label(
+                            super::endpoint_lib::host::is_valid_host_label(
                                 if let Some(param) = outpost_id_ssa_2 { param } else { return false },
                                 false,
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        18 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        18 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let s3_e_fips = &mut context.s3_e_fips;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *s3_e_fips = Some(crate::endpoint_lib::ite::ite!(use_fips, "-fips".to_string(), "".to_string()).into());
+                                *s3_e_fips = Some(super::endpoint_lib::ite::ite!(use_fips, "-fips".to_string(), "".to_string()).into());
                                 true
                             }
                         })(&mut _diagnostic_collector),
-                        19 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        19 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let s3_e_auth = &mut context.s3_e_auth;
                             let partition_resolver = &self.partition_resolver;
                             {
                                 *s3_e_auth = Some(
-                                    crate::endpoint_lib::ite::ite!(
+                                    super::endpoint_lib::ite::ite!(
                                         crate::endpoint_lib::coalesce::coalesce!(disable_s3_express_session_auth.clone(), false),
                                         "sigv4".to_string(),
                                         "sigv4-s3express".to_string()
@@ -2424,19 +2424,19 @@ impl DefaultResolver {
                                 true
                             }
                         })(&mut _diagnostic_collector),
-                        20 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        20 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::s3::is_virtual_hostable_s3_bucket(
+                            super::endpoint_lib::s3::is_virtual_hostable_s3_bucket(
                                 if let Some(param) = bucket { param } else { return false },
                                 false,
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        21 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        21 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let url = &mut context.url;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *url = crate::endpoint_lib::parse_url::parse_url(
+                                *url = super::endpoint_lib::parse_url::parse_url(
                                     if let Some(param) = endpoint { param } else { return false },
                                     _diagnostic_collector,
                                 )
@@ -2444,36 +2444,36 @@ impl DefaultResolver {
                                 url.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        22 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        22 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(use_s3_express_control_endpoint.clone(), false)) == (true)
+                            (super::endpoint_lib::coalesce::coalesce!(use_s3_express_control_endpoint.clone(), false)) == (true)
                         })(&mut _diagnostic_collector),
-                        23 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        23 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::s3::is_virtual_hostable_s3_bucket(
+                            super::endpoint_lib::s3::is_virtual_hostable_s3_bucket(
                                 if let Some(param) = bucket { param } else { return false },
                                 true,
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        24 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        24 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let url = &context.url;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = url { inner.scheme() } else { return false }) == ("http")
                         })(&mut _diagnostic_collector),
-                        25 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        25 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::host::is_valid_host_label(
+                            super::endpoint_lib::host::is_valid_host_label(
                                 if let Some(param) = region { param } else { return false },
                                 false,
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        26 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        26 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &mut context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *bucket_arn = crate::endpoint_lib::arn::parse_arn(
+                                *bucket_arn = super::endpoint_lib::arn::parse_arn(
                                     if let Some(param) = bucket { param } else { return false },
                                     _diagnostic_collector,
                                 )
@@ -2481,11 +2481,11 @@ impl DefaultResolver {
                                 bucket_arn.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        27 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        27 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let s3express_availability_zone_id = &mut context.s3express_availability_zone_id;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *s3express_availability_zone_id = crate::endpoint_lib::split::split(
+                                *s3express_availability_zone_id = super::endpoint_lib::split::split(
                                     if let Some(param) = bucket { param } else { return false },
                                     "--",
                                     0,
@@ -2498,9 +2498,9 @@ impl DefaultResolver {
                                 s3express_availability_zone_id.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        28 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        28 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     0,
@@ -2515,9 +2515,9 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("arn:")
                         })(&mut _diagnostic_collector),
-                        29 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        29 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     16,
@@ -2532,14 +2532,14 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("--")
                         })(&mut _diagnostic_collector),
-                        30 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        30 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let url = &context.url;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = url { inner.is_ip() } else { return false }) == (true)
                         })(&mut _diagnostic_collector),
-                        31 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        31 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     21,
@@ -2554,9 +2554,9 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("--")
                         })(&mut _diagnostic_collector),
-                        32 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        32 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     27,
@@ -2571,17 +2571,17 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("--")
                         })(&mut _diagnostic_collector),
-                        33 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        33 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let region_prefix = &context.region_prefix;
                             let partition_resolver = &self.partition_resolver;
                             (region_prefix) == &mut Some(("beta".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        34 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        34 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let uri_encoded_bucket = &mut context.uri_encoded_bucket;
                             let partition_resolver = &self.partition_resolver;
                             {
                                 *uri_encoded_bucket = Some(
-                                    crate::endpoint_lib::uri_encode::uri_encode(
+                                    super::endpoint_lib::uri_encode::uri_encode(
                                         if let Some(param) = bucket { param } else { return false },
                                         _diagnostic_collector,
                                     )
@@ -2590,19 +2590,19 @@ impl DefaultResolver {
                                 true
                             }
                         })(&mut _diagnostic_collector),
-                        35 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        35 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::host::is_valid_host_label(
+                            super::endpoint_lib::host::is_valid_host_label(
                                 if let Some(param) = region { param } else { return false },
                                 true,
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        36 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        36 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(use_object_lambda_endpoint.clone(), false)) == (true)
+                            (super::endpoint_lib::coalesce::coalesce!(use_object_lambda_endpoint.clone(), false)) == (true)
                         })(&mut _diagnostic_collector),
-                        37 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        37 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let arn_type = &mut context.arn_type;
                             let partition_resolver = &self.partition_resolver;
@@ -2616,17 +2616,17 @@ impl DefaultResolver {
                                 arn_type.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        38 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        38 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let arn_type = &context.arn_type;
                             let partition_resolver = &self.partition_resolver;
                             (arn_type) == &mut Some(("".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        39 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        39 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let arn_type = &context.arn_type;
                             let partition_resolver = &self.partition_resolver;
                             (arn_type) == &mut Some(("accesspoint".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        40 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        40 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let access_point_name_ssa_1 = &mut context.access_point_name_ssa_1;
                             let partition_resolver = &self.partition_resolver;
@@ -2640,19 +2640,19 @@ impl DefaultResolver {
                                 access_point_name_ssa_1.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        41 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        41 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let access_point_name_ssa_1 = &context.access_point_name_ssa_1;
                             let partition_resolver = &self.partition_resolver;
                             (access_point_name_ssa_1) == &mut Some(("".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        42 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        42 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = bucket_arn { inner.region() } else { return false }) == ("")
                         })(&mut _diagnostic_collector),
-                        43 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        43 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     14,
@@ -2667,23 +2667,23 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("--")
                         })(&mut _diagnostic_collector),
-                        44 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        44 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let hardware_type = &context.hardware_type;
                             let partition_resolver = &self.partition_resolver;
                             (hardware_type) == &mut Some(("e".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        45 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        45 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let hardware_type = &context.hardware_type;
                             let partition_resolver = &self.partition_resolver;
                             (hardware_type) == &mut Some(("o".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        46 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        46 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (region) == &mut Some(("aws-global".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        47 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        47 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     19,
@@ -2698,21 +2698,21 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("--")
                         })(&mut _diagnostic_collector),
-                        48 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        48 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = bucket_arn { inner.service() } else { return false }) == ("s3-object-lambda")
                         })(&mut _diagnostic_collector),
-                        49 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        49 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(disable_access_points.clone(), false)) == (true)
+                            (super::endpoint_lib::coalesce::coalesce!(disable_access_points.clone(), false)) == (true)
                         })(&mut _diagnostic_collector),
-                        50 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        50 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = bucket_arn { inner.service() } else { return false }) == ("s3-outposts")
                         })(&mut _diagnostic_collector),
-                        51 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        51 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let bucket_partition = &mut context.bucket_partition;
                             let partition_resolver = &self.partition_resolver;
@@ -2726,10 +2726,10 @@ impl DefaultResolver {
                                 bucket_partition.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        52 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        52 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let access_point_name_ssa_1 = &context.access_point_name_ssa_1;
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::host::is_valid_host_label(
+                            super::endpoint_lib::host::is_valid_host_label(
                                 if let Some(param) = access_point_name_ssa_1 {
                                     param
                                 } else {
@@ -2739,9 +2739,9 @@ impl DefaultResolver {
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        53 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        53 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     26,
@@ -2756,9 +2756,9 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("--")
                         })(&mut _diagnostic_collector),
-                        54 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        54 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     15,
@@ -2773,7 +2773,7 @@ impl DefaultResolver {
                                 "".to_string()
                             )) == ("--")
                         })(&mut _diagnostic_collector),
-                        55 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        55 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
                             if let Some(inner) = bucket_arn {
@@ -2783,9 +2783,9 @@ impl DefaultResolver {
                             }
                             .is_some()
                         })(&mut _diagnostic_collector),
-                        56 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        56 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(
+                            (super::endpoint_lib::coalesce::coalesce!(
                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     20,
@@ -2801,11 +2801,11 @@ impl DefaultResolver {
                             )) == ("--")
                         })(&mut _diagnostic_collector),
                         57 => (use_global_endpoint) == (&true),
-                        58 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        58 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (region) == &mut Some(("us-east-1".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        59 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        59 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let outpost_id_ssa_1 = &mut context.outpost_id_ssa_1;
                             let partition_resolver = &self.partition_resolver;
@@ -2819,20 +2819,20 @@ impl DefaultResolver {
                                 outpost_id_ssa_1.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        60 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        60 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
-                            (crate::endpoint_lib::coalesce::coalesce!(use_arn_region.clone(), true)) == (true)
+                            (super::endpoint_lib::coalesce::coalesce!(use_arn_region.clone(), true)) == (true)
                         })(&mut _diagnostic_collector),
-                        61 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        61 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let outpost_id_ssa_1 = &context.outpost_id_ssa_1;
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::host::is_valid_host_label(
+                            super::endpoint_lib::host::is_valid_host_label(
                                 if let Some(param) = outpost_id_ssa_1 { param } else { return false },
                                 false,
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        62 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        62 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let outpost_type = &mut context.outpost_type;
                             let partition_resolver = &self.partition_resolver;
@@ -2846,12 +2846,12 @@ impl DefaultResolver {
                                 outpost_type.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        63 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        63 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
                             (region) == &mut Some((if let Some(inner) = bucket_arn { inner.region() } else { return false }.into()))
                         })(&mut _diagnostic_collector),
-                        64 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        64 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &context.partition_result;
                             let bucket_partition = &context.bucket_partition;
                             let partition_resolver = &self.partition_resolver;
@@ -2866,16 +2866,16 @@ impl DefaultResolver {
                             })
                         })(&mut _diagnostic_collector),
                         65 => (disable_multi_region_access_points) == (&true),
-                        66 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        66 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::host::is_valid_host_label(
+                            super::endpoint_lib::host::is_valid_host_label(
                                 if let Some(inner) = bucket_arn { inner.region() } else { return false },
                                 true,
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        67 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        67 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_result = &context.partition_result;
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
@@ -2886,7 +2886,7 @@ impl DefaultResolver {
                                     return false;
                                 })
                         })(&mut _diagnostic_collector),
-                        68 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        68 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = bucket_arn {
@@ -2895,15 +2895,15 @@ impl DefaultResolver {
                                 return false;
                             }) == ("")
                         })(&mut _diagnostic_collector),
-                        69 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        69 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
                             (if let Some(inner) = bucket_arn { inner.service() } else { return false }) == ("s3")
                         })(&mut _diagnostic_collector),
-                        70 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        70 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::host::is_valid_host_label(
+                            super::endpoint_lib::host::is_valid_host_label(
                                 if let Some(inner) = bucket_arn {
                                     inner.account_id()
                                 } else {
@@ -2913,7 +2913,7 @@ impl DefaultResolver {
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        71 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        71 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let bucket_arn = &context.bucket_arn;
                             let access_point_name_ssa_2 = &mut context.access_point_name_ssa_2;
                             let partition_resolver = &self.partition_resolver;
@@ -2927,10 +2927,10 @@ impl DefaultResolver {
                                 access_point_name_ssa_2.is_some()
                             }
                         })(&mut _diagnostic_collector),
-                        72 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        72 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let access_point_name_ssa_1 = &context.access_point_name_ssa_1;
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::host::is_valid_host_label(
+                            super::endpoint_lib::host::is_valid_host_label(
                                 if let Some(param) = access_point_name_ssa_1 {
                                     param
                                 } else {
@@ -2940,15 +2940,15 @@ impl DefaultResolver {
                                 _diagnostic_collector,
                             )
                         })(&mut _diagnostic_collector),
-                        73 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        73 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let outpost_type = &context.outpost_type;
                             let partition_resolver = &self.partition_resolver;
                             (outpost_type) == &mut Some(("accesspoint".to_string().into()))
                         })(&mut _diagnostic_collector),
-                        74 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                        74 => (|_diagnostic_collector: &mut super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let access_point_name_ssa_2 = &context.access_point_name_ssa_2;
                             let partition_resolver = &self.partition_resolver;
-                            crate::endpoint_lib::host::is_valid_host_label(
+                            super::endpoint_lib::host::is_valid_host_label(
                                 if let Some(param) = access_point_name_ssa_2 {
                                     param
                                 } else {
@@ -2967,8 +2967,8 @@ impl DefaultResolver {
     }
 }
 
-impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
-    fn resolve_endpoint<'a>(&'a self, params: &'a crate::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
+impl super::config::endpoint::ResolveEndpoint for DefaultResolver {
+    fn resolve_endpoint<'a>(&'a self, params: &'a super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
         // Check single-entry cache (lock-free read via ArcSwap)
         let cached = self.endpoint_cache.load();
         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
@@ -2984,2768 +2984,2768 @@ impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
         ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(result)
     }
 }
-const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 553] = [
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+const NODES: [super::endpoint_lib::bdd_interpreter::BddNode; 553] = [
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: -1,
         high_ref: 1,
         low_ref: -1,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 0,
         high_ref: 3,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 1,
         high_ref: 424,
         low_ref: 4,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 2,
         high_ref: 272,
         low_ref: 5,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 3,
         high_ref: 233,
         low_ref: 6,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 85,
         low_ref: 7,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
         high_ref: 15,
         low_ref: 8,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 9,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 10,
         low_ref: 13,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 11,
         low_ref: 13,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 12,
         low_ref: 13,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 22,
         high_ref: 100000014,
         low_ref: 13,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 14,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000103,
         low_ref: 435,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 271,
         low_ref: 16,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 7,
         high_ref: 270,
         low_ref: 17,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 19,
         low_ref: 18,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 501,
         low_ref: 106,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 9,
         high_ref: 20,
         low_ref: 24,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 10,
         high_ref: 21,
         low_ref: 24,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 11,
         high_ref: 22,
         low_ref: 24,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 12,
         high_ref: 23,
         low_ref: 24,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 13,
         high_ref: 547,
         low_ref: 24,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 77,
         low_ref: 25,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 73,
         low_ref: 26,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 27,
         low_ref: 78,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 28,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 29,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 47,
         low_ref: 30,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000058,
         low_ref: 31,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 50,
         high_ref: 32,
         low_ref: 100000085,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 33,
         low_ref: 136,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 55,
         high_ref: 100000076,
         low_ref: 34,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 59,
         high_ref: 35,
         low_ref: 100000084,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 39,
         low_ref: 36,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 61,
         high_ref: 37,
         low_ref: 100000083,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 38,
         low_ref: 146,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 41,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 61,
         high_ref: 40,
         low_ref: 100000083,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 41,
         low_ref: 150,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 42,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 43,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 44,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 71,
         high_ref: 45,
         low_ref: 100000081,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 73,
         high_ref: 46,
         low_ref: 100000080,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 74,
         high_ref: 100000078,
         low_ref: 100000079,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 48,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 49,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 185,
         low_ref: 50,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 62,
         low_ref: 51,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 52,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 53,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 56,
         low_ref: 54,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 55,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 57,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 57,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 58,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 59,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 69,
         high_ref: 60,
         low_ref: 100000065,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 61,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 72,
         high_ref: 100000064,
         low_ref: 100000051,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 63,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 64,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 67,
         low_ref: 65,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 66,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 68,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 68,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 69,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 70,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 68,
         high_ref: 100000047,
         low_ref: 71,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 72,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 72,
         high_ref: 100000050,
         low_ref: 100000051,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 25,
         high_ref: 74,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000039,
         low_ref: 75,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 57,
         high_ref: 76,
         low_ref: 100000041,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 58,
         high_ref: 100000040,
         low_ref: 100000041,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 100000088,
         low_ref: 78,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 28,
         high_ref: 100000087,
         low_ref: 79,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 82,
         low_ref: 80,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 81,
         low_ref: 545,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000103,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000097,
         low_ref: 83,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 57,
         high_ref: 84,
         low_ref: 100000099,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 58,
         high_ref: 100000098,
         low_ref: 100000099,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
         high_ref: 101,
         low_ref: 86,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 87,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 88,
         low_ref: 89,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 91,
         low_ref: 89,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 90,
         low_ref: 92,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 97,
         low_ref: 95,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 93,
         low_ref: 92,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 98,
         low_ref: 95,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 97,
         low_ref: 94,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 22,
         high_ref: 100000014,
         low_ref: 95,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 96,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000103,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 22,
         high_ref: 100000013,
         low_ref: 98,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 99,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000101,
         low_ref: 100,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000110,
         low_ref: 100000111,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 214,
         low_ref: 102,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 7,
         high_ref: 208,
         low_ref: 103,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 119,
         low_ref: 104,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 118,
         low_ref: 105,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 106,
         low_ref: 100000023,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 107,
         low_ref: 502,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 108,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 109,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 112,
         low_ref: 110,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000058,
         low_ref: 111,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 50,
         high_ref: 136,
         low_ref: 100000085,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 113,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 114,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 115,
         low_ref: 500,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000056,
         low_ref: 116,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 52,
         high_ref: 117,
         low_ref: 100000072,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 65,
         high_ref: 100000069,
         low_ref: 100000072,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 501,
         low_ref: 100000023,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 9,
         high_ref: 120,
         low_ref: 124,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 10,
         high_ref: 121,
         low_ref: 124,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 11,
         high_ref: 122,
         low_ref: 124,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 12,
         high_ref: 123,
         low_ref: 124,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 13,
         high_ref: 202,
         low_ref: 124,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 195,
         low_ref: 125,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 190,
         low_ref: 126,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 127,
         low_ref: 100000023,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 23,
         high_ref: 128,
         low_ref: 129,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 24,
         high_ref: 189,
         low_ref: 129,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 130,
         low_ref: 197,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 131,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 132,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 159,
         low_ref: 133,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000058,
         low_ref: 134,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 50,
         high_ref: 135,
         low_ref: 100000085,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 141,
         low_ref: 136,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 55,
         high_ref: 100000076,
         low_ref: 137,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 59,
         high_ref: 138,
         low_ref: 100000084,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 100000083,
         low_ref: 139,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 61,
         high_ref: 140,
         low_ref: 100000083,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 100000083,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 55,
         high_ref: 100000076,
         low_ref: 142,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 59,
         high_ref: 143,
         low_ref: 100000084,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 148,
         low_ref: 144,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 61,
         high_ref: 145,
         low_ref: 100000083,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 147,
         low_ref: 146,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 150,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 153,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 61,
         high_ref: 149,
         low_ref: 100000083,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 153,
         low_ref: 150,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 151,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 152,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 100000082,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 154,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 155,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 156,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 71,
         high_ref: 157,
         low_ref: 100000081,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 73,
         high_ref: 158,
         low_ref: 100000080,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 74,
         high_ref: 100000077,
         low_ref: 100000079,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 160,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 161,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 185,
         low_ref: 162,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 174,
         low_ref: 163,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 164,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 165,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 168,
         low_ref: 166,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 167,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 169,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 169,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 170,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 171,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 69,
         high_ref: 172,
         low_ref: 100000065,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 173,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 72,
         high_ref: 100000063,
         low_ref: 100000051,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 175,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 176,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 179,
         low_ref: 177,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 178,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 180,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 180,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 181,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 182,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 68,
         high_ref: 100000047,
         low_ref: 183,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 184,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 72,
         high_ref: 100000048,
         low_ref: 100000051,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000056,
         low_ref: 186,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 52,
         high_ref: 187,
         low_ref: 100000072,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 65,
         high_ref: 100000069,
         low_ref: 188,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 67,
         high_ref: 100000070,
         low_ref: 100000071,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 25,
         high_ref: 100000036,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 191,
         low_ref: 100000023,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 25,
         high_ref: 192,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 30,
         high_ref: 194,
         low_ref: 193,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000034,
         low_ref: 100000036,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000033,
         low_ref: 100000035,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 196,
         low_ref: 100000023,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 100000088,
         low_ref: 197,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 28,
         high_ref: 100000087,
         low_ref: 198,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 201,
         low_ref: 199,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 200,
         low_ref: 545,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000101,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000095,
         low_ref: 100000096,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 17,
         high_ref: 203,
         low_ref: 100000022,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 204,
         low_ref: 100000021,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 205,
         low_ref: 550,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 33,
         high_ref: 206,
         low_ref: 550,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 44,
         high_ref: 100000016,
         low_ref: 207,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 45,
         high_ref: 100000018,
         low_ref: 100000020,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 209,
         low_ref: 215,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 210,
         low_ref: 220,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 211,
         low_ref: 220,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 212,
         low_ref: 224,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 213,
         low_ref: 227,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 231,
         low_ref: 401,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 218,
         low_ref: 215,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 216,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 217,
         low_ref: 227,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 231,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 219,
         low_ref: 220,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 223,
         low_ref: 220,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 221,
         low_ref: 224,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 222,
         low_ref: 227,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 231,
         low_ref: 100000012,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 226,
         low_ref: 224,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 225,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 100000009,
         low_ref: 100000012,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 230,
         low_ref: 227,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 228,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 30,
         high_ref: 229,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 100000007,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 21,
         high_ref: 231,
         low_ref: 415,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 30,
         high_ref: 232,
         low_ref: 100000008,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 100000007,
         low_ref: 100000008,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 100000002,
         low_ref: 234,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
         high_ref: 235,
         low_ref: 480,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 271,
         low_ref: 236,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 7,
         high_ref: 270,
         low_ref: 237,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 238,
         low_ref: 491,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 9,
         high_ref: 239,
         low_ref: 243,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 10,
         high_ref: 240,
         low_ref: 243,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 11,
         high_ref: 241,
         low_ref: 243,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 12,
         high_ref: 242,
         low_ref: 243,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 13,
         high_ref: 547,
         low_ref: 243,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 266,
         low_ref: 244,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 264,
         low_ref: 245,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 246,
         low_ref: 267,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 247,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 248,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 249,
         low_ref: 518,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 250,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 251,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 538,
         low_ref: 252,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000043,
         low_ref: 253,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 254,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 255,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 258,
         low_ref: 256,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 257,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 259,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 259,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 260,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 261,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 69,
         high_ref: 262,
         low_ref: 100000065,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 263,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 72,
         high_ref: 100000062,
         low_ref: 100000051,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 25,
         high_ref: 265,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000031,
         low_ref: 100000032,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 100000088,
         low_ref: 267,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 28,
         high_ref: 100000087,
         low_ref: 268,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 269,
         low_ref: 544,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000093,
         low_ref: 100000094,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 397,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 407,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 3,
         high_ref: 346,
         low_ref: 273,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 100000003,
         low_ref: 274,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
         high_ref: 284,
         low_ref: 275,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 276,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 100000005,
         low_ref: 277,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 278,
         low_ref: 281,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 279,
         low_ref: 281,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 280,
         low_ref: 281,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 22,
         high_ref: 100000014,
         low_ref: 281,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 282,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000102,
         low_ref: 283,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000106,
         low_ref: 100000107,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 405,
         low_ref: 285,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 7,
         high_ref: 395,
         low_ref: 286,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 295,
         low_ref: 287,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 501,
         low_ref: 288,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 289,
         low_ref: 502,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 290,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 291,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 292,
         low_ref: 307,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 293,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 294,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 335,
         low_ref: 500,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 9,
         high_ref: 296,
         low_ref: 300,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 10,
         high_ref: 297,
         low_ref: 300,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 11,
         high_ref: 298,
         low_ref: 300,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 12,
         high_ref: 299,
         low_ref: 300,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 13,
         high_ref: 394,
         low_ref: 300,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 339,
         low_ref: 301,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 100000005,
         low_ref: 302,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 337,
         low_ref: 303,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 304,
         low_ref: 341,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 305,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 306,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 309,
         low_ref: 307,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000058,
         low_ref: 308,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 50,
         high_ref: 100000074,
         low_ref: 100000085,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 310,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 311,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 335,
         low_ref: 312,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 324,
         low_ref: 313,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 314,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 315,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 318,
         low_ref: 316,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 317,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 319,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 319,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 320,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 321,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 69,
         high_ref: 322,
         low_ref: 100000065,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 323,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 72,
         high_ref: 100000061,
         low_ref: 100000051,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 325,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 326,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 329,
         low_ref: 327,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 328,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 330,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 330,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 331,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 332,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 68,
         high_ref: 100000047,
         low_ref: 333,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 334,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 72,
         high_ref: 100000049,
         low_ref: 100000051,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000056,
         low_ref: 336,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 52,
         high_ref: 100000067,
         low_ref: 100000072,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 25,
         high_ref: 338,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000027,
         low_ref: 100000028,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 100000005,
         low_ref: 340,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 100000088,
         low_ref: 341,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 28,
         high_ref: 100000087,
         low_ref: 342,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 345,
         low_ref: 343,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 344,
         low_ref: 545,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000102,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000091,
         low_ref: 100000092,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 100000002,
         low_ref: 347,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
         high_ref: 357,
         low_ref: 348,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 349,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 100000005,
         low_ref: 350,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 351,
         low_ref: 354,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 352,
         low_ref: 354,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 353,
         low_ref: 354,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 22,
         high_ref: 100000014,
         low_ref: 354,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 355,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000043,
         low_ref: 356,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000104,
         low_ref: 100000105,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 405,
         low_ref: 358,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 7,
         high_ref: 395,
         low_ref: 359,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 360,
         low_ref: 491,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 9,
         high_ref: 361,
         low_ref: 365,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 10,
         high_ref: 362,
         low_ref: 365,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 11,
         high_ref: 363,
         low_ref: 365,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 12,
         high_ref: 364,
         low_ref: 365,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 13,
         high_ref: 394,
         low_ref: 365,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 389,
         low_ref: 366,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 100000005,
         low_ref: 367,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 387,
         low_ref: 368,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 369,
         low_ref: 391,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 370,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 371,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 372,
         low_ref: 518,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 373,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 374,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 538,
         low_ref: 375,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000043,
         low_ref: 376,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 377,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 378,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 381,
         low_ref: 379,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 380,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 382,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 382,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 383,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 384,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 69,
         high_ref: 385,
         low_ref: 100000065,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 386,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 72,
         high_ref: 100000060,
         low_ref: 100000051,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 25,
         high_ref: 388,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000025,
         low_ref: 100000026,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 100000005,
         low_ref: 390,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 100000088,
         low_ref: 391,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 28,
         high_ref: 100000087,
         low_ref: 392,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 393,
         low_ref: 544,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000089,
         low_ref: 100000090,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 100000005,
         low_ref: 547,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 396,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 100000005,
         low_ref: 397,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 398,
         low_ref: 410,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 399,
         low_ref: 410,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 400,
         low_ref: 410,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 401,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 27,
         high_ref: 402,
         low_ref: 100000012,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 29,
         high_ref: 100000011,
         low_ref: 403,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 31,
         high_ref: 100000011,
         low_ref: 404,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 32,
         high_ref: 100000011,
         low_ref: 422,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 406,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 100000005,
         low_ref: 407,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 408,
         low_ref: 410,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 409,
         low_ref: 410,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 411,
         low_ref: 410,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 100000012,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 414,
         low_ref: 412,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 22,
         high_ref: 413,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 100000010,
         low_ref: 100000009,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 22,
         high_ref: 416,
         low_ref: 415,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 27,
         high_ref: 419,
         low_ref: 100000012,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 27,
         high_ref: 418,
         low_ref: 417,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 100000010,
         low_ref: 100000012,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 100000010,
         low_ref: 419,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 43,
         high_ref: 100000011,
         low_ref: 420,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 47,
         high_ref: 100000011,
         low_ref: 421,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 53,
         high_ref: 100000011,
         low_ref: 422,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 54,
         high_ref: 100000011,
         low_ref: 423,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 56,
         high_ref: 100000011,
         low_ref: 100000012,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 2,
         high_ref: 100000001,
         low_ref: 425,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 3,
         high_ref: 478,
         low_ref: 426,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 100000004,
         low_ref: 427,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
         high_ref: 438,
         low_ref: 428,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 429,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 430,
         low_ref: 433,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 431,
         low_ref: 433,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 432,
         low_ref: 433,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 22,
         high_ref: 100000014,
         low_ref: 433,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 434,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000044,
         low_ref: 435,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000112,
         low_ref: 436,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 57,
         high_ref: 437,
         low_ref: 100000114,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 58,
         high_ref: 100000113,
         low_ref: 100000114,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 100000006,
         low_ref: 439,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 7,
         high_ref: 100000006,
         low_ref: 440,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 450,
         low_ref: 441,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 501,
         low_ref: 442,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 443,
         low_ref: 502,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 444,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 445,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 446,
         low_ref: 465,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 447,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 448,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 471,
         low_ref: 449,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000044,
         low_ref: 500,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 9,
         high_ref: 451,
         low_ref: 455,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 10,
         high_ref: 452,
         low_ref: 455,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 11,
         high_ref: 453,
         low_ref: 455,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 12,
         high_ref: 454,
         low_ref: 455,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 13,
         high_ref: 547,
         low_ref: 455,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 473,
         low_ref: 456,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 460,
         low_ref: 457,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 458,
         low_ref: 461,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 25,
         high_ref: 459,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000037,
         low_ref: 100000038,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 540,
         low_ref: 461,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 462,
         low_ref: 474,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 463,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 464,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 467,
         low_ref: 465,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000058,
         low_ref: 466,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 50,
         high_ref: 100000075,
         low_ref: 100000085,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 468,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 469,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 471,
         low_ref: 470,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000044,
         low_ref: 524,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000044,
         low_ref: 472,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 52,
         high_ref: 100000068,
         low_ref: 100000072,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 100000088,
         low_ref: 474,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 28,
         high_ref: 100000087,
         low_ref: 475,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 100000100,
         low_ref: 476,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 477,
         low_ref: 545,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000044,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 4,
         high_ref: 100000002,
         low_ref: 479,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 5,
         high_ref: 488,
         low_ref: 480,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 481,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 16,
         high_ref: 482,
         low_ref: 485,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 18,
         high_ref: 483,
         low_ref: 485,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 19,
         high_ref: 484,
         low_ref: 485,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 22,
         high_ref: 100000014,
         low_ref: 485,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 486,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000043,
         low_ref: 487,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000108,
         low_ref: 100000109,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 6,
         high_ref: 100000006,
         low_ref: 489,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 7,
         high_ref: 100000006,
         low_ref: 490,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 8,
         high_ref: 503,
         low_ref: 491,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 501,
         low_ref: 492,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 493,
         low_ref: 502,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 494,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 495,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 496,
         low_ref: 518,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 497,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 498,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 538,
         low_ref: 499,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000043,
         low_ref: 500,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 100000088,
         low_ref: 502,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 28,
         high_ref: 100000087,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 9,
         high_ref: 504,
         low_ref: 508,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 10,
         high_ref: 505,
         low_ref: 508,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 11,
         high_ref: 506,
         low_ref: 508,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 12,
         high_ref: 507,
         low_ref: 508,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 13,
         high_ref: 547,
         low_ref: 508,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 14,
         high_ref: 541,
         low_ref: 509,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 15,
         high_ref: 513,
         low_ref: 510,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 511,
         low_ref: 514,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 25,
         high_ref: 512,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 46,
         high_ref: 100000029,
         low_ref: 100000030,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 540,
         low_ref: 514,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 515,
         low_ref: 542,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 37,
         high_ref: 516,
         low_ref: 100000086,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 38,
         high_ref: 100000086,
         low_ref: 517,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 39,
         high_ref: 520,
         low_ref: 518,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000058,
         low_ref: 519,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 50,
         high_ref: 100000073,
         low_ref: 100000085,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 40,
         high_ref: 521,
         low_ref: 100000057,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 41,
         high_ref: 100000057,
         low_ref: 522,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 42,
         high_ref: 538,
         low_ref: 523,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000043,
         low_ref: 524,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 49,
         high_ref: 100000045,
         low_ref: 525,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 51,
         high_ref: 529,
         low_ref: 526,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 100000055,
         low_ref: 527,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 528,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 100000055,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 60,
         high_ref: 532,
         low_ref: 530,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 531,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 63,
         high_ref: 533,
         low_ref: 100000046,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 62,
         high_ref: 100000055,
         low_ref: 533,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 64,
         high_ref: 534,
         low_ref: 100000054,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 66,
         high_ref: 535,
         low_ref: 100000053,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 69,
         high_ref: 536,
         low_ref: 100000065,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 70,
         high_ref: 537,
         low_ref: 100000052,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 72,
         high_ref: 100000059,
         low_ref: 100000051,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 48,
         high_ref: 100000043,
         low_ref: 539,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 52,
         high_ref: 100000066,
         low_ref: 100000072,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 25,
         high_ref: 100000024,
         low_ref: 100000042,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 26,
         high_ref: 100000088,
         low_ref: 542,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 28,
         high_ref: 100000087,
         low_ref: 543,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 34,
         high_ref: 100000100,
         low_ref: 544,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 35,
         high_ref: 546,
         low_ref: 545,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000042,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 36,
         high_ref: 100000043,
         low_ref: 100000115,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 17,
         high_ref: 548,
         low_ref: 100000022,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 20,
         high_ref: 549,
         low_ref: 100000021,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 33,
         high_ref: 552,
         low_ref: 550,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 44,
         high_ref: 100000017,
         low_ref: 551,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 45,
         high_ref: 100000019,
         low_ref: 100000020,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 44,
         high_ref: 100000015,
         low_ref: 553,
     },
-    crate::endpoint_lib::bdd_interpreter::BddNode {
+    super::endpoint_lib::bdd_interpreter::BddNode {
         condition_index: 45,
         high_ref: 100000015,
         low_ref: 100000020,
@@ -5756,7 +5756,7 @@ const NODES: [crate::endpoint_lib::bdd_interpreter::BddNode; 553] = [
 #[derive(Default)]
 #[allow(unused_lifetimes)]
 pub(crate) struct ConditionContext<'a> {
-    pub(crate) partition_result: Option<crate::endpoint_lib::partition::Partition<'a>>,
+    pub(crate) partition_result: Option<super::endpoint_lib::partition::Partition<'a>>,
     pub(crate) access_point_suffix: Option<::std::string::String>,
     pub(crate) region_prefix: Option<::std::string::String>,
     pub(crate) outpost_id_ssa_2: Option<::std::string::String>,
@@ -5764,13 +5764,13 @@ pub(crate) struct ConditionContext<'a> {
     pub(crate) s3_e_ds: Option<::std::string::String>,
     pub(crate) s3_e_fips: Option<::std::string::String>,
     pub(crate) s3_e_auth: Option<::std::string::String>,
-    pub(crate) url: Option<crate::endpoint_lib::parse_url::Url<'a>>,
-    pub(crate) bucket_arn: Option<crate::endpoint_lib::arn::Arn<'a>>,
+    pub(crate) url: Option<super::endpoint_lib::parse_url::Url<'a>>,
+    pub(crate) bucket_arn: Option<super::endpoint_lib::arn::Arn<'a>>,
     pub(crate) s3express_availability_zone_id: ::std::option::Option<::std::string::String>,
     pub(crate) uri_encoded_bucket: Option<::std::string::String>,
     pub(crate) arn_type: ::std::option::Option<::std::string::String>,
     pub(crate) access_point_name_ssa_1: ::std::option::Option<::std::string::String>,
-    pub(crate) bucket_partition: Option<crate::endpoint_lib::partition::Partition<'a>>,
+    pub(crate) bucket_partition: Option<super::endpoint_lib::partition::Partition<'a>>,
     pub(crate) outpost_id_ssa_1: ::std::option::Option<::std::string::String>,
     pub(crate) outpost_type: ::std::option::Option<::std::string::String>,
     pub(crate) access_point_name_ssa_2: ::std::option::Option<::std::string::String>,
@@ -5819,8 +5819,8 @@ pub struct Params {
 }
 impl Params {
     /// Create a builder for [`Params`]
-    pub fn builder() -> crate::config::endpoint::ParamsBuilder {
-        crate::config::endpoint::ParamsBuilder::default()
+    pub fn builder() -> super::config::endpoint::ParamsBuilder {
+        super::config::endpoint::ParamsBuilder::default()
     }
     /// The S3 bucket used to send the request. This is an optional parameter that will be set automatically for operations that are scoped to an S3 bucket.
     pub fn bucket(&self) -> ::std::option::Option<&str> {
@@ -5915,33 +5915,33 @@ pub struct ParamsBuilder {
 }
 impl ParamsBuilder {
     /// Consume this builder, creating [`Params`].
-    pub fn build(self) -> ::std::result::Result<crate::config::endpoint::Params, crate::config::endpoint::InvalidParams> {
+    pub fn build(self) -> ::std::result::Result<super::config::endpoint::Params, super::config::endpoint::InvalidParams> {
         Ok(
             #[allow(clippy::unnecessary_lazy_evaluations)]
-            crate::config::endpoint::Params {
+            super::config::endpoint::Params {
                 bucket: self.bucket,
                 region: self.region,
                 use_fips: self
                     .use_fips
                     .or_else(|| Some(false))
-                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_fips"))?,
+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("use_fips"))?,
                 use_dual_stack: self
                     .use_dual_stack
                     .or_else(|| Some(false))
-                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
                 endpoint: self.endpoint,
                 force_path_style: self
                     .force_path_style
                     .or_else(|| Some(false))
-                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("force_path_style"))?,
+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("force_path_style"))?,
                 accelerate: self
                     .accelerate
                     .or_else(|| Some(false))
-                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("accelerate"))?,
+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("accelerate"))?,
                 use_global_endpoint: self
                     .use_global_endpoint
                     .or_else(|| Some(false))
-                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_global_endpoint"))?,
+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("use_global_endpoint"))?,
                 use_object_lambda_endpoint: self.use_object_lambda_endpoint,
                 key: self.key,
                 prefix: self.prefix,
@@ -5950,7 +5950,7 @@ impl ParamsBuilder {
                 disable_multi_region_access_points: self
                     .disable_multi_region_access_points
                     .or_else(|| Some(false))
-                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("disable_multi_region_access_points"))?,
+                    .ok_or_else(|| super::config::endpoint::InvalidParams::missing("disable_multi_region_access_points"))?,
                 use_arn_region: self.use_arn_region,
                 use_s3_express_control_endpoint: self.use_s3_express_control_endpoint,
                 disable_s3_express_session_auth: self.disable_s3_express_session_auth,

@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`ssh_public_key_id(impl Into<String>)`](crate::operation::delete_ssh_public_key::builders::DeleteSSHPublicKeyFluentBuilder::ssh_public_key_id) / [`set_ssh_public_key_id(Option<String>)`](crate::operation::delete_ssh_public_key::builders::DeleteSSHPublicKeyFluentBuilder::set_ssh_public_key_id):<br>required: **true**<br><p>The unique identifier for the SSH public key.</p> <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p><br>
     /// - On success, responds with [`DeleteSshPublicKeyOutput`](crate::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput)
     /// - On failure, responds with [`SdkError<DeleteSSHPublicKeyError>`](crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError)
-    pub fn delete_ssh_public_key(&self) -> crate::operation::delete_ssh_public_key::builders::DeleteSSHPublicKeyFluentBuilder {
-        crate::operation::delete_ssh_public_key::builders::DeleteSSHPublicKeyFluentBuilder::new(self.handle.clone())
+    pub fn delete_ssh_public_key(&self) -> super::operation::delete_ssh_public_key::builders::DeleteSSHPublicKeyFluentBuilder {
+        super::operation::delete_ssh_public_key::builders::DeleteSSHPublicKeyFluentBuilder::new(self.handle.clone())
     }
 }

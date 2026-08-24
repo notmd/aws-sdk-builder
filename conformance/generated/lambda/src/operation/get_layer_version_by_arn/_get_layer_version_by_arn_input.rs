@@ -14,8 +14,8 @@ impl GetLayerVersionByArnInput {
 }
 impl GetLayerVersionByArnInput {
     /// Creates a new builder-style object to manufacture [`GetLayerVersionByArnInput`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnInput).
-    pub fn builder() -> crate::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnInputBuilder {
-        crate::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnInputBuilder::default()
+    pub fn builder() -> super::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnInputBuilder {
+        super::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnInputBuilder::default()
     }
 }
 
@@ -44,8 +44,8 @@ impl GetLayerVersionByArnInputBuilder {
     /// Consumes the builder and constructs a [`GetLayerVersionByArnInput`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_layer_version_by_arn::GetLayerVersionByArnInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::get_layer_version_by_arn::GetLayerVersionByArnInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::get_layer_version_by_arn::GetLayerVersionByArnInput { arn: self.arn })
+        ::std::result::Result::Ok(super::operation::get_layer_version_by_arn::GetLayerVersionByArnInput { arn: self.arn })
     }
 }

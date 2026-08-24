@@ -32,8 +32,8 @@ impl ListBucketMetricsConfigurationsInput {
 }
 impl ListBucketMetricsConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`ListBucketMetricsConfigurationsInput`](crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsInput).
-    pub fn builder() -> crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsInputBuilder {
-        crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsInputBuilder::default()
+    pub fn builder() -> super::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsInputBuilder {
+        super::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsInputBuilder::default()
     }
 }
 
@@ -102,11 +102,11 @@ impl ListBucketMetricsConfigurationsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsInput,
+        super::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsInput {
+            super::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsInput {
                 bucket: self.bucket,
                 continuation_token: self.continuation_token,
                 expected_bucket_owner: self.expected_bucket_owner,

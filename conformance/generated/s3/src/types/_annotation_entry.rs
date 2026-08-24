@@ -11,11 +11,11 @@ pub struct AnnotationEntry {
     /// <p>The entity tag of the annotation.</p>
     pub e_tag: ::std::option::Option<::std::string::String>,
     /// <p>The checksum algorithm used for the annotation.</p>
-    pub checksum_algorithm: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>,
+    pub checksum_algorithm: ::std::option::Option<::std::vec::Vec<super::types::ChecksumAlgorithm>>,
     /// <p>The size of the annotation payload, in bytes.</p>
     pub size: i64,
     /// <p>The replication status of the annotation.</p>
-    pub replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
+    pub replication_status: ::std::option::Option<super::types::ReplicationStatus>,
 }
 impl AnnotationEntry {
     /// <p>The name of the annotation.</p>
@@ -34,7 +34,7 @@ impl AnnotationEntry {
     /// <p>The checksum algorithm used for the annotation.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.checksum_algorithm.is_none()`.
-    pub fn checksum_algorithm(&self) -> &[crate::types::ChecksumAlgorithm] {
+    pub fn checksum_algorithm(&self) -> &[super::types::ChecksumAlgorithm] {
         self.checksum_algorithm.as_deref().unwrap_or_default()
     }
     /// <p>The size of the annotation payload, in bytes.</p>
@@ -42,14 +42,14 @@ impl AnnotationEntry {
         self.size
     }
     /// <p>The replication status of the annotation.</p>
-    pub fn replication_status(&self) -> ::std::option::Option<&crate::types::ReplicationStatus> {
+    pub fn replication_status(&self) -> ::std::option::Option<&super::types::ReplicationStatus> {
         self.replication_status.as_ref()
     }
 }
 impl AnnotationEntry {
     /// Creates a new builder-style object to manufacture [`AnnotationEntry`](crate::types::AnnotationEntry).
-    pub fn builder() -> crate::types::builders::AnnotationEntryBuilder {
-        crate::types::builders::AnnotationEntryBuilder::default()
+    pub fn builder() -> super::types::builders::AnnotationEntryBuilder {
+        super::types::builders::AnnotationEntryBuilder::default()
     }
 }
 
@@ -60,9 +60,9 @@ pub struct AnnotationEntryBuilder {
     pub(crate) annotation_name: ::std::option::Option<::std::string::String>,
     pub(crate) last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) e_tag: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_algorithm: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>,
+    pub(crate) checksum_algorithm: ::std::option::Option<::std::vec::Vec<super::types::ChecksumAlgorithm>>,
     pub(crate) size: ::std::option::Option<i64>,
-    pub(crate) replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
+    pub(crate) replication_status: ::std::option::Option<super::types::ReplicationStatus>,
 }
 impl AnnotationEntryBuilder {
     /// <p>The name of the annotation.</p>
@@ -114,19 +114,19 @@ impl AnnotationEntryBuilder {
     /// To override the contents of this collection use [`set_checksum_algorithm`](Self::set_checksum_algorithm).
     ///
     /// <p>The checksum algorithm used for the annotation.</p>
-    pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
+    pub fn checksum_algorithm(mut self, input: super::types::ChecksumAlgorithm) -> Self {
         let mut v = self.checksum_algorithm.unwrap_or_default();
         v.push(input);
         self.checksum_algorithm = ::std::option::Option::Some(v);
         self
     }
     /// <p>The checksum algorithm used for the annotation.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ChecksumAlgorithm>>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>The checksum algorithm used for the annotation.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ChecksumAlgorithm>> {
         &self.checksum_algorithm
     }
     /// <p>The size of the annotation payload, in bytes.</p>
@@ -145,17 +145,17 @@ impl AnnotationEntryBuilder {
         &self.size
     }
     /// <p>The replication status of the annotation.</p>
-    pub fn replication_status(mut self, input: crate::types::ReplicationStatus) -> Self {
+    pub fn replication_status(mut self, input: super::types::ReplicationStatus) -> Self {
         self.replication_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The replication status of the annotation.</p>
-    pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self {
+    pub fn set_replication_status(mut self, input: ::std::option::Option<super::types::ReplicationStatus>) -> Self {
         self.replication_status = input;
         self
     }
     /// <p>The replication status of the annotation.</p>
-    pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> {
+    pub fn get_replication_status(&self) -> &::std::option::Option<super::types::ReplicationStatus> {
         &self.replication_status
     }
     /// Consumes the builder and constructs a [`AnnotationEntry`](crate::types::AnnotationEntry).
@@ -163,8 +163,8 @@ impl AnnotationEntryBuilder {
     /// - [`annotation_name`](crate::types::builders::AnnotationEntryBuilder::annotation_name)
     /// - [`last_modified`](crate::types::builders::AnnotationEntryBuilder::last_modified)
     /// - [`size`](crate::types::builders::AnnotationEntryBuilder::size)
-    pub fn build(self) -> ::std::result::Result<crate::types::AnnotationEntry, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AnnotationEntry {
+    pub fn build(self) -> ::std::result::Result<super::types::AnnotationEntry, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::AnnotationEntry {
             annotation_name: self.annotation_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "annotation_name",

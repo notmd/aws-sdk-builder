@@ -27,7 +27,7 @@ impl ::std::fmt::Display for PackedPolicyTooLargeException {
     }
 }
 impl ::std::error::Error for PackedPolicyTooLargeException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::PackedPolicyTooLargeException {
+impl ::aws_types::request_id::RequestId for super::types::error::PackedPolicyTooLargeException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -40,8 +40,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PackedPolicyT
 }
 impl PackedPolicyTooLargeException {
     /// Creates a new builder-style object to manufacture [`PackedPolicyTooLargeException`](crate::types::error::PackedPolicyTooLargeException).
-    pub fn builder() -> crate::types::error::builders::PackedPolicyTooLargeExceptionBuilder {
-        crate::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::PackedPolicyTooLargeExceptionBuilder {
+        super::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default()
     }
 }
 
@@ -79,8 +79,8 @@ impl PackedPolicyTooLargeExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PackedPolicyTooLargeException`](crate::types::error::PackedPolicyTooLargeException).
-    pub fn build(self) -> crate::types::error::PackedPolicyTooLargeException {
-        crate::types::error::PackedPolicyTooLargeException {
+    pub fn build(self) -> super::types::error::PackedPolicyTooLargeException {
+        super::types::error::PackedPolicyTooLargeException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

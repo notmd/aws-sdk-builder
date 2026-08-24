@@ -26,7 +26,7 @@ impl ::std::fmt::Display for ReplayLimitExceededException {
     }
 }
 impl ::std::error::Error for ReplayLimitExceededException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ReplayLimitExceededException {
+impl ::aws_types::request_id::RequestId for super::types::error::ReplayLimitExceededException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ReplayLimitEx
 }
 impl ReplayLimitExceededException {
     /// Creates a new builder-style object to manufacture [`ReplayLimitExceededException`](crate::types::error::ReplayLimitExceededException).
-    pub fn builder() -> crate::types::error::builders::ReplayLimitExceededExceptionBuilder {
-        crate::types::error::builders::ReplayLimitExceededExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ReplayLimitExceededExceptionBuilder {
+        super::types::error::builders::ReplayLimitExceededExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl ReplayLimitExceededExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ReplayLimitExceededException`](crate::types::error::ReplayLimitExceededException).
-    pub fn build(self) -> crate::types::error::ReplayLimitExceededException {
-        crate::types::error::ReplayLimitExceededException {
+    pub fn build(self) -> super::types::error::ReplayLimitExceededException {
+        super::types::error::ReplayLimitExceededException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -7,14 +7,14 @@ pub struct GetSessionTokenOutput {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
     /// <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p>
     /// </note>
-    pub credentials: ::std::option::Option<crate::types::Credentials>,
+    pub credentials: ::std::option::Option<super::types::Credentials>,
     _request_id: Option<String>,
 }
 impl GetSessionTokenOutput {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
     /// <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p>
     /// </note>
-    pub fn credentials(&self) -> ::std::option::Option<&crate::types::Credentials> {
+    pub fn credentials(&self) -> ::std::option::Option<&super::types::Credentials> {
         self.credentials.as_ref()
     }
 }
@@ -33,8 +33,8 @@ impl ::aws_types::request_id::RequestId for GetSessionTokenOutput {
 }
 impl GetSessionTokenOutput {
     /// Creates a new builder-style object to manufacture [`GetSessionTokenOutput`](crate::operation::get_session_token::GetSessionTokenOutput).
-    pub fn builder() -> crate::operation::get_session_token::builders::GetSessionTokenOutputBuilder {
-        crate::operation::get_session_token::builders::GetSessionTokenOutputBuilder::default()
+    pub fn builder() -> super::operation::get_session_token::builders::GetSessionTokenOutputBuilder {
+        super::operation::get_session_token::builders::GetSessionTokenOutputBuilder::default()
     }
 }
 
@@ -42,28 +42,28 @@ impl GetSessionTokenOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct GetSessionTokenOutputBuilder {
-    pub(crate) credentials: ::std::option::Option<crate::types::Credentials>,
+    pub(crate) credentials: ::std::option::Option<super::types::Credentials>,
     _request_id: Option<String>,
 }
 impl GetSessionTokenOutputBuilder {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
     /// <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p>
     /// </note>
-    pub fn credentials(mut self, input: crate::types::Credentials) -> Self {
+    pub fn credentials(mut self, input: super::types::Credentials) -> Self {
         self.credentials = ::std::option::Option::Some(input);
         self
     }
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
     /// <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p>
     /// </note>
-    pub fn set_credentials(mut self, input: ::std::option::Option<crate::types::Credentials>) -> Self {
+    pub fn set_credentials(mut self, input: ::std::option::Option<super::types::Credentials>) -> Self {
         self.credentials = input;
         self
     }
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
     /// <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p>
     /// </note>
-    pub fn get_credentials(&self) -> &::std::option::Option<crate::types::Credentials> {
+    pub fn get_credentials(&self) -> &::std::option::Option<super::types::Credentials> {
         &self.credentials
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -76,8 +76,8 @@ impl GetSessionTokenOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetSessionTokenOutput`](crate::operation::get_session_token::GetSessionTokenOutput).
-    pub fn build(self) -> crate::operation::get_session_token::GetSessionTokenOutput {
-        crate::operation::get_session_token::GetSessionTokenOutput {
+    pub fn build(self) -> super::operation::get_session_token::GetSessionTokenOutput {
+        super::operation::get_session_token::GetSessionTokenOutput {
             credentials: self.credentials,
             _request_id: self._request_id,
         }

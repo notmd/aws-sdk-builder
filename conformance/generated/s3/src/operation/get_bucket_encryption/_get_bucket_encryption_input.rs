@@ -26,8 +26,8 @@ impl GetBucketEncryptionInput {
 }
 impl GetBucketEncryptionInput {
     /// Creates a new builder-style object to manufacture [`GetBucketEncryptionInput`](crate::operation::get_bucket_encryption::GetBucketEncryptionInput).
-    pub fn builder() -> crate::operation::get_bucket_encryption::builders::GetBucketEncryptionInputBuilder {
-        crate::operation::get_bucket_encryption::builders::GetBucketEncryptionInputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_encryption::builders::GetBucketEncryptionInputBuilder {
+        super::operation::get_bucket_encryption::builders::GetBucketEncryptionInputBuilder::default()
     }
 }
 
@@ -80,9 +80,9 @@ impl GetBucketEncryptionInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketEncryptionInput`](crate::operation::get_bucket_encryption::GetBucketEncryptionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_bucket_encryption::GetBucketEncryptionInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::get_bucket_encryption::GetBucketEncryptionInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::get_bucket_encryption::GetBucketEncryptionInput {
+        ::std::result::Result::Ok(super::operation::get_bucket_encryption::GetBucketEncryptionInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

@@ -5,13 +5,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ExecutionStartedDetails {
     /// <p>The input payload provided for the durable execution.</p>
-    pub input: ::std::option::Option<crate::types::EventInput>,
+    pub input: ::std::option::Option<super::types::EventInput>,
     /// <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
     pub execution_timeout: i32,
 }
 impl ExecutionStartedDetails {
     /// <p>The input payload provided for the durable execution.</p>
-    pub fn input(&self) -> ::std::option::Option<&crate::types::EventInput> {
+    pub fn input(&self) -> ::std::option::Option<&super::types::EventInput> {
         self.input.as_ref()
     }
     /// <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
@@ -21,8 +21,8 @@ impl ExecutionStartedDetails {
 }
 impl ExecutionStartedDetails {
     /// Creates a new builder-style object to manufacture [`ExecutionStartedDetails`](crate::types::ExecutionStartedDetails).
-    pub fn builder() -> crate::types::builders::ExecutionStartedDetailsBuilder {
-        crate::types::builders::ExecutionStartedDetailsBuilder::default()
+    pub fn builder() -> super::types::builders::ExecutionStartedDetailsBuilder {
+        super::types::builders::ExecutionStartedDetailsBuilder::default()
     }
 }
 
@@ -30,23 +30,23 @@ impl ExecutionStartedDetails {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExecutionStartedDetailsBuilder {
-    pub(crate) input: ::std::option::Option<crate::types::EventInput>,
+    pub(crate) input: ::std::option::Option<super::types::EventInput>,
     pub(crate) execution_timeout: ::std::option::Option<i32>,
 }
 impl ExecutionStartedDetailsBuilder {
     /// <p>The input payload provided for the durable execution.</p>
     /// This field is required.
-    pub fn input(mut self, input: crate::types::EventInput) -> Self {
+    pub fn input(mut self, input: super::types::EventInput) -> Self {
         self.input = ::std::option::Option::Some(input);
         self
     }
     /// <p>The input payload provided for the durable execution.</p>
-    pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self {
+    pub fn set_input(mut self, input: ::std::option::Option<super::types::EventInput>) -> Self {
         self.input = input;
         self
     }
     /// <p>The input payload provided for the durable execution.</p>
-    pub fn get_input(&self) -> &::std::option::Option<crate::types::EventInput> {
+    pub fn get_input(&self) -> &::std::option::Option<super::types::EventInput> {
         &self.input
     }
     /// <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
@@ -67,8 +67,8 @@ impl ExecutionStartedDetailsBuilder {
     /// Consumes the builder and constructs a [`ExecutionStartedDetails`](crate::types::ExecutionStartedDetails).
     /// This method will fail if any of the following fields are not set:
     /// - [`execution_timeout`](crate::types::builders::ExecutionStartedDetailsBuilder::execution_timeout)
-    pub fn build(self) -> ::std::result::Result<crate::types::ExecutionStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ExecutionStartedDetails {
+    pub fn build(self) -> ::std::result::Result<super::types::ExecutionStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::ExecutionStartedDetails {
             input: self.input,
             execution_timeout: self.execution_timeout.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

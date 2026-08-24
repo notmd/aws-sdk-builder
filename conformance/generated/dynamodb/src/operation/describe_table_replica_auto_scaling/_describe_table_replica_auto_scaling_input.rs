@@ -14,8 +14,8 @@ impl DescribeTableReplicaAutoScalingInput {
 }
 impl DescribeTableReplicaAutoScalingInput {
     /// Creates a new builder-style object to manufacture [`DescribeTableReplicaAutoScalingInput`](crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingInput).
-    pub fn builder() -> crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingInputBuilder {
-        crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingInputBuilder::default()
+    pub fn builder() -> super::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingInputBuilder {
+        super::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingInputBuilder::default()
     }
 }
 
@@ -45,11 +45,11 @@ impl DescribeTableReplicaAutoScalingInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingInput,
+        super::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingInput { table_name: self.table_name },
+            super::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingInput { table_name: self.table_name },
         )
     }
 }

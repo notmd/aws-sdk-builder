@@ -243,8 +243,8 @@ impl SetTopicAttributesInput {
 }
 impl SetTopicAttributesInput {
     /// Creates a new builder-style object to manufacture [`SetTopicAttributesInput`](crate::operation::set_topic_attributes::SetTopicAttributesInput).
-    pub fn builder() -> crate::operation::set_topic_attributes::builders::SetTopicAttributesInputBuilder {
-        crate::operation::set_topic_attributes::builders::SetTopicAttributesInputBuilder::default()
+    pub fn builder() -> super::operation::set_topic_attributes::builders::SetTopicAttributesInputBuilder {
+        super::operation::set_topic_attributes::builders::SetTopicAttributesInputBuilder::default()
     }
 }
 
@@ -628,9 +628,9 @@ impl SetTopicAttributesInputBuilder {
     /// Consumes the builder and constructs a [`SetTopicAttributesInput`](crate::operation::set_topic_attributes::SetTopicAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::set_topic_attributes::SetTopicAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::set_topic_attributes::SetTopicAttributesInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::set_topic_attributes::SetTopicAttributesInput {
+        ::std::result::Result::Ok(super::operation::set_topic_attributes::SetTopicAttributesInput {
             topic_arn: self.topic_arn,
             attribute_name: self.attribute_name,
             attribute_value: self.attribute_value,

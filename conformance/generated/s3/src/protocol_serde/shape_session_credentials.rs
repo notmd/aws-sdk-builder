@@ -3,12 +3,12 @@
 pub fn de_session_credentials(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::SessionCredentials, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::SessionCredentials, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::SessionCredentials::builder();
+    let mut builder = super::types::SessionCredentials::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("AccessKeyId") /* AccessKeyId com.amazonaws.s3#SessionCredentials$AccessKeyId */ =>  {
@@ -67,7 +67,7 @@ pub fn de_session_credentials(
             _ => {}
         }
     }
-    Ok(crate::serde_util::session_credentials_correct_errors(builder)
+    Ok(super::serde_util::session_credentials_correct_errors(builder)
         .build()
         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }

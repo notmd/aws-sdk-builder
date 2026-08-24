@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for AssociateDelegationRequestOutput {
 }
 impl AssociateDelegationRequestOutput {
     /// Creates a new builder-style object to manufacture [`AssociateDelegationRequestOutput`](crate::operation::associate_delegation_request::AssociateDelegationRequestOutput).
-    pub fn builder() -> crate::operation::associate_delegation_request::builders::AssociateDelegationRequestOutputBuilder {
-        crate::operation::associate_delegation_request::builders::AssociateDelegationRequestOutputBuilder::default()
+    pub fn builder() -> super::operation::associate_delegation_request::builders::AssociateDelegationRequestOutputBuilder {
+        super::operation::associate_delegation_request::builders::AssociateDelegationRequestOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl AssociateDelegationRequestOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AssociateDelegationRequestOutput`](crate::operation::associate_delegation_request::AssociateDelegationRequestOutput).
-    pub fn build(self) -> crate::operation::associate_delegation_request::AssociateDelegationRequestOutput {
-        crate::operation::associate_delegation_request::AssociateDelegationRequestOutput {
+    pub fn build(self) -> super::operation::associate_delegation_request::AssociateDelegationRequestOutput {
+        super::operation::associate_delegation_request::AssociateDelegationRequestOutput {
             _request_id: self._request_id,
         }
     }

@@ -20,8 +20,8 @@ impl DeleteBucketCorsInput {
 }
 impl DeleteBucketCorsInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketCorsInput`](crate::operation::delete_bucket_cors::DeleteBucketCorsInput).
-    pub fn builder() -> crate::operation::delete_bucket_cors::builders::DeleteBucketCorsInputBuilder {
-        crate::operation::delete_bucket_cors::builders::DeleteBucketCorsInputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_cors::builders::DeleteBucketCorsInputBuilder {
+        super::operation::delete_bucket_cors::builders::DeleteBucketCorsInputBuilder::default()
     }
 }
 
@@ -65,8 +65,8 @@ impl DeleteBucketCorsInputBuilder {
     /// Consumes the builder and constructs a [`DeleteBucketCorsInput`](crate::operation::delete_bucket_cors::DeleteBucketCorsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_bucket_cors::DeleteBucketCorsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_bucket_cors::DeleteBucketCorsInput {
+    ) -> ::std::result::Result<super::operation::delete_bucket_cors::DeleteBucketCorsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::delete_bucket_cors::DeleteBucketCorsInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

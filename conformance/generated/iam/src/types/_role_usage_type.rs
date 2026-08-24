@@ -24,8 +24,8 @@ impl RoleUsageType {
 }
 impl RoleUsageType {
     /// Creates a new builder-style object to manufacture [`RoleUsageType`](crate::types::RoleUsageType).
-    pub fn builder() -> crate::types::builders::RoleUsageTypeBuilder {
-        crate::types::builders::RoleUsageTypeBuilder::default()
+    pub fn builder() -> super::types::builders::RoleUsageTypeBuilder {
+        super::types::builders::RoleUsageTypeBuilder::default()
     }
 }
 
@@ -72,8 +72,8 @@ impl RoleUsageTypeBuilder {
         &self.resources
     }
     /// Consumes the builder and constructs a [`RoleUsageType`](crate::types::RoleUsageType).
-    pub fn build(self) -> crate::types::RoleUsageType {
-        crate::types::RoleUsageType {
+    pub fn build(self) -> super::types::RoleUsageType {
+        super::types::RoleUsageType {
             region: self.region,
             resources: self.resources,
         }

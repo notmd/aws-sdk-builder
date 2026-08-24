@@ -11,7 +11,7 @@ impl super::Client {
     ///   - [`function_url_configs(Vec::<FunctionUrlConfig>)`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsOutput::function_url_configs): <p>A list of function URL configurations.</p>
     ///   - [`next_marker(Option<String>)`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsOutput::next_marker): <p>The pagination token that's included if more results are available.</p>
     /// - On failure, responds with [`SdkError<ListFunctionUrlConfigsError>`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsError)
-    pub fn list_function_url_configs(&self) -> crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsFluentBuilder {
-        crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsFluentBuilder::new(self.handle.clone())
+    pub fn list_function_url_configs(&self) -> super::operation::list_function_url_configs::builders::ListFunctionUrlConfigsFluentBuilder {
+        super::operation::list_function_url_configs::builders::ListFunctionUrlConfigsFluentBuilder::new(self.handle.clone())
     }
 }

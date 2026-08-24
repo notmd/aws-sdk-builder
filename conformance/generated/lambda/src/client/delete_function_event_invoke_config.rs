@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteFunctionEventInvokeConfigError>`](crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError)
     pub fn delete_function_event_invoke_config(
         &self,
-    ) -> crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder {
-        crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder {
+        super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigFluentBuilder::new(self.handle.clone())
     }
 }

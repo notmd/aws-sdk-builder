@@ -3,7 +3,7 @@ pub(crate) fn de_auto_scaling_policy_description<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::AutoScalingPolicyDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::AutoScalingPolicyDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::AutoScalingPolicyDescriptionBuilder::default();
+            let mut builder = super::types::builders::AutoScalingPolicyDescriptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -29,7 +29,7 @@ where
                             );
                         }
                         "TargetTrackingScalingPolicyConfiguration" => {
-                            builder = builder.set_target_tracking_scaling_policy_configuration(crate::protocol_serde::shape_auto_scaling_target_tracking_scaling_policy_configuration_description::de_auto_scaling_target_tracking_scaling_policy_configuration_description(tokens, _value, depth + 1)?);
+                            builder = builder.set_target_tracking_scaling_policy_configuration(super::protocol_serde::shape_auto_scaling_target_tracking_scaling_policy_configuration_description::de_auto_scaling_target_tracking_scaling_policy_configuration_description(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

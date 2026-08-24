@@ -10,28 +10,28 @@ impl Query {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::query::QueryInput,
+        input: super::operation::query::QueryInput,
     ) -> ::std::result::Result<
-        crate::operation::query::QueryOutput,
+        super::operation::query::QueryOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::query::QueryError,
+            super::operation::query::QueryError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
         let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
             ::aws_smithy_runtime_api::client::interceptors::context::Error,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >| { err.map_service_error(|err| err.downcast::<crate::operation::query::QueryError>().expect("correct error type")) };
+        >| { err.map_service_error(|err| err.downcast::<super::operation::query::QueryError>().expect("correct error type")) };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
             .await
             .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(output.downcast::<crate::operation::query::QueryOutput>().expect("correct output type"))
+        ::std::result::Result::Ok(output.downcast::<super::operation::query::QueryOutput>().expect("correct output type"))
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::query::QueryInput,
+        input: super::operation::query::QueryInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -57,8 +57,8 @@ impl Query {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -66,7 +66,7 @@ impl Query {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -87,7 +87,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Query {
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("Query")
                 .build()
                 .expect("required fields set"),
@@ -124,13 +124,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Query {
                 QueryEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::query::QueryError,
+                super::operation::query::QueryError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::query::QueryError,
+                super::operation::query::QueryError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::query::QueryError,
+                super::operation::query::QueryError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -215,11 +215,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for QueryResp
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_query::de_query_http_error(status, headers, body)
+            super::protocol_serde::shape_query::de_query_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_query::de_query_http_response(status, headers, body)
+            super::protocol_serde::shape_query::de_query_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -231,15 +231,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for QueryRequest
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input.downcast::<crate::operation::query::QueryInput>().expect("correct type");
+        let input = input.downcast::<super::operation::query::QueryInput>().expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::query::QueryInput,
+                _input: &super::operation::query::QueryInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -248,7 +248,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for QueryRequest
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::query::QueryInput,
+                input: &super::operation::query::QueryInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -264,7 +264,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for QueryRequest
             );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_query::ser_query_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_query::ser_query_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -293,7 +293,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for QueryEndpoint
     ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
         let _input = context.input().downcast_ref::<QueryInput>().ok_or("failed to downcast to QueryInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -329,17 +329,17 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for QueryEndpoint
 #[derive(::std::fmt::Debug)]
 pub enum QueryError {
     /// <p>An error occurred on the server side.</p>
-    InternalServerError(crate::types::error::InternalServerError),
+    InternalServerError(super::types::error::InternalServerError),
     #[allow(missing_docs)] // documentation missing in model
-    InvalidEndpointException(crate::types::error::InvalidEndpointException),
+    InvalidEndpointException(super::types::error::InvalidEndpointException),
     /// <p>The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    ProvisionedThroughputExceededException(crate::types::error::ProvisionedThroughputExceededException),
+    ProvisionedThroughputExceededException(super::types::error::ProvisionedThroughputExceededException),
     /// <p>Throughput exceeds the current throughput quota for your account. For detailed information about why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a quota increase.</p>
-    RequestLimitExceeded(crate::types::error::RequestLimitExceeded),
+    RequestLimitExceeded(super::types::error::RequestLimitExceeded),
     /// <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
     /// <p>The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception.</p>
-    ThrottlingException(crate::types::error::ThrottlingException),
+    ThrottlingException(super::types::error::ThrottlingException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -347,14 +347,14 @@ pub enum QueryError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-QueryError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl QueryError {
     /// Creates the `QueryError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -362,7 +362,7 @@ impl QueryError {
 
     /// Creates the `QueryError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -465,21 +465,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for QueryErr
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::query::QueryError {
+impl ::aws_types::request_id::RequestId for super::operation::query::QueryError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::query::_query_input::QueryInput;
+pub use super::operation::query::_query_input::QueryInput;
 
-pub use crate::operation::query::_query_output::QueryOutput;
+pub use super::operation::query::_query_output::QueryOutput;
 
 mod _query_input;
 

@@ -30,8 +30,8 @@ impl ListServerCertificateTagsInput {
 }
 impl ListServerCertificateTagsInput {
     /// Creates a new builder-style object to manufacture [`ListServerCertificateTagsInput`](crate::operation::list_server_certificate_tags::ListServerCertificateTagsInput).
-    pub fn builder() -> crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder {
-        crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder::default()
+    pub fn builder() -> super::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder {
+        super::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder::default()
     }
 }
 
@@ -97,10 +97,10 @@ impl ListServerCertificateTagsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_server_certificate_tags::ListServerCertificateTagsInput,
+        super::operation::list_server_certificate_tags::ListServerCertificateTagsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_server_certificate_tags::ListServerCertificateTagsInput {
+        ::std::result::Result::Ok(super::operation::list_server_certificate_tags::ListServerCertificateTagsInput {
             server_certificate_name: self.server_certificate_name,
             marker: self.marker,
             max_items: self.max_items,

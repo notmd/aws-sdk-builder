@@ -36,8 +36,8 @@ impl ::aws_types::request_id::RequestId for ListGroupPoliciesOutput {
 }
 impl ListGroupPoliciesOutput {
     /// Creates a new builder-style object to manufacture [`ListGroupPoliciesOutput`](crate::operation::list_group_policies::ListGroupPoliciesOutput).
-    pub fn builder() -> crate::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder {
-        crate::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder::default()
+    pub fn builder() -> super::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder {
+        super::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder::default()
     }
 }
 
@@ -116,8 +116,8 @@ impl ListGroupPoliciesOutputBuilder {
     /// - [`policy_names`](crate::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder::policy_names)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_group_policies::ListGroupPoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_group_policies::ListGroupPoliciesOutput {
+    ) -> ::std::result::Result<super::operation::list_group_policies::ListGroupPoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_group_policies::ListGroupPoliciesOutput {
             policy_names: self.policy_names.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "policy_names",

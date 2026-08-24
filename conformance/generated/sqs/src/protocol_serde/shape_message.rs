@@ -3,7 +3,7 @@ pub(crate) fn de_message<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::Message>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::Message>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::MessageBuilder::default();
+            let mut builder = super::types::builders::MessageBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -51,7 +51,7 @@ where
                         }
                         "Attributes" => {
                             builder = builder.set_attributes(
-                                crate::protocol_serde::shape_message_system_attribute_map::de_message_system_attribute_map(
+                                super::protocol_serde::shape_message_system_attribute_map::de_message_system_attribute_map(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -67,7 +67,7 @@ where
                         }
                         "MessageAttributes" => {
                             builder = builder.set_message_attributes(
-                                crate::protocol_serde::shape_message_body_attribute_map::de_message_body_attribute_map(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_message_body_attribute_map::de_message_body_attribute_map(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

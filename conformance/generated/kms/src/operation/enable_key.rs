@@ -10,11 +10,11 @@ impl EnableKey {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::enable_key::EnableKeyInput,
+        input: super::operation::enable_key::EnableKeyInput,
     ) -> ::std::result::Result<
-        crate::operation::enable_key::EnableKeyOutput,
+        super::operation::enable_key::EnableKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::enable_key::EnableKeyError,
+            super::operation::enable_key::EnableKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl EnableKey {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::enable_key::EnableKeyError>()
+                err.downcast::<super::operation::enable_key::EnableKeyError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl EnableKey {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::enable_key::EnableKeyOutput>()
+                .downcast::<super::operation::enable_key::EnableKeyOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::enable_key::EnableKeyInput,
+        input: super::operation::enable_key::EnableKeyInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl EnableKey {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl EnableKey {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for EnableK
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("EnableKey")
                 .build()
                 .expect("required fields set"),
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for EnableK
                 EnableKeyEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::enable_key::EnableKeyError,
+                super::operation::enable_key::EnableKeyError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::enable_key::EnableKeyError,
+                super::operation::enable_key::EnableKeyError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::enable_key::EnableKeyError,
+                super::operation::enable_key::EnableKeyError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -204,11 +204,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for EnableKey
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_enable_key::de_enable_key_http_error(status, headers, body)
+            super::protocol_serde::shape_enable_key::de_enable_key_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_enable_key::de_enable_key_http_response(status, headers, body)
+            super::protocol_serde::shape_enable_key::de_enable_key_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -220,15 +220,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for EnableKeyReq
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input.downcast::<crate::operation::enable_key::EnableKeyInput>().expect("correct type");
+        let input = input.downcast::<super::operation::enable_key::EnableKeyInput>().expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::enable_key::EnableKeyInput,
+                _input: &super::operation::enable_key::EnableKeyInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -237,7 +237,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for EnableKeyReq
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::enable_key::EnableKeyInput,
+                input: &super::operation::enable_key::EnableKeyInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -253,7 +253,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for EnableKeyReq
             );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_enable_key::ser_enable_key_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_enable_key::ser_enable_key_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -285,7 +285,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EnableKeyEndp
             .downcast_ref::<EnableKeyInput>()
             .ok_or("failed to downcast to EnableKeyInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -308,11 +308,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EnableKeyEndp
 #[derive(::std::fmt::Debug)]
 pub enum EnableKeyError {
     /// <p>The system timed out while trying to fulfill the request. You can retry the request.</p>
-    DependencyTimeoutException(crate::types::error::DependencyTimeoutException),
+    DependencyTimeoutException(super::types::error::DependencyTimeoutException),
     /// <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.</p>
-    InvalidArnException(crate::types::error::InvalidArnException),
+    InvalidArnException(super::types::error::InvalidArnException),
     /// <p>The request was rejected because an internal exception occurred. The request can be retried.</p>
-    KmsInternalException(crate::types::error::KmsInternalException),
+    KmsInternalException(super::types::error::KmsInternalException),
     /// <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
     /// <p>This exceptions means one of the following:</p>
     /// <ul>
@@ -322,11 +322,11 @@ pub enum EnableKeyError {
     /// <li>
     /// <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p></li>
     /// </ul>
-    KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
+    KmsInvalidStateException(super::types::error::KmsInvalidStateException),
     /// <p>The request was rejected because a length constraint or quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    LimitExceededException(crate::types::error::LimitExceededException),
+    LimitExceededException(super::types::error::LimitExceededException),
     /// <p>The request was rejected because the specified entity or resource could not be found.</p>
-    NotFoundException(crate::types::error::NotFoundException),
+    NotFoundException(super::types::error::NotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -334,14 +334,14 @@ pub enum EnableKeyError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-EnableKeyError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl EnableKeyError {
     /// Creates the `EnableKeyError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -349,7 +349,7 @@ impl EnableKeyError {
 
     /// Creates the `EnableKeyError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -452,21 +452,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for EnableKe
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::enable_key::EnableKeyError {
+impl ::aws_types::request_id::RequestId for super::operation::enable_key::EnableKeyError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::enable_key::_enable_key_input::EnableKeyInput;
+pub use super::operation::enable_key::_enable_key_input::EnableKeyInput;
 
-pub use crate::operation::enable_key::_enable_key_output::EnableKeyOutput;
+pub use super::operation::enable_key::_enable_key_output::EnableKeyOutput;
 
 mod _enable_key_input;
 

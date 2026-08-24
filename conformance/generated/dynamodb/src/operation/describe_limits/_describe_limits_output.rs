@@ -39,8 +39,8 @@ impl ::aws_types::request_id::RequestId for DescribeLimitsOutput {
 }
 impl DescribeLimitsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeLimitsOutput`](crate::operation::describe_limits::DescribeLimitsOutput).
-    pub fn builder() -> crate::operation::describe_limits::builders::DescribeLimitsOutputBuilder {
-        crate::operation::describe_limits::builders::DescribeLimitsOutputBuilder::default()
+    pub fn builder() -> super::operation::describe_limits::builders::DescribeLimitsOutputBuilder {
+        super::operation::describe_limits::builders::DescribeLimitsOutputBuilder::default()
     }
 }
 
@@ -121,8 +121,8 @@ impl DescribeLimitsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeLimitsOutput`](crate::operation::describe_limits::DescribeLimitsOutput).
-    pub fn build(self) -> crate::operation::describe_limits::DescribeLimitsOutput {
-        crate::operation::describe_limits::DescribeLimitsOutput {
+    pub fn build(self) -> super::operation::describe_limits::DescribeLimitsOutput {
+        super::operation::describe_limits::DescribeLimitsOutput {
             account_max_read_capacity_units: self.account_max_read_capacity_units,
             account_max_write_capacity_units: self.account_max_write_capacity_units,
             table_max_read_capacity_units: self.table_max_read_capacity_units,

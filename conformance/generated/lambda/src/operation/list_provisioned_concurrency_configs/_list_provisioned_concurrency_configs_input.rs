@@ -46,8 +46,8 @@ impl ListProvisionedConcurrencyConfigsInput {
 }
 impl ListProvisionedConcurrencyConfigsInput {
     /// Creates a new builder-style object to manufacture [`ListProvisionedConcurrencyConfigsInput`](crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput).
-    pub fn builder() -> crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder {
-        crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder::default()
+    pub fn builder() -> super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder {
+        super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder::default()
     }
 }
 
@@ -137,11 +137,11 @@ impl ListProvisionedConcurrencyConfigsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput,
+        super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput {
+            super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput {
                 function_name: self.function_name,
                 marker: self.marker,
                 max_items: self.max_items,

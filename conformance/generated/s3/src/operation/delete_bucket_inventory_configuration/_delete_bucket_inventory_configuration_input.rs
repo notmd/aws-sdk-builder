@@ -32,8 +32,8 @@ impl DeleteBucketInventoryConfigurationInput {
 }
 impl DeleteBucketInventoryConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketInventoryConfigurationInput`](crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationInput).
-    pub fn builder() -> crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationInputBuilder {
-        crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationInputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationInputBuilder {
+        super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationInputBuilder::default()
     }
 }
 
@@ -103,11 +103,11 @@ impl DeleteBucketInventoryConfigurationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationInput,
+        super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationInput {
+            super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationInput {
                 bucket: self.bucket,
                 id: self.id,
                 expected_bucket_owner: self.expected_bucket_owner,

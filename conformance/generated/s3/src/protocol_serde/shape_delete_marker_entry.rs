@@ -3,18 +3,18 @@
 pub fn de_delete_marker_entry(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::DeleteMarkerEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::DeleteMarkerEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::DeleteMarkerEntry::builder();
+    let mut builder = super::types::DeleteMarkerEntry::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("Owner") /* Owner com.amazonaws.s3#DeleteMarkerEntry$Owner */ =>  {
                 let var_1 =
                     Some(
-                        crate::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
+                        super::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
                         ?
                     )
                 ;

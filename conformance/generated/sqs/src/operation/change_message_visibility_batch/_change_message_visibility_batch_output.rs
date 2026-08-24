@@ -5,19 +5,19 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ChangeMessageVisibilityBatchOutput {
     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
-    pub successful: ::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>,
+    pub successful: ::std::vec::Vec<super::types::ChangeMessageVisibilityBatchResultEntry>,
     /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
-    pub failed: ::std::vec::Vec<crate::types::BatchResultErrorEntry>,
+    pub failed: ::std::vec::Vec<super::types::BatchResultErrorEntry>,
     _request_id: Option<String>,
 }
 impl ChangeMessageVisibilityBatchOutput {
     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
-    pub fn successful(&self) -> &[crate::types::ChangeMessageVisibilityBatchResultEntry] {
+    pub fn successful(&self) -> &[super::types::ChangeMessageVisibilityBatchResultEntry] {
         use std::ops::Deref;
         self.successful.deref()
     }
     /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
-    pub fn failed(&self) -> &[crate::types::BatchResultErrorEntry] {
+    pub fn failed(&self) -> &[super::types::BatchResultErrorEntry] {
         use std::ops::Deref;
         self.failed.deref()
     }
@@ -29,8 +29,8 @@ impl ::aws_types::request_id::RequestId for ChangeMessageVisibilityBatchOutput {
 }
 impl ChangeMessageVisibilityBatchOutput {
     /// Creates a new builder-style object to manufacture [`ChangeMessageVisibilityBatchOutput`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput).
-    pub fn builder() -> crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder {
-        crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder::default()
+    pub fn builder() -> super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder {
+        super::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder::default()
     }
 }
 
@@ -38,8 +38,8 @@ impl ChangeMessageVisibilityBatchOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ChangeMessageVisibilityBatchOutputBuilder {
-    pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>>,
-    pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
+    pub(crate) successful: ::std::option::Option<::std::vec::Vec<super::types::ChangeMessageVisibilityBatchResultEntry>>,
+    pub(crate) failed: ::std::option::Option<::std::vec::Vec<super::types::BatchResultErrorEntry>>,
     _request_id: Option<String>,
 }
 impl ChangeMessageVisibilityBatchOutputBuilder {
@@ -48,19 +48,19 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
     /// To override the contents of this collection use [`set_successful`](Self::set_successful).
     ///
     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
-    pub fn successful(mut self, input: crate::types::ChangeMessageVisibilityBatchResultEntry) -> Self {
+    pub fn successful(mut self, input: super::types::ChangeMessageVisibilityBatchResultEntry) -> Self {
         let mut v = self.successful.unwrap_or_default();
         v.push(input);
         self.successful = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
-    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>>) -> Self {
+    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ChangeMessageVisibilityBatchResultEntry>>) -> Self {
         self.successful = input;
         self
     }
     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
-    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>> {
+    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ChangeMessageVisibilityBatchResultEntry>> {
         &self.successful
     }
     /// Appends an item to `failed`.
@@ -68,19 +68,19 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
     /// To override the contents of this collection use [`set_failed`](Self::set_failed).
     ///
     /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
-    pub fn failed(mut self, input: crate::types::BatchResultErrorEntry) -> Self {
+    pub fn failed(mut self, input: super::types::BatchResultErrorEntry) -> Self {
         let mut v = self.failed.unwrap_or_default();
         v.push(input);
         self.failed = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
-    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
+    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::BatchResultErrorEntry>>) -> Self {
         self.failed = input;
         self
     }
     /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
-    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
+    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<super::types::BatchResultErrorEntry>> {
         &self.failed
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -99,10 +99,10 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput,
+        super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput {
+        ::std::result::Result::Ok(super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput {
             successful: self.successful.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "successful",

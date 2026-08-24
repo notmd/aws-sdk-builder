@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GlacierJobParameters {
     /// <p>Retrieval tier at which the restore will be processed.</p>
-    pub tier: crate::types::Tier,
+    pub tier: super::types::Tier,
 }
 impl GlacierJobParameters {
     /// <p>Retrieval tier at which the restore will be processed.</p>
-    pub fn tier(&self) -> &crate::types::Tier {
+    pub fn tier(&self) -> &super::types::Tier {
         &self.tier
     }
 }
 impl GlacierJobParameters {
     /// Creates a new builder-style object to manufacture [`GlacierJobParameters`](crate::types::GlacierJobParameters).
-    pub fn builder() -> crate::types::builders::GlacierJobParametersBuilder {
-        crate::types::builders::GlacierJobParametersBuilder::default()
+    pub fn builder() -> super::types::builders::GlacierJobParametersBuilder {
+        super::types::builders::GlacierJobParametersBuilder::default()
     }
 }
 
@@ -24,29 +24,29 @@ impl GlacierJobParameters {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GlacierJobParametersBuilder {
-    pub(crate) tier: ::std::option::Option<crate::types::Tier>,
+    pub(crate) tier: ::std::option::Option<super::types::Tier>,
 }
 impl GlacierJobParametersBuilder {
     /// <p>Retrieval tier at which the restore will be processed.</p>
     /// This field is required.
-    pub fn tier(mut self, input: crate::types::Tier) -> Self {
+    pub fn tier(mut self, input: super::types::Tier) -> Self {
         self.tier = ::std::option::Option::Some(input);
         self
     }
     /// <p>Retrieval tier at which the restore will be processed.</p>
-    pub fn set_tier(mut self, input: ::std::option::Option<crate::types::Tier>) -> Self {
+    pub fn set_tier(mut self, input: ::std::option::Option<super::types::Tier>) -> Self {
         self.tier = input;
         self
     }
     /// <p>Retrieval tier at which the restore will be processed.</p>
-    pub fn get_tier(&self) -> &::std::option::Option<crate::types::Tier> {
+    pub fn get_tier(&self) -> &::std::option::Option<super::types::Tier> {
         &self.tier
     }
     /// Consumes the builder and constructs a [`GlacierJobParameters`](crate::types::GlacierJobParameters).
     /// This method will fail if any of the following fields are not set:
     /// - [`tier`](crate::types::builders::GlacierJobParametersBuilder::tier)
-    pub fn build(self) -> ::std::result::Result<crate::types::GlacierJobParameters, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::GlacierJobParameters {
+    pub fn build(self) -> ::std::result::Result<super::types::GlacierJobParameters, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::GlacierJobParameters {
             tier: self.tier.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "tier",

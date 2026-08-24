@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CallbackTimedOutDetails {
     /// <p>Details about the callback timeout.</p>
-    pub error: ::std::option::Option<crate::types::EventError>,
+    pub error: ::std::option::Option<super::types::EventError>,
 }
 impl CallbackTimedOutDetails {
     /// <p>Details about the callback timeout.</p>
-    pub fn error(&self) -> ::std::option::Option<&crate::types::EventError> {
+    pub fn error(&self) -> ::std::option::Option<&super::types::EventError> {
         self.error.as_ref()
     }
 }
 impl CallbackTimedOutDetails {
     /// Creates a new builder-style object to manufacture [`CallbackTimedOutDetails`](crate::types::CallbackTimedOutDetails).
-    pub fn builder() -> crate::types::builders::CallbackTimedOutDetailsBuilder {
-        crate::types::builders::CallbackTimedOutDetailsBuilder::default()
+    pub fn builder() -> super::types::builders::CallbackTimedOutDetailsBuilder {
+        super::types::builders::CallbackTimedOutDetailsBuilder::default()
     }
 }
 
@@ -24,26 +24,26 @@ impl CallbackTimedOutDetails {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CallbackTimedOutDetailsBuilder {
-    pub(crate) error: ::std::option::Option<crate::types::EventError>,
+    pub(crate) error: ::std::option::Option<super::types::EventError>,
 }
 impl CallbackTimedOutDetailsBuilder {
     /// <p>Details about the callback timeout.</p>
     /// This field is required.
-    pub fn error(mut self, input: crate::types::EventError) -> Self {
+    pub fn error(mut self, input: super::types::EventError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
     /// <p>Details about the callback timeout.</p>
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
+    pub fn set_error(mut self, input: ::std::option::Option<super::types::EventError>) -> Self {
         self.error = input;
         self
     }
     /// <p>Details about the callback timeout.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
+    pub fn get_error(&self) -> &::std::option::Option<super::types::EventError> {
         &self.error
     }
     /// Consumes the builder and constructs a [`CallbackTimedOutDetails`](crate::types::CallbackTimedOutDetails).
-    pub fn build(self) -> crate::types::CallbackTimedOutDetails {
-        crate::types::CallbackTimedOutDetails { error: self.error }
+    pub fn build(self) -> super::types::CallbackTimedOutDetails {
+        super::types::CallbackTimedOutDetails { error: self.error }
     }
 }

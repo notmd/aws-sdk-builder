@@ -7,11 +7,11 @@ pub struct ReplicaGlobalSecondaryIndexDescription {
     /// <p>The name of the global secondary index.</p>
     pub index_name: ::std::option::Option<::std::string::String>,
     /// <p>If not described, uses the source table GSI's read capacity settings.</p>
-    pub provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
+    pub provisioned_throughput_override: ::std::option::Option<super::types::ProvisionedThroughputOverride>,
     /// <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
-    pub on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughputOverride>,
+    pub on_demand_throughput_override: ::std::option::Option<super::types::OnDemandThroughputOverride>,
     /// <p>Represents the warm throughput of the global secondary index for this replica.</p>
-    pub warm_throughput: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>,
+    pub warm_throughput: ::std::option::Option<super::types::GlobalSecondaryIndexWarmThroughputDescription>,
 }
 impl ReplicaGlobalSecondaryIndexDescription {
     /// <p>The name of the global secondary index.</p>
@@ -19,22 +19,22 @@ impl ReplicaGlobalSecondaryIndexDescription {
         self.index_name.as_deref()
     }
     /// <p>If not described, uses the source table GSI's read capacity settings.</p>
-    pub fn provisioned_throughput_override(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughputOverride> {
+    pub fn provisioned_throughput_override(&self) -> ::std::option::Option<&super::types::ProvisionedThroughputOverride> {
         self.provisioned_throughput_override.as_ref()
     }
     /// <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
-    pub fn on_demand_throughput_override(&self) -> ::std::option::Option<&crate::types::OnDemandThroughputOverride> {
+    pub fn on_demand_throughput_override(&self) -> ::std::option::Option<&super::types::OnDemandThroughputOverride> {
         self.on_demand_throughput_override.as_ref()
     }
     /// <p>Represents the warm throughput of the global secondary index for this replica.</p>
-    pub fn warm_throughput(&self) -> ::std::option::Option<&crate::types::GlobalSecondaryIndexWarmThroughputDescription> {
+    pub fn warm_throughput(&self) -> ::std::option::Option<&super::types::GlobalSecondaryIndexWarmThroughputDescription> {
         self.warm_throughput.as_ref()
     }
 }
 impl ReplicaGlobalSecondaryIndexDescription {
     /// Creates a new builder-style object to manufacture [`ReplicaGlobalSecondaryIndexDescription`](crate::types::ReplicaGlobalSecondaryIndexDescription).
-    pub fn builder() -> crate::types::builders::ReplicaGlobalSecondaryIndexDescriptionBuilder {
-        crate::types::builders::ReplicaGlobalSecondaryIndexDescriptionBuilder::default()
+    pub fn builder() -> super::types::builders::ReplicaGlobalSecondaryIndexDescriptionBuilder {
+        super::types::builders::ReplicaGlobalSecondaryIndexDescriptionBuilder::default()
     }
 }
 
@@ -43,9 +43,9 @@ impl ReplicaGlobalSecondaryIndexDescription {
 #[non_exhaustive]
 pub struct ReplicaGlobalSecondaryIndexDescriptionBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
-    pub(crate) on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughputOverride>,
-    pub(crate) warm_throughput: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>,
+    pub(crate) provisioned_throughput_override: ::std::option::Option<super::types::ProvisionedThroughputOverride>,
+    pub(crate) on_demand_throughput_override: ::std::option::Option<super::types::OnDemandThroughputOverride>,
+    pub(crate) warm_throughput: ::std::option::Option<super::types::GlobalSecondaryIndexWarmThroughputDescription>,
 }
 impl ReplicaGlobalSecondaryIndexDescriptionBuilder {
     /// <p>The name of the global secondary index.</p>
@@ -63,50 +63,50 @@ impl ReplicaGlobalSecondaryIndexDescriptionBuilder {
         &self.index_name
     }
     /// <p>If not described, uses the source table GSI's read capacity settings.</p>
-    pub fn provisioned_throughput_override(mut self, input: crate::types::ProvisionedThroughputOverride) -> Self {
+    pub fn provisioned_throughput_override(mut self, input: super::types::ProvisionedThroughputOverride) -> Self {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
     /// <p>If not described, uses the source table GSI's read capacity settings.</p>
-    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
+    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<super::types::ProvisionedThroughputOverride>) -> Self {
         self.provisioned_throughput_override = input;
         self
     }
     /// <p>If not described, uses the source table GSI's read capacity settings.</p>
-    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> {
+    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<super::types::ProvisionedThroughputOverride> {
         &self.provisioned_throughput_override
     }
     /// <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
-    pub fn on_demand_throughput_override(mut self, input: crate::types::OnDemandThroughputOverride) -> Self {
+    pub fn on_demand_throughput_override(mut self, input: super::types::OnDemandThroughputOverride) -> Self {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
     /// <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
-    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
+    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<super::types::OnDemandThroughputOverride>) -> Self {
         self.on_demand_throughput_override = input;
         self
     }
     /// <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
-    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
+    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<super::types::OnDemandThroughputOverride> {
         &self.on_demand_throughput_override
     }
     /// <p>Represents the warm throughput of the global secondary index for this replica.</p>
-    pub fn warm_throughput(mut self, input: crate::types::GlobalSecondaryIndexWarmThroughputDescription) -> Self {
+    pub fn warm_throughput(mut self, input: super::types::GlobalSecondaryIndexWarmThroughputDescription) -> Self {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the warm throughput of the global secondary index for this replica.</p>
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>) -> Self {
+    pub fn set_warm_throughput(mut self, input: ::std::option::Option<super::types::GlobalSecondaryIndexWarmThroughputDescription>) -> Self {
         self.warm_throughput = input;
         self
     }
     /// <p>Represents the warm throughput of the global secondary index for this replica.</p>
-    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription> {
+    pub fn get_warm_throughput(&self) -> &::std::option::Option<super::types::GlobalSecondaryIndexWarmThroughputDescription> {
         &self.warm_throughput
     }
     /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndexDescription`](crate::types::ReplicaGlobalSecondaryIndexDescription).
-    pub fn build(self) -> crate::types::ReplicaGlobalSecondaryIndexDescription {
-        crate::types::ReplicaGlobalSecondaryIndexDescription {
+    pub fn build(self) -> super::types::ReplicaGlobalSecondaryIndexDescription {
+        super::types::ReplicaGlobalSecondaryIndexDescription {
             index_name: self.index_name,
             provisioned_throughput_override: self.provisioned_throughput_override,
             on_demand_throughput_override: self.on_demand_throughput_override,

@@ -33,8 +33,8 @@ impl AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
 }
 impl AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
     /// Creates a new builder-style object to manufacture [`AutoScalingTargetTrackingScalingPolicyConfigurationUpdate`](crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate).
-    pub fn builder() -> crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilder {
-        crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilder::default()
+    pub fn builder() -> super::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilder {
+        super::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilder::default()
     }
 }
 
@@ -111,10 +111,10 @@ impl AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
+        super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
+        ::std::result::Result::Ok(super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
             disable_scale_in: self.disable_scale_in,
             scale_in_cooldown: self.scale_in_cooldown,
             scale_out_cooldown: self.scale_out_cooldown,

@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for ResyncMfaDeviceOutput {
 }
 impl ResyncMfaDeviceOutput {
     /// Creates a new builder-style object to manufacture [`ResyncMfaDeviceOutput`](crate::operation::resync_mfa_device::ResyncMfaDeviceOutput).
-    pub fn builder() -> crate::operation::resync_mfa_device::builders::ResyncMfaDeviceOutputBuilder {
-        crate::operation::resync_mfa_device::builders::ResyncMfaDeviceOutputBuilder::default()
+    pub fn builder() -> super::operation::resync_mfa_device::builders::ResyncMfaDeviceOutputBuilder {
+        super::operation::resync_mfa_device::builders::ResyncMfaDeviceOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl ResyncMfaDeviceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ResyncMfaDeviceOutput`](crate::operation::resync_mfa_device::ResyncMfaDeviceOutput).
-    pub fn build(self) -> crate::operation::resync_mfa_device::ResyncMfaDeviceOutput {
-        crate::operation::resync_mfa_device::ResyncMfaDeviceOutput {
+    pub fn build(self) -> super::operation::resync_mfa_device::ResyncMfaDeviceOutput {
+        super::operation::resync_mfa_device::ResyncMfaDeviceOutput {
             _request_id: self._request_id,
         }
     }

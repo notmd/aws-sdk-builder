@@ -26,13 +26,13 @@ impl ::std::fmt::Display for NoSuchBucket {
     }
 }
 impl ::std::error::Error for NoSuchBucket {}
-impl crate::s3_request_id::RequestIdExt for crate::types::error::NoSuchBucket {
+impl super::s3_request_id::RequestIdExt for super::types::error::NoSuchBucket {
     fn extended_request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::types::error::NoSuchBucket {
+impl ::aws_types::request_id::RequestId for super::types::error::NoSuchBucket {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -45,8 +45,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for NoSuchBucket 
 }
 impl NoSuchBucket {
     /// Creates a new builder-style object to manufacture [`NoSuchBucket`](crate::types::error::NoSuchBucket).
-    pub fn builder() -> crate::types::error::builders::NoSuchBucketBuilder {
-        crate::types::error::builders::NoSuchBucketBuilder::default()
+    pub fn builder() -> super::types::error::builders::NoSuchBucketBuilder {
+        super::types::error::builders::NoSuchBucketBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl NoSuchBucketBuilder {
         self
     }
     /// Consumes the builder and constructs a [`NoSuchBucket`](crate::types::error::NoSuchBucket).
-    pub fn build(self) -> crate::types::error::NoSuchBucket {
-        crate::types::error::NoSuchBucket {
+    pub fn build(self) -> super::types::error::NoSuchBucket {
+        super::types::error::NoSuchBucket {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

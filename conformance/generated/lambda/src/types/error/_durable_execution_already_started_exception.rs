@@ -34,7 +34,7 @@ impl ::std::fmt::Display for DurableExecutionAlreadyStartedException {
     }
 }
 impl ::std::error::Error for DurableExecutionAlreadyStartedException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::DurableExecutionAlreadyStartedException {
+impl ::aws_types::request_id::RequestId for super::types::error::DurableExecutionAlreadyStartedException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DurableExecut
 }
 impl DurableExecutionAlreadyStartedException {
     /// Creates a new builder-style object to manufacture [`DurableExecutionAlreadyStartedException`](crate::types::error::DurableExecutionAlreadyStartedException).
-    pub fn builder() -> crate::types::error::builders::DurableExecutionAlreadyStartedExceptionBuilder {
-        crate::types::error::builders::DurableExecutionAlreadyStartedExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::DurableExecutionAlreadyStartedExceptionBuilder {
+        super::types::error::builders::DurableExecutionAlreadyStartedExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl DurableExecutionAlreadyStartedExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DurableExecutionAlreadyStartedException`](crate::types::error::DurableExecutionAlreadyStartedException).
-    pub fn build(self) -> crate::types::error::DurableExecutionAlreadyStartedException {
-        crate::types::error::DurableExecutionAlreadyStartedException {
+    pub fn build(self) -> super::types::error::DurableExecutionAlreadyStartedException {
+        super::types::error::DurableExecutionAlreadyStartedException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

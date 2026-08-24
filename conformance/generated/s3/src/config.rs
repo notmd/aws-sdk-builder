@@ -21,11 +21,11 @@ pub struct Config {
     // Both `config` and `cloneable` are the same config, but the cloneable one
     // is kept around so that it is possible to convert back into a builder. This can be
     // optimized in the future.
-    pub(crate) config: crate::config::FrozenLayer,
+    pub(crate) config: super::config::FrozenLayer,
     cloneable: ::aws_smithy_types::config_bag::CloneableLayer,
-    pub(crate) runtime_components: crate::config::RuntimeComponentsBuilder,
-    pub(crate) runtime_plugins: ::std::vec::Vec<crate::config::SharedRuntimePlugin>,
-    pub(crate) behavior_version: ::std::option::Option<crate::config::BehaviorVersion>,
+    pub(crate) runtime_components: super::config::RuntimeComponentsBuilder,
+    pub(crate) runtime_plugins: ::std::vec::Vec<super::config::SharedRuntimePlugin>,
+    pub(crate) behavior_version: ::std::option::Option<super::config::BehaviorVersion>,
 }
 impl Config {
     ///
@@ -48,11 +48,11 @@ impl Config {
         }
     }
     /// Return a reference to the stalled stream protection configuration contained in this config, if any.
-    pub fn stalled_stream_protection(&self) -> ::std::option::Option<&crate::config::StalledStreamProtectionConfig> {
-        self.config.load::<crate::config::StalledStreamProtectionConfig>()
+    pub fn stalled_stream_protection(&self) -> ::std::option::Option<&super::config::StalledStreamProtectionConfig> {
+        self.config.load::<super::config::StalledStreamProtectionConfig>()
     }
     /// Return the [`SharedHttpClient`](crate::config::SharedHttpClient) to use when making requests, if any.
-    pub fn http_client(&self) -> Option<crate::config::SharedHttpClient> {
+    pub fn http_client(&self) -> Option<super::config::SharedHttpClient> {
         self.runtime_components.http_client()
     }
     /// Return the auth schemes configured on this service config
@@ -79,7 +79,7 @@ impl Config {
     }
 
     /// Return a cloned shared async sleep implementation from this config, if any.
-    pub fn sleep_impl(&self) -> ::std::option::Option<crate::config::SharedAsyncSleep> {
+    pub fn sleep_impl(&self) -> ::std::option::Option<super::config::SharedAsyncSleep> {
         self.runtime_components.sleep_impl()
     }
 
@@ -96,11 +96,11 @@ impl Config {
         self.config.load::<::aws_smithy_runtime::client::retries::RetryPartition>()
     }
     /// Returns the configured identity cache for auth.
-    pub fn identity_cache(&self) -> ::std::option::Option<crate::config::SharedIdentityCache> {
+    pub fn identity_cache(&self) -> ::std::option::Option<super::config::SharedIdentityCache> {
         self.runtime_components.identity_cache()
     }
     /// Returns interceptors currently registered by the user.
-    pub fn interceptors(&self) -> impl Iterator<Item = crate::config::SharedInterceptor> + '_ {
+    pub fn interceptors(&self) -> impl Iterator<Item = super::config::SharedInterceptor> + '_ {
         self.runtime_components.interceptors()
     }
     /// Return time source used for this service.
@@ -143,12 +143,12 @@ impl Config {
         Builder::from(config).build()
     }
     /// Return a reference to the response_checksum_validation value contained in this config, if any.
-    pub fn response_checksum_validation(&self) -> ::std::option::Option<&crate::config::ResponseChecksumValidation> {
-        self.config.load::<crate::config::ResponseChecksumValidation>()
+    pub fn response_checksum_validation(&self) -> ::std::option::Option<&super::config::ResponseChecksumValidation> {
+        self.config.load::<super::config::ResponseChecksumValidation>()
     }
     /// Return a reference to the request_checksum_calculation value contained in this config, if any.
-    pub fn request_checksum_calculation(&self) -> ::std::option::Option<&crate::config::RequestChecksumCalculation> {
-        self.config.load::<crate::config::RequestChecksumCalculation>()
+    pub fn request_checksum_calculation(&self) -> ::std::option::Option<&super::config::RequestChecksumCalculation> {
+        self.config.load::<super::config::RequestChecksumCalculation>()
     }
     /// The signature version 4 service signing name to use in the credential scope when signing requests.
     ///
@@ -162,14 +162,14 @@ impl Config {
         self.config.load::<::aws_types::region::SigningRegionSet>()
     }
     /// Returns the AWS region, if it was provided.
-    pub fn region(&self) -> ::std::option::Option<&crate::config::Region> {
-        self.config.load::<crate::config::Region>()
+    pub fn region(&self) -> ::std::option::Option<&super::config::Region> {
+        self.config.load::<super::config::Region>()
     }
     /// This function was intended to be removed, and has been broken since release-2023-11-15 as it always returns a `None`. Do not use.
     #[deprecated(
         note = "This function was intended to be removed, and has been broken since release-2023-11-15 as it always returns a `None`. Do not use."
     )]
-    pub fn credentials_provider(&self) -> Option<crate::config::SharedCredentialsProvider> {
+    pub fn credentials_provider(&self) -> Option<super::config::SharedCredentialsProvider> {
         ::std::option::Option::None
     }
 }
@@ -177,15 +177,15 @@ impl Config {
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct Builder {
     pub(crate) config: ::aws_smithy_types::config_bag::CloneableLayer,
-    pub(crate) runtime_components: crate::config::RuntimeComponentsBuilder,
-    pub(crate) runtime_plugins: ::std::vec::Vec<crate::config::SharedRuntimePlugin>,
-    pub(crate) behavior_version: ::std::option::Option<crate::config::BehaviorVersion>,
+    pub(crate) runtime_components: super::config::RuntimeComponentsBuilder,
+    pub(crate) runtime_plugins: ::std::vec::Vec<super::config::SharedRuntimePlugin>,
+    pub(crate) behavior_version: ::std::option::Option<super::config::BehaviorVersion>,
 }
 impl ::std::default::Default for Builder {
     fn default() -> Self {
         Self {
             config: ::std::default::Default::default(),
-            runtime_components: crate::config::RuntimeComponentsBuilder::new("service config"),
+            runtime_components: super::config::RuntimeComponentsBuilder::new("service config"),
             runtime_plugins: ::std::default::Default::default(),
             behavior_version: ::std::default::Default::default(),
         }
@@ -207,17 +207,17 @@ impl Builder {
     #[allow(unused)]
     pub(crate) fn from_config_bag(config_bag: &::aws_smithy_types::config_bag::ConfigBag) -> Self {
         let mut builder = Self::new();
-        builder.set_stalled_stream_protection(config_bag.load::<crate::config::StalledStreamProtectionConfig>().cloned());
+        builder.set_stalled_stream_protection(config_bag.load::<super::config::StalledStreamProtectionConfig>().cloned());
         builder.set_auth_scheme_preference(config_bag.load::<::aws_smithy_runtime_api::client::auth::AuthSchemePreference>().cloned());
-        builder.set_force_path_style(config_bag.load::<crate::config::ForcePathStyle>().map(|ty| ty.0));
+        builder.set_force_path_style(config_bag.load::<super::config::ForcePathStyle>().map(|ty| ty.0));
 
-        builder.set_use_arn_region(config_bag.load::<crate::config::UseArnRegion>().map(|ty| ty.0));
+        builder.set_use_arn_region(config_bag.load::<super::config::UseArnRegion>().map(|ty| ty.0));
 
-        builder.set_disable_multi_region_access_points(config_bag.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0));
+        builder.set_disable_multi_region_access_points(config_bag.load::<super::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0));
 
-        builder.set_accelerate(config_bag.load::<crate::config::Accelerate>().map(|ty| ty.0));
+        builder.set_accelerate(config_bag.load::<super::config::Accelerate>().map(|ty| ty.0));
 
-        builder.set_disable_s3_express_session_auth(config_bag.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0));
+        builder.set_disable_s3_express_session_auth(config_bag.load::<super::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0));
         builder.set_retry_config(config_bag.load::<::aws_smithy_types::retry::RetryConfig>().cloned());
         builder.set_timeout_config(config_bag.load::<::aws_smithy_types::timeout::TimeoutConfig>().cloned());
         builder.set_retry_partition(config_bag.load::<::aws_smithy_runtime::client::retries::RetryPartition>().cloned());
@@ -228,10 +228,10 @@ impl Builder {
         builder.set_endpoint_url(config_bag.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()));
         builder.set_use_dual_stack(config_bag.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0));
         builder.set_use_fips(config_bag.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0));
-        builder.set_response_checksum_validation(config_bag.load::<crate::config::ResponseChecksumValidation>().cloned());
-        builder.set_request_checksum_calculation(config_bag.load::<crate::config::RequestChecksumCalculation>().cloned());
+        builder.set_response_checksum_validation(config_bag.load::<super::config::ResponseChecksumValidation>().cloned());
+        builder.set_request_checksum_calculation(config_bag.load::<super::config::RequestChecksumCalculation>().cloned());
         builder.set_sigv4a_signing_region_set(config_bag.load::<::aws_types::region::SigningRegionSet>().cloned());
-        builder.set_region(config_bag.load::<crate::config::Region>().cloned());
+        builder.set_region(config_bag.load::<super::config::Region>().cloned());
         builder
     }
     /// Names operation-input members whose values are captured *and* emitted as
@@ -279,7 +279,7 @@ impl Builder {
     }
     /// Set the [`StalledStreamProtectionConfig`](crate::config::StalledStreamProtectionConfig)
     /// to configure protection for stalled streams.
-    pub fn stalled_stream_protection(mut self, stalled_stream_protection_config: crate::config::StalledStreamProtectionConfig) -> Self {
+    pub fn stalled_stream_protection(mut self, stalled_stream_protection_config: super::config::StalledStreamProtectionConfig) -> Self {
         self.set_stalled_stream_protection(::std::option::Option::Some(stalled_stream_protection_config));
         self
     }
@@ -287,7 +287,7 @@ impl Builder {
     /// to configure protection for stalled streams.
     pub fn set_stalled_stream_protection(
         &mut self,
-        stalled_stream_protection_config: ::std::option::Option<crate::config::StalledStreamProtectionConfig>,
+        stalled_stream_protection_config: ::std::option::Option<super::config::StalledStreamProtectionConfig>,
     ) -> &mut Self {
         self.config.store_or_unset(stalled_stream_protection_config);
         self
@@ -295,7 +295,7 @@ impl Builder {
     /// Sets the idempotency token provider to use for service calls that require tokens.
     pub fn idempotency_token_provider(
         mut self,
-        idempotency_token_provider: impl ::std::convert::Into<crate::idempotency_token::IdempotencyTokenProvider>,
+        idempotency_token_provider: impl ::std::convert::Into<super::idempotency_token::IdempotencyTokenProvider>,
     ) -> Self {
         self.set_idempotency_token_provider(::std::option::Option::Some(idempotency_token_provider.into()));
         self
@@ -303,7 +303,7 @@ impl Builder {
     /// Sets the idempotency token provider to use for service calls that require tokens.
     pub fn set_idempotency_token_provider(
         &mut self,
-        idempotency_token_provider: ::std::option::Option<crate::idempotency_token::IdempotencyTokenProvider>,
+        idempotency_token_provider: ::std::option::Option<super::idempotency_token::IdempotencyTokenProvider>,
     ) -> &mut Self {
         self.config.store_or_unset(idempotency_token_provider);
         self
@@ -337,8 +337,8 @@ impl Builder {
     /// # }
     /// # }
     /// ```
-    pub fn http_client(mut self, http_client: impl crate::config::HttpClient + 'static) -> Self {
-        self.set_http_client(::std::option::Option::Some(crate::config::IntoShared::into_shared(http_client)));
+    pub fn http_client(mut self, http_client: impl super::config::HttpClient + 'static) -> Self {
+        self.set_http_client(::std::option::Option::Some(super::config::IntoShared::into_shared(http_client)));
         self
     }
 
@@ -371,7 +371,7 @@ impl Builder {
     /// # }
     /// # }
     /// ```
-    pub fn set_http_client(&mut self, http_client: Option<crate::config::SharedHttpClient>) -> &mut Self {
+    pub fn set_http_client(&mut self, http_client: Option<super::config::SharedHttpClient>) -> &mut Self {
         self.runtime_components.set_http_client(http_client);
         self
     }
@@ -518,7 +518,7 @@ impl Builder {
     ///     // other configurations
     ///     .build();
     /// ```
-    pub fn auth_scheme_resolver(mut self, auth_scheme_resolver: impl crate::config::auth::ResolveAuthScheme + 'static) -> Self {
+    pub fn auth_scheme_resolver(mut self, auth_scheme_resolver: impl super::config::auth::ResolveAuthScheme + 'static) -> Self {
         self.set_auth_scheme_resolver(auth_scheme_resolver);
         self
     }
@@ -527,7 +527,7 @@ impl Builder {
     ///
     /// # Examples
     /// See an example for [`Self::auth_scheme_resolver`].
-    pub fn set_auth_scheme_resolver(&mut self, auth_scheme_resolver: impl crate::config::auth::ResolveAuthScheme + 'static) -> &mut Self {
+    pub fn set_auth_scheme_resolver(&mut self, auth_scheme_resolver: impl super::config::auth::ResolveAuthScheme + 'static) -> &mut Self {
         self.runtime_components
             .set_auth_scheme_option_resolver(::std::option::Option::Some(auth_scheme_resolver.into_shared_resolver()));
         self
@@ -614,7 +614,7 @@ impl Builder {
     }
     /// Forces this client to use path-style addressing for buckets.
     pub fn set_force_path_style(&mut self, force_path_style: Option<bool>) -> &mut Self {
-        self.config.store_or_unset(force_path_style.map(crate::config::ForcePathStyle));
+        self.config.store_or_unset(force_path_style.map(super::config::ForcePathStyle));
         self
     }
 
@@ -625,7 +625,7 @@ impl Builder {
     }
     /// Enables this client to use an ARN's region when constructing an endpoint instead of the client's configured region.
     pub fn set_use_arn_region(&mut self, use_arn_region: Option<bool>) -> &mut Self {
-        self.config.store_or_unset(use_arn_region.map(crate::config::UseArnRegion));
+        self.config.store_or_unset(use_arn_region.map(super::config::UseArnRegion));
         self
     }
 
@@ -637,7 +637,7 @@ impl Builder {
     /// Disables this client's usage of Multi-Region Access Points.
     pub fn set_disable_multi_region_access_points(&mut self, disable_multi_region_access_points: Option<bool>) -> &mut Self {
         self.config
-            .store_or_unset(disable_multi_region_access_points.map(crate::config::DisableMultiRegionAccessPoints));
+            .store_or_unset(disable_multi_region_access_points.map(super::config::DisableMultiRegionAccessPoints));
         self
     }
 
@@ -648,7 +648,7 @@ impl Builder {
     }
     /// Enables this client to use S3 Transfer Acceleration endpoints.
     pub fn set_accelerate(&mut self, accelerate: Option<bool>) -> &mut Self {
-        self.config.store_or_unset(accelerate.map(crate::config::Accelerate));
+        self.config.store_or_unset(accelerate.map(super::config::Accelerate));
         self
     }
 
@@ -660,7 +660,7 @@ impl Builder {
     /// Disables this client's usage of Session Auth for S3Express       buckets and reverts to using conventional SigV4 for those.
     pub fn set_disable_s3_express_session_auth(&mut self, disable_s3_express_session_auth: Option<bool>) -> &mut Self {
         self.config
-            .store_or_unset(disable_s3_express_session_auth.map(crate::config::DisableS3ExpressSessionAuth));
+            .store_or_unset(disable_s3_express_session_auth.map(super::config::DisableS3ExpressSessionAuth));
         self
     }
     /// Sets the endpoint resolver to use when making requests.
@@ -690,7 +690,7 @@ impl Builder {
     /// let config = aws_sdk_s3::Config::builder().endpoint_resolver(resolver).build();
     /// let client = aws_sdk_s3::Client::from_conf(config);
     /// ```
-    pub fn endpoint_resolver(mut self, endpoint_resolver: impl crate::config::endpoint::ResolveEndpoint + 'static) -> Self {
+    pub fn endpoint_resolver(mut self, endpoint_resolver: impl super::config::endpoint::ResolveEndpoint + 'static) -> Self {
         self.set_endpoint_resolver(::std::option::Option::Some(endpoint_resolver.into_shared_resolver()));
         self
     }
@@ -771,7 +771,7 @@ impl Builder {
     /// let sleep_impl = SharedAsyncSleep::new(ForeverSleep);
     /// let config = Config::builder().sleep_impl(sleep_impl).build();
     /// ```
-    pub fn sleep_impl(mut self, sleep_impl: impl crate::config::AsyncSleep + 'static) -> Self {
+    pub fn sleep_impl(mut self, sleep_impl: impl super::config::AsyncSleep + 'static) -> Self {
         self.set_sleep_impl(Some(::aws_smithy_runtime_api::shared::IntoShared::into_shared(sleep_impl)));
         self
     }
@@ -801,7 +801,7 @@ impl Builder {
     /// set_never_ending_sleep_impl(&mut builder);
     /// let config = builder.build();
     /// ```
-    pub fn set_sleep_impl(&mut self, sleep_impl: ::std::option::Option<crate::config::SharedAsyncSleep>) -> &mut Self {
+    pub fn set_sleep_impl(&mut self, sleep_impl: ::std::option::Option<super::config::SharedAsyncSleep>) -> &mut Self {
         self.runtime_components.set_sleep_impl(sleep_impl);
         self
     }
@@ -973,7 +973,7 @@ impl Builder {
     /// let client = aws_sdk_s3::Client::from_conf(config);
     /// ```
     ///
-    pub fn identity_cache(mut self, identity_cache: impl crate::config::ResolveCachedIdentity + 'static) -> Self {
+    pub fn identity_cache(mut self, identity_cache: impl super::config::ResolveCachedIdentity + 'static) -> Self {
         self.set_identity_cache(identity_cache);
         self
     }
@@ -1019,7 +1019,7 @@ impl Builder {
     /// let client = aws_sdk_s3::Client::from_conf(config);
     /// ```
     ///
-    pub fn set_identity_cache(&mut self, identity_cache: impl crate::config::ResolveCachedIdentity + 'static) -> &mut Self {
+    pub fn set_identity_cache(&mut self, identity_cache: impl super::config::ResolveCachedIdentity + 'static) -> &mut Self {
         self.runtime_components.set_identity_cache(::std::option::Option::Some(identity_cache));
         self
     }
@@ -1070,19 +1070,19 @@ impl Builder {
     ///     .build();
     /// # }
     /// ```
-    pub fn interceptor(mut self, interceptor: impl crate::config::Intercept + 'static) -> Self {
-        self.push_interceptor(crate::config::SharedInterceptor::new(interceptor));
+    pub fn interceptor(mut self, interceptor: impl super::config::Intercept + 'static) -> Self {
+        self.push_interceptor(super::config::SharedInterceptor::new(interceptor));
         self
     }
 
     /// Like [`Self::interceptor`], but takes a [`SharedInterceptor`](crate::config::SharedInterceptor).
-    pub fn push_interceptor(&mut self, interceptor: crate::config::SharedInterceptor) -> &mut Self {
+    pub fn push_interceptor(&mut self, interceptor: super::config::SharedInterceptor) -> &mut Self {
         self.runtime_components.push_interceptor(interceptor);
         self
     }
 
     /// Set [`SharedInterceptor`](crate::config::SharedInterceptor)s for the builder.
-    pub fn set_interceptors(&mut self, interceptors: impl IntoIterator<Item = crate::config::SharedInterceptor>) -> &mut Self {
+    pub fn set_interceptors(&mut self, interceptors: impl IntoIterator<Item = super::config::SharedInterceptor>) -> &mut Self {
         self.runtime_components.set_interceptors(interceptors.into_iter());
         self
     }
@@ -1256,8 +1256,8 @@ impl Builder {
         self
     }
     /// Sets the credentials provider for S3 Express One Zone
-    pub fn express_credentials_provider(mut self, credentials_provider: impl crate::config::ProvideCredentials + 'static) -> Self {
-        self.set_express_credentials_provider(::std::option::Option::Some(crate::config::SharedCredentialsProvider::new(
+    pub fn express_credentials_provider(mut self, credentials_provider: impl super::config::ProvideCredentials + 'static) -> Self {
+        self.set_express_credentials_provider(::std::option::Option::Some(super::config::SharedCredentialsProvider::new(
             credentials_provider,
         )));
         self
@@ -1265,11 +1265,11 @@ impl Builder {
     /// Sets the credentials provider for S3 Express One Zone
     pub fn set_express_credentials_provider(
         &mut self,
-        credentials_provider: ::std::option::Option<crate::config::SharedCredentialsProvider>,
+        credentials_provider: ::std::option::Option<super::config::SharedCredentialsProvider>,
     ) -> &mut Self {
         if let ::std::option::Option::Some(credentials_provider) = credentials_provider {
             self.runtime_components
-                .set_identity_resolver(crate::s3_express::auth::SCHEME_ID, credentials_provider);
+                .set_identity_resolver(super::s3_express::auth::SCHEME_ID, credentials_provider);
         }
         self
     }
@@ -1332,7 +1332,7 @@ impl Builder {
     }
     /// Set the [`ResponseChecksumValidation`](crate::config::ResponseChecksumValidation)
     /// to determine when checksum validation will be performed on response payloads.
-    pub fn response_checksum_validation(mut self, response_checksum_validation: crate::config::ResponseChecksumValidation) -> Self {
+    pub fn response_checksum_validation(mut self, response_checksum_validation: super::config::ResponseChecksumValidation) -> Self {
         self.set_response_checksum_validation(::std::option::Option::Some(response_checksum_validation));
         self
     }
@@ -1340,14 +1340,14 @@ impl Builder {
     /// to determine when checksum validation will be performed on response payloads.
     pub fn set_response_checksum_validation(
         &mut self,
-        response_checksum_validation: ::std::option::Option<crate::config::ResponseChecksumValidation>,
+        response_checksum_validation: ::std::option::Option<super::config::ResponseChecksumValidation>,
     ) -> &mut Self {
         self.config.store_or_unset(response_checksum_validation);
         self
     }
     /// Set the [`RequestChecksumCalculation`](crate::config::RequestChecksumCalculation)
     /// to determine when a checksum will be calculated for request payloads.
-    pub fn request_checksum_calculation(mut self, request_checksum_calculation: crate::config::RequestChecksumCalculation) -> Self {
+    pub fn request_checksum_calculation(mut self, request_checksum_calculation: super::config::RequestChecksumCalculation) -> Self {
         self.set_request_checksum_calculation(::std::option::Option::Some(request_checksum_calculation));
         self
     }
@@ -1355,7 +1355,7 @@ impl Builder {
     /// to determine when a checksum will be calculated for request payloads.
     pub fn set_request_checksum_calculation(
         &mut self,
-        request_checksum_calculation: ::std::option::Option<crate::config::RequestChecksumCalculation>,
+        request_checksum_calculation: ::std::option::Option<super::config::RequestChecksumCalculation>,
     ) -> &mut Self {
         self.config.store_or_unset(request_checksum_calculation);
         self
@@ -1382,24 +1382,24 @@ impl Builder {
     ///     .region(Region::new("us-east-1"))
     ///     .build();
     /// ```
-    pub fn region(mut self, region: impl ::std::convert::Into<::std::option::Option<crate::config::Region>>) -> Self {
+    pub fn region(mut self, region: impl ::std::convert::Into<::std::option::Option<super::config::Region>>) -> Self {
         self.set_region(region.into());
         self
     }
     /// Sets the AWS region to use when making requests.
-    pub fn set_region(&mut self, region: ::std::option::Option<crate::config::Region>) -> &mut Self {
+    pub fn set_region(&mut self, region: ::std::option::Option<super::config::Region>) -> &mut Self {
         self.config.store_or_unset(region);
         self
     }
     /// Sets the credentials provider for this service
-    pub fn credentials_provider(mut self, credentials_provider: impl crate::config::ProvideCredentials + 'static) -> Self {
-        self.set_credentials_provider(::std::option::Option::Some(crate::config::SharedCredentialsProvider::new(
+    pub fn credentials_provider(mut self, credentials_provider: impl super::config::ProvideCredentials + 'static) -> Self {
+        self.set_credentials_provider(::std::option::Option::Some(super::config::SharedCredentialsProvider::new(
             credentials_provider,
         )));
         self
     }
     /// Sets the credentials provider for this service
-    pub fn set_credentials_provider(&mut self, credentials_provider: ::std::option::Option<crate::config::SharedCredentialsProvider>) -> &mut Self {
+    pub fn set_credentials_provider(&mut self, credentials_provider: ::std::option::Option<super::config::SharedCredentialsProvider>) -> &mut Self {
         if let Some(credentials_provider) = credentials_provider {
             #[cfg(feature = "sigv4a")]
             {
@@ -1456,10 +1456,10 @@ impl Builder {
     pub fn set_aws_chunked_encoding_chunk_size(&mut self, chunk_size: ::std::option::Option<::std::option::Option<usize>>) -> &mut Self {
         if let ::std::option::Option::Some(chunk_size) = chunk_size {
             let chunk_size = match chunk_size {
-                ::std::option::Option::Some(size) => crate::aws_chunked::ChunkSize::Configured(size),
-                ::std::option::Option::None => crate::aws_chunked::ChunkSize::DisableChunking,
+                ::std::option::Option::Some(size) => super::aws_chunked::ChunkSize::Configured(size),
+                ::std::option::Option::None => super::aws_chunked::ChunkSize::DisableChunking,
             };
-            self.push_runtime_plugin(crate::aws_chunked::ChunkSizeRuntimePlugin::new(chunk_size).into_shared());
+            self.push_runtime_plugin(super::aws_chunked::ChunkSizeRuntimePlugin::new(chunk_size).into_shared());
         }
         self
     }
@@ -1493,7 +1493,7 @@ impl Builder {
     /// let client = aws_sdk_s3::Client::from_conf(config);
     /// ```
     ///
-    pub fn behavior_version(mut self, behavior_version: crate::config::BehaviorVersion) -> Self {
+    pub fn behavior_version(mut self, behavior_version: super::config::BehaviorVersion) -> Self {
         self.set_behavior_version(Some(behavior_version));
         self
     }
@@ -1528,7 +1528,7 @@ impl Builder {
     /// let client = aws_sdk_s3::Client::from_conf(config);
     /// ```
     ///
-    pub fn set_behavior_version(&mut self, behavior_version: Option<crate::config::BehaviorVersion>) -> &mut Self {
+    pub fn set_behavior_version(&mut self, behavior_version: Option<super::config::BehaviorVersion>) -> &mut Self {
         self.behavior_version = behavior_version;
         self
     }
@@ -1537,18 +1537,18 @@ impl Builder {
     ///
     /// This is equivalent to enabling the `behavior-version-latest` Cargo feature
     pub fn behavior_version_latest(mut self) -> Self {
-        self.set_behavior_version(Some(crate::config::BehaviorVersion::latest()));
+        self.set_behavior_version(Some(super::config::BehaviorVersion::latest()));
         self
     }
     /// Adds a runtime plugin to the config.
     #[allow(unused)]
-    pub(crate) fn runtime_plugin(mut self, plugin: impl crate::config::RuntimePlugin + 'static) -> Self {
-        self.push_runtime_plugin(crate::config::SharedRuntimePlugin::new(plugin));
+    pub(crate) fn runtime_plugin(mut self, plugin: impl super::config::RuntimePlugin + 'static) -> Self {
+        self.push_runtime_plugin(super::config::SharedRuntimePlugin::new(plugin));
         self
     }
     /// Adds a runtime plugin to the config.
     #[allow(unused)]
-    pub(crate) fn push_runtime_plugin(&mut self, plugin: crate::config::SharedRuntimePlugin) -> &mut Self {
+    pub(crate) fn push_runtime_plugin(&mut self, plugin: super::config::SharedRuntimePlugin) -> &mut Self {
         self.runtime_plugins.push(plugin);
         self
     }
@@ -1562,10 +1562,10 @@ impl Builder {
             ::aws_smithy_async::time::StaticTimeSource::new(::std::time::UNIX_EPOCH + ::std::time::Duration::from_secs(1234567890)),
         )));
         self.config.store_put(::aws_runtime::user_agent::AwsUserAgent::for_tests());
-        self.set_credentials_provider(Some(crate::config::SharedCredentialsProvider::new(
+        self.set_credentials_provider(Some(super::config::SharedCredentialsProvider::new(
             ::aws_credential_types::Credentials::for_tests(),
         )));
-        self.behavior_version = ::std::option::Option::Some(crate::config::BehaviorVersion::latest());
+        self.behavior_version = ::std::option::Option::Some(super::config::BehaviorVersion::latest());
         self
     }
     #[cfg(any(feature = "test-util", test))]
@@ -1581,8 +1581,8 @@ impl Builder {
     pub fn apply_test_defaults_v2(&mut self) -> &mut Self {
         self.apply_test_defaults();
 
-        if self.config.load::<crate::config::Region>().is_none() {
-            self.set_region(::std::option::Option::Some(crate::config::Region::new("us-east-1")));
+        if self.config.load::<super::config::Region>().is_none() {
+            self.set_region(::std::option::Option::Some(super::config::Region::new("us-east-1")));
         }
         self
     }
@@ -1602,14 +1602,14 @@ impl Builder {
             self.runtime_components
                 .set_time_source(::std::option::Option::Some(::std::default::Default::default()));
         }
-        layer.store_put(crate::meta::API_METADATA.clone());
+        layer.store_put(super::meta::API_METADATA.clone());
         layer.store_put(::aws_types::SigningName::from_static("s3"));
         layer
             .load::<::aws_types::region::Region>()
             .cloned()
             .map(|r| layer.store_put(::aws_types::region::SigningRegion::from(r)));
         Config {
-            config: crate::config::Layer::from(layer.clone()).with_name("aws_sdk_s3::config::Config").freeze(),
+            config: super::config::Layer::from(layer.clone()).with_name("aws_sdk_s3::config::Config").freeze(),
             cloneable: layer,
             runtime_components: self.runtime_components,
             runtime_plugins: self.runtime_plugins,
@@ -1624,28 +1624,28 @@ pub(crate) struct ServiceRuntimePlugin {
 }
 
 impl ServiceRuntimePlugin {
-    pub fn new(_service_config: crate::config::Config) -> Self {
+    pub fn new(_service_config: super::config::Config) -> Self {
         let config = {
             let mut cfg = ::aws_smithy_types::config_bag::Layer::new("AmazonS3");
-            cfg.store_put(crate::idempotency_token::default_provider());
+            cfg.store_put(super::idempotency_token::default_provider());
             cfg.store_put(::aws_smithy_runtime::client::orchestrator::AuthSchemeAndEndpointOrchestrationV2);
             ::std::option::Option::Some(cfg.freeze())
         };
         let mut runtime_components = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ServiceRuntimePlugin");
         runtime_components.set_auth_scheme_option_resolver(::std::option::Option::Some({
-            use crate::config::auth::ResolveAuthScheme;
-            crate::config::auth::DefaultAuthSchemeResolver::default().into_shared_resolver()
+            use super::config::auth::ResolveAuthScheme;
+            super::config::auth::DefaultAuthSchemeResolver::default().into_shared_resolver()
         }));
         runtime_components.set_endpoint_resolver(::std::option::Option::Some({
-            use crate::config::endpoint::ResolveEndpoint;
-            crate::config::endpoint::DefaultResolver::new().into_shared_resolver()
+            use super::config::endpoint::ResolveEndpoint;
+            super::config::endpoint::DefaultResolver::new().into_shared_resolver()
         }));
         runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
             ::aws_smithy_runtime::client::http::connection_poisoning::ConnectionPoisoningInterceptor::new(),
         ));
         runtime_components.push_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::HttpStatusCodeClassifier::default());
         runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-            crate::sdk_feature_tracker::retry_mode::RetryModeFeatureTrackerInterceptor::new(),
+            super::sdk_feature_tracker::retry_mode::RetryModeFeatureTrackerInterceptor::new(),
         ));
         runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
             ::aws_runtime::service_clock_skew::ServiceClockSkewInterceptor::new(),
@@ -1653,7 +1653,7 @@ impl ServiceRuntimePlugin {
         runtime_components.push_interceptor(::aws_runtime::request_info::RequestInfoInterceptor::new());
         runtime_components.push_interceptor(::aws_runtime::user_agent::UserAgentInterceptor::new());
         runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(
-            crate::s3_express::auth::S3ExpressAuthScheme::new(),
+            super::s3_express::auth::S3ExpressAuthScheme::new(),
         ));
         runtime_components.push_interceptor(::aws_runtime::invocation_id::InvocationIdInterceptor::new());
         runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -1669,10 +1669,10 @@ impl ServiceRuntimePlugin {
             ));
         }
         runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-            crate::config::endpoint::EndpointOverrideFeatureTrackerInterceptor,
+            super::config::endpoint::EndpointOverrideFeatureTrackerInterceptor,
         ));
         runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-            crate::observability_feature::ObservabilityFeatureTrackerInterceptor,
+            super::observability_feature::ObservabilityFeatureTrackerInterceptor,
         ));
         Self { config, runtime_components }
     }
@@ -1847,7 +1847,7 @@ fn service_config_key<'a>(service_id: &'a str, env: &'a str, profile: &'a str) -
 
 pub use ::aws_smithy_async::rt::sleep::Sleep;
 
-pub(crate) fn base_client_runtime_plugins(mut config: crate::Config) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+pub(crate) fn base_client_runtime_plugins(mut config: super::Config) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
     let mut configured_plugins = ::std::vec::Vec::new();
     ::std::mem::swap(&mut config.runtime_plugins, &mut configured_plugins);
     #[cfg(feature = "behavior-version-latest")]
@@ -1881,7 +1881,7 @@ pub(crate) fn base_client_runtime_plugins(mut config: crate::Config) -> ::aws_sm
                                 .with_runtime_components(config.runtime_components.clone())
                         )
                         // codegen config
-                        .with_client_plugin(crate::config::ServiceRuntimePlugin::new(config.clone()))
+                        .with_client_plugin(super::config::ServiceRuntimePlugin::new(config.clone()))
                         .with_client_plugin(::aws_smithy_runtime::client::auth::no_auth::NoAuthRuntimePlugin::new())
                         .with_client_plugin(
                             ::aws_smithy_runtime::client::metrics::MetricsRuntimePlugin::builder()
@@ -1891,7 +1891,7 @@ pub(crate) fn base_client_runtime_plugins(mut config: crate::Config) -> ::aws_sm
                                 .expect("All required fields have been set")
                         );
 
-    plugins = plugins.with_client_plugin(crate::s3_express::runtime_plugin::S3ExpressRuntimePlugin::new(config.clone()));
+    plugins = plugins.with_client_plugin(super::s3_express::runtime_plugin::S3ExpressRuntimePlugin::new(config.clone()));
 
     for plugin in configured_plugins {
         plugins = plugins.with_client_plugin(plugin);

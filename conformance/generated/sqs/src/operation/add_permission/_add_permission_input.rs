@@ -43,8 +43,8 @@ impl AddPermissionInput {
 }
 impl AddPermissionInput {
     /// Creates a new builder-style object to manufacture [`AddPermissionInput`](crate::operation::add_permission::AddPermissionInput).
-    pub fn builder() -> crate::operation::add_permission::builders::AddPermissionInputBuilder {
-        crate::operation::add_permission::builders::AddPermissionInputBuilder::default()
+    pub fn builder() -> super::operation::add_permission::builders::AddPermissionInputBuilder {
+        super::operation::add_permission::builders::AddPermissionInputBuilder::default()
     }
 }
 
@@ -140,8 +140,8 @@ impl AddPermissionInputBuilder {
     /// Consumes the builder and constructs a [`AddPermissionInput`](crate::operation::add_permission::AddPermissionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::add_permission::AddPermissionInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::add_permission::AddPermissionInput {
+    ) -> ::std::result::Result<super::operation::add_permission::AddPermissionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::add_permission::AddPermissionInput {
             queue_url: self.queue_url,
             label: self.label,
             aws_account_ids: self.aws_account_ids,

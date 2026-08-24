@@ -11,13 +11,13 @@ pub struct LifecycleRuleFilter {
     /// <p>This tag must exist in the object's tag set in order for the rule to apply.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub tag: ::std::option::Option<crate::types::Tag>,
+    pub tag: ::std::option::Option<super::types::Tag>,
     /// <p>Minimum object size to which the rule applies.</p>
     pub object_size_greater_than: ::std::option::Option<i64>,
     /// <p>Maximum object size to which the rule applies.</p>
     pub object_size_less_than: ::std::option::Option<i64>,
     /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
-    pub and: ::std::option::Option<crate::types::LifecycleRuleAndOperator>,
+    pub and: ::std::option::Option<super::types::LifecycleRuleAndOperator>,
 }
 impl LifecycleRuleFilter {
     /// <p>Prefix identifying one or more objects to which the rule applies.</p><important>
@@ -29,7 +29,7 @@ impl LifecycleRuleFilter {
     /// <p>This tag must exist in the object's tag set in order for the rule to apply.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn tag(&self) -> ::std::option::Option<&crate::types::Tag> {
+    pub fn tag(&self) -> ::std::option::Option<&super::types::Tag> {
         self.tag.as_ref()
     }
     /// <p>Minimum object size to which the rule applies.</p>
@@ -41,14 +41,14 @@ impl LifecycleRuleFilter {
         self.object_size_less_than
     }
     /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
-    pub fn and(&self) -> ::std::option::Option<&crate::types::LifecycleRuleAndOperator> {
+    pub fn and(&self) -> ::std::option::Option<&super::types::LifecycleRuleAndOperator> {
         self.and.as_ref()
     }
 }
 impl LifecycleRuleFilter {
     /// Creates a new builder-style object to manufacture [`LifecycleRuleFilter`](crate::types::LifecycleRuleFilter).
-    pub fn builder() -> crate::types::builders::LifecycleRuleFilterBuilder {
-        crate::types::builders::LifecycleRuleFilterBuilder::default()
+    pub fn builder() -> super::types::builders::LifecycleRuleFilterBuilder {
+        super::types::builders::LifecycleRuleFilterBuilder::default()
     }
 }
 
@@ -57,10 +57,10 @@ impl LifecycleRuleFilter {
 #[non_exhaustive]
 pub struct LifecycleRuleFilterBuilder {
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
-    pub(crate) tag: ::std::option::Option<crate::types::Tag>,
+    pub(crate) tag: ::std::option::Option<super::types::Tag>,
     pub(crate) object_size_greater_than: ::std::option::Option<i64>,
     pub(crate) object_size_less_than: ::std::option::Option<i64>,
-    pub(crate) and: ::std::option::Option<crate::types::LifecycleRuleAndOperator>,
+    pub(crate) and: ::std::option::Option<super::types::LifecycleRuleAndOperator>,
 }
 impl LifecycleRuleFilterBuilder {
     /// <p>Prefix identifying one or more objects to which the rule applies.</p><important>
@@ -86,21 +86,21 @@ impl LifecycleRuleFilterBuilder {
     /// <p>This tag must exist in the object's tag set in order for the rule to apply.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn tag(mut self, input: crate::types::Tag) -> Self {
+    pub fn tag(mut self, input: super::types::Tag) -> Self {
         self.tag = ::std::option::Option::Some(input);
         self
     }
     /// <p>This tag must exist in the object's tag set in order for the rule to apply.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn set_tag(mut self, input: ::std::option::Option<crate::types::Tag>) -> Self {
+    pub fn set_tag(mut self, input: ::std::option::Option<super::types::Tag>) -> Self {
         self.tag = input;
         self
     }
     /// <p>This tag must exist in the object's tag set in order for the rule to apply.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn get_tag(&self) -> &::std::option::Option<crate::types::Tag> {
+    pub fn get_tag(&self) -> &::std::option::Option<super::types::Tag> {
         &self.tag
     }
     /// <p>Minimum object size to which the rule applies.</p>
@@ -132,22 +132,22 @@ impl LifecycleRuleFilterBuilder {
         &self.object_size_less_than
     }
     /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
-    pub fn and(mut self, input: crate::types::LifecycleRuleAndOperator) -> Self {
+    pub fn and(mut self, input: super::types::LifecycleRuleAndOperator) -> Self {
         self.and = ::std::option::Option::Some(input);
         self
     }
     /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
-    pub fn set_and(mut self, input: ::std::option::Option<crate::types::LifecycleRuleAndOperator>) -> Self {
+    pub fn set_and(mut self, input: ::std::option::Option<super::types::LifecycleRuleAndOperator>) -> Self {
         self.and = input;
         self
     }
     /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
-    pub fn get_and(&self) -> &::std::option::Option<crate::types::LifecycleRuleAndOperator> {
+    pub fn get_and(&self) -> &::std::option::Option<super::types::LifecycleRuleAndOperator> {
         &self.and
     }
     /// Consumes the builder and constructs a [`LifecycleRuleFilter`](crate::types::LifecycleRuleFilter).
-    pub fn build(self) -> crate::types::LifecycleRuleFilter {
-        crate::types::LifecycleRuleFilter {
+    pub fn build(self) -> super::types::LifecycleRuleFilter {
+        super::types::LifecycleRuleFilter {
             prefix: self.prefix,
             tag: self.tag,
             object_size_greater_than: self.object_size_greater_than,

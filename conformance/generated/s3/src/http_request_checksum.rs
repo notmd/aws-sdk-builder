@@ -8,7 +8,7 @@
 
 //! Interceptor for handling Smithy `@httpChecksum` request checksumming with AWS SigV4
 
-use crate::presigning::PresigningMarker;
+use super::presigning::PresigningMarker;
 use aws_runtime::content_encoding::AwsChunkedBodyOptions;
 use aws_smithy_checksums::body::calculate;
 use aws_smithy_checksums::body::ChecksumCache;

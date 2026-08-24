@@ -6,7 +6,7 @@ pub struct DeleteBucketTaggingOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for DeleteBucketTaggingOutput {
+impl super::s3_request_id::RequestIdExt for DeleteBucketTaggingOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for DeleteBucketTaggingOutput {
 }
 impl DeleteBucketTaggingOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketTaggingOutput`](crate::operation::delete_bucket_tagging::DeleteBucketTaggingOutput).
-    pub fn builder() -> crate::operation::delete_bucket_tagging::builders::DeleteBucketTaggingOutputBuilder {
-        crate::operation::delete_bucket_tagging::builders::DeleteBucketTaggingOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_tagging::builders::DeleteBucketTaggingOutputBuilder {
+        super::operation::delete_bucket_tagging::builders::DeleteBucketTaggingOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl DeleteBucketTaggingOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketTaggingOutput`](crate::operation::delete_bucket_tagging::DeleteBucketTaggingOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_tagging::DeleteBucketTaggingOutput {
-        crate::operation::delete_bucket_tagging::DeleteBucketTaggingOutput {
+    pub fn build(self) -> super::operation::delete_bucket_tagging::DeleteBucketTaggingOutput {
+        super::operation::delete_bucket_tagging::DeleteBucketTaggingOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

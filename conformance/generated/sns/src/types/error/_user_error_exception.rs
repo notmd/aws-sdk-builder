@@ -26,7 +26,7 @@ impl ::std::fmt::Display for UserErrorException {
     }
 }
 impl ::std::error::Error for UserErrorException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::UserErrorException {
+impl ::aws_types::request_id::RequestId for super::types::error::UserErrorException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UserErrorExce
 }
 impl UserErrorException {
     /// Creates a new builder-style object to manufacture [`UserErrorException`](crate::types::error::UserErrorException).
-    pub fn builder() -> crate::types::error::builders::UserErrorExceptionBuilder {
-        crate::types::error::builders::UserErrorExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::UserErrorExceptionBuilder {
+        super::types::error::builders::UserErrorExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl UserErrorExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UserErrorException`](crate::types::error::UserErrorException).
-    pub fn build(self) -> crate::types::error::UserErrorException {
-        crate::types::error::UserErrorException {
+    pub fn build(self) -> super::types::error::UserErrorException {
+        super::types::error::UserErrorException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

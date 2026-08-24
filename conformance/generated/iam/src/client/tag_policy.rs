@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`tags(Tag)`](crate::operation::tag_policy::builders::TagPolicyFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::tag_policy::builders::TagPolicyFluentBuilder::set_tags):<br>required: **true**<br><p>The list of tags that you want to attach to the IAM customer managed policy. Each tag consists of a key name and an associated value.</p><br>
     /// - On success, responds with [`TagPolicyOutput`](crate::operation::tag_policy::TagPolicyOutput)
     /// - On failure, responds with [`SdkError<TagPolicyError>`](crate::operation::tag_policy::TagPolicyError)
-    pub fn tag_policy(&self) -> crate::operation::tag_policy::builders::TagPolicyFluentBuilder {
-        crate::operation::tag_policy::builders::TagPolicyFluentBuilder::new(self.handle.clone())
+    pub fn tag_policy(&self) -> super::operation::tag_policy::builders::TagPolicyFluentBuilder {
+        super::operation::tag_policy::builders::TagPolicyFluentBuilder::new(self.handle.clone())
     }
 }

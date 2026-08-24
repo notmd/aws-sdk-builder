@@ -4,18 +4,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBucketTaggingOutput {
     /// <p>Contains the tag set.</p>
-    pub tag_set: ::std::vec::Vec<crate::types::Tag>,
+    pub tag_set: ::std::vec::Vec<super::types::Tag>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetBucketTaggingOutput {
     /// <p>Contains the tag set.</p>
-    pub fn tag_set(&self) -> &[crate::types::Tag] {
+    pub fn tag_set(&self) -> &[super::types::Tag] {
         use std::ops::Deref;
         self.tag_set.deref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for GetBucketTaggingOutput {
+impl super::s3_request_id::RequestIdExt for GetBucketTaggingOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -27,8 +27,8 @@ impl ::aws_types::request_id::RequestId for GetBucketTaggingOutput {
 }
 impl GetBucketTaggingOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketTaggingOutput`](crate::operation::get_bucket_tagging::GetBucketTaggingOutput).
-    pub fn builder() -> crate::operation::get_bucket_tagging::builders::GetBucketTaggingOutputBuilder {
-        crate::operation::get_bucket_tagging::builders::GetBucketTaggingOutputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_tagging::builders::GetBucketTaggingOutputBuilder {
+        super::operation::get_bucket_tagging::builders::GetBucketTaggingOutputBuilder::default()
     }
 }
 
@@ -36,7 +36,7 @@ impl GetBucketTaggingOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketTaggingOutputBuilder {
-    pub(crate) tag_set: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tag_set: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -46,19 +46,19 @@ impl GetBucketTaggingOutputBuilder {
     /// To override the contents of this collection use [`set_tag_set`](Self::set_tag_set).
     ///
     /// <p>Contains the tag set.</p>
-    pub fn tag_set(mut self, input: crate::types::Tag) -> Self {
+    pub fn tag_set(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tag_set.unwrap_or_default();
         v.push(input);
         self.tag_set = ::std::option::Option::Some(v);
         self
     }
     /// <p>Contains the tag set.</p>
-    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tag_set = input;
         self
     }
     /// <p>Contains the tag set.</p>
-    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tag_set
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -84,8 +84,8 @@ impl GetBucketTaggingOutputBuilder {
     /// - [`tag_set`](crate::operation::get_bucket_tagging::builders::GetBucketTaggingOutputBuilder::tag_set)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_bucket_tagging::GetBucketTaggingOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_bucket_tagging::GetBucketTaggingOutput {
+    ) -> ::std::result::Result<super::operation::get_bucket_tagging::GetBucketTaggingOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_bucket_tagging::GetBucketTaggingOutput {
             tag_set: self.tag_set.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "tag_set",

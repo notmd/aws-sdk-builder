@@ -16,7 +16,7 @@ pub struct GetObjectTaggingInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
 }
 impl GetObjectTaggingInput {
     /// <p>The bucket name containing the object for which to get the tagging information.</p>
@@ -40,14 +40,14 @@ impl GetObjectTaggingInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
         self.request_payer.as_ref()
     }
 }
 impl GetObjectTaggingInput {
     /// Creates a new builder-style object to manufacture [`GetObjectTaggingInput`](crate::operation::get_object_tagging::GetObjectTaggingInput).
-    pub fn builder() -> crate::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder {
-        crate::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder::default()
+    pub fn builder() -> super::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder {
+        super::operation::get_object_tagging::builders::GetObjectTaggingInputBuilder::default()
     }
 }
 
@@ -59,7 +59,7 @@ pub struct GetObjectTaggingInputBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
-    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
 }
 impl GetObjectTaggingInputBuilder {
     /// <p>The bucket name containing the object for which to get the tagging information.</p>
@@ -129,28 +129,28 @@ impl GetObjectTaggingInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
         &self.request_payer
     }
     /// Consumes the builder and constructs a [`GetObjectTaggingInput`](crate::operation::get_object_tagging::GetObjectTaggingInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_object_tagging::GetObjectTaggingInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_object_tagging::GetObjectTaggingInput {
+    ) -> ::std::result::Result<super::operation::get_object_tagging::GetObjectTaggingInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_object_tagging::GetObjectTaggingInput {
             bucket: self.bucket,
             key: self.key,
             version_id: self.version_id,

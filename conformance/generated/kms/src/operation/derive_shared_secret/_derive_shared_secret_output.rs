@@ -12,11 +12,11 @@ pub struct DeriveSharedSecretOutput {
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
-    pub key_agreement_algorithm: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>,
+    pub key_agreement_algorithm: ::std::option::Option<super::types::KeyAgreementAlgorithmSpec>,
     /// <p>The source of the key material for the specified KMS key.</p>
     /// <p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material.</p>
     /// <p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or <code>EXTERNAL_KEY_STORE</code>.</p>
-    pub key_origin: ::std::option::Option<crate::types::OriginType>,
+    pub key_origin: ::std::option::Option<super::types::OriginType>,
     _request_id: Option<String>,
 }
 impl DeriveSharedSecretOutput {
@@ -35,13 +35,13 @@ impl DeriveSharedSecretOutput {
         self.ciphertext_for_recipient.as_ref()
     }
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
-    pub fn key_agreement_algorithm(&self) -> ::std::option::Option<&crate::types::KeyAgreementAlgorithmSpec> {
+    pub fn key_agreement_algorithm(&self) -> ::std::option::Option<&super::types::KeyAgreementAlgorithmSpec> {
         self.key_agreement_algorithm.as_ref()
     }
     /// <p>The source of the key material for the specified KMS key.</p>
     /// <p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material.</p>
     /// <p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or <code>EXTERNAL_KEY_STORE</code>.</p>
-    pub fn key_origin(&self) -> ::std::option::Option<&crate::types::OriginType> {
+    pub fn key_origin(&self) -> ::std::option::Option<&super::types::OriginType> {
         self.key_origin.as_ref()
     }
 }
@@ -64,8 +64,8 @@ impl ::aws_types::request_id::RequestId for DeriveSharedSecretOutput {
 }
 impl DeriveSharedSecretOutput {
     /// Creates a new builder-style object to manufacture [`DeriveSharedSecretOutput`](crate::operation::derive_shared_secret::DeriveSharedSecretOutput).
-    pub fn builder() -> crate::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder {
-        crate::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder::default()
+    pub fn builder() -> super::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder {
+        super::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder::default()
     }
 }
 
@@ -76,8 +76,8 @@ pub struct DeriveSharedSecretOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) shared_secret: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
-    pub(crate) key_agreement_algorithm: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>,
-    pub(crate) key_origin: ::std::option::Option<crate::types::OriginType>,
+    pub(crate) key_agreement_algorithm: ::std::option::Option<super::types::KeyAgreementAlgorithmSpec>,
+    pub(crate) key_origin: ::std::option::Option<super::types::OriginType>,
     _request_id: Option<String>,
 }
 impl DeriveSharedSecretOutputBuilder {
@@ -130,37 +130,37 @@ impl DeriveSharedSecretOutputBuilder {
         &self.ciphertext_for_recipient
     }
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
-    pub fn key_agreement_algorithm(mut self, input: crate::types::KeyAgreementAlgorithmSpec) -> Self {
+    pub fn key_agreement_algorithm(mut self, input: super::types::KeyAgreementAlgorithmSpec) -> Self {
         self.key_agreement_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
-    pub fn set_key_agreement_algorithm(mut self, input: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>) -> Self {
+    pub fn set_key_agreement_algorithm(mut self, input: ::std::option::Option<super::types::KeyAgreementAlgorithmSpec>) -> Self {
         self.key_agreement_algorithm = input;
         self
     }
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
-    pub fn get_key_agreement_algorithm(&self) -> &::std::option::Option<crate::types::KeyAgreementAlgorithmSpec> {
+    pub fn get_key_agreement_algorithm(&self) -> &::std::option::Option<super::types::KeyAgreementAlgorithmSpec> {
         &self.key_agreement_algorithm
     }
     /// <p>The source of the key material for the specified KMS key.</p>
     /// <p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material.</p>
     /// <p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or <code>EXTERNAL_KEY_STORE</code>.</p>
-    pub fn key_origin(mut self, input: crate::types::OriginType) -> Self {
+    pub fn key_origin(mut self, input: super::types::OriginType) -> Self {
         self.key_origin = ::std::option::Option::Some(input);
         self
     }
     /// <p>The source of the key material for the specified KMS key.</p>
     /// <p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material.</p>
     /// <p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or <code>EXTERNAL_KEY_STORE</code>.</p>
-    pub fn set_key_origin(mut self, input: ::std::option::Option<crate::types::OriginType>) -> Self {
+    pub fn set_key_origin(mut self, input: ::std::option::Option<super::types::OriginType>) -> Self {
         self.key_origin = input;
         self
     }
     /// <p>The source of the key material for the specified KMS key.</p>
     /// <p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material.</p>
     /// <p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or <code>EXTERNAL_KEY_STORE</code>.</p>
-    pub fn get_key_origin(&self) -> &::std::option::Option<crate::types::OriginType> {
+    pub fn get_key_origin(&self) -> &::std::option::Option<super::types::OriginType> {
         &self.key_origin
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -173,8 +173,8 @@ impl DeriveSharedSecretOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeriveSharedSecretOutput`](crate::operation::derive_shared_secret::DeriveSharedSecretOutput).
-    pub fn build(self) -> crate::operation::derive_shared_secret::DeriveSharedSecretOutput {
-        crate::operation::derive_shared_secret::DeriveSharedSecretOutput {
+    pub fn build(self) -> super::operation::derive_shared_secret::DeriveSharedSecretOutput {
+        super::operation::derive_shared_secret::DeriveSharedSecretOutput {
             key_id: self.key_id,
             shared_secret: self.shared_secret,
             ciphertext_for_recipient: self.ciphertext_for_recipient,

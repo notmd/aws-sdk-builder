@@ -4,26 +4,26 @@ pub fn de_untag_queue_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::untag_queue::UntagQueueOutput, crate::operation::untag_queue::UntagQueueError> {
+) -> std::result::Result<super::operation::untag_queue::UntagQueueOutput, super::operation::untag_queue::UntagQueueError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::untag_queue::UntagQueueError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::untag_queue::UntagQueueError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::untag_queue::UntagQueueError::unhandled(generic)),
+        None => return Err(super::operation::untag_queue::UntagQueueError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidAddress" => crate::operation::untag_queue::UntagQueueError::InvalidAddress({
+        "InvalidAddress" => super::operation::untag_queue::UntagQueueError::InvalidAddress({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidAddressBuilder::default();
-                output = crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
-                    .map_err(crate::operation::untag_queue::UntagQueueError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidAddressBuilder::default();
+                output = super::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
+                    .map_err(super::operation::untag_queue::UntagQueueError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -32,13 +32,13 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        "InvalidSecurity" => crate::operation::untag_queue::UntagQueueError::InvalidSecurity({
+        "InvalidSecurity" => super::operation::untag_queue::UntagQueueError::InvalidSecurity({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidSecurityBuilder::default();
-                output = crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
-                    .map_err(crate::operation::untag_queue::UntagQueueError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidSecurityBuilder::default();
+                output = super::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
+                    .map_err(super::operation::untag_queue::UntagQueueError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -47,13 +47,13 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => crate::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
+        "QueueDoesNotExist" => super::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
-                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
-                    .map_err(crate::operation::untag_queue::UntagQueueError::unhandled)?;
+                let mut output = super::types::error::builders::QueueDoesNotExistBuilder::default();
+                output = super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+                    .map_err(super::operation::untag_queue::UntagQueueError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,13 +62,13 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        "RequestThrottled" => crate::operation::untag_queue::UntagQueueError::RequestThrottled({
+        "RequestThrottled" => super::operation::untag_queue::UntagQueueError::RequestThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::RequestThrottledBuilder::default();
-                output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
-                    .map_err(crate::operation::untag_queue::UntagQueueError::unhandled)?;
+                let mut output = super::types::error::builders::RequestThrottledBuilder::default();
+                output = super::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
+                    .map_err(super::operation::untag_queue::UntagQueueError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -77,13 +77,13 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => crate::operation::untag_queue::UntagQueueError::UnsupportedOperation({
+        "UnsupportedOperation" => super::operation::untag_queue::UntagQueueError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-                    .map_err(crate::operation::untag_queue::UntagQueueError::unhandled)?;
+                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                    .map_err(super::operation::untag_queue::UntagQueueError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -92,7 +92,7 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        _ => crate::operation::untag_queue::UntagQueueError::generic(generic),
+        _ => super::operation::untag_queue::UntagQueueError::generic(generic),
     })
 }
 
@@ -101,31 +101,31 @@ pub fn de_untag_queue_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::untag_queue::UntagQueueOutput, crate::operation::untag_queue::UntagQueueError> {
+) -> std::result::Result<super::operation::untag_queue::UntagQueueOutput, super::operation::untag_queue::UntagQueueError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::untag_queue::builders::UntagQueueOutputBuilder::default();
+        let mut output = super::operation::untag_queue::builders::UntagQueueOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_untag_queue_input(
-    input: &crate::operation::untag_queue::UntagQueueInput,
+    input: &super::operation::untag_queue::UntagQueueInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_untag_queue_input::ser_untag_queue_input_input(&mut object, input)?;
+    super::protocol_serde::shape_untag_queue_input::ser_untag_queue_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_untag_queue(
     _value: &[u8],
-    mut builder: crate::operation::untag_queue::builders::UntagQueueOutputBuilder,
-) -> ::std::result::Result<crate::operation::untag_queue::builders::UntagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+    mut builder: super::operation::untag_queue::builders::UntagQueueOutputBuilder,
+) -> ::std::result::Result<super::operation::untag_queue::builders::UntagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;

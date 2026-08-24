@@ -21,8 +21,8 @@ impl ::std::fmt::Debug for GetDelegatedAccessTokenInput {
 }
 impl GetDelegatedAccessTokenInput {
     /// Creates a new builder-style object to manufacture [`GetDelegatedAccessTokenInput`](crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput).
-    pub fn builder() -> crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder {
-        crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder::default()
+    pub fn builder() -> super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder {
+        super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder::default()
     }
 }
 
@@ -52,10 +52,10 @@ impl GetDelegatedAccessTokenInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput,
+        super::operation::get_delegated_access_token::GetDelegatedAccessTokenInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput {
+        ::std::result::Result::Ok(super::operation::get_delegated_access_token::GetDelegatedAccessTokenInput {
             trade_in_token: self.trade_in_token,
         })
     }

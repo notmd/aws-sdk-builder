@@ -3,7 +3,7 @@ pub(crate) fn de_multi_region_configuration<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::MultiRegionConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::MultiRegionConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::MultiRegionConfigurationBuilder::default();
+            let mut builder = super::types::builders::MultiRegionConfigurationBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -24,19 +24,19 @@ where
                         "MultiRegionKeyType" => {
                             builder = builder.set_multi_region_key_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::MultiRegionKeyType::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::MultiRegionKeyType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "PrimaryKey" => {
-                            builder = builder.set_primary_key(crate::protocol_serde::shape_multi_region_key::de_multi_region_key(
+                            builder = builder.set_primary_key(super::protocol_serde::shape_multi_region_key::de_multi_region_key(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
                         }
                         "ReplicaKeys" => {
-                            builder = builder.set_replica_keys(crate::protocol_serde::shape_multi_region_key_list::de_multi_region_key_list(
+                            builder = builder.set_replica_keys(super::protocol_serde::shape_multi_region_key_list::de_multi_region_key_list(
                                 tokens,
                                 _value,
                                 depth + 1,

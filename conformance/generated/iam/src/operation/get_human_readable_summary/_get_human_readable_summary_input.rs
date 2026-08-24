@@ -20,8 +20,8 @@ impl GetHumanReadableSummaryInput {
 }
 impl GetHumanReadableSummaryInput {
     /// Creates a new builder-style object to manufacture [`GetHumanReadableSummaryInput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryInput).
-    pub fn builder() -> crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryInputBuilder {
-        crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryInputBuilder::default()
+    pub fn builder() -> super::operation::get_human_readable_summary::builders::GetHumanReadableSummaryInputBuilder {
+        super::operation::get_human_readable_summary::builders::GetHumanReadableSummaryInputBuilder::default()
     }
 }
 
@@ -66,10 +66,10 @@ impl GetHumanReadableSummaryInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_human_readable_summary::GetHumanReadableSummaryInput,
+        super::operation::get_human_readable_summary::GetHumanReadableSummaryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_human_readable_summary::GetHumanReadableSummaryInput {
+        ::std::result::Result::Ok(super::operation::get_human_readable_summary::GetHumanReadableSummaryInput {
             entity_arn: self.entity_arn,
             locale: self.locale,
         })

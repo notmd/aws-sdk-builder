@@ -4,12 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeBackupOutput {
     /// <p>Contains the description of the backup created for the table.</p>
-    pub backup_description: ::std::option::Option<crate::types::BackupDescription>,
+    pub backup_description: ::std::option::Option<super::types::BackupDescription>,
     _request_id: Option<String>,
 }
 impl DescribeBackupOutput {
     /// <p>Contains the description of the backup created for the table.</p>
-    pub fn backup_description(&self) -> ::std::option::Option<&crate::types::BackupDescription> {
+    pub fn backup_description(&self) -> ::std::option::Option<&super::types::BackupDescription> {
         self.backup_description.as_ref()
     }
 }
@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for DescribeBackupOutput {
 }
 impl DescribeBackupOutput {
     /// Creates a new builder-style object to manufacture [`DescribeBackupOutput`](crate::operation::describe_backup::DescribeBackupOutput).
-    pub fn builder() -> crate::operation::describe_backup::builders::DescribeBackupOutputBuilder {
-        crate::operation::describe_backup::builders::DescribeBackupOutputBuilder::default()
+    pub fn builder() -> super::operation::describe_backup::builders::DescribeBackupOutputBuilder {
+        super::operation::describe_backup::builders::DescribeBackupOutputBuilder::default()
     }
 }
 
@@ -29,22 +29,22 @@ impl DescribeBackupOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeBackupOutputBuilder {
-    pub(crate) backup_description: ::std::option::Option<crate::types::BackupDescription>,
+    pub(crate) backup_description: ::std::option::Option<super::types::BackupDescription>,
     _request_id: Option<String>,
 }
 impl DescribeBackupOutputBuilder {
     /// <p>Contains the description of the backup created for the table.</p>
-    pub fn backup_description(mut self, input: crate::types::BackupDescription) -> Self {
+    pub fn backup_description(mut self, input: super::types::BackupDescription) -> Self {
         self.backup_description = ::std::option::Option::Some(input);
         self
     }
     /// <p>Contains the description of the backup created for the table.</p>
-    pub fn set_backup_description(mut self, input: ::std::option::Option<crate::types::BackupDescription>) -> Self {
+    pub fn set_backup_description(mut self, input: ::std::option::Option<super::types::BackupDescription>) -> Self {
         self.backup_description = input;
         self
     }
     /// <p>Contains the description of the backup created for the table.</p>
-    pub fn get_backup_description(&self) -> &::std::option::Option<crate::types::BackupDescription> {
+    pub fn get_backup_description(&self) -> &::std::option::Option<super::types::BackupDescription> {
         &self.backup_description
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -57,8 +57,8 @@ impl DescribeBackupOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeBackupOutput`](crate::operation::describe_backup::DescribeBackupOutput).
-    pub fn build(self) -> crate::operation::describe_backup::DescribeBackupOutput {
-        crate::operation::describe_backup::DescribeBackupOutput {
+    pub fn build(self) -> super::operation::describe_backup::DescribeBackupOutput {
+        super::operation::describe_backup::DescribeBackupOutput {
             backup_description: self.backup_description,
             _request_id: self._request_id,
         }

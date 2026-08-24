@@ -43,8 +43,8 @@ impl ProvisionedThroughputDescription {
 }
 impl ProvisionedThroughputDescription {
     /// Creates a new builder-style object to manufacture [`ProvisionedThroughputDescription`](crate::types::ProvisionedThroughputDescription).
-    pub fn builder() -> crate::types::builders::ProvisionedThroughputDescriptionBuilder {
-        crate::types::builders::ProvisionedThroughputDescriptionBuilder::default()
+    pub fn builder() -> super::types::builders::ProvisionedThroughputDescriptionBuilder {
+        super::types::builders::ProvisionedThroughputDescriptionBuilder::default()
     }
 }
 
@@ -136,8 +136,8 @@ impl ProvisionedThroughputDescriptionBuilder {
         &self.write_capacity_units
     }
     /// Consumes the builder and constructs a [`ProvisionedThroughputDescription`](crate::types::ProvisionedThroughputDescription).
-    pub fn build(self) -> crate::types::ProvisionedThroughputDescription {
-        crate::types::ProvisionedThroughputDescription {
+    pub fn build(self) -> super::types::ProvisionedThroughputDescription {
+        super::types::ProvisionedThroughputDescription {
             last_increase_date_time: self.last_increase_date_time,
             last_decrease_date_time: self.last_decrease_date_time,
             number_of_decreases_today: self.number_of_decreases_today,

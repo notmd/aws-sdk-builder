@@ -6,7 +6,7 @@ pub struct PutObjectRetentionOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -14,11 +14,11 @@ impl PutObjectRetentionOutput {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for PutObjectRetentionOutput {
+impl super::s3_request_id::RequestIdExt for PutObjectRetentionOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -30,8 +30,8 @@ impl ::aws_types::request_id::RequestId for PutObjectRetentionOutput {
 }
 impl PutObjectRetentionOutput {
     /// Creates a new builder-style object to manufacture [`PutObjectRetentionOutput`](crate::operation::put_object_retention::PutObjectRetentionOutput).
-    pub fn builder() -> crate::operation::put_object_retention::builders::PutObjectRetentionOutputBuilder {
-        crate::operation::put_object_retention::builders::PutObjectRetentionOutputBuilder::default()
+    pub fn builder() -> super::operation::put_object_retention::builders::PutObjectRetentionOutputBuilder {
+        super::operation::put_object_retention::builders::PutObjectRetentionOutputBuilder::default()
     }
 }
 
@@ -39,7 +39,7 @@ impl PutObjectRetentionOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutObjectRetentionOutputBuilder {
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -47,21 +47,21 @@ impl PutObjectRetentionOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -83,8 +83,8 @@ impl PutObjectRetentionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutObjectRetentionOutput`](crate::operation::put_object_retention::PutObjectRetentionOutput).
-    pub fn build(self) -> crate::operation::put_object_retention::PutObjectRetentionOutput {
-        crate::operation::put_object_retention::PutObjectRetentionOutput {
+    pub fn build(self) -> super::operation::put_object_retention::PutObjectRetentionOutput {
+        super::operation::put_object_retention::PutObjectRetentionOutput {
             request_charged: self.request_charged,
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

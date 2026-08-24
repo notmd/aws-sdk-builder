@@ -6,7 +6,7 @@ impl super::Client {
     ///   - [`role_name(impl Into<String>)`](crate::operation::delete_role::builders::DeleteRoleFluentBuilder::role_name) / [`set_role_name(Option<String>)`](crate::operation::delete_role::builders::DeleteRoleFluentBuilder::set_role_name):<br>required: **true**<br><p>The name of the role to delete.</p> <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p><br>
     /// - On success, responds with [`DeleteRoleOutput`](crate::operation::delete_role::DeleteRoleOutput)
     /// - On failure, responds with [`SdkError<DeleteRoleError>`](crate::operation::delete_role::DeleteRoleError)
-    pub fn delete_role(&self) -> crate::operation::delete_role::builders::DeleteRoleFluentBuilder {
-        crate::operation::delete_role::builders::DeleteRoleFluentBuilder::new(self.handle.clone())
+    pub fn delete_role(&self) -> super::operation::delete_role::builders::DeleteRoleFluentBuilder {
+        super::operation::delete_role::builders::DeleteRoleFluentBuilder::new(self.handle.clone())
     }
 }

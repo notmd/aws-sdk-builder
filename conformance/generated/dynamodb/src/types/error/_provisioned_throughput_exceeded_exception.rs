@@ -7,14 +7,14 @@ pub struct ProvisionedThroughputExceededException {
     /// <p>You exceeded your maximum allowed provisioned throughput.</p>
     pub message: ::std::option::Option<::std::string::String>,
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-    pub throttling_reasons: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
+    pub throttling_reasons: ::std::option::Option<::std::vec::Vec<super::types::ThrottlingReason>>,
     pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
 impl ProvisionedThroughputExceededException {
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.throttling_reasons.is_none()`.
-    pub fn throttling_reasons(&self) -> &[crate::types::ThrottlingReason] {
+    pub fn throttling_reasons(&self) -> &[super::types::ThrottlingReason] {
         self.throttling_reasons.as_deref().unwrap_or_default()
     }
 }
@@ -36,7 +36,7 @@ impl ::std::fmt::Display for ProvisionedThroughputExceededException {
     }
 }
 impl ::std::error::Error for ProvisionedThroughputExceededException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ProvisionedThroughputExceededException {
+impl ::aws_types::request_id::RequestId for super::types::error::ProvisionedThroughputExceededException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -49,8 +49,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ProvisionedTh
 }
 impl ProvisionedThroughputExceededException {
     /// Creates a new builder-style object to manufacture [`ProvisionedThroughputExceededException`](crate::types::error::ProvisionedThroughputExceededException).
-    pub fn builder() -> crate::types::error::builders::ProvisionedThroughputExceededExceptionBuilder {
-        crate::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder {
+        super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default()
     }
 }
 
@@ -59,7 +59,7 @@ impl ProvisionedThroughputExceededException {
 #[non_exhaustive]
 pub struct ProvisionedThroughputExceededExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
-    pub(crate) throttling_reasons: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>,
+    pub(crate) throttling_reasons: ::std::option::Option<::std::vec::Vec<super::types::ThrottlingReason>>,
     meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl ProvisionedThroughputExceededExceptionBuilder {
@@ -82,19 +82,19 @@ impl ProvisionedThroughputExceededExceptionBuilder {
     /// To override the contents of this collection use [`set_throttling_reasons`](Self::set_throttling_reasons).
     ///
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-    pub fn throttling_reasons(mut self, input: crate::types::ThrottlingReason) -> Self {
+    pub fn throttling_reasons(mut self, input: super::types::ThrottlingReason) -> Self {
         let mut v = self.throttling_reasons.unwrap_or_default();
         v.push(input);
         self.throttling_reasons = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-    pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>) -> Self {
+    pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ThrottlingReason>>) -> Self {
         self.throttling_reasons = input;
         self
     }
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-    pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>> {
+    pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ThrottlingReason>> {
         &self.throttling_reasons
     }
     /// Sets error metadata
@@ -109,8 +109,8 @@ impl ProvisionedThroughputExceededExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ProvisionedThroughputExceededException`](crate::types::error::ProvisionedThroughputExceededException).
-    pub fn build(self) -> crate::types::error::ProvisionedThroughputExceededException {
-        crate::types::error::ProvisionedThroughputExceededException {
+    pub fn build(self) -> super::types::error::ProvisionedThroughputExceededException {
+        super::types::error::ProvisionedThroughputExceededException {
             message: self.message,
             throttling_reasons: self.throttling_reasons,
             meta: self.meta.unwrap_or_default(),

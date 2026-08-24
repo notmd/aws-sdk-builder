@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct TenancyConfig {
     /// <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
-    pub tenant_isolation_mode: crate::types::TenantIsolationMode,
+    pub tenant_isolation_mode: super::types::TenantIsolationMode,
 }
 impl TenancyConfig {
     /// <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
-    pub fn tenant_isolation_mode(&self) -> &crate::types::TenantIsolationMode {
+    pub fn tenant_isolation_mode(&self) -> &super::types::TenantIsolationMode {
         &self.tenant_isolation_mode
     }
 }
 impl TenancyConfig {
     /// Creates a new builder-style object to manufacture [`TenancyConfig`](crate::types::TenancyConfig).
-    pub fn builder() -> crate::types::builders::TenancyConfigBuilder {
-        crate::types::builders::TenancyConfigBuilder::default()
+    pub fn builder() -> super::types::builders::TenancyConfigBuilder {
+        super::types::builders::TenancyConfigBuilder::default()
     }
 }
 
@@ -24,29 +24,29 @@ impl TenancyConfig {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TenancyConfigBuilder {
-    pub(crate) tenant_isolation_mode: ::std::option::Option<crate::types::TenantIsolationMode>,
+    pub(crate) tenant_isolation_mode: ::std::option::Option<super::types::TenantIsolationMode>,
 }
 impl TenancyConfigBuilder {
     /// <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
     /// This field is required.
-    pub fn tenant_isolation_mode(mut self, input: crate::types::TenantIsolationMode) -> Self {
+    pub fn tenant_isolation_mode(mut self, input: super::types::TenantIsolationMode) -> Self {
         self.tenant_isolation_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
-    pub fn set_tenant_isolation_mode(mut self, input: ::std::option::Option<crate::types::TenantIsolationMode>) -> Self {
+    pub fn set_tenant_isolation_mode(mut self, input: ::std::option::Option<super::types::TenantIsolationMode>) -> Self {
         self.tenant_isolation_mode = input;
         self
     }
     /// <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
-    pub fn get_tenant_isolation_mode(&self) -> &::std::option::Option<crate::types::TenantIsolationMode> {
+    pub fn get_tenant_isolation_mode(&self) -> &::std::option::Option<super::types::TenantIsolationMode> {
         &self.tenant_isolation_mode
     }
     /// Consumes the builder and constructs a [`TenancyConfig`](crate::types::TenancyConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`tenant_isolation_mode`](crate::types::builders::TenancyConfigBuilder::tenant_isolation_mode)
-    pub fn build(self) -> ::std::result::Result<crate::types::TenancyConfig, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::TenancyConfig {
+    pub fn build(self) -> ::std::result::Result<super::types::TenancyConfig, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::TenancyConfig {
             tenant_isolation_mode: self.tenant_isolation_mode.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "tenant_isolation_mode",

@@ -24,8 +24,8 @@ impl GetBucketLocationInput {
 }
 impl GetBucketLocationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketLocationInput`](crate::operation::get_bucket_location::GetBucketLocationInput).
-    pub fn builder() -> crate::operation::get_bucket_location::builders::GetBucketLocationInputBuilder {
-        crate::operation::get_bucket_location::builders::GetBucketLocationInputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_location::builders::GetBucketLocationInputBuilder {
+        super::operation::get_bucket_location::builders::GetBucketLocationInputBuilder::default()
     }
 }
 
@@ -75,8 +75,8 @@ impl GetBucketLocationInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketLocationInput`](crate::operation::get_bucket_location::GetBucketLocationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_bucket_location::GetBucketLocationInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_bucket_location::GetBucketLocationInput {
+    ) -> ::std::result::Result<super::operation::get_bucket_location::GetBucketLocationInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_bucket_location::GetBucketLocationInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

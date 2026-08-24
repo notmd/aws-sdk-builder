@@ -13,7 +13,7 @@ pub struct AliasConfiguration {
     /// <p>A description of the alias.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub routing_config: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
+    pub routing_config: ::std::option::Option<super::types::AliasRoutingConfiguration>,
     /// <p>A unique identifier that changes when you update the alias.</p>
     pub revision_id: ::std::option::Option<::std::string::String>,
 }
@@ -35,7 +35,7 @@ impl AliasConfiguration {
         self.description.as_deref()
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub fn routing_config(&self) -> ::std::option::Option<&crate::types::AliasRoutingConfiguration> {
+    pub fn routing_config(&self) -> ::std::option::Option<&super::types::AliasRoutingConfiguration> {
         self.routing_config.as_ref()
     }
     /// <p>A unique identifier that changes when you update the alias.</p>
@@ -45,8 +45,8 @@ impl AliasConfiguration {
 }
 impl AliasConfiguration {
     /// Creates a new builder-style object to manufacture [`AliasConfiguration`](crate::types::AliasConfiguration).
-    pub fn builder() -> crate::types::builders::AliasConfigurationBuilder {
-        crate::types::builders::AliasConfigurationBuilder::default()
+    pub fn builder() -> super::types::builders::AliasConfigurationBuilder {
+        super::types::builders::AliasConfigurationBuilder::default()
     }
 }
 
@@ -58,7 +58,7 @@ pub struct AliasConfigurationBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) function_version: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
-    pub(crate) routing_config: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
+    pub(crate) routing_config: ::std::option::Option<super::types::AliasRoutingConfiguration>,
     pub(crate) revision_id: ::std::option::Option<::std::string::String>,
 }
 impl AliasConfigurationBuilder {
@@ -119,17 +119,17 @@ impl AliasConfigurationBuilder {
         &self.description
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub fn routing_config(mut self, input: crate::types::AliasRoutingConfiguration) -> Self {
+    pub fn routing_config(mut self, input: super::types::AliasRoutingConfiguration) -> Self {
         self.routing_config = ::std::option::Option::Some(input);
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub fn set_routing_config(mut self, input: ::std::option::Option<crate::types::AliasRoutingConfiguration>) -> Self {
+    pub fn set_routing_config(mut self, input: ::std::option::Option<super::types::AliasRoutingConfiguration>) -> Self {
         self.routing_config = input;
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub fn get_routing_config(&self) -> &::std::option::Option<crate::types::AliasRoutingConfiguration> {
+    pub fn get_routing_config(&self) -> &::std::option::Option<super::types::AliasRoutingConfiguration> {
         &self.routing_config
     }
     /// <p>A unique identifier that changes when you update the alias.</p>
@@ -147,8 +147,8 @@ impl AliasConfigurationBuilder {
         &self.revision_id
     }
     /// Consumes the builder and constructs a [`AliasConfiguration`](crate::types::AliasConfiguration).
-    pub fn build(self) -> crate::types::AliasConfiguration {
-        crate::types::AliasConfiguration {
+    pub fn build(self) -> super::types::AliasConfiguration {
+        super::types::AliasConfiguration {
             alias_arn: self.alias_arn,
             name: self.name,
             function_version: self.function_version,

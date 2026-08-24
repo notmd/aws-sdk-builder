@@ -11,11 +11,11 @@ pub struct InventoryS3BucketDestination {
     /// <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be published.</p>
     pub bucket: ::std::string::String,
     /// <p>Specifies the output format of the inventory results.</p>
-    pub format: crate::types::InventoryFormat,
+    pub format: super::types::InventoryFormat,
     /// <p>The prefix that is prepended to all inventory results.</p>
     pub prefix: ::std::option::Option<::std::string::String>,
     /// <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
-    pub encryption: ::std::option::Option<crate::types::InventoryEncryption>,
+    pub encryption: ::std::option::Option<super::types::InventoryEncryption>,
 }
 impl InventoryS3BucketDestination {
     /// <p>The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.</p><note>
@@ -30,7 +30,7 @@ impl InventoryS3BucketDestination {
         self.bucket.deref()
     }
     /// <p>Specifies the output format of the inventory results.</p>
-    pub fn format(&self) -> &crate::types::InventoryFormat {
+    pub fn format(&self) -> &super::types::InventoryFormat {
         &self.format
     }
     /// <p>The prefix that is prepended to all inventory results.</p>
@@ -38,14 +38,14 @@ impl InventoryS3BucketDestination {
         self.prefix.as_deref()
     }
     /// <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
-    pub fn encryption(&self) -> ::std::option::Option<&crate::types::InventoryEncryption> {
+    pub fn encryption(&self) -> ::std::option::Option<&super::types::InventoryEncryption> {
         self.encryption.as_ref()
     }
 }
 impl InventoryS3BucketDestination {
     /// Creates a new builder-style object to manufacture [`InventoryS3BucketDestination`](crate::types::InventoryS3BucketDestination).
-    pub fn builder() -> crate::types::builders::InventoryS3BucketDestinationBuilder {
-        crate::types::builders::InventoryS3BucketDestinationBuilder::default()
+    pub fn builder() -> super::types::builders::InventoryS3BucketDestinationBuilder {
+        super::types::builders::InventoryS3BucketDestinationBuilder::default()
     }
 }
 
@@ -55,9 +55,9 @@ impl InventoryS3BucketDestination {
 pub struct InventoryS3BucketDestinationBuilder {
     pub(crate) account_id: ::std::option::Option<::std::string::String>,
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
-    pub(crate) format: ::std::option::Option<crate::types::InventoryFormat>,
+    pub(crate) format: ::std::option::Option<super::types::InventoryFormat>,
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
-    pub(crate) encryption: ::std::option::Option<crate::types::InventoryEncryption>,
+    pub(crate) encryption: ::std::option::Option<super::types::InventoryEncryption>,
 }
 impl InventoryS3BucketDestinationBuilder {
     /// <p>The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.</p><note>
@@ -97,17 +97,17 @@ impl InventoryS3BucketDestinationBuilder {
     }
     /// <p>Specifies the output format of the inventory results.</p>
     /// This field is required.
-    pub fn format(mut self, input: crate::types::InventoryFormat) -> Self {
+    pub fn format(mut self, input: super::types::InventoryFormat) -> Self {
         self.format = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the output format of the inventory results.</p>
-    pub fn set_format(mut self, input: ::std::option::Option<crate::types::InventoryFormat>) -> Self {
+    pub fn set_format(mut self, input: ::std::option::Option<super::types::InventoryFormat>) -> Self {
         self.format = input;
         self
     }
     /// <p>Specifies the output format of the inventory results.</p>
-    pub fn get_format(&self) -> &::std::option::Option<crate::types::InventoryFormat> {
+    pub fn get_format(&self) -> &::std::option::Option<super::types::InventoryFormat> {
         &self.format
     }
     /// <p>The prefix that is prepended to all inventory results.</p>
@@ -125,25 +125,25 @@ impl InventoryS3BucketDestinationBuilder {
         &self.prefix
     }
     /// <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
-    pub fn encryption(mut self, input: crate::types::InventoryEncryption) -> Self {
+    pub fn encryption(mut self, input: super::types::InventoryEncryption) -> Self {
         self.encryption = ::std::option::Option::Some(input);
         self
     }
     /// <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
-    pub fn set_encryption(mut self, input: ::std::option::Option<crate::types::InventoryEncryption>) -> Self {
+    pub fn set_encryption(mut self, input: ::std::option::Option<super::types::InventoryEncryption>) -> Self {
         self.encryption = input;
         self
     }
     /// <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
-    pub fn get_encryption(&self) -> &::std::option::Option<crate::types::InventoryEncryption> {
+    pub fn get_encryption(&self) -> &::std::option::Option<super::types::InventoryEncryption> {
         &self.encryption
     }
     /// Consumes the builder and constructs a [`InventoryS3BucketDestination`](crate::types::InventoryS3BucketDestination).
     /// This method will fail if any of the following fields are not set:
     /// - [`bucket`](crate::types::builders::InventoryS3BucketDestinationBuilder::bucket)
     /// - [`format`](crate::types::builders::InventoryS3BucketDestinationBuilder::format)
-    pub fn build(self) -> ::std::result::Result<crate::types::InventoryS3BucketDestination, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::InventoryS3BucketDestination {
+    pub fn build(self) -> ::std::result::Result<super::types::InventoryS3BucketDestination, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::InventoryS3BucketDestination {
             account_id: self.account_id,
             bucket: self.bucket.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

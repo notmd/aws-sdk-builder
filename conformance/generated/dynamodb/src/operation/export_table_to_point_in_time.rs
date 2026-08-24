@@ -10,11 +10,11 @@ impl ExportTableToPointInTime {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
+        input: super::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
     ) -> ::std::result::Result<
-        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
+        super::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
+            super::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl ExportTableToPointInTime {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError>()
+                err.downcast::<super::operation::export_table_to_point_in_time::ExportTableToPointInTimeError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl ExportTableToPointInTime {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput>()
+                .downcast::<super::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
+        input: super::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,13 +66,13 @@ impl ExportTableToPointInTime {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
-        runtime_plugins = runtime_plugins.with_operation_plugin(crate::client_idempotency_token::IdempotencyTokenRuntimePlugin::new(
+        runtime_plugins = runtime_plugins.with_operation_plugin(super::client_idempotency_token::IdempotencyTokenRuntimePlugin::new(
             |token_provider, input| {
-                let input: &mut crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput =
+                let input: &mut super::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput =
                     input.downcast_mut().expect("correct type");
                 if input.client_token.is_none() {
                     input.client_token = ::std::option::Option::Some(token_provider.make_idempotency_token());
@@ -83,7 +83,7 @@ impl ExportTableToPointInTime {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -104,7 +104,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ExportT
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("ExportTableToPointInTime")
                 .build()
                 .expect("required fields set"),
@@ -144,13 +144,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ExportT
                 ExportTableToPointInTimeEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
+                super::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
+                super::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
+                super::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -240,11 +240,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ExportTab
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_export_table_to_point_in_time::de_export_table_to_point_in_time_http_error(status, headers, body)
+            super::protocol_serde::shape_export_table_to_point_in_time::de_export_table_to_point_in_time_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_export_table_to_point_in_time::de_export_table_to_point_in_time_http_response(status, headers, body)
+            super::protocol_serde::shape_export_table_to_point_in_time::de_export_table_to_point_in_time_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -257,16 +257,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ExportTableT
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput>()
+            .downcast::<super::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
+                _input: &super::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -275,7 +275,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ExportTableT
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
+                input: &super::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -292,7 +292,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ExportTableT
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_export_table_to_point_in_time::ser_export_table_to_point_in_time_input(&input)?,
+            super::protocol_serde::shape_export_table_to_point_in_time::ser_export_table_to_point_in_time_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -325,7 +325,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ExportTableTo
             .downcast_ref::<ExportTableToPointInTimeInput>()
             .ok_or("failed to downcast to ExportTableToPointInTimeInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -361,11 +361,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ExportTableTo
 #[derive(::std::fmt::Debug)]
 pub enum ExportTableToPointInTimeError {
     /// <p>There was a conflict when writing to the specified S3 bucket.</p>
-    ExportConflictException(crate::types::error::ExportConflictException),
+    ExportConflictException(super::types::error::ExportConflictException),
     /// <p>An error occurred on the server side.</p>
-    InternalServerError(crate::types::error::InternalServerError),
+    InternalServerError(super::types::error::InternalServerError),
     /// <p>The specified <code>ExportTime</code> is outside of the point in time recovery window.</p>
-    InvalidExportTimeException(crate::types::error::InvalidExportTimeException),
+    InvalidExportTimeException(super::types::error::InvalidExportTimeException),
     /// <p>There is no limit to the number of daily on-demand backups that can be taken.</p>
     /// <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>.</p>
     /// <p>When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.</p>
@@ -373,11 +373,11 @@ pub enum ExportTableToPointInTimeError {
     /// <p>There is a soft account quota of 2,500 tables.</p>
     /// <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
     /// <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.</p>
-    LimitExceededException(crate::types::error::LimitExceededException),
+    LimitExceededException(super::types::error::LimitExceededException),
     /// <p>Point in time recovery has not yet been enabled for this source table.</p>
-    PointInTimeRecoveryUnavailableException(crate::types::error::PointInTimeRecoveryUnavailableException),
+    PointInTimeRecoveryUnavailableException(super::types::error::PointInTimeRecoveryUnavailableException),
     /// <p>A source table with the name <code>TableName</code> does not currently exist within the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
-    TableNotFoundException(crate::types::error::TableNotFoundException),
+    TableNotFoundException(super::types::error::TableNotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -385,14 +385,14 @@ pub enum ExportTableToPointInTimeError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ExportTableToPointInTimeError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl ExportTableToPointInTimeError {
     /// Creates the `ExportTableToPointInTimeError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -400,7 +400,7 @@ impl ExportTableToPointInTimeError {
 
     /// Creates the `ExportTableToPointInTimeError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -503,21 +503,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ExportTa
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError {
+impl ::aws_types::request_id::RequestId for super::operation::export_table_to_point_in_time::ExportTableToPointInTimeError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::export_table_to_point_in_time::_export_table_to_point_in_time_input::ExportTableToPointInTimeInput;
+pub use super::operation::export_table_to_point_in_time::_export_table_to_point_in_time_input::ExportTableToPointInTimeInput;
 
-pub use crate::operation::export_table_to_point_in_time::_export_table_to_point_in_time_output::ExportTableToPointInTimeOutput;
+pub use super::operation::export_table_to_point_in_time::_export_table_to_point_in_time_output::ExportTableToPointInTimeOutput;
 
 mod _export_table_to_point_in_time_input;
 

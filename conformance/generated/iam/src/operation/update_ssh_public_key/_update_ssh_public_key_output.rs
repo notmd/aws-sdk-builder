@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateSshPublicKeyOutput {
 }
 impl UpdateSshPublicKeyOutput {
     /// Creates a new builder-style object to manufacture [`UpdateSshPublicKeyOutput`](crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput).
-    pub fn builder() -> crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyOutputBuilder {
-        crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyOutputBuilder::default()
+    pub fn builder() -> super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyOutputBuilder {
+        super::operation::update_ssh_public_key::builders::UpdateSshPublicKeyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateSshPublicKeyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateSshPublicKeyOutput`](crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput).
-    pub fn build(self) -> crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput {
-        crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput {
+    pub fn build(self) -> super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput {
+        super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput {
             _request_id: self._request_id,
         }
     }

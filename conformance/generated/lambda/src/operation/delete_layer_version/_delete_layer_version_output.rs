@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DeleteLayerVersionOutput {
 }
 impl DeleteLayerVersionOutput {
     /// Creates a new builder-style object to manufacture [`DeleteLayerVersionOutput`](crate::operation::delete_layer_version::DeleteLayerVersionOutput).
-    pub fn builder() -> crate::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder {
-        crate::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder::default()
+    pub fn builder() -> super::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder {
+        super::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DeleteLayerVersionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteLayerVersionOutput`](crate::operation::delete_layer_version::DeleteLayerVersionOutput).
-    pub fn build(self) -> crate::operation::delete_layer_version::DeleteLayerVersionOutput {
-        crate::operation::delete_layer_version::DeleteLayerVersionOutput {
+    pub fn build(self) -> super::operation::delete_layer_version::DeleteLayerVersionOutput {
+        super::operation::delete_layer_version::DeleteLayerVersionOutput {
             _request_id: self._request_id,
         }
     }

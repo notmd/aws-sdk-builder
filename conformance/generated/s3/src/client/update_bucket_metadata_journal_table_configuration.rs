@@ -12,8 +12,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateBucketMetadataJournalTableConfigurationError>`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError)
     pub fn update_bucket_metadata_journal_table_configuration(
         &self,
-    ) -> crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder
+    ) -> super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder
     {
-        crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder::new(self.handle.clone())
+        super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidArnException {
     }
 }
 impl ::std::error::Error for InvalidArnException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidArnException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidArnException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidArnExc
 }
 impl InvalidArnException {
     /// Creates a new builder-style object to manufacture [`InvalidArnException`](crate::types::error::InvalidArnException).
-    pub fn builder() -> crate::types::error::builders::InvalidArnExceptionBuilder {
-        crate::types::error::builders::InvalidArnExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidArnExceptionBuilder {
+        super::types::error::builders::InvalidArnExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidArnExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidArnException`](crate::types::error::InvalidArnException).
-    pub fn build(self) -> crate::types::error::InvalidArnException {
-        crate::types::error::InvalidArnException {
+    pub fn build(self) -> super::types::error::InvalidArnException {
+        super::types::error::InvalidArnException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

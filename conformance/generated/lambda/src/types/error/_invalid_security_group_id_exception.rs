@@ -34,7 +34,7 @@ impl ::std::fmt::Display for InvalidSecurityGroupIdException {
     }
 }
 impl ::std::error::Error for InvalidSecurityGroupIdException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidSecurityGroupIdException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidSecurityGroupIdException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidSecuri
 }
 impl InvalidSecurityGroupIdException {
     /// Creates a new builder-style object to manufacture [`InvalidSecurityGroupIdException`](crate::types::error::InvalidSecurityGroupIdException).
-    pub fn builder() -> crate::types::error::builders::InvalidSecurityGroupIdExceptionBuilder {
-        crate::types::error::builders::InvalidSecurityGroupIdExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidSecurityGroupIdExceptionBuilder {
+        super::types::error::builders::InvalidSecurityGroupIdExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl InvalidSecurityGroupIdExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidSecurityGroupIdException`](crate::types::error::InvalidSecurityGroupIdException).
-    pub fn build(self) -> crate::types::error::InvalidSecurityGroupIdException {
-        crate::types::error::InvalidSecurityGroupIdException {
+    pub fn build(self) -> super::types::error::InvalidSecurityGroupIdException {
+        super::types::error::InvalidSecurityGroupIdException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

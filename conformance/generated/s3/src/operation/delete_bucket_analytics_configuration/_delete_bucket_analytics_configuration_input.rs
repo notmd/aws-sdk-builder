@@ -26,8 +26,8 @@ impl DeleteBucketAnalyticsConfigurationInput {
 }
 impl DeleteBucketAnalyticsConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketAnalyticsConfigurationInput`](crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationInput).
-    pub fn builder() -> crate::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationInputBuilder {
-        crate::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationInputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationInputBuilder {
+        super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationInputBuilder::default()
     }
 }
 
@@ -88,11 +88,11 @@ impl DeleteBucketAnalyticsConfigurationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationInput,
+        super::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationInput {
+            super::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationInput {
                 bucket: self.bucket,
                 id: self.id,
                 expected_bucket_owner: self.expected_bucket_owner,

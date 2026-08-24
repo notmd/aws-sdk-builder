@@ -5,13 +5,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct PropagateTags {
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
-    pub mode: ::std::option::Option<crate::types::PropagateTagsMode>,
+    pub mode: ::std::option::Option<super::types::PropagateTagsMode>,
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
     pub explicit_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl PropagateTags {
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
-    pub fn mode(&self) -> ::std::option::Option<&crate::types::PropagateTagsMode> {
+    pub fn mode(&self) -> ::std::option::Option<&super::types::PropagateTagsMode> {
         self.mode.as_ref()
     }
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
@@ -21,8 +21,8 @@ impl PropagateTags {
 }
 impl PropagateTags {
     /// Creates a new builder-style object to manufacture [`PropagateTags`](crate::types::PropagateTags).
-    pub fn builder() -> crate::types::builders::PropagateTagsBuilder {
-        crate::types::builders::PropagateTagsBuilder::default()
+    pub fn builder() -> super::types::builders::PropagateTagsBuilder {
+        super::types::builders::PropagateTagsBuilder::default()
     }
 }
 
@@ -30,22 +30,22 @@ impl PropagateTags {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PropagateTagsBuilder {
-    pub(crate) mode: ::std::option::Option<crate::types::PropagateTagsMode>,
+    pub(crate) mode: ::std::option::Option<super::types::PropagateTagsMode>,
     pub(crate) explicit_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl PropagateTagsBuilder {
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
-    pub fn mode(mut self, input: crate::types::PropagateTagsMode) -> Self {
+    pub fn mode(mut self, input: super::types::PropagateTagsMode) -> Self {
         self.mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
-    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::PropagateTagsMode>) -> Self {
+    pub fn set_mode(mut self, input: ::std::option::Option<super::types::PropagateTagsMode>) -> Self {
         self.mode = input;
         self
     }
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
-    pub fn get_mode(&self) -> &::std::option::Option<crate::types::PropagateTagsMode> {
+    pub fn get_mode(&self) -> &::std::option::Option<super::types::PropagateTagsMode> {
         &self.mode
     }
     /// Adds a key-value pair to `explicit_tags`.
@@ -72,8 +72,8 @@ impl PropagateTagsBuilder {
         &self.explicit_tags
     }
     /// Consumes the builder and constructs a [`PropagateTags`](crate::types::PropagateTags).
-    pub fn build(self) -> crate::types::PropagateTags {
-        crate::types::PropagateTags {
+    pub fn build(self) -> super::types::PropagateTags {
+        super::types::PropagateTags {
             mode: self.mode,
             explicit_tags: self.explicit_tags,
         }

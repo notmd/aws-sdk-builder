@@ -4,7 +4,7 @@ pub(crate) fn de_provisioned_concurrency_config_list<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>>,
+    Option<::std::vec::Vec<super::types::ProvisionedConcurrencyConfigListItem>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -27,7 +27,7 @@ where
                     }
                     _ => {
                         let value =
-                            crate::protocol_serde::shape_provisioned_concurrency_config_list_item::de_provisioned_concurrency_config_list_item(
+                            super::protocol_serde::shape_provisioned_concurrency_config_list_item::de_provisioned_concurrency_config_list_item(
                                 tokens,
                                 _value,
                                 depth + 1,

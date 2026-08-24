@@ -127,8 +127,8 @@ impl SetPlatformApplicationAttributesInput {
 }
 impl SetPlatformApplicationAttributesInput {
     /// Creates a new builder-style object to manufacture [`SetPlatformApplicationAttributesInput`](crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesInput).
-    pub fn builder() -> crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder {
-        crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder::default()
+    pub fn builder() -> super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder {
+        super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder::default()
     }
 }
 
@@ -338,11 +338,11 @@ impl SetPlatformApplicationAttributesInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesInput,
+        super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesInput {
+            super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesInput {
                 platform_application_arn: self.platform_application_arn,
                 attributes: self.attributes,
             },

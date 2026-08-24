@@ -2,7 +2,7 @@
 pub fn de_grants(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<::std::vec::Vec<crate::types::Grant>, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<::std::vec::Vec<super::types::Grant>, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
@@ -11,7 +11,7 @@ pub fn de_grants(
         match tag.start_el() {
             s if s.matches("Grant") /* member com.amazonaws.s3#Grants$member */ =>  {
                 out.push(
-                    crate::protocol_serde::shape_grant::de_grant(&mut tag, depth + 1)
+                    super::protocol_serde::shape_grant::de_grant(&mut tag, depth + 1)
                     ?
                 );
             }

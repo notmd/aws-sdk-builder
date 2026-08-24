@@ -4,14 +4,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListFunctionUrlConfigsOutput {
     /// <p>A list of function URL configurations.</p>
-    pub function_url_configs: ::std::vec::Vec<crate::types::FunctionUrlConfig>,
+    pub function_url_configs: ::std::vec::Vec<super::types::FunctionUrlConfig>,
     /// <p>The pagination token that's included if more results are available.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl ListFunctionUrlConfigsOutput {
     /// <p>A list of function URL configurations.</p>
-    pub fn function_url_configs(&self) -> &[crate::types::FunctionUrlConfig] {
+    pub fn function_url_configs(&self) -> &[super::types::FunctionUrlConfig] {
         use std::ops::Deref;
         self.function_url_configs.deref()
     }
@@ -27,8 +27,8 @@ impl ::aws_types::request_id::RequestId for ListFunctionUrlConfigsOutput {
 }
 impl ListFunctionUrlConfigsOutput {
     /// Creates a new builder-style object to manufacture [`ListFunctionUrlConfigsOutput`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsOutput).
-    pub fn builder() -> crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder {
-        crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder {
+        super::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder::default()
     }
 }
 
@@ -36,7 +36,7 @@ impl ListFunctionUrlConfigsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListFunctionUrlConfigsOutputBuilder {
-    pub(crate) function_url_configs: ::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>>,
+    pub(crate) function_url_configs: ::std::option::Option<::std::vec::Vec<super::types::FunctionUrlConfig>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -46,19 +46,19 @@ impl ListFunctionUrlConfigsOutputBuilder {
     /// To override the contents of this collection use [`set_function_url_configs`](Self::set_function_url_configs).
     ///
     /// <p>A list of function URL configurations.</p>
-    pub fn function_url_configs(mut self, input: crate::types::FunctionUrlConfig) -> Self {
+    pub fn function_url_configs(mut self, input: super::types::FunctionUrlConfig) -> Self {
         let mut v = self.function_url_configs.unwrap_or_default();
         v.push(input);
         self.function_url_configs = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of function URL configurations.</p>
-    pub fn set_function_url_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>>) -> Self {
+    pub fn set_function_url_configs(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::FunctionUrlConfig>>) -> Self {
         self.function_url_configs = input;
         self
     }
     /// <p>A list of function URL configurations.</p>
-    pub fn get_function_url_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>> {
+    pub fn get_function_url_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::types::FunctionUrlConfig>> {
         &self.function_url_configs
     }
     /// <p>The pagination token that's included if more results are available.</p>
@@ -90,10 +90,10 @@ impl ListFunctionUrlConfigsOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_function_url_configs::ListFunctionUrlConfigsOutput,
+        super::operation::list_function_url_configs::ListFunctionUrlConfigsOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_function_url_configs::ListFunctionUrlConfigsOutput {
+        ::std::result::Result::Ok(super::operation::list_function_url_configs::ListFunctionUrlConfigsOutput {
             function_url_configs: self.function_url_configs.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "function_url_configs",

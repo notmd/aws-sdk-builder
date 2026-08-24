@@ -10,11 +10,11 @@ impl RestoreTableToPointInTime {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
+        input: super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
     ) -> ::std::result::Result<
-        crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput,
+        super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError,
+            super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl RestoreTableToPointInTime {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError>()
+                err.downcast::<super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl RestoreTableToPointInTime {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput>()
+                .downcast::<super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
+        input: super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -72,8 +72,8 @@ impl RestoreTableToPointInTime {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -81,7 +81,7 @@ impl RestoreTableToPointInTime {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -102,7 +102,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Restore
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("RestoreTableToPointInTime")
                 .build()
                 .expect("required fields set"),
@@ -142,13 +142,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Restore
                 RestoreTableToPointInTimeEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError,
+                super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError,
+                super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError,
+                super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -223,11 +223,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for RestoreTa
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_restore_table_to_point_in_time::de_restore_table_to_point_in_time_http_error(status, headers, body)
+            super::protocol_serde::shape_restore_table_to_point_in_time::de_restore_table_to_point_in_time_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_restore_table_to_point_in_time::de_restore_table_to_point_in_time_http_response(status, headers, body)
+            super::protocol_serde::shape_restore_table_to_point_in_time::de_restore_table_to_point_in_time_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -240,16 +240,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for RestoreTable
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput>()
+            .downcast::<super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
+                _input: &super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -258,7 +258,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for RestoreTable
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
+                input: &super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -275,7 +275,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for RestoreTable
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_restore_table_to_point_in_time::ser_restore_table_to_point_in_time_input(&input)?,
+            super::protocol_serde::shape_restore_table_to_point_in_time::ser_restore_table_to_point_in_time_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -308,7 +308,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for RestoreTableT
             .downcast_ref::<RestoreTableToPointInTimeInput>()
             .ok_or("failed to downcast to RestoreTableToPointInTimeInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -346,11 +346,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for RestoreTableT
 #[derive(::std::fmt::Debug)]
 pub enum RestoreTableToPointInTimeError {
     /// <p>An error occurred on the server side.</p>
-    InternalServerError(crate::types::error::InternalServerError),
+    InternalServerError(super::types::error::InternalServerError),
     #[allow(missing_docs)] // documentation missing in model
-    InvalidEndpointException(crate::types::error::InvalidEndpointException),
+    InvalidEndpointException(super::types::error::InvalidEndpointException),
     /// <p>An invalid restore time was specified. RestoreDateTime must be between EarliestRestorableDateTime and LatestRestorableDateTime.</p>
-    InvalidRestoreTimeException(crate::types::error::InvalidRestoreTimeException),
+    InvalidRestoreTimeException(super::types::error::InvalidRestoreTimeException),
     /// <p>There is no limit to the number of daily on-demand backups that can be taken.</p>
     /// <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>.</p>
     /// <p>When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.</p>
@@ -358,15 +358,15 @@ pub enum RestoreTableToPointInTimeError {
     /// <p>There is a soft account quota of 2,500 tables.</p>
     /// <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
     /// <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.</p>
-    LimitExceededException(crate::types::error::LimitExceededException),
+    LimitExceededException(super::types::error::LimitExceededException),
     /// <p>Point in time recovery has not yet been enabled for this source table.</p>
-    PointInTimeRecoveryUnavailableException(crate::types::error::PointInTimeRecoveryUnavailableException),
+    PointInTimeRecoveryUnavailableException(super::types::error::PointInTimeRecoveryUnavailableException),
     /// <p>A target table with the specified name already exists.</p>
-    TableAlreadyExistsException(crate::types::error::TableAlreadyExistsException),
+    TableAlreadyExistsException(super::types::error::TableAlreadyExistsException),
     /// <p>A target table with the specified name is either being created or deleted.</p>
-    TableInUseException(crate::types::error::TableInUseException),
+    TableInUseException(super::types::error::TableInUseException),
     /// <p>A source table with the name <code>TableName</code> does not currently exist within the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
-    TableNotFoundException(crate::types::error::TableNotFoundException),
+    TableNotFoundException(super::types::error::TableNotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -374,14 +374,14 @@ pub enum RestoreTableToPointInTimeError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-RestoreTableToPointInTimeError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl RestoreTableToPointInTimeError {
     /// Creates the `RestoreTableToPointInTimeError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -389,7 +389,7 @@ impl RestoreTableToPointInTimeError {
 
     /// Creates the `RestoreTableToPointInTimeError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -508,21 +508,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for RestoreT
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError {
+impl ::aws_types::request_id::RequestId for super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::restore_table_to_point_in_time::_restore_table_to_point_in_time_input::RestoreTableToPointInTimeInput;
+pub use super::operation::restore_table_to_point_in_time::_restore_table_to_point_in_time_input::RestoreTableToPointInTimeInput;
 
-pub use crate::operation::restore_table_to_point_in_time::_restore_table_to_point_in_time_output::RestoreTableToPointInTimeOutput;
+pub use super::operation::restore_table_to_point_in_time::_restore_table_to_point_in_time_output::RestoreTableToPointInTimeOutput;
 
 mod _restore_table_to_point_in_time_input;
 

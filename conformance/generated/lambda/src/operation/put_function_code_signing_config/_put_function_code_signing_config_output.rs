@@ -48,8 +48,8 @@ impl ::aws_types::request_id::RequestId for PutFunctionCodeSigningConfigOutput {
 }
 impl PutFunctionCodeSigningConfigOutput {
     /// Creates a new builder-style object to manufacture [`PutFunctionCodeSigningConfigOutput`](crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigOutput).
-    pub fn builder() -> crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder {
-        crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder::default()
+    pub fn builder() -> super::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder {
+        super::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder::default()
     }
 }
 
@@ -138,10 +138,10 @@ impl PutFunctionCodeSigningConfigOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigOutput,
+        super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigOutput {
+        ::std::result::Result::Ok(super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigOutput {
             code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "code_signing_config_arn",

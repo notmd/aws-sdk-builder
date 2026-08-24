@@ -34,7 +34,7 @@ impl ::std::fmt::Display for RequestTooLargeException {
     }
 }
 impl ::std::error::Error for RequestTooLargeException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::RequestTooLargeException {
+impl ::aws_types::request_id::RequestId for super::types::error::RequestTooLargeException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for RequestTooLar
 }
 impl RequestTooLargeException {
     /// Creates a new builder-style object to manufacture [`RequestTooLargeException`](crate::types::error::RequestTooLargeException).
-    pub fn builder() -> crate::types::error::builders::RequestTooLargeExceptionBuilder {
-        crate::types::error::builders::RequestTooLargeExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::RequestTooLargeExceptionBuilder {
+        super::types::error::builders::RequestTooLargeExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl RequestTooLargeExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RequestTooLargeException`](crate::types::error::RequestTooLargeException).
-    pub fn build(self) -> crate::types::error::RequestTooLargeException {
-        crate::types::error::RequestTooLargeException {
+    pub fn build(self) -> super::types::error::RequestTooLargeException {
+        super::types::error::RequestTooLargeException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

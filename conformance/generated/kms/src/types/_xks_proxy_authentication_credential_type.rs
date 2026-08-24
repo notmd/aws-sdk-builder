@@ -32,8 +32,8 @@ impl ::std::fmt::Debug for XksProxyAuthenticationCredentialType {
 }
 impl XksProxyAuthenticationCredentialType {
     /// Creates a new builder-style object to manufacture [`XksProxyAuthenticationCredentialType`](crate::types::XksProxyAuthenticationCredentialType).
-    pub fn builder() -> crate::types::builders::XksProxyAuthenticationCredentialTypeBuilder {
-        crate::types::builders::XksProxyAuthenticationCredentialTypeBuilder::default()
+    pub fn builder() -> super::types::builders::XksProxyAuthenticationCredentialTypeBuilder {
+        super::types::builders::XksProxyAuthenticationCredentialTypeBuilder::default()
     }
 }
 
@@ -81,8 +81,8 @@ impl XksProxyAuthenticationCredentialTypeBuilder {
     /// - [`raw_secret_access_key`](crate::types::builders::XksProxyAuthenticationCredentialTypeBuilder::raw_secret_access_key)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::XksProxyAuthenticationCredentialType, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::XksProxyAuthenticationCredentialType {
+    ) -> ::std::result::Result<super::types::XksProxyAuthenticationCredentialType, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::XksProxyAuthenticationCredentialType {
             access_key_id: self.access_key_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "access_key_id",

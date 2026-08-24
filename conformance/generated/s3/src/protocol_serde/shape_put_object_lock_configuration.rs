@@ -5,16 +5,16 @@ pub fn de_put_object_lock_configuration_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::put_object_lock_configuration::PutObjectLockConfigurationOutput,
-    crate::operation::put_object_lock_configuration::PutObjectLockConfigurationError,
+    super::operation::put_object_lock_configuration::PutObjectLockConfigurationOutput,
+    super::operation::put_object_lock_configuration::PutObjectLockConfigurationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::put_object_lock_configuration::PutObjectLockConfigurationError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::put_object_lock_configuration::PutObjectLockConfigurationError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::put_object_lock_configuration::PutObjectLockConfigurationError::generic(
+    Err(super::operation::put_object_lock_configuration::PutObjectLockConfigurationError::generic(
         generic,
     ))
 }
@@ -25,27 +25,27 @@ pub fn de_put_object_lock_configuration_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::put_object_lock_configuration::PutObjectLockConfigurationOutput,
-    crate::operation::put_object_lock_configuration::PutObjectLockConfigurationError,
+    super::operation::put_object_lock_configuration::PutObjectLockConfigurationOutput,
+    super::operation::put_object_lock_configuration::PutObjectLockConfigurationError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationOutputBuilder::default();
+        let mut output = super::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationOutputBuilder::default();
         output = output.set_request_charged(
-            crate::protocol_serde::shape_put_object_lock_configuration_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::put_object_lock_configuration::PutObjectLockConfigurationError::unhandled(
+            super::protocol_serde::shape_put_object_lock_configuration_output::de_request_charged_header(_response_headers).map_err(|_| {
+                super::operation::put_object_lock_configuration::PutObjectLockConfigurationError::unhandled(
                     "Failed to parse RequestCharged from header `x-amz-request-charged",
                 )
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_object_lock_configuration_headers(
-    input: &crate::operation::put_object_lock_configuration::PutObjectLockConfigurationInput,
+    input: &super::operation::put_object_lock_configuration::PutObjectLockConfigurationInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.request_payer {

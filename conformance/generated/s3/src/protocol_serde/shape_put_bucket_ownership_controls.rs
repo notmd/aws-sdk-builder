@@ -5,16 +5,16 @@ pub fn de_put_bucket_ownership_controls_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput,
-    crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsError,
+    super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput,
+    super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsError::generic(
+    Err(super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsError::generic(
         generic,
     ))
 }
@@ -25,20 +25,20 @@ pub fn de_put_bucket_ownership_controls_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput,
-    crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsError,
+    super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput,
+    super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsOutputBuilder::default();
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        let mut output = super::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsOutputBuilder::default();
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_bucket_ownership_controls_headers(
-    input: &crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsInput,
+    input: &super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.content_md5 {

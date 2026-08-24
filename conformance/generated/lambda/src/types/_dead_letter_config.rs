@@ -15,8 +15,8 @@ impl DeadLetterConfig {
 }
 impl DeadLetterConfig {
     /// Creates a new builder-style object to manufacture [`DeadLetterConfig`](crate::types::DeadLetterConfig).
-    pub fn builder() -> crate::types::builders::DeadLetterConfigBuilder {
-        crate::types::builders::DeadLetterConfigBuilder::default()
+    pub fn builder() -> super::types::builders::DeadLetterConfigBuilder {
+        super::types::builders::DeadLetterConfigBuilder::default()
     }
 }
 
@@ -42,7 +42,7 @@ impl DeadLetterConfigBuilder {
         &self.target_arn
     }
     /// Consumes the builder and constructs a [`DeadLetterConfig`](crate::types::DeadLetterConfig).
-    pub fn build(self) -> crate::types::DeadLetterConfig {
-        crate::types::DeadLetterConfig { target_arn: self.target_arn }
+    pub fn build(self) -> super::types::DeadLetterConfig {
+        super::types::DeadLetterConfig { target_arn: self.target_arn }
     }
 }

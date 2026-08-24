@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`version_number(i64)`](crate::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder::version_number) / [`set_version_number(Option<i64>)`](crate::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder::set_version_number):<br>required: **true**<br><p>The version number.</p><br>
     /// - On success, responds with [`DeleteLayerVersionOutput`](crate::operation::delete_layer_version::DeleteLayerVersionOutput)
     /// - On failure, responds with [`SdkError<DeleteLayerVersionError>`](crate::operation::delete_layer_version::DeleteLayerVersionError)
-    pub fn delete_layer_version(&self) -> crate::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder {
-        crate::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder::new(self.handle.clone())
+    pub fn delete_layer_version(&self) -> super::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder {
+        super::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder::new(self.handle.clone())
     }
 }

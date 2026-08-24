@@ -10,11 +10,11 @@ impl CreateAlias {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::create_alias::CreateAliasInput,
+        input: super::operation::create_alias::CreateAliasInput,
     ) -> ::std::result::Result<
-        crate::operation::create_alias::CreateAliasOutput,
+        super::operation::create_alias::CreateAliasOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_alias::CreateAliasError,
+            super::operation::create_alias::CreateAliasError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl CreateAlias {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::create_alias::CreateAliasError>()
+                err.downcast::<super::operation::create_alias::CreateAliasError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl CreateAlias {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::create_alias::CreateAliasOutput>()
+                .downcast::<super::operation::create_alias::CreateAliasOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::create_alias::CreateAliasInput,
+        input: super::operation::create_alias::CreateAliasInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl CreateAlias {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl CreateAlias {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateA
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("CreateAlias")
                 .build()
                 .expect("required fields set"),
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateA
                 CreateAliasEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::create_alias::CreateAliasError,
+                super::operation::create_alias::CreateAliasError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::create_alias::CreateAliasError,
+                super::operation::create_alias::CreateAliasError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::create_alias::CreateAliasError,
+                super::operation::create_alias::CreateAliasError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -219,11 +219,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for CreateAli
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 201 || force_error {
-            crate::protocol_serde::shape_create_alias::de_create_alias_http_error(status, headers, body)
+            super::protocol_serde::shape_create_alias::de_create_alias_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_create_alias::de_create_alias_http_response(status, headers, body)
+            super::protocol_serde::shape_create_alias::de_create_alias_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -236,16 +236,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateAliasR
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::create_alias::CreateAliasInput>()
+            .downcast::<super::operation::create_alias::CreateAliasInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::create_alias::CreateAliasInput,
+                _input: &super::operation::create_alias::CreateAliasInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -266,7 +266,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateAliasR
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::create_alias::CreateAliasInput,
+                input: &super::operation::create_alias::CreateAliasInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -277,7 +277,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateAliasR
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_alias::ser_create_alias_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::protocol_serde::shape_create_alias::ser_create_alias_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -309,7 +309,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CreateAliasEn
             .downcast_ref::<CreateAliasInput>()
             .ok_or("failed to downcast to CreateAliasInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -332,17 +332,17 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CreateAliasEn
 #[derive(::std::fmt::Debug)]
 pub enum CreateAliasError {
     /// <p>Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
-    AliasLimitExceededException(crate::types::error::AliasLimitExceededException),
+    AliasLimitExceededException(super::types::error::AliasLimitExceededException),
     /// <p>One of the parameters in the request is not valid.</p>
-    InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
+    InvalidParameterValueException(super::types::error::InvalidParameterValueException),
     /// <p>The resource already exists, or another operation is in progress.</p>
-    ResourceConflictException(crate::types::error::ResourceConflictException),
+    ResourceConflictException(super::types::error::ResourceConflictException),
     /// <p>The resource specified in the request does not exist.</p>
-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
     /// <p>The Lambda service encountered an internal error.</p>
-    ServiceException(crate::types::error::ServiceException),
+    ServiceException(super::types::error::ServiceException),
     /// <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
-    TooManyRequestsException(crate::types::error::TooManyRequestsException),
+    TooManyRequestsException(super::types::error::TooManyRequestsException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -350,14 +350,14 @@ pub enum CreateAliasError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CreateAliasError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl CreateAliasError {
     /// Creates the `CreateAliasError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -365,7 +365,7 @@ impl CreateAliasError {
 
     /// Creates the `CreateAliasError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -468,21 +468,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreateAl
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::create_alias::CreateAliasError {
+impl ::aws_types::request_id::RequestId for super::operation::create_alias::CreateAliasError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::create_alias::_create_alias_input::CreateAliasInput;
+pub use super::operation::create_alias::_create_alias_input::CreateAliasInput;
 
-pub use crate::operation::create_alias::_create_alias_output::CreateAliasOutput;
+pub use super::operation::create_alias::_create_alias_output::CreateAliasOutput;
 
 mod _create_alias_input;
 

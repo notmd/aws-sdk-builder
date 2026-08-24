@@ -3,7 +3,7 @@ pub(crate) fn de_delete_message_batch_result_entry<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::DeleteMessageBatchResultEntry>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::DeleteMessageBatchResultEntry>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::DeleteMessageBatchResultEntryBuilder::default();
+            let mut builder = super::types::builders::DeleteMessageBatchResultEntryBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -38,7 +38,7 @@ where
                 }
             }
             Ok(Some(
-                crate::serde_util::delete_message_batch_result_entry_correct_errors(builder)
+                super::serde_util::delete_message_batch_result_entry_correct_errors(builder)
                     .build()
                     .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
             ))

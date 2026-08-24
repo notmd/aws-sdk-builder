@@ -21,8 +21,8 @@ impl ::aws_types::request_id::RequestId for CreateTopicOutput {
 }
 impl CreateTopicOutput {
     /// Creates a new builder-style object to manufacture [`CreateTopicOutput`](crate::operation::create_topic::CreateTopicOutput).
-    pub fn builder() -> crate::operation::create_topic::builders::CreateTopicOutputBuilder {
-        crate::operation::create_topic::builders::CreateTopicOutputBuilder::default()
+    pub fn builder() -> super::operation::create_topic::builders::CreateTopicOutputBuilder {
+        super::operation::create_topic::builders::CreateTopicOutputBuilder::default()
     }
 }
 
@@ -58,8 +58,8 @@ impl CreateTopicOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateTopicOutput`](crate::operation::create_topic::CreateTopicOutput).
-    pub fn build(self) -> crate::operation::create_topic::CreateTopicOutput {
-        crate::operation::create_topic::CreateTopicOutput {
+    pub fn build(self) -> super::operation::create_topic::CreateTopicOutput {
+        super::operation::create_topic::CreateTopicOutput {
             topic_arn: self.topic_arn,
             _request_id: self._request_id,
         }

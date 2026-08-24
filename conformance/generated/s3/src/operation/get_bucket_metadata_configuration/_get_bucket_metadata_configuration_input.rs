@@ -20,8 +20,8 @@ impl GetBucketMetadataConfigurationInput {
 }
 impl GetBucketMetadataConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketMetadataConfigurationInput`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput).
-    pub fn builder() -> crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationInputBuilder {
-        crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationInputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationInputBuilder {
+        super::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationInputBuilder::default()
     }
 }
 
@@ -66,10 +66,10 @@ impl GetBucketMetadataConfigurationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput,
+        super::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput {
+        ::std::result::Result::Ok(super::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

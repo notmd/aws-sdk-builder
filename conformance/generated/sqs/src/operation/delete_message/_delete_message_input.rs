@@ -23,8 +23,8 @@ impl DeleteMessageInput {
 }
 impl DeleteMessageInput {
     /// Creates a new builder-style object to manufacture [`DeleteMessageInput`](crate::operation::delete_message::DeleteMessageInput).
-    pub fn builder() -> crate::operation::delete_message::builders::DeleteMessageInputBuilder {
-        crate::operation::delete_message::builders::DeleteMessageInputBuilder::default()
+    pub fn builder() -> super::operation::delete_message::builders::DeleteMessageInputBuilder {
+        super::operation::delete_message::builders::DeleteMessageInputBuilder::default()
     }
 }
 
@@ -72,8 +72,8 @@ impl DeleteMessageInputBuilder {
     /// Consumes the builder and constructs a [`DeleteMessageInput`](crate::operation::delete_message::DeleteMessageInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_message::DeleteMessageInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_message::DeleteMessageInput {
+    ) -> ::std::result::Result<super::operation::delete_message::DeleteMessageInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::delete_message::DeleteMessageInput {
             queue_url: self.queue_url,
             receipt_handle: self.receipt_handle,
         })

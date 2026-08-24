@@ -34,7 +34,7 @@ impl ::std::fmt::Display for NoPublishedVersionException {
     }
 }
 impl ::std::error::Error for NoPublishedVersionException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::NoPublishedVersionException {
+impl ::aws_types::request_id::RequestId for super::types::error::NoPublishedVersionException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for NoPublishedVe
 }
 impl NoPublishedVersionException {
     /// Creates a new builder-style object to manufacture [`NoPublishedVersionException`](crate::types::error::NoPublishedVersionException).
-    pub fn builder() -> crate::types::error::builders::NoPublishedVersionExceptionBuilder {
-        crate::types::error::builders::NoPublishedVersionExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::NoPublishedVersionExceptionBuilder {
+        super::types::error::builders::NoPublishedVersionExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl NoPublishedVersionExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`NoPublishedVersionException`](crate::types::error::NoPublishedVersionException).
-    pub fn build(self) -> crate::types::error::NoPublishedVersionException {
-        crate::types::error::NoPublishedVersionException {
+    pub fn build(self) -> super::types::error::NoPublishedVersionException {
+        super::types::error::NoPublishedVersionException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

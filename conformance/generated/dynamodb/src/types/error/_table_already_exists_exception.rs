@@ -26,7 +26,7 @@ impl ::std::fmt::Display for TableAlreadyExistsException {
     }
 }
 impl ::std::error::Error for TableAlreadyExistsException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::TableAlreadyExistsException {
+impl ::aws_types::request_id::RequestId for super::types::error::TableAlreadyExistsException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for TableAlreadyE
 }
 impl TableAlreadyExistsException {
     /// Creates a new builder-style object to manufacture [`TableAlreadyExistsException`](crate::types::error::TableAlreadyExistsException).
-    pub fn builder() -> crate::types::error::builders::TableAlreadyExistsExceptionBuilder {
-        crate::types::error::builders::TableAlreadyExistsExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::TableAlreadyExistsExceptionBuilder {
+        super::types::error::builders::TableAlreadyExistsExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl TableAlreadyExistsExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`TableAlreadyExistsException`](crate::types::error::TableAlreadyExistsException).
-    pub fn build(self) -> crate::types::error::TableAlreadyExistsException {
-        crate::types::error::TableAlreadyExistsException {
+    pub fn build(self) -> super::types::error::TableAlreadyExistsException {
+        super::types::error::TableAlreadyExistsException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

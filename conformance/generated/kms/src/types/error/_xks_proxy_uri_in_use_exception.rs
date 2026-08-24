@@ -26,7 +26,7 @@ impl ::std::fmt::Display for XksProxyUriInUseException {
     }
 }
 impl ::std::error::Error for XksProxyUriInUseException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::XksProxyUriInUseException {
+impl ::aws_types::request_id::RequestId for super::types::error::XksProxyUriInUseException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for XksProxyUriIn
 }
 impl XksProxyUriInUseException {
     /// Creates a new builder-style object to manufacture [`XksProxyUriInUseException`](crate::types::error::XksProxyUriInUseException).
-    pub fn builder() -> crate::types::error::builders::XksProxyUriInUseExceptionBuilder {
-        crate::types::error::builders::XksProxyUriInUseExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::XksProxyUriInUseExceptionBuilder {
+        super::types::error::builders::XksProxyUriInUseExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl XksProxyUriInUseExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`XksProxyUriInUseException`](crate::types::error::XksProxyUriInUseException).
-    pub fn build(self) -> crate::types::error::XksProxyUriInUseException {
-        crate::types::error::XksProxyUriInUseException {
+    pub fn build(self) -> super::types::error::XksProxyUriInUseException {
+        super::types::error::XksProxyUriInUseException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

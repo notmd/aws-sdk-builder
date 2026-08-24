@@ -17,8 +17,8 @@ impl OpenIdConnectProviderListEntry {
 }
 impl OpenIdConnectProviderListEntry {
     /// Creates a new builder-style object to manufacture [`OpenIdConnectProviderListEntry`](crate::types::OpenIdConnectProviderListEntry).
-    pub fn builder() -> crate::types::builders::OpenIdConnectProviderListEntryBuilder {
-        crate::types::builders::OpenIdConnectProviderListEntryBuilder::default()
+    pub fn builder() -> super::types::builders::OpenIdConnectProviderListEntryBuilder {
+        super::types::builders::OpenIdConnectProviderListEntryBuilder::default()
     }
 }
 
@@ -47,7 +47,7 @@ impl OpenIdConnectProviderListEntryBuilder {
         &self.arn
     }
     /// Consumes the builder and constructs a [`OpenIdConnectProviderListEntry`](crate::types::OpenIdConnectProviderListEntry).
-    pub fn build(self) -> crate::types::OpenIdConnectProviderListEntry {
-        crate::types::OpenIdConnectProviderListEntry { arn: self.arn }
+    pub fn build(self) -> super::types::OpenIdConnectProviderListEntry {
+        super::types::OpenIdConnectProviderListEntry { arn: self.arn }
     }
 }

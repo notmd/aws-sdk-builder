@@ -26,7 +26,7 @@ impl ::std::fmt::Display for TableNotFoundException {
     }
 }
 impl ::std::error::Error for TableNotFoundException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::TableNotFoundException {
+impl ::aws_types::request_id::RequestId for super::types::error::TableNotFoundException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for TableNotFound
 }
 impl TableNotFoundException {
     /// Creates a new builder-style object to manufacture [`TableNotFoundException`](crate::types::error::TableNotFoundException).
-    pub fn builder() -> crate::types::error::builders::TableNotFoundExceptionBuilder {
-        crate::types::error::builders::TableNotFoundExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::TableNotFoundExceptionBuilder {
+        super::types::error::builders::TableNotFoundExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl TableNotFoundExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`TableNotFoundException`](crate::types::error::TableNotFoundException).
-    pub fn build(self) -> crate::types::error::TableNotFoundException {
-        crate::types::error::TableNotFoundException {
+    pub fn build(self) -> super::types::error::TableNotFoundException {
+        super::types::error::TableNotFoundException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

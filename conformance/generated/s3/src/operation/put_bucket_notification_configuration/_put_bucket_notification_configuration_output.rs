@@ -6,7 +6,7 @@ pub struct PutBucketNotificationConfigurationOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for PutBucketNotificationConfigurationOutput {
+impl super::s3_request_id::RequestIdExt for PutBucketNotificationConfigurationOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for PutBucketNotificationConfigurationOu
 }
 impl PutBucketNotificationConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketNotificationConfigurationOutput`](crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput).
-    pub fn builder() -> crate::operation::put_bucket_notification_configuration::builders::PutBucketNotificationConfigurationOutputBuilder {
-        crate::operation::put_bucket_notification_configuration::builders::PutBucketNotificationConfigurationOutputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_notification_configuration::builders::PutBucketNotificationConfigurationOutputBuilder {
+        super::operation::put_bucket_notification_configuration::builders::PutBucketNotificationConfigurationOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl PutBucketNotificationConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketNotificationConfigurationOutput`](crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput).
-    pub fn build(self) -> crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput {
-        crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput {
+    pub fn build(self) -> super::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput {
+        super::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

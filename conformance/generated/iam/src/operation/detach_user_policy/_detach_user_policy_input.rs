@@ -24,8 +24,8 @@ impl DetachUserPolicyInput {
 }
 impl DetachUserPolicyInput {
     /// Creates a new builder-style object to manufacture [`DetachUserPolicyInput`](crate::operation::detach_user_policy::DetachUserPolicyInput).
-    pub fn builder() -> crate::operation::detach_user_policy::builders::DetachUserPolicyInputBuilder {
-        crate::operation::detach_user_policy::builders::DetachUserPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::detach_user_policy::builders::DetachUserPolicyInputBuilder {
+        super::operation::detach_user_policy::builders::DetachUserPolicyInputBuilder::default()
     }
 }
 
@@ -76,8 +76,8 @@ impl DetachUserPolicyInputBuilder {
     /// Consumes the builder and constructs a [`DetachUserPolicyInput`](crate::operation::detach_user_policy::DetachUserPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::detach_user_policy::DetachUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::detach_user_policy::DetachUserPolicyInput {
+    ) -> ::std::result::Result<super::operation::detach_user_policy::DetachUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::detach_user_policy::DetachUserPolicyInput {
             user_name: self.user_name,
             policy_arn: self.policy_arn,
         })

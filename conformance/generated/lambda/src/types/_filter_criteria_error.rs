@@ -21,8 +21,8 @@ impl FilterCriteriaError {
 }
 impl FilterCriteriaError {
     /// Creates a new builder-style object to manufacture [`FilterCriteriaError`](crate::types::FilterCriteriaError).
-    pub fn builder() -> crate::types::builders::FilterCriteriaErrorBuilder {
-        crate::types::builders::FilterCriteriaErrorBuilder::default()
+    pub fn builder() -> super::types::builders::FilterCriteriaErrorBuilder {
+        super::types::builders::FilterCriteriaErrorBuilder::default()
     }
 }
 
@@ -63,8 +63,8 @@ impl FilterCriteriaErrorBuilder {
         &self.message
     }
     /// Consumes the builder and constructs a [`FilterCriteriaError`](crate::types::FilterCriteriaError).
-    pub fn build(self) -> crate::types::FilterCriteriaError {
-        crate::types::FilterCriteriaError {
+    pub fn build(self) -> super::types::FilterCriteriaError {
+        super::types::FilterCriteriaError {
             error_code: self.error_code,
             message: self.message,
         }

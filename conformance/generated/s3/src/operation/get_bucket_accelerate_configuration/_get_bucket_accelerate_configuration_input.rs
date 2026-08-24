@@ -10,7 +10,7 @@ pub struct GetBucketAccelerateConfigurationInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
 }
 impl GetBucketAccelerateConfigurationInput {
     /// <p>The name of the bucket for which the accelerate configuration is retrieved.</p>
@@ -24,14 +24,14 @@ impl GetBucketAccelerateConfigurationInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
         self.request_payer.as_ref()
     }
 }
 impl GetBucketAccelerateConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketAccelerateConfigurationInput`](crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput).
-    pub fn builder() -> crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationInputBuilder {
-        crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationInputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationInputBuilder {
+        super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationInputBuilder::default()
     }
 }
 
@@ -41,7 +41,7 @@ impl GetBucketAccelerateConfigurationInput {
 pub struct GetBucketAccelerateConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
-    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
 }
 impl GetBucketAccelerateConfigurationInputBuilder {
     /// <p>The name of the bucket for which the accelerate configuration is retrieved.</p>
@@ -76,32 +76,32 @@ impl GetBucketAccelerateConfigurationInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
         &self.request_payer
     }
     /// Consumes the builder and constructs a [`GetBucketAccelerateConfigurationInput`](crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput).
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput,
+        super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput {
+            super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput {
                 bucket: self.bucket,
                 expected_bucket_owner: self.expected_bucket_owner,
                 request_payer: self.request_payer,

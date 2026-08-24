@@ -3,7 +3,7 @@ pub(crate) fn de_key_metadata<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::KeyMetadata>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::KeyMetadata>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::KeyMetadataBuilder::default();
+            let mut builder = super::types::builders::KeyMetadataBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -61,14 +61,14 @@ where
                         "KeyUsage" => {
                             builder = builder.set_key_usage(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::KeyUsageType::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::KeyUsageType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "KeyState" => {
                             builder = builder.set_key_state(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::KeyState::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::KeyState::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
@@ -87,7 +87,7 @@ where
                         "Origin" => {
                             builder = builder.set_origin(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::OriginType::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::OriginType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
@@ -108,34 +108,34 @@ where
                         "ExpirationModel" => {
                             builder = builder.set_expiration_model(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ExpirationModelType::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::ExpirationModelType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "KeyManager" => {
                             builder = builder.set_key_manager(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::KeyManagerType::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::KeyManagerType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "CustomerMasterKeySpec" => {
                             builder = builder.set_customer_master_key_spec(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::CustomerMasterKeySpec::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::CustomerMasterKeySpec::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "KeySpec" => {
                             builder = builder.set_key_spec(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::KeySpec::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::KeySpec::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "EncryptionAlgorithms" => {
                             builder = builder.set_encryption_algorithms(
-                                crate::protocol_serde::shape_encryption_algorithm_spec_list::de_encryption_algorithm_spec_list(
+                                super::protocol_serde::shape_encryption_algorithm_spec_list::de_encryption_algorithm_spec_list(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -144,12 +144,12 @@ where
                         }
                         "SigningAlgorithms" => {
                             builder = builder.set_signing_algorithms(
-                                crate::protocol_serde::shape_signing_algorithm_spec_list::de_signing_algorithm_spec_list(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_signing_algorithm_spec_list::de_signing_algorithm_spec_list(tokens, _value, depth + 1)?,
                             );
                         }
                         "KeyAgreementAlgorithms" => {
                             builder = builder.set_key_agreement_algorithms(
-                                crate::protocol_serde::shape_key_agreement_algorithm_spec_list::de_key_agreement_algorithm_spec_list(
+                                super::protocol_serde::shape_key_agreement_algorithm_spec_list::de_key_agreement_algorithm_spec_list(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -161,7 +161,7 @@ where
                         }
                         "MultiRegionConfiguration" => {
                             builder = builder.set_multi_region_configuration(
-                                crate::protocol_serde::shape_multi_region_configuration::de_multi_region_configuration(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_multi_region_configuration::de_multi_region_configuration(tokens, _value, depth + 1)?,
                             );
                         }
                         "PendingDeletionWindowInDays" => {
@@ -172,7 +172,7 @@ where
                             );
                         }
                         "MacAlgorithms" => {
-                            builder = builder.set_mac_algorithms(crate::protocol_serde::shape_mac_algorithm_spec_list::de_mac_algorithm_spec_list(
+                            builder = builder.set_mac_algorithms(super::protocol_serde::shape_mac_algorithm_spec_list::de_mac_algorithm_spec_list(
                                 tokens,
                                 _value,
                                 depth + 1,
@@ -180,7 +180,7 @@ where
                         }
                         "XksKeyConfiguration" => {
                             builder = builder.set_xks_key_configuration(
-                                crate::protocol_serde::shape_xks_key_configuration_type::de_xks_key_configuration_type(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_xks_key_configuration_type::de_xks_key_configuration_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "CurrentKeyMaterialId" => {
@@ -199,7 +199,7 @@ where
                     }
                 }
             }
-            Ok(Some(crate::serde_util::key_metadata_correct_errors(builder).build().map_err(|err| {
+            Ok(Some(super::serde_util::key_metadata_correct_errors(builder).build().map_err(|err| {
                 ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
             })?))
         }

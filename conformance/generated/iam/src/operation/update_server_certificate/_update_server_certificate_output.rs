@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for UpdateServerCertificateOutput {
 }
 impl UpdateServerCertificateOutput {
     /// Creates a new builder-style object to manufacture [`UpdateServerCertificateOutput`](crate::operation::update_server_certificate::UpdateServerCertificateOutput).
-    pub fn builder() -> crate::operation::update_server_certificate::builders::UpdateServerCertificateOutputBuilder {
-        crate::operation::update_server_certificate::builders::UpdateServerCertificateOutputBuilder::default()
+    pub fn builder() -> super::operation::update_server_certificate::builders::UpdateServerCertificateOutputBuilder {
+        super::operation::update_server_certificate::builders::UpdateServerCertificateOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl UpdateServerCertificateOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateServerCertificateOutput`](crate::operation::update_server_certificate::UpdateServerCertificateOutput).
-    pub fn build(self) -> crate::operation::update_server_certificate::UpdateServerCertificateOutput {
-        crate::operation::update_server_certificate::UpdateServerCertificateOutput {
+    pub fn build(self) -> super::operation::update_server_certificate::UpdateServerCertificateOutput {
+        super::operation::update_server_certificate::UpdateServerCertificateOutput {
             _request_id: self._request_id,
         }
     }

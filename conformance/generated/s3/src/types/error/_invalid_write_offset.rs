@@ -26,13 +26,13 @@ impl ::std::fmt::Display for InvalidWriteOffset {
     }
 }
 impl ::std::error::Error for InvalidWriteOffset {}
-impl crate::s3_request_id::RequestIdExt for crate::types::error::InvalidWriteOffset {
+impl super::s3_request_id::RequestIdExt for super::types::error::InvalidWriteOffset {
     fn extended_request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidWriteOffset {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidWriteOffset {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -45,8 +45,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidWriteO
 }
 impl InvalidWriteOffset {
     /// Creates a new builder-style object to manufacture [`InvalidWriteOffset`](crate::types::error::InvalidWriteOffset).
-    pub fn builder() -> crate::types::error::builders::InvalidWriteOffsetBuilder {
-        crate::types::error::builders::InvalidWriteOffsetBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidWriteOffsetBuilder {
+        super::types::error::builders::InvalidWriteOffsetBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl InvalidWriteOffsetBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidWriteOffset`](crate::types::error::InvalidWriteOffset).
-    pub fn build(self) -> crate::types::error::InvalidWriteOffset {
-        crate::types::error::InvalidWriteOffset {
+    pub fn build(self) -> super::types::error::InvalidWriteOffset {
+        super::types::error::InvalidWriteOffset {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

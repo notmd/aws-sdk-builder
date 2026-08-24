@@ -3,7 +3,7 @@ pub(crate) fn de_source_access_configurations<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<::std::vec::Vec<super::types::SourceAccessConfiguration>>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -24,7 +24,7 @@ where
                     }
                     _ => {
                         let value =
-                            crate::protocol_serde::shape_source_access_configuration::de_source_access_configuration(tokens, _value, depth + 1)?;
+                            super::protocol_serde::shape_source_access_configuration::de_source_access_configuration(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

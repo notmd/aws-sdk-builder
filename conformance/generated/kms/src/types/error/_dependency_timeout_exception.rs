@@ -26,7 +26,7 @@ impl ::std::fmt::Display for DependencyTimeoutException {
     }
 }
 impl ::std::error::Error for DependencyTimeoutException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::DependencyTimeoutException {
+impl ::aws_types::request_id::RequestId for super::types::error::DependencyTimeoutException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DependencyTim
 }
 impl DependencyTimeoutException {
     /// Creates a new builder-style object to manufacture [`DependencyTimeoutException`](crate::types::error::DependencyTimeoutException).
-    pub fn builder() -> crate::types::error::builders::DependencyTimeoutExceptionBuilder {
-        crate::types::error::builders::DependencyTimeoutExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::DependencyTimeoutExceptionBuilder {
+        super::types::error::builders::DependencyTimeoutExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl DependencyTimeoutExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DependencyTimeoutException`](crate::types::error::DependencyTimeoutException).
-    pub fn build(self) -> crate::types::error::DependencyTimeoutException {
-        crate::types::error::DependencyTimeoutException {
+    pub fn build(self) -> super::types::error::DependencyTimeoutException {
+        super::types::error::DependencyTimeoutException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

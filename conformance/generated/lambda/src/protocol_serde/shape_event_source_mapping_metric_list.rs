@@ -3,7 +3,7 @@ pub(crate) fn de_event_source_mapping_metric_list<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<::std::vec::Vec<super::types::EventSourceMappingMetric>>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -24,7 +24,7 @@ where
                     }
                     _ => {
                         let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourceMappingMetric::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::EventSourceMappingMetric::from(u.as_ref())))
                             .transpose()?;
                         if let Some(value) = value {
                             items.push(value);

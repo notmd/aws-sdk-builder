@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidImportTokenException {
     }
 }
 impl ::std::error::Error for InvalidImportTokenException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidImportTokenException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidImportTokenException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidImport
 }
 impl InvalidImportTokenException {
     /// Creates a new builder-style object to manufacture [`InvalidImportTokenException`](crate::types::error::InvalidImportTokenException).
-    pub fn builder() -> crate::types::error::builders::InvalidImportTokenExceptionBuilder {
-        crate::types::error::builders::InvalidImportTokenExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidImportTokenExceptionBuilder {
+        super::types::error::builders::InvalidImportTokenExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidImportTokenExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidImportTokenException`](crate::types::error::InvalidImportTokenException).
-    pub fn build(self) -> crate::types::error::InvalidImportTokenException {
-        crate::types::error::InvalidImportTokenException {
+    pub fn build(self) -> super::types::error::InvalidImportTokenException {
+        super::types::error::InvalidImportTokenException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

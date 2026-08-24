@@ -3,12 +3,12 @@
 pub fn de_abort_incomplete_multipart_upload(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::AbortIncompleteMultipartUpload, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::AbortIncompleteMultipartUpload, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::AbortIncompleteMultipartUpload::builder();
+    let mut builder = super::types::AbortIncompleteMultipartUpload::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("DaysAfterInitiation") /* DaysAfterInitiation com.amazonaws.s3#AbortIncompleteMultipartUpload$DaysAfterInitiation */ =>  {
@@ -33,7 +33,7 @@ pub fn de_abort_incomplete_multipart_upload(
 }
 
 pub fn ser_abort_incomplete_multipart_upload(
-    input: &crate::types::AbortIncompleteMultipartUpload,
+    input: &super::types::AbortIncompleteMultipartUpload,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]

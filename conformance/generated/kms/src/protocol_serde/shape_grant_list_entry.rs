@@ -3,7 +3,7 @@ pub(crate) fn de_grant_list_entry<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::GrantListEntry>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::GrantListEntry>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::GrantListEntryBuilder::default();
+            let mut builder = super::types::builders::GrantListEntryBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -70,14 +70,14 @@ where
                             );
                         }
                         "Operations" => {
-                            builder = builder.set_operations(crate::protocol_serde::shape_grant_operation_list::de_grant_operation_list(
+                            builder = builder.set_operations(super::protocol_serde::shape_grant_operation_list::de_grant_operation_list(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
                         }
                         "Constraints" => {
-                            builder = builder.set_constraints(crate::protocol_serde::shape_grant_constraints::de_grant_constraints(
+                            builder = builder.set_constraints(super::protocol_serde::shape_grant_constraints::de_grant_constraints(
                                 tokens,
                                 _value,
                                 depth + 1,

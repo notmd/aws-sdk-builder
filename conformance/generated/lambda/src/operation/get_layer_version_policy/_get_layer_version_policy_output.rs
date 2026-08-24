@@ -26,8 +26,8 @@ impl ::aws_types::request_id::RequestId for GetLayerVersionPolicyOutput {
 }
 impl GetLayerVersionPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetLayerVersionPolicyOutput`](crate::operation::get_layer_version_policy::GetLayerVersionPolicyOutput).
-    pub fn builder() -> crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder {
-        crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder {
+        super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl GetLayerVersionPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetLayerVersionPolicyOutput`](crate::operation::get_layer_version_policy::GetLayerVersionPolicyOutput).
-    pub fn build(self) -> crate::operation::get_layer_version_policy::GetLayerVersionPolicyOutput {
-        crate::operation::get_layer_version_policy::GetLayerVersionPolicyOutput {
+    pub fn build(self) -> super::operation::get_layer_version_policy::GetLayerVersionPolicyOutput {
+        super::operation::get_layer_version_policy::GetLayerVersionPolicyOutput {
             policy: self.policy,
             revision_id: self.revision_id,
             _request_id: self._request_id,

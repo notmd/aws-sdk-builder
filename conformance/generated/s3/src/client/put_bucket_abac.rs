@@ -10,7 +10,7 @@ impl super::Client {
     ///   - [`abac_status(AbacStatus)`](crate::operation::put_bucket_abac::builders::PutBucketAbacFluentBuilder::abac_status) / [`set_abac_status(Option<AbacStatus>)`](crate::operation::put_bucket_abac::builders::PutBucketAbacFluentBuilder::set_abac_status):<br>required: **true**<br><p>The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">Using tags with S3 general purpose buckets</a>.</p><br>
     /// - On success, responds with [`PutBucketAbacOutput`](crate::operation::put_bucket_abac::PutBucketAbacOutput)
     /// - On failure, responds with [`SdkError<PutBucketAbacError>`](crate::operation::put_bucket_abac::PutBucketAbacError)
-    pub fn put_bucket_abac(&self) -> crate::operation::put_bucket_abac::builders::PutBucketAbacFluentBuilder {
-        crate::operation::put_bucket_abac::builders::PutBucketAbacFluentBuilder::new(self.handle.clone())
+    pub fn put_bucket_abac(&self) -> super::operation::put_bucket_abac::builders::PutBucketAbacFluentBuilder {
+        super::operation::put_bucket_abac::builders::PutBucketAbacFluentBuilder::new(self.handle.clone())
     }
 }

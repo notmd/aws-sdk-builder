@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for PutRolePolicyOutput {
 }
 impl PutRolePolicyOutput {
     /// Creates a new builder-style object to manufacture [`PutRolePolicyOutput`](crate::operation::put_role_policy::PutRolePolicyOutput).
-    pub fn builder() -> crate::operation::put_role_policy::builders::PutRolePolicyOutputBuilder {
-        crate::operation::put_role_policy::builders::PutRolePolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::put_role_policy::builders::PutRolePolicyOutputBuilder {
+        super::operation::put_role_policy::builders::PutRolePolicyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl PutRolePolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutRolePolicyOutput`](crate::operation::put_role_policy::PutRolePolicyOutput).
-    pub fn build(self) -> crate::operation::put_role_policy::PutRolePolicyOutput {
-        crate::operation::put_role_policy::PutRolePolicyOutput {
+    pub fn build(self) -> super::operation::put_role_policy::PutRolePolicyOutput {
+        super::operation::put_role_policy::PutRolePolicyOutput {
             _request_id: self._request_id,
         }
     }

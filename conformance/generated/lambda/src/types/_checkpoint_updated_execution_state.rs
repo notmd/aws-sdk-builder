@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CheckpointUpdatedExecutionState {
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
-    pub operations: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>,
+    pub operations: ::std::option::Option<::std::vec::Vec<super::types::Operation>>,
     /// <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
 }
@@ -13,7 +13,7 @@ impl CheckpointUpdatedExecutionState {
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.operations.is_none()`.
-    pub fn operations(&self) -> &[crate::types::Operation] {
+    pub fn operations(&self) -> &[super::types::Operation] {
         self.operations.as_deref().unwrap_or_default()
     }
     /// <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>
@@ -23,8 +23,8 @@ impl CheckpointUpdatedExecutionState {
 }
 impl CheckpointUpdatedExecutionState {
     /// Creates a new builder-style object to manufacture [`CheckpointUpdatedExecutionState`](crate::types::CheckpointUpdatedExecutionState).
-    pub fn builder() -> crate::types::builders::CheckpointUpdatedExecutionStateBuilder {
-        crate::types::builders::CheckpointUpdatedExecutionStateBuilder::default()
+    pub fn builder() -> super::types::builders::CheckpointUpdatedExecutionStateBuilder {
+        super::types::builders::CheckpointUpdatedExecutionStateBuilder::default()
     }
 }
 
@@ -32,7 +32,7 @@ impl CheckpointUpdatedExecutionState {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CheckpointUpdatedExecutionStateBuilder {
-    pub(crate) operations: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>,
+    pub(crate) operations: ::std::option::Option<::std::vec::Vec<super::types::Operation>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 }
 impl CheckpointUpdatedExecutionStateBuilder {
@@ -41,19 +41,19 @@ impl CheckpointUpdatedExecutionStateBuilder {
     /// To override the contents of this collection use [`set_operations`](Self::set_operations).
     ///
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
-    pub fn operations(mut self, input: crate::types::Operation) -> Self {
+    pub fn operations(mut self, input: super::types::Operation) -> Self {
         let mut v = self.operations.unwrap_or_default();
         v.push(input);
         self.operations = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
-    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self {
+    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Operation>>) -> Self {
         self.operations = input;
         self
     }
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
-    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Operation>> {
+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Operation>> {
         &self.operations
     }
     /// <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>
@@ -71,8 +71,8 @@ impl CheckpointUpdatedExecutionStateBuilder {
         &self.next_marker
     }
     /// Consumes the builder and constructs a [`CheckpointUpdatedExecutionState`](crate::types::CheckpointUpdatedExecutionState).
-    pub fn build(self) -> crate::types::CheckpointUpdatedExecutionState {
-        crate::types::CheckpointUpdatedExecutionState {
+    pub fn build(self) -> super::types::CheckpointUpdatedExecutionState {
+        super::types::CheckpointUpdatedExecutionState {
             operations: self.operations,
             next_marker: self.next_marker,
         }

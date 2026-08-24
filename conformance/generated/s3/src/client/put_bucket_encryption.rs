@@ -10,7 +10,7 @@ impl super::Client {
     ///   - [`expected_bucket_owner(impl Into<String>)`](crate::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder::expected_bucket_owner) / [`set_expected_bucket_owner(Option<String>)`](crate::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder::set_expected_bucket_owner):<br>required: **false**<br><p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>  <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note><br>
     /// - On success, responds with [`PutBucketEncryptionOutput`](crate::operation::put_bucket_encryption::PutBucketEncryptionOutput)
     /// - On failure, responds with [`SdkError<PutBucketEncryptionError>`](crate::operation::put_bucket_encryption::PutBucketEncryptionError)
-    pub fn put_bucket_encryption(&self) -> crate::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder {
-        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder::new(self.handle.clone())
+    pub fn put_bucket_encryption(&self) -> super::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder {
+        super::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder::new(self.handle.clone())
     }
 }

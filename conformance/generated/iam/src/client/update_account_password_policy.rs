@@ -16,7 +16,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateAccountPasswordPolicyError>`](crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError)
     pub fn update_account_password_policy(
         &self,
-    ) -> crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyFluentBuilder {
-        crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyFluentBuilder {
+        super::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyFluentBuilder::new(self.handle.clone())
     }
 }

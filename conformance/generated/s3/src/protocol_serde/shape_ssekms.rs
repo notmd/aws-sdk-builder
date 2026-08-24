@@ -3,12 +3,12 @@
 pub fn de_ssekms(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::Ssekms, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::Ssekms, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::Ssekms::builder();
+    let mut builder = super::types::Ssekms::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("KeyId") /* KeyId com.amazonaws.s3#SSEKMS$KeyId */ =>  {
@@ -27,13 +27,13 @@ pub fn de_ssekms(
             _ => {}
         }
     }
-    Ok(crate::serde_util::ssekms_correct_errors(builder)
+    Ok(super::serde_util::ssekms_correct_errors(builder)
         .build()
         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 
 pub fn ser_ssekms(
-    input: &crate::types::Ssekms,
+    input: &super::types::Ssekms,
     writer: ::aws_smithy_xml::encode::ElWriter,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     #[allow(unused_mut)]

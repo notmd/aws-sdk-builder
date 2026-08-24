@@ -26,13 +26,13 @@ impl ::std::fmt::Display for InvalidAnnotationName {
     }
 }
 impl ::std::error::Error for InvalidAnnotationName {}
-impl crate::s3_request_id::RequestIdExt for crate::types::error::InvalidAnnotationName {
+impl super::s3_request_id::RequestIdExt for super::types::error::InvalidAnnotationName {
     fn extended_request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidAnnotationName {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidAnnotationName {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -45,8 +45,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidAnnota
 }
 impl InvalidAnnotationName {
     /// Creates a new builder-style object to manufacture [`InvalidAnnotationName`](crate::types::error::InvalidAnnotationName).
-    pub fn builder() -> crate::types::error::builders::InvalidAnnotationNameBuilder {
-        crate::types::error::builders::InvalidAnnotationNameBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidAnnotationNameBuilder {
+        super::types::error::builders::InvalidAnnotationNameBuilder::default()
     }
 }
 
@@ -84,8 +84,8 @@ impl InvalidAnnotationNameBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidAnnotationName`](crate::types::error::InvalidAnnotationName).
-    pub fn build(self) -> crate::types::error::InvalidAnnotationName {
-        crate::types::error::InvalidAnnotationName {
+    pub fn build(self) -> super::types::error::InvalidAnnotationName {
+        super::types::error::InvalidAnnotationName {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

@@ -20,8 +20,8 @@ impl ::aws_types::request_id::RequestId for CancelKeyDeletionOutput {
 }
 impl CancelKeyDeletionOutput {
     /// Creates a new builder-style object to manufacture [`CancelKeyDeletionOutput`](crate::operation::cancel_key_deletion::CancelKeyDeletionOutput).
-    pub fn builder() -> crate::operation::cancel_key_deletion::builders::CancelKeyDeletionOutputBuilder {
-        crate::operation::cancel_key_deletion::builders::CancelKeyDeletionOutputBuilder::default()
+    pub fn builder() -> super::operation::cancel_key_deletion::builders::CancelKeyDeletionOutputBuilder {
+        super::operation::cancel_key_deletion::builders::CancelKeyDeletionOutputBuilder::default()
     }
 }
 
@@ -57,8 +57,8 @@ impl CancelKeyDeletionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CancelKeyDeletionOutput`](crate::operation::cancel_key_deletion::CancelKeyDeletionOutput).
-    pub fn build(self) -> crate::operation::cancel_key_deletion::CancelKeyDeletionOutput {
-        crate::operation::cancel_key_deletion::CancelKeyDeletionOutput {
+    pub fn build(self) -> super::operation::cancel_key_deletion::CancelKeyDeletionOutput {
+        super::operation::cancel_key_deletion::CancelKeyDeletionOutput {
             key_id: self.key_id,
             _request_id: self._request_id,
         }

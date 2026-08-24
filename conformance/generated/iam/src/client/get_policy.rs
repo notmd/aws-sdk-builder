@@ -7,7 +7,7 @@ impl super::Client {
     /// - On success, responds with [`GetPolicyOutput`](crate::operation::get_policy::GetPolicyOutput) with field(s):
     ///   - [`policy(Option<Policy>)`](crate::operation::get_policy::GetPolicyOutput::policy): <p>A structure containing details about the policy.</p>
     /// - On failure, responds with [`SdkError<GetPolicyError>`](crate::operation::get_policy::GetPolicyError)
-    pub fn get_policy(&self) -> crate::operation::get_policy::builders::GetPolicyFluentBuilder {
-        crate::operation::get_policy::builders::GetPolicyFluentBuilder::new(self.handle.clone())
+    pub fn get_policy(&self) -> super::operation::get_policy::builders::GetPolicyFluentBuilder {
+        super::operation::get_policy::builders::GetPolicyFluentBuilder::new(self.handle.clone())
     }
 }

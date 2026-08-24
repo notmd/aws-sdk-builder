@@ -10,11 +10,11 @@ impl SendDurableExecutionCallbackHeartbeat {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
+        input: super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
     ) -> ::std::result::Result<
-        crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
+        super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
+            super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl SendDurableExecutionCallbackHeartbeat {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError>()
+                err.downcast::<super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl SendDurableExecutionCallbackHeartbeat {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput>()
+                .downcast::<super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
+        input: super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -72,8 +72,8 @@ impl SendDurableExecutionCallbackHeartbeat {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -81,7 +81,7 @@ impl SendDurableExecutionCallbackHeartbeat {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -102,7 +102,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for SendDur
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("SendDurableExecutionCallbackHeartbeat")
                 .build()
                 .expect("required fields set"),
@@ -142,13 +142,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for SendDur
                 SendDurableExecutionCallbackHeartbeatEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
+                super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
+                super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
+                super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -213,15 +213,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for SendDurab
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_send_durable_execution_callback_heartbeat::de_send_durable_execution_callback_heartbeat_http_error(
+            super::protocol_serde::shape_send_durable_execution_callback_heartbeat::de_send_durable_execution_callback_heartbeat_http_error(
                 status, headers, body,
             )
         } else {
-            crate::protocol_serde::shape_send_durable_execution_callback_heartbeat::de_send_durable_execution_callback_heartbeat_http_response(
+            super::protocol_serde::shape_send_durable_execution_callback_heartbeat::de_send_durable_execution_callback_heartbeat_http_response(
                 status, headers, body,
             )
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -234,16 +234,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SendDurableE
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput>()
+            .downcast::<super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
+                _input: &super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -268,7 +268,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SendDurableE
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
+                input: &super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -280,7 +280,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SendDurableE
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_send_durable_execution_callback_heartbeat::ser_send_durable_execution_callback_heartbeat_input(&input)?,
+            super::protocol_serde::shape_send_durable_execution_callback_heartbeat::ser_send_durable_execution_callback_heartbeat_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -313,7 +313,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for SendDurableEx
             .downcast_ref::<SendDurableExecutionCallbackHeartbeatInput>()
             .ok_or("failed to downcast to SendDurableExecutionCallbackHeartbeatInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -336,15 +336,15 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for SendDurableEx
 #[derive(::std::fmt::Debug)]
 pub enum SendDurableExecutionCallbackHeartbeatError {
     /// <p>The callback ID token has either expired or the callback associated with the token has already been closed.</p>
-    CallbackTimeoutException(crate::types::error::CallbackTimeoutException),
+    CallbackTimeoutException(super::types::error::CallbackTimeoutException),
     /// <p>One of the parameters in the request is not valid.</p>
-    InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
+    InvalidParameterValueException(super::types::error::InvalidParameterValueException),
     /// <p>The resource specified in the request does not exist.</p>
-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
     /// <p>The Lambda service encountered an internal error.</p>
-    ServiceException(crate::types::error::ServiceException),
+    ServiceException(super::types::error::ServiceException),
     /// <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
-    TooManyRequestsException(crate::types::error::TooManyRequestsException),
+    TooManyRequestsException(super::types::error::TooManyRequestsException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -352,14 +352,14 @@ pub enum SendDurableExecutionCallbackHeartbeatError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-SendDurableExecutionCallbackHeartbeatError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl SendDurableExecutionCallbackHeartbeatError {
     /// Creates the `SendDurableExecutionCallbackHeartbeatError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -367,7 +367,7 @@ impl SendDurableExecutionCallbackHeartbeatError {
 
     /// Creates the `SendDurableExecutionCallbackHeartbeatError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -462,21 +462,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for SendDura
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError {
+impl ::aws_types::request_id::RequestId for super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::send_durable_execution_callback_heartbeat::_send_durable_execution_callback_heartbeat_input::SendDurableExecutionCallbackHeartbeatInput;
+pub use super::operation::send_durable_execution_callback_heartbeat::_send_durable_execution_callback_heartbeat_input::SendDurableExecutionCallbackHeartbeatInput;
 
-pub use crate::operation::send_durable_execution_callback_heartbeat::_send_durable_execution_callback_heartbeat_output::SendDurableExecutionCallbackHeartbeatOutput;
+pub use super::operation::send_durable_execution_callback_heartbeat::_send_durable_execution_callback_heartbeat_output::SendDurableExecutionCallbackHeartbeatOutput;
 
 mod _send_durable_execution_callback_heartbeat_input;
 

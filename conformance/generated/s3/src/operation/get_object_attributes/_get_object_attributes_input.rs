@@ -35,11 +35,11 @@ pub struct GetObjectAttributesInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub request_payer: ::std::option::Option<super::types::RequestPayer>,
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the fields at the root level that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub object_attributes: ::std::option::Option<::std::vec::Vec<crate::types::ObjectAttributes>>,
+    pub object_attributes: ::std::option::Option<::std::vec::Vec<super::types::ObjectAttributes>>,
 }
 impl GetObjectAttributesInput {
     /// <p>The name of the bucket that contains the object.</p>
@@ -90,7 +90,7 @@ impl GetObjectAttributesInput {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(&self) -> ::std::option::Option<&crate::types::RequestPayer> {
+    pub fn request_payer(&self) -> ::std::option::Option<&super::types::RequestPayer> {
         self.request_payer.as_ref()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -100,7 +100,7 @@ impl GetObjectAttributesInput {
     /// <p>Specifies the fields at the root level that you want returned in the response. Fields that you do not specify are not returned.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.object_attributes.is_none()`.
-    pub fn object_attributes(&self) -> &[crate::types::ObjectAttributes] {
+    pub fn object_attributes(&self) -> &[super::types::ObjectAttributes] {
         self.object_attributes.as_deref().unwrap_or_default()
     }
 }
@@ -123,8 +123,8 @@ impl ::std::fmt::Debug for GetObjectAttributesInput {
 }
 impl GetObjectAttributesInput {
     /// Creates a new builder-style object to manufacture [`GetObjectAttributesInput`](crate::operation::get_object_attributes::GetObjectAttributesInput).
-    pub fn builder() -> crate::operation::get_object_attributes::builders::GetObjectAttributesInputBuilder {
-        crate::operation::get_object_attributes::builders::GetObjectAttributesInputBuilder::default()
+    pub fn builder() -> super::operation::get_object_attributes::builders::GetObjectAttributesInputBuilder {
+        super::operation::get_object_attributes::builders::GetObjectAttributesInputBuilder::default()
     }
 }
 
@@ -140,9 +140,9 @@ pub struct GetObjectAttributesInputBuilder {
     pub(crate) sse_customer_algorithm: ::std::option::Option<::std::string::String>,
     pub(crate) sse_customer_key: ::std::option::Option<::std::string::String>,
     pub(crate) sse_customer_key_md5: ::std::option::Option<::std::string::String>,
-    pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
+    pub(crate) request_payer: ::std::option::Option<super::types::RequestPayer>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
-    pub(crate) object_attributes: ::std::option::Option<::std::vec::Vec<crate::types::ObjectAttributes>>,
+    pub(crate) object_attributes: ::std::option::Option<::std::vec::Vec<super::types::ObjectAttributes>>,
 }
 impl GetObjectAttributesInputBuilder {
     /// <p>The name of the bucket that contains the object.</p>
@@ -301,21 +301,21 @@ impl GetObjectAttributesInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
+    pub fn request_payer(mut self, input: super::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<super::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+    pub fn get_request_payer(&self) -> &::std::option::Option<super::types::RequestPayer> {
         &self.request_payer
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -337,27 +337,27 @@ impl GetObjectAttributesInputBuilder {
     /// To override the contents of this collection use [`set_object_attributes`](Self::set_object_attributes).
     ///
     /// <p>Specifies the fields at the root level that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn object_attributes(mut self, input: crate::types::ObjectAttributes) -> Self {
+    pub fn object_attributes(mut self, input: super::types::ObjectAttributes) -> Self {
         let mut v = self.object_attributes.unwrap_or_default();
         v.push(input);
         self.object_attributes = ::std::option::Option::Some(v);
         self
     }
     /// <p>Specifies the fields at the root level that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn set_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectAttributes>>) -> Self {
+    pub fn set_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::ObjectAttributes>>) -> Self {
         self.object_attributes = input;
         self
     }
     /// <p>Specifies the fields at the root level that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn get_object_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectAttributes>> {
+    pub fn get_object_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::ObjectAttributes>> {
         &self.object_attributes
     }
     /// Consumes the builder and constructs a [`GetObjectAttributesInput`](crate::operation::get_object_attributes::GetObjectAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_object_attributes::GetObjectAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::get_object_attributes::GetObjectAttributesInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::get_object_attributes::GetObjectAttributesInput {
+        ::std::result::Result::Ok(super::operation::get_object_attributes::GetObjectAttributesInput {
             bucket: self.bucket,
             key: self.key,
             version_id: self.version_id,

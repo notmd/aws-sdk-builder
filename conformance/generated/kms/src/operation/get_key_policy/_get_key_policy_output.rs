@@ -26,8 +26,8 @@ impl ::aws_types::request_id::RequestId for GetKeyPolicyOutput {
 }
 impl GetKeyPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetKeyPolicyOutput`](crate::operation::get_key_policy::GetKeyPolicyOutput).
-    pub fn builder() -> crate::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder {
-        crate::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder {
+        super::operation::get_key_policy::builders::GetKeyPolicyOutputBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl GetKeyPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetKeyPolicyOutput`](crate::operation::get_key_policy::GetKeyPolicyOutput).
-    pub fn build(self) -> crate::operation::get_key_policy::GetKeyPolicyOutput {
-        crate::operation::get_key_policy::GetKeyPolicyOutput {
+    pub fn build(self) -> super::operation::get_key_policy::GetKeyPolicyOutput {
+        super::operation::get_key_policy::GetKeyPolicyOutput {
             policy: self.policy,
             policy_name: self.policy_name,
             _request_id: self._request_id,

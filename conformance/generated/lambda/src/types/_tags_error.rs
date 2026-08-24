@@ -23,8 +23,8 @@ impl TagsError {
 }
 impl TagsError {
     /// Creates a new builder-style object to manufacture [`TagsError`](crate::types::TagsError).
-    pub fn builder() -> crate::types::builders::TagsErrorBuilder {
-        crate::types::builders::TagsErrorBuilder::default()
+    pub fn builder() -> super::types::builders::TagsErrorBuilder {
+        super::types::builders::TagsErrorBuilder::default()
     }
 }
 
@@ -70,8 +70,8 @@ impl TagsErrorBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`error_code`](crate::types::builders::TagsErrorBuilder::error_code)
     /// - [`message`](crate::types::builders::TagsErrorBuilder::message)
-    pub fn build(self) -> ::std::result::Result<crate::types::TagsError, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::TagsError {
+    pub fn build(self) -> ::std::result::Result<super::types::TagsError, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::TagsError {
             error_code: self.error_code.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "error_code",

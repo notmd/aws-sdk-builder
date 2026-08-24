@@ -34,8 +34,8 @@ impl GetFunctionConcurrencyInput {
 }
 impl GetFunctionConcurrencyInput {
     /// Creates a new builder-style object to manufacture [`GetFunctionConcurrencyInput`](crate::operation::get_function_concurrency::GetFunctionConcurrencyInput).
-    pub fn builder() -> crate::operation::get_function_concurrency::builders::GetFunctionConcurrencyInputBuilder {
-        crate::operation::get_function_concurrency::builders::GetFunctionConcurrencyInputBuilder::default()
+    pub fn builder() -> super::operation::get_function_concurrency::builders::GetFunctionConcurrencyInputBuilder {
+        super::operation::get_function_concurrency::builders::GetFunctionConcurrencyInputBuilder::default()
     }
 }
 
@@ -95,10 +95,10 @@ impl GetFunctionConcurrencyInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_function_concurrency::GetFunctionConcurrencyInput,
+        super::operation::get_function_concurrency::GetFunctionConcurrencyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_function_concurrency::GetFunctionConcurrencyInput {
+        ::std::result::Result::Ok(super::operation::get_function_concurrency::GetFunctionConcurrencyInput {
             function_name: self.function_name,
         })
     }

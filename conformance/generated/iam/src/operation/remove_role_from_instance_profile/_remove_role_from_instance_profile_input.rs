@@ -24,8 +24,8 @@ impl RemoveRoleFromInstanceProfileInput {
 }
 impl RemoveRoleFromInstanceProfileInput {
     /// Creates a new builder-style object to manufacture [`RemoveRoleFromInstanceProfileInput`](crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput).
-    pub fn builder() -> crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileInputBuilder {
-        crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileInputBuilder::default()
+    pub fn builder() -> super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileInputBuilder {
+        super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileInputBuilder::default()
     }
 }
 
@@ -77,10 +77,10 @@ impl RemoveRoleFromInstanceProfileInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput,
+        super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput {
+        ::std::result::Result::Ok(super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput {
             instance_profile_name: self.instance_profile_name,
             role_name: self.role_name,
         })

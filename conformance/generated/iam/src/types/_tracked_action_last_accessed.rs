@@ -40,8 +40,8 @@ impl TrackedActionLastAccessed {
 }
 impl TrackedActionLastAccessed {
     /// Creates a new builder-style object to manufacture [`TrackedActionLastAccessed`](crate::types::TrackedActionLastAccessed).
-    pub fn builder() -> crate::types::builders::TrackedActionLastAccessedBuilder {
-        crate::types::builders::TrackedActionLastAccessedBuilder::default()
+    pub fn builder() -> super::types::builders::TrackedActionLastAccessedBuilder {
+        super::types::builders::TrackedActionLastAccessedBuilder::default()
     }
 }
 
@@ -121,8 +121,8 @@ impl TrackedActionLastAccessedBuilder {
         &self.last_accessed_region
     }
     /// Consumes the builder and constructs a [`TrackedActionLastAccessed`](crate::types::TrackedActionLastAccessed).
-    pub fn build(self) -> crate::types::TrackedActionLastAccessed {
-        crate::types::TrackedActionLastAccessed {
+    pub fn build(self) -> super::types::TrackedActionLastAccessed {
+        super::types::TrackedActionLastAccessed {
             action_name: self.action_name,
             last_accessed_entity: self.last_accessed_entity,
             last_accessed_time: self.last_accessed_time,

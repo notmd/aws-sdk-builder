@@ -3,12 +3,12 @@
 pub fn de_policy_status(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::PolicyStatus, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::PolicyStatus, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::PolicyStatus::builder();
+    let mut builder = super::types::PolicyStatus::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("IsPublic") /* IsPublic com.amazonaws.s3#PolicyStatus$IsPublic */ =>  {

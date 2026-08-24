@@ -7,7 +7,7 @@ pub struct ExportDescription {
     /// <p>The Amazon Resource Name (ARN) of the table export.</p>
     pub export_arn: ::std::option::Option<::std::string::String>,
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-    pub export_status: ::std::option::Option<crate::types::ExportStatus>,
+    pub export_status: ::std::option::Option<super::types::ExportStatus>,
     /// <p>The time at which the export task began.</p>
     pub start_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The time at which the export task completed.</p>
@@ -35,7 +35,7 @@ pub struct ExportDescription {
     /// <li>
     /// <p><code>KMS</code> - server-side encryption with KMS managed keys</p></li>
     /// </ul>
-    pub s3_sse_algorithm: ::std::option::Option<crate::types::S3SseAlgorithm>,
+    pub s3_sse_algorithm: ::std::option::Option<super::types::S3SseAlgorithm>,
     /// <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
     pub s3_sse_kms_key_id: ::std::option::Option<::std::string::String>,
     /// <p>Status code for the result of the failed export.</p>
@@ -43,15 +43,15 @@ pub struct ExportDescription {
     /// <p>Export failure reason description.</p>
     pub failure_message: ::std::option::Option<::std::string::String>,
     /// <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    pub export_format: ::std::option::Option<crate::types::ExportFormat>,
+    pub export_format: ::std::option::Option<super::types::ExportFormat>,
     /// <p>The billable size of the table export.</p>
     pub billed_size_bytes: ::std::option::Option<i64>,
     /// <p>The number of items exported.</p>
     pub item_count: ::std::option::Option<i64>,
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-    pub export_type: ::std::option::Option<crate::types::ExportType>,
+    pub export_type: ::std::option::Option<super::types::ExportType>,
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
-    pub incremental_export_specification: ::std::option::Option<crate::types::IncrementalExportSpecification>,
+    pub incremental_export_specification: ::std::option::Option<super::types::IncrementalExportSpecification>,
 }
 impl ExportDescription {
     /// <p>The Amazon Resource Name (ARN) of the table export.</p>
@@ -59,7 +59,7 @@ impl ExportDescription {
         self.export_arn.as_deref()
     }
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-    pub fn export_status(&self) -> ::std::option::Option<&crate::types::ExportStatus> {
+    pub fn export_status(&self) -> ::std::option::Option<&super::types::ExportStatus> {
         self.export_status.as_ref()
     }
     /// <p>The time at which the export task began.</p>
@@ -109,7 +109,7 @@ impl ExportDescription {
     /// <li>
     /// <p><code>KMS</code> - server-side encryption with KMS managed keys</p></li>
     /// </ul>
-    pub fn s3_sse_algorithm(&self) -> ::std::option::Option<&crate::types::S3SseAlgorithm> {
+    pub fn s3_sse_algorithm(&self) -> ::std::option::Option<&super::types::S3SseAlgorithm> {
         self.s3_sse_algorithm.as_ref()
     }
     /// <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
@@ -125,7 +125,7 @@ impl ExportDescription {
         self.failure_message.as_deref()
     }
     /// <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    pub fn export_format(&self) -> ::std::option::Option<&crate::types::ExportFormat> {
+    pub fn export_format(&self) -> ::std::option::Option<&super::types::ExportFormat> {
         self.export_format.as_ref()
     }
     /// <p>The billable size of the table export.</p>
@@ -137,18 +137,18 @@ impl ExportDescription {
         self.item_count
     }
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-    pub fn export_type(&self) -> ::std::option::Option<&crate::types::ExportType> {
+    pub fn export_type(&self) -> ::std::option::Option<&super::types::ExportType> {
         self.export_type.as_ref()
     }
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
-    pub fn incremental_export_specification(&self) -> ::std::option::Option<&crate::types::IncrementalExportSpecification> {
+    pub fn incremental_export_specification(&self) -> ::std::option::Option<&super::types::IncrementalExportSpecification> {
         self.incremental_export_specification.as_ref()
     }
 }
 impl ExportDescription {
     /// Creates a new builder-style object to manufacture [`ExportDescription`](crate::types::ExportDescription).
-    pub fn builder() -> crate::types::builders::ExportDescriptionBuilder {
-        crate::types::builders::ExportDescriptionBuilder::default()
+    pub fn builder() -> super::types::builders::ExportDescriptionBuilder {
+        super::types::builders::ExportDescriptionBuilder::default()
     }
 }
 
@@ -157,7 +157,7 @@ impl ExportDescription {
 #[non_exhaustive]
 pub struct ExportDescriptionBuilder {
     pub(crate) export_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) export_status: ::std::option::Option<crate::types::ExportStatus>,
+    pub(crate) export_status: ::std::option::Option<super::types::ExportStatus>,
     pub(crate) start_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) export_manifest: ::std::option::Option<::std::string::String>,
@@ -168,15 +168,15 @@ pub struct ExportDescriptionBuilder {
     pub(crate) s3_bucket: ::std::option::Option<::std::string::String>,
     pub(crate) s3_bucket_owner: ::std::option::Option<::std::string::String>,
     pub(crate) s3_prefix: ::std::option::Option<::std::string::String>,
-    pub(crate) s3_sse_algorithm: ::std::option::Option<crate::types::S3SseAlgorithm>,
+    pub(crate) s3_sse_algorithm: ::std::option::Option<super::types::S3SseAlgorithm>,
     pub(crate) s3_sse_kms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) failure_code: ::std::option::Option<::std::string::String>,
     pub(crate) failure_message: ::std::option::Option<::std::string::String>,
-    pub(crate) export_format: ::std::option::Option<crate::types::ExportFormat>,
+    pub(crate) export_format: ::std::option::Option<super::types::ExportFormat>,
     pub(crate) billed_size_bytes: ::std::option::Option<i64>,
     pub(crate) item_count: ::std::option::Option<i64>,
-    pub(crate) export_type: ::std::option::Option<crate::types::ExportType>,
-    pub(crate) incremental_export_specification: ::std::option::Option<crate::types::IncrementalExportSpecification>,
+    pub(crate) export_type: ::std::option::Option<super::types::ExportType>,
+    pub(crate) incremental_export_specification: ::std::option::Option<super::types::IncrementalExportSpecification>,
 }
 impl ExportDescriptionBuilder {
     /// <p>The Amazon Resource Name (ARN) of the table export.</p>
@@ -194,17 +194,17 @@ impl ExportDescriptionBuilder {
         &self.export_arn
     }
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-    pub fn export_status(mut self, input: crate::types::ExportStatus) -> Self {
+    pub fn export_status(mut self, input: super::types::ExportStatus) -> Self {
         self.export_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-    pub fn set_export_status(mut self, input: ::std::option::Option<crate::types::ExportStatus>) -> Self {
+    pub fn set_export_status(mut self, input: ::std::option::Option<super::types::ExportStatus>) -> Self {
         self.export_status = input;
         self
     }
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-    pub fn get_export_status(&self) -> &::std::option::Option<crate::types::ExportStatus> {
+    pub fn get_export_status(&self) -> &::std::option::Option<super::types::ExportStatus> {
         &self.export_status
     }
     /// <p>The time at which the export task began.</p>
@@ -354,7 +354,7 @@ impl ExportDescriptionBuilder {
     /// <li>
     /// <p><code>KMS</code> - server-side encryption with KMS managed keys</p></li>
     /// </ul>
-    pub fn s3_sse_algorithm(mut self, input: crate::types::S3SseAlgorithm) -> Self {
+    pub fn s3_sse_algorithm(mut self, input: super::types::S3SseAlgorithm) -> Self {
         self.s3_sse_algorithm = ::std::option::Option::Some(input);
         self
     }
@@ -365,7 +365,7 @@ impl ExportDescriptionBuilder {
     /// <li>
     /// <p><code>KMS</code> - server-side encryption with KMS managed keys</p></li>
     /// </ul>
-    pub fn set_s3_sse_algorithm(mut self, input: ::std::option::Option<crate::types::S3SseAlgorithm>) -> Self {
+    pub fn set_s3_sse_algorithm(mut self, input: ::std::option::Option<super::types::S3SseAlgorithm>) -> Self {
         self.s3_sse_algorithm = input;
         self
     }
@@ -376,7 +376,7 @@ impl ExportDescriptionBuilder {
     /// <li>
     /// <p><code>KMS</code> - server-side encryption with KMS managed keys</p></li>
     /// </ul>
-    pub fn get_s3_sse_algorithm(&self) -> &::std::option::Option<crate::types::S3SseAlgorithm> {
+    pub fn get_s3_sse_algorithm(&self) -> &::std::option::Option<super::types::S3SseAlgorithm> {
         &self.s3_sse_algorithm
     }
     /// <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
@@ -422,17 +422,17 @@ impl ExportDescriptionBuilder {
         &self.failure_message
     }
     /// <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    pub fn export_format(mut self, input: crate::types::ExportFormat) -> Self {
+    pub fn export_format(mut self, input: super::types::ExportFormat) -> Self {
         self.export_format = ::std::option::Option::Some(input);
         self
     }
     /// <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    pub fn set_export_format(mut self, input: ::std::option::Option<crate::types::ExportFormat>) -> Self {
+    pub fn set_export_format(mut self, input: ::std::option::Option<super::types::ExportFormat>) -> Self {
         self.export_format = input;
         self
     }
     /// <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    pub fn get_export_format(&self) -> &::std::option::Option<crate::types::ExportFormat> {
+    pub fn get_export_format(&self) -> &::std::option::Option<super::types::ExportFormat> {
         &self.export_format
     }
     /// <p>The billable size of the table export.</p>
@@ -464,36 +464,36 @@ impl ExportDescriptionBuilder {
         &self.item_count
     }
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-    pub fn export_type(mut self, input: crate::types::ExportType) -> Self {
+    pub fn export_type(mut self, input: super::types::ExportType) -> Self {
         self.export_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-    pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self {
+    pub fn set_export_type(mut self, input: ::std::option::Option<super::types::ExportType>) -> Self {
         self.export_type = input;
         self
     }
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-    pub fn get_export_type(&self) -> &::std::option::Option<crate::types::ExportType> {
+    pub fn get_export_type(&self) -> &::std::option::Option<super::types::ExportType> {
         &self.export_type
     }
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
-    pub fn incremental_export_specification(mut self, input: crate::types::IncrementalExportSpecification) -> Self {
+    pub fn incremental_export_specification(mut self, input: super::types::IncrementalExportSpecification) -> Self {
         self.incremental_export_specification = ::std::option::Option::Some(input);
         self
     }
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
-    pub fn set_incremental_export_specification(mut self, input: ::std::option::Option<crate::types::IncrementalExportSpecification>) -> Self {
+    pub fn set_incremental_export_specification(mut self, input: ::std::option::Option<super::types::IncrementalExportSpecification>) -> Self {
         self.incremental_export_specification = input;
         self
     }
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
-    pub fn get_incremental_export_specification(&self) -> &::std::option::Option<crate::types::IncrementalExportSpecification> {
+    pub fn get_incremental_export_specification(&self) -> &::std::option::Option<super::types::IncrementalExportSpecification> {
         &self.incremental_export_specification
     }
     /// Consumes the builder and constructs a [`ExportDescription`](crate::types::ExportDescription).
-    pub fn build(self) -> crate::types::ExportDescription {
-        crate::types::ExportDescription {
+    pub fn build(self) -> super::types::ExportDescription {
+        super::types::ExportDescription {
             export_arn: self.export_arn,
             export_status: self.export_status,
             start_time: self.start_time,

@@ -34,7 +34,7 @@ impl ::std::fmt::Display for ResourceNotFoundException {
     }
 }
 impl ::std::error::Error for ResourceNotFoundException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ResourceNotFoundException {
+impl ::aws_types::request_id::RequestId for super::types::error::ResourceNotFoundException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResourceNotFo
 }
 impl ResourceNotFoundException {
     /// Creates a new builder-style object to manufacture [`ResourceNotFoundException`](crate::types::error::ResourceNotFoundException).
-    pub fn builder() -> crate::types::error::builders::ResourceNotFoundExceptionBuilder {
-        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ResourceNotFoundExceptionBuilder {
+        super::types::error::builders::ResourceNotFoundExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl ResourceNotFoundExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ResourceNotFoundException`](crate::types::error::ResourceNotFoundException).
-    pub fn build(self) -> crate::types::error::ResourceNotFoundException {
-        crate::types::error::ResourceNotFoundException {
+    pub fn build(self) -> super::types::error::ResourceNotFoundException {
+        super::types::error::ResourceNotFoundException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

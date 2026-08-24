@@ -5,19 +5,19 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct BucketLifecycleConfiguration {
     /// <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
-    pub rules: ::std::vec::Vec<crate::types::LifecycleRule>,
+    pub rules: ::std::vec::Vec<super::types::LifecycleRule>,
 }
 impl BucketLifecycleConfiguration {
     /// <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
-    pub fn rules(&self) -> &[crate::types::LifecycleRule] {
+    pub fn rules(&self) -> &[super::types::LifecycleRule] {
         use std::ops::Deref;
         self.rules.deref()
     }
 }
 impl BucketLifecycleConfiguration {
     /// Creates a new builder-style object to manufacture [`BucketLifecycleConfiguration`](crate::types::BucketLifecycleConfiguration).
-    pub fn builder() -> crate::types::builders::BucketLifecycleConfigurationBuilder {
-        crate::types::builders::BucketLifecycleConfigurationBuilder::default()
+    pub fn builder() -> super::types::builders::BucketLifecycleConfigurationBuilder {
+        super::types::builders::BucketLifecycleConfigurationBuilder::default()
     }
 }
 
@@ -25,7 +25,7 @@ impl BucketLifecycleConfiguration {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BucketLifecycleConfigurationBuilder {
-    pub(crate) rules: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>,
+    pub(crate) rules: ::std::option::Option<::std::vec::Vec<super::types::LifecycleRule>>,
 }
 impl BucketLifecycleConfigurationBuilder {
     /// Appends an item to `rules`.
@@ -33,26 +33,26 @@ impl BucketLifecycleConfigurationBuilder {
     /// To override the contents of this collection use [`set_rules`](Self::set_rules).
     ///
     /// <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
-    pub fn rules(mut self, input: crate::types::LifecycleRule) -> Self {
+    pub fn rules(mut self, input: super::types::LifecycleRule) -> Self {
         let mut v = self.rules.unwrap_or_default();
         v.push(input);
         self.rules = ::std::option::Option::Some(v);
         self
     }
     /// <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
-    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>) -> Self {
+    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LifecycleRule>>) -> Self {
         self.rules = input;
         self
     }
     /// <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
-    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>> {
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LifecycleRule>> {
         &self.rules
     }
     /// Consumes the builder and constructs a [`BucketLifecycleConfiguration`](crate::types::BucketLifecycleConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`rules`](crate::types::builders::BucketLifecycleConfigurationBuilder::rules)
-    pub fn build(self) -> ::std::result::Result<crate::types::BucketLifecycleConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::BucketLifecycleConfiguration {
+    pub fn build(self) -> ::std::result::Result<super::types::BucketLifecycleConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::BucketLifecycleConfiguration {
             rules: self.rules.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "rules",

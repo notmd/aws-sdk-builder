@@ -20,8 +20,8 @@ impl GetMfaDeviceInput {
 }
 impl GetMfaDeviceInput {
     /// Creates a new builder-style object to manufacture [`GetMfaDeviceInput`](crate::operation::get_mfa_device::GetMfaDeviceInput).
-    pub fn builder() -> crate::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder {
-        crate::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder::default()
+    pub fn builder() -> super::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder {
+        super::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder::default()
     }
 }
 
@@ -65,8 +65,8 @@ impl GetMfaDeviceInputBuilder {
     /// Consumes the builder and constructs a [`GetMfaDeviceInput`](crate::operation::get_mfa_device::GetMfaDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_mfa_device::GetMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_mfa_device::GetMfaDeviceInput {
+    ) -> ::std::result::Result<super::operation::get_mfa_device::GetMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_mfa_device::GetMfaDeviceInput {
             serial_number: self.serial_number,
             user_name: self.user_name,
         })

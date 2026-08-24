@@ -13,37 +13,37 @@
 ///
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct FunctionExistsFluentBuilder {
-    handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::get_function::builders::GetFunctionInputBuilder,
+    handle: ::std::sync::Arc<super::client::Handle>,
+    inner: super::operation::get_function::builders::GetFunctionInputBuilder,
 }
 impl FunctionExistsFluentBuilder {
     /// Creates a new `FunctionExistsFluentBuilder`.
-    pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
+    pub(crate) fn new(handle: ::std::sync::Arc<super::client::Handle>) -> Self {
         Self {
             handle,
             inner: ::std::default::Default::default(),
         }
     }
     /// Access the GetFunction as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_function::builders::GetFunctionInputBuilder {
+    pub fn as_input(&self) -> &super::operation::get_function::builders::GetFunctionInputBuilder {
         &self.inner
     }
     /// Wait for `function_exists`
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<crate::waiters::function_exists::FunctionExistsFinalPoll, crate::waiters::function_exists::WaitUntilFunctionExistsError>
+    ) -> ::std::result::Result<super::waiters::function_exists::FunctionExistsFinalPoll, super::waiters::function_exists::WaitUntilFunctionExistsError>
     {
         let input = self
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_function::GetFunction::operation_runtime_plugins(
+        let runtime_plugins = super::operation::get_function::GetFunction::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             ::std::option::Option::None,
         )
-        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
+        .with_operation_plugin(super::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
@@ -53,15 +53,15 @@ impl FunctionExistsFluentBuilder {
         let time_source = time_components.time_source().expect("a time source is required by waiters");
 
         let acceptor = move |result: ::std::result::Result<
-            &crate::operation::get_function::GetFunctionOutput,
-            &crate::operation::get_function::GetFunctionError,
+            &super::operation::get_function::GetFunctionOutput,
+            &super::operation::get_function::GetFunctionError,
         >| {
             // Matches: {"success":true}
-            if crate::waiters::matchers::match_get_function_c955e57777ec0d736(result) {
+            if super::waiters::matchers::match_get_function_c955e57777ec0d736(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
             }
             // Matches: {"errorType":"ResourceNotFoundException"}
-            if crate::waiters::matchers::match_get_function_1cce2c05524fb92d4(result) {
+            if super::waiters::matchers::match_get_function_1cce2c05524fb92d4(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
             }
             ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
@@ -69,7 +69,7 @@ impl FunctionExistsFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move { crate::operation::get_function::GetFunction::orchestrate(&runtime_plugins, input).await }
+            async move { super::operation::get_function::GetFunction::orchestrate(&runtime_plugins, input).await }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(1))
@@ -144,15 +144,15 @@ impl FunctionExistsFluentBuilder {
 
 /// Successful return type for the `function_exists` waiter.
 pub type FunctionExistsFinalPoll = ::aws_smithy_runtime_api::client::waiters::FinalPoll<
-    crate::operation::get_function::GetFunctionOutput,
+    super::operation::get_function::GetFunctionOutput,
     ::aws_smithy_runtime_api::client::result::SdkError<
-        crate::operation::get_function::GetFunctionError,
+        super::operation::get_function::GetFunctionError,
         ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
     >,
 >;
 
 /// Error type for the `function_exists` waiter.
 pub type WaitUntilFunctionExistsError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
-    crate::operation::get_function::GetFunctionOutput,
-    crate::operation::get_function::GetFunctionError,
+    super::operation::get_function::GetFunctionOutput,
+    super::operation::get_function::GetFunctionError,
 >;

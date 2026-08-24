@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct JournalTableConfigurationUpdates {
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub record_expiration: ::std::option::Option<crate::types::RecordExpiration>,
+    pub record_expiration: ::std::option::Option<super::types::RecordExpiration>,
 }
 impl JournalTableConfigurationUpdates {
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub fn record_expiration(&self) -> ::std::option::Option<&crate::types::RecordExpiration> {
+    pub fn record_expiration(&self) -> ::std::option::Option<&super::types::RecordExpiration> {
         self.record_expiration.as_ref()
     }
 }
 impl JournalTableConfigurationUpdates {
     /// Creates a new builder-style object to manufacture [`JournalTableConfigurationUpdates`](crate::types::JournalTableConfigurationUpdates).
-    pub fn builder() -> crate::types::builders::JournalTableConfigurationUpdatesBuilder {
-        crate::types::builders::JournalTableConfigurationUpdatesBuilder::default()
+    pub fn builder() -> super::types::builders::JournalTableConfigurationUpdatesBuilder {
+        super::types::builders::JournalTableConfigurationUpdatesBuilder::default()
     }
 }
 
@@ -24,27 +24,27 @@ impl JournalTableConfigurationUpdates {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct JournalTableConfigurationUpdatesBuilder {
-    pub(crate) record_expiration: ::std::option::Option<crate::types::RecordExpiration>,
+    pub(crate) record_expiration: ::std::option::Option<super::types::RecordExpiration>,
 }
 impl JournalTableConfigurationUpdatesBuilder {
     /// <p>The journal table record expiration settings for the journal table.</p>
     /// This field is required.
-    pub fn record_expiration(mut self, input: crate::types::RecordExpiration) -> Self {
+    pub fn record_expiration(mut self, input: super::types::RecordExpiration) -> Self {
         self.record_expiration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self {
+    pub fn set_record_expiration(mut self, input: ::std::option::Option<super::types::RecordExpiration>) -> Self {
         self.record_expiration = input;
         self
     }
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub fn get_record_expiration(&self) -> &::std::option::Option<crate::types::RecordExpiration> {
+    pub fn get_record_expiration(&self) -> &::std::option::Option<super::types::RecordExpiration> {
         &self.record_expiration
     }
     /// Consumes the builder and constructs a [`JournalTableConfigurationUpdates`](crate::types::JournalTableConfigurationUpdates).
-    pub fn build(self) -> crate::types::JournalTableConfigurationUpdates {
-        crate::types::JournalTableConfigurationUpdates {
+    pub fn build(self) -> super::types::JournalTableConfigurationUpdates {
+        super::types::JournalTableConfigurationUpdates {
             record_expiration: self.record_expiration,
         }
     }

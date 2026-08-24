@@ -35,7 +35,7 @@ impl ::std::fmt::Display for VerificationException {
     }
 }
 impl ::std::error::Error for VerificationException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::VerificationException {
+impl ::aws_types::request_id::RequestId for super::types::error::VerificationException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -48,8 +48,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for VerificationE
 }
 impl VerificationException {
     /// Creates a new builder-style object to manufacture [`VerificationException`](crate::types::error::VerificationException).
-    pub fn builder() -> crate::types::error::builders::VerificationExceptionBuilder {
-        crate::types::error::builders::VerificationExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::VerificationExceptionBuilder {
+        super::types::error::builders::VerificationExceptionBuilder::default()
     }
 }
 
@@ -107,8 +107,8 @@ impl VerificationExceptionBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::error::builders::VerificationExceptionBuilder::message)
     /// - [`status`](crate::types::error::builders::VerificationExceptionBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::error::VerificationException, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::error::VerificationException {
+    pub fn build(self) -> ::std::result::Result<super::types::error::VerificationException, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::error::VerificationException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "message",

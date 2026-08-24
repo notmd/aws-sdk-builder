@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DisconnectCustomKeyStoreOutput {
 }
 impl DisconnectCustomKeyStoreOutput {
     /// Creates a new builder-style object to manufacture [`DisconnectCustomKeyStoreOutput`](crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput).
-    pub fn builder() -> crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder {
-        crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder::default()
+    pub fn builder() -> super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder {
+        super::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DisconnectCustomKeyStoreOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DisconnectCustomKeyStoreOutput`](crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput).
-    pub fn build(self) -> crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
-        crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
+    pub fn build(self) -> super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
+        super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreOutput {
             _request_id: self._request_id,
         }
     }

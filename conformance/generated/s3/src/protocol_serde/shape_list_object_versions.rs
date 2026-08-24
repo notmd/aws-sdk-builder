@@ -5,16 +5,16 @@ pub fn de_list_object_versions_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::list_object_versions::ListObjectVersionsOutput,
-    crate::operation::list_object_versions::ListObjectVersionsError,
+    super::operation::list_object_versions::ListObjectVersionsOutput,
+    super::operation::list_object_versions::ListObjectVersionsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_object_versions::ListObjectVersionsError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::list_object_versions::ListObjectVersionsError::unhandled)?;
+    generic_builder = super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::list_object_versions::ListObjectVersionsError::generic(generic))
+    Err(super::operation::list_object_versions::ListObjectVersionsError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -23,29 +23,29 @@ pub fn de_list_object_versions_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::list_object_versions::ListObjectVersionsOutput,
-    crate::operation::list_object_versions::ListObjectVersionsError,
+    super::operation::list_object_versions::ListObjectVersionsOutput,
+    super::operation::list_object_versions::ListObjectVersionsError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder::default();
-        output = crate::protocol_serde::shape_list_object_versions::de_list_object_versions(_response_body, output)
-            .map_err(crate::operation::list_object_versions::ListObjectVersionsError::unhandled)?;
+        let mut output = super::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder::default();
+        output = super::protocol_serde::shape_list_object_versions::de_list_object_versions(_response_body, output)
+            .map_err(super::operation::list_object_versions::ListObjectVersionsError::unhandled)?;
         output = output.set_request_charged(
-            crate::protocol_serde::shape_list_object_versions_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::list_object_versions::ListObjectVersionsError::unhandled(
+            super::protocol_serde::shape_list_object_versions_output::de_request_charged_header(_response_headers).map_err(|_| {
+                super::operation::list_object_versions::ListObjectVersionsError::unhandled(
                     "Failed to parse RequestCharged from header `x-amz-request-charged",
                 )
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_list_object_versions_headers(
-    input: &crate::operation::list_object_versions::ListObjectVersionsInput,
+    input: &super::operation::list_object_versions::ListObjectVersionsInput,
     mut builder: ::http_1x::request::Builder,
 ) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.expected_bucket_owner {
@@ -94,8 +94,8 @@ pub fn ser_list_object_versions_headers(
 #[allow(unused_mut)]
 pub fn de_list_object_versions(
     inp: &[u8],
-    mut builder: crate::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder,
-) -> std::result::Result<crate::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+    mut builder: super::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder,
+) -> std::result::Result<super::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
 {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
@@ -115,10 +115,10 @@ pub fn de_list_object_versions(
             s if s.matches("CommonPrefixes") /* CommonPrefixes com.amazonaws.s3.synthetic#ListObjectVersionsOutput$CommonPrefixes */ =>  {
                 let var_8 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::CommonPrefix>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::CommonPrefix>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_9 = builder.common_prefixes.take().unwrap_or_default();
                             list_9.push(
-                                crate::protocol_serde::shape_common_prefix::de_common_prefix(&mut tag, depth + 1)
+                                super::protocol_serde::shape_common_prefix::de_common_prefix(&mut tag, depth + 1)
                                 ?
                             );
                             list_9
@@ -158,8 +158,8 @@ pub fn de_list_object_versions(
             s if s.matches("EncodingType") /* EncodingType com.amazonaws.s3.synthetic#ListObjectVersionsOutput$EncodingType */ =>  {
                 let var_12 =
                     Some(
-                        Result::<crate::types::EncodingType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::EncodingType::from(
+                        Result::<super::types::EncodingType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::EncodingType::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -239,10 +239,10 @@ pub fn de_list_object_versions(
             s if s.matches("Version") /* Versions com.amazonaws.s3.synthetic#ListObjectVersionsOutput$Versions */ =>  {
                 let var_18 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::ObjectVersion>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::ObjectVersion>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_19 = builder.versions.take().unwrap_or_default();
                             list_19.push(
-                                crate::protocol_serde::shape_object_version::de_object_version(&mut tag, depth + 1)
+                                super::protocol_serde::shape_object_version::de_object_version(&mut tag, depth + 1)
                                 ?
                             );
                             list_19
@@ -271,10 +271,10 @@ pub fn de_list_object_versions(
             s if s.matches("DeleteMarker") /* DeleteMarkers com.amazonaws.s3.synthetic#ListObjectVersionsOutput$DeleteMarkers */ =>  {
                 let var_21 =
                     Some(
-                        Result::<::std::vec::Vec::<crate::types::DeleteMarkerEntry>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                        Result::<::std::vec::Vec::<super::types::DeleteMarkerEntry>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
                             let mut list_22 = builder.delete_markers.take().unwrap_or_default();
                             list_22.push(
-                                crate::protocol_serde::shape_delete_marker_entry::de_delete_marker_entry(&mut tag, depth + 1)
+                                super::protocol_serde::shape_delete_marker_entry::de_delete_marker_entry(&mut tag, depth + 1)
                                 ?
                             );
                             list_22

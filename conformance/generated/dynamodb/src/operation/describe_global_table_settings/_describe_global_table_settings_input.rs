@@ -14,8 +14,8 @@ impl DescribeGlobalTableSettingsInput {
 }
 impl DescribeGlobalTableSettingsInput {
     /// Creates a new builder-style object to manufacture [`DescribeGlobalTableSettingsInput`](crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsInput).
-    pub fn builder() -> crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsInputBuilder {
-        crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsInputBuilder::default()
+    pub fn builder() -> super::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsInputBuilder {
+        super::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsInputBuilder::default()
     }
 }
 
@@ -45,10 +45,10 @@ impl DescribeGlobalTableSettingsInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsInput,
+        super::operation::describe_global_table_settings::DescribeGlobalTableSettingsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsInput {
+        ::std::result::Result::Ok(super::operation::describe_global_table_settings::DescribeGlobalTableSettingsInput {
             global_table_name: self.global_table_name,
         })
     }

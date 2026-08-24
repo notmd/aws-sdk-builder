@@ -81,8 +81,8 @@ impl CopyPartResult {
 }
 impl CopyPartResult {
     /// Creates a new builder-style object to manufacture [`CopyPartResult`](crate::types::CopyPartResult).
-    pub fn builder() -> crate::types::builders::CopyPartResultBuilder {
-        crate::types::builders::CopyPartResultBuilder::default()
+    pub fn builder() -> super::types::builders::CopyPartResultBuilder {
+        super::types::builders::CopyPartResultBuilder::default()
     }
 }
 
@@ -273,8 +273,8 @@ impl CopyPartResultBuilder {
         &self.checksum_xxhash128
     }
     /// Consumes the builder and constructs a [`CopyPartResult`](crate::types::CopyPartResult).
-    pub fn build(self) -> crate::types::CopyPartResult {
-        crate::types::CopyPartResult {
+    pub fn build(self) -> super::types::CopyPartResult {
+        super::types::CopyPartResult {
             e_tag: self.e_tag,
             last_modified: self.last_modified,
             checksum_crc32: self.checksum_crc32,

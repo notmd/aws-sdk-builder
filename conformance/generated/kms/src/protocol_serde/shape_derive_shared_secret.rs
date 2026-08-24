@@ -5,28 +5,28 @@ pub fn de_derive_shared_secret_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::derive_shared_secret::DeriveSharedSecretOutput,
-    crate::operation::derive_shared_secret::DeriveSharedSecretError,
+    super::operation::derive_shared_secret::DeriveSharedSecretOutput,
+    super::operation::derive_shared_secret::DeriveSharedSecretError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled(generic)),
+        None => return Err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::DependencyTimeoutException({
+        "DependencyTimeoutException" => super::operation::derive_shared_secret::DeriveSharedSecretError::DependencyTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "DisabledException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::DisabledException({
+        "DisabledException" => super::operation::derive_shared_secret::DeriveSharedSecretError::DisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+                let mut output = super::types::error::builders::DisabledExceptionBuilder::default();
+                output = super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
+                    .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "DryRunOperationException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::DryRunOperationException({
+        "DryRunOperationException" => super::operation::derive_shared_secret::DeriveSharedSecretError::DryRunOperationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DryRunOperationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+                let mut output = super::types::error::builders::DryRunOperationExceptionBuilder::default();
+                output = super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                    .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,14 +65,14 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "InvalidGrantTokenException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::InvalidGrantTokenException({
+        "InvalidGrantTokenException" => super::operation::derive_shared_secret::DeriveSharedSecretError::InvalidGrantTokenException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
+                let mut output = super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+                    super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                        .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -81,13 +81,13 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "InvalidKeyUsageException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::InvalidKeyUsageException({
+        "InvalidKeyUsageException" => super::operation::derive_shared_secret::DeriveSharedSecretError::InvalidKeyUsageException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                    .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -96,13 +96,13 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "KeyUnavailableException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KeyUnavailableException({
+        "KeyUnavailableException" => super::operation::derive_shared_secret::DeriveSharedSecretError::KeyUnavailableException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KeyUnavailableExceptionBuilder::default();
-                output = crate::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+                let mut output = super::types::error::builders::KeyUnavailableExceptionBuilder::default();
+                output = super::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
+                    .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -111,13 +111,13 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "KMSInternalException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInternalException({
+        "KMSInternalException" => super::operation::derive_shared_secret::DeriveSharedSecretError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                    .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -126,13 +126,13 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::operation::derive_shared_secret::DeriveSharedSecretError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -141,13 +141,13 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        "NotFoundException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::NotFoundException({
+        "NotFoundException" => super::operation::derive_shared_secret::DeriveSharedSecretError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -156,7 +156,7 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        _ => crate::operation::derive_shared_secret::DeriveSharedSecretError::generic(generic),
+        _ => super::operation::derive_shared_secret::DeriveSharedSecretError::generic(generic),
     })
 }
 
@@ -166,37 +166,37 @@ pub fn de_derive_shared_secret_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::derive_shared_secret::DeriveSharedSecretOutput,
-    crate::operation::derive_shared_secret::DeriveSharedSecretError,
+    super::operation::derive_shared_secret::DeriveSharedSecretOutput,
+    super::operation::derive_shared_secret::DeriveSharedSecretError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder::default();
-        output = crate::protocol_serde::shape_derive_shared_secret::de_derive_shared_secret(_response_body, output)
-            .map_err(crate::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
+        let mut output = super::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder::default();
+        output = super::protocol_serde::shape_derive_shared_secret::de_derive_shared_secret(_response_body, output)
+            .map_err(super::operation::derive_shared_secret::DeriveSharedSecretError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_derive_shared_secret_input(
-    input: &crate::operation::derive_shared_secret::DeriveSharedSecretInput,
+    input: &super::operation::derive_shared_secret::DeriveSharedSecretInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_derive_shared_secret_input::ser_derive_shared_secret_input_input(&mut object, input)?;
+    super::protocol_serde::shape_derive_shared_secret_input::ser_derive_shared_secret_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_derive_shared_secret(
     _value: &[u8],
-    mut builder: crate::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder,
+    mut builder: super::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder,
+    super::operation::derive_shared_secret::builders::DeriveSharedSecretOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -221,14 +221,14 @@ pub(crate) fn de_derive_shared_secret(
                 "KeyAgreementAlgorithm" => {
                     builder = builder.set_key_agreement_algorithm(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::KeyAgreementAlgorithmSpec::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::KeyAgreementAlgorithmSpec::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
                 "KeyOrigin" => {
                     builder = builder.set_key_origin(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::OriginType::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::OriginType::from(u.as_ref())))
                             .transpose()?,
                     );
                 }

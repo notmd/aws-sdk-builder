@@ -26,7 +26,7 @@ impl ::std::fmt::Display for DuplicateItemException {
     }
 }
 impl ::std::error::Error for DuplicateItemException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::DuplicateItemException {
+impl ::aws_types::request_id::RequestId for super::types::error::DuplicateItemException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DuplicateItem
 }
 impl DuplicateItemException {
     /// Creates a new builder-style object to manufacture [`DuplicateItemException`](crate::types::error::DuplicateItemException).
-    pub fn builder() -> crate::types::error::builders::DuplicateItemExceptionBuilder {
-        crate::types::error::builders::DuplicateItemExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::DuplicateItemExceptionBuilder {
+        super::types::error::builders::DuplicateItemExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl DuplicateItemExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DuplicateItemException`](crate::types::error::DuplicateItemException).
-    pub fn build(self) -> crate::types::error::DuplicateItemException {
-        crate::types::error::DuplicateItemException {
+    pub fn build(self) -> super::types::error::DuplicateItemException {
+        super::types::error::DuplicateItemException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

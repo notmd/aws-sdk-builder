@@ -3,7 +3,7 @@ pub(crate) fn de_replica_description<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::ReplicaDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::ReplicaDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,7 +16,7 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::ReplicaDescriptionBuilder::default();
+            let mut builder = super::types::builders::ReplicaDescriptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -31,7 +31,7 @@ where
                         "ReplicaStatus" => {
                             builder = builder.set_replica_status(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::ReplicaStatus::from(u.as_ref())))
+                                    .map(|s| s.to_unescaped().map(|u| super::types::ReplicaStatus::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
@@ -65,7 +65,7 @@ where
                         }
                         "ProvisionedThroughputOverride" => {
                             builder = builder.set_provisioned_throughput_override(
-                                crate::protocol_serde::shape_provisioned_throughput_override::de_provisioned_throughput_override(
+                                super::protocol_serde::shape_provisioned_throughput_override::de_provisioned_throughput_override(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -74,7 +74,7 @@ where
                         }
                         "OnDemandThroughputOverride" => {
                             builder = builder.set_on_demand_throughput_override(
-                                crate::protocol_serde::shape_on_demand_throughput_override::de_on_demand_throughput_override(
+                                super::protocol_serde::shape_on_demand_throughput_override::de_on_demand_throughput_override(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -83,7 +83,7 @@ where
                         }
                         "WarmThroughput" => {
                             builder = builder.set_warm_throughput(
-                                crate::protocol_serde::shape_table_warm_throughput_description::de_table_warm_throughput_description(
+                                super::protocol_serde::shape_table_warm_throughput_description::de_table_warm_throughput_description(
                                     tokens,
                                     _value,
                                     depth + 1,
@@ -91,7 +91,7 @@ where
                             );
                         }
                         "GlobalSecondaryIndexes" => {
-                            builder = builder.set_global_secondary_indexes(crate::protocol_serde::shape_replica_global_secondary_index_description_list::de_replica_global_secondary_index_description_list(tokens, _value, depth + 1)?);
+                            builder = builder.set_global_secondary_indexes(super::protocol_serde::shape_replica_global_secondary_index_description_list::de_replica_global_secondary_index_description_list(tokens, _value, depth + 1)?);
                         }
                         "ReplicaInaccessibleDateTime" => {
                             builder = builder.set_replica_inaccessible_date_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -101,7 +101,7 @@ where
                         }
                         "ReplicaTableClassSummary" => {
                             builder = builder.set_replica_table_class_summary(
-                                crate::protocol_serde::shape_table_class_summary::de_table_class_summary(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_table_class_summary::de_table_class_summary(tokens, _value, depth + 1)?,
                             );
                         }
                         "GlobalTableSettingsReplicationMode" => {
@@ -109,7 +109,7 @@ where
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| {
                                         s.to_unescaped()
-                                            .map(|u| crate::types::GlobalTableSettingsReplicationMode::from(u.as_ref()))
+                                            .map(|u| super::types::GlobalTableSettingsReplicationMode::from(u.as_ref()))
                                     })
                                     .transpose()?,
                             );

@@ -27,8 +27,8 @@ impl CreatePlatformApplicationInput {
 }
 impl CreatePlatformApplicationInput {
     /// Creates a new builder-style object to manufacture [`CreatePlatformApplicationInput`](crate::operation::create_platform_application::CreatePlatformApplicationInput).
-    pub fn builder() -> crate::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder {
-        crate::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder::default()
+    pub fn builder() -> super::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder {
+        super::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder::default()
     }
 }
 
@@ -95,10 +95,10 @@ impl CreatePlatformApplicationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::create_platform_application::CreatePlatformApplicationInput,
+        super::operation::create_platform_application::CreatePlatformApplicationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::create_platform_application::CreatePlatformApplicationInput {
+        ::std::result::Result::Ok(super::operation::create_platform_application::CreatePlatformApplicationInput {
             name: self.name,
             platform: self.platform,
             attributes: self.attributes,

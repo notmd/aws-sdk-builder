@@ -21,8 +21,8 @@ impl ListEndpointsByPlatformApplicationInput {
 }
 impl ListEndpointsByPlatformApplicationInput {
     /// Creates a new builder-style object to manufacture [`ListEndpointsByPlatformApplicationInput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput).
-    pub fn builder() -> crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder {
-        crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder::default()
+    pub fn builder() -> super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder {
+        super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder::default()
     }
 }
 
@@ -67,11 +67,11 @@ impl ListEndpointsByPlatformApplicationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput,
+        super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput {
+            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput {
                 platform_application_arn: self.platform_application_arn,
                 next_token: self.next_token,
             },

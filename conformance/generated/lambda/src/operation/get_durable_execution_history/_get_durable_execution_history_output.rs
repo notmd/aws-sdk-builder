@@ -5,14 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetDurableExecutionHistoryOutput {
     /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
-    pub events: ::std::vec::Vec<crate::types::Event>,
+    pub events: ::std::vec::Vec<super::types::Event>,
     /// <p>If present, indicates that more history events are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GetDurableExecutionHistoryOutput {
     /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
-    pub fn events(&self) -> &[crate::types::Event] {
+    pub fn events(&self) -> &[super::types::Event] {
         use std::ops::Deref;
         self.events.deref()
     }
@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for GetDurableExecutionHistoryOutput {
 }
 impl GetDurableExecutionHistoryOutput {
     /// Creates a new builder-style object to manufacture [`GetDurableExecutionHistoryOutput`](crate::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput).
-    pub fn builder() -> crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder {
-        crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder::default()
+    pub fn builder() -> super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder {
+        super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder::default()
     }
 }
 
@@ -37,7 +37,7 @@ impl GetDurableExecutionHistoryOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDurableExecutionHistoryOutputBuilder {
-    pub(crate) events: ::std::option::Option<::std::vec::Vec<crate::types::Event>>,
+    pub(crate) events: ::std::option::Option<::std::vec::Vec<super::types::Event>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -47,19 +47,19 @@ impl GetDurableExecutionHistoryOutputBuilder {
     /// To override the contents of this collection use [`set_events`](Self::set_events).
     ///
     /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
-    pub fn events(mut self, input: crate::types::Event) -> Self {
+    pub fn events(mut self, input: super::types::Event) -> Self {
         let mut v = self.events.unwrap_or_default();
         v.push(input);
         self.events = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
-    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self {
+    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Event>>) -> Self {
         self.events = input;
         self
     }
     /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
-    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Event>> {
+    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Event>> {
         &self.events
     }
     /// <p>If present, indicates that more history events are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
@@ -91,10 +91,10 @@ impl GetDurableExecutionHistoryOutputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput,
+        super::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput {
+        ::std::result::Result::Ok(super::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput {
             events: self.events.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "events",

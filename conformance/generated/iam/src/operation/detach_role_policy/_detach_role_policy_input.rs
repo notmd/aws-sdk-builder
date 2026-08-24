@@ -24,8 +24,8 @@ impl DetachRolePolicyInput {
 }
 impl DetachRolePolicyInput {
     /// Creates a new builder-style object to manufacture [`DetachRolePolicyInput`](crate::operation::detach_role_policy::DetachRolePolicyInput).
-    pub fn builder() -> crate::operation::detach_role_policy::builders::DetachRolePolicyInputBuilder {
-        crate::operation::detach_role_policy::builders::DetachRolePolicyInputBuilder::default()
+    pub fn builder() -> super::operation::detach_role_policy::builders::DetachRolePolicyInputBuilder {
+        super::operation::detach_role_policy::builders::DetachRolePolicyInputBuilder::default()
     }
 }
 
@@ -76,8 +76,8 @@ impl DetachRolePolicyInputBuilder {
     /// Consumes the builder and constructs a [`DetachRolePolicyInput`](crate::operation::detach_role_policy::DetachRolePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::detach_role_policy::DetachRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::detach_role_policy::DetachRolePolicyInput {
+    ) -> ::std::result::Result<super::operation::detach_role_policy::DetachRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::detach_role_policy::DetachRolePolicyInput {
             role_name: self.role_name,
             policy_arn: self.policy_arn,
         })

@@ -7,7 +7,7 @@ impl super::Client {
     ///   - [`description(impl Into<String>)`](crate::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder::description) / [`set_description(Option<String>)`](crate::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder::set_description):<br>required: **true**<br><p>New description for the KMS key.</p><important>  <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important><br>
     /// - On success, responds with [`UpdateKeyDescriptionOutput`](crate::operation::update_key_description::UpdateKeyDescriptionOutput)
     /// - On failure, responds with [`SdkError<UpdateKeyDescriptionError>`](crate::operation::update_key_description::UpdateKeyDescriptionError)
-    pub fn update_key_description(&self) -> crate::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder {
-        crate::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder::new(self.handle.clone())
+    pub fn update_key_description(&self) -> super::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder {
+        super::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder::new(self.handle.clone())
     }
 }

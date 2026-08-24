@@ -7,7 +7,7 @@ impl super::Client {
     /// - On success, responds with [`ListTagsOutput`](crate::operation::list_tags::ListTagsOutput) with field(s):
     ///   - [`tags(Option<HashMap::<String, String>>)`](crate::operation::list_tags::ListTagsOutput::tags): <p>The function's tags.</p>
     /// - On failure, responds with [`SdkError<ListTagsError>`](crate::operation::list_tags::ListTagsError)
-    pub fn list_tags(&self) -> crate::operation::list_tags::builders::ListTagsFluentBuilder {
-        crate::operation::list_tags::builders::ListTagsFluentBuilder::new(self.handle.clone())
+    pub fn list_tags(&self) -> super::operation::list_tags::builders::ListTagsFluentBuilder {
+        super::operation::list_tags::builders::ListTagsFluentBuilder::new(self.handle.clone())
     }
 }

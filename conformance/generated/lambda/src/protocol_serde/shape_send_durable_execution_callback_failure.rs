@@ -5,29 +5,29 @@ pub fn de_send_durable_execution_callback_failure_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput,
-    crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError,
+    super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput,
+    super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled(generic)),
+        None => return Err(super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "CallbackTimeoutException" => {
-            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::CallbackTimeoutException({
+            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::CallbackTimeoutException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::CallbackTimeoutExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_callback_timeout_exception::de_callback_timeout_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
+                    let mut output = super::types::error::builders::CallbackTimeoutExceptionBuilder::default();
+                    output = super::protocol_serde::shape_callback_timeout_exception::de_callback_timeout_exception_json_err(_response_body, output)
+                        .map_err(super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -38,16 +38,16 @@ pub fn de_send_durable_execution_callback_failure_http_error(
             })
         }
         "InvalidParameterValueException" => {
-            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::InvalidParameterValueException({
+            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::InvalidParameterValueException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    let mut output = super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                         _response_body,
                         output,
                     )
-                    .map_err(crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
+                    .map_err(super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -58,15 +58,15 @@ pub fn de_send_durable_execution_callback_failure_http_error(
             })
         }
         "KMSAccessDeniedException" => {
-            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsAccessDeniedException({
+            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsAccessDeniedException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
+                    let mut output = super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
+                        super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
                             .map_err(
-                                crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled,
+                                super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled,
                             )?;
                     let output = output.meta(generic);
                     output.build()
@@ -78,13 +78,13 @@ pub fn de_send_durable_execution_callback_failure_http_error(
             })
         }
         "KMSDisabledException" => {
-            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsDisabledException({
+            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsDisabledException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::KmsDisabledExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
+                    let mut output = super::types::error::builders::KmsDisabledExceptionBuilder::default();
+                    output = super::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_json_err(_response_body, output)
+                        .map_err(super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -95,15 +95,15 @@ pub fn de_send_durable_execution_callback_failure_http_error(
             })
         }
         "KMSInvalidStateException" => {
-            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsInvalidStateException({
+            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsInvalidStateException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                    let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                        super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
                             .map_err(
-                                crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled,
+                                super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled,
                             )?;
                     let output = output.meta(generic);
                     output.build()
@@ -115,13 +115,13 @@ pub fn de_send_durable_execution_callback_failure_http_error(
             })
         }
         "KMSNotFoundException" => {
-            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsNotFoundException({
+            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::KmsNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::KmsNotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
+                    let mut output = super::types::error::builders::KmsNotFoundExceptionBuilder::default();
+                    output = super::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_json_err(_response_body, output)
+                        .map_err(super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -132,14 +132,14 @@ pub fn de_send_durable_execution_callback_failure_http_error(
             })
         }
         "ResourceNotFoundException" => {
-            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::ResourceNotFoundException({
+            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    let mut output = super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                            .map_err(crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
+                        super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -150,13 +150,13 @@ pub fn de_send_durable_execution_callback_failure_http_error(
             })
         }
         "ServiceException" => {
-            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::ServiceException({
+            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::ServiceException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
+                    let mut output = super::types::error::builders::ServiceExceptionBuilder::default();
+                    output = super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
+                        .map_err(super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -167,15 +167,15 @@ pub fn de_send_durable_execution_callback_failure_http_error(
             })
         }
         "TooManyRequestsException" => {
-            crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::TooManyRequestsException({
+            super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = super::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output =
-                        crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                        super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                             .map_err(
-                                crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled,
+                                super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled,
                             )?;
                     let output = output.meta(generic);
                     output.build()
@@ -186,7 +186,7 @@ pub fn de_send_durable_execution_callback_failure_http_error(
                 tmp
             })
         }
-        _ => crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::generic(generic),
+        _ => super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::generic(generic),
     })
 }
 
@@ -196,24 +196,24 @@ pub fn de_send_durable_execution_callback_failure_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput,
-    crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError,
+    super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput,
+    super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError,
 > {
     Ok({
         #[allow(unused_mut)]
         let mut output =
-            crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder::default();
+            super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_send_durable_execution_callback_failure_input(
-    input: &crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput,
+    input: &super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_send_durable_execution_callback_failure_input_input(
+    super::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_send_durable_execution_callback_failure_input_input(
         &mut object,
         input,
     )?;
@@ -223,12 +223,12 @@ pub fn ser_send_durable_execution_callback_failure_input(
 
 pub(crate) fn de_send_durable_execution_callback_failure(
     _value: &[u8],
-    mut builder: crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder,
+    mut builder: super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder,
+    super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;

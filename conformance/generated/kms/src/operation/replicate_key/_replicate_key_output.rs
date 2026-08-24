@@ -4,16 +4,16 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ReplicateKeyOutput {
     /// <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
-    pub replica_key_metadata: ::std::option::Option<crate::types::KeyMetadata>,
+    pub replica_key_metadata: ::std::option::Option<super::types::KeyMetadata>,
     /// <p>The key policy of the new replica key. The value is a key policy document in JSON format.</p>
     pub replica_policy: ::std::option::Option<::std::string::String>,
     /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
-    pub replica_tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub replica_tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
     _request_id: Option<String>,
 }
 impl ReplicateKeyOutput {
     /// <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
-    pub fn replica_key_metadata(&self) -> ::std::option::Option<&crate::types::KeyMetadata> {
+    pub fn replica_key_metadata(&self) -> ::std::option::Option<&super::types::KeyMetadata> {
         self.replica_key_metadata.as_ref()
     }
     /// <p>The key policy of the new replica key. The value is a key policy document in JSON format.</p>
@@ -23,7 +23,7 @@ impl ReplicateKeyOutput {
     /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replica_tags.is_none()`.
-    pub fn replica_tags(&self) -> &[crate::types::Tag] {
+    pub fn replica_tags(&self) -> &[super::types::Tag] {
         self.replica_tags.as_deref().unwrap_or_default()
     }
 }
@@ -34,8 +34,8 @@ impl ::aws_types::request_id::RequestId for ReplicateKeyOutput {
 }
 impl ReplicateKeyOutput {
     /// Creates a new builder-style object to manufacture [`ReplicateKeyOutput`](crate::operation::replicate_key::ReplicateKeyOutput).
-    pub fn builder() -> crate::operation::replicate_key::builders::ReplicateKeyOutputBuilder {
-        crate::operation::replicate_key::builders::ReplicateKeyOutputBuilder::default()
+    pub fn builder() -> super::operation::replicate_key::builders::ReplicateKeyOutputBuilder {
+        super::operation::replicate_key::builders::ReplicateKeyOutputBuilder::default()
     }
 }
 
@@ -43,24 +43,24 @@ impl ReplicateKeyOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ReplicateKeyOutputBuilder {
-    pub(crate) replica_key_metadata: ::std::option::Option<crate::types::KeyMetadata>,
+    pub(crate) replica_key_metadata: ::std::option::Option<super::types::KeyMetadata>,
     pub(crate) replica_policy: ::std::option::Option<::std::string::String>,
-    pub(crate) replica_tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) replica_tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
     _request_id: Option<String>,
 }
 impl ReplicateKeyOutputBuilder {
     /// <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
-    pub fn replica_key_metadata(mut self, input: crate::types::KeyMetadata) -> Self {
+    pub fn replica_key_metadata(mut self, input: super::types::KeyMetadata) -> Self {
         self.replica_key_metadata = ::std::option::Option::Some(input);
         self
     }
     /// <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
-    pub fn set_replica_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self {
+    pub fn set_replica_key_metadata(mut self, input: ::std::option::Option<super::types::KeyMetadata>) -> Self {
         self.replica_key_metadata = input;
         self
     }
     /// <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
-    pub fn get_replica_key_metadata(&self) -> &::std::option::Option<crate::types::KeyMetadata> {
+    pub fn get_replica_key_metadata(&self) -> &::std::option::Option<super::types::KeyMetadata> {
         &self.replica_key_metadata
     }
     /// <p>The key policy of the new replica key. The value is a key policy document in JSON format.</p>
@@ -82,19 +82,19 @@ impl ReplicateKeyOutputBuilder {
     /// To override the contents of this collection use [`set_replica_tags`](Self::set_replica_tags).
     ///
     /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
-    pub fn replica_tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn replica_tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.replica_tags.unwrap_or_default();
         v.push(input);
         self.replica_tags = ::std::option::Option::Some(v);
         self
     }
     /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
-    pub fn set_replica_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_replica_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.replica_tags = input;
         self
     }
     /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
-    pub fn get_replica_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_replica_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.replica_tags
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -107,8 +107,8 @@ impl ReplicateKeyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ReplicateKeyOutput`](crate::operation::replicate_key::ReplicateKeyOutput).
-    pub fn build(self) -> crate::operation::replicate_key::ReplicateKeyOutput {
-        crate::operation::replicate_key::ReplicateKeyOutput {
+    pub fn build(self) -> super::operation::replicate_key::ReplicateKeyOutput {
+        super::operation::replicate_key::ReplicateKeyOutput {
             replica_key_metadata: self.replica_key_metadata,
             replica_policy: self.replica_policy,
             replica_tags: self.replica_tags,

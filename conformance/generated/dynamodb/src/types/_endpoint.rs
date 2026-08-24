@@ -22,8 +22,8 @@ impl Endpoint {
 }
 impl Endpoint {
     /// Creates a new builder-style object to manufacture [`Endpoint`](crate::types::Endpoint).
-    pub fn builder() -> crate::types::builders::EndpointBuilder {
-        crate::types::builders::EndpointBuilder::default()
+    pub fn builder() -> super::types::builders::EndpointBuilder {
+        super::types::builders::EndpointBuilder::default()
     }
 }
 
@@ -68,8 +68,8 @@ impl EndpointBuilder {
     /// Consumes the builder and constructs a [`Endpoint`](crate::types::Endpoint).
     /// This method will fail if any of the following fields are not set:
     /// - [`address`](crate::types::builders::EndpointBuilder::address)
-    pub fn build(self) -> ::std::result::Result<crate::types::Endpoint, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::Endpoint {
+    pub fn build(self) -> ::std::result::Result<super::types::Endpoint, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::Endpoint {
             address: self.address.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "address",

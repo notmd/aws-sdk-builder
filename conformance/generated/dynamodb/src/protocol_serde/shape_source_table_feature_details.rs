@@ -3,7 +3,7 @@ pub(crate) fn de_source_table_feature_details<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::SourceTableFeatureDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<Option<super::types::SourceTableFeatureDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -16,23 +16,23 @@ where
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::SourceTableFeatureDetailsBuilder::default();
+            let mut builder = super::types::builders::SourceTableFeatureDetailsBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "LocalSecondaryIndexes" => {
                             builder = builder.set_local_secondary_indexes(
-                                crate::protocol_serde::shape_local_secondary_indexes::de_local_secondary_indexes(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_local_secondary_indexes::de_local_secondary_indexes(tokens, _value, depth + 1)?,
                             );
                         }
                         "GlobalSecondaryIndexes" => {
                             builder = builder.set_global_secondary_indexes(
-                                crate::protocol_serde::shape_global_secondary_indexes::de_global_secondary_indexes(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_global_secondary_indexes::de_global_secondary_indexes(tokens, _value, depth + 1)?,
                             );
                         }
                         "StreamDescription" => {
-                            builder = builder.set_stream_description(crate::protocol_serde::shape_stream_specification::de_stream_specification(
+                            builder = builder.set_stream_description(super::protocol_serde::shape_stream_specification::de_stream_specification(
                                 tokens,
                                 _value,
                                 depth + 1,
@@ -40,18 +40,18 @@ where
                         }
                         "TimeToLiveDescription" => {
                             builder = builder.set_time_to_live_description(
-                                crate::protocol_serde::shape_time_to_live_description::de_time_to_live_description(tokens, _value, depth + 1)?,
+                                super::protocol_serde::shape_time_to_live_description::de_time_to_live_description(tokens, _value, depth + 1)?,
                             );
                         }
                         "SSEDescription" => {
-                            builder = builder.set_sse_description(crate::protocol_serde::shape_sse_description::de_sse_description(
+                            builder = builder.set_sse_description(super::protocol_serde::shape_sse_description::de_sse_description(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
                         }
                         "VectorIndexes" => {
-                            builder = builder.set_vector_indexes(crate::protocol_serde::shape_vector_indexes::de_vector_indexes(
+                            builder = builder.set_vector_indexes(super::protocol_serde::shape_vector_indexes::de_vector_indexes(
                                 tokens,
                                 _value,
                                 depth + 1,

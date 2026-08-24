@@ -89,8 +89,8 @@ impl SetSubscriptionAttributesInput {
 }
 impl SetSubscriptionAttributesInput {
     /// Creates a new builder-style object to manufacture [`SetSubscriptionAttributesInput`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesInput).
-    pub fn builder() -> crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder {
-        crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder::default()
+    pub fn builder() -> super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder {
+        super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder::default()
     }
 }
 
@@ -244,10 +244,10 @@ impl SetSubscriptionAttributesInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::set_subscription_attributes::SetSubscriptionAttributesInput,
+        super::operation::set_subscription_attributes::SetSubscriptionAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::set_subscription_attributes::SetSubscriptionAttributesInput {
+        ::std::result::Result::Ok(super::operation::set_subscription_attributes::SetSubscriptionAttributesInput {
             subscription_arn: self.subscription_arn,
             attribute_name: self.attribute_name,
             attribute_value: self.attribute_value,

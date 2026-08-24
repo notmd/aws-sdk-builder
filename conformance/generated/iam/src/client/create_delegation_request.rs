@@ -16,7 +16,7 @@ impl super::Client {
     ///   - [`console_deep_link(Option<String>)`](crate::operation::create_delegation_request::CreateDelegationRequestOutput::console_deep_link): <p>A deep link URL to the Amazon Web Services Management Console for managing the delegation request.</p> <p>For a console based workflow, partners should redirect the customer to this URL. If the customer is not logged in to any Amazon Web Services account, the Amazon Web Services workflow will automatically direct the customer to log in and then display the delegation request approval page.</p>
     ///   - [`delegation_request_id(Option<String>)`](crate::operation::create_delegation_request::CreateDelegationRequestOutput::delegation_request_id): <p>The unique identifier for the created delegation request.</p>
     /// - On failure, responds with [`SdkError<CreateDelegationRequestError>`](crate::operation::create_delegation_request::CreateDelegationRequestError)
-    pub fn create_delegation_request(&self) -> crate::operation::create_delegation_request::builders::CreateDelegationRequestFluentBuilder {
-        crate::operation::create_delegation_request::builders::CreateDelegationRequestFluentBuilder::new(self.handle.clone())
+    pub fn create_delegation_request(&self) -> super::operation::create_delegation_request::builders::CreateDelegationRequestFluentBuilder {
+        super::operation::create_delegation_request::builders::CreateDelegationRequestFluentBuilder::new(self.handle.clone())
     }
 }

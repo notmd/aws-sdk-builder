@@ -24,8 +24,8 @@ impl DeleteBucketLifecycleInput {
 }
 impl DeleteBucketLifecycleInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketLifecycleInput`](crate::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput).
-    pub fn builder() -> crate::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleInputBuilder {
-        crate::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleInputBuilder::default()
+    pub fn builder() -> super::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleInputBuilder {
+        super::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleInputBuilder::default()
     }
 }
 
@@ -75,9 +75,9 @@ impl DeleteBucketLifecycleInputBuilder {
     /// Consumes the builder and constructs a [`DeleteBucketLifecycleInput`](crate::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput {
+        ::std::result::Result::Ok(super::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

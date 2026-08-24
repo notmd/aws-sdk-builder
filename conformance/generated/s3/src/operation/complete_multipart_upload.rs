@@ -10,11 +10,11 @@ impl CompleteMultipartUpload {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::complete_multipart_upload::CompleteMultipartUploadInput,
+        input: super::operation::complete_multipart_upload::CompleteMultipartUploadInput,
     ) -> ::std::result::Result<
-        crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput,
+        super::operation::complete_multipart_upload::CompleteMultipartUploadOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::complete_multipart_upload::CompleteMultipartUploadError,
+            super::operation::complete_multipart_upload::CompleteMultipartUploadError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl CompleteMultipartUpload {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::complete_multipart_upload::CompleteMultipartUploadError>()
+                err.downcast::<super::operation::complete_multipart_upload::CompleteMultipartUploadError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl CompleteMultipartUpload {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput>()
+                .downcast::<super::operation::complete_multipart_upload::CompleteMultipartUploadOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::complete_multipart_upload::CompleteMultipartUploadInput,
+        input: super::operation::complete_multipart_upload::CompleteMultipartUploadInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -66,8 +66,8 @@ impl CompleteMultipartUpload {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -75,7 +75,7 @@ impl CompleteMultipartUpload {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -96,7 +96,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Complet
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("CompleteMultipartUpload")
                 .build()
                 .expect("required fields set"),
@@ -137,14 +137,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Complet
                 CompleteMultipartUploadEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::complete_multipart_upload::CompleteMultipartUploadError,
+                super::operation::complete_multipart_upload::CompleteMultipartUploadError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::complete_multipart_upload::CompleteMultipartUploadError,
+                super::operation::complete_multipart_upload::CompleteMultipartUploadError,
             >::new())
             .with_retry_classifier(
                 ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::complete_multipart_upload::CompleteMultipartUploadError,
+                    super::operation::complete_multipart_upload::CompleteMultipartUploadError,
                 >::builder()
                 .transient_errors({
                     let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -305,11 +305,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for CompleteM
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_complete_multipart_upload::de_complete_multipart_upload_http_error(status, headers, body)
+            super::protocol_serde::shape_complete_multipart_upload::de_complete_multipart_upload_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_complete_multipart_upload::de_complete_multipart_upload_http_response(status, headers, body)
+            super::protocol_serde::shape_complete_multipart_upload::de_complete_multipart_upload_http_response(status, headers, body)
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -322,16 +322,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CompleteMult
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::complete_multipart_upload::CompleteMultipartUploadInput>()
+            .downcast::<super::operation::complete_multipart_upload::CompleteMultipartUploadInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::complete_multipart_upload::CompleteMultipartUploadInput,
+                _input: &super::operation::complete_multipart_upload::CompleteMultipartUploadInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -350,7 +350,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CompleteMult
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
-                _input: &crate::operation::complete_multipart_upload::CompleteMultipartUploadInput,
+                _input: &super::operation::complete_multipart_upload::CompleteMultipartUploadInput,
                 mut output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
@@ -369,13 +369,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CompleteMult
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::complete_multipart_upload::CompleteMultipartUploadInput,
+                input: &super::operation::complete_multipart_upload::CompleteMultipartUploadInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_complete_multipart_upload::ser_complete_multipart_upload_headers(input, builder)?;
+                let builder = super::protocol_serde::shape_complete_multipart_upload::ser_complete_multipart_upload_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -383,7 +383,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CompleteMult
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_complete_multipart_upload_input::ser_multipart_upload_http_payload(&input.multipart_upload)?,
+            super::protocol_serde::shape_complete_multipart_upload_input::ser_multipart_upload_http_payload(&input.multipart_upload)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -416,16 +416,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CompleteMulti
             .downcast_ref::<CompleteMultipartUploadInput>()
             .ok_or("failed to downcast to CompleteMultipartUploadInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
-            .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
-            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
-            .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
-            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
+            .set_force_path_style(cfg.load::<super::config::ForcePathStyle>().map(|ty| ty.0))
+            .set_use_arn_region(cfg.load::<super::config::UseArnRegion>().map(|ty| ty.0))
+            .set_disable_multi_region_access_points(cfg.load::<super::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
+            .set_accelerate(cfg.load::<super::config::Accelerate>().map(|ty| ty.0))
+            .set_disable_s3_express_session_auth(cfg.load::<super::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
             .set_bucket(Some(
                 _input
                     .bucket
@@ -464,14 +464,14 @@ pub enum CompleteMultipartUploadError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CompleteMultipartUploadError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl CompleteMultipartUploadError {
     /// Creates the `CompleteMultipartUploadError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -479,7 +479,7 @@ impl CompleteMultipartUploadError {
 
     /// Creates the `CompleteMultipartUploadError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -534,26 +534,26 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Complete
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::complete_multipart_upload::CompleteMultipartUploadError {
+impl super::s3_request_id::RequestIdExt for super::operation::complete_multipart_upload::CompleteMultipartUploadError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::complete_multipart_upload::CompleteMultipartUploadError {
+impl ::aws_types::request_id::RequestId for super::operation::complete_multipart_upload::CompleteMultipartUploadError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::complete_multipart_upload::_complete_multipart_upload_input::CompleteMultipartUploadInput;
+pub use super::operation::complete_multipart_upload::_complete_multipart_upload_input::CompleteMultipartUploadInput;
 
-pub use crate::operation::complete_multipart_upload::_complete_multipart_upload_output::CompleteMultipartUploadOutput;
+pub use super::operation::complete_multipart_upload::_complete_multipart_upload_output::CompleteMultipartUploadOutput;
 
 mod _complete_multipart_upload_input;
 

@@ -26,7 +26,7 @@ impl ::std::fmt::Display for OpenIdIdpCommunicationErrorException {
     }
 }
 impl ::std::error::Error for OpenIdIdpCommunicationErrorException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::OpenIdIdpCommunicationErrorException {
+impl ::aws_types::request_id::RequestId for super::types::error::OpenIdIdpCommunicationErrorException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for OpenIdIdpComm
 }
 impl OpenIdIdpCommunicationErrorException {
     /// Creates a new builder-style object to manufacture [`OpenIdIdpCommunicationErrorException`](crate::types::error::OpenIdIdpCommunicationErrorException).
-    pub fn builder() -> crate::types::error::builders::OpenIdIdpCommunicationErrorExceptionBuilder {
-        crate::types::error::builders::OpenIdIdpCommunicationErrorExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::OpenIdIdpCommunicationErrorExceptionBuilder {
+        super::types::error::builders::OpenIdIdpCommunicationErrorExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl OpenIdIdpCommunicationErrorExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`OpenIdIdpCommunicationErrorException`](crate::types::error::OpenIdIdpCommunicationErrorException).
-    pub fn build(self) -> crate::types::error::OpenIdIdpCommunicationErrorException {
-        crate::types::error::OpenIdIdpCommunicationErrorException {
+    pub fn build(self) -> super::types::error::OpenIdIdpCommunicationErrorException {
+        super::types::error::OpenIdIdpCommunicationErrorException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

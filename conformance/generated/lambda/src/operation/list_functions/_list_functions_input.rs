@@ -6,7 +6,7 @@ pub struct ListFunctionsInput {
     /// <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
     pub master_region: ::std::option::Option<::std::string::String>,
     /// <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
-    pub function_version: ::std::option::Option<crate::types::FunctionVersion>,
+    pub function_version: ::std::option::Option<super::types::FunctionVersion>,
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
@@ -18,7 +18,7 @@ impl ListFunctionsInput {
         self.master_region.as_deref()
     }
     /// <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
-    pub fn function_version(&self) -> ::std::option::Option<&crate::types::FunctionVersion> {
+    pub fn function_version(&self) -> ::std::option::Option<&super::types::FunctionVersion> {
         self.function_version.as_ref()
     }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
@@ -32,8 +32,8 @@ impl ListFunctionsInput {
 }
 impl ListFunctionsInput {
     /// Creates a new builder-style object to manufacture [`ListFunctionsInput`](crate::operation::list_functions::ListFunctionsInput).
-    pub fn builder() -> crate::operation::list_functions::builders::ListFunctionsInputBuilder {
-        crate::operation::list_functions::builders::ListFunctionsInputBuilder::default()
+    pub fn builder() -> super::operation::list_functions::builders::ListFunctionsInputBuilder {
+        super::operation::list_functions::builders::ListFunctionsInputBuilder::default()
     }
 }
 
@@ -42,7 +42,7 @@ impl ListFunctionsInput {
 #[non_exhaustive]
 pub struct ListFunctionsInputBuilder {
     pub(crate) master_region: ::std::option::Option<::std::string::String>,
-    pub(crate) function_version: ::std::option::Option<crate::types::FunctionVersion>,
+    pub(crate) function_version: ::std::option::Option<super::types::FunctionVersion>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     pub(crate) max_items: ::std::option::Option<i32>,
 }
@@ -62,17 +62,17 @@ impl ListFunctionsInputBuilder {
         &self.master_region
     }
     /// <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
-    pub fn function_version(mut self, input: crate::types::FunctionVersion) -> Self {
+    pub fn function_version(mut self, input: super::types::FunctionVersion) -> Self {
         self.function_version = ::std::option::Option::Some(input);
         self
     }
     /// <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
-    pub fn set_function_version(mut self, input: ::std::option::Option<crate::types::FunctionVersion>) -> Self {
+    pub fn set_function_version(mut self, input: ::std::option::Option<super::types::FunctionVersion>) -> Self {
         self.function_version = input;
         self
     }
     /// <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
-    pub fn get_function_version(&self) -> &::std::option::Option<crate::types::FunctionVersion> {
+    pub fn get_function_version(&self) -> &::std::option::Option<super::types::FunctionVersion> {
         &self.function_version
     }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
@@ -106,8 +106,8 @@ impl ListFunctionsInputBuilder {
     /// Consumes the builder and constructs a [`ListFunctionsInput`](crate::operation::list_functions::ListFunctionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_functions::ListFunctionsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_functions::ListFunctionsInput {
+    ) -> ::std::result::Result<super::operation::list_functions::ListFunctionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_functions::ListFunctionsInput {
             master_region: self.master_region,
             function_version: self.function_version,
             marker: self.marker,

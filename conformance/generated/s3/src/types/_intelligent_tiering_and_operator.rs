@@ -7,7 +7,7 @@ pub struct IntelligentTieringAndOperator {
     /// <p>An object key name prefix that identifies the subset of objects to which the configuration applies.</p>
     pub prefix: ::std::option::Option<::std::string::String>,
     /// <p>All of these tags must exist in the object's tag set in order for the configuration to apply.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl IntelligentTieringAndOperator {
     /// <p>An object key name prefix that identifies the subset of objects to which the configuration applies.</p>
@@ -17,14 +17,14 @@ impl IntelligentTieringAndOperator {
     /// <p>All of these tags must exist in the object's tag set in order for the configuration to apply.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
+    pub fn tags(&self) -> &[super::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
 }
 impl IntelligentTieringAndOperator {
     /// Creates a new builder-style object to manufacture [`IntelligentTieringAndOperator`](crate::types::IntelligentTieringAndOperator).
-    pub fn builder() -> crate::types::builders::IntelligentTieringAndOperatorBuilder {
-        crate::types::builders::IntelligentTieringAndOperatorBuilder::default()
+    pub fn builder() -> super::types::builders::IntelligentTieringAndOperatorBuilder {
+        super::types::builders::IntelligentTieringAndOperatorBuilder::default()
     }
 }
 
@@ -33,7 +33,7 @@ impl IntelligentTieringAndOperator {
 #[non_exhaustive]
 pub struct IntelligentTieringAndOperatorBuilder {
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::types::Tag>>,
 }
 impl IntelligentTieringAndOperatorBuilder {
     /// <p>An object key name prefix that identifies the subset of objects to which the configuration applies.</p>
@@ -55,24 +55,24 @@ impl IntelligentTieringAndOperatorBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>All of these tags must exist in the object's tag set in order for the configuration to apply.</p>
-    pub fn tags(mut self, input: crate::types::Tag) -> Self {
+    pub fn tags(mut self, input: super::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
         self.tags = ::std::option::Option::Some(v);
         self
     }
     /// <p>All of these tags must exist in the object's tag set in order for the configuration to apply.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>All of these tags must exist in the object's tag set in order for the configuration to apply.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`IntelligentTieringAndOperator`](crate::types::IntelligentTieringAndOperator).
-    pub fn build(self) -> crate::types::IntelligentTieringAndOperator {
-        crate::types::IntelligentTieringAndOperator {
+    pub fn build(self) -> super::types::IntelligentTieringAndOperator {
+        super::types::IntelligentTieringAndOperator {
             prefix: self.prefix,
             tags: self.tags,
         }

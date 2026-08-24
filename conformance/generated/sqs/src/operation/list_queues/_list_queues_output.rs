@@ -29,8 +29,8 @@ impl ::aws_types::request_id::RequestId for ListQueuesOutput {
 }
 impl ListQueuesOutput {
     /// Creates a new builder-style object to manufacture [`ListQueuesOutput`](crate::operation::list_queues::ListQueuesOutput).
-    pub fn builder() -> crate::operation::list_queues::builders::ListQueuesOutputBuilder {
-        crate::operation::list_queues::builders::ListQueuesOutputBuilder::default()
+    pub fn builder() -> super::operation::list_queues::builders::ListQueuesOutputBuilder {
+        super::operation::list_queues::builders::ListQueuesOutputBuilder::default()
     }
 }
 
@@ -87,8 +87,8 @@ impl ListQueuesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListQueuesOutput`](crate::operation::list_queues::ListQueuesOutput).
-    pub fn build(self) -> crate::operation::list_queues::ListQueuesOutput {
-        crate::operation::list_queues::ListQueuesOutput {
+    pub fn build(self) -> super::operation::list_queues::ListQueuesOutput {
+        super::operation::list_queues::ListQueuesOutput {
             queue_urls: self.queue_urls,
             next_token: self.next_token,
             _request_id: self._request_id,

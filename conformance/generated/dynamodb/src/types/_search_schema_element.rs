@@ -13,7 +13,7 @@ pub struct SearchSchemaElement {
     /// <li>
     /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
     /// </ul>
-    pub search_schema_element_type: crate::types::SearchSchemaElementType,
+    pub search_schema_element_type: super::types::SearchSchemaElementType,
 }
 impl SearchSchemaElement {
     /// <p>The name of the attribute.</p>
@@ -28,14 +28,14 @@ impl SearchSchemaElement {
     /// <li>
     /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
     /// </ul>
-    pub fn search_schema_element_type(&self) -> &crate::types::SearchSchemaElementType {
+    pub fn search_schema_element_type(&self) -> &super::types::SearchSchemaElementType {
         &self.search_schema_element_type
     }
 }
 impl SearchSchemaElement {
     /// Creates a new builder-style object to manufacture [`SearchSchemaElement`](crate::types::SearchSchemaElement).
-    pub fn builder() -> crate::types::builders::SearchSchemaElementBuilder {
-        crate::types::builders::SearchSchemaElementBuilder::default()
+    pub fn builder() -> super::types::builders::SearchSchemaElementBuilder {
+        super::types::builders::SearchSchemaElementBuilder::default()
     }
 }
 
@@ -44,7 +44,7 @@ impl SearchSchemaElement {
 #[non_exhaustive]
 pub struct SearchSchemaElementBuilder {
     pub(crate) attribute_name: ::std::option::Option<::std::string::String>,
-    pub(crate) search_schema_element_type: ::std::option::Option<crate::types::SearchSchemaElementType>,
+    pub(crate) search_schema_element_type: ::std::option::Option<super::types::SearchSchemaElementType>,
 }
 impl SearchSchemaElementBuilder {
     /// <p>The name of the attribute.</p>
@@ -70,7 +70,7 @@ impl SearchSchemaElementBuilder {
     /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
     /// </ul>
     /// This field is required.
-    pub fn search_schema_element_type(mut self, input: crate::types::SearchSchemaElementType) -> Self {
+    pub fn search_schema_element_type(mut self, input: super::types::SearchSchemaElementType) -> Self {
         self.search_schema_element_type = ::std::option::Option::Some(input);
         self
     }
@@ -81,7 +81,7 @@ impl SearchSchemaElementBuilder {
     /// <li>
     /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
     /// </ul>
-    pub fn set_search_schema_element_type(mut self, input: ::std::option::Option<crate::types::SearchSchemaElementType>) -> Self {
+    pub fn set_search_schema_element_type(mut self, input: ::std::option::Option<super::types::SearchSchemaElementType>) -> Self {
         self.search_schema_element_type = input;
         self
     }
@@ -92,15 +92,15 @@ impl SearchSchemaElementBuilder {
     /// <li>
     /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
     /// </ul>
-    pub fn get_search_schema_element_type(&self) -> &::std::option::Option<crate::types::SearchSchemaElementType> {
+    pub fn get_search_schema_element_type(&self) -> &::std::option::Option<super::types::SearchSchemaElementType> {
         &self.search_schema_element_type
     }
     /// Consumes the builder and constructs a [`SearchSchemaElement`](crate::types::SearchSchemaElement).
     /// This method will fail if any of the following fields are not set:
     /// - [`attribute_name`](crate::types::builders::SearchSchemaElementBuilder::attribute_name)
     /// - [`search_schema_element_type`](crate::types::builders::SearchSchemaElementBuilder::search_schema_element_type)
-    pub fn build(self) -> ::std::result::Result<crate::types::SearchSchemaElement, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::SearchSchemaElement {
+    pub fn build(self) -> ::std::result::Result<super::types::SearchSchemaElement, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::SearchSchemaElement {
             attribute_name: self.attribute_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "attribute_name",

@@ -4,26 +4,26 @@ pub fn de_re_encrypt_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::re_encrypt::ReEncryptOutput, crate::operation::re_encrypt::ReEncryptError> {
+) -> std::result::Result<super::operation::re_encrypt::ReEncryptOutput, super::operation::re_encrypt::ReEncryptError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::re_encrypt::ReEncryptError::unhandled(generic)),
+        None => return Err(super::operation::re_encrypt::ReEncryptError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => crate::operation::re_encrypt::ReEncryptError::DependencyTimeoutException({
+        "DependencyTimeoutException" => super::operation::re_encrypt::ReEncryptError::DependencyTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -32,13 +32,13 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "DisabledException" => crate::operation::re_encrypt::ReEncryptError::DisabledException({
+        "DisabledException" => super::operation::re_encrypt::ReEncryptError::DisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::DisabledExceptionBuilder::default();
+                output = super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -47,13 +47,13 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "DryRunOperationException" => crate::operation::re_encrypt::ReEncryptError::DryRunOperationException({
+        "DryRunOperationException" => super::operation::re_encrypt::ReEncryptError::DryRunOperationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DryRunOperationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::DryRunOperationExceptionBuilder::default();
+                output = super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,13 +62,13 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "IncorrectKeyException" => crate::operation::re_encrypt::ReEncryptError::IncorrectKeyException({
+        "IncorrectKeyException" => super::operation::re_encrypt::ReEncryptError::IncorrectKeyException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::IncorrectKeyExceptionBuilder::default();
-                output = crate::protocol_serde::shape_incorrect_key_exception::de_incorrect_key_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::IncorrectKeyExceptionBuilder::default();
+                output = super::protocol_serde::shape_incorrect_key_exception::de_incorrect_key_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -77,13 +77,13 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "InvalidCiphertextException" => crate::operation::re_encrypt::ReEncryptError::InvalidCiphertextException({
+        "InvalidCiphertextException" => super::operation::re_encrypt::ReEncryptError::InvalidCiphertextException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidCiphertextExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_ciphertext_exception::de_invalid_ciphertext_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidCiphertextExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_ciphertext_exception::de_invalid_ciphertext_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -92,14 +92,14 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "InvalidGrantTokenException" => crate::operation::re_encrypt::ReEncryptError::InvalidGrantTokenException({
+        "InvalidGrantTokenException" => super::operation::re_encrypt::ReEncryptError::InvalidGrantTokenException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
+                let mut output = super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                    super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                        .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -108,13 +108,13 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "InvalidKeyUsageException" => crate::operation::re_encrypt::ReEncryptError::InvalidKeyUsageException({
+        "InvalidKeyUsageException" => super::operation::re_encrypt::ReEncryptError::InvalidKeyUsageException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123,13 +123,13 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "KeyUnavailableException" => crate::operation::re_encrypt::ReEncryptError::KeyUnavailableException({
+        "KeyUnavailableException" => super::operation::re_encrypt::ReEncryptError::KeyUnavailableException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KeyUnavailableExceptionBuilder::default();
-                output = crate::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::KeyUnavailableExceptionBuilder::default();
+                output = super::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -138,13 +138,13 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "KMSInternalException" => crate::operation::re_encrypt::ReEncryptError::KmsInternalException({
+        "KMSInternalException" => super::operation::re_encrypt::ReEncryptError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -153,13 +153,13 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => crate::operation::re_encrypt::ReEncryptError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::operation::re_encrypt::ReEncryptError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -168,13 +168,13 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        "NotFoundException" => crate::operation::re_encrypt::ReEncryptError::NotFoundException({
+        "NotFoundException" => super::operation::re_encrypt::ReEncryptError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -183,7 +183,7 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        _ => crate::operation::re_encrypt::ReEncryptError::generic(generic),
+        _ => super::operation::re_encrypt::ReEncryptError::generic(generic),
     })
 }
 
@@ -192,32 +192,32 @@ pub fn de_re_encrypt_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::re_encrypt::ReEncryptOutput, crate::operation::re_encrypt::ReEncryptError> {
+) -> std::result::Result<super::operation::re_encrypt::ReEncryptOutput, super::operation::re_encrypt::ReEncryptError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::re_encrypt::builders::ReEncryptOutputBuilder::default();
-        output = crate::protocol_serde::shape_re_encrypt::de_re_encrypt(_response_body, output)
-            .map_err(crate::operation::re_encrypt::ReEncryptError::unhandled)?;
+        let mut output = super::operation::re_encrypt::builders::ReEncryptOutputBuilder::default();
+        output = super::protocol_serde::shape_re_encrypt::de_re_encrypt(_response_body, output)
+            .map_err(super::operation::re_encrypt::ReEncryptError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_re_encrypt_input(
-    input: &crate::operation::re_encrypt::ReEncryptInput,
+    input: &super::operation::re_encrypt::ReEncryptInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_re_encrypt_input::ser_re_encrypt_input_input(&mut object, input)?;
+    super::protocol_serde::shape_re_encrypt_input::ser_re_encrypt_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_re_encrypt(
     _value: &[u8],
-    mut builder: crate::operation::re_encrypt::builders::ReEncryptOutputBuilder,
-) -> ::std::result::Result<crate::operation::re_encrypt::builders::ReEncryptOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    mut builder: super::operation::re_encrypt::builders::ReEncryptOutputBuilder,
+) -> ::std::result::Result<super::operation::re_encrypt::builders::ReEncryptOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -246,14 +246,14 @@ pub(crate) fn de_re_encrypt(
                 "SourceEncryptionAlgorithm" => {
                     builder = builder.set_source_encryption_algorithm(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::EncryptionAlgorithmSpec::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::EncryptionAlgorithmSpec::from(u.as_ref())))
                             .transpose()?,
                     );
                 }
                 "DestinationEncryptionAlgorithm" => {
                     builder = builder.set_destination_encryption_algorithm(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::EncryptionAlgorithmSpec::from(u.as_ref())))
+                            .map(|s| s.to_unescaped().map(|u| super::types::EncryptionAlgorithmSpec::from(u.as_ref())))
                             .transpose()?,
                     );
                 }

@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for TagRoleOutput {
 }
 impl TagRoleOutput {
     /// Creates a new builder-style object to manufacture [`TagRoleOutput`](crate::operation::tag_role::TagRoleOutput).
-    pub fn builder() -> crate::operation::tag_role::builders::TagRoleOutputBuilder {
-        crate::operation::tag_role::builders::TagRoleOutputBuilder::default()
+    pub fn builder() -> super::operation::tag_role::builders::TagRoleOutputBuilder {
+        super::operation::tag_role::builders::TagRoleOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl TagRoleOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`TagRoleOutput`](crate::operation::tag_role::TagRoleOutput).
-    pub fn build(self) -> crate::operation::tag_role::TagRoleOutput {
-        crate::operation::tag_role::TagRoleOutput {
+    pub fn build(self) -> super::operation::tag_role::TagRoleOutput {
+        super::operation::tag_role::TagRoleOutput {
             _request_id: self._request_id,
         }
     }

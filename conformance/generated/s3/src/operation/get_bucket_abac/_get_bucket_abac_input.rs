@@ -20,8 +20,8 @@ impl GetBucketAbacInput {
 }
 impl GetBucketAbacInput {
     /// Creates a new builder-style object to manufacture [`GetBucketAbacInput`](crate::operation::get_bucket_abac::GetBucketAbacInput).
-    pub fn builder() -> crate::operation::get_bucket_abac::builders::GetBucketAbacInputBuilder {
-        crate::operation::get_bucket_abac::builders::GetBucketAbacInputBuilder::default()
+    pub fn builder() -> super::operation::get_bucket_abac::builders::GetBucketAbacInputBuilder {
+        super::operation::get_bucket_abac::builders::GetBucketAbacInputBuilder::default()
     }
 }
 
@@ -65,8 +65,8 @@ impl GetBucketAbacInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketAbacInput`](crate::operation::get_bucket_abac::GetBucketAbacInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_bucket_abac::GetBucketAbacInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_bucket_abac::GetBucketAbacInput {
+    ) -> ::std::result::Result<super::operation::get_bucket_abac::GetBucketAbacInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_bucket_abac::GetBucketAbacInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,
         })

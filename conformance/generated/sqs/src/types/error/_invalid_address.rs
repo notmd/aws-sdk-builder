@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidAddress {
     }
 }
 impl ::std::error::Error for InvalidAddress {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidAddress {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidAddress {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidAddres
 }
 impl InvalidAddress {
     /// Creates a new builder-style object to manufacture [`InvalidAddress`](crate::types::error::InvalidAddress).
-    pub fn builder() -> crate::types::error::builders::InvalidAddressBuilder {
-        crate::types::error::builders::InvalidAddressBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidAddressBuilder {
+        super::types::error::builders::InvalidAddressBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidAddressBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidAddress`](crate::types::error::InvalidAddress).
-    pub fn build(self) -> crate::types::error::InvalidAddress {
-        crate::types::error::InvalidAddress {
+    pub fn build(self) -> super::types::error::InvalidAddress {
+        super::types::error::InvalidAddress {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

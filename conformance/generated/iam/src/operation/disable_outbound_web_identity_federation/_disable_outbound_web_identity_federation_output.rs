@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for DisableOutboundWebIdentityFederation
 }
 impl DisableOutboundWebIdentityFederationOutput {
     /// Creates a new builder-style object to manufacture [`DisableOutboundWebIdentityFederationOutput`](crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput).
-    pub fn builder() -> crate::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationOutputBuilder {
-        crate::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationOutputBuilder::default()
+    pub fn builder() -> super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationOutputBuilder {
+        super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl DisableOutboundWebIdentityFederationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DisableOutboundWebIdentityFederationOutput`](crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput).
-    pub fn build(self) -> crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput {
-        crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput {
+    pub fn build(self) -> super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput {
+        super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput {
             _request_id: self._request_id,
         }
     }

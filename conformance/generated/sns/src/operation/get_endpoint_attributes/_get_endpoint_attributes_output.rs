@@ -41,8 +41,8 @@ impl ::aws_types::request_id::RequestId for GetEndpointAttributesOutput {
 }
 impl GetEndpointAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetEndpointAttributesOutput`](crate::operation::get_endpoint_attributes::GetEndpointAttributesOutput).
-    pub fn builder() -> crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder {
-        crate::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder::default()
+    pub fn builder() -> super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder {
+        super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder::default()
     }
 }
 
@@ -114,8 +114,8 @@ impl GetEndpointAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetEndpointAttributesOutput`](crate::operation::get_endpoint_attributes::GetEndpointAttributesOutput).
-    pub fn build(self) -> crate::operation::get_endpoint_attributes::GetEndpointAttributesOutput {
-        crate::operation::get_endpoint_attributes::GetEndpointAttributesOutput {
+    pub fn build(self) -> super::operation::get_endpoint_attributes::GetEndpointAttributesOutput {
+        super::operation::get_endpoint_attributes::GetEndpointAttributesOutput {
             attributes: self.attributes,
             _request_id: self._request_id,
         }

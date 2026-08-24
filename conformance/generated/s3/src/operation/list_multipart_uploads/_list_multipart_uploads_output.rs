@@ -30,19 +30,19 @@ pub struct ListMultipartUploadsOutput {
     /// <p>Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.</p>
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>Container for elements related to a particular multipart upload. A response can contain zero or more <code>Upload</code> elements.</p>
-    pub uploads: ::std::option::Option<::std::vec::Vec<crate::types::MultipartUpload>>,
+    pub uploads: ::std::option::Option<::std::vec::Vec<super::types::MultipartUpload>>,
     /// <p>If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key prefixes are returned in the <code>Prefix</code> child element.</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
     /// </note>
-    pub common_prefixes: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>,
+    pub common_prefixes: ::std::option::Option<::std::vec::Vec<super::types::CommonPrefix>>,
     /// <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>, <code>NextKeyMarker</code>, <code>Key</code>.</p>
-    pub encoding_type: ::std::option::Option<crate::types::EncodingType>,
+    pub encoding_type: ::std::option::Option<super::types::EncodingType>,
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -94,7 +94,7 @@ impl ListMultipartUploadsOutput {
     /// <p>Container for elements related to a particular multipart upload. A response can contain zero or more <code>Upload</code> elements.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.uploads.is_none()`.
-    pub fn uploads(&self) -> &[crate::types::MultipartUpload] {
+    pub fn uploads(&self) -> &[super::types::MultipartUpload] {
         self.uploads.as_deref().unwrap_or_default()
     }
     /// <p>If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key prefixes are returned in the <code>Prefix</code> child element.</p><note>
@@ -102,23 +102,23 @@ impl ListMultipartUploadsOutput {
     /// </note>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.common_prefixes.is_none()`.
-    pub fn common_prefixes(&self) -> &[crate::types::CommonPrefix] {
+    pub fn common_prefixes(&self) -> &[super::types::CommonPrefix] {
         self.common_prefixes.as_deref().unwrap_or_default()
     }
     /// <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>, <code>NextKeyMarker</code>, <code>Key</code>.</p>
-    pub fn encoding_type(&self) -> ::std::option::Option<&crate::types::EncodingType> {
+    pub fn encoding_type(&self) -> ::std::option::Option<&super::types::EncodingType> {
         self.encoding_type.as_ref()
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<&super::types::RequestCharged> {
         self.request_charged.as_ref()
     }
 }
-impl crate::s3_request_id::RequestIdExt for ListMultipartUploadsOutput {
+impl super::s3_request_id::RequestIdExt for ListMultipartUploadsOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -130,8 +130,8 @@ impl ::aws_types::request_id::RequestId for ListMultipartUploadsOutput {
 }
 impl ListMultipartUploadsOutput {
     /// Creates a new builder-style object to manufacture [`ListMultipartUploadsOutput`](crate::operation::list_multipart_uploads::ListMultipartUploadsOutput).
-    pub fn builder() -> crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder {
-        crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder::default()
+    pub fn builder() -> super::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder {
+        super::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder::default()
     }
 }
 
@@ -148,10 +148,10 @@ pub struct ListMultipartUploadsOutputBuilder {
     pub(crate) next_upload_id_marker: ::std::option::Option<::std::string::String>,
     pub(crate) max_uploads: ::std::option::Option<i32>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
-    pub(crate) uploads: ::std::option::Option<::std::vec::Vec<crate::types::MultipartUpload>>,
-    pub(crate) common_prefixes: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>,
-    pub(crate) encoding_type: ::std::option::Option<crate::types::EncodingType>,
-    pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    pub(crate) uploads: ::std::option::Option<::std::vec::Vec<super::types::MultipartUpload>>,
+    pub(crate) common_prefixes: ::std::option::Option<::std::vec::Vec<super::types::CommonPrefix>>,
+    pub(crate) encoding_type: ::std::option::Option<super::types::EncodingType>,
+    pub(crate) request_charged: ::std::option::Option<super::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -311,19 +311,19 @@ impl ListMultipartUploadsOutputBuilder {
     /// To override the contents of this collection use [`set_uploads`](Self::set_uploads).
     ///
     /// <p>Container for elements related to a particular multipart upload. A response can contain zero or more <code>Upload</code> elements.</p>
-    pub fn uploads(mut self, input: crate::types::MultipartUpload) -> Self {
+    pub fn uploads(mut self, input: super::types::MultipartUpload) -> Self {
         let mut v = self.uploads.unwrap_or_default();
         v.push(input);
         self.uploads = ::std::option::Option::Some(v);
         self
     }
     /// <p>Container for elements related to a particular multipart upload. A response can contain zero or more <code>Upload</code> elements.</p>
-    pub fn set_uploads(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MultipartUpload>>) -> Self {
+    pub fn set_uploads(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::MultipartUpload>>) -> Self {
         self.uploads = input;
         self
     }
     /// <p>Container for elements related to a particular multipart upload. A response can contain zero or more <code>Upload</code> elements.</p>
-    pub fn get_uploads(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MultipartUpload>> {
+    pub fn get_uploads(&self) -> &::std::option::Option<::std::vec::Vec<super::types::MultipartUpload>> {
         &self.uploads
     }
     /// Appends an item to `common_prefixes`.
@@ -333,7 +333,7 @@ impl ListMultipartUploadsOutputBuilder {
     /// <p>If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key prefixes are returned in the <code>Prefix</code> child element.</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
     /// </note>
-    pub fn common_prefixes(mut self, input: crate::types::CommonPrefix) -> Self {
+    pub fn common_prefixes(mut self, input: super::types::CommonPrefix) -> Self {
         let mut v = self.common_prefixes.unwrap_or_default();
         v.push(input);
         self.common_prefixes = ::std::option::Option::Some(v);
@@ -342,54 +342,54 @@ impl ListMultipartUploadsOutputBuilder {
     /// <p>If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key prefixes are returned in the <code>Prefix</code> child element.</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
     /// </note>
-    pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>) -> Self {
+    pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::CommonPrefix>>) -> Self {
         self.common_prefixes = input;
         self
     }
     /// <p>If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key prefixes are returned in the <code>Prefix</code> child element.</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
     /// </note>
-    pub fn get_common_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>> {
+    pub fn get_common_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<super::types::CommonPrefix>> {
         &self.common_prefixes
     }
     /// <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>, <code>NextKeyMarker</code>, <code>Key</code>.</p>
-    pub fn encoding_type(mut self, input: crate::types::EncodingType) -> Self {
+    pub fn encoding_type(mut self, input: super::types::EncodingType) -> Self {
         self.encoding_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>, <code>NextKeyMarker</code>, <code>Key</code>.</p>
-    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
+    pub fn set_encoding_type(mut self, input: ::std::option::Option<super::types::EncodingType>) -> Self {
         self.encoding_type = input;
         self
     }
     /// <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>, <code>NextKeyMarker</code>, <code>Key</code>.</p>
-    pub fn get_encoding_type(&self) -> &::std::option::Option<crate::types::EncodingType> {
+    pub fn get_encoding_type(&self) -> &::std::option::Option<super::types::EncodingType> {
         &self.encoding_type
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
+    pub fn request_charged(mut self, input: super::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<super::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+    pub fn get_request_charged(&self) -> &::std::option::Option<super::types::RequestCharged> {
         &self.request_charged
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -411,8 +411,8 @@ impl ListMultipartUploadsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListMultipartUploadsOutput`](crate::operation::list_multipart_uploads::ListMultipartUploadsOutput).
-    pub fn build(self) -> crate::operation::list_multipart_uploads::ListMultipartUploadsOutput {
-        crate::operation::list_multipart_uploads::ListMultipartUploadsOutput {
+    pub fn build(self) -> super::operation::list_multipart_uploads::ListMultipartUploadsOutput {
+        super::operation::list_multipart_uploads::ListMultipartUploadsOutput {
             bucket: self.bucket,
             key_marker: self.key_marker,
             upload_id_marker: self.upload_id_marker,

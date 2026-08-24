@@ -6,7 +6,7 @@ pub struct ListLayersOutput {
     /// <p>A pagination token returned when the response doesn't contain all layers.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A list of function layers.</p>
-    pub layers: ::std::option::Option<::std::vec::Vec<crate::types::LayersListItem>>,
+    pub layers: ::std::option::Option<::std::vec::Vec<super::types::LayersListItem>>,
     _request_id: Option<String>,
 }
 impl ListLayersOutput {
@@ -17,7 +17,7 @@ impl ListLayersOutput {
     /// <p>A list of function layers.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.layers.is_none()`.
-    pub fn layers(&self) -> &[crate::types::LayersListItem] {
+    pub fn layers(&self) -> &[super::types::LayersListItem] {
         self.layers.as_deref().unwrap_or_default()
     }
 }
@@ -28,8 +28,8 @@ impl ::aws_types::request_id::RequestId for ListLayersOutput {
 }
 impl ListLayersOutput {
     /// Creates a new builder-style object to manufacture [`ListLayersOutput`](crate::operation::list_layers::ListLayersOutput).
-    pub fn builder() -> crate::operation::list_layers::builders::ListLayersOutputBuilder {
-        crate::operation::list_layers::builders::ListLayersOutputBuilder::default()
+    pub fn builder() -> super::operation::list_layers::builders::ListLayersOutputBuilder {
+        super::operation::list_layers::builders::ListLayersOutputBuilder::default()
     }
 }
 
@@ -38,7 +38,7 @@ impl ListLayersOutput {
 #[non_exhaustive]
 pub struct ListLayersOutputBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
-    pub(crate) layers: ::std::option::Option<::std::vec::Vec<crate::types::LayersListItem>>,
+    pub(crate) layers: ::std::option::Option<::std::vec::Vec<super::types::LayersListItem>>,
     _request_id: Option<String>,
 }
 impl ListLayersOutputBuilder {
@@ -61,19 +61,19 @@ impl ListLayersOutputBuilder {
     /// To override the contents of this collection use [`set_layers`](Self::set_layers).
     ///
     /// <p>A list of function layers.</p>
-    pub fn layers(mut self, input: crate::types::LayersListItem) -> Self {
+    pub fn layers(mut self, input: super::types::LayersListItem) -> Self {
         let mut v = self.layers.unwrap_or_default();
         v.push(input);
         self.layers = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of function layers.</p>
-    pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LayersListItem>>) -> Self {
+    pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::LayersListItem>>) -> Self {
         self.layers = input;
         self
     }
     /// <p>A list of function layers.</p>
-    pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LayersListItem>> {
+    pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<super::types::LayersListItem>> {
         &self.layers
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,8 +86,8 @@ impl ListLayersOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListLayersOutput`](crate::operation::list_layers::ListLayersOutput).
-    pub fn build(self) -> crate::operation::list_layers::ListLayersOutput {
-        crate::operation::list_layers::ListLayersOutput {
+    pub fn build(self) -> super::operation::list_layers::ListLayersOutput {
+        super::operation::list_layers::ListLayersOutput {
             next_marker: self.next_marker,
             layers: self.layers,
             _request_id: self._request_id,

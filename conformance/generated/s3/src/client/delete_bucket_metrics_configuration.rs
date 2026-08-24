@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteBucketMetricsConfigurationError>`](crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationError)
     pub fn delete_bucket_metrics_configuration(
         &self,
-    ) -> crate::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationFluentBuilder {
-        crate::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationFluentBuilder::new(self.handle.clone())
+    ) -> super::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationFluentBuilder {
+        super::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

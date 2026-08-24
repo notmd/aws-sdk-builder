@@ -7,12 +7,12 @@ pub struct BatchStatementRequest {
     /// <p>A valid PartiQL statement.</p>
     pub statement: ::std::string::String,
     /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
-    pub parameters: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>,
+    pub parameters: ::std::option::Option<::std::vec::Vec<super::types::AttributeValue>>,
     /// <p>The read consistency of the PartiQL batch request.</p>
     pub consistent_read: ::std::option::Option<bool>,
     /// <p>An optional parameter that returns the item attributes for a PartiQL batch request operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
+    pub return_values_on_condition_check_failure: ::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl BatchStatementRequest {
     /// <p>A valid PartiQL statement.</p>
@@ -23,7 +23,7 @@ impl BatchStatementRequest {
     /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters.is_none()`.
-    pub fn parameters(&self) -> &[crate::types::AttributeValue] {
+    pub fn parameters(&self) -> &[super::types::AttributeValue] {
         self.parameters.as_deref().unwrap_or_default()
     }
     /// <p>The read consistency of the PartiQL batch request.</p>
@@ -32,14 +32,14 @@ impl BatchStatementRequest {
     }
     /// <p>An optional parameter that returns the item attributes for a PartiQL batch request operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub fn return_values_on_condition_check_failure(&self) -> ::std::option::Option<&crate::types::ReturnValuesOnConditionCheckFailure> {
+    pub fn return_values_on_condition_check_failure(&self) -> ::std::option::Option<&super::types::ReturnValuesOnConditionCheckFailure> {
         self.return_values_on_condition_check_failure.as_ref()
     }
 }
 impl BatchStatementRequest {
     /// Creates a new builder-style object to manufacture [`BatchStatementRequest`](crate::types::BatchStatementRequest).
-    pub fn builder() -> crate::types::builders::BatchStatementRequestBuilder {
-        crate::types::builders::BatchStatementRequestBuilder::default()
+    pub fn builder() -> super::types::builders::BatchStatementRequestBuilder {
+        super::types::builders::BatchStatementRequestBuilder::default()
     }
 }
 
@@ -48,9 +48,9 @@ impl BatchStatementRequest {
 #[non_exhaustive]
 pub struct BatchStatementRequestBuilder {
     pub(crate) statement: ::std::option::Option<::std::string::String>,
-    pub(crate) parameters: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>,
+    pub(crate) parameters: ::std::option::Option<::std::vec::Vec<super::types::AttributeValue>>,
     pub(crate) consistent_read: ::std::option::Option<bool>,
-    pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
+    pub(crate) return_values_on_condition_check_failure: ::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl BatchStatementRequestBuilder {
     /// <p>A valid PartiQL statement.</p>
@@ -73,19 +73,19 @@ impl BatchStatementRequestBuilder {
     /// To override the contents of this collection use [`set_parameters`](Self::set_parameters).
     ///
     /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
-    pub fn parameters(mut self, input: crate::types::AttributeValue) -> Self {
+    pub fn parameters(mut self, input: super::types::AttributeValue) -> Self {
         let mut v = self.parameters.unwrap_or_default();
         v.push(input);
         self.parameters = ::std::option::Option::Some(v);
         self
     }
     /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
-    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
+    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::AttributeValue>>) -> Self {
         self.parameters = input;
         self
     }
     /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
-    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::types::AttributeValue>> {
         &self.parameters
     }
     /// <p>The read consistency of the PartiQL batch request.</p>
@@ -104,7 +104,7 @@ impl BatchStatementRequestBuilder {
     }
     /// <p>An optional parameter that returns the item attributes for a PartiQL batch request operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub fn return_values_on_condition_check_failure(mut self, input: crate::types::ReturnValuesOnConditionCheckFailure) -> Self {
+    pub fn return_values_on_condition_check_failure(mut self, input: super::types::ReturnValuesOnConditionCheckFailure) -> Self {
         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
         self
     }
@@ -112,21 +112,21 @@ impl BatchStatementRequestBuilder {
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
     pub fn set_return_values_on_condition_check_failure(
         mut self,
-        input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
+        input: ::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure>,
     ) -> Self {
         self.return_values_on_condition_check_failure = input;
         self
     }
     /// <p>An optional parameter that returns the item attributes for a PartiQL batch request operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure> {
+    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<super::types::ReturnValuesOnConditionCheckFailure> {
         &self.return_values_on_condition_check_failure
     }
     /// Consumes the builder and constructs a [`BatchStatementRequest`](crate::types::BatchStatementRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`statement`](crate::types::builders::BatchStatementRequestBuilder::statement)
-    pub fn build(self) -> ::std::result::Result<crate::types::BatchStatementRequest, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::BatchStatementRequest {
+    pub fn build(self) -> ::std::result::Result<super::types::BatchStatementRequest, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::BatchStatementRequest {
             statement: self.statement.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "statement",

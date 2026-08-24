@@ -15,8 +15,8 @@ impl DeletePlatformApplicationInput {
 }
 impl DeletePlatformApplicationInput {
     /// Creates a new builder-style object to manufacture [`DeletePlatformApplicationInput`](crate::operation::delete_platform_application::DeletePlatformApplicationInput).
-    pub fn builder() -> crate::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder {
-        crate::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder::default()
+    pub fn builder() -> super::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder {
+        super::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder::default()
     }
 }
 
@@ -46,10 +46,10 @@ impl DeletePlatformApplicationInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_platform_application::DeletePlatformApplicationInput,
+        super::operation::delete_platform_application::DeletePlatformApplicationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_platform_application::DeletePlatformApplicationInput {
+        ::std::result::Result::Ok(super::operation::delete_platform_application::DeletePlatformApplicationInput {
             platform_application_arn: self.platform_application_arn,
         })
     }

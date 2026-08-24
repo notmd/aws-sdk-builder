@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct InstanceRequirements {
     /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
-    pub architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
+    pub architectures: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>,
     /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
     pub allowed_instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
@@ -15,7 +15,7 @@ impl InstanceRequirements {
     /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.architectures.is_none()`.
-    pub fn architectures(&self) -> &[crate::types::Architecture] {
+    pub fn architectures(&self) -> &[super::types::Architecture] {
         self.architectures.as_deref().unwrap_or_default()
     }
     /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
@@ -33,8 +33,8 @@ impl InstanceRequirements {
 }
 impl InstanceRequirements {
     /// Creates a new builder-style object to manufacture [`InstanceRequirements`](crate::types::InstanceRequirements).
-    pub fn builder() -> crate::types::builders::InstanceRequirementsBuilder {
-        crate::types::builders::InstanceRequirementsBuilder::default()
+    pub fn builder() -> super::types::builders::InstanceRequirementsBuilder {
+        super::types::builders::InstanceRequirementsBuilder::default()
     }
 }
 
@@ -42,7 +42,7 @@ impl InstanceRequirements {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InstanceRequirementsBuilder {
-    pub(crate) architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
+    pub(crate) architectures: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>,
     pub(crate) allowed_instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) excluded_instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
@@ -52,19 +52,19 @@ impl InstanceRequirementsBuilder {
     /// To override the contents of this collection use [`set_architectures`](Self::set_architectures).
     ///
     /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
-    pub fn architectures(mut self, input: crate::types::Architecture) -> Self {
+    pub fn architectures(mut self, input: super::types::Architecture) -> Self {
         let mut v = self.architectures.unwrap_or_default();
         v.push(input);
         self.architectures = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
-    pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
+    pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<super::types::Architecture>>) -> Self {
         self.architectures = input;
         self
     }
     /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
-    pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
+    pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<super::types::Architecture>> {
         &self.architectures
     }
     /// Appends an item to `allowed_instance_types`.
@@ -108,8 +108,8 @@ impl InstanceRequirementsBuilder {
         &self.excluded_instance_types
     }
     /// Consumes the builder and constructs a [`InstanceRequirements`](crate::types::InstanceRequirements).
-    pub fn build(self) -> crate::types::InstanceRequirements {
-        crate::types::InstanceRequirements {
+    pub fn build(self) -> super::types::InstanceRequirements {
+        super::types::InstanceRequirements {
             architectures: self.architectures,
             allowed_instance_types: self.allowed_instance_types,
             excluded_instance_types: self.excluded_instance_types,

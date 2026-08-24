@@ -13,7 +13,7 @@ pub struct UpdateAliasOutput {
     /// <p>A description of the alias.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub routing_config: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
+    pub routing_config: ::std::option::Option<super::types::AliasRoutingConfiguration>,
     /// <p>A unique identifier that changes when you update the alias.</p>
     pub revision_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -36,7 +36,7 @@ impl UpdateAliasOutput {
         self.description.as_deref()
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub fn routing_config(&self) -> ::std::option::Option<&crate::types::AliasRoutingConfiguration> {
+    pub fn routing_config(&self) -> ::std::option::Option<&super::types::AliasRoutingConfiguration> {
         self.routing_config.as_ref()
     }
     /// <p>A unique identifier that changes when you update the alias.</p>
@@ -51,8 +51,8 @@ impl ::aws_types::request_id::RequestId for UpdateAliasOutput {
 }
 impl UpdateAliasOutput {
     /// Creates a new builder-style object to manufacture [`UpdateAliasOutput`](crate::operation::update_alias::UpdateAliasOutput).
-    pub fn builder() -> crate::operation::update_alias::builders::UpdateAliasOutputBuilder {
-        crate::operation::update_alias::builders::UpdateAliasOutputBuilder::default()
+    pub fn builder() -> super::operation::update_alias::builders::UpdateAliasOutputBuilder {
+        super::operation::update_alias::builders::UpdateAliasOutputBuilder::default()
     }
 }
 
@@ -64,7 +64,7 @@ pub struct UpdateAliasOutputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) function_version: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
-    pub(crate) routing_config: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
+    pub(crate) routing_config: ::std::option::Option<super::types::AliasRoutingConfiguration>,
     pub(crate) revision_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -126,17 +126,17 @@ impl UpdateAliasOutputBuilder {
         &self.description
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub fn routing_config(mut self, input: crate::types::AliasRoutingConfiguration) -> Self {
+    pub fn routing_config(mut self, input: super::types::AliasRoutingConfiguration) -> Self {
         self.routing_config = ::std::option::Option::Some(input);
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub fn set_routing_config(mut self, input: ::std::option::Option<crate::types::AliasRoutingConfiguration>) -> Self {
+    pub fn set_routing_config(mut self, input: ::std::option::Option<super::types::AliasRoutingConfiguration>) -> Self {
         self.routing_config = input;
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-    pub fn get_routing_config(&self) -> &::std::option::Option<crate::types::AliasRoutingConfiguration> {
+    pub fn get_routing_config(&self) -> &::std::option::Option<super::types::AliasRoutingConfiguration> {
         &self.routing_config
     }
     /// <p>A unique identifier that changes when you update the alias.</p>
@@ -163,8 +163,8 @@ impl UpdateAliasOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateAliasOutput`](crate::operation::update_alias::UpdateAliasOutput).
-    pub fn build(self) -> crate::operation::update_alias::UpdateAliasOutput {
-        crate::operation::update_alias::UpdateAliasOutput {
+    pub fn build(self) -> super::operation::update_alias::UpdateAliasOutput {
+        super::operation::update_alias::UpdateAliasOutput {
             alias_arn: self.alias_arn,
             name: self.name,
             function_version: self.function_version,

@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for RemoveUserFromGroupOutput {
 }
 impl RemoveUserFromGroupOutput {
     /// Creates a new builder-style object to manufacture [`RemoveUserFromGroupOutput`](crate::operation::remove_user_from_group::RemoveUserFromGroupOutput).
-    pub fn builder() -> crate::operation::remove_user_from_group::builders::RemoveUserFromGroupOutputBuilder {
-        crate::operation::remove_user_from_group::builders::RemoveUserFromGroupOutputBuilder::default()
+    pub fn builder() -> super::operation::remove_user_from_group::builders::RemoveUserFromGroupOutputBuilder {
+        super::operation::remove_user_from_group::builders::RemoveUserFromGroupOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl RemoveUserFromGroupOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RemoveUserFromGroupOutput`](crate::operation::remove_user_from_group::RemoveUserFromGroupOutput).
-    pub fn build(self) -> crate::operation::remove_user_from_group::RemoveUserFromGroupOutput {
-        crate::operation::remove_user_from_group::RemoveUserFromGroupOutput {
+    pub fn build(self) -> super::operation::remove_user_from_group::RemoveUserFromGroupOutput {
+        super::operation::remove_user_from_group::RemoveUserFromGroupOutput {
             _request_id: self._request_id,
         }
     }

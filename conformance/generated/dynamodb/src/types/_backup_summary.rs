@@ -19,7 +19,7 @@ pub struct BackupSummary {
     /// <p>Time at which the automatic on-demand backup created by DynamoDB will expire. This <code>SYSTEM</code> on-demand backup expires automatically 35 days after its creation.</p>
     pub backup_expiry_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
-    pub backup_status: ::std::option::Option<crate::types::BackupStatus>,
+    pub backup_status: ::std::option::Option<super::types::BackupStatus>,
     /// <p>BackupType:</p>
     /// <ul>
     /// <li>
@@ -29,7 +29,7 @@ pub struct BackupSummary {
     /// <li>
     /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
     /// </ul>
-    pub backup_type: ::std::option::Option<crate::types::BackupType>,
+    pub backup_type: ::std::option::Option<super::types::BackupType>,
     /// <p>Size of the backup in bytes.</p>
     pub backup_size_bytes: ::std::option::Option<i64>,
 }
@@ -63,7 +63,7 @@ impl BackupSummary {
         self.backup_expiry_date_time.as_ref()
     }
     /// <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
-    pub fn backup_status(&self) -> ::std::option::Option<&crate::types::BackupStatus> {
+    pub fn backup_status(&self) -> ::std::option::Option<&super::types::BackupStatus> {
         self.backup_status.as_ref()
     }
     /// <p>BackupType:</p>
@@ -75,7 +75,7 @@ impl BackupSummary {
     /// <li>
     /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
     /// </ul>
-    pub fn backup_type(&self) -> ::std::option::Option<&crate::types::BackupType> {
+    pub fn backup_type(&self) -> ::std::option::Option<&super::types::BackupType> {
         self.backup_type.as_ref()
     }
     /// <p>Size of the backup in bytes.</p>
@@ -85,8 +85,8 @@ impl BackupSummary {
 }
 impl BackupSummary {
     /// Creates a new builder-style object to manufacture [`BackupSummary`](crate::types::BackupSummary).
-    pub fn builder() -> crate::types::builders::BackupSummaryBuilder {
-        crate::types::builders::BackupSummaryBuilder::default()
+    pub fn builder() -> super::types::builders::BackupSummaryBuilder {
+        super::types::builders::BackupSummaryBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ pub struct BackupSummaryBuilder {
     pub(crate) backup_name: ::std::option::Option<::std::string::String>,
     pub(crate) backup_creation_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) backup_expiry_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) backup_status: ::std::option::Option<crate::types::BackupStatus>,
-    pub(crate) backup_type: ::std::option::Option<crate::types::BackupType>,
+    pub(crate) backup_status: ::std::option::Option<super::types::BackupStatus>,
+    pub(crate) backup_type: ::std::option::Option<super::types::BackupType>,
     pub(crate) backup_size_bytes: ::std::option::Option<i64>,
 }
 impl BackupSummaryBuilder {
@@ -205,17 +205,17 @@ impl BackupSummaryBuilder {
         &self.backup_expiry_date_time
     }
     /// <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
-    pub fn backup_status(mut self, input: crate::types::BackupStatus) -> Self {
+    pub fn backup_status(mut self, input: super::types::BackupStatus) -> Self {
         self.backup_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
-    pub fn set_backup_status(mut self, input: ::std::option::Option<crate::types::BackupStatus>) -> Self {
+    pub fn set_backup_status(mut self, input: ::std::option::Option<super::types::BackupStatus>) -> Self {
         self.backup_status = input;
         self
     }
     /// <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
-    pub fn get_backup_status(&self) -> &::std::option::Option<crate::types::BackupStatus> {
+    pub fn get_backup_status(&self) -> &::std::option::Option<super::types::BackupStatus> {
         &self.backup_status
     }
     /// <p>BackupType:</p>
@@ -227,7 +227,7 @@ impl BackupSummaryBuilder {
     /// <li>
     /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
     /// </ul>
-    pub fn backup_type(mut self, input: crate::types::BackupType) -> Self {
+    pub fn backup_type(mut self, input: super::types::BackupType) -> Self {
         self.backup_type = ::std::option::Option::Some(input);
         self
     }
@@ -240,7 +240,7 @@ impl BackupSummaryBuilder {
     /// <li>
     /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
     /// </ul>
-    pub fn set_backup_type(mut self, input: ::std::option::Option<crate::types::BackupType>) -> Self {
+    pub fn set_backup_type(mut self, input: ::std::option::Option<super::types::BackupType>) -> Self {
         self.backup_type = input;
         self
     }
@@ -253,7 +253,7 @@ impl BackupSummaryBuilder {
     /// <li>
     /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
     /// </ul>
-    pub fn get_backup_type(&self) -> &::std::option::Option<crate::types::BackupType> {
+    pub fn get_backup_type(&self) -> &::std::option::Option<super::types::BackupType> {
         &self.backup_type
     }
     /// <p>Size of the backup in bytes.</p>
@@ -271,8 +271,8 @@ impl BackupSummaryBuilder {
         &self.backup_size_bytes
     }
     /// Consumes the builder and constructs a [`BackupSummary`](crate::types::BackupSummary).
-    pub fn build(self) -> crate::types::BackupSummary {
-        crate::types::BackupSummary {
+    pub fn build(self) -> super::types::BackupSummary {
+        super::types::BackupSummary {
             table_name: self.table_name,
             table_id: self.table_id,
             table_arn: self.table_arn,

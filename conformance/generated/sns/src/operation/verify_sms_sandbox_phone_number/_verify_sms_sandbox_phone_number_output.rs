@@ -13,8 +13,8 @@ impl ::aws_types::request_id::RequestId for VerifySmsSandboxPhoneNumberOutput {
 }
 impl VerifySmsSandboxPhoneNumberOutput {
     /// Creates a new builder-style object to manufacture [`VerifySmsSandboxPhoneNumberOutput`](crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput).
-    pub fn builder() -> crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberOutputBuilder {
-        crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberOutputBuilder::default()
+    pub fn builder() -> super::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberOutputBuilder {
+        super::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberOutputBuilder::default()
     }
 }
 
@@ -35,8 +35,8 @@ impl VerifySmsSandboxPhoneNumberOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`VerifySmsSandboxPhoneNumberOutput`](crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput).
-    pub fn build(self) -> crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput {
-        crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput {
+    pub fn build(self) -> super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput {
+        super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput {
             _request_id: self._request_id,
         }
     }

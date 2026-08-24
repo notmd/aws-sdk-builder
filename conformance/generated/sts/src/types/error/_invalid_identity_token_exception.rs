@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidIdentityTokenException {
     }
 }
 impl ::std::error::Error for InvalidIdentityTokenException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidIdentityTokenException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidIdentityTokenException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidIdenti
 }
 impl InvalidIdentityTokenException {
     /// Creates a new builder-style object to manufacture [`InvalidIdentityTokenException`](crate::types::error::InvalidIdentityTokenException).
-    pub fn builder() -> crate::types::error::builders::InvalidIdentityTokenExceptionBuilder {
-        crate::types::error::builders::InvalidIdentityTokenExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidIdentityTokenExceptionBuilder {
+        super::types::error::builders::InvalidIdentityTokenExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidIdentityTokenExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidIdentityTokenException`](crate::types::error::InvalidIdentityTokenException).
-    pub fn build(self) -> crate::types::error::InvalidIdentityTokenException {
-        crate::types::error::InvalidIdentityTokenException {
+    pub fn build(self) -> super::types::error::InvalidIdentityTokenException {
+        super::types::error::InvalidIdentityTokenException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

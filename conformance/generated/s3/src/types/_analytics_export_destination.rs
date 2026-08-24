@@ -5,18 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AnalyticsExportDestination {
     /// <p>A destination signifying output to an S3 bucket.</p>
-    pub s3_bucket_destination: ::std::option::Option<crate::types::AnalyticsS3BucketDestination>,
+    pub s3_bucket_destination: ::std::option::Option<super::types::AnalyticsS3BucketDestination>,
 }
 impl AnalyticsExportDestination {
     /// <p>A destination signifying output to an S3 bucket.</p>
-    pub fn s3_bucket_destination(&self) -> ::std::option::Option<&crate::types::AnalyticsS3BucketDestination> {
+    pub fn s3_bucket_destination(&self) -> ::std::option::Option<&super::types::AnalyticsS3BucketDestination> {
         self.s3_bucket_destination.as_ref()
     }
 }
 impl AnalyticsExportDestination {
     /// Creates a new builder-style object to manufacture [`AnalyticsExportDestination`](crate::types::AnalyticsExportDestination).
-    pub fn builder() -> crate::types::builders::AnalyticsExportDestinationBuilder {
-        crate::types::builders::AnalyticsExportDestinationBuilder::default()
+    pub fn builder() -> super::types::builders::AnalyticsExportDestinationBuilder {
+        super::types::builders::AnalyticsExportDestinationBuilder::default()
     }
 }
 
@@ -24,27 +24,27 @@ impl AnalyticsExportDestination {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AnalyticsExportDestinationBuilder {
-    pub(crate) s3_bucket_destination: ::std::option::Option<crate::types::AnalyticsS3BucketDestination>,
+    pub(crate) s3_bucket_destination: ::std::option::Option<super::types::AnalyticsS3BucketDestination>,
 }
 impl AnalyticsExportDestinationBuilder {
     /// <p>A destination signifying output to an S3 bucket.</p>
     /// This field is required.
-    pub fn s3_bucket_destination(mut self, input: crate::types::AnalyticsS3BucketDestination) -> Self {
+    pub fn s3_bucket_destination(mut self, input: super::types::AnalyticsS3BucketDestination) -> Self {
         self.s3_bucket_destination = ::std::option::Option::Some(input);
         self
     }
     /// <p>A destination signifying output to an S3 bucket.</p>
-    pub fn set_s3_bucket_destination(mut self, input: ::std::option::Option<crate::types::AnalyticsS3BucketDestination>) -> Self {
+    pub fn set_s3_bucket_destination(mut self, input: ::std::option::Option<super::types::AnalyticsS3BucketDestination>) -> Self {
         self.s3_bucket_destination = input;
         self
     }
     /// <p>A destination signifying output to an S3 bucket.</p>
-    pub fn get_s3_bucket_destination(&self) -> &::std::option::Option<crate::types::AnalyticsS3BucketDestination> {
+    pub fn get_s3_bucket_destination(&self) -> &::std::option::Option<super::types::AnalyticsS3BucketDestination> {
         &self.s3_bucket_destination
     }
     /// Consumes the builder and constructs a [`AnalyticsExportDestination`](crate::types::AnalyticsExportDestination).
-    pub fn build(self) -> crate::types::AnalyticsExportDestination {
-        crate::types::AnalyticsExportDestination {
+    pub fn build(self) -> super::types::AnalyticsExportDestination {
+        super::types::AnalyticsExportDestination {
             s3_bucket_destination: self.s3_bucket_destination,
         }
     }

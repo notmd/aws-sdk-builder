@@ -16,8 +16,8 @@ impl AllowedPublishers {
 }
 impl AllowedPublishers {
     /// Creates a new builder-style object to manufacture [`AllowedPublishers`](crate::types::AllowedPublishers).
-    pub fn builder() -> crate::types::builders::AllowedPublishersBuilder {
-        crate::types::builders::AllowedPublishersBuilder::default()
+    pub fn builder() -> super::types::builders::AllowedPublishersBuilder {
+        super::types::builders::AllowedPublishersBuilder::default()
     }
 }
 
@@ -51,8 +51,8 @@ impl AllowedPublishersBuilder {
     /// Consumes the builder and constructs a [`AllowedPublishers`](crate::types::AllowedPublishers).
     /// This method will fail if any of the following fields are not set:
     /// - [`signing_profile_version_arns`](crate::types::builders::AllowedPublishersBuilder::signing_profile_version_arns)
-    pub fn build(self) -> ::std::result::Result<crate::types::AllowedPublishers, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AllowedPublishers {
+    pub fn build(self) -> ::std::result::Result<super::types::AllowedPublishers, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::AllowedPublishers {
             signing_profile_version_arns: self.signing_profile_version_arns.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "signing_profile_version_arns",

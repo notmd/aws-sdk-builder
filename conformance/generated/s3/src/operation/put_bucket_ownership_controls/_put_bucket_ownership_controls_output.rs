@@ -6,7 +6,7 @@ pub struct PutBucketOwnershipControlsOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl crate::s3_request_id::RequestIdExt for PutBucketOwnershipControlsOutput {
+impl super::s3_request_id::RequestIdExt for PutBucketOwnershipControlsOutput {
     fn extended_request_id(&self) -> Option<&str> {
         self._extended_request_id.as_deref()
     }
@@ -18,8 +18,8 @@ impl ::aws_types::request_id::RequestId for PutBucketOwnershipControlsOutput {
 }
 impl PutBucketOwnershipControlsOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketOwnershipControlsOutput`](crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput).
-    pub fn builder() -> crate::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsOutputBuilder {
-        crate::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsOutputBuilder::default()
+    pub fn builder() -> super::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsOutputBuilder {
+        super::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsOutputBuilder::default()
     }
 }
 
@@ -50,8 +50,8 @@ impl PutBucketOwnershipControlsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketOwnershipControlsOutput`](crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput).
-    pub fn build(self) -> crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput {
-        crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput {
+    pub fn build(self) -> super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput {
+        super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }

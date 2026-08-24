@@ -31,8 +31,8 @@ impl ::aws_types::request_id::RequestId for PublishOutput {
 }
 impl PublishOutput {
     /// Creates a new builder-style object to manufacture [`PublishOutput`](crate::operation::publish::PublishOutput).
-    pub fn builder() -> crate::operation::publish::builders::PublishOutputBuilder {
-        crate::operation::publish::builders::PublishOutputBuilder::default()
+    pub fn builder() -> super::operation::publish::builders::PublishOutputBuilder {
+        super::operation::publish::builders::PublishOutputBuilder::default()
     }
 }
 
@@ -89,8 +89,8 @@ impl PublishOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PublishOutput`](crate::operation::publish::PublishOutput).
-    pub fn build(self) -> crate::operation::publish::PublishOutput {
-        crate::operation::publish::PublishOutput {
+    pub fn build(self) -> super::operation::publish::PublishOutput {
+        super::operation::publish::PublishOutput {
             message_id: self.message_id,
             sequence_number: self.sequence_number,
             _request_id: self._request_id,

@@ -15,8 +15,8 @@ impl StepOptions {
 }
 impl StepOptions {
     /// Creates a new builder-style object to manufacture [`StepOptions`](crate::types::StepOptions).
-    pub fn builder() -> crate::types::builders::StepOptionsBuilder {
-        crate::types::builders::StepOptionsBuilder::default()
+    pub fn builder() -> super::types::builders::StepOptionsBuilder {
+        super::types::builders::StepOptionsBuilder::default()
     }
 }
 
@@ -42,8 +42,8 @@ impl StepOptionsBuilder {
         &self.next_attempt_delay_seconds
     }
     /// Consumes the builder and constructs a [`StepOptions`](crate::types::StepOptions).
-    pub fn build(self) -> crate::types::StepOptions {
-        crate::types::StepOptions {
+    pub fn build(self) -> super::types::StepOptions {
+        super::types::StepOptions {
             next_attempt_delay_seconds: self.next_attempt_delay_seconds,
         }
     }

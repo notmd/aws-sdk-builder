@@ -15,8 +15,8 @@ impl ScalingConfig {
 }
 impl ScalingConfig {
     /// Creates a new builder-style object to manufacture [`ScalingConfig`](crate::types::ScalingConfig).
-    pub fn builder() -> crate::types::builders::ScalingConfigBuilder {
-        crate::types::builders::ScalingConfigBuilder::default()
+    pub fn builder() -> super::types::builders::ScalingConfigBuilder {
+        super::types::builders::ScalingConfigBuilder::default()
     }
 }
 
@@ -42,8 +42,8 @@ impl ScalingConfigBuilder {
         &self.maximum_concurrency
     }
     /// Consumes the builder and constructs a [`ScalingConfig`](crate::types::ScalingConfig).
-    pub fn build(self) -> crate::types::ScalingConfig {
-        crate::types::ScalingConfig {
+    pub fn build(self) -> super::types::ScalingConfig {
+        super::types::ScalingConfig {
             maximum_concurrency: self.maximum_concurrency,
         }
     }

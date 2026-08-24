@@ -24,8 +24,8 @@ impl RoleLastUsed {
 }
 impl RoleLastUsed {
     /// Creates a new builder-style object to manufacture [`RoleLastUsed`](crate::types::RoleLastUsed).
-    pub fn builder() -> crate::types::builders::RoleLastUsedBuilder {
-        crate::types::builders::RoleLastUsedBuilder::default()
+    pub fn builder() -> super::types::builders::RoleLastUsedBuilder {
+        super::types::builders::RoleLastUsedBuilder::default()
     }
 }
 
@@ -69,8 +69,8 @@ impl RoleLastUsedBuilder {
         &self.region
     }
     /// Consumes the builder and constructs a [`RoleLastUsed`](crate::types::RoleLastUsed).
-    pub fn build(self) -> crate::types::RoleLastUsed {
-        crate::types::RoleLastUsed {
+    pub fn build(self) -> super::types::RoleLastUsed {
+        super::types::RoleLastUsed {
             last_used_date: self.last_used_date,
             region: self.region,
         }

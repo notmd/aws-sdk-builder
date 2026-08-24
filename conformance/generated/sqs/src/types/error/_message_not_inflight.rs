@@ -26,7 +26,7 @@ impl ::std::fmt::Display for MessageNotInflight {
     }
 }
 impl ::std::error::Error for MessageNotInflight {}
-impl ::aws_types::request_id::RequestId for crate::types::error::MessageNotInflight {
+impl ::aws_types::request_id::RequestId for super::types::error::MessageNotInflight {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for MessageNotInf
 }
 impl MessageNotInflight {
     /// Creates a new builder-style object to manufacture [`MessageNotInflight`](crate::types::error::MessageNotInflight).
-    pub fn builder() -> crate::types::error::builders::MessageNotInflightBuilder {
-        crate::types::error::builders::MessageNotInflightBuilder::default()
+    pub fn builder() -> super::types::error::builders::MessageNotInflightBuilder {
+        super::types::error::builders::MessageNotInflightBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl MessageNotInflightBuilder {
         self
     }
     /// Consumes the builder and constructs a [`MessageNotInflight`](crate::types::error::MessageNotInflight).
-    pub fn build(self) -> crate::types::error::MessageNotInflight {
-        crate::types::error::MessageNotInflight {
+    pub fn build(self) -> super::types::error::MessageNotInflight {
+        super::types::error::MessageNotInflight {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

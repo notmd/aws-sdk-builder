@@ -21,8 +21,8 @@ impl AccountUsage {
 }
 impl AccountUsage {
     /// Creates a new builder-style object to manufacture [`AccountUsage`](crate::types::AccountUsage).
-    pub fn builder() -> crate::types::builders::AccountUsageBuilder {
-        crate::types::builders::AccountUsageBuilder::default()
+    pub fn builder() -> super::types::builders::AccountUsageBuilder {
+        super::types::builders::AccountUsageBuilder::default()
     }
 }
 
@@ -63,8 +63,8 @@ impl AccountUsageBuilder {
         &self.function_count
     }
     /// Consumes the builder and constructs a [`AccountUsage`](crate::types::AccountUsage).
-    pub fn build(self) -> crate::types::AccountUsage {
-        crate::types::AccountUsage {
+    pub fn build(self) -> super::types::AccountUsage {
+        super::types::AccountUsage {
             total_code_size: self.total_code_size.unwrap_or_default(),
             function_count: self.function_count.unwrap_or_default(),
         }

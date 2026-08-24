@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidParameterException {
     }
 }
 impl ::std::error::Error for InvalidParameterException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidParameterException {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidParameterException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidParame
 }
 impl InvalidParameterException {
     /// Creates a new builder-style object to manufacture [`InvalidParameterException`](crate::types::error::InvalidParameterException).
-    pub fn builder() -> crate::types::error::builders::InvalidParameterExceptionBuilder {
-        crate::types::error::builders::InvalidParameterExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidParameterExceptionBuilder {
+        super::types::error::builders::InvalidParameterExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidParameterExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidParameterException`](crate::types::error::InvalidParameterException).
-    pub fn build(self) -> crate::types::error::InvalidParameterException {
-        crate::types::error::InvalidParameterException {
+    pub fn build(self) -> super::types::error::InvalidParameterException {
+        super::types::error::InvalidParameterException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

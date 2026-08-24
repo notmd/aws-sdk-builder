@@ -26,7 +26,7 @@ impl ::std::fmt::Display for InvalidMessageContents {
     }
 }
 impl ::std::error::Error for InvalidMessageContents {}
-impl ::aws_types::request_id::RequestId for crate::types::error::InvalidMessageContents {
+impl ::aws_types::request_id::RequestId for super::types::error::InvalidMessageContents {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidMessag
 }
 impl InvalidMessageContents {
     /// Creates a new builder-style object to manufacture [`InvalidMessageContents`](crate::types::error::InvalidMessageContents).
-    pub fn builder() -> crate::types::error::builders::InvalidMessageContentsBuilder {
-        crate::types::error::builders::InvalidMessageContentsBuilder::default()
+    pub fn builder() -> super::types::error::builders::InvalidMessageContentsBuilder {
+        super::types::error::builders::InvalidMessageContentsBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl InvalidMessageContentsBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvalidMessageContents`](crate::types::error::InvalidMessageContents).
-    pub fn build(self) -> crate::types::error::InvalidMessageContents {
-        crate::types::error::InvalidMessageContents {
+    pub fn build(self) -> super::types::error::InvalidMessageContents {
+        super::types::error::InvalidMessageContents {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

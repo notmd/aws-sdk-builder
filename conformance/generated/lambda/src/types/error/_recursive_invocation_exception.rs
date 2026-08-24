@@ -34,7 +34,7 @@ impl ::std::fmt::Display for RecursiveInvocationException {
     }
 }
 impl ::std::error::Error for RecursiveInvocationException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::RecursiveInvocationException {
+impl ::aws_types::request_id::RequestId for super::types::error::RecursiveInvocationException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for RecursiveInvo
 }
 impl RecursiveInvocationException {
     /// Creates a new builder-style object to manufacture [`RecursiveInvocationException`](crate::types::error::RecursiveInvocationException).
-    pub fn builder() -> crate::types::error::builders::RecursiveInvocationExceptionBuilder {
-        crate::types::error::builders::RecursiveInvocationExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::RecursiveInvocationExceptionBuilder {
+        super::types::error::builders::RecursiveInvocationExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl RecursiveInvocationExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RecursiveInvocationException`](crate::types::error::RecursiveInvocationException).
-    pub fn build(self) -> crate::types::error::RecursiveInvocationException {
-        crate::types::error::RecursiveInvocationException {
+    pub fn build(self) -> super::types::error::RecursiveInvocationException {
+        super::types::error::RecursiveInvocationException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

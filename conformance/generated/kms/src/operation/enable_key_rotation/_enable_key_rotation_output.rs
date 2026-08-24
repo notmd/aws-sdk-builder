@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for EnableKeyRotationOutput {
 }
 impl EnableKeyRotationOutput {
     /// Creates a new builder-style object to manufacture [`EnableKeyRotationOutput`](crate::operation::enable_key_rotation::EnableKeyRotationOutput).
-    pub fn builder() -> crate::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder {
-        crate::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder::default()
+    pub fn builder() -> super::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder {
+        super::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl EnableKeyRotationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EnableKeyRotationOutput`](crate::operation::enable_key_rotation::EnableKeyRotationOutput).
-    pub fn build(self) -> crate::operation::enable_key_rotation::EnableKeyRotationOutput {
-        crate::operation::enable_key_rotation::EnableKeyRotationOutput {
+    pub fn build(self) -> super::operation::enable_key_rotation::EnableKeyRotationOutput {
+        super::operation::enable_key_rotation::EnableKeyRotationOutput {
             _request_id: self._request_id,
         }
     }

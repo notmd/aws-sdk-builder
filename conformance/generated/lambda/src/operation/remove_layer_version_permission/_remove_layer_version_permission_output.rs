@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for RemoveLayerVersionPermissionOutput {
 }
 impl RemoveLayerVersionPermissionOutput {
     /// Creates a new builder-style object to manufacture [`RemoveLayerVersionPermissionOutput`](crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionOutput).
-    pub fn builder() -> crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder {
-        crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder::default()
+    pub fn builder() -> super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder {
+        super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl RemoveLayerVersionPermissionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RemoveLayerVersionPermissionOutput`](crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionOutput).
-    pub fn build(self) -> crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionOutput {
-        crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionOutput {
+    pub fn build(self) -> super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionOutput {
+        super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionOutput {
             _request_id: self._request_id,
         }
     }

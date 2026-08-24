@@ -21,8 +21,8 @@ impl ListSubscriptionsByTopicInput {
 }
 impl ListSubscriptionsByTopicInput {
     /// Creates a new builder-style object to manufacture [`ListSubscriptionsByTopicInput`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput).
-    pub fn builder() -> crate::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicInputBuilder {
-        crate::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicInputBuilder::default()
+    pub fn builder() -> super::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicInputBuilder {
+        super::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicInputBuilder::default()
     }
 }
 
@@ -67,10 +67,10 @@ impl ListSubscriptionsByTopicInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput,
+        super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput {
+        ::std::result::Result::Ok(super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput {
             topic_arn: self.topic_arn,
             next_token: self.next_token,
         })

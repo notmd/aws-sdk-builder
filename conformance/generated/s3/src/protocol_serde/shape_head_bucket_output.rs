@@ -31,7 +31,7 @@ pub(crate) fn de_bucket_location_name_header(
 
 pub(crate) fn de_bucket_location_type_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
-) -> ::std::result::Result<::std::option::Option<crate::types::LocationType>, ::aws_smithy_http::header::ParseError> {
+) -> ::std::result::Result<::std::option::Option<super::types::LocationType>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-bucket-location-type");
     ::aws_smithy_http::header::one_or_none(headers)
 }

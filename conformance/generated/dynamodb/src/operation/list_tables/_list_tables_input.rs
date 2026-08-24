@@ -21,8 +21,8 @@ impl ListTablesInput {
 }
 impl ListTablesInput {
     /// Creates a new builder-style object to manufacture [`ListTablesInput`](crate::operation::list_tables::ListTablesInput).
-    pub fn builder() -> crate::operation::list_tables::builders::ListTablesInputBuilder {
-        crate::operation::list_tables::builders::ListTablesInputBuilder::default()
+    pub fn builder() -> super::operation::list_tables::builders::ListTablesInputBuilder {
+        super::operation::list_tables::builders::ListTablesInputBuilder::default()
     }
 }
 
@@ -63,8 +63,8 @@ impl ListTablesInputBuilder {
         &self.limit
     }
     /// Consumes the builder and constructs a [`ListTablesInput`](crate::operation::list_tables::ListTablesInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_tables::ListTablesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_tables::ListTablesInput {
+    pub fn build(self) -> ::std::result::Result<super::operation::list_tables::ListTablesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::list_tables::ListTablesInput {
             exclusive_start_table_name: self.exclusive_start_table_name,
             limit: self.limit,
         })

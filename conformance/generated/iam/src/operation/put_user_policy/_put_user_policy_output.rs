@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for PutUserPolicyOutput {
 }
 impl PutUserPolicyOutput {
     /// Creates a new builder-style object to manufacture [`PutUserPolicyOutput`](crate::operation::put_user_policy::PutUserPolicyOutput).
-    pub fn builder() -> crate::operation::put_user_policy::builders::PutUserPolicyOutputBuilder {
-        crate::operation::put_user_policy::builders::PutUserPolicyOutputBuilder::default()
+    pub fn builder() -> super::operation::put_user_policy::builders::PutUserPolicyOutputBuilder {
+        super::operation::put_user_policy::builders::PutUserPolicyOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl PutUserPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutUserPolicyOutput`](crate::operation::put_user_policy::PutUserPolicyOutput).
-    pub fn build(self) -> crate::operation::put_user_policy::PutUserPolicyOutput {
-        crate::operation::put_user_policy::PutUserPolicyOutput {
+    pub fn build(self) -> super::operation::put_user_policy::PutUserPolicyOutput {
+        super::operation::put_user_policy::PutUserPolicyOutput {
             _request_id: self._request_id,
         }
     }

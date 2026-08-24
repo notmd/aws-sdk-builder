@@ -27,7 +27,7 @@ impl ::std::fmt::Display for XksKeyInvalidConfigurationException {
     }
 }
 impl ::std::error::Error for XksKeyInvalidConfigurationException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::XksKeyInvalidConfigurationException {
+impl ::aws_types::request_id::RequestId for super::types::error::XksKeyInvalidConfigurationException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -40,8 +40,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for XksKeyInvalid
 }
 impl XksKeyInvalidConfigurationException {
     /// Creates a new builder-style object to manufacture [`XksKeyInvalidConfigurationException`](crate::types::error::XksKeyInvalidConfigurationException).
-    pub fn builder() -> crate::types::error::builders::XksKeyInvalidConfigurationExceptionBuilder {
-        crate::types::error::builders::XksKeyInvalidConfigurationExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::XksKeyInvalidConfigurationExceptionBuilder {
+        super::types::error::builders::XksKeyInvalidConfigurationExceptionBuilder::default()
     }
 }
 
@@ -79,8 +79,8 @@ impl XksKeyInvalidConfigurationExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`XksKeyInvalidConfigurationException`](crate::types::error::XksKeyInvalidConfigurationException).
-    pub fn build(self) -> crate::types::error::XksKeyInvalidConfigurationException {
-        crate::types::error::XksKeyInvalidConfigurationException {
+    pub fn build(self) -> super::types::error::XksKeyInvalidConfigurationException {
+        super::types::error::XksKeyInvalidConfigurationException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

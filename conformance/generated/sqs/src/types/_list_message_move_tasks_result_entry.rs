@@ -63,8 +63,8 @@ impl ListMessageMoveTasksResultEntry {
 }
 impl ListMessageMoveTasksResultEntry {
     /// Creates a new builder-style object to manufacture [`ListMessageMoveTasksResultEntry`](crate::types::ListMessageMoveTasksResultEntry).
-    pub fn builder() -> crate::types::builders::ListMessageMoveTasksResultEntryBuilder {
-        crate::types::builders::ListMessageMoveTasksResultEntryBuilder::default()
+    pub fn builder() -> super::types::builders::ListMessageMoveTasksResultEntryBuilder {
+        super::types::builders::ListMessageMoveTasksResultEntryBuilder::default()
     }
 }
 
@@ -210,8 +210,8 @@ impl ListMessageMoveTasksResultEntryBuilder {
         &self.started_timestamp
     }
     /// Consumes the builder and constructs a [`ListMessageMoveTasksResultEntry`](crate::types::ListMessageMoveTasksResultEntry).
-    pub fn build(self) -> crate::types::ListMessageMoveTasksResultEntry {
-        crate::types::ListMessageMoveTasksResultEntry {
+    pub fn build(self) -> super::types::ListMessageMoveTasksResultEntry {
+        super::types::ListMessageMoveTasksResultEntry {
             task_handle: self.task_handle,
             status: self.status,
             source_arn: self.source_arn,

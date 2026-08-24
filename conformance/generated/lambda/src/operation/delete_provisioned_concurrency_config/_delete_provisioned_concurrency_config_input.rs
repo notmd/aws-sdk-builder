@@ -40,8 +40,8 @@ impl DeleteProvisionedConcurrencyConfigInput {
 }
 impl DeleteProvisionedConcurrencyConfigInput {
     /// Creates a new builder-style object to manufacture [`DeleteProvisionedConcurrencyConfigInput`](crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput).
-    pub fn builder() -> crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder {
-        crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder::default()
+    pub fn builder() -> super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder {
+        super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder::default()
     }
 }
 
@@ -117,11 +117,11 @@ impl DeleteProvisionedConcurrencyConfigInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput,
+        super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput {
+            super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput {
                 function_name: self.function_name,
                 qualifier: self.qualifier,
             },

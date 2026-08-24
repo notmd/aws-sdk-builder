@@ -5,28 +5,28 @@ pub fn de_disable_key_rotation_http_error(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::disable_key_rotation::DisableKeyRotationOutput,
-    crate::operation::disable_key_rotation::DisableKeyRotationError,
+    super::operation::disable_key_rotation::DisableKeyRotationOutput,
+    super::operation::disable_key_rotation::DisableKeyRotationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::disable_key_rotation::DisableKeyRotationError::unhandled(generic)),
+        None => return Err(super::operation::disable_key_rotation::DisableKeyRotationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => crate::operation::disable_key_rotation::DisableKeyRotationError::DependencyTimeoutException({
+        "DependencyTimeoutException" => super::operation::disable_key_rotation::DisableKeyRotationError::DependencyTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                let mut output = super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -35,13 +35,13 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        "DisabledException" => crate::operation::disable_key_rotation::DisableKeyRotationError::DisabledException({
+        "DisabledException" => super::operation::disable_key_rotation::DisableKeyRotationError::DisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                let mut output = super::types::error::builders::DisabledExceptionBuilder::default();
+                output = super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
+                    .map_err(super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -50,13 +50,13 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        "InvalidArnException" => crate::operation::disable_key_rotation::DisableKeyRotationError::InvalidArnException({
+        "InvalidArnException" => super::operation::disable_key_rotation::DisableKeyRotationError::InvalidArnException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidArnExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidArnExceptionBuilder::default();
+                output = super::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
+                    .map_err(super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,13 +65,13 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        "KMSInternalException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInternalException({
+        "KMSInternalException" => super::operation::disable_key_rotation::DisableKeyRotationError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                    .map_err(super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,13 +80,13 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::operation::disable_key_rotation::DisableKeyRotationError::KmsInvalidStateException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -95,13 +95,13 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        "NotFoundException" => crate::operation::disable_key_rotation::DisableKeyRotationError::NotFoundException({
+        "NotFoundException" => super::operation::disable_key_rotation::DisableKeyRotationError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                let mut output = super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -110,14 +110,14 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        "UnsupportedOperationException" => crate::operation::disable_key_rotation::DisableKeyRotationError::UnsupportedOperationException({
+        "UnsupportedOperationException" => super::operation::disable_key_rotation::DisableKeyRotationError::UnsupportedOperationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
+                let mut output = super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
                 output =
-                    crate::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                    super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -126,7 +126,7 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        _ => crate::operation::disable_key_rotation::DisableKeyRotationError::generic(generic),
+        _ => super::operation::disable_key_rotation::DisableKeyRotationError::generic(generic),
     })
 }
 
@@ -136,35 +136,35 @@ pub fn de_disable_key_rotation_http_response(
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
 ) -> std::result::Result<
-    crate::operation::disable_key_rotation::DisableKeyRotationOutput,
-    crate::operation::disable_key_rotation::DisableKeyRotationError,
+    super::operation::disable_key_rotation::DisableKeyRotationOutput,
+    super::operation::disable_key_rotation::DisableKeyRotationError,
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder::default();
+        let mut output = super::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_disable_key_rotation_input(
-    input: &crate::operation::disable_key_rotation::DisableKeyRotationInput,
+    input: &super::operation::disable_key_rotation::DisableKeyRotationInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_disable_key_rotation_input::ser_disable_key_rotation_input_input(&mut object, input)?;
+    super::protocol_serde::shape_disable_key_rotation_input::ser_disable_key_rotation_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_disable_key_rotation(
     _value: &[u8],
-    mut builder: crate::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
+    mut builder: super::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
 ) -> ::std::result::Result<
-    crate::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
+    super::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;

@@ -21,8 +21,8 @@ impl FailureException {
 }
 impl FailureException {
     /// Creates a new builder-style object to manufacture [`FailureException`](crate::types::FailureException).
-    pub fn builder() -> crate::types::builders::FailureExceptionBuilder {
-        crate::types::builders::FailureExceptionBuilder::default()
+    pub fn builder() -> super::types::builders::FailureExceptionBuilder {
+        super::types::builders::FailureExceptionBuilder::default()
     }
 }
 
@@ -63,8 +63,8 @@ impl FailureExceptionBuilder {
         &self.exception_description
     }
     /// Consumes the builder and constructs a [`FailureException`](crate::types::FailureException).
-    pub fn build(self) -> crate::types::FailureException {
-        crate::types::FailureException {
+    pub fn build(self) -> super::types::FailureException {
+        super::types::FailureException {
             exception_name: self.exception_name,
             exception_description: self.exception_description,
         }

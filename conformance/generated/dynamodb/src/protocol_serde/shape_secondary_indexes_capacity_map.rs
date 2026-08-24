@@ -4,7 +4,7 @@ pub(crate) fn de_secondary_indexes_capacity_map<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
+    Option<::std::collections::HashMap<::std::string::String, super::types::Capacity>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -24,7 +24,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         let key = key.to_unescaped().map(|u| u.into_owned())?;
-                        let value = crate::protocol_serde::shape_capacity::de_capacity(tokens, _value, depth + 1)?;
+                        let value = super::protocol_serde::shape_capacity::de_capacity(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {
                                 map.insert(key, value);

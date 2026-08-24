@@ -4,26 +4,26 @@ pub fn de_send_message_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::send_message::SendMessageOutput, crate::operation::send_message::SendMessageError> {
+) -> std::result::Result<super::operation::send_message::SendMessageOutput, super::operation::send_message::SendMessageError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+    let mut generic_builder = super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::operation::send_message::SendMessageError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::send_message::SendMessageError::unhandled(generic)),
+        None => return Err(super::operation::send_message::SendMessageError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidAddress" => crate::operation::send_message::SendMessageError::InvalidAddress({
+        "InvalidAddress" => super::operation::send_message::SendMessageError::InvalidAddress({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidAddressBuilder::default();
-                output = crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidAddressBuilder::default();
+                output = super::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -32,13 +32,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "InvalidMessageContents" => crate::operation::send_message::SendMessageError::InvalidMessageContents({
+        "InvalidMessageContents" => super::operation::send_message::SendMessageError::InvalidMessageContents({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidMessageContentsBuilder::default();
-                output = crate::protocol_serde::shape_invalid_message_contents::de_invalid_message_contents_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidMessageContentsBuilder::default();
+                output = super::protocol_serde::shape_invalid_message_contents::de_invalid_message_contents_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -47,13 +47,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "InvalidSecurity" => crate::operation::send_message::SendMessageError::InvalidSecurity({
+        "InvalidSecurity" => super::operation::send_message::SendMessageError::InvalidSecurity({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidSecurityBuilder::default();
-                output = crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::InvalidSecurityBuilder::default();
+                output = super::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,13 +62,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsAccessDenied" => crate::operation::send_message::SendMessageError::KmsAccessDenied({
+        "KmsAccessDenied" => super::operation::send_message::SendMessageError::KmsAccessDenied({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsAccessDeniedBuilder::default();
-                output = crate::protocol_serde::shape_kms_access_denied::de_kms_access_denied_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::KmsAccessDeniedBuilder::default();
+                output = super::protocol_serde::shape_kms_access_denied::de_kms_access_denied_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -77,13 +77,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsDisabled" => crate::operation::send_message::SendMessageError::KmsDisabled({
+        "KmsDisabled" => super::operation::send_message::SendMessageError::KmsDisabled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsDisabledBuilder::default();
-                output = crate::protocol_serde::shape_kms_disabled::de_kms_disabled_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::KmsDisabledBuilder::default();
+                output = super::protocol_serde::shape_kms_disabled::de_kms_disabled_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -92,13 +92,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsInvalidKeyUsage" => crate::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
+        "KmsInvalidKeyUsage" => super::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidKeyUsageBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_key_usage::de_kms_invalid_key_usage_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidKeyUsageBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_key_usage::de_kms_invalid_key_usage_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -107,13 +107,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsInvalidState" => crate::operation::send_message::SendMessageError::KmsInvalidState({
+        "KmsInvalidState" => super::operation::send_message::SendMessageError::KmsInvalidState({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state::de_kms_invalid_state_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::KmsInvalidStateBuilder::default();
+                output = super::protocol_serde::shape_kms_invalid_state::de_kms_invalid_state_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122,13 +122,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsNotFound" => crate::operation::send_message::SendMessageError::KmsNotFound({
+        "KmsNotFound" => super::operation::send_message::SendMessageError::KmsNotFound({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsNotFoundBuilder::default();
-                output = crate::protocol_serde::shape_kms_not_found::de_kms_not_found_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::KmsNotFoundBuilder::default();
+                output = super::protocol_serde::shape_kms_not_found::de_kms_not_found_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -137,13 +137,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsOptInRequired" => crate::operation::send_message::SendMessageError::KmsOptInRequired({
+        "KmsOptInRequired" => super::operation::send_message::SendMessageError::KmsOptInRequired({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsOptInRequiredBuilder::default();
-                output = crate::protocol_serde::shape_kms_opt_in_required::de_kms_opt_in_required_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::KmsOptInRequiredBuilder::default();
+                output = super::protocol_serde::shape_kms_opt_in_required::de_kms_opt_in_required_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -152,13 +152,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "KmsThrottled" => crate::operation::send_message::SendMessageError::KmsThrottled({
+        "KmsThrottled" => super::operation::send_message::SendMessageError::KmsThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsThrottledBuilder::default();
-                output = crate::protocol_serde::shape_kms_throttled::de_kms_throttled_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::KmsThrottledBuilder::default();
+                output = super::protocol_serde::shape_kms_throttled::de_kms_throttled_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -167,13 +167,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "QueueDoesNotExist" => crate::operation::send_message::SendMessageError::QueueDoesNotExist({
+        "QueueDoesNotExist" => super::operation::send_message::SendMessageError::QueueDoesNotExist({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
-                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::QueueDoesNotExistBuilder::default();
+                output = super::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -182,13 +182,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "RequestThrottled" => crate::operation::send_message::SendMessageError::RequestThrottled({
+        "RequestThrottled" => super::operation::send_message::SendMessageError::RequestThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::RequestThrottledBuilder::default();
-                output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::RequestThrottledBuilder::default();
+                output = super::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -197,13 +197,13 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        "UnsupportedOperation" => crate::operation::send_message::SendMessageError::UnsupportedOperation({
+        "UnsupportedOperation" => super::operation::send_message::SendMessageError::UnsupportedOperation({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+                let mut output = super::types::error::builders::UnsupportedOperationBuilder::default();
+                output = super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                    .map_err(super::operation::send_message::SendMessageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -212,7 +212,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        _ => crate::operation::send_message::SendMessageError::generic(generic),
+        _ => super::operation::send_message::SendMessageError::generic(generic),
     })
 }
 
@@ -221,33 +221,33 @@ pub fn de_send_message_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::send_message::SendMessageOutput, crate::operation::send_message::SendMessageError> {
+) -> std::result::Result<super::operation::send_message::SendMessageOutput, super::operation::send_message::SendMessageError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::send_message::builders::SendMessageOutputBuilder::default();
-        output = crate::protocol_serde::shape_send_message::de_send_message(_response_body, output)
-            .map_err(crate::operation::send_message::SendMessageError::unhandled)?;
+        let mut output = super::operation::send_message::builders::SendMessageOutputBuilder::default();
+        output = super::protocol_serde::shape_send_message::de_send_message(_response_body, output)
+            .map_err(super::operation::send_message::SendMessageError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_send_message_input(
-    input: &crate::operation::send_message::SendMessageInput,
+    input: &super::operation::send_message::SendMessageInput,
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_send_message_input::ser_send_message_input_input(&mut object, input)?;
+    super::protocol_serde::shape_send_message_input::ser_send_message_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 pub(crate) fn de_send_message(
     _value: &[u8],
-    mut builder: crate::operation::send_message::builders::SendMessageOutputBuilder,
-) -> ::std::result::Result<crate::operation::send_message::builders::SendMessageOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+    mut builder: super::operation::send_message::builders::SendMessageOutputBuilder,
+) -> ::std::result::Result<super::operation::send_message::builders::SendMessageOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
 {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;

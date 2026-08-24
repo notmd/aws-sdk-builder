@@ -34,7 +34,7 @@ impl ::std::fmt::Display for PolicyLengthExceededException {
     }
 }
 impl ::std::error::Error for PolicyLengthExceededException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::PolicyLengthExceededException {
+impl ::aws_types::request_id::RequestId for super::types::error::PolicyLengthExceededException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PolicyLengthE
 }
 impl PolicyLengthExceededException {
     /// Creates a new builder-style object to manufacture [`PolicyLengthExceededException`](crate::types::error::PolicyLengthExceededException).
-    pub fn builder() -> crate::types::error::builders::PolicyLengthExceededExceptionBuilder {
-        crate::types::error::builders::PolicyLengthExceededExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::PolicyLengthExceededExceptionBuilder {
+        super::types::error::builders::PolicyLengthExceededExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl PolicyLengthExceededExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PolicyLengthExceededException`](crate::types::error::PolicyLengthExceededException).
-    pub fn build(self) -> crate::types::error::PolicyLengthExceededException {
-        crate::types::error::PolicyLengthExceededException {
+    pub fn build(self) -> super::types::error::PolicyLengthExceededException {
+        super::types::error::PolicyLengthExceededException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

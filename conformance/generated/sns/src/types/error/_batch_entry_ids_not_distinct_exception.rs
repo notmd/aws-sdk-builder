@@ -26,7 +26,7 @@ impl ::std::fmt::Display for BatchEntryIdsNotDistinctException {
     }
 }
 impl ::std::error::Error for BatchEntryIdsNotDistinctException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::BatchEntryIdsNotDistinctException {
+impl ::aws_types::request_id::RequestId for super::types::error::BatchEntryIdsNotDistinctException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -39,8 +39,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for BatchEntryIds
 }
 impl BatchEntryIdsNotDistinctException {
     /// Creates a new builder-style object to manufacture [`BatchEntryIdsNotDistinctException`](crate::types::error::BatchEntryIdsNotDistinctException).
-    pub fn builder() -> crate::types::error::builders::BatchEntryIdsNotDistinctExceptionBuilder {
-        crate::types::error::builders::BatchEntryIdsNotDistinctExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::BatchEntryIdsNotDistinctExceptionBuilder {
+        super::types::error::builders::BatchEntryIdsNotDistinctExceptionBuilder::default()
     }
 }
 
@@ -78,8 +78,8 @@ impl BatchEntryIdsNotDistinctExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`BatchEntryIdsNotDistinctException`](crate::types::error::BatchEntryIdsNotDistinctException).
-    pub fn build(self) -> crate::types::error::BatchEntryIdsNotDistinctException {
-        crate::types::error::BatchEntryIdsNotDistinctException {
+    pub fn build(self) -> super::types::error::BatchEntryIdsNotDistinctException {
+        super::types::error::BatchEntryIdsNotDistinctException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),
         }

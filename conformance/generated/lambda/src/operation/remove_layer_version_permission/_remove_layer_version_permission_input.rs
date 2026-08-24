@@ -32,8 +32,8 @@ impl RemoveLayerVersionPermissionInput {
 }
 impl RemoveLayerVersionPermissionInput {
     /// Creates a new builder-style object to manufacture [`RemoveLayerVersionPermissionInput`](crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput).
-    pub fn builder() -> crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionInputBuilder {
-        crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionInputBuilder::default()
+    pub fn builder() -> super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionInputBuilder {
+        super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionInputBuilder::default()
     }
 }
 
@@ -110,10 +110,10 @@ impl RemoveLayerVersionPermissionInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput,
+        super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
+        ::std::result::Result::Ok(super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
             layer_name: self.layer_name,
             version_number: self.version_number.unwrap_or_default(),
             statement_id: self.statement_id,

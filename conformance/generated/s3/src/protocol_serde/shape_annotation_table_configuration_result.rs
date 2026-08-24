@@ -3,19 +3,19 @@
 pub fn de_annotation_table_configuration_result(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::AnnotationTableConfigurationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<super::types::AnnotationTableConfigurationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     #[allow(unused_mut)]
-    let mut builder = crate::types::AnnotationTableConfigurationResult::builder();
+    let mut builder = super::types::AnnotationTableConfigurationResult::builder();
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("ConfigurationState") /* ConfigurationState com.amazonaws.s3#AnnotationTableConfigurationResult$ConfigurationState */ =>  {
                 let var_1 =
                     Some(
-                        Result::<crate::types::AnnotationConfigurationState, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::AnnotationConfigurationState::from(
+                        Result::<super::types::AnnotationConfigurationState, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::AnnotationConfigurationState::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -41,7 +41,7 @@ pub fn de_annotation_table_configuration_result(
             s if s.matches("Error") /* Error com.amazonaws.s3#AnnotationTableConfigurationResult$Error */ =>  {
                 let var_3 =
                     Some(
-                        crate::protocol_serde::shape_error_details::de_error_details(&mut tag, depth + 1)
+                        super::protocol_serde::shape_error_details::de_error_details(&mut tag, depth + 1)
                         ?
                     )
                 ;
@@ -90,7 +90,7 @@ pub fn de_annotation_table_configuration_result(
             _ => {}
         }
     }
-    Ok(crate::serde_util::annotation_table_configuration_result_correct_errors(builder)
+    Ok(super::serde_util::annotation_table_configuration_result_correct_errors(builder)
         .build()
         .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }

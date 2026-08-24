@@ -37,8 +37,8 @@ impl ScanRange {
 }
 impl ScanRange {
     /// Creates a new builder-style object to manufacture [`ScanRange`](crate::types::ScanRange).
-    pub fn builder() -> crate::types::builders::ScanRangeBuilder {
-        crate::types::builders::ScanRangeBuilder::default()
+    pub fn builder() -> super::types::builders::ScanRangeBuilder {
+        super::types::builders::ScanRangeBuilder::default()
     }
 }
 
@@ -103,8 +103,8 @@ impl ScanRangeBuilder {
         &self.end
     }
     /// Consumes the builder and constructs a [`ScanRange`](crate::types::ScanRange).
-    pub fn build(self) -> crate::types::ScanRange {
-        crate::types::ScanRange {
+    pub fn build(self) -> super::types::ScanRange {
+        super::types::ScanRange {
             start: self.start,
             end: self.end,
         }

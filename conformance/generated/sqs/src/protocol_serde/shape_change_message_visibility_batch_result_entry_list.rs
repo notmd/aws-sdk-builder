@@ -4,7 +4,7 @@ pub(crate) fn de_change_message_visibility_batch_result_entry_list<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>>,
+    Option<::std::vec::Vec<super::types::ChangeMessageVisibilityBatchResultEntry>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -26,7 +26,7 @@ where
                         break;
                     }
                     _ => {
-                        let value = crate::protocol_serde::shape_change_message_visibility_batch_result_entry::de_change_message_visibility_batch_result_entry(tokens, _value, depth + 1)?;
+                        let value = super::protocol_serde::shape_change_message_visibility_batch_result_entry::de_change_message_visibility_batch_result_entry(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

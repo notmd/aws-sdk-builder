@@ -34,7 +34,7 @@ impl ::std::fmt::Display for ResourceInUseException {
     }
 }
 impl ::std::error::Error for ResourceInUseException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::ResourceInUseException {
+impl ::aws_types::request_id::RequestId for super::types::error::ResourceInUseException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
@@ -47,8 +47,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResourceInUse
 }
 impl ResourceInUseException {
     /// Creates a new builder-style object to manufacture [`ResourceInUseException`](crate::types::error::ResourceInUseException).
-    pub fn builder() -> crate::types::error::builders::ResourceInUseExceptionBuilder {
-        crate::types::error::builders::ResourceInUseExceptionBuilder::default()
+    pub fn builder() -> super::types::error::builders::ResourceInUseExceptionBuilder {
+        super::types::error::builders::ResourceInUseExceptionBuilder::default()
     }
 }
 
@@ -101,8 +101,8 @@ impl ResourceInUseExceptionBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ResourceInUseException`](crate::types::error::ResourceInUseException).
-    pub fn build(self) -> crate::types::error::ResourceInUseException {
-        crate::types::error::ResourceInUseException {
+    pub fn build(self) -> super::types::error::ResourceInUseException {
+        super::types::error::ResourceInUseException {
             r#type: self.r#type,
             message: self.message,
             meta: self.meta.unwrap_or_default(),

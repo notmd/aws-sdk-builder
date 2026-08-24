@@ -4,7 +4,7 @@ pub(crate) fn de_message_body_attribute_map<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
+    Option<::std::collections::HashMap<::std::string::String, super::types::MessageAttributeValue>>,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
@@ -24,7 +24,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         let key = key.to_unescaped().map(|u| u.into_owned())?;
-                        let value = crate::protocol_serde::shape_message_attribute_value::de_message_attribute_value(tokens, _value, depth + 1)?;
+                        let value = super::protocol_serde::shape_message_attribute_value::de_message_attribute_value(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {
                                 map.insert(key, value);

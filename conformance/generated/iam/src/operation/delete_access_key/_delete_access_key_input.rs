@@ -24,8 +24,8 @@ impl DeleteAccessKeyInput {
 }
 impl DeleteAccessKeyInput {
     /// Creates a new builder-style object to manufacture [`DeleteAccessKeyInput`](crate::operation::delete_access_key::DeleteAccessKeyInput).
-    pub fn builder() -> crate::operation::delete_access_key::builders::DeleteAccessKeyInputBuilder {
-        crate::operation::delete_access_key::builders::DeleteAccessKeyInputBuilder::default()
+    pub fn builder() -> super::operation::delete_access_key::builders::DeleteAccessKeyInputBuilder {
+        super::operation::delete_access_key::builders::DeleteAccessKeyInputBuilder::default()
     }
 }
 
@@ -75,8 +75,8 @@ impl DeleteAccessKeyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteAccessKeyInput`](crate::operation::delete_access_key::DeleteAccessKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_access_key::DeleteAccessKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_access_key::DeleteAccessKeyInput {
+    ) -> ::std::result::Result<super::operation::delete_access_key::DeleteAccessKeyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::delete_access_key::DeleteAccessKeyInput {
             user_name: self.user_name,
             access_key_id: self.access_key_id,
         })

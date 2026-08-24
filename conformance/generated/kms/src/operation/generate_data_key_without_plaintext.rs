@@ -10,11 +10,11 @@ impl GenerateDataKeyWithoutPlaintext {
     }
     pub(crate) async fn orchestrate(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
+        input: super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
     ) -> ::std::result::Result<
-        crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput,
+        super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
+            super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl GenerateDataKeyWithoutPlaintext {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError>()
+                err.downcast::<super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError>()
                     .expect("correct error type")
             })
         };
@@ -33,14 +33,14 @@ impl GenerateDataKeyWithoutPlaintext {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput>()
+                .downcast::<super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextOutput>()
                 .expect("correct output type"),
         )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
+        input: super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
         stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
     ) -> ::std::result::Result<
         ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
@@ -72,8 +72,8 @@ impl GenerateDataKeyWithoutPlaintext {
 
     pub(crate) fn operation_runtime_plugins(
         client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
+        client_config: &super::config::Config,
+        config_override: ::std::option::Option<super::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
 
@@ -81,7 +81,7 @@ impl GenerateDataKeyWithoutPlaintext {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+            runtime_plugins = runtime_plugins.with_operation_plugin(super::config::ConfigOverrideRuntimePlugin::new(
                 config_override,
                 client_config.config.clone(),
                 &client_config.runtime_components,
@@ -102,7 +102,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Generat
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
+            super::config::auth::Params::builder()
                 .operation_name("GenerateDataKeyWithoutPlaintext")
                 .build()
                 .expect("required fields set"),
@@ -142,13 +142,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Generat
                 GenerateDataKeyWithoutPlaintextEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
+                super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
+                super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
             >::new())
             .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
+                super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
             >::new());
 
         ::std::borrow::Cow::Owned(rcb)
@@ -213,13 +213,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GenerateD
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_generate_data_key_without_plaintext::de_generate_data_key_without_plaintext_http_error(status, headers, body)
+            super::protocol_serde::shape_generate_data_key_without_plaintext::de_generate_data_key_without_plaintext_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_generate_data_key_without_plaintext::de_generate_data_key_without_plaintext_http_response(
+            super::protocol_serde::shape_generate_data_key_without_plaintext::de_generate_data_key_without_plaintext_http_response(
                 status, headers, body,
             )
         };
-        crate::protocol_serde::type_erase_result(parse_result)
+        super::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
@@ -232,16 +232,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GenerateData
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
-            .downcast::<crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput>()
+            .downcast::<super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput>()
             .expect("correct type");
         let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
+            .load::<super::serialization_settings::HeaderSerializationSettings>()
             .cloned()
             .unwrap_or_default();
         let mut request_builder = {
             #[allow(clippy::uninlined_format_args)]
             fn uri_base(
-                _input: &crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
+                _input: &super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
@@ -250,7 +250,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GenerateData
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
+                input: &super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput,
                 builder: ::http_1x::request::Builder,
             ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -267,7 +267,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GenerateData
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_generate_data_key_without_plaintext::ser_generate_data_key_without_plaintext_input(&input)?,
+            super::protocol_serde::shape_generate_data_key_without_plaintext::ser_generate_data_key_without_plaintext_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -300,7 +300,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GenerateDataK
             .downcast_ref::<GenerateDataKeyWithoutPlaintextInput>()
             .ok_or("failed to downcast to GenerateDataKeyWithoutPlaintextInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
+        let params = super::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
@@ -323,13 +323,13 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GenerateDataK
 #[derive(::std::fmt::Debug)]
 pub enum GenerateDataKeyWithoutPlaintextError {
     /// <p>The system timed out while trying to fulfill the request. You can retry the request.</p>
-    DependencyTimeoutException(crate::types::error::DependencyTimeoutException),
+    DependencyTimeoutException(super::types::error::DependencyTimeoutException),
     /// <p>The request was rejected because the specified KMS key is not enabled.</p>
-    DisabledException(crate::types::error::DisabledException),
+    DisabledException(super::types::error::DisabledException),
     /// <p>The request was rejected because the DryRun parameter was specified.</p>
-    DryRunOperationException(crate::types::error::DryRunOperationException),
+    DryRunOperationException(super::types::error::DryRunOperationException),
     /// <p>The request was rejected because the specified grant token is not valid.</p>
-    InvalidGrantTokenException(crate::types::error::InvalidGrantTokenException),
+    InvalidGrantTokenException(super::types::error::InvalidGrantTokenException),
     /// <p>The request was rejected for one of the following reasons:</p>
     /// <ul>
     /// <li>
@@ -339,11 +339,11 @@ pub enum GenerateDataKeyWithoutPlaintextError {
     /// </ul>
     /// <p>For encrypting, decrypting, re-encrypting, and generating data keys, the <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and verifying message authentication codes (MACs), the <code>KeyUsage</code> must be <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <code>DescribeKey</code> operation.</p>
     /// <p>To find the encryption or signing algorithms supported for a particular KMS key, use the <code>DescribeKey</code> operation.</p>
-    InvalidKeyUsageException(crate::types::error::InvalidKeyUsageException),
+    InvalidKeyUsageException(super::types::error::InvalidKeyUsageException),
     /// <p>The request was rejected because the specified KMS key was not available. You can retry the request.</p>
-    KeyUnavailableException(crate::types::error::KeyUnavailableException),
+    KeyUnavailableException(super::types::error::KeyUnavailableException),
     /// <p>The request was rejected because an internal exception occurred. The request can be retried.</p>
-    KmsInternalException(crate::types::error::KmsInternalException),
+    KmsInternalException(super::types::error::KmsInternalException),
     /// <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
     /// <p>This exceptions means one of the following:</p>
     /// <ul>
@@ -353,9 +353,9 @@ pub enum GenerateDataKeyWithoutPlaintextError {
     /// <li>
     /// <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p></li>
     /// </ul>
-    KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
+    KmsInvalidStateException(super::types::error::KmsInvalidStateException),
     /// <p>The request was rejected because the specified entity or resource could not be found.</p>
-    NotFoundException(crate::types::error::NotFoundException),
+    NotFoundException(super::types::error::NotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -363,14 +363,14 @@ pub enum GenerateDataKeyWithoutPlaintextError {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GenerateDataKeyWithoutPlaintextError) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl GenerateDataKeyWithoutPlaintextError {
     /// Creates the `GenerateDataKeyWithoutPlaintextError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.into(),
             meta: ::std::default::Default::default(),
         })
@@ -378,7 +378,7 @@ impl GenerateDataKeyWithoutPlaintextError {
 
     /// Creates the `GenerateDataKeyWithoutPlaintextError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
             meta: err,
         })
@@ -505,21 +505,21 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Generate
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
-        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Self::Unhandled(super::error::sealed_unhandled::Unhandled {
             source,
             meta: meta.unwrap_or_default(),
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError {
+impl ::aws_types::request_id::RequestId for super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
 }
 
-pub use crate::operation::generate_data_key_without_plaintext::_generate_data_key_without_plaintext_input::GenerateDataKeyWithoutPlaintextInput;
+pub use super::operation::generate_data_key_without_plaintext::_generate_data_key_without_plaintext_input::GenerateDataKeyWithoutPlaintextInput;
 
-pub use crate::operation::generate_data_key_without_plaintext::_generate_data_key_without_plaintext_output::GenerateDataKeyWithoutPlaintextOutput;
+pub use super::operation::generate_data_key_without_plaintext::_generate_data_key_without_plaintext_output::GenerateDataKeyWithoutPlaintextOutput;
 
 mod _generate_data_key_without_plaintext_input;
 

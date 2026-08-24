@@ -24,8 +24,8 @@ impl PutUserPermissionsBoundaryInput {
 }
 impl PutUserPermissionsBoundaryInput {
     /// Creates a new builder-style object to manufacture [`PutUserPermissionsBoundaryInput`](crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput).
-    pub fn builder() -> crate::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryInputBuilder {
-        crate::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryInputBuilder::default()
+    pub fn builder() -> super::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryInputBuilder {
+        super::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryInputBuilder::default()
     }
 }
 
@@ -77,10 +77,10 @@ impl PutUserPermissionsBoundaryInputBuilder {
     pub fn build(
         self,
     ) -> ::std::result::Result<
-        crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput,
+        super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput {
+        ::std::result::Result::Ok(super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput {
             user_name: self.user_name,
             permissions_boundary: self.permissions_boundary,
         })

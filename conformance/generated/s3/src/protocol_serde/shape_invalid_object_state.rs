@@ -2,14 +2,14 @@
 #[allow(unused_mut)]
 pub fn de_invalid_object_state_xml_err(
     inp: &[u8],
-    mut builder: crate::types::error::builders::InvalidObjectStateBuilder,
-) -> std::result::Result<crate::types::error::builders::InvalidObjectStateBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    mut builder: super::types::error::builders::InvalidObjectStateBuilder,
+) -> std::result::Result<super::types::error::builders::InvalidObjectStateBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     if inp.is_empty() {
         return Ok(builder);
     }
     let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
-    let mut error_decoder = crate::rest_xml_unwrapped_errors::error_scope(&mut document)?;
+    let mut error_decoder = super::rest_xml_unwrapped_errors::error_scope(&mut document)?;
     #[allow(unused_variables)]
     let depth = 0u32;
     while let Some(mut tag) = error_decoder.next_tag() {
@@ -30,8 +30,8 @@ pub fn de_invalid_object_state_xml_err(
             s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3#InvalidObjectState$StorageClass */ =>  {
                 let var_2 =
                     Some(
-                        Result::<crate::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::StorageClass::from(
+                        Result::<super::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::StorageClass::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )
@@ -44,8 +44,8 @@ pub fn de_invalid_object_state_xml_err(
             s if s.matches("AccessTier") /* AccessTier com.amazonaws.s3#InvalidObjectState$AccessTier */ =>  {
                 let var_3 =
                     Some(
-                        Result::<crate::types::IntelligentTieringAccessTier, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            crate::types::IntelligentTieringAccessTier::from(
+                        Result::<super::types::IntelligentTieringAccessTier, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::types::IntelligentTieringAccessTier::from(
                                 ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
                             )
                         )

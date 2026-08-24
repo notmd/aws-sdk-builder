@@ -21,8 +21,8 @@ impl ::aws_types::request_id::RequestId for ConfirmSubscriptionOutput {
 }
 impl ConfirmSubscriptionOutput {
     /// Creates a new builder-style object to manufacture [`ConfirmSubscriptionOutput`](crate::operation::confirm_subscription::ConfirmSubscriptionOutput).
-    pub fn builder() -> crate::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder {
-        crate::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder::default()
+    pub fn builder() -> super::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder {
+        super::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder::default()
     }
 }
 
@@ -58,8 +58,8 @@ impl ConfirmSubscriptionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ConfirmSubscriptionOutput`](crate::operation::confirm_subscription::ConfirmSubscriptionOutput).
-    pub fn build(self) -> crate::operation::confirm_subscription::ConfirmSubscriptionOutput {
-        crate::operation::confirm_subscription::ConfirmSubscriptionOutput {
+    pub fn build(self) -> super::operation::confirm_subscription::ConfirmSubscriptionOutput {
+        super::operation::confirm_subscription::ConfirmSubscriptionOutput {
             subscription_arn: self.subscription_arn,
             _request_id: self._request_id,
         }

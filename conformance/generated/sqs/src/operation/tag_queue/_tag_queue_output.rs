@@ -12,8 +12,8 @@ impl ::aws_types::request_id::RequestId for TagQueueOutput {
 }
 impl TagQueueOutput {
     /// Creates a new builder-style object to manufacture [`TagQueueOutput`](crate::operation::tag_queue::TagQueueOutput).
-    pub fn builder() -> crate::operation::tag_queue::builders::TagQueueOutputBuilder {
-        crate::operation::tag_queue::builders::TagQueueOutputBuilder::default()
+    pub fn builder() -> super::operation::tag_queue::builders::TagQueueOutputBuilder {
+        super::operation::tag_queue::builders::TagQueueOutputBuilder::default()
     }
 }
 
@@ -34,8 +34,8 @@ impl TagQueueOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`TagQueueOutput`](crate::operation::tag_queue::TagQueueOutput).
-    pub fn build(self) -> crate::operation::tag_queue::TagQueueOutput {
-        crate::operation::tag_queue::TagQueueOutput {
+    pub fn build(self) -> super::operation::tag_queue::TagQueueOutput {
+        super::operation::tag_queue::TagQueueOutput {
             _request_id: self._request_id,
         }
     }

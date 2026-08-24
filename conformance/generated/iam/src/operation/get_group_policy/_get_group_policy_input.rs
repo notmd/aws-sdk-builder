@@ -24,8 +24,8 @@ impl GetGroupPolicyInput {
 }
 impl GetGroupPolicyInput {
     /// Creates a new builder-style object to manufacture [`GetGroupPolicyInput`](crate::operation::get_group_policy::GetGroupPolicyInput).
-    pub fn builder() -> crate::operation::get_group_policy::builders::GetGroupPolicyInputBuilder {
-        crate::operation::get_group_policy::builders::GetGroupPolicyInputBuilder::default()
+    pub fn builder() -> super::operation::get_group_policy::builders::GetGroupPolicyInputBuilder {
+        super::operation::get_group_policy::builders::GetGroupPolicyInputBuilder::default()
     }
 }
 
@@ -76,8 +76,8 @@ impl GetGroupPolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetGroupPolicyInput`](crate::operation::get_group_policy::GetGroupPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_group_policy::GetGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_group_policy::GetGroupPolicyInput {
+    ) -> ::std::result::Result<super::operation::get_group_policy::GetGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::operation::get_group_policy::GetGroupPolicyInput {
             group_name: self.group_name,
             policy_name: self.policy_name,
         })

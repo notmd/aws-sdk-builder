@@ -19,7 +19,7 @@ pub struct DeriveSharedSecretInput {
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
-    pub key_agreement_algorithm: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>,
+    pub key_agreement_algorithm: ::std::option::Option<super::types::KeyAgreementAlgorithmSpec>,
     /// <p>Specifies the public key in your peer's NIST-standard elliptic curve (ECC) or SM2 (China Regions only) key pair.</p>
     /// <p>The public key must be a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
@@ -37,7 +37,7 @@ pub struct DeriveSharedSecretInput {
     /// <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p>
     /// <p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p>
     /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub recipient: ::std::option::Option<crate::types::RecipientInfo>,
+    pub recipient: ::std::option::Option<super::types::RecipientInfo>,
 }
 impl DeriveSharedSecretInput {
     /// <p>Identifies an asymmetric NIST-standard ECC or SM2 (China Regions only) KMS key. KMS uses the private key in the specified key pair to derive the shared secret. The key usage of the KMS key must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <code>DescribeKey</code> operation.</p>
@@ -58,7 +58,7 @@ impl DeriveSharedSecretInput {
         self.key_id.as_deref()
     }
     /// <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
-    pub fn key_agreement_algorithm(&self) -> ::std::option::Option<&crate::types::KeyAgreementAlgorithmSpec> {
+    pub fn key_agreement_algorithm(&self) -> ::std::option::Option<&super::types::KeyAgreementAlgorithmSpec> {
         self.key_agreement_algorithm.as_ref()
     }
     /// <p>Specifies the public key in your peer's NIST-standard elliptic curve (ECC) or SM2 (China Regions only) key pair.</p>
@@ -86,14 +86,14 @@ impl DeriveSharedSecretInput {
     /// <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p>
     /// <p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p>
     /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn recipient(&self) -> ::std::option::Option<&crate::types::RecipientInfo> {
+    pub fn recipient(&self) -> ::std::option::Option<&super::types::RecipientInfo> {
         self.recipient.as_ref()
     }
 }
 impl DeriveSharedSecretInput {
     /// Creates a new builder-style object to manufacture [`DeriveSharedSecretInput`](crate::operation::derive_shared_secret::DeriveSharedSecretInput).
-    pub fn builder() -> crate::operation::derive_shared_secret::builders::DeriveSharedSecretInputBuilder {
-        crate::operation::derive_shared_secret::builders::DeriveSharedSecretInputBuilder::default()
+    pub fn builder() -> super::operation::derive_shared_secret::builders::DeriveSharedSecretInputBuilder {
+        super::operation::derive_shared_secret::builders::DeriveSharedSecretInputBuilder::default()
     }
 }
 
@@ -102,11 +102,11 @@ impl DeriveSharedSecretInput {
 #[non_exhaustive]
 pub struct DeriveSharedSecretInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) key_agreement_algorithm: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>,
+    pub(crate) key_agreement_algorithm: ::std::option::Option<super::types::KeyAgreementAlgorithmSpec>,
     pub(crate) public_key: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) dry_run: ::std::option::Option<bool>,
-    pub(crate) recipient: ::std::option::Option<crate::types::RecipientInfo>,
+    pub(crate) recipient: ::std::option::Option<super::types::RecipientInfo>,
 }
 impl DeriveSharedSecretInputBuilder {
     /// <p>Identifies an asymmetric NIST-standard ECC or SM2 (China Regions only) KMS key. KMS uses the private key in the specified key pair to derive the shared secret. The key usage of the KMS key must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <code>DescribeKey</code> operation.</p>
@@ -165,17 +165,17 @@ impl DeriveSharedSecretInputBuilder {
     }
     /// <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
     /// This field is required.
-    pub fn key_agreement_algorithm(mut self, input: crate::types::KeyAgreementAlgorithmSpec) -> Self {
+    pub fn key_agreement_algorithm(mut self, input: super::types::KeyAgreementAlgorithmSpec) -> Self {
         self.key_agreement_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
-    pub fn set_key_agreement_algorithm(mut self, input: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>) -> Self {
+    pub fn set_key_agreement_algorithm(mut self, input: ::std::option::Option<super::types::KeyAgreementAlgorithmSpec>) -> Self {
         self.key_agreement_algorithm = input;
         self
     }
     /// <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
-    pub fn get_key_agreement_algorithm(&self) -> &::std::option::Option<crate::types::KeyAgreementAlgorithmSpec> {
+    pub fn get_key_agreement_algorithm(&self) -> &::std::option::Option<super::types::KeyAgreementAlgorithmSpec> {
         &self.key_agreement_algorithm
     }
     /// <p>Specifies the public key in your peer's NIST-standard elliptic curve (ECC) or SM2 (China Regions only) key pair.</p>
@@ -252,7 +252,7 @@ impl DeriveSharedSecretInputBuilder {
     /// <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p>
     /// <p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p>
     /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn recipient(mut self, input: crate::types::RecipientInfo) -> Self {
+    pub fn recipient(mut self, input: super::types::RecipientInfo) -> Self {
         self.recipient = ::std::option::Option::Some(input);
         self
     }
@@ -260,7 +260,7 @@ impl DeriveSharedSecretInputBuilder {
     /// <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p>
     /// <p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p>
     /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
+    pub fn set_recipient(mut self, input: ::std::option::Option<super::types::RecipientInfo>) -> Self {
         self.recipient = input;
         self
     }
@@ -268,15 +268,15 @@ impl DeriveSharedSecretInputBuilder {
     /// <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p>
     /// <p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p>
     /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_recipient(&self) -> &::std::option::Option<crate::types::RecipientInfo> {
+    pub fn get_recipient(&self) -> &::std::option::Option<super::types::RecipientInfo> {
         &self.recipient
     }
     /// Consumes the builder and constructs a [`DeriveSharedSecretInput`](crate::operation::derive_shared_secret::DeriveSharedSecretInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::derive_shared_secret::DeriveSharedSecretInput, ::aws_smithy_types::error::operation::BuildError>
+    ) -> ::std::result::Result<super::operation::derive_shared_secret::DeriveSharedSecretInput, ::aws_smithy_types::error::operation::BuildError>
     {
-        ::std::result::Result::Ok(crate::operation::derive_shared_secret::DeriveSharedSecretInput {
+        ::std::result::Result::Ok(super::operation::derive_shared_secret::DeriveSharedSecretInput {
             key_id: self.key_id,
             key_agreement_algorithm: self.key_agreement_algorithm,
             public_key: self.public_key,

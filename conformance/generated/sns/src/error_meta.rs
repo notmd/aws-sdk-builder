@@ -4,73 +4,73 @@
 #[derive(::std::fmt::Debug)]
 pub enum Error {
     /// <p>Indicates that the user has been denied access to the requested resource.</p>
-    AuthorizationErrorException(crate::types::error::AuthorizationErrorException),
+    AuthorizationErrorException(super::types::error::AuthorizationErrorException),
     /// <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
-    BatchEntryIdsNotDistinctException(crate::types::error::BatchEntryIdsNotDistinctException),
+    BatchEntryIdsNotDistinctException(super::types::error::BatchEntryIdsNotDistinctException),
     /// <p>The length of all the batch messages put together is more than the limit.</p>
-    BatchRequestTooLongException(crate::types::error::BatchRequestTooLongException),
+    BatchRequestTooLongException(super::types::error::BatchRequestTooLongException),
     /// <p>Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.</p>
-    ConcurrentAccessException(crate::types::error::ConcurrentAccessException),
+    ConcurrentAccessException(super::types::error::ConcurrentAccessException),
     /// <p>The batch request doesn't contain any entries.</p>
-    EmptyBatchRequestException(crate::types::error::EmptyBatchRequestException),
+    EmptyBatchRequestException(super::types::error::EmptyBatchRequestException),
     /// <p>Exception error indicating endpoint disabled.</p>
-    EndpointDisabledException(crate::types::error::EndpointDisabledException),
+    EndpointDisabledException(super::types::error::EndpointDisabledException),
     /// <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.</p>
-    FilterPolicyLimitExceededException(crate::types::error::FilterPolicyLimitExceededException),
+    FilterPolicyLimitExceededException(super::types::error::FilterPolicyLimitExceededException),
     /// <p>Indicates an internal service error.</p>
-    InternalErrorException(crate::types::error::InternalErrorException),
+    InternalErrorException(super::types::error::InternalErrorException),
     /// <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
-    InvalidBatchEntryIdException(crate::types::error::InvalidBatchEntryIdException),
+    InvalidBatchEntryIdException(super::types::error::InvalidBatchEntryIdException),
     /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
-    InvalidParameterException(crate::types::error::InvalidParameterException),
+    InvalidParameterException(super::types::error::InvalidParameterException),
     /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
-    InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
+    InvalidParameterValueException(super::types::error::InvalidParameterValueException),
     /// <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
-    InvalidSecurityException(crate::types::error::InvalidSecurityException),
+    InvalidSecurityException(super::types::error::InvalidSecurityException),
     /// <p>Indicates that the specified state is not a valid state for an event source.</p>
-    InvalidStateException(crate::types::error::InvalidStateException),
+    InvalidStateException(super::types::error::InvalidStateException),
     /// <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
-    KmsAccessDeniedException(crate::types::error::KmsAccessDeniedException),
+    KmsAccessDeniedException(super::types::error::KmsAccessDeniedException),
     /// <p>The request was rejected because the specified Amazon Web Services KMS key isn't enabled.</p>
-    KmsDisabledException(crate::types::error::KmsDisabledException),
+    KmsDisabledException(super::types::error::KmsDisabledException),
     /// <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
+    KmsInvalidStateException(super::types::error::KmsInvalidStateException),
     /// <p>The request was rejected because the specified entity or resource can't be found.</p>
-    KmsNotFoundException(crate::types::error::KmsNotFoundException),
+    KmsNotFoundException(super::types::error::KmsNotFoundException),
     /// <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
-    KmsOptInRequired(crate::types::error::KmsOptInRequired),
+    KmsOptInRequired(super::types::error::KmsOptInRequired),
     /// <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the <i>Key Management Service Developer Guide.</i></p>
-    KmsThrottlingException(crate::types::error::KmsThrottlingException),
+    KmsThrottlingException(super::types::error::KmsThrottlingException),
     /// <p>Indicates that the requested resource does not exist.</p>
-    NotFoundException(crate::types::error::NotFoundException),
+    NotFoundException(super::types::error::NotFoundException),
     /// <p>Indicates that the specified phone number opted out of receiving SMS messages from your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.</p>
-    OptedOutException(crate::types::error::OptedOutException),
+    OptedOutException(super::types::error::OptedOutException),
     /// <p>Exception error indicating platform application disabled.</p>
-    PlatformApplicationDisabledException(crate::types::error::PlatformApplicationDisabledException),
+    PlatformApplicationDisabledException(super::types::error::PlatformApplicationDisabledException),
     /// <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
-    ReplayLimitExceededException(crate::types::error::ReplayLimitExceededException),
+    ReplayLimitExceededException(super::types::error::ReplayLimitExceededException),
     /// <p>Can’t perform the action on the specified resource. Make sure that the resource exists.</p>
-    ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
+    ResourceNotFoundException(super::types::error::ResourceNotFoundException),
     /// <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.</p>
-    StaleTagException(crate::types::error::StaleTagException),
+    StaleTagException(super::types::error::StaleTagException),
     /// <p>Indicates that the customer already owns the maximum allowed number of subscriptions.</p>
-    SubscriptionLimitExceededException(crate::types::error::SubscriptionLimitExceededException),
+    SubscriptionLimitExceededException(super::types::error::SubscriptionLimitExceededException),
     /// <p>Can't add more than 50 tags to a topic.</p>
-    TagLimitExceededException(crate::types::error::TagLimitExceededException),
+    TagLimitExceededException(super::types::error::TagLimitExceededException),
     /// <p>The request doesn't comply with the IAM tag policy. Correct your request and then retry it.</p>
-    TagPolicyException(crate::types::error::TagPolicyException),
+    TagPolicyException(super::types::error::TagPolicyException),
     /// <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
-    ThrottledException(crate::types::error::ThrottledException),
+    ThrottledException(super::types::error::ThrottledException),
     /// <p>The batch request contains more entries than permissible (more than 10).</p>
-    TooManyEntriesInBatchRequestException(crate::types::error::TooManyEntriesInBatchRequestException),
+    TooManyEntriesInBatchRequestException(super::types::error::TooManyEntriesInBatchRequestException),
     /// <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
-    TopicLimitExceededException(crate::types::error::TopicLimitExceededException),
+    TopicLimitExceededException(super::types::error::TopicLimitExceededException),
     /// <p>Indicates that a request parameter does not comply with the associated constraints.</p>
-    UserErrorException(crate::types::error::UserErrorException),
+    UserErrorException(super::types::error::UserErrorException),
     /// <p>Indicates that a parameter in the request is invalid.</p>
-    ValidationException(crate::types::error::ValidationException),
+    ValidationException(super::types::error::ValidationException),
     /// <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
-    VerificationException(crate::types::error::VerificationException),
+    VerificationException(super::types::error::VerificationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -78,7 +78,7 @@ pub enum Error {
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
     See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
-    Unhandled(crate::error::sealed_unhandled::Unhandled),
+    Unhandled(super::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -129,7 +129,7 @@ impl ::std::fmt::Display for Error {
 }
 impl From<::aws_smithy_types::error::operation::BuildError> for Error {
     fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
-        Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+        Error::Unhandled(super::error::sealed_unhandled::Unhandled {
             source: value.into(),
             meta: ::std::default::Default::default(),
         })
@@ -176,35 +176,35 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::add_permission::AddPermissionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::add_permission::AddPermissionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::add_permission::AddPermissionError> for Error {
-    fn from(err: crate::operation::add_permission::AddPermissionError) -> Self {
+impl From<super::operation::add_permission::AddPermissionError> for Error {
+    fn from(err: super::operation::add_permission::AddPermissionError) -> Self {
         match err {
-            crate::operation::add_permission::AddPermissionError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::add_permission::AddPermissionError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::add_permission::AddPermissionError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::add_permission::AddPermissionError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::add_permission::AddPermissionError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::add_permission::AddPermissionError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::add_permission::AddPermissionError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::add_permission::AddPermissionError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::add_permission::AddPermissionError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::add_permission::AddPermissionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
+            super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
             R,
         >,
     > for Error
@@ -213,424 +213,424 @@ where
 {
     fn from(
         err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
+            super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
             R,
         >,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError> for Error {
-    fn from(err: crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError) -> Self {
+impl From<super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError> for Error {
+    fn from(err: super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError) -> Self {
         match err {
-            crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::AuthorizationErrorException(inner) => {
+            super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::InternalErrorException(inner) => {
+            super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::InvalidParameterException(inner) => {
+            super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::ThrottledException(inner) => {
+            super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::ThrottledException(inner) => {
                 Error::ThrottledException(inner)
             }
-            crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_subscription::ConfirmSubscriptionError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::confirm_subscription::ConfirmSubscriptionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_subscription::ConfirmSubscriptionError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::confirm_subscription::ConfirmSubscriptionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::confirm_subscription::ConfirmSubscriptionError> for Error {
-    fn from(err: crate::operation::confirm_subscription::ConfirmSubscriptionError) -> Self {
+impl From<super::operation::confirm_subscription::ConfirmSubscriptionError> for Error {
+    fn from(err: super::operation::confirm_subscription::ConfirmSubscriptionError) -> Self {
         match err {
-            crate::operation::confirm_subscription::ConfirmSubscriptionError::AuthorizationErrorException(inner) => {
+            super::operation::confirm_subscription::ConfirmSubscriptionError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::confirm_subscription::ConfirmSubscriptionError::FilterPolicyLimitExceededException(inner) => {
+            super::operation::confirm_subscription::ConfirmSubscriptionError::FilterPolicyLimitExceededException(inner) => {
                 Error::FilterPolicyLimitExceededException(inner)
             }
-            crate::operation::confirm_subscription::ConfirmSubscriptionError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::confirm_subscription::ConfirmSubscriptionError::InvalidParameterException(inner) => {
+            super::operation::confirm_subscription::ConfirmSubscriptionError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::confirm_subscription::ConfirmSubscriptionError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::confirm_subscription::ConfirmSubscriptionError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::confirm_subscription::ConfirmSubscriptionError::ReplayLimitExceededException(inner) => {
+            super::operation::confirm_subscription::ConfirmSubscriptionError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::confirm_subscription::ConfirmSubscriptionError::ReplayLimitExceededException(inner) => {
                 Error::ReplayLimitExceededException(inner)
             }
-            crate::operation::confirm_subscription::ConfirmSubscriptionError::SubscriptionLimitExceededException(inner) => {
+            super::operation::confirm_subscription::ConfirmSubscriptionError::SubscriptionLimitExceededException(inner) => {
                 Error::SubscriptionLimitExceededException(inner)
             }
-            crate::operation::confirm_subscription::ConfirmSubscriptionError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::confirm_subscription::ConfirmSubscriptionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_platform_application::CreatePlatformApplicationError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::create_platform_application::CreatePlatformApplicationError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_platform_application::CreatePlatformApplicationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::create_platform_application::CreatePlatformApplicationError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::create_platform_application::CreatePlatformApplicationError> for Error {
-    fn from(err: crate::operation::create_platform_application::CreatePlatformApplicationError) -> Self {
+impl From<super::operation::create_platform_application::CreatePlatformApplicationError> for Error {
+    fn from(err: super::operation::create_platform_application::CreatePlatformApplicationError) -> Self {
         match err {
-            crate::operation::create_platform_application::CreatePlatformApplicationError::AuthorizationErrorException(inner) => {
+            super::operation::create_platform_application::CreatePlatformApplicationError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::create_platform_application::CreatePlatformApplicationError::InternalErrorException(inner) => {
+            super::operation::create_platform_application::CreatePlatformApplicationError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::create_platform_application::CreatePlatformApplicationError::InvalidParameterException(inner) => {
+            super::operation::create_platform_application::CreatePlatformApplicationError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::create_platform_application::CreatePlatformApplicationError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::create_platform_application::CreatePlatformApplicationError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_platform_endpoint::CreatePlatformEndpointError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::create_platform_endpoint::CreatePlatformEndpointError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_platform_endpoint::CreatePlatformEndpointError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::create_platform_endpoint::CreatePlatformEndpointError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::create_platform_endpoint::CreatePlatformEndpointError> for Error {
-    fn from(err: crate::operation::create_platform_endpoint::CreatePlatformEndpointError) -> Self {
+impl From<super::operation::create_platform_endpoint::CreatePlatformEndpointError> for Error {
+    fn from(err: super::operation::create_platform_endpoint::CreatePlatformEndpointError) -> Self {
         match err {
-            crate::operation::create_platform_endpoint::CreatePlatformEndpointError::AuthorizationErrorException(inner) => {
+            super::operation::create_platform_endpoint::CreatePlatformEndpointError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::create_platform_endpoint::CreatePlatformEndpointError::InternalErrorException(inner) => {
+            super::operation::create_platform_endpoint::CreatePlatformEndpointError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::create_platform_endpoint::CreatePlatformEndpointError::InvalidParameterException(inner) => {
+            super::operation::create_platform_endpoint::CreatePlatformEndpointError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::create_platform_endpoint::CreatePlatformEndpointError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::create_platform_endpoint::CreatePlatformEndpointError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::create_platform_endpoint::CreatePlatformEndpointError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::create_platform_endpoint::CreatePlatformEndpointError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError, R>>
+    From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
         err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
+            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
             R,
         >,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError> for Error {
-    fn from(err: crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError) -> Self {
+impl From<super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError> for Error {
+    fn from(err: super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError) -> Self {
         match err {
-            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::AuthorizationErrorException(inner) => {
+            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::InternalErrorException(inner) => {
+            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::InvalidParameterException(inner) => {
+            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::OptedOutException(inner) => {
+            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::OptedOutException(inner) => {
                 Error::OptedOutException(inner)
             }
-            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::ThrottledException(inner) => {
+            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::ThrottledException(inner) => {
                 Error::ThrottledException(inner)
             }
-            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::UserErrorException(inner) => {
+            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::UserErrorException(inner) => {
                 Error::UserErrorException(inner)
             }
-            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_topic::CreateTopicError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::create_topic::CreateTopicError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_topic::CreateTopicError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::create_topic::CreateTopicError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::create_topic::CreateTopicError> for Error {
-    fn from(err: crate::operation::create_topic::CreateTopicError) -> Self {
+impl From<super::operation::create_topic::CreateTopicError> for Error {
+    fn from(err: super::operation::create_topic::CreateTopicError) -> Self {
         match err {
-            crate::operation::create_topic::CreateTopicError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::create_topic::CreateTopicError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
-            crate::operation::create_topic::CreateTopicError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::create_topic::CreateTopicError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::create_topic::CreateTopicError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
-            crate::operation::create_topic::CreateTopicError::StaleTagException(inner) => Error::StaleTagException(inner),
-            crate::operation::create_topic::CreateTopicError::TagLimitExceededException(inner) => Error::TagLimitExceededException(inner),
-            crate::operation::create_topic::CreateTopicError::TagPolicyException(inner) => Error::TagPolicyException(inner),
-            crate::operation::create_topic::CreateTopicError::TopicLimitExceededException(inner) => Error::TopicLimitExceededException(inner),
-            crate::operation::create_topic::CreateTopicError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::create_topic::CreateTopicError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::create_topic::CreateTopicError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
+            super::operation::create_topic::CreateTopicError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::create_topic::CreateTopicError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::create_topic::CreateTopicError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
+            super::operation::create_topic::CreateTopicError::StaleTagException(inner) => Error::StaleTagException(inner),
+            super::operation::create_topic::CreateTopicError::TagLimitExceededException(inner) => Error::TagLimitExceededException(inner),
+            super::operation::create_topic::CreateTopicError::TagPolicyException(inner) => Error::TagPolicyException(inner),
+            super::operation::create_topic::CreateTopicError::TopicLimitExceededException(inner) => Error::TopicLimitExceededException(inner),
+            super::operation::create_topic::CreateTopicError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_endpoint::DeleteEndpointError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::delete_endpoint::DeleteEndpointError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_endpoint::DeleteEndpointError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::delete_endpoint::DeleteEndpointError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::delete_endpoint::DeleteEndpointError> for Error {
-    fn from(err: crate::operation::delete_endpoint::DeleteEndpointError) -> Self {
+impl From<super::operation::delete_endpoint::DeleteEndpointError> for Error {
+    fn from(err: super::operation::delete_endpoint::DeleteEndpointError) -> Self {
         match err {
-            crate::operation::delete_endpoint::DeleteEndpointError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::delete_endpoint::DeleteEndpointError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::delete_endpoint::DeleteEndpointError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::delete_endpoint::DeleteEndpointError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::delete_endpoint::DeleteEndpointError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::delete_endpoint::DeleteEndpointError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::delete_endpoint::DeleteEndpointError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::delete_endpoint::DeleteEndpointError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_platform_application::DeletePlatformApplicationError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::delete_platform_application::DeletePlatformApplicationError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_platform_application::DeletePlatformApplicationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::delete_platform_application::DeletePlatformApplicationError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::delete_platform_application::DeletePlatformApplicationError> for Error {
-    fn from(err: crate::operation::delete_platform_application::DeletePlatformApplicationError) -> Self {
+impl From<super::operation::delete_platform_application::DeletePlatformApplicationError> for Error {
+    fn from(err: super::operation::delete_platform_application::DeletePlatformApplicationError) -> Self {
         match err {
-            crate::operation::delete_platform_application::DeletePlatformApplicationError::AuthorizationErrorException(inner) => {
+            super::operation::delete_platform_application::DeletePlatformApplicationError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::delete_platform_application::DeletePlatformApplicationError::InternalErrorException(inner) => {
+            super::operation::delete_platform_application::DeletePlatformApplicationError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::delete_platform_application::DeletePlatformApplicationError::InvalidParameterException(inner) => {
+            super::operation::delete_platform_application::DeletePlatformApplicationError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::delete_platform_application::DeletePlatformApplicationError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::delete_platform_application::DeletePlatformApplicationError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError, R>>
+    From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
         err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
+            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
             R,
         >,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError> for Error {
-    fn from(err: crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError) -> Self {
+impl From<super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError> for Error {
+    fn from(err: super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError) -> Self {
         match err {
-            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::AuthorizationErrorException(inner) => {
+            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::InternalErrorException(inner) => {
+            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::InvalidParameterException(inner) => {
+            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::ResourceNotFoundException(inner) => {
+            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::ThrottledException(inner) => {
+            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::ThrottledException(inner) => {
                 Error::ThrottledException(inner)
             }
-            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::UserErrorException(inner) => {
+            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::UserErrorException(inner) => {
                 Error::UserErrorException(inner)
             }
-            crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_topic::DeleteTopicError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::delete_topic::DeleteTopicError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_topic::DeleteTopicError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::delete_topic::DeleteTopicError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::delete_topic::DeleteTopicError> for Error {
-    fn from(err: crate::operation::delete_topic::DeleteTopicError) -> Self {
+impl From<super::operation::delete_topic::DeleteTopicError> for Error {
+    fn from(err: super::operation::delete_topic::DeleteTopicError) -> Self {
         match err {
-            crate::operation::delete_topic::DeleteTopicError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::delete_topic::DeleteTopicError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
-            crate::operation::delete_topic::DeleteTopicError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::delete_topic::DeleteTopicError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::delete_topic::DeleteTopicError::InvalidStateException(inner) => Error::InvalidStateException(inner),
-            crate::operation::delete_topic::DeleteTopicError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::delete_topic::DeleteTopicError::StaleTagException(inner) => Error::StaleTagException(inner),
-            crate::operation::delete_topic::DeleteTopicError::TagPolicyException(inner) => Error::TagPolicyException(inner),
-            crate::operation::delete_topic::DeleteTopicError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::delete_topic::DeleteTopicError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::delete_topic::DeleteTopicError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
+            super::operation::delete_topic::DeleteTopicError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::delete_topic::DeleteTopicError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::delete_topic::DeleteTopicError::InvalidStateException(inner) => Error::InvalidStateException(inner),
+            super::operation::delete_topic::DeleteTopicError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::delete_topic::DeleteTopicError::StaleTagException(inner) => Error::StaleTagException(inner),
+            super::operation::delete_topic::DeleteTopicError::TagPolicyException(inner) => Error::TagPolicyException(inner),
+            super::operation::delete_topic::DeleteTopicError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_data_protection_policy::GetDataProtectionPolicyError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_data_protection_policy::GetDataProtectionPolicyError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_data_protection_policy::GetDataProtectionPolicyError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_data_protection_policy::GetDataProtectionPolicyError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::get_data_protection_policy::GetDataProtectionPolicyError> for Error {
-    fn from(err: crate::operation::get_data_protection_policy::GetDataProtectionPolicyError) -> Self {
+impl From<super::operation::get_data_protection_policy::GetDataProtectionPolicyError> for Error {
+    fn from(err: super::operation::get_data_protection_policy::GetDataProtectionPolicyError) -> Self {
         match err {
-            crate::operation::get_data_protection_policy::GetDataProtectionPolicyError::AuthorizationErrorException(inner) => {
+            super::operation::get_data_protection_policy::GetDataProtectionPolicyError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::get_data_protection_policy::GetDataProtectionPolicyError::InternalErrorException(inner) => {
+            super::operation::get_data_protection_policy::GetDataProtectionPolicyError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::get_data_protection_policy::GetDataProtectionPolicyError::InvalidParameterException(inner) => {
+            super::operation::get_data_protection_policy::GetDataProtectionPolicyError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_data_protection_policy::GetDataProtectionPolicyError::InvalidSecurityException(inner) => {
+            super::operation::get_data_protection_policy::GetDataProtectionPolicyError::InvalidSecurityException(inner) => {
                 Error::InvalidSecurityException(inner)
             }
-            crate::operation::get_data_protection_policy::GetDataProtectionPolicyError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::get_data_protection_policy::GetDataProtectionPolicyError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::get_data_protection_policy::GetDataProtectionPolicyError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::get_data_protection_policy::GetDataProtectionPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_endpoint_attributes::GetEndpointAttributesError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_endpoint_attributes::GetEndpointAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_endpoint_attributes::GetEndpointAttributesError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_endpoint_attributes::GetEndpointAttributesError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::get_endpoint_attributes::GetEndpointAttributesError> for Error {
-    fn from(err: crate::operation::get_endpoint_attributes::GetEndpointAttributesError) -> Self {
+impl From<super::operation::get_endpoint_attributes::GetEndpointAttributesError> for Error {
+    fn from(err: super::operation::get_endpoint_attributes::GetEndpointAttributesError) -> Self {
         match err {
-            crate::operation::get_endpoint_attributes::GetEndpointAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::get_endpoint_attributes::GetEndpointAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::get_endpoint_attributes::GetEndpointAttributesError::InternalErrorException(inner) => {
+            super::operation::get_endpoint_attributes::GetEndpointAttributesError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::get_endpoint_attributes::GetEndpointAttributesError::InvalidParameterException(inner) => {
+            super::operation::get_endpoint_attributes::GetEndpointAttributesError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_endpoint_attributes::GetEndpointAttributesError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::get_endpoint_attributes::GetEndpointAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::get_endpoint_attributes::GetEndpointAttributesError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::get_endpoint_attributes::GetEndpointAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
+            super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
             R,
         >,
     > for Error
@@ -639,170 +639,170 @@ where
 {
     fn from(
         err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
+            super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
             R,
         >,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError> for Error {
-    fn from(err: crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError) -> Self {
+impl From<super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError> for Error {
+    fn from(err: super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError) -> Self {
         match err {
-            crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InternalErrorException(inner) => {
+            super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InvalidParameterException(inner) => {
+            super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::NotFoundException(inner) => {
+            super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::NotFoundException(inner) => {
                 Error::NotFoundException(inner)
             }
-            crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_sms_attributes::GetSMSAttributesError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_sms_attributes::GetSMSAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_sms_attributes::GetSMSAttributesError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_sms_attributes::GetSMSAttributesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::get_sms_attributes::GetSMSAttributesError> for Error {
-    fn from(err: crate::operation::get_sms_attributes::GetSMSAttributesError) -> Self {
+impl From<super::operation::get_sms_attributes::GetSMSAttributesError> for Error {
+    fn from(err: super::operation::get_sms_attributes::GetSMSAttributesError) -> Self {
         match err {
-            crate::operation::get_sms_attributes::GetSMSAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::get_sms_attributes::GetSMSAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::get_sms_attributes::GetSMSAttributesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::get_sms_attributes::GetSMSAttributesError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::get_sms_attributes::GetSMSAttributesError::ThrottledException(inner) => Error::ThrottledException(inner),
-            crate::operation::get_sms_attributes::GetSMSAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::get_sms_attributes::GetSMSAttributesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::get_sms_attributes::GetSMSAttributesError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::get_sms_attributes::GetSMSAttributesError::ThrottledException(inner) => Error::ThrottledException(inner),
+            super::operation::get_sms_attributes::GetSMSAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError> for Error {
-    fn from(err: crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError) -> Self {
+impl From<super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError> for Error {
+    fn from(err: super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError) -> Self {
         match err {
-            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::AuthorizationErrorException(inner) => {
+            super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::InternalErrorException(inner) => {
+            super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::ThrottledException(inner) => {
+            super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::ThrottledException(inner) => {
                 Error::ThrottledException(inner)
             }
-            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_subscription_attributes::GetSubscriptionAttributesError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_subscription_attributes::GetSubscriptionAttributesError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_subscription_attributes::GetSubscriptionAttributesError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_subscription_attributes::GetSubscriptionAttributesError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::get_subscription_attributes::GetSubscriptionAttributesError> for Error {
-    fn from(err: crate::operation::get_subscription_attributes::GetSubscriptionAttributesError) -> Self {
+impl From<super::operation::get_subscription_attributes::GetSubscriptionAttributesError> for Error {
+    fn from(err: super::operation::get_subscription_attributes::GetSubscriptionAttributesError) -> Self {
         match err {
-            crate::operation::get_subscription_attributes::GetSubscriptionAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::get_subscription_attributes::GetSubscriptionAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::get_subscription_attributes::GetSubscriptionAttributesError::InternalErrorException(inner) => {
+            super::operation::get_subscription_attributes::GetSubscriptionAttributesError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::get_subscription_attributes::GetSubscriptionAttributesError::InvalidParameterException(inner) => {
+            super::operation::get_subscription_attributes::GetSubscriptionAttributesError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_subscription_attributes::GetSubscriptionAttributesError::NotFoundException(inner) => {
+            super::operation::get_subscription_attributes::GetSubscriptionAttributesError::NotFoundException(inner) => {
                 Error::NotFoundException(inner)
             }
-            crate::operation::get_subscription_attributes::GetSubscriptionAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::get_subscription_attributes::GetSubscriptionAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_topic_attributes::GetTopicAttributesError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_topic_attributes::GetTopicAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_topic_attributes::GetTopicAttributesError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::get_topic_attributes::GetTopicAttributesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::get_topic_attributes::GetTopicAttributesError> for Error {
-    fn from(err: crate::operation::get_topic_attributes::GetTopicAttributesError) -> Self {
+impl From<super::operation::get_topic_attributes::GetTopicAttributesError> for Error {
+    fn from(err: super::operation::get_topic_attributes::GetTopicAttributesError) -> Self {
         match err {
-            crate::operation::get_topic_attributes::GetTopicAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::get_topic_attributes::GetTopicAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::get_topic_attributes::GetTopicAttributesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::get_topic_attributes::GetTopicAttributesError::InvalidParameterException(inner) => {
+            super::operation::get_topic_attributes::GetTopicAttributesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::get_topic_attributes::GetTopicAttributesError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_topic_attributes::GetTopicAttributesError::InvalidSecurityException(inner) => {
+            super::operation::get_topic_attributes::GetTopicAttributesError::InvalidSecurityException(inner) => {
                 Error::InvalidSecurityException(inner)
             }
-            crate::operation::get_topic_attributes::GetTopicAttributesError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::get_topic_attributes::GetTopicAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::get_topic_attributes::GetTopicAttributesError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::get_topic_attributes::GetTopicAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
+            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
             R,
         >,
     > for Error
@@ -811,513 +811,513 @@ where
 {
     fn from(
         err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
+            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
             R,
         >,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError> for Error {
-    fn from(err: crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError) -> Self {
+impl From<super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError> for Error {
+    fn from(err: super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError) -> Self {
         match err {
-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::AuthorizationErrorException(inner) => {
+            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InternalErrorException(inner) => {
+            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InvalidParameterException(inner) => {
+            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::NotFoundException(inner) => {
+            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::NotFoundException(inner) => {
                 Error::NotFoundException(inner)
             }
-            crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::Unhandled(inner) => {
+            super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::Unhandled(inner) => {
                 Error::Unhandled(inner)
             }
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_origination_numbers::ListOriginationNumbersError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_origination_numbers::ListOriginationNumbersError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_origination_numbers::ListOriginationNumbersError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_origination_numbers::ListOriginationNumbersError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::list_origination_numbers::ListOriginationNumbersError> for Error {
-    fn from(err: crate::operation::list_origination_numbers::ListOriginationNumbersError) -> Self {
+impl From<super::operation::list_origination_numbers::ListOriginationNumbersError> for Error {
+    fn from(err: super::operation::list_origination_numbers::ListOriginationNumbersError) -> Self {
         match err {
-            crate::operation::list_origination_numbers::ListOriginationNumbersError::AuthorizationErrorException(inner) => {
+            super::operation::list_origination_numbers::ListOriginationNumbersError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::list_origination_numbers::ListOriginationNumbersError::InternalErrorException(inner) => {
+            super::operation::list_origination_numbers::ListOriginationNumbersError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::list_origination_numbers::ListOriginationNumbersError::InvalidParameterException(inner) => {
+            super::operation::list_origination_numbers::ListOriginationNumbersError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_origination_numbers::ListOriginationNumbersError::ThrottledException(inner) => Error::ThrottledException(inner),
-            crate::operation::list_origination_numbers::ListOriginationNumbersError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::list_origination_numbers::ListOriginationNumbersError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::list_origination_numbers::ListOriginationNumbersError::ThrottledException(inner) => Error::ThrottledException(inner),
+            super::operation::list_origination_numbers::ListOriginationNumbersError::ValidationException(inner) => Error::ValidationException(inner),
+            super::operation::list_origination_numbers::ListOriginationNumbersError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError> for Error {
-    fn from(err: crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError) -> Self {
+impl From<super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError> for Error {
+    fn from(err: super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError) -> Self {
         match err {
-            crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::AuthorizationErrorException(inner) => {
+            super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::InternalErrorException(inner) => {
+            super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::InvalidParameterException(inner) => {
+            super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::ThrottledException(inner) => {
+            super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::ThrottledException(inner) => {
                 Error::ThrottledException(inner)
             }
-            crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_platform_applications::ListPlatformApplicationsError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_platform_applications::ListPlatformApplicationsError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_platform_applications::ListPlatformApplicationsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_platform_applications::ListPlatformApplicationsError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::list_platform_applications::ListPlatformApplicationsError> for Error {
-    fn from(err: crate::operation::list_platform_applications::ListPlatformApplicationsError) -> Self {
+impl From<super::operation::list_platform_applications::ListPlatformApplicationsError> for Error {
+    fn from(err: super::operation::list_platform_applications::ListPlatformApplicationsError) -> Self {
         match err {
-            crate::operation::list_platform_applications::ListPlatformApplicationsError::AuthorizationErrorException(inner) => {
+            super::operation::list_platform_applications::ListPlatformApplicationsError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::list_platform_applications::ListPlatformApplicationsError::InternalErrorException(inner) => {
+            super::operation::list_platform_applications::ListPlatformApplicationsError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::list_platform_applications::ListPlatformApplicationsError::InvalidParameterException(inner) => {
+            super::operation::list_platform_applications::ListPlatformApplicationsError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_platform_applications::ListPlatformApplicationsError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::list_platform_applications::ListPlatformApplicationsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError> for Error {
-    fn from(err: crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError) -> Self {
+impl From<super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError> for Error {
+    fn from(err: super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError) -> Self {
         match err {
-            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::AuthorizationErrorException(inner) => {
+            super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::InternalErrorException(inner) => {
+            super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::InvalidParameterException(inner) => {
+            super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::ResourceNotFoundException(inner) => {
+            super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::ThrottledException(inner) => {
+            super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::ThrottledException(inner) => {
                 Error::ThrottledException(inner)
             }
-            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_subscriptions::ListSubscriptionsError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_subscriptions::ListSubscriptionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_subscriptions::ListSubscriptionsError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_subscriptions::ListSubscriptionsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::list_subscriptions::ListSubscriptionsError> for Error {
-    fn from(err: crate::operation::list_subscriptions::ListSubscriptionsError) -> Self {
+impl From<super::operation::list_subscriptions::ListSubscriptionsError> for Error {
+    fn from(err: super::operation::list_subscriptions::ListSubscriptionsError) -> Self {
         match err {
-            crate::operation::list_subscriptions::ListSubscriptionsError::AuthorizationErrorException(inner) => {
+            super::operation::list_subscriptions::ListSubscriptionsError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::list_subscriptions::ListSubscriptionsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::list_subscriptions::ListSubscriptionsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::list_subscriptions::ListSubscriptionsError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::list_subscriptions::ListSubscriptionsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::list_subscriptions::ListSubscriptionsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::list_subscriptions::ListSubscriptionsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError> for Error {
-    fn from(err: crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError) -> Self {
+impl From<super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError> for Error {
+    fn from(err: super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError) -> Self {
         match err {
-            crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::AuthorizationErrorException(inner) => {
+            super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::InternalErrorException(inner) => {
+            super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::InvalidParameterException(inner) => {
+            super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_tags_for_resource::ListTagsForResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> for Error {
-    fn from(err: crate::operation::list_tags_for_resource::ListTagsForResourceError) -> Self {
+impl From<super::operation::list_tags_for_resource::ListTagsForResourceError> for Error {
+    fn from(err: super::operation::list_tags_for_resource::ListTagsForResourceError) -> Self {
         match err {
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::AuthorizationErrorException(inner) => {
+            super::operation::list_tags_for_resource::ListTagsForResourceError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::ConcurrentAccessException(inner) => {
+            super::operation::list_tags_for_resource::ListTagsForResourceError::ConcurrentAccessException(inner) => {
                 Error::ConcurrentAccessException(inner)
             }
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::InvalidParameterException(inner) => {
+            super::operation::list_tags_for_resource::ListTagsForResourceError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::ResourceNotFoundException(inner) => {
+            super::operation::list_tags_for_resource::ListTagsForResourceError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::TagPolicyException(inner) => Error::TagPolicyException(inner),
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::list_tags_for_resource::ListTagsForResourceError::TagPolicyException(inner) => Error::TagPolicyException(inner),
+            super::operation::list_tags_for_resource::ListTagsForResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_topics::ListTopicsError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_topics::ListTopicsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_topics::ListTopicsError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::list_topics::ListTopicsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::list_topics::ListTopicsError> for Error {
-    fn from(err: crate::operation::list_topics::ListTopicsError) -> Self {
+impl From<super::operation::list_topics::ListTopicsError> for Error {
+    fn from(err: super::operation::list_topics::ListTopicsError) -> Self {
         match err {
-            crate::operation::list_topics::ListTopicsError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::list_topics::ListTopicsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::list_topics::ListTopicsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::list_topics::ListTopicsError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::list_topics::ListTopicsError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::list_topics::ListTopicsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::list_topics::ListTopicsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::list_topics::ListTopicsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::opt_in_phone_number::OptInPhoneNumberError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::opt_in_phone_number::OptInPhoneNumberError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::opt_in_phone_number::OptInPhoneNumberError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::opt_in_phone_number::OptInPhoneNumberError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::opt_in_phone_number::OptInPhoneNumberError> for Error {
-    fn from(err: crate::operation::opt_in_phone_number::OptInPhoneNumberError) -> Self {
+impl From<super::operation::opt_in_phone_number::OptInPhoneNumberError> for Error {
+    fn from(err: super::operation::opt_in_phone_number::OptInPhoneNumberError) -> Self {
         match err {
-            crate::operation::opt_in_phone_number::OptInPhoneNumberError::AuthorizationErrorException(inner) => {
+            super::operation::opt_in_phone_number::OptInPhoneNumberError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::opt_in_phone_number::OptInPhoneNumberError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::opt_in_phone_number::OptInPhoneNumberError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::opt_in_phone_number::OptInPhoneNumberError::ThrottledException(inner) => Error::ThrottledException(inner),
-            crate::operation::opt_in_phone_number::OptInPhoneNumberError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::opt_in_phone_number::OptInPhoneNumberError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::opt_in_phone_number::OptInPhoneNumberError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::opt_in_phone_number::OptInPhoneNumberError::ThrottledException(inner) => Error::ThrottledException(inner),
+            super::operation::opt_in_phone_number::OptInPhoneNumberError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish::PublishError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::publish::PublishError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish::PublishError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::publish::PublishError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::publish::PublishError> for Error {
-    fn from(err: crate::operation::publish::PublishError) -> Self {
+impl From<super::operation::publish::PublishError> for Error {
+    fn from(err: super::operation::publish::PublishError) -> Self {
         match err {
-            crate::operation::publish::PublishError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::publish::PublishError::EndpointDisabledException(inner) => Error::EndpointDisabledException(inner),
-            crate::operation::publish::PublishError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::publish::PublishError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::publish::PublishError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
-            crate::operation::publish::PublishError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
-            crate::operation::publish::PublishError::KmsAccessDeniedException(inner) => Error::KmsAccessDeniedException(inner),
-            crate::operation::publish::PublishError::KmsDisabledException(inner) => Error::KmsDisabledException(inner),
-            crate::operation::publish::PublishError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::publish::PublishError::KmsNotFoundException(inner) => Error::KmsNotFoundException(inner),
-            crate::operation::publish::PublishError::KmsOptInRequired(inner) => Error::KmsOptInRequired(inner),
-            crate::operation::publish::PublishError::KmsThrottlingException(inner) => Error::KmsThrottlingException(inner),
-            crate::operation::publish::PublishError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::publish::PublishError::PlatformApplicationDisabledException(inner) => {
+            super::operation::publish::PublishError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::publish::PublishError::EndpointDisabledException(inner) => Error::EndpointDisabledException(inner),
+            super::operation::publish::PublishError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::publish::PublishError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::publish::PublishError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            super::operation::publish::PublishError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
+            super::operation::publish::PublishError::KmsAccessDeniedException(inner) => Error::KmsAccessDeniedException(inner),
+            super::operation::publish::PublishError::KmsDisabledException(inner) => Error::KmsDisabledException(inner),
+            super::operation::publish::PublishError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
+            super::operation::publish::PublishError::KmsNotFoundException(inner) => Error::KmsNotFoundException(inner),
+            super::operation::publish::PublishError::KmsOptInRequired(inner) => Error::KmsOptInRequired(inner),
+            super::operation::publish::PublishError::KmsThrottlingException(inner) => Error::KmsThrottlingException(inner),
+            super::operation::publish::PublishError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::publish::PublishError::PlatformApplicationDisabledException(inner) => {
                 Error::PlatformApplicationDisabledException(inner)
             }
-            crate::operation::publish::PublishError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::publish::PublishError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::publish::PublishError::ValidationException(inner) => Error::ValidationException(inner),
+            super::operation::publish::PublishError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish_batch::PublishBatchError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::publish_batch::PublishBatchError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish_batch::PublishBatchError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::publish_batch::PublishBatchError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::publish_batch::PublishBatchError> for Error {
-    fn from(err: crate::operation::publish_batch::PublishBatchError) -> Self {
+impl From<super::operation::publish_batch::PublishBatchError> for Error {
+    fn from(err: super::operation::publish_batch::PublishBatchError) -> Self {
         match err {
-            crate::operation::publish_batch::PublishBatchError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::publish_batch::PublishBatchError::BatchEntryIdsNotDistinctException(inner) => {
+            super::operation::publish_batch::PublishBatchError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::publish_batch::PublishBatchError::BatchEntryIdsNotDistinctException(inner) => {
                 Error::BatchEntryIdsNotDistinctException(inner)
             }
-            crate::operation::publish_batch::PublishBatchError::BatchRequestTooLongException(inner) => Error::BatchRequestTooLongException(inner),
-            crate::operation::publish_batch::PublishBatchError::EmptyBatchRequestException(inner) => Error::EmptyBatchRequestException(inner),
-            crate::operation::publish_batch::PublishBatchError::EndpointDisabledException(inner) => Error::EndpointDisabledException(inner),
-            crate::operation::publish_batch::PublishBatchError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::publish_batch::PublishBatchError::InvalidBatchEntryIdException(inner) => Error::InvalidBatchEntryIdException(inner),
-            crate::operation::publish_batch::PublishBatchError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::publish_batch::PublishBatchError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
-            crate::operation::publish_batch::PublishBatchError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
-            crate::operation::publish_batch::PublishBatchError::KmsAccessDeniedException(inner) => Error::KmsAccessDeniedException(inner),
-            crate::operation::publish_batch::PublishBatchError::KmsDisabledException(inner) => Error::KmsDisabledException(inner),
-            crate::operation::publish_batch::PublishBatchError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::publish_batch::PublishBatchError::KmsNotFoundException(inner) => Error::KmsNotFoundException(inner),
-            crate::operation::publish_batch::PublishBatchError::KmsOptInRequired(inner) => Error::KmsOptInRequired(inner),
-            crate::operation::publish_batch::PublishBatchError::KmsThrottlingException(inner) => Error::KmsThrottlingException(inner),
-            crate::operation::publish_batch::PublishBatchError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::publish_batch::PublishBatchError::PlatformApplicationDisabledException(inner) => {
+            super::operation::publish_batch::PublishBatchError::BatchRequestTooLongException(inner) => Error::BatchRequestTooLongException(inner),
+            super::operation::publish_batch::PublishBatchError::EmptyBatchRequestException(inner) => Error::EmptyBatchRequestException(inner),
+            super::operation::publish_batch::PublishBatchError::EndpointDisabledException(inner) => Error::EndpointDisabledException(inner),
+            super::operation::publish_batch::PublishBatchError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::publish_batch::PublishBatchError::InvalidBatchEntryIdException(inner) => Error::InvalidBatchEntryIdException(inner),
+            super::operation::publish_batch::PublishBatchError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::publish_batch::PublishBatchError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            super::operation::publish_batch::PublishBatchError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
+            super::operation::publish_batch::PublishBatchError::KmsAccessDeniedException(inner) => Error::KmsAccessDeniedException(inner),
+            super::operation::publish_batch::PublishBatchError::KmsDisabledException(inner) => Error::KmsDisabledException(inner),
+            super::operation::publish_batch::PublishBatchError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
+            super::operation::publish_batch::PublishBatchError::KmsNotFoundException(inner) => Error::KmsNotFoundException(inner),
+            super::operation::publish_batch::PublishBatchError::KmsOptInRequired(inner) => Error::KmsOptInRequired(inner),
+            super::operation::publish_batch::PublishBatchError::KmsThrottlingException(inner) => Error::KmsThrottlingException(inner),
+            super::operation::publish_batch::PublishBatchError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::publish_batch::PublishBatchError::PlatformApplicationDisabledException(inner) => {
                 Error::PlatformApplicationDisabledException(inner)
             }
-            crate::operation::publish_batch::PublishBatchError::TooManyEntriesInBatchRequestException(inner) => {
+            super::operation::publish_batch::PublishBatchError::TooManyEntriesInBatchRequestException(inner) => {
                 Error::TooManyEntriesInBatchRequestException(inner)
             }
-            crate::operation::publish_batch::PublishBatchError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::publish_batch::PublishBatchError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::publish_batch::PublishBatchError::ValidationException(inner) => Error::ValidationException(inner),
+            super::operation::publish_batch::PublishBatchError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_data_protection_policy::PutDataProtectionPolicyError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::put_data_protection_policy::PutDataProtectionPolicyError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_data_protection_policy::PutDataProtectionPolicyError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::put_data_protection_policy::PutDataProtectionPolicyError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::put_data_protection_policy::PutDataProtectionPolicyError> for Error {
-    fn from(err: crate::operation::put_data_protection_policy::PutDataProtectionPolicyError) -> Self {
+impl From<super::operation::put_data_protection_policy::PutDataProtectionPolicyError> for Error {
+    fn from(err: super::operation::put_data_protection_policy::PutDataProtectionPolicyError) -> Self {
         match err {
-            crate::operation::put_data_protection_policy::PutDataProtectionPolicyError::AuthorizationErrorException(inner) => {
+            super::operation::put_data_protection_policy::PutDataProtectionPolicyError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::put_data_protection_policy::PutDataProtectionPolicyError::InternalErrorException(inner) => {
+            super::operation::put_data_protection_policy::PutDataProtectionPolicyError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::put_data_protection_policy::PutDataProtectionPolicyError::InvalidParameterException(inner) => {
+            super::operation::put_data_protection_policy::PutDataProtectionPolicyError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::put_data_protection_policy::PutDataProtectionPolicyError::InvalidSecurityException(inner) => {
+            super::operation::put_data_protection_policy::PutDataProtectionPolicyError::InvalidSecurityException(inner) => {
                 Error::InvalidSecurityException(inner)
             }
-            crate::operation::put_data_protection_policy::PutDataProtectionPolicyError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::put_data_protection_policy::PutDataProtectionPolicyError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::put_data_protection_policy::PutDataProtectionPolicyError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::put_data_protection_policy::PutDataProtectionPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_permission::RemovePermissionError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::remove_permission::RemovePermissionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_permission::RemovePermissionError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::remove_permission::RemovePermissionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::remove_permission::RemovePermissionError> for Error {
-    fn from(err: crate::operation::remove_permission::RemovePermissionError) -> Self {
+impl From<super::operation::remove_permission::RemovePermissionError> for Error {
+    fn from(err: super::operation::remove_permission::RemovePermissionError) -> Self {
         match err {
-            crate::operation::remove_permission::RemovePermissionError::AuthorizationErrorException(inner) => {
+            super::operation::remove_permission::RemovePermissionError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::remove_permission::RemovePermissionError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::remove_permission::RemovePermissionError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::remove_permission::RemovePermissionError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::remove_permission::RemovePermissionError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::remove_permission::RemovePermissionError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::remove_permission::RemovePermissionError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::remove_permission::RemovePermissionError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::remove_permission::RemovePermissionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_endpoint_attributes::SetEndpointAttributesError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::set_endpoint_attributes::SetEndpointAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_endpoint_attributes::SetEndpointAttributesError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::set_endpoint_attributes::SetEndpointAttributesError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::set_endpoint_attributes::SetEndpointAttributesError> for Error {
-    fn from(err: crate::operation::set_endpoint_attributes::SetEndpointAttributesError) -> Self {
+impl From<super::operation::set_endpoint_attributes::SetEndpointAttributesError> for Error {
+    fn from(err: super::operation::set_endpoint_attributes::SetEndpointAttributesError) -> Self {
         match err {
-            crate::operation::set_endpoint_attributes::SetEndpointAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::set_endpoint_attributes::SetEndpointAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::set_endpoint_attributes::SetEndpointAttributesError::InternalErrorException(inner) => {
+            super::operation::set_endpoint_attributes::SetEndpointAttributesError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::set_endpoint_attributes::SetEndpointAttributesError::InvalidParameterException(inner) => {
+            super::operation::set_endpoint_attributes::SetEndpointAttributesError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::set_endpoint_attributes::SetEndpointAttributesError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::set_endpoint_attributes::SetEndpointAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::set_endpoint_attributes::SetEndpointAttributesError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::set_endpoint_attributes::SetEndpointAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl<R>
     From<
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
+            super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
             R,
         >,
     > for Error
@@ -1326,297 +1326,297 @@ where
 {
     fn from(
         err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
+            super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
             R,
         >,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError> for Error {
-    fn from(err: crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError) -> Self {
+impl From<super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError> for Error {
+    fn from(err: super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError) -> Self {
         match err {
-            crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::InternalErrorException(inner) => {
+            super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::InvalidParameterException(inner) => {
+            super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::NotFoundException(inner) => {
+            super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::NotFoundException(inner) => {
                 Error::NotFoundException(inner)
             }
-            crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_sms_attributes::SetSMSAttributesError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::set_sms_attributes::SetSMSAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_sms_attributes::SetSMSAttributesError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::set_sms_attributes::SetSMSAttributesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::set_sms_attributes::SetSMSAttributesError> for Error {
-    fn from(err: crate::operation::set_sms_attributes::SetSMSAttributesError) -> Self {
+impl From<super::operation::set_sms_attributes::SetSMSAttributesError> for Error {
+    fn from(err: super::operation::set_sms_attributes::SetSMSAttributesError) -> Self {
         match err {
-            crate::operation::set_sms_attributes::SetSMSAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::set_sms_attributes::SetSMSAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::set_sms_attributes::SetSMSAttributesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::set_sms_attributes::SetSMSAttributesError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::set_sms_attributes::SetSMSAttributesError::ThrottledException(inner) => Error::ThrottledException(inner),
-            crate::operation::set_sms_attributes::SetSMSAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::set_sms_attributes::SetSMSAttributesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::set_sms_attributes::SetSMSAttributesError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::set_sms_attributes::SetSMSAttributesError::ThrottledException(inner) => Error::ThrottledException(inner),
+            super::operation::set_sms_attributes::SetSMSAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_subscription_attributes::SetSubscriptionAttributesError, R>>
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::set_subscription_attributes::SetSubscriptionAttributesError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_subscription_attributes::SetSubscriptionAttributesError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::set_subscription_attributes::SetSubscriptionAttributesError, R>,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::set_subscription_attributes::SetSubscriptionAttributesError> for Error {
-    fn from(err: crate::operation::set_subscription_attributes::SetSubscriptionAttributesError) -> Self {
+impl From<super::operation::set_subscription_attributes::SetSubscriptionAttributesError> for Error {
+    fn from(err: super::operation::set_subscription_attributes::SetSubscriptionAttributesError) -> Self {
         match err {
-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::set_subscription_attributes::SetSubscriptionAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::FilterPolicyLimitExceededException(inner) => {
+            super::operation::set_subscription_attributes::SetSubscriptionAttributesError::FilterPolicyLimitExceededException(inner) => {
                 Error::FilterPolicyLimitExceededException(inner)
             }
-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::InternalErrorException(inner) => {
+            super::operation::set_subscription_attributes::SetSubscriptionAttributesError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::InvalidParameterException(inner) => {
+            super::operation::set_subscription_attributes::SetSubscriptionAttributesError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::NotFoundException(inner) => {
+            super::operation::set_subscription_attributes::SetSubscriptionAttributesError::NotFoundException(inner) => {
                 Error::NotFoundException(inner)
             }
-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::ReplayLimitExceededException(inner) => {
+            super::operation::set_subscription_attributes::SetSubscriptionAttributesError::ReplayLimitExceededException(inner) => {
                 Error::ReplayLimitExceededException(inner)
             }
-            crate::operation::set_subscription_attributes::SetSubscriptionAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::set_subscription_attributes::SetSubscriptionAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_topic_attributes::SetTopicAttributesError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::set_topic_attributes::SetTopicAttributesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_topic_attributes::SetTopicAttributesError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::set_topic_attributes::SetTopicAttributesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::set_topic_attributes::SetTopicAttributesError> for Error {
-    fn from(err: crate::operation::set_topic_attributes::SetTopicAttributesError) -> Self {
+impl From<super::operation::set_topic_attributes::SetTopicAttributesError> for Error {
+    fn from(err: super::operation::set_topic_attributes::SetTopicAttributesError) -> Self {
         match err {
-            crate::operation::set_topic_attributes::SetTopicAttributesError::AuthorizationErrorException(inner) => {
+            super::operation::set_topic_attributes::SetTopicAttributesError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::set_topic_attributes::SetTopicAttributesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::set_topic_attributes::SetTopicAttributesError::InvalidParameterException(inner) => {
+            super::operation::set_topic_attributes::SetTopicAttributesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::set_topic_attributes::SetTopicAttributesError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::set_topic_attributes::SetTopicAttributesError::InvalidSecurityException(inner) => {
+            super::operation::set_topic_attributes::SetTopicAttributesError::InvalidSecurityException(inner) => {
                 Error::InvalidSecurityException(inner)
             }
-            crate::operation::set_topic_attributes::SetTopicAttributesError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::set_topic_attributes::SetTopicAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::set_topic_attributes::SetTopicAttributesError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::set_topic_attributes::SetTopicAttributesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::subscribe::SubscribeError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::subscribe::SubscribeError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::subscribe::SubscribeError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::subscribe::SubscribeError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::subscribe::SubscribeError> for Error {
-    fn from(err: crate::operation::subscribe::SubscribeError) -> Self {
+impl From<super::operation::subscribe::SubscribeError> for Error {
+    fn from(err: super::operation::subscribe::SubscribeError) -> Self {
         match err {
-            crate::operation::subscribe::SubscribeError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::subscribe::SubscribeError::FilterPolicyLimitExceededException(inner) => {
+            super::operation::subscribe::SubscribeError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::subscribe::SubscribeError::FilterPolicyLimitExceededException(inner) => {
                 Error::FilterPolicyLimitExceededException(inner)
             }
-            crate::operation::subscribe::SubscribeError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::subscribe::SubscribeError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::subscribe::SubscribeError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
-            crate::operation::subscribe::SubscribeError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::subscribe::SubscribeError::ReplayLimitExceededException(inner) => Error::ReplayLimitExceededException(inner),
-            crate::operation::subscribe::SubscribeError::SubscriptionLimitExceededException(inner) => {
+            super::operation::subscribe::SubscribeError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::subscribe::SubscribeError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::subscribe::SubscribeError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
+            super::operation::subscribe::SubscribeError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::subscribe::SubscribeError::ReplayLimitExceededException(inner) => Error::ReplayLimitExceededException(inner),
+            super::operation::subscribe::SubscribeError::SubscriptionLimitExceededException(inner) => {
                 Error::SubscriptionLimitExceededException(inner)
             }
-            crate::operation::subscribe::SubscribeError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::subscribe::SubscribeError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::tag_resource::TagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::tag_resource::TagResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::tag_resource::TagResourceError> for Error {
-    fn from(err: crate::operation::tag_resource::TagResourceError) -> Self {
+impl From<super::operation::tag_resource::TagResourceError> for Error {
+    fn from(err: super::operation::tag_resource::TagResourceError) -> Self {
         match err {
-            crate::operation::tag_resource::TagResourceError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::tag_resource::TagResourceError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
-            crate::operation::tag_resource::TagResourceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::tag_resource::TagResourceError::StaleTagException(inner) => Error::StaleTagException(inner),
-            crate::operation::tag_resource::TagResourceError::TagLimitExceededException(inner) => Error::TagLimitExceededException(inner),
-            crate::operation::tag_resource::TagResourceError::TagPolicyException(inner) => Error::TagPolicyException(inner),
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::tag_resource::TagResourceError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::tag_resource::TagResourceError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
+            super::operation::tag_resource::TagResourceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            super::operation::tag_resource::TagResourceError::StaleTagException(inner) => Error::StaleTagException(inner),
+            super::operation::tag_resource::TagResourceError::TagLimitExceededException(inner) => Error::TagLimitExceededException(inner),
+            super::operation::tag_resource::TagResourceError::TagPolicyException(inner) => Error::TagPolicyException(inner),
+            super::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::unsubscribe::UnsubscribeError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::unsubscribe::UnsubscribeError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::unsubscribe::UnsubscribeError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::unsubscribe::UnsubscribeError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::unsubscribe::UnsubscribeError> for Error {
-    fn from(err: crate::operation::unsubscribe::UnsubscribeError) -> Self {
+impl From<super::operation::unsubscribe::UnsubscribeError> for Error {
+    fn from(err: super::operation::unsubscribe::UnsubscribeError) -> Self {
         match err {
-            crate::operation::unsubscribe::UnsubscribeError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::unsubscribe::UnsubscribeError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::unsubscribe::UnsubscribeError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::unsubscribe::UnsubscribeError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
-            crate::operation::unsubscribe::UnsubscribeError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::unsubscribe::UnsubscribeError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::unsubscribe::UnsubscribeError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::unsubscribe::UnsubscribeError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            super::operation::unsubscribe::UnsubscribeError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::unsubscribe::UnsubscribeError::InvalidSecurityException(inner) => Error::InvalidSecurityException(inner),
+            super::operation::unsubscribe::UnsubscribeError::NotFoundException(inner) => Error::NotFoundException(inner),
+            super::operation::unsubscribe::UnsubscribeError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::untag_resource::UntagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<super::operation::untag_resource::UntagResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::untag_resource::UntagResourceError> for Error {
-    fn from(err: crate::operation::untag_resource::UntagResourceError) -> Self {
+impl From<super::operation::untag_resource::UntagResourceError> for Error {
+    fn from(err: super::operation::untag_resource::UntagResourceError) -> Self {
         match err {
-            crate::operation::untag_resource::UntagResourceError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
-            crate::operation::untag_resource::UntagResourceError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
-            crate::operation::untag_resource::UntagResourceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::untag_resource::UntagResourceError::StaleTagException(inner) => Error::StaleTagException(inner),
-            crate::operation::untag_resource::UntagResourceError::TagLimitExceededException(inner) => Error::TagLimitExceededException(inner),
-            crate::operation::untag_resource::UntagResourceError::TagPolicyException(inner) => Error::TagPolicyException(inner),
-            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::untag_resource::UntagResourceError::AuthorizationErrorException(inner) => Error::AuthorizationErrorException(inner),
+            super::operation::untag_resource::UntagResourceError::ConcurrentAccessException(inner) => Error::ConcurrentAccessException(inner),
+            super::operation::untag_resource::UntagResourceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            super::operation::untag_resource::UntagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            super::operation::untag_resource::UntagResourceError::StaleTagException(inner) => Error::StaleTagException(inner),
+            super::operation::untag_resource::UntagResourceError::TagLimitExceededException(inner) => Error::TagLimitExceededException(inner),
+            super::operation::untag_resource::UntagResourceError::TagPolicyException(inner) => Error::TagPolicyException(inner),
+            super::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError, R>>
+    From<::aws_smithy_runtime_api::client::result::SdkError<super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError, R>>
     for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
         err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
+            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
             R,
         >,
     ) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
-            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            _ => Error::Unhandled(super::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
             }),
         }
     }
 }
-impl From<crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError> for Error {
-    fn from(err: crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError) -> Self {
+impl From<super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError> for Error {
+    fn from(err: super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError) -> Self {
         match err {
-            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::AuthorizationErrorException(inner) => {
+            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::AuthorizationErrorException(inner) => {
                 Error::AuthorizationErrorException(inner)
             }
-            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::InternalErrorException(inner) => {
+            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::InvalidParameterException(inner) => {
+            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::ResourceNotFoundException(inner) => {
+            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::ThrottledException(inner) => {
+            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::ThrottledException(inner) => {
                 Error::ThrottledException(inner)
             }
-            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::VerificationException(inner) => {
+            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::VerificationException(inner) => {
                 Error::VerificationException(inner)
             }
-            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::Unhandled(inner) => Error::Unhandled(inner),
+            super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

@@ -23,8 +23,8 @@ impl CapacityProviderVpcConfig {
 }
 impl CapacityProviderVpcConfig {
     /// Creates a new builder-style object to manufacture [`CapacityProviderVpcConfig`](crate::types::CapacityProviderVpcConfig).
-    pub fn builder() -> crate::types::builders::CapacityProviderVpcConfigBuilder {
-        crate::types::builders::CapacityProviderVpcConfigBuilder::default()
+    pub fn builder() -> super::types::builders::CapacityProviderVpcConfigBuilder {
+        super::types::builders::CapacityProviderVpcConfigBuilder::default()
     }
 }
 
@@ -80,8 +80,8 @@ impl CapacityProviderVpcConfigBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`subnet_ids`](crate::types::builders::CapacityProviderVpcConfigBuilder::subnet_ids)
     /// - [`security_group_ids`](crate::types::builders::CapacityProviderVpcConfigBuilder::security_group_ids)
-    pub fn build(self) -> ::std::result::Result<crate::types::CapacityProviderVpcConfig, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::CapacityProviderVpcConfig {
+    pub fn build(self) -> ::std::result::Result<super::types::CapacityProviderVpcConfig, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(super::types::CapacityProviderVpcConfig {
             subnet_ids: self.subnet_ids.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "subnet_ids",
