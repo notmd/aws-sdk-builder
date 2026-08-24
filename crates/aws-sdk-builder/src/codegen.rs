@@ -13685,11 +13685,11 @@ fn builder_member_is_required(
     target: &str,
     context: &Context,
 ) -> bool {
-    !operation_input(context)
-        && (is_event_stream_target(selected, target)
-            || (member_is_required(member)
-                && !has_trait(member, "smithy.api#default")
-                && member_is_effectively_required(selected, member, target)))
+    is_event_stream_target(selected, target)
+        || (!operation_input(context)
+            && member_is_required(member)
+            && !has_trait(member, "smithy.api#default")
+            && member_is_effectively_required(selected, member, target))
 }
 
 fn builder_argument_type(selected: &SelectedModel, target: &str, value_type: &str) -> String {
@@ -15184,8 +15184,8 @@ fn render_client_operation_file(selected: &SelectedModel, operation: &str) -> St
                 let field = names::rust_identifier(&name);
                 let field_method = field.strip_prefix("r#").unwrap_or(&field);
                 let target_id = member_target(member).unwrap_or("smithy.api#String");
-                let target = client_documentation_type(selected, target_id);
-                let argument = client_documentation_argument_types(selected, target_id);
+                let target = client_documentation_input_type(selected, target_id);
+                let argument = client_documentation_input_argument_types(selected, target_id);
                 let required = member_is_required(member);
                 let documentation = member_documentation(selected, member);
                 let setter_type = if is_streaming_shape_target(selected, target_id) {
@@ -15354,6 +15354,15 @@ fn client_documentation_type(selected: &SelectedModel, target: &str) -> String {
     }
 }
 
+fn client_documentation_input_type(selected: &SelectedModel, target: &str) -> String {
+    if is_event_stream_target(selected, target) {
+        let name = rust_type_name(terminal(target));
+        format!("EventStreamSender<{name}, {name}Error>")
+    } else {
+        client_documentation_type(selected, target)
+    }
+}
+
 fn client_documentation_primitive(kind: &str) -> String {
     match kind {
         "boolean" => "bool",
@@ -15400,6 +15409,14 @@ fn client_documentation_argument_types(selected: &SelectedModel, target: &str) -
         }
     }
     client_documentation_argument_type(selected, target)
+}
+
+fn client_documentation_input_argument_types(selected: &SelectedModel, target: &str) -> String {
+    if is_event_stream_target(selected, target) {
+        client_documentation_input_type(selected, target)
+    } else {
+        client_documentation_argument_types(selected, target)
+    }
 }
 
 fn client_documentation_argument_type(selected: &SelectedModel, target: &str) -> String {
@@ -16167,7 +16184,7 @@ enum Context {
 }
 
 fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String {
-    if !operation_input(&context) && is_event_stream_target(selected, target) {
+    if is_event_stream_target(selected, target) {
         let name = rust_type_name(terminal(target));
         let (value_path, error_path) = match &context {
             Context::Types {} => (
@@ -16183,7 +16200,12 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
                 format!("super::super::super::types::error::{name}Error"),
             ),
         };
-        return format!("crate::event_receiver::EventReceiver<{value_path}, {error_path}>");
+        let wrapper = if operation_input(&context) {
+            "::aws_smithy_http::event_stream::EventStreamSender"
+        } else {
+            "crate::event_receiver::EventReceiver"
+        };
+        return format!("{wrapper}<{value_path}, {error_path}>");
     }
     if is_streaming_shape_target(selected, target) {
         return match context {
@@ -16967,6 +16989,13 @@ mod tests {
                 .get("example#Chunk")
                 .is_some_and(|roles| roles.serialize)
         );
+        let operation_input = render_operation_shape_file(&selected, "Invoke", true);
+        assert!(operation_input.contains("::aws_smithy_http::event_stream::EventStreamSender<"));
+        assert!(!operation_input.contains("::aws_smithy_types::byte_stream::ByteStream"));
+        assert!(operation_input.contains("events was not specified but it is required"));
+        let client = render_client_operation_file(&selected, "Invoke");
+        assert!(client.contains("events(EventStreamSender<InputEvents, InputEventsError>)"));
+        assert!(!client.contains("events(EventReceiver<InputEvents, InputEventsError>)"));
         let event_stream = render_event_stream_serde_file(&selected);
         assert!(event_stream.contains("shape_input_events::ser_chunk_payload"));
         assert!(!event_stream.contains("shape_input_events_input::ser_chunk_payload"));

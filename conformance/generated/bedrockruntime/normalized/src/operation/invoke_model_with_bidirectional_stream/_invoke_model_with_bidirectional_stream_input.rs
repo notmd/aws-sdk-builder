@@ -6,7 +6,10 @@ pub struct InvokeModelWithBidirectionalStreamInput {
     /// <p>The model ID or ARN of the model ID to use. Currently, only <code>amazon.nova-sonic-v1:0</code> is supported.</p>
     pub model_id: ::std::option::Option<::std::string::String>,
     /// <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
-    pub body: ::aws_smithy_types::byte_stream::ByteStream,
+    pub body: ::aws_smithy_http::event_stream::EventStreamSender<
+        super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+        super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
+    >,
 }
 impl InvokeModelWithBidirectionalStreamInput {
     /// <p>The model ID or ARN of the model ID to use. Currently, only <code>amazon.nova-sonic-v1:0</code> is supported.</p>
@@ -14,7 +17,12 @@ impl InvokeModelWithBidirectionalStreamInput {
         self.model_id.as_deref()
     }
     /// <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
-    pub fn body(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
+    pub fn body(
+        &self,
+    ) -> &::aws_smithy_http::event_stream::EventStreamSender<
+        super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+        super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
+    > {
         &self.body
     }
 }
@@ -30,7 +38,12 @@ impl InvokeModelWithBidirectionalStreamInput {
 #[non_exhaustive]
 pub struct InvokeModelWithBidirectionalStreamInputBuilder {
     pub(crate) model_id: ::std::option::Option<::std::string::String>,
-    pub(crate) body: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
+    pub(crate) body: ::std::option::Option<
+        ::aws_smithy_http::event_stream::EventStreamSender<
+            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
+        >,
+    >,
 }
 impl InvokeModelWithBidirectionalStreamInputBuilder {
     /// <p>The model ID or ARN of the model ID to use. Currently, only <code>amazon.nova-sonic-v1:0</code> is supported.</p>
@@ -50,20 +63,43 @@ impl InvokeModelWithBidirectionalStreamInputBuilder {
     }
     /// <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
     /// This field is required.
-    pub fn body(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
+    pub fn body(
+        mut self,
+        input: ::aws_smithy_http::event_stream::EventStreamSender<
+            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
+        >,
+    ) -> Self {
         self.body = ::std::option::Option::Some(input);
         self
     }
     /// <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
-    pub fn set_body(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
+    pub fn set_body(
+        mut self,
+        input: ::std::option::Option<
+            ::aws_smithy_http::event_stream::EventStreamSender<
+                super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+                super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
+            >,
+        >,
+    ) -> Self {
         self.body = input;
         self
     }
     /// <p>The prompt and inference parameters in the format specified in the <code>BidirectionalInputPayloadPart</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
-    pub fn get_body(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
+    pub fn get_body(
+        &self,
+    ) -> &::std::option::Option<
+        ::aws_smithy_http::event_stream::EventStreamSender<
+            super::super::super::types::InvokeModelWithBidirectionalStreamInput,
+            super::super::super::types::error::InvokeModelWithBidirectionalStreamInputError,
+        >,
+    > {
         &self.body
     }
     /// Consumes the builder and constructs a [`InvokeModelWithBidirectionalStreamInput`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput).
+    /// This method will fail if any of the following fields are not set:
+    /// - [`body`](crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder::body)
     pub fn build(
         self,
     ) -> ::std::result::Result<
@@ -73,7 +109,12 @@ impl InvokeModelWithBidirectionalStreamInputBuilder {
         ::std::result::Result::Ok(
             super::super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput {
                 model_id: self.model_id,
-                body: self.body.unwrap_or_default(),
+                body: self.body.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                        "body",
+                        "body was not specified but it is required when building InvokeModelWithBidirectionalStreamInput",
+                    )
+                })?,
             },
         )
     }

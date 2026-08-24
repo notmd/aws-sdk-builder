@@ -4,6 +4,25 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match event-stream input direction
+- State: in progress
+- Changed: the shared model-driven type planner now distinguishes client input event
+  streams from output event streams, emitting `EventStreamSender<...>` for input
+  members and retaining `EventReceiver<...>` for outputs. Event-stream input builders
+  now treat the stream as required, and client operation documentation uses the sender
+  type. A focused regression covers generated input types, builder validation, and
+  client documentation.
+- Evidence: focused event-stream regression, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass. Generated-source parsing completed without errors.
+- Conformance: `12,716/13,168` exact, `447` mismatches, `4` missing, `1` extra ->
+  `12,719/13,168` exact, `444` mismatches, `4` missing, `1` extra (`96.10%`).
+  Bedrock Runtime improved from `417/119` to `420/116` exact/mismatched files.
+- Blocker: broader protocol, shape, and installation parity gaps remain; `just
+  conformance` exits 1 while those differences remain.
+- Next action: commit this checkpoint, then investigate the next generic Bedrock
+  Runtime mismatch class.
+
 ### Checkpoint: 2026-08-25 — Normalize unlinked documentation anchors
 - State: in progress
 - Changed: the shared client-documentation tokenizer now applies Smithy-RS's
