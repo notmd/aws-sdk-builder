@@ -146,36 +146,3 @@ pub fn ser_update_delivery_configuration_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-pub(crate) fn de_update_delivery_configuration(
-    _value: &[u8],
-    mut builder: super::super::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}

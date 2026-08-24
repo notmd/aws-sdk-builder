@@ -3,29 +3,17 @@ pub fn ser_add_layer_version_permission_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.layer_name {
-        object.key("LayerName").string(var_1.as_str());
+    if let Some(var_1) = &input.statement_id {
+        object.key("StatementId").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.version_number {
-        object.key("VersionNumber").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_2).into()),
-        );
+    if let Some(var_2) = &input.action {
+        object.key("Action").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.statement_id {
-        object.key("StatementId").string(var_3.as_str());
+    if let Some(var_3) = &input.principal {
+        object.key("Principal").string(var_3.as_str());
     }
-    if let Some(var_4) = &input.action {
-        object.key("Action").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.principal {
-        object.key("Principal").string(var_5.as_str());
-    }
-    if let Some(var_6) = &input.organization_id {
-        object.key("OrganizationId").string(var_6.as_str());
-    }
-    if let Some(var_7) = &input.revision_id {
-        object.key("RevisionId").string(var_7.as_str());
+    if let Some(var_4) = &input.organization_id {
+        object.key("OrganizationId").string(var_4.as_str());
     }
     Ok(())
 }

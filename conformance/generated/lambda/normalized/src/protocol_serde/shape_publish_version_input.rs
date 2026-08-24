@@ -3,20 +3,17 @@ pub fn ser_publish_version_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::publish_version::PublishVersionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.function_name {
-        object.key("FunctionName").string(var_1.as_str());
+    if let Some(var_1) = &input.code_sha256 {
+        object.key("CodeSha256").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.code_sha256 {
-        object.key("CodeSha256").string(var_2.as_str());
+    if let Some(var_2) = &input.description {
+        object.key("Description").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.description {
-        object.key("Description").string(var_3.as_str());
+    if let Some(var_3) = &input.revision_id {
+        object.key("RevisionId").string(var_3.as_str());
     }
-    if let Some(var_4) = &input.revision_id {
-        object.key("RevisionId").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.publish_to {
-        object.key("PublishTo").string(var_5.as_str());
+    if let Some(var_4) = &input.publish_to {
+        object.key("PublishTo").string(var_4.as_str());
     }
     Ok(())
 }

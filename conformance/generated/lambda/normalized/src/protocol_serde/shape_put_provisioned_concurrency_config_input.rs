@@ -3,16 +3,10 @@ pub fn ser_put_provisioned_concurrency_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.function_name {
-        object.key("FunctionName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.qualifier {
-        object.key("Qualifier").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.provisioned_concurrent_executions {
+    if let Some(var_1) = &input.provisioned_concurrent_executions {
         object.key("ProvisionedConcurrentExecutions").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_3).into()),
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
     Ok(())

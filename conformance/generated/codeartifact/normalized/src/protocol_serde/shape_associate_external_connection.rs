@@ -156,16 +156,6 @@ pub fn de_associate_external_connection_http_response(
     })
 }
 
-pub fn ser_associate_external_connection_input(
-    input: &super::super::operation::associate_external_connection::AssociateExternalConnectionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_associate_external_connection_input::ser_associate_external_connection_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_associate_external_connection(
     _value: &[u8],
     mut builder: super::super::operation::associate_external_connection::builders::AssociateExternalConnectionOutputBuilder,

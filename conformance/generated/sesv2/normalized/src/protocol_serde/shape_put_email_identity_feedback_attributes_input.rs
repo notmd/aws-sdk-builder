@@ -3,11 +3,8 @@ pub fn ser_put_email_identity_feedback_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.email_identity {
-        object.key("EmailIdentity").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.email_forwarding_enabled {
-        object.key("EmailForwardingEnabled").boolean(*var_2);
+    if let Some(var_1) = &input.email_forwarding_enabled {
+        object.key("EmailForwardingEnabled").boolean(*var_1);
     }
     Ok(())
 }

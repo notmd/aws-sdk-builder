@@ -1277,7 +1277,6 @@ fn render_endpoint_lib(selected: &SelectedModel) -> String {
     let partition_json = include_str!("../assets/default-partitions.json").trim();
     let escaped_partition_json = partition_json.replace('\\', "\\\\").replace('"', "\\\"");
     let mut output = String::new();
-    client_operation_header(&mut output);
     output.push_str(
         "// Loading the partition JSON is expensive since it involves many regex compilations,\n\
          // so cache the result so that it only need to be paid for the first constructed client.\n\
@@ -1624,7 +1623,7 @@ fn render_serde_util_correction(
                     format!("Some({result}{build})")
                 };
                 writeln!(
-                output,
+                &mut payload_output,
                 "        builder.{field} = {{\n            let builder = {nested_builder}::default();\n            {value}\n        }}"
             )
             .unwrap();
@@ -1808,11 +1807,20 @@ fn render_event_stream_serde_file(selected: &SelectedModel) -> String {
     client_operation_header(&mut output);
     let mut union_ids = event_stream_union_ids(selected);
     union_ids.sort();
+    let input_unions = event_stream_input_union_ids(selected);
+    let output_unions = event_stream_output_union_ids(selected);
     for union_id in union_ids {
         let Some(shape) = selected.model.shapes.get(&union_id) else {
             continue;
         };
         let union_name = rust_type_name(terminal(&union_id));
+        if input_unions.contains(&union_id) {
+            render_event_stream_error_marshaller(&mut output, &union_name);
+            render_event_stream_marshaller(&mut output, selected, &union_name, &union_id, shape);
+        }
+        if !output_unions.contains(&union_id) {
+            continue;
+        }
         let unmarshaller_name = format!("{union_name}Unmarshaller");
         writeln!(
             output,
@@ -1825,6 +1833,14 @@ fn render_event_stream_serde_file(selected: &SelectedModel) -> String {
         )
         .unwrap();
         for (member_name, member) in members(shape) {
+            if selected
+                .model
+                .shapes
+                .get(member_target(member).unwrap_or_default())
+                .is_some_and(is_error_shape)
+            {
+                continue;
+            }
             render_event_stream_member(&mut output, selected, &union_name, &member_name, member);
         }
         output.push_str(
@@ -1834,13 +1850,200 @@ fn render_event_stream_serde_file(selected: &SelectedModel) -> String {
         output.push_str(
             "::Unknown,\n                )),\n            },\n            \"exception\" => {\n",
         );
-        writeln!(
-            output,
-            "                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {{\n                    Ok(builder) => builder.build(),\n                    Err(err) => {{\n                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                            crate::types::error::{union_name}Error::unhandled(err),\n                        ))\n                    }}\n                }};\n                Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                    crate::types::error::{union_name}Error::generic(generic),\n                ))\n            }}\n            value => {{\n                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                    \"unrecognized :message-type: {{value}}\"\n                )));\n            }}\n        }}\n    }}\n}}"
-        )
-        .unwrap();
+        output.push_str("                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {\n                    Ok(builder) => builder.build(),\n                    Err(err) => {\n                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                            crate::types::error::");
+        output.push_str(&union_name);
+        output.push_str("Error::unhandled(err),\n                        ))\n                    }\n                };\n                match response_headers.smithy_type.as_str() {\n");
+        for (member_name, member) in members(shape) {
+            let Some(target) = member_target(member) else {
+                continue;
+            };
+            if selected
+                .model
+                .shapes
+                .get(target)
+                .is_some_and(is_error_shape)
+            {
+                render_event_stream_error_member(
+                    &mut output,
+                    selected,
+                    &union_name,
+                    member_name,
+                    target,
+                );
+            }
+        }
+        output.push_str("                    _ => {}\n                }\n                Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                    crate::types::error::");
+        output.push_str(&union_name);
+        output.push_str("Error::generic(generic),\n                ))\n            }\n            value => {\n                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                    \"unrecognized :message-type: {value}\"\n                )));\n            }\n        }\n    }\n}\n");
     }
     output
+}
+
+fn event_stream_input_union_ids(selected: &SelectedModel) -> BTreeSet<String> {
+    selected
+        .operations
+        .iter()
+        .filter_map(|operation_name| operation_shape(selected, operation_name))
+        .filter_map(|operation| operation.get("input").and_then(target_value))
+        .filter_map(|input_id| selected.model.shapes.get(input_id))
+        .flat_map(members)
+        .filter_map(|(_, member)| {
+            has_trait(member, "smithy.api#httpPayload")
+                .then(|| member_target(member).map(ToOwned::to_owned))
+                .flatten()
+        })
+        .filter(|target| is_event_stream_target(selected, target))
+        .collect()
+}
+
+fn event_stream_output_union_ids(selected: &SelectedModel) -> BTreeSet<String> {
+    selected
+        .operations
+        .iter()
+        .filter_map(|operation_name| operation_shape(selected, operation_name))
+        .filter_map(|operation| operation.get("output").and_then(target_value))
+        .filter_map(|output_id| selected.model.shapes.get(output_id))
+        .flat_map(members)
+        .filter_map(|(_, member)| {
+            has_trait(member, "smithy.api#httpPayload")
+                .then(|| member_target(member).map(ToOwned::to_owned))
+                .flatten()
+        })
+        .filter(|target| is_event_stream_target(selected, target))
+        .collect()
+}
+
+fn render_event_stream_error_marshaller(output: &mut String, union_name: &str) {
+    writeln!(
+        output,
+        "#[non_exhaustive]\n#[derive(Debug)]\npub struct {union_name}InputErrorMarshaller;\n\nimpl {union_name}InputErrorMarshaller {{\n    pub fn new() -> Self {{\n        {union_name}InputErrorMarshaller\n    }}\n}}\nimpl ::aws_smithy_eventstream::frame::MarshallMessage for {union_name}InputErrorMarshaller {{\n    type Input = crate::types::error::{union_name}InputError;\n    fn marshall(\n        &self,\n        _input: Self::Input,\n    ) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {{\n        let mut headers = Vec::new();\n        headers.push(::aws_smithy_types::event_stream::Header::new(\n            \":message-type\",\n            ::aws_smithy_types::event_stream::HeaderValue::String(\"exception\".into()),\n        ));\n        let payload = ::bytes::Bytes::new();\n        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))\n    }}\n}}\n"
+    )
+    .unwrap();
+}
+
+fn render_event_stream_marshaller(
+    output: &mut String,
+    selected: &SelectedModel,
+    union_name: &str,
+    union_id: &str,
+    shape: &Value,
+) {
+    writeln!(
+        output,
+        "#[non_exhaustive]\n#[derive(Debug)]\npub struct {union_name}InputMarshaller;\n\nimpl {union_name}InputMarshaller {{\n    pub fn new() -> Self {{\n        {union_name}InputMarshaller\n    }}\n}}\nimpl ::aws_smithy_eventstream::frame::MarshallMessage for {union_name}InputMarshaller {{\n    type Input = crate::types::{union_name};\n    fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {{\n        let mut headers = Vec::new();\n        headers.push(::aws_smithy_types::event_stream::Header::new(\n            \":message-type\",\n            ::aws_smithy_types::event_stream::HeaderValue::String(\"event\".into()),\n        ));\n        let payload = match input {{"
+    )
+    .unwrap();
+    let type_name = format!("crate::types::{union_name}");
+    for (member_name, member) in members(shape) {
+        let variant = rust_type_name(member_name);
+        let target = member_target(member).unwrap_or("smithy.api#Unit");
+        let target_shape = selected.model.shapes.get(target);
+        let target_kind = protocol_shape_kind(selected, target);
+        let has_inner = target_kind != "unit";
+        let pattern = if has_inner {
+            format!("Self::Input::{variant}(inner)")
+        } else {
+            format!("Self::Input::{variant}")
+        };
+        writeln!(output, "            {pattern} => {{").unwrap();
+        writeln!(
+            output,
+            "                headers.push(::aws_smithy_types::event_stream::Header::new(\":event-type\", ::aws_smithy_types::event_stream::HeaderValue::String({member_name:?}.into())));"
+        )
+        .unwrap();
+        let payload = render_event_stream_marshaller_payload(
+            output,
+            selected,
+            union_id,
+            member_name,
+            target,
+            target_shape,
+            has_inner,
+        );
+        writeln!(output, "                {payload}").unwrap();
+        output.push_str("            }\n");
+    }
+    writeln!(
+        output,
+        "            Self::Input::Unknown => return Err(\n                ::aws_smithy_eventstream::error::Error::marshalling(\"Cannot serialize `{union_name}::Unknown` for the request. The `Unknown` variant is intended for responses only. It occurs when an outdated client is used after a new enum variant was added on the server side.\".to_owned())\n            )\n        }};\n        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))\n    }}\n}}"
+    )
+    .unwrap();
+    let _ = type_name;
+}
+
+fn render_event_stream_marshaller_payload(
+    output: &mut String,
+    selected: &SelectedModel,
+    union_id: &str,
+    member_name: &str,
+    target: &str,
+    target_shape: Option<&Value>,
+    has_inner: bool,
+) -> String {
+    let Some(target_shape) = target_shape else {
+        return "::bytes::Bytes::new()".to_owned();
+    };
+    let event_payload = members(target_shape)
+        .into_iter()
+        .find(|(_, member)| has_trait(member, "smithy.api#eventPayload"));
+    if let Some((field_name, payload_member)) = event_payload {
+        let field = names::rust_identifier(&field_name);
+        let payload_target = member_target(payload_member).unwrap_or("smithy.api#Unit");
+        let kind = protocol_shape_kind(selected, payload_target);
+        let input = if has_inner {
+            format!("inner.{field}")
+        } else {
+            "crate::types::Unit::builder().build()".to_owned()
+        };
+        let content_type = match kind {
+            "blob" => "application/octet-stream",
+            "string" | "enum" => "text/plain",
+            _ => "application/json",
+        };
+        output.push_str(&format!(
+            "                headers.push(::aws_smithy_types::event_stream::Header::new(\":content-type\", ::aws_smithy_types::event_stream::HeaderValue::String(\"{content_type}\".into())));\n"
+        ));
+        return match kind {
+            "blob" => format!(
+                "::bytes::Bytes::from(::aws_smithy_types::Blob::from({input}).into_bytes())"
+            ),
+            "string" | "enum" => format!("::bytes::Bytes::from({input}.to_string().into_bytes())"),
+            _ => format!(
+                "::bytes::Bytes::from(crate::protocol_serde::shape_{}_input::ser_{}_payload(&{input}).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!(\"{{err}}\")))?)",
+                names::rust_module_name(terminal(union_id)),
+                names::rust_identifier(member_name),
+            ),
+        };
+    }
+    if target == "smithy.api#Unit" || (members(target_shape).is_empty() && !has_inner) {
+        return "::bytes::Bytes::new()".to_owned();
+    }
+    output.push_str(&format!(
+        "                headers.push(::aws_smithy_types::event_stream::Header::new(\":content-type\", ::aws_smithy_types::event_stream::HeaderValue::String(\"application/json\".into())));\n"
+    ));
+    format!(
+        "::bytes::Bytes::from(crate::protocol_serde::shape_{}_input::ser_{}_payload(&inner).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!(\"{{err}}\")))?)",
+        names::rust_module_name(terminal(union_id)),
+        names::rust_identifier(member_name),
+    )
+}
+
+fn render_event_stream_error_member(
+    output: &mut String,
+    selected: &SelectedModel,
+    union_name: &str,
+    member_name: &str,
+    target: &str,
+) {
+    let variant = rust_type_name(member_name);
+    let error_name = rust_type_name(terminal(target));
+    let module = names::rust_module_name(terminal(target));
+    writeln!(
+        output,
+        "                    {member_name:?} => {{\n                        let mut builder = crate::types::error::builders::{error_name}Builder::default();\n                        builder = crate::protocol_serde::shape_{module}::de_{module}_json_err(\n                            &message.payload()[..],\n                            builder,\n                        )\n                        .map_err(|err| {{\n                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!(\"failed to unmarshall {member_name}: {{err}}\"))\n                        }})?;\n                        builder.set_meta(Some(generic));\n                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                            crate::types::error::{union_name}Error::{variant}(builder.build()),\n                        ));\n                    }}"
+    )
+    .unwrap();
+    let _ = selected;
 }
 
 fn render_event_stream_member(
@@ -1924,7 +2127,7 @@ fn render_event_stream_explicit_payload(
                 "                    let content_type = response_headers.content_type().unwrap_or_default();\n                    if content_type != \"application/octet-stream\" {\n                        return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                            \"expected :content-type to be 'application/octet-stream', but was '{content_type}'\"\n                        )));\n                    }\n",
             );
             writeln!(
-                output,
+                &mut payload_output,
                 "                    builder = builder.set_{field}(Some(::aws_smithy_types::Blob::from_maybe_shared(message.payload().clone())));"
             )
             .unwrap();
@@ -1934,7 +2137,7 @@ fn render_event_stream_explicit_payload(
                 "                    let content_type = response_headers.content_type().unwrap_or_default();\n                    if content_type != \"text/plain\" {\n                        return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                            \"expected :content-type to be 'text/plain', but was '{content_type}'\"\n                        )));\n                    }\n",
             );
             writeln!(
-                output,
+                &mut payload_output,
                 "                    builder = builder.set_{field}(Some(::std::str::from_utf8(message.payload()).map_err(|_| ::aws_smithy_eventstream::error::Error::unmarshalling(\"message payload is not valid UTF-8\"))?.to_owned()));"
             )
             .unwrap();
@@ -1942,7 +2145,7 @@ fn render_event_stream_explicit_payload(
         _ => {
             let module = names::rust_module_name(terminal(event_name));
             writeln!(
-                output,
+                &mut payload_output,
                 "                    builder = builder.set_{field}(Some(\n                        crate::protocol_serde::shape_{module}::de_{field}(&message.payload()[..])\n                            .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!(\"failed to unmarshall {field}: {{err}}\")))?,\n                    ));"
             )
             .unwrap();
@@ -3141,7 +3344,7 @@ fn render_service_error_metadata(selected: &SelectedModel) -> String {
         for error_id in &error_ids {
             let name = rust_type_name(terminal(error_id));
             writeln!(
-                output,
+                &mut payload_output,
                 "            Self::{name}(e) => e.extended_request_id(),"
             )
             .unwrap();
@@ -4343,6 +4546,61 @@ fn standalone_request_body(
             None,
         );
     };
+    if let Some((name, member)) = members(input_shape).into_iter().find(|(_, member)| {
+        has_trait(member, "smithy.api#httpPayload")
+            && member_target(member).is_some_and(|target| is_event_stream_target(selected, target))
+    }) {
+        let field = names::rust_identifier(&name);
+        let union_name = rust_type_name(terminal(member_target(member).unwrap_or_default()));
+        return (
+            format!(
+                "::aws_smithy_types::body::SdkBody::from({{\n            let error_marshaller = crate::event_stream_serde::{union_name}InputErrorMarshaller::new();\n            let marshaller = crate::event_stream_serde::{union_name}InputMarshaller::new();\n\n            let (signer, signer_sender) = ::aws_smithy_eventstream::frame::DeferredSigner::new();\n            _cfg.interceptor_state().store_put(signer_sender);\n            ::aws_smithy_types::body::SdkBody::from_body_1_x(::http_body_util::StreamBody::new(input.{field}.into_body_stream(\n                marshaller,\n                error_marshaller,\n                signer,\n            )))\n        }})"
+            ),
+            Some("application/vnd.amazon.eventstream".to_owned()),
+        );
+    }
+    if matches!(
+        protocol,
+        ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1 | ProtocolKind::RestJson1
+    ) {
+        if let Some((name, member)) = members(input_shape)
+            .into_iter()
+            .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+        {
+            let field = names::rust_identifier(&name);
+            let target = member_target(member).unwrap_or_default();
+            let target_shape = selected.model.shapes.get(target);
+            let target_kind = protocol_shape_kind(selected, target);
+            if !(target_kind == "union"
+                && selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .is_some_and(shape_is_streaming))
+            {
+                let helper = format!(
+                    "crate::protocol_serde::shape_{module}_input::ser_{field}_http_payload"
+                );
+                let expression = if matches!(target_kind, "string" | "enum" | "blob") {
+                    format!("{helper}(input.{field})?")
+                } else {
+                    format!("{helper}(&input.{field})?")
+                };
+                let content_type = target_shape
+                    .and_then(shape_media_type)
+                    .or(match target_kind {
+                        "string" | "enum" => Some("text/plain"),
+                        "blob" => Some("application/octet-stream"),
+                        _ => Some("application/json"),
+                    })
+                    .map(str::to_owned);
+                return (
+                    format!("::aws_smithy_types::body::SdkBody::from({expression})"),
+                    content_type,
+                );
+            }
+        }
+    }
     if matches!(
         protocol,
         ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1 | ProtocolKind::RestJson1
@@ -8229,8 +8487,23 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
         else {
             continue;
         };
-        if !members(input).is_empty() {
+        if json_protocol_input_needs_file(input) {
             let module = format!("{}_input", names::rust_module_name(operation_name));
+            if seen.insert(module.clone()) {
+                modules.push(module);
+            }
+        }
+    }
+    for operation_name in &selected.operations {
+        let Some(output) = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("output"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        else {
+            continue;
+        };
+        if json_protocol_output_needs_file(output) {
+            let module = format!("{}_output", names::rust_module_name(operation_name));
             if seen.insert(module.clone()) {
                 modules.push(module);
             }
@@ -8270,11 +8543,22 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
             .and_then(|operation| operation.get("input"))
             .and_then(target_value)
             .and_then(|id| selected.model.shapes.get(id))
-            .is_some_and(|shape| !members(shape).is_empty());
+            .is_some_and(json_protocol_input_needs_file);
         if has_input {
             files.push((
                 format!("src/protocol_serde/shape_{module}_input.rs"),
                 render_json_protocol_operation_input_file(selected, operation_name),
+            ));
+        }
+        let has_output = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("output"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+            .is_some_and(json_protocol_output_needs_file);
+        if has_output {
+            files.push((
+                format!("src/protocol_serde/shape_{module}_output.rs"),
+                render_json_protocol_operation_output_file(selected, operation_name),
             ));
         }
     }
@@ -8304,16 +8588,71 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
     module.push_str(
         "pub fn parse_http_error_metadata(\n    _response_status: u16,\n    response_headers: &::aws_smithy_runtime_api::http::Headers,\n    response_body: &[u8],\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {\n    crate::json_errors::parse_error_metadata(response_body, response_headers)\n}\n\n",
     );
+    let unset_struct_before = selected.operations.iter().find_map(|operation_name| {
+        let shape = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))?;
+        let has_payload = members(shape).into_iter().any(|(_, member)| {
+            let target = member_target(member).unwrap_or_default();
+            has_trait(member, "smithy.api#httpPayload")
+                && protocol_shape_kind(selected, target) == "structure"
+                && !member_is_effectively_required(selected, member, target)
+        });
+        has_payload.then(|| format!("{}_input", names::rust_module_name(operation_name)))
+    });
+    let unset_union_before = selected.operations.iter().find_map(|operation_name| {
+        let shape = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))?;
+        let has_payload = members(shape).into_iter().any(|(_, member)| {
+            let target = member_target(member).unwrap_or_default();
+            has_trait(member, "smithy.api#httpPayload")
+                && protocol_shape_kind(selected, target) == "union"
+                && !member_is_effectively_required(selected, member, target)
+        });
+        has_payload.then(|| format!("{}_input", names::rust_module_name(operation_name)))
+    });
     for (index, name) in modules.into_iter().enumerate() {
+        if unset_struct_before.as_deref() == Some(name.as_str()) {
+            module.push_str(
+                "pub fn rest_json_unset_struct_payload() -> ::std::vec::Vec<u8> {\n    b\"{}\"[..].into()\n}\n\n",
+            );
+        }
+        if unset_union_before.as_deref() == Some(name.as_str()) {
+            module.push_str(
+                "pub fn rest_json_unset_union_payload() -> ::std::vec::Vec<u8> {\n    ::std::vec::Vec::new()\n}\n\n",
+            );
+        }
         if index == operation_module_count {
             module.push_str(
                 "pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {\n    if data.is_empty() {\n        b\"{}\"\n    } else {\n        data\n    }\n}\n\n",
+            );
+        }
+        if index == shared_module_start && model_has_event_stream(selected) {
+            module.push_str(
+                "pub fn parse_event_stream_error_metadata(\n    payload: &::bytes::Bytes,\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {\n    crate::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())\n}\n\n",
             );
         }
         writeln!(module, "pub(crate) mod shape_{name};").unwrap();
         module.push('\n');
     }
     (module, files)
+}
+
+fn json_protocol_input_needs_file(shape: &Value) -> bool {
+    members(shape).into_iter().any(|(_, member)| {
+        is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload")
+    })
+}
+
+fn json_protocol_output_needs_file(shape: &Value) -> bool {
+    members(shape).into_iter().any(|(_, member)| {
+        has_trait(member, "smithy.api#httpPayload")
+            || has_trait(member, "smithy.api#httpHeader")
+            || has_trait(member, "smithy.api#httpPrefixHeaders")
+    })
 }
 
 fn json_protocol_shape_order(
@@ -8331,7 +8670,9 @@ fn json_protocol_shape_order(
             .and_then(|id| selected.model.shapes.get(id))
         {
             for (_, member) in members(input) {
-                if let Some(target) = member_target(member) {
+                if (is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload"))
+                    && let Some(target) = member_target(member)
+                {
                     json_protocol_first_role_dependencies(
                         selected,
                         target,
@@ -8349,7 +8690,9 @@ fn json_protocol_shape_order(
             .and_then(|id| selected.model.shapes.get(id))
         {
             for (_, member) in members(output) {
-                if let Some(target) = member_target(member) {
+                if (is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload"))
+                    && let Some(target) = member_target(member)
+                {
                     json_protocol_first_role_dependencies(
                         selected,
                         target,
@@ -8482,7 +8825,9 @@ fn json_protocol_serde_roles(selected: &SelectedModel) -> BTreeMap<String, Proto
             .and_then(|id| selected.model.shapes.get(id))
         {
             for (_, member) in members(input) {
-                if let Some(target) = member_target(member) {
+                if (is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload"))
+                    && let Some(target) = member_target(member)
+                {
                     json_protocol_mark_role(
                         selected,
                         target,
@@ -8499,7 +8844,9 @@ fn json_protocol_serde_roles(selected: &SelectedModel) -> BTreeMap<String, Proto
             .and_then(|id| selected.model.shapes.get(id))
         {
             for (_, member) in members(output) {
-                if let Some(target) = member_target(member) {
+                if (is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload"))
+                    && let Some(target) = member_target(member)
+                {
                     json_protocol_mark_role(
                         selected,
                         target,
@@ -8535,12 +8882,6 @@ fn json_protocol_serde_roles(selected: &SelectedModel) -> BTreeMap<String, Proto
                 protocol_shape_kind(selected, shape_id),
                 "structure" | "union" | "list" | "map"
             )
-            && !(protocol_shape_kind(selected, shape_id) == "structure"
-                && selected
-                    .model
-                    .shapes
-                    .get(shape_id)
-                    .is_some_and(|shape| members(shape).is_empty()))
     });
     roles
 }
@@ -8564,12 +8905,9 @@ fn json_protocol_mark_role(
     // serializer. Deserializers, however, need helpers for all compound
     // shapes so they can recursively build collection/map values.
     if !shape_is_streaming(shape)
-        && ((matches!(role, ProtocolSerdeRole::Serialize)
-            && matches!(kind, "structure" | "union")
-            && !(kind == "structure" && members(shape).is_empty()))
+        && ((matches!(role, ProtocolSerdeRole::Serialize) && matches!(kind, "structure" | "union"))
             || (matches!(role, ProtocolSerdeRole::Deserialize)
-                && matches!(kind, "structure" | "union" | "list" | "map")
-                && !(kind == "structure" && members(shape).is_empty())))
+                && matches!(kind, "structure" | "union" | "list" | "map")))
     {
         record_protocol_role(roles, shape_id, role);
     }
@@ -8589,29 +8927,113 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
     let output_path = format!("crate::operation::{module}::{operation_type}Output");
     let mut output = String::new();
     client_operation_header(&mut output);
-    render_json_protocol_http_error(&mut output, selected, operation_name, operation);
-    writeln!(
-        output,
-        "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_response(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{\n    Ok({{\n        #[allow(unused_mut)]\n        let mut output = crate::operation::{module}::builders::{operation_type}OutputBuilder::default();"
-    )
-    .unwrap();
     let output_shape = operation
         .get("output")
         .and_then(target_value)
         .and_then(|id| selected.model.shapes.get(id));
-    if output_shape.is_some_and(|shape| !members(shape).is_empty()) {
+    let output_payload = output_shape.and_then(|shape| {
+        members(shape)
+            .into_iter()
+            .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+    });
+    let streaming_output = output_payload.is_some_and(|(_, member)| {
+        member_target(member).is_some_and(|target| {
+            selected
+                .model
+                .shapes
+                .get(target)
+                .is_some_and(shape_is_streaming)
+        })
+    });
+    if !streaming_output {
+        render_json_protocol_http_error(&mut output, selected, operation_name, operation);
+    }
+    if streaming_output {
+        writeln!(
+            output,
+            "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_response(\n    response: &mut ::aws_smithy_runtime_api::http::Response,\n) -> std::result::Result<{output_path}, {error_path}> {{\n    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();\n    ::std::mem::swap(&mut _response_body, response.body_mut());\n    let _response_body = &mut _response_body;\n\n    let _response_status = response.status().as_u16();\n    let _response_headers = response.headers();\n    Ok({{\n        #[allow(unused_mut)]\n        let mut output = crate::operation::{module}::builders::{operation_type}OutputBuilder::default();"
+        )
+        .unwrap();
+    } else {
+        writeln!(
+            output,
+            "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_response(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{\n    Ok({{\n        #[allow(unused_mut)]\n        let mut output = crate::operation::{module}::builders::{operation_type}OutputBuilder::default();"
+        )
+        .unwrap();
+    }
+    if !streaming_output
+        && output_shape.is_some_and(|shape| {
+            members(shape)
+                .into_iter()
+                .any(|(_, member)| is_json_document_member(member))
+        })
+    {
         writeln!(
             output,
             "        output = crate::protocol_serde::shape_{module}::de_{module}(_response_body, output)\n            .map_err({error_path}::unhandled)?;"
         )
         .unwrap();
     }
+    if let Some(shape) = output_shape {
+        for (name, member) in sorted_members(shape) {
+            let field = names::rust_identifier(&name);
+            if has_trait(member, "smithy.api#httpPayload") {
+                let helper = format!("crate::protocol_serde::shape_{module}_output");
+                if streaming_output {
+                    writeln!(
+                        output,
+                        "        output = output.set_{field}(Some({helper}::de_{field}_payload(_response_body)?));"
+                    )
+                    .unwrap();
+                } else {
+                    writeln!(
+                        output,
+                        "        output = output.set_{field}({helper}::de_{field}_payload(_response_body)?);"
+                    )
+                    .unwrap();
+                }
+            } else if let Some(header) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                .and_then(Value::as_str)
+            {
+                writeln!(
+                    output,
+                    "        output = output.set_{field}(crate::protocol_serde::shape_{module}_output::de_{field}_header(_response_headers).map_err(|_| {error_path}::unhandled(\"Failed to parse {name} from header `{header}`\"))?);"
+                )
+                .unwrap();
+            } else if let Some(prefix) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#httpPrefixHeaders"))
+                .and_then(Value::as_str)
+            {
+                writeln!(
+                    output,
+                    "        output = output.set_{field}(crate::protocol_serde::shape_{module}_output::de_{field}_prefix_header(_response_headers).map_err(|_| {error_path}::unhandled(\"Failed to parse {name} from prefix header `{prefix}`\"))?);"
+                )
+                .unwrap();
+            } else if has_trait(member, "smithy.api#httpResponseCode") {
+                writeln!(
+                    output,
+                    "        output = output.set_{field}(Some(_response_status as _));"
+                )
+                .unwrap();
+            }
+        }
+    }
     if request_id_plan(selected).standard {
         output.push_str(
             "        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));\n",
         );
     }
-    if let Some(shape) = output_shape.filter(|shape| serde_util_shape_needs_correction(shape)) {
+    let streaming_event = streaming_output
+        && output_payload.is_some_and(|(_, member)| {
+            member_target(member)
+                .is_some_and(|target| protocol_shape_kind(selected, target) == "union")
+        });
+    if let Some(shape) =
+        output_shape.filter(|shape| serde_util_shape_needs_correction(shape) && !streaming_event)
+    {
         let correction = format!(
             "crate::serde_util::{}_output_output_correct_errors(output)",
             module
@@ -8625,8 +9047,15 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
         } else {
             writeln!(output, "        {correction}.build()\n    }})\n}}\n").unwrap();
         }
+    } else if streaming_event {
+        output.push_str(
+            "        output\n            .build()\n            .map_err({error_path}::unhandled)?\n    }})\n}}\n",
+        );
     } else {
         output.push_str("        output.build()\n    })\n}\n");
+    }
+    if streaming_output {
+        render_json_protocol_http_error(&mut output, selected, operation_name, operation);
     }
     render_json_protocol_operation_input_and_parser(
         &mut output,
@@ -8634,6 +9063,9 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
         operation_name,
         operation,
     );
+    output = output
+        .replace("::std::mem::swap", "std::mem::swap")
+        .replace("`\"))?", "\"))?");
     output
 }
 
@@ -8649,27 +9081,35 @@ fn render_json_protocol_operation_input_and_parser(
         .get("input")
         .and_then(target_value)
         .and_then(|id| selected.model.shapes.get(id));
-    let input_has_members = input_shape.is_some_and(|shape| !members(shape).is_empty());
-    writeln!(
-        output,
-        "\npub fn ser_{module}_input(\n    {input}: &crate::operation::{module}::{operation_type}Input,\n) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {{",
-        input = if input_has_members { "input" } else { "_input" }
-    )
-    .unwrap();
-    if input_has_members {
+    let input_has_document_members = input_shape.is_some_and(|shape| {
+        members(shape)
+            .into_iter()
+            .any(|(_, member)| is_json_document_member(member))
+    });
+    if input_has_document_members {
+        writeln!(
+            output,
+            "\npub fn ser_{module}_input(\n    input: &crate::operation::{module}::{operation_type}Input,\n) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {{"
+        )
+        .unwrap();
         output.push_str("    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n");
         writeln!(
             output,
             "    crate::protocol_serde::shape_{module}_input::ser_{module}_input_input(&mut object, input)?;\n    object.finish();\n    Ok(::aws_smithy_types::body::SdkBody::from(out))\n}}\n"
         )
         .unwrap();
-    } else {
-        output.push_str("    Ok(::aws_smithy_types::body::SdkBody::from(\"{}\"))\n}\n");
     }
     let output_shape = operation
         .get("output")
         .and_then(target_value)
         .and_then(|id| selected.model.shapes.get(id));
+    if output_shape.is_none_or(|shape| {
+        !members(shape)
+            .into_iter()
+            .any(|(_, member)| is_json_document_member(member))
+    }) {
+        return;
+    }
     let output_path =
         format!("crate::operation::{module}::builders::{operation_type}OutputBuilder");
     writeln!(
@@ -8685,6 +9125,7 @@ fn render_json_protocol_operation_input_and_parser(
         "builder",
         "depth",
         None,
+        true,
     );
     output.push_str("    if tokens.next().is_some() {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"found more JSON tokens after completing parsing\",\n        ));\n    }\n    Ok(builder)\n}\n");
 }
@@ -8703,22 +9144,232 @@ fn render_json_protocol_operation_input_file(
         .expect("input shape");
     let mut output = String::new();
     client_operation_header(&mut output);
+    let has_document_members = members(input_shape)
+        .into_iter()
+        .any(|(_, member)| is_json_document_member(member));
+    if has_document_members {
+        writeln!(
+            output,
+            "pub fn ser_{module}_input_input(\n    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,\n    input: &crate::operation::{module}::{operation_type}Input,\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{"
+        )
+        .unwrap();
+        let mut state = JsonRenderState::default();
+        render_json_structure_serializer_body(
+            &mut output,
+            selected,
+            input_shape,
+            "object",
+            "input",
+            &mut state,
+            true,
+            true,
+        );
+        output.push_str("}\n");
+    }
+    if let Some((field, member)) = members(input_shape)
+        .into_iter()
+        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+    {
+        let target = member_target(member).unwrap_or_default();
+        let target_kind = protocol_shape_kind(selected, target);
+        if target_kind == "union"
+            && selected
+                .model
+                .shapes
+                .get(target)
+                .is_some_and(shape_is_streaming)
+        {
+            if let Some(shape) = selected.model.shapes.get(target) {
+                for (event_name, event_member) in members(shape) {
+                    if let Some(event_target) = member_target(event_member) {
+                        render_json_payload_serializer(
+                            &mut output,
+                            selected,
+                            &module,
+                            &names::rust_identifier(&event_name),
+                            event_target,
+                            false,
+                            false,
+                        );
+                    }
+                }
+            }
+        } else {
+            render_json_payload_serializer(
+                &mut output,
+                selected,
+                &module,
+                &names::rust_identifier(&field),
+                target,
+                !member_is_effectively_required(selected, member, target),
+                true,
+            );
+        }
+    }
+    output
+}
+
+fn render_json_payload_serializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_module: &str,
+    field: &str,
+    target: &str,
+    optional: bool,
+    http_payload: bool,
+) {
+    let target_kind = protocol_shape_kind(selected, target);
+    if target_kind == "string" || target_kind == "enum" {
+        writeln!(
+            output,
+            "pub fn ser_{field}_http_payload(\n    payload: ::std::option::Option<::std::string::String>,\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {{\n    let payload = match payload {{\n        Some(t) => t,\n        None => return Ok(Vec::new()),\n    }};\n    Ok(payload.into_bytes())\n}}"
+        )
+        .unwrap();
+        return;
+    }
+    if target_kind == "blob" {
+        writeln!(
+            output,
+            "pub fn ser_{field}_http_payload(\n    payload: ::std::option::Option<::aws_smithy_types::Blob>,\n) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {{\n    let payload = match payload {{\n        Some(t) => t,\n        None => return Ok(::bytes::Bytes::new()),\n    }};\n    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())\n}}"
+        )
+        .unwrap();
+        return;
+    }
+    if target_kind == "document" {
+        writeln!(
+            output,
+            "pub fn ser_{field}_http_payload(\n    payload: &::std::option::Option<::aws_smithy_types::Document>,\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {{\n    let payload = match payload.as_ref() {{\n        Some(t) => t,\n        None => return Ok(Vec::new()),\n    }};\n    let mut out = String::new();\n    ::aws_smithy_json::serialize::JsonValueWriter::new(&mut out).document(payload);\n    Ok(out.into_bytes())\n}}"
+        )
+        .unwrap();
+        return;
+    }
+    if !matches!(target_kind, "structure" | "union") {
+        return;
+    }
+    let target_name = rust_type_name(terminal(target));
+    let target_module = names::rust_module_name(terminal(target));
+    if !http_payload {
+        writeln!(
+            output,
+            "pub fn ser_{field}_payload(\n    input: &crate::types::{target_name},\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n    crate::protocol_serde::shape_{target_module}::ser_{target_module}(&mut object, input)?;\n    object.finish();\n    Ok(out.into_bytes())\n}}"
+        )
+        .unwrap();
+        return;
+    }
+    let payload_type = if optional {
+        format!("&::std::option::Option<crate::types::{target_name}>")
+    } else {
+        format!("&crate::types::{target_name}")
+    };
+    let payload_binding = if optional {
+        format!(
+            "let payload = match payload.as_ref() {{\n        Some(t) => t,\n        None => return Ok(crate::protocol_serde::rest_json_unset_{}_payload()),\n    }};",
+            if target_kind == "union" {
+                "union"
+            } else {
+                "struct"
+            }
+        )
+    } else {
+        "let payload = payload;".to_owned()
+    };
     writeln!(
         output,
-        "pub fn ser_{module}_input_input(\n    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,\n    input: &crate::operation::{module}::{operation_type}Input,\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{"
+        "pub fn ser_{field}_http_payload(\n    payload: {payload_type},\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {{\n    {payload_binding}\n    Ok(crate::protocol_serde::shape_{operation_module}_input::ser_{field}_payload(payload)?)\n}}\n\npub fn ser_{field}_payload(\n    input: &crate::types::{target_name},\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n    crate::protocol_serde::shape_{target_module}::ser_{target_module}(&mut object, input)?;\n    object.finish();\n    Ok(out.into_bytes())\n}}",
     )
     .unwrap();
-    let mut state = JsonRenderState::default();
-    render_json_structure_serializer_body(
-        &mut output,
-        selected,
-        input_shape,
-        "object",
-        "input",
-        &mut state,
-        true,
-    );
-    output.push_str("}\n");
+}
+
+fn render_json_protocol_operation_output_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> String {
+    let operation = operation_shape(selected, operation_name).expect("operation exists");
+    let module = names::rust_module_name(operation_name);
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+        .expect("output shape");
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    if let Some((field_name, member)) = members(output_shape)
+        .into_iter()
+        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+    {
+        let field = names::rust_identifier(&field_name);
+        let target = member_target(member).unwrap_or_default();
+        let kind = protocol_shape_kind(selected, target);
+        let error_path = format!(
+            "crate::operation::{}::{}Error",
+            module,
+            operation_error_type_name(operation_name)
+        );
+        let target_shape = selected.model.shapes.get(target);
+        if kind == "union" && target_shape.is_some_and(shape_is_streaming) {
+            writeln!(
+                output,
+                "pub fn de_{field}_payload(\n    body: &mut ::aws_smithy_types::body::SdkBody,\n) -> std::result::Result<crate::event_receiver::EventReceiver<crate::types::{}, crate::types::error::{}Error>, {error_path}> {{\n    let unmarshaller = crate::event_stream_serde::{}Unmarshaller::new();\n    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());\n    let receiver = crate::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));\n    Ok(receiver)\n}}",
+                rust_type_name(terminal(target)),
+                rust_type_name(terminal(target)),
+                rust_type_name(terminal(target)),
+            )
+            .unwrap();
+        } else if terminal(target) == "StreamingBlob" {
+            writeln!(
+                output,
+                "pub fn de_{field}_payload(\n    body: &mut ::aws_smithy_types::body::SdkBody,\n) -> std::result::Result<::aws_smithy_types::byte_stream::ByteStream, {error_path}> {{\n    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());\n    Ok(::aws_smithy_types::byte_stream::ByteStream::new(body))\n}}"
+            )
+            .unwrap();
+        } else if matches!(kind, "string" | "enum") {
+            writeln!(
+                output,
+                "pub(crate) fn de_{field}_payload(\n    body: &[u8],\n) -> std::result::Result<::std::option::Option<::std::string::String>, {error_path}> {{\n    (!body.is_empty()).then(|| {{\n        let body_str = ::std::str::from_utf8(body).map_err({error_path}::unhandled)?;\n        Ok(body_str.to_owned())\n    }}).transpose()\n}}"
+            )
+            .unwrap();
+        } else if kind == "blob" {
+            writeln!(
+                output,
+                "pub(crate) fn de_{field}_payload(\n    body: &[u8],\n) -> std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, {error_path}> {{\n    (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()\n}}"
+            )
+            .unwrap();
+        } else if matches!(kind, "structure" | "union") {
+            let target_name = protocol_shape_type(selected, target);
+            writeln!(
+                output,
+                "pub(crate) fn de_{field}_payload(\n    body: &[u8],\n) -> std::result::Result<::std::option::Option<{target_name}>, {error_path}> {{\n    (!body.is_empty()).then(|| crate::protocol_serde::shape_{module}_output::de_{field}(body).map_err({error_path}::unhandled)).transpose()\n}}\n\npub(crate) fn de_{field}(\n    body: &[u8],\n) -> std::result::Result<{target_name}, ::aws_smithy_json::deserialize::error::DeserializeError> {{\n    let mut tokens = ::aws_smithy_json::deserialize::json_token_iter(body).peekable();\n    let value = crate::protocol_serde::shape_{}::de_{}(&mut tokens, body, 0)?\n        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom(\"expected payload member value\"))?;\n    if tokens.next().is_some() {{\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\"found more JSON tokens after completing parsing\"));\n    }}\n    Ok(value)\n}}",
+                names::rust_module_name(terminal(target)),
+                names::rust_module_name(terminal(target)),
+            )
+            .unwrap();
+        }
+    }
+    for (name, member) in members(output_shape) {
+        let Some(target) = member_target(member) else {
+            continue;
+        };
+        if let Some(prefix) = member
+            .get("traits")
+            .and_then(|traits| traits.get("smithy.api#httpPrefixHeaders"))
+            .and_then(Value::as_str)
+        {
+            render_protocol_response_prefix_header(
+                &mut output,
+                selected,
+                &module,
+                &name,
+                target,
+                prefix,
+            );
+            render_protocol_response_prefix_inner(&mut output, selected, &name, target);
+        } else if let Some(header) = member
+            .get("traits")
+            .and_then(|traits| traits.get("smithy.api#httpHeader"))
+            .and_then(Value::as_str)
+        {
+            render_protocol_response_header(&mut output, selected, &name, target, header, 1);
+        }
+    }
     output
 }
 
@@ -8836,6 +9487,7 @@ fn render_json_protocol_error_file(selected: &SelectedModel, shape_id: &str) -> 
         "builder",
         "depth",
         Some("error"),
+        false,
     );
     output.push_str("    if tokens.next().is_some() {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"found more JSON tokens after completing parsing\",\n        ));\n    }\n");
     if serde_util_shape_needs_correction(shape) {
@@ -8900,6 +9552,14 @@ fn render_json_shared_structure_serializer(
 ) {
     let module = names::rust_module_name(terminal(shape_id));
     let type_name = protocol_shape_type(selected, shape_id);
+    if members(shape).is_empty() {
+        writeln!(
+            output,
+            "pub fn ser_{module}(\n    #[allow(unused_variables)] object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,\n    #[allow(unused_variables)] input: &{type_name},\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{\n    Ok(())\n}}"
+        )
+        .unwrap();
+        return;
+    }
     writeln!(
         output,
         "pub fn ser_{module}(\n    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,\n    input: &{type_name},\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{"
@@ -8907,7 +9567,7 @@ fn render_json_shared_structure_serializer(
     .unwrap();
     let mut state = JsonRenderState::default();
     render_json_structure_serializer_body(
-        output, selected, shape, "object", "input", &mut state, false,
+        output, selected, shape, "object", "input", &mut state, false, false,
     );
     output.push_str("}\n");
 }
@@ -8920,8 +9580,12 @@ fn render_json_structure_serializer_body(
     input: &str,
     state: &mut JsonRenderState,
     force_optional: bool,
+    document_only: bool,
 ) {
     for (name, member) in members(shape) {
+        if document_only && !is_json_document_member(member) {
+            continue;
+        }
         let field = names::rust_identifier(&name);
         let expression = format!("{input}.{field}");
         render_json_serialize_member(
@@ -9208,6 +9872,14 @@ fn render_json_shared_structure_deserializer(
 ) {
     let module = names::rust_module_name(terminal(shape_id));
     let type_name = protocol_shape_type(selected, shape_id);
+    if members(shape).is_empty() {
+        writeln!(
+            output,
+            "pub(crate) fn de_{module}<'a, I>(\n    tokens: &mut ::std::iter::Peekable<I>,\n    _value: &'a [u8],\n    depth: u32,\n) -> ::std::result::Result<Option<crate::types::{type_name}>, ::aws_smithy_json::deserialize::error::DeserializeError>\nwhere\n    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,\n{{\n    if depth >= 128u32 {{\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }}\n    match tokens.next().transpose()? {{\n        Some(::aws_smithy_json::deserialize::Token::ValueNull {{ .. }}) => Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartObject {{ .. }}) => {{\n            #[allow(unused_mut)]\n            let mut builder = crate::types::builders::{type_name}Builder::default();\n            ::aws_smithy_json::deserialize::token::skip_to_end(tokens)?;\n            Ok(Some(builder.build()))\n        }}\n        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"expected start object or null\",\n        )),\n    }}\n}}"
+        )
+        .unwrap();
+        return;
+    }
     writeln!(
         output,
         "pub(crate) fn de_{module}<'a, I>(\n    tokens: &mut ::std::iter::Peekable<I>,\n    _value: &'a [u8],\n    depth: u32,\n) -> ::std::result::Result<Option<{type_name}>, ::aws_smithy_json::deserialize::error::DeserializeError>\nwhere\n    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,\n{{"
@@ -9227,6 +9899,7 @@ fn render_json_shared_structure_deserializer(
         "builder",
         "depth",
         None,
+        false,
     );
     let result = json_builder_result(selected, shape_id, "builder", "Response was invalid");
     writeln!(output, "            Ok(Some({result}))").unwrap();
@@ -9337,10 +10010,14 @@ fn render_json_structure_deserializer_loop(
     builder: &str,
     depth: &str,
     _context: Option<&str>,
+    document_only: bool,
 ) {
     output.push_str("    loop {\n        match tokens.next().transpose()? {\n            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,\n            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {\n");
     if let Some(shape) = shape {
         for (name, member) in members(shape) {
+            if document_only && !is_json_document_member(member) {
+                continue;
+            }
             let target = member_target(member).unwrap_or_default();
             let field = names::rust_identifier(&name);
             let setter = names::rustdoc_identifier(&field);
@@ -10269,6 +10946,10 @@ fn is_xml_document_member(member: &Value) -> bool {
                 | "smithy.api#httpResponseCode"
         )
     })
+}
+
+fn is_json_document_member(member: &Value) -> bool {
+    is_xml_document_member(member) && !has_trait(member, "smithy.api#httpPayload")
 }
 
 fn protocol_member_is_attribute(member: &Value) -> bool {

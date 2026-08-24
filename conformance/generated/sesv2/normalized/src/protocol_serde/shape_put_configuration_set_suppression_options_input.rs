@@ -3,26 +3,23 @@ pub fn ser_put_configuration_set_suppression_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.configuration_set_name {
-        object.key("ConfigurationSetName").string(var_1.as_str());
+    if let Some(var_1) = &input.suppression_scope {
+        object.key("SuppressionScope").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.suppression_scope {
-        object.key("SuppressionScope").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.suppressed_reasons {
-        let mut array_4 = object.key("SuppressedReasons").start_array();
-        for item_5 in var_3 {
+    if let Some(var_2) = &input.suppressed_reasons {
+        let mut array_3 = object.key("SuppressedReasons").start_array();
+        for item_4 in var_2 {
             {
-                array_4.value().string(item_5.as_str());
+                array_3.value().string(item_4.as_str());
             }
         }
-        array_4.finish();
+        array_3.finish();
     }
-    if let Some(var_6) = &input.validation_options {
+    if let Some(var_5) = &input.validation_options {
         #[allow(unused_mut)]
-        let mut object_7 = object.key("ValidationOptions").start_object();
-        super::super::protocol_serde::shape_suppression_validation_options::ser_suppression_validation_options(&mut object_7, var_6)?;
-        object_7.finish();
+        let mut object_6 = object.key("ValidationOptions").start_object();
+        super::super::protocol_serde::shape_suppression_validation_options::ser_suppression_validation_options(&mut object_6, var_5)?;
+        object_6.finish();
     }
     Ok(())
 }

@@ -50072,10 +50072,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeReques
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke::ser_invoke_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_input::ser_payload_http_payload(input.payload)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -51658,10 +51658,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeAsyncR
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_async::ser_invoke_async_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_async_input::ser_invoke_args_http_payload(input.invoke_args)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -52745,10 +52745,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeWithRe
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_with_response_stream::ser_invoke_with_response_stream_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_with_response_stream_input::ser_payload_http_payload(input.payload)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -80682,7 +80682,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SendDurableE
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_durable_execution_callback_failure::ser_send_durable_execution_callback_failure_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_error_http_payload(&input.error)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -82078,10 +82078,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SendDurableE
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_durable_execution_callback_success::ser_send_durable_execution_callback_success_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_durable_execution_callback_success_input::ser_result_http_payload(input.result)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -82832,7 +82832,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for StopDurableE
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_stop_durable_execution::ser_stop_durable_execution_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_stop_durable_execution_input::ser_error_http_payload(&input.error)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -123842,47 +123842,6 @@ pub fn de_delete_alias_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_alias_input(
-    input: &super::super::operation::delete_alias::DeleteAliasInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_alias_input::ser_delete_alias_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_alias(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_alias::builders::DeleteAliasOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_alias::builders::DeleteAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_capacity_provider {
@@ -123993,17 +123952,6 @@ pub fn de_delete_capacity_provider_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::delete_capacity_provider_output_output_correct_errors(output).build()
     })
-}
-
-
-pub fn ser_delete_capacity_provider_input(
-    input: &super::super::operation::delete_capacity_provider::DeleteCapacityProviderInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_capacity_provider_input::ser_delete_capacity_provider_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 
@@ -124134,47 +124082,6 @@ pub fn de_delete_code_signing_config_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_code_signing_config_input(
-    input: &super::super::operation::delete_code_signing_config::DeleteCodeSigningConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_code_signing_config_input::ser_delete_code_signing_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_code_signing_config(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_event_source_mapping {
@@ -124300,17 +124207,6 @@ pub fn de_delete_event_source_mapping_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_event_source_mapping_input(
-    input: &super::super::operation::delete_event_source_mapping::DeleteEventSourceMappingInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_event_source_mapping_input::ser_delete_event_source_mapping_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_delete_event_source_mapping(
     _value: &[u8],
@@ -124575,57 +124471,10 @@ pub fn de_delete_function_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::delete_function::builders::DeleteFunctionOutputBuilder::default();
-        output = super::super::protocol_serde::shape_delete_function::de_delete_function(_response_body, output)
-            .map_err(super::super::operation::delete_function::DeleteFunctionError::unhandled)?;
+        output = output.set_status_code(Some(_response_status as _));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_delete_function_input(
-    input: &super::super::operation::delete_function::DeleteFunctionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_function_input::ser_delete_function_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_function(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_function::builders::DeleteFunctionOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_function::builders::DeleteFunctionOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "StatusCode" => {
-                    builder = builder.set_status_code(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -124750,47 +124599,6 @@ pub fn de_delete_function_code_signing_config_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_function_code_signing_config_input(
-    input: &super::super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_function_code_signing_config_input::ser_delete_function_code_signing_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_function_code_signing_config(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_function_concurrency {
@@ -124899,47 +124707,6 @@ pub fn de_delete_function_concurrency_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_delete_function_concurrency_input(
-    input: &super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_function_concurrency_input::ser_delete_function_concurrency_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_function_concurrency(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_function_concurrency::builders::DeleteFunctionConcurrencyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -125050,47 +124817,6 @@ pub fn de_delete_function_event_invoke_config_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_function_event_invoke_config_input(
-    input: &super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_function_event_invoke_config_input::ser_delete_function_event_invoke_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_function_event_invoke_config(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_function_url_config {
@@ -125200,47 +124926,6 @@ pub fn de_delete_function_url_config_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_function_url_config_input(
-    input: &super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_function_url_config_input::ser_delete_function_url_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_function_url_config(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_layer_version {
@@ -125335,47 +125020,6 @@ pub fn de_delete_layer_version_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_delete_layer_version_input(
-    input: &super::super::operation::delete_layer_version::DeleteLayerVersionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_layer_version_input::ser_delete_layer_version_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_layer_version(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_layer_version::builders::DeleteLayerVersionOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -125485,47 +125129,6 @@ pub fn de_delete_provisioned_concurrency_config_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_delete_provisioned_concurrency_config_input(
-    input: &super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_provisioned_concurrency_config_input::ser_delete_provisioned_concurrency_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_provisioned_concurrency_config(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -125650,47 +125253,6 @@ pub fn de_delete_resource_policy_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_resource_policy_input(
-    input: &super::super::operation::delete_resource_policy::DeleteResourcePolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_resource_policy_input::ser_delete_resource_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_resource_policy(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_resource_policy::builders::DeleteResourcePolicyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_get_account_settings {
@@ -125759,12 +125321,6 @@ pub fn de_get_account_settings_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_get_account_settings_input(
-    _input: &super::super::operation::get_account_settings::GetAccountSettingsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
 }
 
 pub(crate) fn de_get_account_settings(
@@ -125899,17 +125455,6 @@ pub fn de_get_alias_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_alias_input(
-    input: &super::super::operation::get_alias::GetAliasInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_alias_input::ser_get_alias_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_alias(
     _value: &[u8],
@@ -126067,17 +125612,6 @@ pub fn de_get_capacity_provider_http_response(
 }
 
 
-pub fn ser_get_capacity_provider_input(
-    input: &super::super::operation::get_capacity_provider::GetCapacityProviderInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_capacity_provider_input::ser_get_capacity_provider_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_capacity_provider(
     _value: &[u8],
     mut builder: super::super::operation::get_capacity_provider::builders::GetCapacityProviderOutputBuilder,
@@ -126192,17 +125726,6 @@ pub fn de_get_code_signing_config_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::get_code_signing_config_output_output_correct_errors(output).build()
     })
-}
-
-
-pub fn ser_get_code_signing_config_input(
-    input: &super::super::operation::get_code_signing_config::GetCodeSigningConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_code_signing_config_input::ser_get_code_signing_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 
@@ -126393,17 +125916,6 @@ pub fn de_get_durable_execution_http_response(
             .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?
     })
 }
-
-pub fn ser_get_durable_execution_input(
-    input: &super::super::operation::get_durable_execution::GetDurableExecutionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_durable_execution_input::ser_get_durable_execution_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_durable_execution(
     _value: &[u8],
@@ -126643,17 +126155,6 @@ pub fn de_get_durable_execution_history_http_response(
     })
 }
 
-pub fn ser_get_durable_execution_history_input(
-    input: &super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_durable_execution_history_input::ser_get_durable_execution_history_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_durable_execution_history(
     _value: &[u8],
     mut builder: super::super::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
@@ -126833,17 +126334,6 @@ pub fn de_get_durable_execution_state_http_response(
     })
 }
 
-pub fn ser_get_durable_execution_state_input(
-    input: &super::super::operation::get_durable_execution_state::GetDurableExecutionStateInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_durable_execution_state_input::ser_get_durable_execution_state_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_durable_execution_state(
     _value: &[u8],
     mut builder: super::super::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder,
@@ -126978,17 +126468,6 @@ pub fn de_get_event_source_mapping_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_event_source_mapping_input(
-    input: &super::super::operation::get_event_source_mapping::GetEventSourceMappingInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_event_source_mapping_input::ser_get_event_source_mapping_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_event_source_mapping(
     _value: &[u8],
@@ -127246,17 +126725,6 @@ pub fn de_get_function_http_response(
     })
 }
 
-pub fn ser_get_function_input(
-    input: &super::super::operation::get_function::GetFunctionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_function_input::ser_get_function_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_function(
     _value: &[u8],
     mut builder: super::super::operation::get_function::builders::GetFunctionOutputBuilder,
@@ -127415,17 +126883,6 @@ pub fn de_get_function_code_signing_config_http_response(
     })
 }
 
-pub fn ser_get_function_code_signing_config_input(
-    input: &super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_function_code_signing_config_input::ser_get_function_code_signing_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_function_code_signing_config(
     _value: &[u8],
     mut builder: super::super::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder,
@@ -127563,17 +127020,6 @@ pub fn de_get_function_concurrency_http_response(
     })
 }
 
-pub fn ser_get_function_concurrency_input(
-    input: &super::super::operation::get_function_concurrency::GetFunctionConcurrencyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_function_concurrency_input::ser_get_function_concurrency_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_function_concurrency(
     _value: &[u8],
     mut builder: super::super::operation::get_function_concurrency::builders::GetFunctionConcurrencyOutputBuilder,
@@ -127705,17 +127151,6 @@ pub fn de_get_function_configuration_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_function_configuration_input(
-    input: &super::super::operation::get_function_configuration::GetFunctionConfigurationInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_function_configuration_input::ser_get_function_configuration_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_function_configuration(
     _value: &[u8],
@@ -128014,17 +127449,6 @@ pub fn de_get_function_event_invoke_config_http_response(
     })
 }
 
-pub fn ser_get_function_event_invoke_config_input(
-    input: &super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_function_event_invoke_config_input::ser_get_function_event_invoke_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_function_event_invoke_config(
     _value: &[u8],
     mut builder: super::super::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigOutputBuilder,
@@ -128173,17 +127597,6 @@ pub fn de_get_function_recursion_config_http_response(
     })
 }
 
-pub fn ser_get_function_recursion_config_input(
-    input: &super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_function_recursion_config_input::ser_get_function_recursion_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_function_recursion_config(
     _value: &[u8],
     mut builder: super::super::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigOutputBuilder,
@@ -128315,17 +127728,6 @@ pub fn de_get_function_scaling_config_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_function_scaling_config_input(
-    input: &super::super::operation::get_function_scaling_config::GetFunctionScalingConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_function_scaling_config_input::ser_get_function_scaling_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_function_scaling_config(
     _value: &[u8],
@@ -128466,17 +127868,6 @@ pub fn de_get_function_url_config_http_response(
             .map_err(super::super::operation::get_function_url_config::GetFunctionUrlConfigError::unhandled)?
     })
 }
-
-pub fn ser_get_function_url_config_input(
-    input: &super::super::operation::get_function_url_config::GetFunctionUrlConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_function_url_config_input::ser_get_function_url_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_function_url_config(
     _value: &[u8],
@@ -128637,17 +128028,6 @@ pub fn de_get_layer_version_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_layer_version_input(
-    input: &super::super::operation::get_layer_version::GetLayerVersionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_layer_version_input::ser_get_layer_version_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_layer_version(
     _value: &[u8],
@@ -128815,17 +128195,6 @@ pub fn de_get_layer_version_by_arn_http_response(
     })
 }
 
-pub fn ser_get_layer_version_by_arn_input(
-    input: &super::super::operation::get_layer_version_by_arn::GetLayerVersionByArnInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_layer_version_by_arn_input::ser_get_layer_version_by_arn_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_layer_version_by_arn(
     _value: &[u8],
     mut builder: super::super::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnOutputBuilder,
@@ -128992,17 +128361,6 @@ pub fn de_get_layer_version_policy_http_response(
     })
 }
 
-pub fn ser_get_layer_version_policy_input(
-    input: &super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_layer_version_policy_input::ser_get_layer_version_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_layer_version_policy(
     _value: &[u8],
     mut builder: super::super::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder,
@@ -129139,17 +128497,6 @@ pub fn de_get_policy_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_policy_input(
-    input: &super::super::operation::get_policy::GetPolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_policy_input::ser_get_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_policy(
     _value: &[u8],
@@ -129301,17 +128648,6 @@ pub fn de_get_provisioned_concurrency_config_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_provisioned_concurrency_config_input(
-    input: &super::super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_provisioned_concurrency_config_input::ser_get_provisioned_concurrency_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_provisioned_concurrency_config(
     _value: &[u8],
@@ -129470,17 +128806,6 @@ pub fn de_get_resource_policy_http_response(
     })
 }
 
-pub fn ser_get_resource_policy_input(
-    input: &super::super::operation::get_resource_policy::GetResourcePolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_resource_policy_input::ser_get_resource_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_resource_policy(
     _value: &[u8],
     mut builder: super::super::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder,
@@ -129617,17 +128942,6 @@ pub fn de_get_runtime_management_config_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_runtime_management_config_input(
-    input: &super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_runtime_management_config_input::ser_get_runtime_management_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_runtime_management_config(
     _value: &[u8],
@@ -130310,80 +129624,15 @@ pub fn de_invoke_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke::builders::InvokeOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke::de_invoke(_response_body, output)
-            .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+        output = output.set_durable_execution_arn(super::super::protocol_serde::shape_invoke_output::de_durable_execution_arn_header(_response_headers).map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn`"))?);
+        output = output.set_executed_version(super::super::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version`"))?);
+        output = output.set_function_error(super::super::protocol_serde::shape_invoke_output::de_function_error_header(_response_headers).map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse FunctionError from header `X-Amz-Function-Error`"))?);
+        output = output.set_log_result(super::super::protocol_serde::shape_invoke_output::de_log_result_header(_response_headers).map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse LogResult from header `X-Amz-Log-Result`"))?);
+        output = output.set_payload(super::super::protocol_serde::shape_invoke_output::de_payload_payload(_response_body)?);
+        output = output.set_status_code(Some(_response_status as _));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_invoke_input(
-    input: &super::super::operation::invoke::InvokeInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_input::ser_invoke_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_invoke(
-    _value: &[u8],
-    mut builder: super::super::operation::invoke::builders::InvokeOutputBuilder,
-) -> ::std::result::Result<super::super::operation::invoke::builders::InvokeOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "StatusCode" => {
-                    builder = builder.set_status_code(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "FunctionError" => {
-                    builder = builder.set_function_error(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "LogResult" => {
-                    builder = builder.set_log_result(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "Payload" => {
-                    builder = builder.set_payload(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-                },
-                "ExecutedVersion" => {
-                    builder = builder.set_executed_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "DurableExecutionArn" => {
-                    builder = builder.set_durable_execution_arn(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -130826,57 +130075,10 @@ pub fn de_invoke_async_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke_async::builders::InvokeAsyncOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke_async::de_invoke_async(_response_body, output)
-            .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+        output = output.set_status(Some(_response_status as _));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_invoke_async_input(
-    input: &super::super::operation::invoke_async::InvokeAsyncInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_async_input::ser_invoke_async_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_invoke_async(
-    _value: &[u8],
-    mut builder: super::super::operation::invoke_async::builders::InvokeAsyncOutputBuilder,
-) -> ::std::result::Result<super::super::operation::invoke_async::builders::InvokeAsyncOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Status" => {
-                    builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -131424,77 +130626,24 @@ pub fn de_invoke_with_response_stream_http_error(
 
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_invoke_with_response_stream_http_response(
-    _response_status: u16,
-    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-    _response_body: &[u8],
+    response: &mut ::aws_smithy_runtime_api::http::Response,
 ) -> std::result::Result<super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput, super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError> {
+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+    ::std::mem::swap(&mut _response_body, response.body_mut());
+    let _response_body = &mut _response_body;
+
+    let _response_status = response.status().as_u16();
+    let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke_with_response_stream::de_invoke_with_response_stream(_response_body, output)
-            .map_err(super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
+        output = output.set_event_stream(Some(super::super::protocol_serde::shape_invoke_with_response_stream_output::de_event_stream_payload(_response_body)?));
+        output = output.set_executed_version(super::super::protocol_serde::shape_invoke_with_response_stream_output::de_executed_version_header(_response_headers).map_err(|_| super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version`"))?);
+        output = output.set_response_stream_content_type(super::super::protocol_serde::shape_invoke_with_response_stream_output::de_response_stream_content_type_header(_response_headers).map_err(|_| super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled("Failed to parse ResponseStreamContentType from header `Content-Type`"))?);
+        output = output.set_status_code(Some(_response_status as _));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_invoke_with_response_stream_input(
-    input: &super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_with_response_stream_input::ser_invoke_with_response_stream_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_invoke_with_response_stream(
-    _value: &[u8],
-    mut builder: super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder,
-) -> ::std::result::Result<super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "StatusCode" => {
-                    builder = builder.set_status_code(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?);
-                },
-                "ExecutedVersion" => {
-                    builder = builder.set_executed_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "EventStream" => {
-                    builder = builder.set_event_stream(super::super::protocol_serde::shape_invoke_with_response_stream_response_event::de_invoke_with_response_stream_response_event(tokens, _value, depth + 1)?);
-                },
-                "ResponseStreamContentType" => {
-                    builder = builder.set_response_stream_content_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -131593,17 +130742,6 @@ pub fn de_list_aliases_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_aliases_input(
-    input: &super::super::operation::list_aliases::ListAliasesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_aliases_input::ser_list_aliases_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_aliases(
     _value: &[u8],
@@ -131728,17 +130866,6 @@ pub fn de_list_capacity_providers_http_response(
     })
 }
 
-pub fn ser_list_capacity_providers_input(
-    input: &super::super::operation::list_capacity_providers::ListCapacityProvidersInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_capacity_providers_input::ser_list_capacity_providers_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_capacity_providers(
     _value: &[u8],
     mut builder: super::super::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder,
@@ -131845,17 +130972,6 @@ pub fn de_list_code_signing_configs_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_code_signing_configs_input(
-    input: &super::super::operation::list_code_signing_configs::ListCodeSigningConfigsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_code_signing_configs_input::ser_list_code_signing_configs_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_code_signing_configs(
     _value: &[u8],
@@ -131992,17 +131108,6 @@ pub fn de_list_durable_executions_by_function_http_response(
     })
 }
 
-pub fn ser_list_durable_executions_by_function_input(
-    input: &super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_durable_executions_by_function_input::ser_list_durable_executions_by_function_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_durable_executions_by_function(
     _value: &[u8],
     mut builder: super::super::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionOutputBuilder,
@@ -132138,17 +131243,6 @@ pub fn de_list_event_source_mappings_http_response(
     })
 }
 
-pub fn ser_list_event_source_mappings_input(
-    input: &super::super::operation::list_event_source_mappings::ListEventSourceMappingsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_event_source_mappings_input::ser_list_event_source_mappings_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_event_source_mappings(
     _value: &[u8],
     mut builder: super::super::operation::list_event_source_mappings::builders::ListEventSourceMappingsOutputBuilder,
@@ -132283,17 +131377,6 @@ pub fn de_list_function_event_invoke_configs_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_function_event_invoke_configs_input(
-    input: &super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_function_event_invoke_configs_input::ser_list_function_event_invoke_configs_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_function_event_invoke_configs(
     _value: &[u8],
@@ -132432,17 +131515,6 @@ pub fn de_list_function_url_configs_http_response(
     })
 }
 
-pub fn ser_list_function_url_configs_input(
-    input: &super::super::operation::list_function_url_configs::ListFunctionUrlConfigsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_function_url_configs_input::ser_list_function_url_configs_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_function_url_configs(
     _value: &[u8],
     mut builder: super::super::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder,
@@ -132580,17 +131652,6 @@ pub fn de_list_function_versions_by_capacity_provider_http_response(
     })
 }
 
-pub fn ser_list_function_versions_by_capacity_provider_input(
-    input: &super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_function_versions_by_capacity_provider_input::ser_list_function_versions_by_capacity_provider_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_function_versions_by_capacity_provider(
     _value: &[u8],
     mut builder: super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder,
@@ -132717,17 +131778,6 @@ pub fn de_list_functions_http_response(
     })
 }
 
-pub fn ser_list_functions_input(
-    input: &super::super::operation::list_functions::ListFunctionsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_functions_input::ser_list_functions_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_functions(
     _value: &[u8],
     mut builder: super::super::operation::list_functions::builders::ListFunctionsOutputBuilder,
@@ -132848,17 +131898,6 @@ pub fn de_list_functions_by_code_signing_config_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_functions_by_code_signing_config_input(
-    input: &super::super::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_functions_by_code_signing_config_input::ser_list_functions_by_code_signing_config_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_functions_by_code_signing_config(
     _value: &[u8],
@@ -132995,17 +132034,6 @@ pub fn de_list_layer_versions_http_response(
     })
 }
 
-pub fn ser_list_layer_versions_input(
-    input: &super::super::operation::list_layer_versions::ListLayerVersionsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_layer_versions_input::ser_list_layer_versions_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_layer_versions(
     _value: &[u8],
     mut builder: super::super::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder,
@@ -133126,17 +132154,6 @@ pub fn de_list_layers_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_layers_input(
-    input: &super::super::operation::list_layers::ListLayersInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_layers_input::ser_list_layers_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_layers(
     _value: &[u8],
@@ -133273,17 +132290,6 @@ pub fn de_list_provisioned_concurrency_configs_http_response(
     })
 }
 
-pub fn ser_list_provisioned_concurrency_configs_input(
-    input: &super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_provisioned_concurrency_configs_input::ser_list_provisioned_concurrency_configs_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_provisioned_concurrency_configs(
     _value: &[u8],
     mut builder: super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder,
@@ -133419,17 +132425,6 @@ pub fn de_list_tags_http_response(
     })
 }
 
-pub fn ser_list_tags_input(
-    input: &super::super::operation::list_tags::ListTagsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_tags_input::ser_list_tags_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_tags(
     _value: &[u8],
     mut builder: super::super::operation::list_tags::builders::ListTagsOutputBuilder,
@@ -133559,17 +132554,6 @@ pub fn de_list_versions_by_function_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_versions_by_function_input(
-    input: &super::super::operation::list_versions_by_function::ListVersionsByFunctionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_versions_by_function_input::ser_list_versions_by_function_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_versions_by_function(
     _value: &[u8],
@@ -135649,47 +134633,6 @@ pub fn de_remove_layer_version_permission_http_response(
         output.build()
     })
 }
-
-pub fn ser_remove_layer_version_permission_input(
-    input: &super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_remove_layer_version_permission_input::ser_remove_layer_version_permission_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_remove_layer_version_permission(
-    _value: &[u8],
-    mut builder: super::super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder,
-) -> ::std::result::Result<super::super::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_remove_permission {
@@ -135812,47 +134755,6 @@ pub fn de_remove_permission_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_remove_permission_input(
-    input: &super::super::operation::remove_permission::RemovePermissionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_remove_permission_input::ser_remove_permission_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_remove_permission(
-    _value: &[u8],
-    mut builder: super::super::operation::remove_permission::builders::RemovePermissionOutputBuilder,
-) -> ::std::result::Result<super::super::operation::remove_permission::builders::RemovePermissionOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -136019,47 +134921,6 @@ pub fn de_send_durable_execution_callback_failure_http_response(
         output.build()
     })
 }
-
-pub fn ser_send_durable_execution_callback_failure_input(
-    input: &super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_send_durable_execution_callback_failure_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_send_durable_execution_callback_failure(
-    _value: &[u8],
-    mut builder: super::super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder,
-) -> ::std::result::Result<super::super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_send_durable_execution_callback_heartbeat {
@@ -136168,47 +135029,6 @@ pub fn de_send_durable_execution_callback_heartbeat_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_send_durable_execution_callback_heartbeat_input(
-    input: &super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_send_durable_execution_callback_heartbeat_input::ser_send_durable_execution_callback_heartbeat_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_send_durable_execution_callback_heartbeat(
-    _value: &[u8],
-    mut builder: super::super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder,
-) -> ::std::result::Result<super::super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -136375,47 +135195,6 @@ pub fn de_send_durable_execution_callback_success_http_response(
         output.build()
     })
 }
-
-pub fn ser_send_durable_execution_callback_success_input(
-    input: &super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_send_durable_execution_callback_success_input::ser_send_durable_execution_callback_success_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_send_durable_execution_callback_success(
-    _value: &[u8],
-    mut builder: super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder,
-) -> ::std::result::Result<super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_stop_durable_execution {
@@ -136572,17 +135351,6 @@ pub fn de_stop_durable_execution_http_response(
     })
 }
 
-pub fn ser_stop_durable_execution_input(
-    input: &super::super::operation::stop_durable_execution::StopDurableExecutionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_stop_durable_execution_input::ser_stop_durable_execution_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_stop_durable_execution(
     _value: &[u8],
     mut builder: super::super::operation::stop_durable_execution::builders::StopDurableExecutionOutputBuilder,
@@ -136734,37 +135502,6 @@ pub fn ser_tag_resource_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_tag_resource(
-    _value: &[u8],
-    mut builder: super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
-) -> ::std::result::Result<super::super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_untag_resource {
@@ -136873,47 +135610,6 @@ pub fn de_untag_resource_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_untag_resource_input(
-    input: &super::super::operation::untag_resource::UntagResourceInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_untag_resource(
-    _value: &[u8],
-    mut builder: super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
-) -> ::std::result::Result<super::super::operation::untag_resource::builders::UntagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -138834,29 +137530,17 @@ pub fn ser_add_layer_version_permission_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.layer_name {
-    object.key("LayerName").string(var_1.as_str());
+if let Some(var_1) = &input.statement_id {
+    object.key("StatementId").string(var_1.as_str());
 }
-if let Some(var_2) = &input.version_number {
-    object.key("VersionNumber").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
+if let Some(var_2) = &input.action {
+    object.key("Action").string(var_2.as_str());
 }
-if let Some(var_3) = &input.statement_id {
-    object.key("StatementId").string(var_3.as_str());
+if let Some(var_3) = &input.principal {
+    object.key("Principal").string(var_3.as_str());
 }
-if let Some(var_4) = &input.action {
-    object.key("Action").string(var_4.as_str());
-}
-if let Some(var_5) = &input.principal {
-    object.key("Principal").string(var_5.as_str());
-}
-if let Some(var_6) = &input.organization_id {
-    object.key("OrganizationId").string(var_6.as_str());
-}
-if let Some(var_7) = &input.revision_id {
-    object.key("RevisionId").string(var_7.as_str());
+if let Some(var_4) = &input.organization_id {
+    object.key("OrganizationId").string(var_4.as_str());
 }
     Ok(())
 }
@@ -138868,41 +137552,35 @@ pub fn ser_add_permission_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::add_permission::AddPermissionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.statement_id {
+    object.key("StatementId").string(var_1.as_str());
 }
-if let Some(var_2) = &input.statement_id {
-    object.key("StatementId").string(var_2.as_str());
+if let Some(var_2) = &input.action {
+    object.key("Action").string(var_2.as_str());
 }
-if let Some(var_3) = &input.action {
-    object.key("Action").string(var_3.as_str());
+if let Some(var_3) = &input.principal {
+    object.key("Principal").string(var_3.as_str());
 }
-if let Some(var_4) = &input.principal {
-    object.key("Principal").string(var_4.as_str());
+if let Some(var_4) = &input.source_arn {
+    object.key("SourceArn").string(var_4.as_str());
 }
-if let Some(var_5) = &input.source_arn {
-    object.key("SourceArn").string(var_5.as_str());
+if let Some(var_5) = &input.function_url_auth_type {
+    object.key("FunctionUrlAuthType").string(var_5.as_str());
 }
-if let Some(var_6) = &input.function_url_auth_type {
-    object.key("FunctionUrlAuthType").string(var_6.as_str());
+if let Some(var_6) = &input.invoked_via_function_url {
+    object.key("InvokedViaFunctionUrl").boolean(*var_6);
 }
-if let Some(var_7) = &input.invoked_via_function_url {
-    object.key("InvokedViaFunctionUrl").boolean(*var_7);
+if let Some(var_7) = &input.source_account {
+    object.key("SourceAccount").string(var_7.as_str());
 }
-if let Some(var_8) = &input.source_account {
-    object.key("SourceAccount").string(var_8.as_str());
+if let Some(var_8) = &input.event_source_token {
+    object.key("EventSourceToken").string(var_8.as_str());
 }
-if let Some(var_9) = &input.event_source_token {
-    object.key("EventSourceToken").string(var_9.as_str());
+if let Some(var_9) = &input.revision_id {
+    object.key("RevisionId").string(var_9.as_str());
 }
-if let Some(var_10) = &input.qualifier {
-    object.key("Qualifier").string(var_10.as_str());
-}
-if let Some(var_11) = &input.revision_id {
-    object.key("RevisionId").string(var_11.as_str());
-}
-if let Some(var_12) = &input.principal_org_id {
-    object.key("PrincipalOrgID").string(var_12.as_str());
+if let Some(var_10) = &input.principal_org_id {
+    object.key("PrincipalOrgID").string(var_10.as_str());
 }
     Ok(())
 }
@@ -139043,26 +137721,23 @@ pub fn ser_checkpoint_durable_execution_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.durable_execution_arn {
-    object.key("DurableExecutionArn").string(var_1.as_str());
+if let Some(var_1) = &input.checkpoint_token {
+    object.key("CheckpointToken").string(var_1.as_str());
 }
-if let Some(var_2) = &input.checkpoint_token {
-    object.key("CheckpointToken").string(var_2.as_str());
-}
-if let Some(var_3) = &input.updates {
-    let mut array_4 = object.key("Updates").start_array();
-    for item_5 in var_3 {
+if let Some(var_2) = &input.updates {
+    let mut array_3 = object.key("Updates").start_array();
+    for item_4 in var_2 {
         {
             #[allow(unused_mut)]
-            let mut object_6 = array_4.value().start_object();
-            super::super::protocol_serde::shape_operation_update::ser_operation_update(&mut object_6, item_5)?;
-            object_6.finish();
+            let mut object_5 = array_3.value().start_object();
+            super::super::protocol_serde::shape_operation_update::ser_operation_update(&mut object_5, item_4)?;
+            object_5.finish();
         }
     }
-    array_4.finish();
+    array_3.finish();
 }
-if let Some(var_7) = &input.client_token {
-    object.key("ClientToken").string(var_7.as_str());
+if let Some(var_6) = &input.client_token {
+    object.key("ClientToken").string(var_6.as_str());
 }
     Ok(())
 }
@@ -139332,23 +138007,20 @@ pub fn ser_create_alias_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_alias::CreateAliasInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.name {
+    object.key("Name").string(var_1.as_str());
 }
-if let Some(var_2) = &input.name {
-    object.key("Name").string(var_2.as_str());
+if let Some(var_2) = &input.function_version {
+    object.key("FunctionVersion").string(var_2.as_str());
 }
-if let Some(var_3) = &input.function_version {
-    object.key("FunctionVersion").string(var_3.as_str());
+if let Some(var_3) = &input.description {
+    object.key("Description").string(var_3.as_str());
 }
-if let Some(var_4) = &input.description {
-    object.key("Description").string(var_4.as_str());
-}
-if let Some(var_5) = &input.routing_config {
+if let Some(var_4) = &input.routing_config {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("RoutingConfig").start_object();
-    super::super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_6, var_5)?;
-    object_6.finish();
+    let mut object_5 = object.key("RoutingConfig").start_object();
+    super::super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_5, var_4)?;
+    object_5.finish();
 }
     Ok(())
 }
@@ -139797,203 +138469,17 @@ pub fn ser_create_function_url_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_function_url_config::CreateFunctionUrlConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.auth_type {
+    object.key("AuthType").string(var_1.as_str());
 }
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-if let Some(var_3) = &input.auth_type {
-    object.key("AuthType").string(var_3.as_str());
-}
-if let Some(var_4) = &input.cors {
+if let Some(var_2) = &input.cors {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("Cors").start_object();
-    super::super::protocol_serde::shape_cors::ser_cors(&mut object_5, var_4)?;
-    object_5.finish();
+    let mut object_3 = object.key("Cors").start_object();
+    super::super::protocol_serde::shape_cors::ser_cors(&mut object_3, var_2)?;
+    object_3.finish();
 }
-if let Some(var_6) = &input.invoke_mode {
-    object.key("InvokeMode").string(var_6.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_alias_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_alias_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_alias::DeleteAliasInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.name {
-    object.key("Name").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_capacity_provider_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_capacity_provider_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_capacity_provider::DeleteCapacityProviderInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.capacity_provider_name {
-    object.key("CapacityProviderName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_code_signing_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_code_signing_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_code_signing_config::DeleteCodeSigningConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.code_signing_config_arn {
-    object.key("CodeSigningConfigArn").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_event_source_mapping_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_event_source_mapping_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_event_source_mapping::DeleteEventSourceMappingInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.uuid {
-    object.key("UUID").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_function_code_signing_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_function_code_signing_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_function_concurrency_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_function_concurrency_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_function_event_invoke_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_function_event_invoke_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_function_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_function_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_function::DeleteFunctionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_function_url_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_function_url_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_layer_version_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_layer_version_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_layer_version::DeleteLayerVersionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.layer_name {
-    object.key("LayerName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.version_number {
-    object.key("VersionNumber").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_provisioned_concurrency_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_provisioned_concurrency_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_resource_policy_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_resource_policy_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_resource_policy::DeleteResourcePolicyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource_arn {
-    object.key("ResourceArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.revision_id {
-    object.key("RevisionId").string(var_2.as_str());
+if let Some(var_4) = &input.invoke_mode {
+    object.key("InvokeMode").string(var_4.as_str());
 }
     Ok(())
 }
@@ -140477,361 +138963,6 @@ pub(crate) fn de_function_versions_per_capacity_provider_limit_exceeded_exceptio
 }
 }
 
-pub(crate) mod shape_get_alias_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_alias_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_alias::GetAliasInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.name {
-    object.key("Name").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_capacity_provider_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_capacity_provider_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_capacity_provider::GetCapacityProviderInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.capacity_provider_name {
-    object.key("CapacityProviderName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_code_signing_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_code_signing_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_code_signing_config::GetCodeSigningConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.code_signing_config_arn {
-    object.key("CodeSigningConfigArn").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_durable_execution_history_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_durable_execution_history_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.durable_execution_arn {
-    object.key("DurableExecutionArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.include_execution_data {
-    object.key("IncludeExecutionData").boolean(*var_2);
-}
-if let Some(var_3) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-if let Some(var_4) = &input.marker {
-    object.key("Marker").string(var_4.as_str());
-}
-if let Some(var_5) = &input.reverse_order {
-    object.key("ReverseOrder").boolean(*var_5);
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_durable_execution_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_durable_execution_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_durable_execution::GetDurableExecutionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.durable_execution_arn {
-    object.key("DurableExecutionArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.include_execution_data {
-    object.key("IncludeExecutionData").boolean(*var_2);
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_durable_execution_state_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_durable_execution_state_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_durable_execution_state::GetDurableExecutionStateInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.durable_execution_arn {
-    object.key("DurableExecutionArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.checkpoint_token {
-    object.key("CheckpointToken").string(var_2.as_str());
-}
-if let Some(var_3) = &input.marker {
-    object.key("Marker").string(var_3.as_str());
-}
-if let Some(var_4) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_event_source_mapping_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_event_source_mapping_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_event_source_mapping::GetEventSourceMappingInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.uuid {
-    object.key("UUID").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_function_code_signing_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_function_code_signing_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_function_concurrency_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_function_concurrency_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_function_concurrency::GetFunctionConcurrencyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_function_configuration_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_function_configuration_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_function_configuration::GetFunctionConfigurationInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_function_event_invoke_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_function_event_invoke_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_function_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_function_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_function::GetFunctionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_function_recursion_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_function_recursion_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_function_scaling_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_function_scaling_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_function_scaling_config::GetFunctionScalingConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_function_url_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_function_url_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_function_url_config::GetFunctionUrlConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_layer_version_by_arn_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_layer_version_by_arn_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_layer_version_by_arn::GetLayerVersionByArnInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.arn {
-    object.key("Arn").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_layer_version_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_layer_version_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_layer_version::GetLayerVersionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.layer_name {
-    object.key("LayerName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.version_number {
-    object.key("VersionNumber").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_layer_version_policy_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_layer_version_policy_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.layer_name {
-    object.key("LayerName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.version_number {
-    object.key("VersionNumber").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_policy_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_policy_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_policy::GetPolicyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_provisioned_concurrency_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_provisioned_concurrency_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_resource_policy_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_resource_policy_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_resource_policy::GetResourcePolicyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource_arn {
-    object.key("ResourceArn").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_runtime_management_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_runtime_management_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_invalid_code_signature_exception {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub(crate) fn de_invalid_code_signature_exception_json_err(
@@ -141135,82 +139266,101 @@ pub(crate) fn de_invalid_zip_file_exception_json_err(
 
 pub(crate) mod shape_invoke_async_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_invoke_async_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::invoke_async::InvokeAsyncInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.invoke_args {
-    object.key("InvokeArgs").string_unchecked(&::aws_smithy_types::base64::encode(var_2));
-}
-    Ok(())
+pub fn ser_invoke_args_http_payload(
+    payload: ::std::option::Option<::aws_smithy_types::Blob>,
+) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = match payload {
+        Some(t) => t,
+        None => return Ok(::bytes::Bytes::new()),
+    };
+    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 }
 }
 
 pub(crate) mod shape_invoke_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_invoke_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::invoke::InvokeInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+pub fn ser_payload_http_payload(
+    payload: ::std::option::Option<::aws_smithy_types::Blob>,
+) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = match payload {
+        Some(t) => t,
+        None => return Ok(::bytes::Bytes::new()),
+    };
+    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 }
-if let Some(var_2) = &input.invocation_type {
-    object.key("InvocationType").string(var_2.as_str());
 }
-if let Some(var_3) = &input.log_type {
-    object.key("LogType").string(var_3.as_str());
+
+pub(crate) mod shape_invoke_output {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub(crate) fn de_payload_payload(
+    body: &[u8],
+) -> ::std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::super::operation::invoke::InvokeError> {
+    (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()
 }
-if let Some(var_4) = &input.client_context {
-    object.key("ClientContext").string(var_4.as_str());
+pub(crate) fn de_durable_execution_arn_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amz-Durable-Execution-Arn");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
-if let Some(var_5) = &input.durable_execution_name {
-    object.key("DurableExecutionName").string(var_5.as_str());
+
+pub(crate) fn de_executed_version_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amz-Executed-Version");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
-if let Some(var_6) = &input.payload {
-    object.key("Payload").string_unchecked(&::aws_smithy_types::base64::encode(var_6));
+
+pub(crate) fn de_function_error_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amz-Function-Error");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
-if let Some(var_7) = &input.qualifier {
-    object.key("Qualifier").string(var_7.as_str());
-}
-if let Some(var_8) = &input.tenant_id {
-    object.key("TenantId").string(var_8.as_str());
-}
-    Ok(())
+
+pub(crate) fn de_log_result_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amz-Log-Result");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
 }
 
 pub(crate) mod shape_invoke_with_response_stream_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_invoke_with_response_stream_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+pub fn ser_payload_http_payload(
+    payload: ::std::option::Option<::aws_smithy_types::Blob>,
+) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = match payload {
+        Some(t) => t,
+        None => return Ok(::bytes::Bytes::new()),
+    };
+    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 }
-if let Some(var_2) = &input.log_type {
-    object.key("LogType").string(var_2.as_str());
 }
-if let Some(var_3) = &input.client_context {
-    object.key("ClientContext").string(var_3.as_str());
+
+pub(crate) mod shape_invoke_with_response_stream_output {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_event_stream_payload(
+    body: &mut ::aws_smithy_types::body::SdkBody,
+) -> ::std::result::Result<super::super::event_receiver::EventReceiver<super::super::types::InvokeWithResponseStreamResponseEvent, super::super::types::error::InvokeWithResponseStreamResponseEventError>, super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError> {
+    let unmarshaller = super::super::event_stream_serde::InvokeWithResponseStreamResponseEventUnmarshaller::new();
+    let body = ::std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
+    let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
+    Ok(receiver)
 }
-if let Some(var_4) = &input.qualifier {
-    object.key("Qualifier").string(var_4.as_str());
+pub(crate) fn de_executed_version_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amz-Executed-Version");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
-if let Some(var_5) = &input.payload {
-    object.key("Payload").string_unchecked(&::aws_smithy_types::base64::encode(var_5));
-}
-if let Some(var_6) = &input.tenant_id {
-    object.key("TenantId").string(var_6.as_str());
-}
-if let Some(var_7) = &input.invocation_type {
-    object.key("InvocationType").string(var_7.as_str());
-}
-    Ok(())
+
+pub(crate) fn de_response_stream_content_type_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("Content-Type");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
 }
 
@@ -141383,366 +139533,6 @@ pub(crate) fn de_kms_not_found_exception_json_err(
         ));
     }
     Ok(builder)
-}
-}
-
-pub(crate) mod shape_list_aliases_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_aliases_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_aliases::ListAliasesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.function_version {
-    object.key("FunctionVersion").string(var_2.as_str());
-}
-if let Some(var_3) = &input.marker {
-    object.key("Marker").string(var_3.as_str());
-}
-if let Some(var_4) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_capacity_providers_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_capacity_providers_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_capacity_providers::ListCapacityProvidersInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.state {
-    object.key("State").string(var_1.as_str());
-}
-if let Some(var_2) = &input.marker {
-    object.key("Marker").string(var_2.as_str());
-}
-if let Some(var_3) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_code_signing_configs_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_code_signing_configs_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_code_signing_configs::ListCodeSigningConfigsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.marker {
-    object.key("Marker").string(var_1.as_str());
-}
-if let Some(var_2) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_durable_executions_by_function_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_durable_executions_by_function_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-if let Some(var_3) = &input.durable_execution_name {
-    object.key("DurableExecutionName").string(var_3.as_str());
-}
-if let Some(var_4) = &input.statuses {
-    let mut array_5 = object.key("Statuses").start_array();
-    for item_6 in var_4 {
-        {
-            array_5.value().string(item_6.as_str());
-        }
-    }
-    array_5.finish();
-}
-if let Some(var_7) = &input.started_after {
-    object.key("StartedAfter").date_time(var_7, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-}
-if let Some(var_8) = &input.started_before {
-    object.key("StartedBefore").date_time(var_8, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-}
-if let Some(var_9) = &input.reverse_order {
-    object.key("ReverseOrder").boolean(*var_9);
-}
-if let Some(var_10) = &input.marker {
-    object.key("Marker").string(var_10.as_str());
-}
-if let Some(var_11) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_11).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_event_source_mappings_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_event_source_mappings_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_event_source_mappings::ListEventSourceMappingsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.event_source_arn {
-    object.key("EventSourceArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.function_name {
-    object.key("FunctionName").string(var_2.as_str());
-}
-if let Some(var_3) = &input.marker {
-    object.key("Marker").string(var_3.as_str());
-}
-if let Some(var_4) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_function_event_invoke_configs_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_function_event_invoke_configs_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.marker {
-    object.key("Marker").string(var_2.as_str());
-}
-if let Some(var_3) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_function_url_configs_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_function_url_configs_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_function_url_configs::ListFunctionUrlConfigsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.marker {
-    object.key("Marker").string(var_2.as_str());
-}
-if let Some(var_3) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_function_versions_by_capacity_provider_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_function_versions_by_capacity_provider_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.capacity_provider_name {
-    object.key("CapacityProviderName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.marker {
-    object.key("Marker").string(var_2.as_str());
-}
-if let Some(var_3) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_functions_by_code_signing_config_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_functions_by_code_signing_config_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.code_signing_config_arn {
-    object.key("CodeSigningConfigArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.marker {
-    object.key("Marker").string(var_2.as_str());
-}
-if let Some(var_3) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_functions_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_functions_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_functions::ListFunctionsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.master_region {
-    object.key("MasterRegion").string(var_1.as_str());
-}
-if let Some(var_2) = &input.function_version {
-    object.key("FunctionVersion").string(var_2.as_str());
-}
-if let Some(var_3) = &input.marker {
-    object.key("Marker").string(var_3.as_str());
-}
-if let Some(var_4) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_layer_versions_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_layer_versions_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_layer_versions::ListLayerVersionsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.compatible_architecture {
-    object.key("CompatibleArchitecture").string(var_1.as_str());
-}
-if let Some(var_2) = &input.compatible_runtime {
-    object.key("CompatibleRuntime").string(var_2.as_str());
-}
-if let Some(var_3) = &input.layer_name {
-    object.key("LayerName").string(var_3.as_str());
-}
-if let Some(var_4) = &input.marker {
-    object.key("Marker").string(var_4.as_str());
-}
-if let Some(var_5) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_5).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_layers_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_layers_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_layers::ListLayersInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.compatible_architecture {
-    object.key("CompatibleArchitecture").string(var_1.as_str());
-}
-if let Some(var_2) = &input.compatible_runtime {
-    object.key("CompatibleRuntime").string(var_2.as_str());
-}
-if let Some(var_3) = &input.marker {
-    object.key("Marker").string(var_3.as_str());
-}
-if let Some(var_4) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_provisioned_concurrency_configs_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_provisioned_concurrency_configs_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.marker {
-    object.key("Marker").string(var_2.as_str());
-}
-if let Some(var_3) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_tags_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_tags_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_tags::ListTagsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource {
-    object.key("Resource").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_versions_by_function_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_versions_by_function_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_versions_by_function::ListVersionsByFunctionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.marker {
-    object.key("Marker").string(var_2.as_str());
-}
-if let Some(var_3) = &input.max_items {
-    object.key("MaxItems").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
 }
 }
 
@@ -142010,38 +139800,35 @@ pub fn ser_publish_layer_version_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::publish_layer_version::PublishLayerVersionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.layer_name {
-    object.key("LayerName").string(var_1.as_str());
+if let Some(var_1) = &input.description {
+    object.key("Description").string(var_1.as_str());
 }
-if let Some(var_2) = &input.description {
-    object.key("Description").string(var_2.as_str());
-}
-if let Some(var_3) = &input.content {
+if let Some(var_2) = &input.content {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("Content").start_object();
-    super::super::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_3 = object.key("Content").start_object();
+    super::super::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_3, var_2)?;
+    object_3.finish();
 }
-if let Some(var_5) = &input.compatible_architectures {
-    let mut array_6 = object.key("CompatibleArchitectures").start_array();
-    for item_7 in var_5 {
+if let Some(var_4) = &input.compatible_architectures {
+    let mut array_5 = object.key("CompatibleArchitectures").start_array();
+    for item_6 in var_4 {
         {
-            array_6.value().string(item_7.as_str());
+            array_5.value().string(item_6.as_str());
         }
     }
-    array_6.finish();
+    array_5.finish();
 }
-if let Some(var_8) = &input.compatible_runtimes {
-    let mut array_9 = object.key("CompatibleRuntimes").start_array();
-    for item_10 in var_8 {
+if let Some(var_7) = &input.compatible_runtimes {
+    let mut array_8 = object.key("CompatibleRuntimes").start_array();
+    for item_9 in var_7 {
         {
-            array_9.value().string(item_10.as_str());
+            array_8.value().string(item_9.as_str());
         }
     }
-    array_9.finish();
+    array_8.finish();
 }
-if let Some(var_11) = &input.license_info {
-    object.key("LicenseInfo").string(var_11.as_str());
+if let Some(var_10) = &input.license_info {
+    object.key("LicenseInfo").string(var_10.as_str());
 }
     Ok(())
 }
@@ -142053,20 +139840,17 @@ pub fn ser_publish_version_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::publish_version::PublishVersionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.code_sha256 {
+    object.key("CodeSha256").string(var_1.as_str());
 }
-if let Some(var_2) = &input.code_sha256 {
-    object.key("CodeSha256").string(var_2.as_str());
+if let Some(var_2) = &input.description {
+    object.key("Description").string(var_2.as_str());
 }
-if let Some(var_3) = &input.description {
-    object.key("Description").string(var_3.as_str());
+if let Some(var_3) = &input.revision_id {
+    object.key("RevisionId").string(var_3.as_str());
 }
-if let Some(var_4) = &input.revision_id {
-    object.key("RevisionId").string(var_4.as_str());
-}
-if let Some(var_5) = &input.publish_to {
-    object.key("PublishTo").string(var_5.as_str());
+if let Some(var_4) = &input.publish_to {
+    object.key("PublishTo").string(var_4.as_str());
 }
     Ok(())
 }
@@ -142081,9 +139865,6 @@ pub fn ser_put_function_code_signing_config_input_input(
 if let Some(var_1) = &input.code_signing_config_arn {
     object.key("CodeSigningConfigArn").string(var_1.as_str());
 }
-if let Some(var_2) = &input.function_name {
-    object.key("FunctionName").string(var_2.as_str());
-}
     Ok(())
 }
 }
@@ -142094,13 +139875,10 @@ pub fn ser_put_function_concurrency_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_function_concurrency::PutFunctionConcurrencyInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.reserved_concurrent_executions {
+if let Some(var_1) = &input.reserved_concurrent_executions {
     object.key("ReservedConcurrentExecutions").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
     );
 }
     Ok(())
@@ -142113,29 +139891,23 @@ pub fn ser_put_function_event_invoke_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-if let Some(var_3) = &input.maximum_retry_attempts {
+if let Some(var_1) = &input.maximum_retry_attempts {
     object.key("MaximumRetryAttempts").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
     );
 }
-if let Some(var_4) = &input.maximum_event_age_in_seconds {
+if let Some(var_2) = &input.maximum_event_age_in_seconds {
     object.key("MaximumEventAgeInSeconds").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_2).into()),
     );
 }
-if let Some(var_5) = &input.destination_config {
+if let Some(var_3) = &input.destination_config {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("DestinationConfig").start_object();
-    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
-    object_6.finish();
+    let mut object_4 = object.key("DestinationConfig").start_object();
+    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_4, var_3)?;
+    object_4.finish();
 }
     Ok(())
 }
@@ -142147,11 +139919,8 @@ pub fn ser_put_function_recursion_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.recursive_loop {
-    object.key("RecursiveLoop").string(var_2.as_str());
+if let Some(var_1) = &input.recursive_loop {
+    object.key("RecursiveLoop").string(var_1.as_str());
 }
     Ok(())
 }
@@ -142163,17 +139932,11 @@ pub fn ser_put_function_scaling_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_function_scaling_config::PutFunctionScalingConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-if let Some(var_3) = &input.function_scaling_config {
+if let Some(var_1) = &input.function_scaling_config {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("FunctionScalingConfig").start_object();
-    super::super::protocol_serde::shape_function_scaling_config::ser_function_scaling_config(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_2 = object.key("FunctionScalingConfig").start_object();
+    super::super::protocol_serde::shape_function_scaling_config::ser_function_scaling_config(&mut object_2, var_1)?;
+    object_2.finish();
 }
     Ok(())
 }
@@ -142185,16 +139948,10 @@ pub fn ser_put_provisioned_concurrency_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-if let Some(var_3) = &input.provisioned_concurrent_executions {
+if let Some(var_1) = &input.provisioned_concurrent_executions {
     object.key("ProvisionedConcurrentExecutions").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
     );
 }
     Ok(())
@@ -142207,14 +139964,11 @@ pub fn ser_put_resource_policy_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_resource_policy::PutResourcePolicyInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource_arn {
-    object.key("ResourceArn").string(var_1.as_str());
+if let Some(var_1) = &input.policy {
+    object.key("Policy").string(var_1.as_str());
 }
-if let Some(var_2) = &input.policy {
-    object.key("Policy").string(var_2.as_str());
-}
-if let Some(var_3) = &input.revision_id {
-    object.key("RevisionId").string(var_3.as_str());
+if let Some(var_2) = &input.revision_id {
+    object.key("RevisionId").string(var_2.as_str());
 }
     Ok(())
 }
@@ -142226,17 +139980,11 @@ pub fn ser_put_runtime_management_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.update_runtime_on {
+    object.key("UpdateRuntimeOn").string(var_1.as_str());
 }
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-if let Some(var_3) = &input.update_runtime_on {
-    object.key("UpdateRuntimeOn").string(var_3.as_str());
-}
-if let Some(var_4) = &input.runtime_version_arn {
-    object.key("RuntimeVersionArn").string(var_4.as_str());
+if let Some(var_2) = &input.runtime_version_arn {
+    object.key("RuntimeVersionArn").string(var_2.as_str());
 }
     Ok(())
 }
@@ -142282,53 +140030,6 @@ pub(crate) fn de_recursive_invocation_exception_json_err(
         ));
     }
     Ok(builder)
-}
-}
-
-pub(crate) mod shape_remove_layer_version_permission_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_remove_layer_version_permission_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.layer_name {
-    object.key("LayerName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.version_number {
-    object.key("VersionNumber").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-if let Some(var_3) = &input.statement_id {
-    object.key("StatementId").string(var_3.as_str());
-}
-if let Some(var_4) = &input.revision_id {
-    object.key("RevisionId").string(var_4.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_remove_permission_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_remove_permission_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::remove_permission::RemovePermissionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.statement_id {
-    object.key("StatementId").string(var_2.as_str());
-}
-if let Some(var_3) = &input.qualifier {
-    object.key("Qualifier").string(var_3.as_str());
-}
-if let Some(var_4) = &input.revision_id {
-    object.key("RevisionId").string(var_4.as_str());
-}
-    Ok(())
 }
 }
 
@@ -142676,51 +140377,43 @@ pub(crate) fn de_s3_files_mount_timeout_exception_json_err(
 }
 }
 
-pub(crate) mod shape_send_durable_execution_callback_failure_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_send_durable_execution_callback_failure_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.callback_id {
-    object.key("CallbackId").string(var_1.as_str());
-}
-if let Some(var_2) = &input.error {
-    #[allow(unused_mut)]
-    let mut object_3 = object.key("Error").start_object();
-    super::super::protocol_serde::shape_error_object::ser_error_object(&mut object_3, var_2)?;
-    object_3.finish();
-}
-    Ok(())
-}
+pub fn rest_json_unset_struct_payload() -> ::std::vec::Vec<u8> {
+    b"{}"[..].into()
 }
 
-pub(crate) mod shape_send_durable_execution_callback_heartbeat_input {
+pub(crate) mod shape_send_durable_execution_callback_failure_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_send_durable_execution_callback_heartbeat_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.callback_id {
-    object.key("CallbackId").string(var_1.as_str());
+pub fn ser_error_http_payload(
+    payload: &::std::option::Option<super::super::types::ErrorObject>,
+) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = match payload.as_ref() {
+        Some(t) => t,
+        None => return Ok(super::super::protocol_serde::rest_json_unset_struct_payload()),
+    };
+    Ok(super::super::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_error_payload(payload)?)
 }
-    Ok(())
+
+pub fn ser_error_payload(
+    input: &super::super::types::ErrorObject,
+) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+    super::super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
+    object.finish();
+    Ok(out.into_bytes())
 }
 }
 
 pub(crate) mod shape_send_durable_execution_callback_success_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_send_durable_execution_callback_success_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.callback_id {
-    object.key("CallbackId").string(var_1.as_str());
-}
-if let Some(var_2) = &input.result {
-    object.key("Result").string_unchecked(&::aws_smithy_types::base64::encode(var_2));
-}
-    Ok(())
+pub fn ser_result_http_payload(
+    payload: ::std::option::Option<::aws_smithy_types::Blob>,
+) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = match payload {
+        Some(t) => t,
+        None => return Ok(::bytes::Bytes::new()),
+    };
+    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 }
 }
 
@@ -143027,20 +140720,24 @@ pub(crate) fn de_snap_start_timeout_exception_json_err(
 
 pub(crate) mod shape_stop_durable_execution_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_stop_durable_execution_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::stop_durable_execution::StopDurableExecutionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.durable_execution_arn {
-    object.key("DurableExecutionArn").string(var_1.as_str());
+pub fn ser_error_http_payload(
+    payload: &::std::option::Option<super::super::types::ErrorObject>,
+) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = match payload.as_ref() {
+        Some(t) => t,
+        None => return Ok(super::super::protocol_serde::rest_json_unset_struct_payload()),
+    };
+    Ok(super::super::protocol_serde::shape_stop_durable_execution_input::ser_error_payload(payload)?)
 }
-if let Some(var_2) = &input.error {
-    #[allow(unused_mut)]
-    let mut object_3 = object.key("Error").start_object();
-    super::super::protocol_serde::shape_error_object::ser_error_object(&mut object_3, var_2)?;
-    object_3.finish();
-}
-    Ok(())
+
+pub fn ser_error_payload(
+    input: &super::super::types::ErrorObject,
+) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+    super::super::protocol_serde::shape_error_object::ser_error_object(&mut object, input)?;
+    object.finish();
+    Ok(out.into_bytes())
 }
 }
 
@@ -143093,18 +140790,15 @@ pub fn ser_tag_resource_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::tag_resource::TagResourceInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource {
-    object.key("Resource").string(var_1.as_str());
-}
-if let Some(var_2) = &input.tags {
+if let Some(var_1) = &input.tags {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("Tags").start_object();
-    for (key_4, value_5) in var_2 {
+    let mut object_2 = object.key("Tags").start_object();
+    for (key_3, value_4) in var_1 {
         {
-            object_3.key(key_4.as_str()).string(value_5.as_str());
+            object_2.key(key_3.as_str()).string(value_4.as_str());
         }
     }
-    object_3.finish();
+    object_2.finish();
 }
     Ok(())
 }
@@ -143206,54 +140900,26 @@ pub(crate) fn de_unsupported_media_type_exception_json_err(
 }
 }
 
-pub(crate) mod shape_untag_resource_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_untag_resource_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::untag_resource::UntagResourceInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource {
-    object.key("Resource").string(var_1.as_str());
-}
-if let Some(var_2) = &input.tag_keys {
-    let mut array_3 = object.key("TagKeys").start_array();
-    for item_4 in var_2 {
-        {
-            array_3.value().string(item_4.as_str());
-        }
-    }
-    array_3.finish();
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_update_alias_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn ser_update_alias_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_alias::UpdateAliasInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.function_version {
+    object.key("FunctionVersion").string(var_1.as_str());
 }
-if let Some(var_2) = &input.name {
-    object.key("Name").string(var_2.as_str());
+if let Some(var_2) = &input.description {
+    object.key("Description").string(var_2.as_str());
 }
-if let Some(var_3) = &input.function_version {
-    object.key("FunctionVersion").string(var_3.as_str());
-}
-if let Some(var_4) = &input.description {
-    object.key("Description").string(var_4.as_str());
-}
-if let Some(var_5) = &input.routing_config {
+if let Some(var_3) = &input.routing_config {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("RoutingConfig").start_object();
-    super::super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_6, var_5)?;
-    object_6.finish();
+    let mut object_4 = object.key("RoutingConfig").start_object();
+    super::super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_4, var_3)?;
+    object_4.finish();
 }
-if let Some(var_7) = &input.revision_id {
-    object.key("RevisionId").string(var_7.as_str());
+if let Some(var_5) = &input.revision_id {
+    object.key("RevisionId").string(var_5.as_str());
 }
     Ok(())
 }
@@ -143265,26 +140931,23 @@ pub fn ser_update_capacity_provider_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_capacity_provider::UpdateCapacityProviderInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.capacity_provider_name {
-    object.key("CapacityProviderName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.capacity_provider_scaling_config {
+if let Some(var_1) = &input.capacity_provider_scaling_config {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("CapacityProviderScalingConfig").start_object();
-    super::super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("CapacityProviderScalingConfig").start_object();
+    super::super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_4) = &input.propagate_tags {
+if let Some(var_3) = &input.propagate_tags {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("PropagateTags").start_object();
-    super::super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_5, var_4)?;
-    object_5.finish();
+    let mut object_4 = object.key("PropagateTags").start_object();
+    super::super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_4, var_3)?;
+    object_4.finish();
 }
-if let Some(var_6) = &input.telemetry_config {
+if let Some(var_5) = &input.telemetry_config {
     #[allow(unused_mut)]
-    let mut object_7 = object.key("TelemetryConfig").start_object();
-    super::super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_7, var_6)?;
-    object_7.finish();
+    let mut object_6 = object.key("TelemetryConfig").start_object();
+    super::super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_6, var_5)?;
+    object_6.finish();
 }
     Ok(())
 }
@@ -143296,23 +140959,20 @@ pub fn ser_update_code_signing_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_code_signing_config::UpdateCodeSigningConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.code_signing_config_arn {
-    object.key("CodeSigningConfigArn").string(var_1.as_str());
+if let Some(var_1) = &input.description {
+    object.key("Description").string(var_1.as_str());
 }
-if let Some(var_2) = &input.description {
-    object.key("Description").string(var_2.as_str());
-}
-if let Some(var_3) = &input.allowed_publishers {
+if let Some(var_2) = &input.allowed_publishers {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("AllowedPublishers").start_object();
-    super::super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_3 = object.key("AllowedPublishers").start_object();
+    super::super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_3, var_2)?;
+    object_3.finish();
 }
-if let Some(var_5) = &input.code_signing_policies {
+if let Some(var_4) = &input.code_signing_policies {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("CodeSigningPolicies").start_object();
-    super::super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_6, var_5)?;
-    object_6.finish();
+    let mut object_5 = object.key("CodeSigningPolicies").start_object();
+    super::super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_5, var_4)?;
+    object_5.finish();
 }
     Ok(())
 }
@@ -143324,131 +140984,128 @@ pub fn ser_update_event_source_mapping_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.uuid {
-    object.key("UUID").string(var_1.as_str());
+if let Some(var_1) = &input.function_name {
+    object.key("FunctionName").string(var_1.as_str());
 }
-if let Some(var_2) = &input.function_name {
-    object.key("FunctionName").string(var_2.as_str());
+if let Some(var_2) = &input.enabled {
+    object.key("Enabled").boolean(*var_2);
 }
-if let Some(var_3) = &input.enabled {
-    object.key("Enabled").boolean(*var_3);
-}
-if let Some(var_4) = &input.batch_size {
+if let Some(var_3) = &input.batch_size {
     object.key("BatchSize").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
     );
 }
-if let Some(var_5) = &input.filter_criteria {
+if let Some(var_4) = &input.filter_criteria {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("FilterCriteria").start_object();
-    super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_6, var_5)?;
-    object_6.finish();
+    let mut object_5 = object.key("FilterCriteria").start_object();
+    super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_5, var_4)?;
+    object_5.finish();
 }
-if let Some(var_7) = &input.kms_key_arn {
-    object.key("KMSKeyArn").string(var_7.as_str());
+if let Some(var_6) = &input.kms_key_arn {
+    object.key("KMSKeyArn").string(var_6.as_str());
 }
-if let Some(var_8) = &input.metrics_config {
+if let Some(var_7) = &input.metrics_config {
     #[allow(unused_mut)]
-    let mut object_9 = object.key("MetricsConfig").start_object();
-    super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_9, var_8)?;
-    object_9.finish();
+    let mut object_8 = object.key("MetricsConfig").start_object();
+    super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_8, var_7)?;
+    object_8.finish();
 }
-if let Some(var_10) = &input.logging_config {
+if let Some(var_9) = &input.logging_config {
     #[allow(unused_mut)]
-    let mut object_11 = object.key("LoggingConfig").start_object();
-    super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_11, var_10)?;
-    object_11.finish();
+    let mut object_10 = object.key("LoggingConfig").start_object();
+    super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_10, var_9)?;
+    object_10.finish();
 }
-if let Some(var_12) = &input.scaling_config {
+if let Some(var_11) = &input.scaling_config {
     #[allow(unused_mut)]
-    let mut object_13 = object.key("ScalingConfig").start_object();
-    super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_13, var_12)?;
-    object_13.finish();
+    let mut object_12 = object.key("ScalingConfig").start_object();
+    super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_12, var_11)?;
+    object_12.finish();
 }
-if let Some(var_14) = &input.maximum_batching_window_in_seconds {
+if let Some(var_13) = &input.maximum_batching_window_in_seconds {
     object.key("MaximumBatchingWindowInSeconds").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_13).into()),
+    );
+}
+if let Some(var_14) = &input.parallelization_factor {
+    object.key("ParallelizationFactor").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((*var_14).into()),
     );
 }
-if let Some(var_15) = &input.parallelization_factor {
-    object.key("ParallelizationFactor").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_15).into()),
-    );
-}
-if let Some(var_16) = &input.destination_config {
+if let Some(var_15) = &input.destination_config {
     #[allow(unused_mut)]
-    let mut object_17 = object.key("DestinationConfig").start_object();
-    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_17, var_16)?;
-    object_17.finish();
+    let mut object_16 = object.key("DestinationConfig").start_object();
+    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_16, var_15)?;
+    object_16.finish();
 }
-if let Some(var_18) = &input.maximum_record_age_in_seconds {
+if let Some(var_17) = &input.maximum_record_age_in_seconds {
     object.key("MaximumRecordAgeInSeconds").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_18).into()),
+        ::aws_smithy_types::Number::NegInt((*var_17).into()),
     );
 }
-if let Some(var_19) = &input.bisect_batch_on_function_error {
-    object.key("BisectBatchOnFunctionError").boolean(*var_19);
+if let Some(var_18) = &input.bisect_batch_on_function_error {
+    object.key("BisectBatchOnFunctionError").boolean(*var_18);
 }
-if let Some(var_20) = &input.maximum_retry_attempts {
+if let Some(var_19) = &input.maximum_retry_attempts {
     object.key("MaximumRetryAttempts").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_19).into()),
+    );
+}
+if let Some(var_20) = &input.tumbling_window_in_seconds {
+    object.key("TumblingWindowInSeconds").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((*var_20).into()),
     );
 }
-if let Some(var_21) = &input.tumbling_window_in_seconds {
-    object.key("TumblingWindowInSeconds").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_21).into()),
-    );
-}
-if let Some(var_22) = &input.source_access_configurations {
-    let mut array_23 = object.key("SourceAccessConfigurations").start_array();
-    for item_24 in var_22 {
+if let Some(var_21) = &input.source_access_configurations {
+    let mut array_22 = object.key("SourceAccessConfigurations").start_array();
+    for item_23 in var_21 {
         {
             #[allow(unused_mut)]
-            let mut object_25 = array_23.value().start_object();
-            super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_25, item_24)?;
-            object_25.finish();
+            let mut object_24 = array_22.value().start_object();
+            super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_24, item_23)?;
+            object_24.finish();
         }
     }
-    array_23.finish();
+    array_22.finish();
 }
-if let Some(var_26) = &input.function_response_types {
-    let mut array_27 = object.key("FunctionResponseTypes").start_array();
-    for item_28 in var_26 {
+if let Some(var_25) = &input.function_response_types {
+    let mut array_26 = object.key("FunctionResponseTypes").start_array();
+    for item_27 in var_25 {
         {
-            array_27.value().string(item_28.as_str());
+            array_26.value().string(item_27.as_str());
         }
     }
-    array_27.finish();
+    array_26.finish();
 }
-if let Some(var_29) = &input.amazon_managed_kafka_event_source_config {
+if let Some(var_28) = &input.amazon_managed_kafka_event_source_config {
     #[allow(unused_mut)]
-    let mut object_30 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
-    super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_30, var_29)?;
-    object_30.finish();
+    let mut object_29 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
+    super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_29, var_28)?;
+    object_29.finish();
 }
-if let Some(var_31) = &input.self_managed_kafka_event_source_config {
+if let Some(var_30) = &input.self_managed_kafka_event_source_config {
     #[allow(unused_mut)]
-    let mut object_32 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
-    super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_32, var_31)?;
-    object_32.finish();
+    let mut object_31 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
+    super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_31, var_30)?;
+    object_31.finish();
 }
-if let Some(var_33) = &input.document_db_event_source_config {
+if let Some(var_32) = &input.document_db_event_source_config {
     #[allow(unused_mut)]
-    let mut object_34 = object.key("DocumentDBEventSourceConfig").start_object();
-    super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_34, var_33)?;
-    object_34.finish();
+    let mut object_33 = object.key("DocumentDBEventSourceConfig").start_object();
+    super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_33, var_32)?;
+    object_33.finish();
 }
-if let Some(var_35) = &input.provisioned_poller_config {
+if let Some(var_34) = &input.provisioned_poller_config {
     #[allow(unused_mut)]
-    let mut object_36 = object.key("ProvisionedPollerConfig").start_object();
-    super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_36, var_35)?;
-    object_36.finish();
+    let mut object_35 = object.key("ProvisionedPollerConfig").start_object();
+    super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_35, var_34)?;
+    object_35.finish();
 }
     Ok(())
 }
@@ -143460,50 +141117,47 @@ pub fn ser_update_function_code_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_function_code::UpdateFunctionCodeInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.zip_file {
+    object.key("ZipFile").string_unchecked(&::aws_smithy_types::base64::encode(var_1));
 }
-if let Some(var_2) = &input.zip_file {
-    object.key("ZipFile").string_unchecked(&::aws_smithy_types::base64::encode(var_2));
+if let Some(var_2) = &input.s3_bucket {
+    object.key("S3Bucket").string(var_2.as_str());
 }
-if let Some(var_3) = &input.s3_bucket {
-    object.key("S3Bucket").string(var_3.as_str());
+if let Some(var_3) = &input.s3_key {
+    object.key("S3Key").string(var_3.as_str());
 }
-if let Some(var_4) = &input.s3_key {
-    object.key("S3Key").string(var_4.as_str());
+if let Some(var_4) = &input.s3_object_version {
+    object.key("S3ObjectVersion").string(var_4.as_str());
 }
-if let Some(var_5) = &input.s3_object_version {
-    object.key("S3ObjectVersion").string(var_5.as_str());
+if let Some(var_5) = &input.s3_object_storage_mode {
+    object.key("S3ObjectStorageMode").string(var_5.as_str());
 }
-if let Some(var_6) = &input.s3_object_storage_mode {
-    object.key("S3ObjectStorageMode").string(var_6.as_str());
+if let Some(var_6) = &input.image_uri {
+    object.key("ImageUri").string(var_6.as_str());
 }
-if let Some(var_7) = &input.image_uri {
-    object.key("ImageUri").string(var_7.as_str());
-}
-if let Some(var_8) = &input.architectures {
-    let mut array_9 = object.key("Architectures").start_array();
-    for item_10 in var_8 {
+if let Some(var_7) = &input.architectures {
+    let mut array_8 = object.key("Architectures").start_array();
+    for item_9 in var_7 {
         {
-            array_9.value().string(item_10.as_str());
+            array_8.value().string(item_9.as_str());
         }
     }
-    array_9.finish();
+    array_8.finish();
 }
-if let Some(var_11) = &input.publish {
-    object.key("Publish").boolean(*var_11);
+if let Some(var_10) = &input.publish {
+    object.key("Publish").boolean(*var_10);
 }
-if let Some(var_12) = &input.publish_to {
-    object.key("PublishTo").string(var_12.as_str());
+if let Some(var_11) = &input.publish_to {
+    object.key("PublishTo").string(var_11.as_str());
 }
-if let Some(var_13) = &input.dry_run {
-    object.key("DryRun").boolean(*var_13);
+if let Some(var_12) = &input.dry_run {
+    object.key("DryRun").boolean(*var_12);
 }
-if let Some(var_14) = &input.revision_id {
-    object.key("RevisionId").string(var_14.as_str());
+if let Some(var_13) = &input.revision_id {
+    object.key("RevisionId").string(var_13.as_str());
 }
-if let Some(var_15) = &input.source_kms_key_arn {
-    object.key("SourceKMSKeyArn").string(var_15.as_str());
+if let Some(var_14) = &input.source_kms_key_arn {
+    object.key("SourceKMSKeyArn").string(var_14.as_str());
 }
     Ok(())
 }
@@ -143515,119 +141169,116 @@ pub fn ser_update_function_configuration_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_function_configuration::UpdateFunctionConfigurationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.role {
+    object.key("Role").string(var_1.as_str());
 }
-if let Some(var_2) = &input.role {
-    object.key("Role").string(var_2.as_str());
+if let Some(var_2) = &input.handler {
+    object.key("Handler").string(var_2.as_str());
 }
-if let Some(var_3) = &input.handler {
-    object.key("Handler").string(var_3.as_str());
+if let Some(var_3) = &input.description {
+    object.key("Description").string(var_3.as_str());
 }
-if let Some(var_4) = &input.description {
-    object.key("Description").string(var_4.as_str());
-}
-if let Some(var_5) = &input.timeout {
+if let Some(var_4) = &input.timeout {
     object.key("Timeout").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+    );
+}
+if let Some(var_5) = &input.memory_size {
+    object.key("MemorySize").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((*var_5).into()),
     );
 }
-if let Some(var_6) = &input.memory_size {
-    object.key("MemorySize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_6).into()),
-    );
-}
-if let Some(var_7) = &input.vpc_config {
+if let Some(var_6) = &input.vpc_config {
     #[allow(unused_mut)]
-    let mut object_8 = object.key("VpcConfig").start_object();
-    super::super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_8, var_7)?;
-    object_8.finish();
+    let mut object_7 = object.key("VpcConfig").start_object();
+    super::super::protocol_serde::shape_vpc_config::ser_vpc_config(&mut object_7, var_6)?;
+    object_7.finish();
 }
-if let Some(var_9) = &input.environment {
+if let Some(var_8) = &input.environment {
     #[allow(unused_mut)]
-    let mut object_10 = object.key("Environment").start_object();
-    super::super::protocol_serde::shape_environment::ser_environment(&mut object_10, var_9)?;
-    object_10.finish();
+    let mut object_9 = object.key("Environment").start_object();
+    super::super::protocol_serde::shape_environment::ser_environment(&mut object_9, var_8)?;
+    object_9.finish();
 }
-if let Some(var_11) = &input.runtime {
-    object.key("Runtime").string(var_11.as_str());
+if let Some(var_10) = &input.runtime {
+    object.key("Runtime").string(var_10.as_str());
 }
-if let Some(var_12) = &input.dead_letter_config {
+if let Some(var_11) = &input.dead_letter_config {
     #[allow(unused_mut)]
-    let mut object_13 = object.key("DeadLetterConfig").start_object();
-    super::super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_13, var_12)?;
-    object_13.finish();
+    let mut object_12 = object.key("DeadLetterConfig").start_object();
+    super::super::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_12, var_11)?;
+    object_12.finish();
 }
-if let Some(var_14) = &input.kms_key_arn {
-    object.key("KMSKeyArn").string(var_14.as_str());
+if let Some(var_13) = &input.kms_key_arn {
+    object.key("KMSKeyArn").string(var_13.as_str());
 }
-if let Some(var_15) = &input.tracing_config {
+if let Some(var_14) = &input.tracing_config {
     #[allow(unused_mut)]
-    let mut object_16 = object.key("TracingConfig").start_object();
-    super::super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_16, var_15)?;
-    object_16.finish();
+    let mut object_15 = object.key("TracingConfig").start_object();
+    super::super::protocol_serde::shape_tracing_config::ser_tracing_config(&mut object_15, var_14)?;
+    object_15.finish();
 }
-if let Some(var_17) = &input.revision_id {
-    object.key("RevisionId").string(var_17.as_str());
+if let Some(var_16) = &input.revision_id {
+    object.key("RevisionId").string(var_16.as_str());
 }
-if let Some(var_18) = &input.layers {
-    let mut array_19 = object.key("Layers").start_array();
-    for item_20 in var_18 {
+if let Some(var_17) = &input.layers {
+    let mut array_18 = object.key("Layers").start_array();
+    for item_19 in var_17 {
         {
-            array_19.value().string(item_20.as_str());
+            array_18.value().string(item_19.as_str());
         }
     }
-    array_19.finish();
+    array_18.finish();
 }
-if let Some(var_21) = &input.file_system_configs {
-    let mut array_22 = object.key("FileSystemConfigs").start_array();
-    for item_23 in var_21 {
+if let Some(var_20) = &input.file_system_configs {
+    let mut array_21 = object.key("FileSystemConfigs").start_array();
+    for item_22 in var_20 {
         {
             #[allow(unused_mut)]
-            let mut object_24 = array_22.value().start_object();
-            super::super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_24, item_23)?;
-            object_24.finish();
+            let mut object_23 = array_21.value().start_object();
+            super::super::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_23, item_22)?;
+            object_23.finish();
         }
     }
-    array_22.finish();
+    array_21.finish();
 }
-if let Some(var_25) = &input.image_config {
+if let Some(var_24) = &input.image_config {
     #[allow(unused_mut)]
-    let mut object_26 = object.key("ImageConfig").start_object();
-    super::super::protocol_serde::shape_image_config::ser_image_config(&mut object_26, var_25)?;
-    object_26.finish();
+    let mut object_25 = object.key("ImageConfig").start_object();
+    super::super::protocol_serde::shape_image_config::ser_image_config(&mut object_25, var_24)?;
+    object_25.finish();
 }
-if let Some(var_27) = &input.ephemeral_storage {
+if let Some(var_26) = &input.ephemeral_storage {
     #[allow(unused_mut)]
-    let mut object_28 = object.key("EphemeralStorage").start_object();
-    super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_28, var_27)?;
-    object_28.finish();
+    let mut object_27 = object.key("EphemeralStorage").start_object();
+    super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_27, var_26)?;
+    object_27.finish();
 }
-if let Some(var_29) = &input.snap_start {
+if let Some(var_28) = &input.snap_start {
     #[allow(unused_mut)]
-    let mut object_30 = object.key("SnapStart").start_object();
-    super::super::protocol_serde::shape_snap_start::ser_snap_start(&mut object_30, var_29)?;
-    object_30.finish();
+    let mut object_29 = object.key("SnapStart").start_object();
+    super::super::protocol_serde::shape_snap_start::ser_snap_start(&mut object_29, var_28)?;
+    object_29.finish();
 }
-if let Some(var_31) = &input.logging_config {
+if let Some(var_30) = &input.logging_config {
     #[allow(unused_mut)]
-    let mut object_32 = object.key("LoggingConfig").start_object();
-    super::super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_32, var_31)?;
-    object_32.finish();
+    let mut object_31 = object.key("LoggingConfig").start_object();
+    super::super::protocol_serde::shape_logging_config::ser_logging_config(&mut object_31, var_30)?;
+    object_31.finish();
 }
-if let Some(var_33) = &input.capacity_provider_config {
+if let Some(var_32) = &input.capacity_provider_config {
     #[allow(unused_mut)]
-    let mut object_34 = object.key("CapacityProviderConfig").start_object();
-    super::super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_34, var_33)?;
-    object_34.finish();
+    let mut object_33 = object.key("CapacityProviderConfig").start_object();
+    super::super::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_33, var_32)?;
+    object_33.finish();
 }
-if let Some(var_35) = &input.durable_config {
+if let Some(var_34) = &input.durable_config {
     #[allow(unused_mut)]
-    let mut object_36 = object.key("DurableConfig").start_object();
-    super::super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_36, var_35)?;
-    object_36.finish();
+    let mut object_35 = object.key("DurableConfig").start_object();
+    super::super::protocol_serde::shape_durable_config::ser_durable_config(&mut object_35, var_34)?;
+    object_35.finish();
 }
     Ok(())
 }
@@ -143639,29 +141290,23 @@ pub fn ser_update_function_event_invoke_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-if let Some(var_3) = &input.maximum_retry_attempts {
+if let Some(var_1) = &input.maximum_retry_attempts {
     object.key("MaximumRetryAttempts").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
     );
 }
-if let Some(var_4) = &input.maximum_event_age_in_seconds {
+if let Some(var_2) = &input.maximum_event_age_in_seconds {
     object.key("MaximumEventAgeInSeconds").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_2).into()),
     );
 }
-if let Some(var_5) = &input.destination_config {
+if let Some(var_3) = &input.destination_config {
     #[allow(unused_mut)]
-    let mut object_6 = object.key("DestinationConfig").start_object();
-    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
-    object_6.finish();
+    let mut object_4 = object.key("DestinationConfig").start_object();
+    super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_4, var_3)?;
+    object_4.finish();
 }
     Ok(())
 }
@@ -143673,23 +141318,17 @@ pub fn ser_update_function_url_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_function_url_config::UpdateFunctionUrlConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.function_name {
-    object.key("FunctionName").string(var_1.as_str());
+if let Some(var_1) = &input.auth_type {
+    object.key("AuthType").string(var_1.as_str());
 }
-if let Some(var_2) = &input.qualifier {
-    object.key("Qualifier").string(var_2.as_str());
-}
-if let Some(var_3) = &input.auth_type {
-    object.key("AuthType").string(var_3.as_str());
-}
-if let Some(var_4) = &input.cors {
+if let Some(var_2) = &input.cors {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("Cors").start_object();
-    super::super::protocol_serde::shape_cors::ser_cors(&mut object_5, var_4)?;
-    object_5.finish();
+    let mut object_3 = object.key("Cors").start_object();
+    super::super::protocol_serde::shape_cors::ser_cors(&mut object_3, var_2)?;
+    object_3.finish();
 }
-if let Some(var_6) = &input.invoke_mode {
-    object.key("InvokeMode").string(var_6.as_str());
+if let Some(var_4) = &input.invoke_mode {
+    object.key("InvokeMode").string(var_4.as_str());
 }
     Ok(())
 }

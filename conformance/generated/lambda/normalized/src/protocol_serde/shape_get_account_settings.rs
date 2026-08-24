@@ -73,12 +73,6 @@ pub fn de_get_account_settings_http_response(
     })
 }
 
-pub fn ser_get_account_settings_input(
-    _input: &super::super::operation::get_account_settings::GetAccountSettingsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
-}
-
 pub(crate) fn de_get_account_settings(
     _value: &[u8],
     mut builder: super::super::operation::get_account_settings::builders::GetAccountSettingsOutputBuilder,

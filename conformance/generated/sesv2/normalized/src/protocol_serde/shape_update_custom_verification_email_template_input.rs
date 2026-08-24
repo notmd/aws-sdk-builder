@@ -3,23 +3,20 @@ pub fn ser_update_custom_verification_email_template_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.template_name {
-        object.key("TemplateName").string(var_1.as_str());
+    if let Some(var_1) = &input.from_email_address {
+        object.key("FromEmailAddress").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.from_email_address {
-        object.key("FromEmailAddress").string(var_2.as_str());
+    if let Some(var_2) = &input.template_subject {
+        object.key("TemplateSubject").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.template_subject {
-        object.key("TemplateSubject").string(var_3.as_str());
+    if let Some(var_3) = &input.template_content {
+        object.key("TemplateContent").string(var_3.as_str());
     }
-    if let Some(var_4) = &input.template_content {
-        object.key("TemplateContent").string(var_4.as_str());
+    if let Some(var_4) = &input.success_redirection_url {
+        object.key("SuccessRedirectionURL").string(var_4.as_str());
     }
-    if let Some(var_5) = &input.success_redirection_url {
-        object.key("SuccessRedirectionURL").string(var_5.as_str());
-    }
-    if let Some(var_6) = &input.failure_redirection_url {
-        object.key("FailureRedirectionURL").string(var_6.as_str());
+    if let Some(var_5) = &input.failure_redirection_url {
+        object.key("FailureRedirectionURL").string(var_5.as_str());
     }
     Ok(())
 }

@@ -280,7 +280,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SendDurableE
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_send_durable_execution_callback_failure::ser_send_durable_execution_callback_failure_input(&input)?,
+            super::super::protocol_serde::shape_send_durable_execution_callback_failure_input::ser_error_http_payload(&input.error)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();

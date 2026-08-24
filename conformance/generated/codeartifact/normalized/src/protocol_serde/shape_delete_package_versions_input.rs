@@ -3,35 +3,17 @@ pub fn ser_delete_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::delete_package_versions::DeletePackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.domain {
-        object.key("domain").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.domain_owner {
-        object.key("domainOwner").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.repository {
-        object.key("repository").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.format {
-        object.key("format").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.namespace {
-        object.key("namespace").string(var_5.as_str());
-    }
-    if let Some(var_6) = &input.package {
-        object.key("package").string(var_6.as_str());
-    }
-    if let Some(var_7) = &input.versions {
-        let mut array_8 = object.key("versions").start_array();
-        for item_9 in var_7 {
+    if let Some(var_1) = &input.versions {
+        let mut array_2 = object.key("versions").start_array();
+        for item_3 in var_1 {
             {
-                array_8.value().string(item_9.as_str());
+                array_2.value().string(item_3.as_str());
             }
         }
-        array_8.finish();
+        array_2.finish();
     }
-    if let Some(var_10) = &input.expected_status {
-        object.key("expectedStatus").string(var_10.as_str());
+    if let Some(var_4) = &input.expected_status {
+        object.key("expectedStatus").string(var_4.as_str());
     }
     Ok(())
 }

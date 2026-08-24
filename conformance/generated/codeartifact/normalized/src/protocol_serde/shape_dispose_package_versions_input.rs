@@ -3,45 +3,27 @@ pub fn ser_dispose_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::dispose_package_versions::DisposePackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.domain {
-        object.key("domain").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.domain_owner {
-        object.key("domainOwner").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.repository {
-        object.key("repository").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.format {
-        object.key("format").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.namespace {
-        object.key("namespace").string(var_5.as_str());
-    }
-    if let Some(var_6) = &input.package {
-        object.key("package").string(var_6.as_str());
-    }
-    if let Some(var_7) = &input.versions {
-        let mut array_8 = object.key("versions").start_array();
-        for item_9 in var_7 {
+    if let Some(var_1) = &input.versions {
+        let mut array_2 = object.key("versions").start_array();
+        for item_3 in var_1 {
             {
-                array_8.value().string(item_9.as_str());
+                array_2.value().string(item_3.as_str());
             }
         }
-        array_8.finish();
+        array_2.finish();
     }
-    if let Some(var_10) = &input.version_revisions {
+    if let Some(var_4) = &input.version_revisions {
         #[allow(unused_mut)]
-        let mut object_11 = object.key("versionRevisions").start_object();
-        for (key_12, value_13) in var_10 {
+        let mut object_5 = object.key("versionRevisions").start_object();
+        for (key_6, value_7) in var_4 {
             {
-                object_11.key(key_12.as_str()).string(value_13.as_str());
+                object_5.key(key_6.as_str()).string(value_7.as_str());
             }
         }
-        object_11.finish();
+        object_5.finish();
     }
-    if let Some(var_14) = &input.expected_status {
-        object.key("expectedStatus").string(var_14.as_str());
+    if let Some(var_8) = &input.expected_status {
+        object.key("expectedStatus").string(var_8.as_str());
     }
     Ok(())
 }

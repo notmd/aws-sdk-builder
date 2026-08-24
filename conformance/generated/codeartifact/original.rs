@@ -44003,10 +44003,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PublishPacka
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_package_version::ser_publish_package_version_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_package_version_input::ser_asset_content_http_payload(input.asset_content)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -59541,17 +59541,6 @@ pub fn de_associate_external_connection_http_response(
     })
 }
 
-pub fn ser_associate_external_connection_input(
-    input: &super::super::operation::associate_external_connection::AssociateExternalConnectionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_associate_external_connection_input::ser_associate_external_connection_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_associate_external_connection(
     _value: &[u8],
     mut builder: super::super::operation::associate_external_connection::builders::AssociateExternalConnectionOutputBuilder,
@@ -60431,17 +60420,6 @@ pub fn de_delete_domain_http_response(
     })
 }
 
-pub fn ser_delete_domain_input(
-    input: &super::super::operation::delete_domain::DeleteDomainInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_domain_input::ser_delete_domain_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_delete_domain(
     _value: &[u8],
     mut builder: super::super::operation::delete_domain::builders::DeleteDomainOutputBuilder,
@@ -60600,17 +60578,6 @@ pub fn de_delete_domain_permissions_policy_http_response(
     })
 }
 
-pub fn ser_delete_domain_permissions_policy_input(
-    input: &super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_domain_permissions_policy_input::ser_delete_domain_permissions_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_delete_domain_permissions_policy(
     _value: &[u8],
     mut builder: super::super::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyOutputBuilder,
@@ -60768,17 +60735,6 @@ pub fn de_delete_package_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_package_input(
-    input: &super::super::operation::delete_package::DeletePackageInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_package_input::ser_delete_package_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_delete_package(
     _value: &[u8],
@@ -60951,17 +60907,6 @@ pub fn de_delete_package_group_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_package_group_input(
-    input: &super::super::operation::delete_package_group::DeletePackageGroupInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_package_group_input::ser_delete_package_group_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_delete_package_group(
     _value: &[u8],
@@ -61293,17 +61238,6 @@ pub fn de_delete_repository_http_response(
     })
 }
 
-pub fn ser_delete_repository_input(
-    input: &super::super::operation::delete_repository::DeleteRepositoryInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_repository_input::ser_delete_repository_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_delete_repository(
     _value: &[u8],
     mut builder: super::super::operation::delete_repository::builders::DeleteRepositoryOutputBuilder,
@@ -61462,17 +61396,6 @@ pub fn de_delete_repository_permissions_policy_http_response(
     })
 }
 
-pub fn ser_delete_repository_permissions_policy_input(
-    input: &super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_repository_permissions_policy_input::ser_delete_repository_permissions_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_delete_repository_permissions_policy(
     _value: &[u8],
     mut builder: super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder,
@@ -61616,17 +61539,6 @@ pub fn de_describe_domain_http_response(
         output.build()
     })
 }
-
-pub fn ser_describe_domain_input(
-    input: &super::super::operation::describe_domain::DescribeDomainInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_domain_input::ser_describe_domain_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_describe_domain(
     _value: &[u8],
@@ -61773,17 +61685,6 @@ pub fn de_describe_package_http_response(
 }
 
 
-pub fn ser_describe_package_input(
-    input: &super::super::operation::describe_package::DescribePackageInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_package_input::ser_describe_package_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_describe_package(
     _value: &[u8],
     mut builder: super::super::operation::describe_package::builders::DescribePackageOutputBuilder,
@@ -61927,17 +61828,6 @@ pub fn de_describe_package_group_http_response(
         output.build()
     })
 }
-
-pub fn ser_describe_package_group_input(
-    input: &super::super::operation::describe_package_group::DescribePackageGroupInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_package_group_input::ser_describe_package_group_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_describe_package_group(
     _value: &[u8],
@@ -62098,17 +61988,6 @@ pub fn de_describe_package_version_http_response(
 }
 
 
-pub fn ser_describe_package_version_input(
-    input: &super::super::operation::describe_package_version::DescribePackageVersionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_package_version_input::ser_describe_package_version_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_describe_package_version(
     _value: &[u8],
     mut builder: super::super::operation::describe_package_version::builders::DescribePackageVersionOutputBuilder,
@@ -62252,17 +62131,6 @@ pub fn de_describe_repository_http_response(
         output.build()
     })
 }
-
-pub fn ser_describe_repository_input(
-    input: &super::super::operation::describe_repository::DescribeRepositoryInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_repository_input::ser_describe_repository_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_describe_repository(
     _value: &[u8],
@@ -62435,17 +62303,6 @@ pub fn de_disassociate_external_connection_http_response(
         output.build()
     })
 }
-
-pub fn ser_disassociate_external_connection_input(
-    input: &super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_disassociate_external_connection_input::ser_disassociate_external_connection_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_disassociate_external_connection(
     _value: &[u8],
@@ -62749,17 +62606,6 @@ pub fn de_get_associated_package_group_http_response(
     })
 }
 
-pub fn ser_get_associated_package_group_input(
-    input: &super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_associated_package_group_input::ser_get_associated_package_group_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_associated_package_group(
     _value: &[u8],
     mut builder: super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder,
@@ -62908,17 +62754,6 @@ pub fn de_get_authorization_token_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_authorization_token_input(
-    input: &super::super::operation::get_authorization_token::GetAuthorizationTokenInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_authorization_token_input::ser_get_authorization_token_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_authorization_token(
     _value: &[u8],
@@ -63069,17 +62904,6 @@ pub fn de_get_domain_permissions_policy_http_response(
     })
 }
 
-pub fn ser_get_domain_permissions_policy_input(
-    input: &super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_domain_permissions_policy_input::ser_get_domain_permissions_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_domain_permissions_policy(
     _value: &[u8],
     mut builder: super::super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
@@ -63224,77 +63048,24 @@ pub fn de_get_package_version_asset_http_error(
 
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_get_package_version_asset_http_response(
-    _response_status: u16,
-    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-    _response_body: &[u8],
+    response: &mut ::aws_smithy_runtime_api::http::Response,
 ) -> std::result::Result<super::super::operation::get_package_version_asset::GetPackageVersionAssetOutput, super::super::operation::get_package_version_asset::GetPackageVersionAssetError> {
+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+    ::std::mem::swap(&mut _response_body, response.body_mut());
+    let _response_body = &mut _response_body;
+
+    let _response_status = response.status().as_u16();
+    let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default();
-        output = super::super::protocol_serde::shape_get_package_version_asset::de_get_package_version_asset(_response_body, output)
-            .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+        output = output.set_asset(Some(super::super::protocol_serde::shape_get_package_version_asset_output::de_asset_payload(_response_body)?));
+        output = output.set_asset_name(super::super::protocol_serde::shape_get_package_version_asset_output::de_asset_name_header(_response_headers).map_err(|_| super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled("Failed to parse assetName from header `X-AssetName`"))?);
+        output = output.set_package_version(super::super::protocol_serde::shape_get_package_version_asset_output::de_package_version_header(_response_headers).map_err(|_| super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled("Failed to parse packageVersion from header `X-PackageVersion`"))?);
+        output = output.set_package_version_revision(super::super::protocol_serde::shape_get_package_version_asset_output::de_package_version_revision_header(_response_headers).map_err(|_| super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled("Failed to parse packageVersionRevision from header `X-PackageVersionRevision`"))?);
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_get_package_version_asset_input(
-    input: &super::super::operation::get_package_version_asset::GetPackageVersionAssetInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_package_version_asset_input::ser_get_package_version_asset_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_get_package_version_asset(
-    _value: &[u8],
-    mut builder: super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder,
-) -> ::std::result::Result<super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "asset" => {
-                    builder = builder.set_asset(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-                },
-                "assetName" => {
-                    builder = builder.set_asset_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "packageVersion" => {
-                    builder = builder.set_package_version(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "packageVersionRevision" => {
-                    builder = builder.set_package_version_revision(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -63407,17 +63178,6 @@ pub fn de_get_package_version_readme_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_package_version_readme_input(
-    input: &super::super::operation::get_package_version_readme::GetPackageVersionReadmeInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_package_version_readme_input::ser_get_package_version_readme_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_package_version_readme(
     _value: &[u8],
@@ -63590,17 +63350,6 @@ pub fn de_get_repository_endpoint_http_response(
     })
 }
 
-pub fn ser_get_repository_endpoint_input(
-    input: &super::super::operation::get_repository_endpoint::GetRepositoryEndpointInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_repository_endpoint_input::ser_get_repository_endpoint_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_repository_endpoint(
     _value: &[u8],
     mut builder: super::super::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder,
@@ -63746,17 +63495,6 @@ pub fn de_get_repository_permissions_policy_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_repository_permissions_policy_input(
-    input: &super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_repository_permissions_policy_input::ser_get_repository_permissions_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_repository_permissions_policy(
     _value: &[u8],
@@ -63916,17 +63654,6 @@ pub fn de_list_allowed_repositories_for_group_http_response(
     })
 }
 
-pub fn ser_list_allowed_repositories_for_group_input(
-    input: &super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_allowed_repositories_for_group_input::ser_list_allowed_repositories_for_group_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_allowed_repositories_for_group(
     _value: &[u8],
     mut builder: super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
@@ -64061,17 +63788,6 @@ pub fn de_list_associated_packages_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_associated_packages_input(
-    input: &super::super::operation::list_associated_packages::ListAssociatedPackagesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_associated_packages_input::ser_list_associated_packages_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_associated_packages(
     _value: &[u8],
@@ -64368,17 +64084,6 @@ pub fn de_list_package_groups_http_response(
     })
 }
 
-pub fn ser_list_package_groups_input(
-    input: &super::super::operation::list_package_groups::ListPackageGroupsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_package_groups_input::ser_list_package_groups_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_package_groups(
     _value: &[u8],
     mut builder: super::super::operation::list_package_groups::builders::ListPackageGroupsOutputBuilder,
@@ -64527,17 +64232,6 @@ pub fn de_list_package_version_assets_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_package_version_assets_input(
-    input: &super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_package_version_assets_input::ser_list_package_version_assets_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_package_version_assets(
     _value: &[u8],
@@ -64713,17 +64407,6 @@ pub fn de_list_package_version_dependencies_http_response(
     })
 }
 
-pub fn ser_list_package_version_dependencies_input(
-    input: &super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_package_version_dependencies_input::ser_list_package_version_dependencies_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_package_version_dependencies(
     _value: &[u8],
     mut builder: super::super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder,
@@ -64898,17 +64581,6 @@ pub fn de_list_package_versions_http_response(
     })
 }
 
-pub fn ser_list_package_versions_input(
-    input: &super::super::operation::list_package_versions::ListPackageVersionsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_package_versions_input::ser_list_package_versions_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_package_versions(
     _value: &[u8],
     mut builder: super::super::operation::list_package_versions::builders::ListPackageVersionsOutputBuilder,
@@ -65078,17 +64750,6 @@ pub fn de_list_packages_http_response(
     })
 }
 
-pub fn ser_list_packages_input(
-    input: &super::super::operation::list_packages::ListPackagesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_packages_input::ser_list_packages_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_packages(
     _value: &[u8],
     mut builder: super::super::operation::list_packages::builders::ListPackagesOutputBuilder,
@@ -65223,17 +64884,6 @@ pub fn de_list_repositories_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_repositories_input(
-    input: &super::super::operation::list_repositories::ListRepositoriesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_repositories_input::ser_list_repositories_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_repositories(
     _value: &[u8],
@@ -65384,17 +65034,6 @@ pub fn de_list_repositories_in_domain_http_response(
     })
 }
 
-pub fn ser_list_repositories_in_domain_input(
-    input: &super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_repositories_in_domain_input::ser_list_repositories_in_domain_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_repositories_in_domain(
     _value: &[u8],
     mut builder: super::super::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainOutputBuilder,
@@ -65544,17 +65183,6 @@ pub fn de_list_sub_package_groups_http_response(
     })
 }
 
-pub fn ser_list_sub_package_groups_input(
-    input: &super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_sub_package_groups_input::ser_list_sub_package_groups_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_sub_package_groups(
     _value: &[u8],
     mut builder: super::super::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder,
@@ -65689,17 +65317,6 @@ pub fn de_list_tags_for_resource_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_tags_for_resource_input(
-    input: &super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_tags_for_resource(
     _value: &[u8],
@@ -65872,17 +65489,6 @@ pub fn de_publish_package_version_http_response(
         output.build()
     })
 }
-
-pub fn ser_publish_package_version_input(
-    input: &super::super::operation::publish_package_version::PublishPackageVersionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_publish_package_version_input::ser_publish_package_version_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_publish_package_version(
     _value: &[u8],
@@ -66586,37 +66192,6 @@ pub fn ser_tag_resource_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_tag_resource(
-    _value: &[u8],
-    mut builder: super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
-) -> ::std::result::Result<super::super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_untag_resource {
@@ -66721,37 +66296,6 @@ pub fn ser_untag_resource_input(
     super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_untag_resource(
-    _value: &[u8],
-    mut builder: super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
-) -> ::std::result::Result<super::super::operation::untag_resource::builders::UntagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -67497,28 +67041,6 @@ pub(crate) fn de_access_denied_exception_json_err(
 }
 }
 
-pub(crate) mod shape_associate_external_connection_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_associate_external_connection_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::associate_external_connection::AssociateExternalConnectionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.external_connection {
-    object.key("externalConnection").string(var_4.as_str());
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_conflict_exception {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub(crate) fn de_conflict_exception_json_err(
@@ -67573,51 +67095,30 @@ pub fn ser_copy_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::copy_package_versions::CopyPackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.source_repository {
-    object.key("sourceRepository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.destination_repository {
-    object.key("destinationRepository").string(var_4.as_str());
-}
-if let Some(var_5) = &input.format {
-    object.key("format").string(var_5.as_str());
-}
-if let Some(var_6) = &input.namespace {
-    object.key("namespace").string(var_6.as_str());
-}
-if let Some(var_7) = &input.package {
-    object.key("package").string(var_7.as_str());
-}
-if let Some(var_8) = &input.versions {
-    let mut array_9 = object.key("versions").start_array();
-    for item_10 in var_8 {
+if let Some(var_1) = &input.versions {
+    let mut array_2 = object.key("versions").start_array();
+    for item_3 in var_1 {
         {
-            array_9.value().string(item_10.as_str());
+            array_2.value().string(item_3.as_str());
         }
     }
-    array_9.finish();
+    array_2.finish();
 }
-if let Some(var_11) = &input.version_revisions {
+if let Some(var_4) = &input.version_revisions {
     #[allow(unused_mut)]
-    let mut object_12 = object.key("versionRevisions").start_object();
-    for (key_13, value_14) in var_11 {
+    let mut object_5 = object.key("versionRevisions").start_object();
+    for (key_6, value_7) in var_4 {
         {
-            object_12.key(key_13.as_str()).string(value_14.as_str());
+            object_5.key(key_6.as_str()).string(value_7.as_str());
         }
     }
-    object_12.finish();
+    object_5.finish();
 }
-if let Some(var_15) = &input.allow_overwrite {
-    object.key("allowOverwrite").boolean(*var_15);
+if let Some(var_8) = &input.allow_overwrite {
+    object.key("allowOverwrite").boolean(*var_8);
 }
-if let Some(var_16) = &input.include_from_upstream {
-    object.key("includeFromUpstream").boolean(*var_16);
+if let Some(var_9) = &input.include_from_upstream {
+    object.key("includeFromUpstream").boolean(*var_9);
 }
     Ok(())
 }
@@ -67629,23 +67130,20 @@ pub fn ser_create_domain_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_domain::CreateDomainInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
+if let Some(var_1) = &input.encryption_key {
+    object.key("encryptionKey").string(var_1.as_str());
 }
-if let Some(var_2) = &input.encryption_key {
-    object.key("encryptionKey").string(var_2.as_str());
-}
-if let Some(var_3) = &input.tags {
-    let mut array_4 = object.key("tags").start_array();
-    for item_5 in var_3 {
+if let Some(var_2) = &input.tags {
+    let mut array_3 = object.key("tags").start_array();
+    for item_4 in var_2 {
         {
             #[allow(unused_mut)]
-            let mut object_6 = array_4.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
-            object_6.finish();
+            let mut object_5 = array_3.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
+            object_5.finish();
         }
     }
-    array_4.finish();
+    array_3.finish();
 }
     Ok(())
 }
@@ -67657,20 +67155,51 @@ pub fn ser_create_package_group_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_package_group::CreatePackageGroupInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
+if let Some(var_1) = &input.package_group {
+    object.key("packageGroup").string(var_1.as_str());
 }
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
+if let Some(var_2) = &input.contact_info {
+    object.key("contactInfo").string(var_2.as_str());
 }
-if let Some(var_3) = &input.package_group {
-    object.key("packageGroup").string(var_3.as_str());
+if let Some(var_3) = &input.description {
+    object.key("description").string(var_3.as_str());
 }
-if let Some(var_4) = &input.contact_info {
-    object.key("contactInfo").string(var_4.as_str());
+if let Some(var_4) = &input.tags {
+    let mut array_5 = object.key("tags").start_array();
+    for item_6 in var_4 {
+        {
+            #[allow(unused_mut)]
+            let mut object_7 = array_5.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_7, item_6)?;
+            object_7.finish();
+        }
+    }
+    array_5.finish();
 }
-if let Some(var_5) = &input.description {
-    object.key("description").string(var_5.as_str());
+    Ok(())
+}
+}
+
+pub(crate) mod shape_create_repository_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_create_repository_input_input(
+    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
+    input: &super::super::operation::create_repository::CreateRepositoryInput,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+if let Some(var_1) = &input.description {
+    object.key("description").string(var_1.as_str());
+}
+if let Some(var_2) = &input.upstreams {
+    let mut array_3 = object.key("upstreams").start_array();
+    for item_4 in var_2 {
+        {
+            #[allow(unused_mut)]
+            let mut object_5 = array_3.value().start_object();
+            super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_5, item_4)?;
+            object_5.finish();
+        }
+    }
+    array_3.finish();
 }
 if let Some(var_6) = &input.tags {
     let mut array_7 = object.key("tags").start_array();
@@ -67688,345 +67217,23 @@ if let Some(var_6) = &input.tags {
 }
 }
 
-pub(crate) mod shape_create_repository_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_create_repository_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::create_repository::CreateRepositoryInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.description {
-    object.key("description").string(var_4.as_str());
-}
-if let Some(var_5) = &input.upstreams {
-    let mut array_6 = object.key("upstreams").start_array();
-    for item_7 in var_5 {
-        {
-            #[allow(unused_mut)]
-            let mut object_8 = array_6.value().start_object();
-            super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
-            object_8.finish();
-        }
-    }
-    array_6.finish();
-}
-if let Some(var_9) = &input.tags {
-    let mut array_10 = object.key("tags").start_array();
-    for item_11 in var_9 {
-        {
-            #[allow(unused_mut)]
-            let mut object_12 = array_10.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_12, item_11)?;
-            object_12.finish();
-        }
-    }
-    array_10.finish();
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_domain_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_domain_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_domain::DeleteDomainInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_domain_permissions_policy_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_domain_permissions_policy_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.policy_revision {
-    object.key("policyRevision").string(var_3.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_package_group_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_package_group_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_package_group::DeletePackageGroupInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.package_group {
-    object.key("packageGroup").string(var_3.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_package_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_package_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_package::DeletePackageInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_delete_package_versions_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn ser_delete_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::delete_package_versions::DeletePackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.versions {
-    let mut array_8 = object.key("versions").start_array();
-    for item_9 in var_7 {
+if let Some(var_1) = &input.versions {
+    let mut array_2 = object.key("versions").start_array();
+    for item_3 in var_1 {
         {
-            array_8.value().string(item_9.as_str());
+            array_2.value().string(item_3.as_str());
         }
     }
-    array_8.finish();
+    array_2.finish();
 }
-if let Some(var_10) = &input.expected_status {
-    object.key("expectedStatus").string(var_10.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_repository_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_repository_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_repository::DeleteRepositoryInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_repository_permissions_policy_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_repository_permissions_policy_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.policy_revision {
-    object.key("policyRevision").string(var_4.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_describe_domain_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_describe_domain_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::describe_domain::DescribeDomainInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_describe_package_group_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_describe_package_group_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::describe_package_group::DescribePackageGroupInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.package_group {
-    object.key("packageGroup").string(var_3.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_describe_package_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_describe_package_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::describe_package::DescribePackageInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_describe_package_version_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_describe_package_version_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::describe_package_version::DescribePackageVersionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.package_version {
-    object.key("packageVersion").string(var_7.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_describe_repository_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_describe_repository_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::describe_repository::DescribeRepositoryInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_disassociate_external_connection_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_disassociate_external_connection_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.external_connection {
-    object.key("externalConnection").string(var_4.as_str());
+if let Some(var_4) = &input.expected_status {
+    object.key("expectedStatus").string(var_4.as_str());
 }
     Ok(())
 }
@@ -68038,222 +67245,58 @@ pub fn ser_dispose_package_versions_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::dispose_package_versions::DisposePackageVersionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.versions {
-    let mut array_8 = object.key("versions").start_array();
-    for item_9 in var_7 {
+if let Some(var_1) = &input.versions {
+    let mut array_2 = object.key("versions").start_array();
+    for item_3 in var_1 {
         {
-            array_8.value().string(item_9.as_str());
+            array_2.value().string(item_3.as_str());
         }
     }
-    array_8.finish();
+    array_2.finish();
 }
-if let Some(var_10) = &input.version_revisions {
+if let Some(var_4) = &input.version_revisions {
     #[allow(unused_mut)]
-    let mut object_11 = object.key("versionRevisions").start_object();
-    for (key_12, value_13) in var_10 {
+    let mut object_5 = object.key("versionRevisions").start_object();
+    for (key_6, value_7) in var_4 {
         {
-            object_11.key(key_12.as_str()).string(value_13.as_str());
+            object_5.key(key_6.as_str()).string(value_7.as_str());
         }
     }
-    object_11.finish();
+    object_5.finish();
 }
-if let Some(var_14) = &input.expected_status {
-    object.key("expectedStatus").string(var_14.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_associated_package_group_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_associated_package_group_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.format {
-    object.key("format").string(var_3.as_str());
-}
-if let Some(var_4) = &input.namespace {
-    object.key("namespace").string(var_4.as_str());
-}
-if let Some(var_5) = &input.package {
-    object.key("package").string(var_5.as_str());
+if let Some(var_8) = &input.expected_status {
+    object.key("expectedStatus").string(var_8.as_str());
 }
     Ok(())
 }
 }
 
-pub(crate) mod shape_get_authorization_token_input {
+pub(crate) mod shape_get_package_version_asset_output {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_authorization_token_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_authorization_token::GetAuthorizationTokenInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
+pub(crate) fn de_asset_payload(
+    body: &[u8],
+) -> ::std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::super::operation::get_package_version_asset::GetPackageVersionAssetError> {
+    (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()
 }
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.duration_seconds {
-    object.key("durationSeconds").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
-}
+pub(crate) fn de_asset_name_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-AssetName");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
 
-pub(crate) mod shape_get_domain_permissions_policy_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_domain_permissions_policy_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-    Ok(())
-}
+pub(crate) fn de_package_version_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-PackageVersion");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
 
-pub(crate) mod shape_get_package_version_asset_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_package_version_asset_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_package_version_asset::GetPackageVersionAssetInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.package_version {
-    object.key("packageVersion").string(var_7.as_str());
-}
-if let Some(var_8) = &input.asset {
-    object.key("asset").string(var_8.as_str());
-}
-if let Some(var_9) = &input.package_version_revision {
-    object.key("packageVersionRevision").string(var_9.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_package_version_readme_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_package_version_readme_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_package_version_readme::GetPackageVersionReadmeInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.package_version {
-    object.key("packageVersion").string(var_7.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_repository_endpoint_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_repository_endpoint_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_repository_endpoint::GetRepositoryEndpointInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.endpoint_type {
-    object.key("endpointType").string(var_5.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_repository_permissions_policy_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_repository_permissions_policy_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-    Ok(())
+pub(crate) fn de_package_version_revision_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-PackageVersionRevision");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
 }
 
@@ -68295,68 +67338,6 @@ pub(crate) fn de_internal_server_exception_json_err(
 }
 }
 
-pub(crate) mod shape_list_allowed_repositories_for_group_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_allowed_repositories_for_group_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.package_group {
-    object.key("packageGroup").string(var_3.as_str());
-}
-if let Some(var_4) = &input.origin_restriction_type {
-    object.key("originRestrictionType").string(var_4.as_str());
-}
-if let Some(var_5) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_5).into()),
-    );
-}
-if let Some(var_6) = &input.next_token {
-    object.key("nextToken").string(var_6.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_associated_packages_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_associated_packages_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_associated_packages::ListAssociatedPackagesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.package_group {
-    object.key("packageGroup").string(var_3.as_str());
-}
-if let Some(var_4) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-if let Some(var_5) = &input.next_token {
-    object.key("nextToken").string(var_5.as_str());
-}
-if let Some(var_6) = &input.preview {
-    object.key("preview").boolean(*var_6);
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_list_domains_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn ser_list_domains_input_input(
@@ -68376,331 +67357,16 @@ if let Some(var_2) = &input.next_token {
 }
 }
 
-pub(crate) mod shape_list_package_groups_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_package_groups_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_package_groups::ListPackageGroupsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-if let Some(var_4) = &input.next_token {
-    object.key("nextToken").string(var_4.as_str());
-}
-if let Some(var_5) = &input.prefix {
-    object.key("prefix").string(var_5.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_package_version_assets_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_package_version_assets_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.package_version {
-    object.key("packageVersion").string(var_7.as_str());
-}
-if let Some(var_8) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_8).into()),
-    );
-}
-if let Some(var_9) = &input.next_token {
-    object.key("nextToken").string(var_9.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_package_version_dependencies_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_package_version_dependencies_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.package_version {
-    object.key("packageVersion").string(var_7.as_str());
-}
-if let Some(var_8) = &input.next_token {
-    object.key("nextToken").string(var_8.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_package_versions_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_package_versions_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_package_versions::ListPackageVersionsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.status {
-    object.key("status").string(var_7.as_str());
-}
-if let Some(var_8) = &input.sort_by {
-    object.key("sortBy").string(var_8.as_str());
-}
-if let Some(var_9) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_9).into()),
-    );
-}
-if let Some(var_10) = &input.next_token {
-    object.key("nextToken").string(var_10.as_str());
-}
-if let Some(var_11) = &input.origin_type {
-    object.key("originType").string(var_11.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_packages_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_packages_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_packages::ListPackagesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package_prefix {
-    object.key("packagePrefix").string(var_6.as_str());
-}
-if let Some(var_7) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_7).into()),
-    );
-}
-if let Some(var_8) = &input.next_token {
-    object.key("nextToken").string(var_8.as_str());
-}
-if let Some(var_9) = &input.publish {
-    object.key("publish").string(var_9.as_str());
-}
-if let Some(var_10) = &input.upstream {
-    object.key("upstream").string(var_10.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_repositories_in_domain_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_repositories_in_domain_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.administrator_account {
-    object.key("administratorAccount").string(var_3.as_str());
-}
-if let Some(var_4) = &input.repository_prefix {
-    object.key("repositoryPrefix").string(var_4.as_str());
-}
-if let Some(var_5) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_5).into()),
-    );
-}
-if let Some(var_6) = &input.next_token {
-    object.key("nextToken").string(var_6.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_repositories_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_repositories_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_repositories::ListRepositoriesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.repository_prefix {
-    object.key("repositoryPrefix").string(var_1.as_str());
-}
-if let Some(var_2) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-if let Some(var_3) = &input.next_token {
-    object.key("nextToken").string(var_3.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_sub_package_groups_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_sub_package_groups_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.package_group {
-    object.key("packageGroup").string(var_3.as_str());
-}
-if let Some(var_4) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-if let Some(var_5) = &input.next_token {
-    object.key("nextToken").string(var_5.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_tags_for_resource_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_tags_for_resource_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource_arn {
-    object.key("resourceArn").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_publish_package_version_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_publish_package_version_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::publish_package_version::PublishPackageVersionInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.package_version {
-    object.key("packageVersion").string(var_7.as_str());
-}
-if let Some(var_8) = &input.asset_content {
-    object.key("assetContent").string_unchecked(&::aws_smithy_types::base64::encode(var_8));
-}
-if let Some(var_9) = &input.asset_name {
-    object.key("assetName").string(var_9.as_str());
-}
-if let Some(var_10) = &input.asset_sha256 {
-    object.key("assetSHA256").string(var_10.as_str());
-}
-if let Some(var_11) = &input.unfinished {
-    object.key("unfinished").boolean(*var_11);
-}
-    Ok(())
+pub fn ser_asset_content_http_payload(
+    payload: ::std::option::Option<::aws_smithy_types::Blob>,
+) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = match payload {
+        Some(t) => t,
+        None => return Ok(::bytes::Bytes::new()),
+    };
+    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 }
 }
 
@@ -68732,29 +67398,11 @@ pub fn ser_put_package_origin_configuration_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.restrictions {
+if let Some(var_1) = &input.restrictions {
     #[allow(unused_mut)]
-    let mut object_8 = object.key("restrictions").start_object();
-    super::super::protocol_serde::shape_package_origin_restrictions::ser_package_origin_restrictions(&mut object_8, var_7)?;
-    object_8.finish();
+    let mut object_2 = object.key("restrictions").start_object();
+    super::super::protocol_serde::shape_package_origin_restrictions::ser_package_origin_restrictions(&mut object_2, var_1)?;
+    object_2.finish();
 }
     Ok(())
 }
@@ -68766,20 +67414,11 @@ pub fn ser_put_repository_permissions_policy_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
+if let Some(var_1) = &input.policy_revision {
+    object.key("policyRevision").string(var_1.as_str());
 }
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.policy_revision {
-    object.key("policyRevision").string(var_4.as_str());
-}
-if let Some(var_5) = &input.policy_document {
-    object.key("policyDocument").string(var_5.as_str());
+if let Some(var_2) = &input.policy_document {
+    object.key("policyDocument").string(var_2.as_str());
 }
     Ok(())
 }
@@ -68887,20 +67526,17 @@ pub fn ser_tag_resource_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::tag_resource::TagResourceInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource_arn {
-    object.key("resourceArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.tags {
-    let mut array_3 = object.key("tags").start_array();
-    for item_4 in var_2 {
+if let Some(var_1) = &input.tags {
+    let mut array_2 = object.key("tags").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_tag::ser_tag(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_3.finish();
+    array_2.finish();
 }
     Ok(())
 }
@@ -68955,17 +67591,14 @@ pub fn ser_untag_resource_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::untag_resource::UntagResourceInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource_arn {
-    object.key("resourceArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.tag_keys {
-    let mut array_3 = object.key("tagKeys").start_array();
-    for item_4 in var_2 {
+if let Some(var_1) = &input.tag_keys {
+    let mut array_2 = object.key("tagKeys").start_array();
+    for item_3 in var_1 {
         {
-            array_3.value().string(item_4.as_str());
+            array_2.value().string(item_3.as_str());
         }
     }
-    array_3.finish();
+    array_2.finish();
 }
     Ok(())
 }
@@ -68977,20 +67610,14 @@ pub fn ser_update_package_group_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_package_group::UpdatePackageGroupInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
+if let Some(var_1) = &input.package_group {
+    object.key("packageGroup").string(var_1.as_str());
 }
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
+if let Some(var_2) = &input.contact_info {
+    object.key("contactInfo").string(var_2.as_str());
 }
-if let Some(var_3) = &input.package_group {
-    object.key("packageGroup").string(var_3.as_str());
-}
-if let Some(var_4) = &input.contact_info {
-    object.key("contactInfo").string(var_4.as_str());
-}
-if let Some(var_5) = &input.description {
-    object.key("description").string(var_5.as_str());
+if let Some(var_3) = &input.description {
+    object.key("description").string(var_3.as_str());
 }
     Ok(())
 }
@@ -69002,48 +67629,39 @@ pub fn ser_update_package_group_origin_configuration_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.package_group {
-    object.key("packageGroup").string(var_3.as_str());
-}
-if let Some(var_4) = &input.restrictions {
+if let Some(var_1) = &input.restrictions {
     #[allow(unused_mut)]
-    let mut object_5 = object.key("restrictions").start_object();
-    for (key_6, value_7) in var_4 {
+    let mut object_2 = object.key("restrictions").start_object();
+    for (key_3, value_4) in var_1 {
         {
-            object_5.key(key_6.as_str()).string(value_7.as_str());
+            object_2.key(key_3.as_str()).string(value_4.as_str());
         }
     }
-    object_5.finish();
+    object_2.finish();
 }
-if let Some(var_8) = &input.add_allowed_repositories {
-    let mut array_9 = object.key("addAllowedRepositories").start_array();
-    for item_10 in var_8 {
+if let Some(var_5) = &input.add_allowed_repositories {
+    let mut array_6 = object.key("addAllowedRepositories").start_array();
+    for item_7 in var_5 {
         {
             #[allow(unused_mut)]
-            let mut object_11 = array_9.value().start_object();
-            super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_11, item_10)?;
-            object_11.finish();
+            let mut object_8 = array_6.value().start_object();
+            super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_8, item_7)?;
+            object_8.finish();
         }
     }
-    array_9.finish();
+    array_6.finish();
 }
-if let Some(var_12) = &input.remove_allowed_repositories {
-    let mut array_13 = object.key("removeAllowedRepositories").start_array();
-    for item_14 in var_12 {
+if let Some(var_9) = &input.remove_allowed_repositories {
+    let mut array_10 = object.key("removeAllowedRepositories").start_array();
+    for item_11 in var_9 {
         {
             #[allow(unused_mut)]
-            let mut object_15 = array_13.value().start_object();
-            super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_15, item_14)?;
-            object_15.finish();
+            let mut object_12 = array_10.value().start_object();
+            super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_12, item_11)?;
+            object_12.finish();
         }
     }
-    array_13.finish();
+    array_10.finish();
 }
     Ok(())
 }
@@ -69055,48 +67673,30 @@ pub fn ser_update_package_versions_status_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.format {
-    object.key("format").string(var_4.as_str());
-}
-if let Some(var_5) = &input.namespace {
-    object.key("namespace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.package {
-    object.key("package").string(var_6.as_str());
-}
-if let Some(var_7) = &input.versions {
-    let mut array_8 = object.key("versions").start_array();
-    for item_9 in var_7 {
+if let Some(var_1) = &input.versions {
+    let mut array_2 = object.key("versions").start_array();
+    for item_3 in var_1 {
         {
-            array_8.value().string(item_9.as_str());
+            array_2.value().string(item_3.as_str());
         }
     }
-    array_8.finish();
+    array_2.finish();
 }
-if let Some(var_10) = &input.version_revisions {
+if let Some(var_4) = &input.version_revisions {
     #[allow(unused_mut)]
-    let mut object_11 = object.key("versionRevisions").start_object();
-    for (key_12, value_13) in var_10 {
+    let mut object_5 = object.key("versionRevisions").start_object();
+    for (key_6, value_7) in var_4 {
         {
-            object_11.key(key_12.as_str()).string(value_13.as_str());
+            object_5.key(key_6.as_str()).string(value_7.as_str());
         }
     }
-    object_11.finish();
+    object_5.finish();
 }
-if let Some(var_14) = &input.expected_status {
-    object.key("expectedStatus").string(var_14.as_str());
+if let Some(var_8) = &input.expected_status {
+    object.key("expectedStatus").string(var_8.as_str());
 }
-if let Some(var_15) = &input.target_status {
-    object.key("targetStatus").string(var_15.as_str());
+if let Some(var_9) = &input.target_status {
+    object.key("targetStatus").string(var_9.as_str());
 }
     Ok(())
 }
@@ -69108,29 +67708,20 @@ pub fn ser_update_repository_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_repository::UpdateRepositoryInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("domain").string(var_1.as_str());
+if let Some(var_1) = &input.description {
+    object.key("description").string(var_1.as_str());
 }
-if let Some(var_2) = &input.domain_owner {
-    object.key("domainOwner").string(var_2.as_str());
-}
-if let Some(var_3) = &input.repository {
-    object.key("repository").string(var_3.as_str());
-}
-if let Some(var_4) = &input.description {
-    object.key("description").string(var_4.as_str());
-}
-if let Some(var_5) = &input.upstreams {
-    let mut array_6 = object.key("upstreams").start_array();
-    for item_7 in var_5 {
+if let Some(var_2) = &input.upstreams {
+    let mut array_3 = object.key("upstreams").start_array();
+    for item_4 in var_2 {
         {
             #[allow(unused_mut)]
-            let mut object_8 = array_6.value().start_object();
-            super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
-            object_8.finish();
+            let mut object_5 = array_3.value().start_object();
+            super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_5, item_4)?;
+            object_5.finish();
         }
     }
-    array_6.finish();
+    array_3.finish();
 }
     Ok(())
 }

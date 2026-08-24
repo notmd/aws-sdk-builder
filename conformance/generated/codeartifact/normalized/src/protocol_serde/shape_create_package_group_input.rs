@@ -3,32 +3,26 @@ pub fn ser_create_package_group_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_package_group::CreatePackageGroupInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.domain {
-        object.key("domain").string(var_1.as_str());
+    if let Some(var_1) = &input.package_group {
+        object.key("packageGroup").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.domain_owner {
-        object.key("domainOwner").string(var_2.as_str());
+    if let Some(var_2) = &input.contact_info {
+        object.key("contactInfo").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.package_group {
-        object.key("packageGroup").string(var_3.as_str());
+    if let Some(var_3) = &input.description {
+        object.key("description").string(var_3.as_str());
     }
-    if let Some(var_4) = &input.contact_info {
-        object.key("contactInfo").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.description {
-        object.key("description").string(var_5.as_str());
-    }
-    if let Some(var_6) = &input.tags {
-        let mut array_7 = object.key("tags").start_array();
-        for item_8 in var_6 {
+    if let Some(var_4) = &input.tags {
+        let mut array_5 = object.key("tags").start_array();
+        for item_6 in var_4 {
             {
                 #[allow(unused_mut)]
-                let mut object_9 = array_7.value().start_object();
-                super::super::protocol_serde::shape_tag::ser_tag(&mut object_9, item_8)?;
-                object_9.finish();
+                let mut object_7 = array_5.value().start_object();
+                super::super::protocol_serde::shape_tag::ser_tag(&mut object_7, item_6)?;
+                object_7.finish();
             }
         }
-        array_7.finish();
+        array_5.finish();
     }
     Ok(())
 }

@@ -129,8 +129,6 @@ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
 
 pub(crate) mod shape_access_denied_exception;
 
-pub(crate) mod shape_associate_external_connection_input;
-
 pub(crate) mod shape_conflict_exception;
 
 pub(crate) mod shape_copy_package_versions_input;
@@ -141,73 +139,15 @@ pub(crate) mod shape_create_package_group_input;
 
 pub(crate) mod shape_create_repository_input;
 
-pub(crate) mod shape_delete_domain_input;
-
-pub(crate) mod shape_delete_domain_permissions_policy_input;
-
-pub(crate) mod shape_delete_package_group_input;
-
-pub(crate) mod shape_delete_package_input;
-
 pub(crate) mod shape_delete_package_versions_input;
-
-pub(crate) mod shape_delete_repository_input;
-
-pub(crate) mod shape_delete_repository_permissions_policy_input;
-
-pub(crate) mod shape_describe_domain_input;
-
-pub(crate) mod shape_describe_package_group_input;
-
-pub(crate) mod shape_describe_package_input;
-
-pub(crate) mod shape_describe_package_version_input;
-
-pub(crate) mod shape_describe_repository_input;
-
-pub(crate) mod shape_disassociate_external_connection_input;
 
 pub(crate) mod shape_dispose_package_versions_input;
 
-pub(crate) mod shape_get_associated_package_group_input;
-
-pub(crate) mod shape_get_authorization_token_input;
-
-pub(crate) mod shape_get_domain_permissions_policy_input;
-
-pub(crate) mod shape_get_package_version_asset_input;
-
-pub(crate) mod shape_get_package_version_readme_input;
-
-pub(crate) mod shape_get_repository_endpoint_input;
-
-pub(crate) mod shape_get_repository_permissions_policy_input;
+pub(crate) mod shape_get_package_version_asset_output;
 
 pub(crate) mod shape_internal_server_exception;
 
-pub(crate) mod shape_list_allowed_repositories_for_group_input;
-
-pub(crate) mod shape_list_associated_packages_input;
-
 pub(crate) mod shape_list_domains_input;
-
-pub(crate) mod shape_list_package_groups_input;
-
-pub(crate) mod shape_list_package_version_assets_input;
-
-pub(crate) mod shape_list_package_version_dependencies_input;
-
-pub(crate) mod shape_list_package_versions_input;
-
-pub(crate) mod shape_list_packages_input;
-
-pub(crate) mod shape_list_repositories_in_domain_input;
-
-pub(crate) mod shape_list_repositories_input;
-
-pub(crate) mod shape_list_sub_package_groups_input;
-
-pub(crate) mod shape_list_tags_for_resource_input;
 
 pub(crate) mod shape_publish_package_version_input;
 

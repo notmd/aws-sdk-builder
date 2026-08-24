@@ -3,17 +3,11 @@ pub fn ser_put_function_scaling_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_function_scaling_config::PutFunctionScalingConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.function_name {
-        object.key("FunctionName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.qualifier {
-        object.key("Qualifier").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.function_scaling_config {
+    if let Some(var_1) = &input.function_scaling_config {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("FunctionScalingConfig").start_object();
-        super::super::protocol_serde::shape_function_scaling_config::ser_function_scaling_config(&mut object_4, var_3)?;
-        object_4.finish();
+        let mut object_2 = object.key("FunctionScalingConfig").start_object();
+        super::super::protocol_serde::shape_function_scaling_config::ser_function_scaling_config(&mut object_2, var_1)?;
+        object_2.finish();
     }
     Ok(())
 }

@@ -3,11 +3,8 @@ pub fn ser_put_email_identity_configuration_set_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.email_identity {
-        object.key("EmailIdentity").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.configuration_set_name {
-        object.key("ConfigurationSetName").string(var_2.as_str());
+    if let Some(var_1) = &input.configuration_set_name {
+        object.key("ConfigurationSetName").string(var_1.as_str());
     }
     Ok(())
 }

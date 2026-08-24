@@ -3,131 +3,128 @@ pub fn ser_update_event_source_mapping_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.uuid {
-        object.key("UUID").string(var_1.as_str());
+    if let Some(var_1) = &input.function_name {
+        object.key("FunctionName").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.function_name {
-        object.key("FunctionName").string(var_2.as_str());
+    if let Some(var_2) = &input.enabled {
+        object.key("Enabled").boolean(*var_2);
     }
-    if let Some(var_3) = &input.enabled {
-        object.key("Enabled").boolean(*var_3);
-    }
-    if let Some(var_4) = &input.batch_size {
+    if let Some(var_3) = &input.batch_size {
         object.key("BatchSize").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_4).into()),
+            ::aws_smithy_types::Number::NegInt((*var_3).into()),
         );
     }
-    if let Some(var_5) = &input.filter_criteria {
+    if let Some(var_4) = &input.filter_criteria {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("FilterCriteria").start_object();
-        super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_6, var_5)?;
-        object_6.finish();
+        let mut object_5 = object.key("FilterCriteria").start_object();
+        super::super::protocol_serde::shape_filter_criteria::ser_filter_criteria(&mut object_5, var_4)?;
+        object_5.finish();
     }
-    if let Some(var_7) = &input.kms_key_arn {
-        object.key("KMSKeyArn").string(var_7.as_str());
+    if let Some(var_6) = &input.kms_key_arn {
+        object.key("KMSKeyArn").string(var_6.as_str());
     }
-    if let Some(var_8) = &input.metrics_config {
+    if let Some(var_7) = &input.metrics_config {
         #[allow(unused_mut)]
-        let mut object_9 = object.key("MetricsConfig").start_object();
-        super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_9, var_8)?;
-        object_9.finish();
+        let mut object_8 = object.key("MetricsConfig").start_object();
+        super::super::protocol_serde::shape_event_source_mapping_metrics_config::ser_event_source_mapping_metrics_config(&mut object_8, var_7)?;
+        object_8.finish();
     }
-    if let Some(var_10) = &input.logging_config {
+    if let Some(var_9) = &input.logging_config {
         #[allow(unused_mut)]
-        let mut object_11 = object.key("LoggingConfig").start_object();
-        super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_11, var_10)?;
-        object_11.finish();
+        let mut object_10 = object.key("LoggingConfig").start_object();
+        super::super::protocol_serde::shape_event_source_mapping_logging_config::ser_event_source_mapping_logging_config(&mut object_10, var_9)?;
+        object_10.finish();
     }
-    if let Some(var_12) = &input.scaling_config {
+    if let Some(var_11) = &input.scaling_config {
         #[allow(unused_mut)]
-        let mut object_13 = object.key("ScalingConfig").start_object();
-        super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_13, var_12)?;
-        object_13.finish();
+        let mut object_12 = object.key("ScalingConfig").start_object();
+        super::super::protocol_serde::shape_scaling_config::ser_scaling_config(&mut object_12, var_11)?;
+        object_12.finish();
     }
-    if let Some(var_14) = &input.maximum_batching_window_in_seconds {
+    if let Some(var_13) = &input.maximum_batching_window_in_seconds {
         object.key("MaximumBatchingWindowInSeconds").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_13).into()),
+        );
+    }
+    if let Some(var_14) = &input.parallelization_factor {
+        object.key("ParallelizationFactor").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((*var_14).into()),
         );
     }
-    if let Some(var_15) = &input.parallelization_factor {
-        object.key("ParallelizationFactor").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_15).into()),
-        );
-    }
-    if let Some(var_16) = &input.destination_config {
+    if let Some(var_15) = &input.destination_config {
         #[allow(unused_mut)]
-        let mut object_17 = object.key("DestinationConfig").start_object();
-        super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_17, var_16)?;
-        object_17.finish();
+        let mut object_16 = object.key("DestinationConfig").start_object();
+        super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_16, var_15)?;
+        object_16.finish();
     }
-    if let Some(var_18) = &input.maximum_record_age_in_seconds {
+    if let Some(var_17) = &input.maximum_record_age_in_seconds {
         object.key("MaximumRecordAgeInSeconds").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_18).into()),
+            ::aws_smithy_types::Number::NegInt((*var_17).into()),
         );
     }
-    if let Some(var_19) = &input.bisect_batch_on_function_error {
-        object.key("BisectBatchOnFunctionError").boolean(*var_19);
+    if let Some(var_18) = &input.bisect_batch_on_function_error {
+        object.key("BisectBatchOnFunctionError").boolean(*var_18);
     }
-    if let Some(var_20) = &input.maximum_retry_attempts {
+    if let Some(var_19) = &input.maximum_retry_attempts {
         object.key("MaximumRetryAttempts").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_19).into()),
+        );
+    }
+    if let Some(var_20) = &input.tumbling_window_in_seconds {
+        object.key("TumblingWindowInSeconds").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((*var_20).into()),
         );
     }
-    if let Some(var_21) = &input.tumbling_window_in_seconds {
-        object.key("TumblingWindowInSeconds").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_21).into()),
-        );
-    }
-    if let Some(var_22) = &input.source_access_configurations {
-        let mut array_23 = object.key("SourceAccessConfigurations").start_array();
-        for item_24 in var_22 {
+    if let Some(var_21) = &input.source_access_configurations {
+        let mut array_22 = object.key("SourceAccessConfigurations").start_array();
+        for item_23 in var_21 {
             {
                 #[allow(unused_mut)]
-                let mut object_25 = array_23.value().start_object();
-                super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_25, item_24)?;
-                object_25.finish();
+                let mut object_24 = array_22.value().start_object();
+                super::super::protocol_serde::shape_source_access_configuration::ser_source_access_configuration(&mut object_24, item_23)?;
+                object_24.finish();
             }
         }
-        array_23.finish();
+        array_22.finish();
     }
-    if let Some(var_26) = &input.function_response_types {
-        let mut array_27 = object.key("FunctionResponseTypes").start_array();
-        for item_28 in var_26 {
+    if let Some(var_25) = &input.function_response_types {
+        let mut array_26 = object.key("FunctionResponseTypes").start_array();
+        for item_27 in var_25 {
             {
-                array_27.value().string(item_28.as_str());
+                array_26.value().string(item_27.as_str());
             }
         }
-        array_27.finish();
+        array_26.finish();
     }
-    if let Some(var_29) = &input.amazon_managed_kafka_event_source_config {
+    if let Some(var_28) = &input.amazon_managed_kafka_event_source_config {
         #[allow(unused_mut)]
-        let mut object_30 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
-        super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_30, var_29)?;
-        object_30.finish();
+        let mut object_29 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
+        super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_29, var_28)?;
+        object_29.finish();
     }
-    if let Some(var_31) = &input.self_managed_kafka_event_source_config {
+    if let Some(var_30) = &input.self_managed_kafka_event_source_config {
         #[allow(unused_mut)]
-        let mut object_32 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
-        super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_32, var_31)?;
-        object_32.finish();
+        let mut object_31 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
+        super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_31, var_30)?;
+        object_31.finish();
     }
-    if let Some(var_33) = &input.document_db_event_source_config {
+    if let Some(var_32) = &input.document_db_event_source_config {
         #[allow(unused_mut)]
-        let mut object_34 = object.key("DocumentDBEventSourceConfig").start_object();
-        super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_34, var_33)?;
-        object_34.finish();
+        let mut object_33 = object.key("DocumentDBEventSourceConfig").start_object();
+        super::super::protocol_serde::shape_document_db_event_source_config::ser_document_db_event_source_config(&mut object_33, var_32)?;
+        object_33.finish();
     }
-    if let Some(var_35) = &input.provisioned_poller_config {
+    if let Some(var_34) = &input.provisioned_poller_config {
         #[allow(unused_mut)]
-        let mut object_36 = object.key("ProvisionedPollerConfig").start_object();
-        super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_36, var_35)?;
-        object_36.finish();
+        let mut object_35 = object.key("ProvisionedPollerConfig").start_object();
+        super::super::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_35, var_34)?;
+        object_35.finish();
     }
     Ok(())
 }

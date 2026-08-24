@@ -3,29 +3,20 @@ pub fn ser_update_repository_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_repository::UpdateRepositoryInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.domain {
-        object.key("domain").string(var_1.as_str());
+    if let Some(var_1) = &input.description {
+        object.key("description").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.domain_owner {
-        object.key("domainOwner").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.repository {
-        object.key("repository").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.description {
-        object.key("description").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.upstreams {
-        let mut array_6 = object.key("upstreams").start_array();
-        for item_7 in var_5 {
+    if let Some(var_2) = &input.upstreams {
+        let mut array_3 = object.key("upstreams").start_array();
+        for item_4 in var_2 {
             {
                 #[allow(unused_mut)]
-                let mut object_8 = array_6.value().start_object();
-                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
-                object_8.finish();
+                let mut object_5 = array_3.value().start_object();
+                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_5, item_4)?;
+                object_5.finish();
             }
         }
-        array_6.finish();
+        array_3.finish();
     }
     Ok(())
 }

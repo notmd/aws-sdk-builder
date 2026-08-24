@@ -243,30 +243,6 @@ pub(crate) mod shape_create_function_input;
 
 pub(crate) mod shape_create_function_url_config_input;
 
-pub(crate) mod shape_delete_alias_input;
-
-pub(crate) mod shape_delete_capacity_provider_input;
-
-pub(crate) mod shape_delete_code_signing_config_input;
-
-pub(crate) mod shape_delete_event_source_mapping_input;
-
-pub(crate) mod shape_delete_function_code_signing_config_input;
-
-pub(crate) mod shape_delete_function_concurrency_input;
-
-pub(crate) mod shape_delete_function_event_invoke_config_input;
-
-pub(crate) mod shape_delete_function_input;
-
-pub(crate) mod shape_delete_function_url_config_input;
-
-pub(crate) mod shape_delete_layer_version_input;
-
-pub(crate) mod shape_delete_provisioned_concurrency_config_input;
-
-pub(crate) mod shape_delete_resource_policy_input;
-
 pub(crate) mod shape_durable_execution_already_started_exception;
 
 pub(crate) mod shape_ec2_access_denied_exception;
@@ -289,50 +265,6 @@ pub(crate) mod shape_eni_not_ready_exception;
 
 pub(crate) mod shape_function_versions_per_capacity_provider_limit_exceeded_exception;
 
-pub(crate) mod shape_get_alias_input;
-
-pub(crate) mod shape_get_capacity_provider_input;
-
-pub(crate) mod shape_get_code_signing_config_input;
-
-pub(crate) mod shape_get_durable_execution_history_input;
-
-pub(crate) mod shape_get_durable_execution_input;
-
-pub(crate) mod shape_get_durable_execution_state_input;
-
-pub(crate) mod shape_get_event_source_mapping_input;
-
-pub(crate) mod shape_get_function_code_signing_config_input;
-
-pub(crate) mod shape_get_function_concurrency_input;
-
-pub(crate) mod shape_get_function_configuration_input;
-
-pub(crate) mod shape_get_function_event_invoke_config_input;
-
-pub(crate) mod shape_get_function_input;
-
-pub(crate) mod shape_get_function_recursion_config_input;
-
-pub(crate) mod shape_get_function_scaling_config_input;
-
-pub(crate) mod shape_get_function_url_config_input;
-
-pub(crate) mod shape_get_layer_version_by_arn_input;
-
-pub(crate) mod shape_get_layer_version_input;
-
-pub(crate) mod shape_get_layer_version_policy_input;
-
-pub(crate) mod shape_get_policy_input;
-
-pub(crate) mod shape_get_provisioned_concurrency_config_input;
-
-pub(crate) mod shape_get_resource_policy_input;
-
-pub(crate) mod shape_get_runtime_management_config_input;
-
 pub(crate) mod shape_invalid_code_signature_exception;
 
 pub(crate) mod shape_invalid_parameter_value_exception;
@@ -351,7 +283,11 @@ pub(crate) mod shape_invoke_async_input;
 
 pub(crate) mod shape_invoke_input;
 
+pub(crate) mod shape_invoke_output;
+
 pub(crate) mod shape_invoke_with_response_stream_input;
+
+pub(crate) mod shape_invoke_with_response_stream_output;
 
 pub(crate) mod shape_kms_access_denied_exception;
 
@@ -360,36 +296,6 @@ pub(crate) mod shape_kms_disabled_exception;
 pub(crate) mod shape_kms_invalid_state_exception;
 
 pub(crate) mod shape_kms_not_found_exception;
-
-pub(crate) mod shape_list_aliases_input;
-
-pub(crate) mod shape_list_capacity_providers_input;
-
-pub(crate) mod shape_list_code_signing_configs_input;
-
-pub(crate) mod shape_list_durable_executions_by_function_input;
-
-pub(crate) mod shape_list_event_source_mappings_input;
-
-pub(crate) mod shape_list_function_event_invoke_configs_input;
-
-pub(crate) mod shape_list_function_url_configs_input;
-
-pub(crate) mod shape_list_function_versions_by_capacity_provider_input;
-
-pub(crate) mod shape_list_functions_by_code_signing_config_input;
-
-pub(crate) mod shape_list_functions_input;
-
-pub(crate) mod shape_list_layer_versions_input;
-
-pub(crate) mod shape_list_layers_input;
-
-pub(crate) mod shape_list_provisioned_concurrency_configs_input;
-
-pub(crate) mod shape_list_tags_input;
-
-pub(crate) mod shape_list_versions_by_function_input;
 
 pub(crate) mod shape_mode_not_supported_exception;
 
@@ -425,10 +331,6 @@ pub(crate) mod shape_put_runtime_management_config_input;
 
 pub(crate) mod shape_recursive_invocation_exception;
 
-pub(crate) mod shape_remove_layer_version_permission_input;
-
-pub(crate) mod shape_remove_permission_input;
-
 pub(crate) mod shape_request_too_large_exception;
 
 pub(crate) mod shape_resource_conflict_exception;
@@ -445,9 +347,11 @@ pub(crate) mod shape_s3_files_mount_failure_exception;
 
 pub(crate) mod shape_s3_files_mount_timeout_exception;
 
-pub(crate) mod shape_send_durable_execution_callback_failure_input;
+pub fn rest_json_unset_struct_payload() -> ::std::vec::Vec<u8> {
+    b"{}"[..].into()
+}
 
-pub(crate) mod shape_send_durable_execution_callback_heartbeat_input;
+pub(crate) mod shape_send_durable_execution_callback_failure_input;
 
 pub(crate) mod shape_send_durable_execution_callback_success_input;
 
@@ -474,8 +378,6 @@ pub(crate) mod shape_tag_resource_input;
 pub(crate) mod shape_too_many_requests_exception;
 
 pub(crate) mod shape_unsupported_media_type_exception;
-
-pub(crate) mod shape_untag_resource_input;
 
 pub(crate) mod shape_update_alias_input;
 

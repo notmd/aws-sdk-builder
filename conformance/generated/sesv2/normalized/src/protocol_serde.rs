@@ -263,8 +263,6 @@ pub(crate) mod shape_bad_request_exception;
 
 pub(crate) mod shape_batch_get_metric_data_input;
 
-pub(crate) mod shape_cancel_export_job_input;
-
 pub(crate) mod shape_concurrent_modification_exception;
 
 pub(crate) mod shape_conflict_exception;
@@ -299,75 +297,11 @@ pub(crate) mod shape_create_tenant_input;
 
 pub(crate) mod shape_create_tenant_resource_association_input;
 
-pub(crate) mod shape_delete_configuration_set_event_destination_input;
-
-pub(crate) mod shape_delete_configuration_set_input;
-
-pub(crate) mod shape_delete_contact_input;
-
-pub(crate) mod shape_delete_contact_list_input;
-
-pub(crate) mod shape_delete_custom_verification_email_template_input;
-
-pub(crate) mod shape_delete_dedicated_ip_pool_input;
-
-pub(crate) mod shape_delete_email_identity_input;
-
-pub(crate) mod shape_delete_email_identity_policy_input;
-
-pub(crate) mod shape_delete_email_template_input;
-
-pub(crate) mod shape_delete_multi_region_endpoint_input;
-
-pub(crate) mod shape_delete_suppressed_destination_input;
-
 pub(crate) mod shape_delete_tenant_input;
 
 pub(crate) mod shape_delete_tenant_resource_association_input;
 
-pub(crate) mod shape_get_blacklist_reports_input;
-
-pub(crate) mod shape_get_configuration_set_event_destinations_input;
-
-pub(crate) mod shape_get_configuration_set_input;
-
-pub(crate) mod shape_get_contact_input;
-
-pub(crate) mod shape_get_contact_list_input;
-
-pub(crate) mod shape_get_custom_verification_email_template_input;
-
-pub(crate) mod shape_get_dedicated_ip_input;
-
-pub(crate) mod shape_get_dedicated_ip_pool_input;
-
-pub(crate) mod shape_get_dedicated_ips_input;
-
-pub(crate) mod shape_get_deliverability_test_report_input;
-
-pub(crate) mod shape_get_domain_deliverability_campaign_input;
-
-pub(crate) mod shape_get_domain_statistics_report_input;
-
 pub(crate) mod shape_get_email_address_insights_input;
-
-pub(crate) mod shape_get_email_identity_input;
-
-pub(crate) mod shape_get_email_identity_policies_input;
-
-pub(crate) mod shape_get_email_template_input;
-
-pub(crate) mod shape_get_export_job_input;
-
-pub(crate) mod shape_get_import_job_input;
-
-pub(crate) mod shape_get_message_insights_input;
-
-pub(crate) mod shape_get_multi_region_endpoint_input;
-
-pub(crate) mod shape_get_reputation_entity_input;
-
-pub(crate) mod shape_get_suppressed_destination_input;
 
 pub(crate) mod shape_get_tenant_input;
 
@@ -377,39 +311,17 @@ pub(crate) mod shape_invalid_next_token_exception;
 
 pub(crate) mod shape_limit_exceeded_exception;
 
-pub(crate) mod shape_list_configuration_sets_input;
-
-pub(crate) mod shape_list_contact_lists_input;
-
 pub(crate) mod shape_list_contacts_input;
-
-pub(crate) mod shape_list_custom_verification_email_templates_input;
-
-pub(crate) mod shape_list_dedicated_ip_pools_input;
-
-pub(crate) mod shape_list_deliverability_test_reports_input;
-
-pub(crate) mod shape_list_domain_deliverability_campaigns_input;
-
-pub(crate) mod shape_list_email_identities_input;
-
-pub(crate) mod shape_list_email_templates_input;
 
 pub(crate) mod shape_list_export_jobs_input;
 
 pub(crate) mod shape_list_import_jobs_input;
-
-pub(crate) mod shape_list_multi_region_endpoints_input;
 
 pub(crate) mod shape_list_recommendations_input;
 
 pub(crate) mod shape_list_reputation_entities_input;
 
 pub(crate) mod shape_list_resource_tenants_input;
-
-pub(crate) mod shape_list_suppressed_destinations_input;
-
-pub(crate) mod shape_list_tags_for_resource_input;
 
 pub(crate) mod shape_list_tenant_resources_input;
 
@@ -482,8 +394,6 @@ pub(crate) mod shape_tag_resource_input;
 pub(crate) mod shape_test_render_email_template_input;
 
 pub(crate) mod shape_too_many_requests_exception;
-
-pub(crate) mod shape_untag_resource_input;
 
 pub(crate) mod shape_update_configuration_set_event_destination_input;
 

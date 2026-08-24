@@ -3,41 +3,32 @@ pub fn ser_create_repository_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_repository::CreateRepositoryInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.domain {
-        object.key("domain").string(var_1.as_str());
+    if let Some(var_1) = &input.description {
+        object.key("description").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.domain_owner {
-        object.key("domainOwner").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.repository {
-        object.key("repository").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.description {
-        object.key("description").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.upstreams {
-        let mut array_6 = object.key("upstreams").start_array();
-        for item_7 in var_5 {
+    if let Some(var_2) = &input.upstreams {
+        let mut array_3 = object.key("upstreams").start_array();
+        for item_4 in var_2 {
             {
                 #[allow(unused_mut)]
-                let mut object_8 = array_6.value().start_object();
-                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
-                object_8.finish();
+                let mut object_5 = array_3.value().start_object();
+                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_5, item_4)?;
+                object_5.finish();
             }
         }
-        array_6.finish();
+        array_3.finish();
     }
-    if let Some(var_9) = &input.tags {
-        let mut array_10 = object.key("tags").start_array();
-        for item_11 in var_9 {
+    if let Some(var_6) = &input.tags {
+        let mut array_7 = object.key("tags").start_array();
+        for item_8 in var_6 {
             {
                 #[allow(unused_mut)]
-                let mut object_12 = array_10.value().start_object();
-                super::super::protocol_serde::shape_tag::ser_tag(&mut object_12, item_11)?;
-                object_12.finish();
+                let mut object_9 = array_7.value().start_object();
+                super::super::protocol_serde::shape_tag::ser_tag(&mut object_9, item_8)?;
+                object_9.finish();
             }
         }
-        array_10.finish();
+        array_7.finish();
     }
     Ok(())
 }

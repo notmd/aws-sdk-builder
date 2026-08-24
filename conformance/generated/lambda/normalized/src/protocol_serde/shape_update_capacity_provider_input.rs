@@ -3,26 +3,23 @@ pub fn ser_update_capacity_provider_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_capacity_provider::UpdateCapacityProviderInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.capacity_provider_name {
-        object.key("CapacityProviderName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.capacity_provider_scaling_config {
+    if let Some(var_1) = &input.capacity_provider_scaling_config {
         #[allow(unused_mut)]
-        let mut object_3 = object.key("CapacityProviderScalingConfig").start_object();
-        super::super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_3, var_2)?;
-        object_3.finish();
+        let mut object_2 = object.key("CapacityProviderScalingConfig").start_object();
+        super::super::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_2, var_1)?;
+        object_2.finish();
     }
-    if let Some(var_4) = &input.propagate_tags {
+    if let Some(var_3) = &input.propagate_tags {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("PropagateTags").start_object();
-        super::super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_5, var_4)?;
-        object_5.finish();
+        let mut object_4 = object.key("PropagateTags").start_object();
+        super::super::protocol_serde::shape_propagate_tags::ser_propagate_tags(&mut object_4, var_3)?;
+        object_4.finish();
     }
-    if let Some(var_6) = &input.telemetry_config {
+    if let Some(var_5) = &input.telemetry_config {
         #[allow(unused_mut)]
-        let mut object_7 = object.key("TelemetryConfig").start_object();
-        super::super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_7, var_6)?;
-        object_7.finish();
+        let mut object_6 = object.key("TelemetryConfig").start_object();
+        super::super::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_6, var_5)?;
+        object_6.finish();
     }
     Ok(())
 }

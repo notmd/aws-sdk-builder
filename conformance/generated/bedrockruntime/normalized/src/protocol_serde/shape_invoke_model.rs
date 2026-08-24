@@ -184,76 +184,26 @@ pub fn de_invoke_model_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke_model::builders::InvokeModelOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke_model::de_invoke_model(_response_body, output)
-            .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?;
+        output = output.set_body(super::super::protocol_serde::shape_invoke_model_output::de_body_payload(_response_body)?);
+        output = output.set_content_type(
+            super::super::protocol_serde::shape_invoke_model_output::de_content_type_header(_response_headers)
+                .map_err(|_| super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse contentType from header `Content-Type`"))?,
+        );
+        output = output.set_performance_config_latency(
+            super::super::protocol_serde::shape_invoke_model_output::de_performance_config_latency_header(_response_headers).map_err(|_| {
+                super::super::operation::invoke_model::InvokeModelError::unhandled(
+                    "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency`",
+                )
+            })?,
+        );
+        output = output.set_service_tier(
+            super::super::protocol_serde::shape_invoke_model_output::de_service_tier_header(_response_headers).map_err(|_| {
+                super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier`")
+            })?,
+        );
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::invoke_model_output_output_correct_errors(output)
             .build()
             .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?
     })
-}
-
-pub fn ser_invoke_model_input(
-    input: &super::super::operation::invoke_model::InvokeModelInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_model_input::ser_invoke_model_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-pub(crate) fn de_invoke_model(
-    _value: &[u8],
-    mut builder: super::super::operation::invoke_model::builders::InvokeModelOutputBuilder,
-) -> ::std::result::Result<super::super::operation::invoke_model::builders::InvokeModelOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "body" => {
-                    builder = builder.set_body(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-                }
-                "contentType" => {
-                    builder = builder.set_content_type(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "performanceConfigLatency" => {
-                    builder = builder.set_performance_config_latency(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::PerformanceConfigLatency::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "serviceTier" => {
-                    builder = builder.set_service_tier(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::ServiceTierType::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }

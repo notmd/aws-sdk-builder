@@ -118,16 +118,6 @@ pub fn de_list_sub_package_groups_http_response(
     })
 }
 
-pub fn ser_list_sub_package_groups_input(
-    input: &super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_sub_package_groups_input::ser_list_sub_package_groups_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_list_sub_package_groups(
     _value: &[u8],
     mut builder: super::super::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder,

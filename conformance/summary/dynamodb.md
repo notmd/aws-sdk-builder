@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `882/882` files compared · `860` matched · `22` mismatches · `0` missing · `0` extra · `97.51%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `859` matched · `23` mismatches · `0` missing · `0` extra · `97.39%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -1169,6 +1169,46 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
 ```
 
+### `src/protocol_serde/shape_describe_endpoints.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_describe_endpoints.rs
++++ generated/src/protocol_serde/shape_describe_endpoints.rs
+@@ -33,12 +33,6 @@
+     })
+ }
+
+-pub fn ser_describe_endpoints_input(
+-    _input: &super::super::operation::describe_endpoints::DescribeEndpointsInput,
+-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+-    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
+-}
+-
+ pub(crate) fn de_describe_endpoints(
+     _value: &[u8],
+     mut builder: super::super::operation::describe_endpoints::builders::DescribeEndpointsOutputBuilder,
+```
+
+### `src/protocol_serde/shape_describe_limits.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_describe_limits.rs
++++ generated/src/protocol_serde/shape_describe_limits.rs
+@@ -67,12 +67,6 @@
+     })
+ }
+
+-pub fn ser_describe_limits_input(
+-    _input: &super::super::operation::describe_limits::DescribeLimitsInput,
+-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+-    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
+-}
+-
+ pub(crate) fn de_describe_limits(
+     _value: &[u8],
+     mut builder: super::super::operation::describe_limits::builders::DescribeLimitsOutputBuilder,
+```
+
 ### `src/protocol_serde/shape_enable_kinesis_streaming_configuration.rs`
 
 ```diff
@@ -1205,46 +1245,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_tag_resource.rs`
+### `src/protocol_serde/shape_put_resource_policy_input.rs`
 
 ```diff
---- reference/src/protocol_serde/shape_tag_resource.rs
-+++ generated/src/protocol_serde/shape_tag_resource.rs
-@@ -119,3 +119,34 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
+--- reference/src/protocol_serde/shape_put_resource_policy_input.rs
++++ generated/src/protocol_serde/shape_put_resource_policy_input.rs
+@@ -12,8 +12,5 @@
+     if let Some(var_3) = &input.expected_revision_id {
+         object.key("ExpectedRevisionId").string(var_3.as_str());
+     }
+-    if let Some(var_4) = &input.confirm_remove_self_resource_access {
+-        object.key("ConfirmRemoveSelfResourceAccess").boolean(*var_4);
+-    }
+     Ok(())
  }
-+
-+pub(crate) fn de_tag_resource(
-+    _value: &[u8],
-+    mut builder: super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
-+) -> ::std::result::Result<super::super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_time_to_live_specification.rs`
@@ -1287,50 +1301,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -    Ok(())
 -}
-```
-
-### `src/protocol_serde/shape_untag_resource.rs`
-
-```diff
---- reference/src/protocol_serde/shape_untag_resource.rs
-+++ generated/src/protocol_serde/shape_untag_resource.rs
-@@ -119,3 +119,36 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_untag_resource(
-+    _value: &[u8],
-+    mut builder: super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_update_kinesis_streaming_configuration.rs`

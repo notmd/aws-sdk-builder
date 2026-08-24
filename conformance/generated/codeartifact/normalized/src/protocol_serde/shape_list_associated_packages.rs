@@ -107,16 +107,6 @@ pub fn de_list_associated_packages_http_response(
     })
 }
 
-pub fn ser_list_associated_packages_input(
-    input: &super::super::operation::list_associated_packages::ListAssociatedPackagesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_associated_packages_input::ser_list_associated_packages_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_list_associated_packages(
     _value: &[u8],
     mut builder: super::super::operation::list_associated_packages::builders::ListAssociatedPackagesOutputBuilder,

@@ -90,16 +90,6 @@ pub fn de_list_tags_for_resource_http_response(
     })
 }
 
-pub fn ser_list_tags_for_resource_input(
-    input: &super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_list_tags_for_resource(
     _value: &[u8],
     mut builder: super::super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,

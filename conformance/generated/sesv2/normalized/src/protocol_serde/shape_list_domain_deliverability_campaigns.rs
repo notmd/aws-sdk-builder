@@ -95,19 +95,6 @@ pub fn de_list_domain_deliverability_campaigns_http_response(
     })
 }
 
-pub fn ser_list_domain_deliverability_campaigns_input(
-    input: &super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_domain_deliverability_campaigns_input::ser_list_domain_deliverability_campaigns_input_input(
-        &mut object,
-        input,
-    )?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_list_domain_deliverability_campaigns(
     _value: &[u8],
     mut builder: super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder,

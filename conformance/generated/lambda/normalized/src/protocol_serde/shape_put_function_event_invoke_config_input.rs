@@ -3,29 +3,23 @@ pub fn ser_put_function_event_invoke_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.function_name {
-        object.key("FunctionName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.qualifier {
-        object.key("Qualifier").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.maximum_retry_attempts {
+    if let Some(var_1) = &input.maximum_retry_attempts {
         object.key("MaximumRetryAttempts").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_3).into()),
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
-    if let Some(var_4) = &input.maximum_event_age_in_seconds {
+    if let Some(var_2) = &input.maximum_event_age_in_seconds {
         object.key("MaximumEventAgeInSeconds").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_4).into()),
+            ::aws_smithy_types::Number::NegInt((*var_2).into()),
         );
     }
-    if let Some(var_5) = &input.destination_config {
+    if let Some(var_3) = &input.destination_config {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("DestinationConfig").start_object();
-        super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
-        object_6.finish();
+        let mut object_4 = object.key("DestinationConfig").start_object();
+        super::super::protocol_serde::shape_destination_config::ser_destination_config(&mut object_4, var_3)?;
+        object_4.finish();
     }
     Ok(())
 }

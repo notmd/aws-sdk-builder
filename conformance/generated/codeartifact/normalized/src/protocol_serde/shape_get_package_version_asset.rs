@@ -120,86 +120,45 @@ pub fn de_get_package_version_asset_http_error(
 
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_get_package_version_asset_http_response(
-    _response_status: u16,
-    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-    _response_body: &[u8],
+    response: &mut ::aws_smithy_runtime_api::http::Response,
 ) -> std::result::Result<
     super::super::operation::get_package_version_asset::GetPackageVersionAssetOutput,
     super::super::operation::get_package_version_asset::GetPackageVersionAssetError,
 > {
+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+    ::std::mem::swap(&mut _response_body, response.body_mut());
+    let _response_body = &mut _response_body;
+
+    let _response_status = response.status().as_u16();
+    let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default();
-        output = super::super::protocol_serde::shape_get_package_version_asset::de_get_package_version_asset(_response_body, output)
-            .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+        output = output.set_asset(Some(super::super::protocol_serde::shape_get_package_version_asset_output::de_asset_payload(
+            _response_body,
+        )?));
+        output = output.set_asset_name(
+            super::super::protocol_serde::shape_get_package_version_asset_output::de_asset_name_header(_response_headers).map_err(|_| {
+                super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
+                    "Failed to parse assetName from header `X-AssetName`",
+                )
+            })?,
+        );
+        output = output.set_package_version(
+            super::super::protocol_serde::shape_get_package_version_asset_output::de_package_version_header(_response_headers).map_err(|_| {
+                super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
+                    "Failed to parse packageVersion from header `X-PackageVersion`",
+                )
+            })?,
+        );
+        output = output.set_package_version_revision(
+            super::super::protocol_serde::shape_get_package_version_asset_output::de_package_version_revision_header(_response_headers).map_err(|_| {
+                super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
+                    "Failed to parse packageVersionRevision from header `X-PackageVersionRevision`",
+                )
+            })?,
+        );
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_get_package_version_asset_input(
-    input: &super::super::operation::get_package_version_asset::GetPackageVersionAssetInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_package_version_asset_input::ser_get_package_version_asset_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-pub(crate) fn de_get_package_version_asset(
-    _value: &[u8],
-    mut builder: super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "asset" => {
-                    builder = builder.set_asset(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-                }
-                "assetName" => {
-                    builder = builder.set_asset_name(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "packageVersion" => {
-                    builder = builder.set_package_version(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "packageVersionRevision" => {
-                    builder = builder.set_package_version_revision(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }

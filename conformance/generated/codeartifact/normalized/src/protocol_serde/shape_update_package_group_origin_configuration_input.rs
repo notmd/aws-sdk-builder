@@ -3,48 +3,39 @@ pub fn ser_update_package_group_origin_configuration_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.domain {
-        object.key("domain").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.domain_owner {
-        object.key("domainOwner").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.package_group {
-        object.key("packageGroup").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.restrictions {
+    if let Some(var_1) = &input.restrictions {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("restrictions").start_object();
-        for (key_6, value_7) in var_4 {
+        let mut object_2 = object.key("restrictions").start_object();
+        for (key_3, value_4) in var_1 {
             {
-                object_5.key(key_6.as_str()).string(value_7.as_str());
+                object_2.key(key_3.as_str()).string(value_4.as_str());
             }
         }
-        object_5.finish();
+        object_2.finish();
     }
-    if let Some(var_8) = &input.add_allowed_repositories {
-        let mut array_9 = object.key("addAllowedRepositories").start_array();
-        for item_10 in var_8 {
+    if let Some(var_5) = &input.add_allowed_repositories {
+        let mut array_6 = object.key("addAllowedRepositories").start_array();
+        for item_7 in var_5 {
             {
                 #[allow(unused_mut)]
-                let mut object_11 = array_9.value().start_object();
-                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_11, item_10)?;
-                object_11.finish();
+                let mut object_8 = array_6.value().start_object();
+                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_8, item_7)?;
+                object_8.finish();
             }
         }
-        array_9.finish();
+        array_6.finish();
     }
-    if let Some(var_12) = &input.remove_allowed_repositories {
-        let mut array_13 = object.key("removeAllowedRepositories").start_array();
-        for item_14 in var_12 {
+    if let Some(var_9) = &input.remove_allowed_repositories {
+        let mut array_10 = object.key("removeAllowedRepositories").start_array();
+        for item_11 in var_9 {
             {
                 #[allow(unused_mut)]
-                let mut object_15 = array_13.value().start_object();
-                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_15, item_14)?;
-                object_15.finish();
+                let mut object_12 = array_10.value().start_object();
+                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_12, item_11)?;
+                object_12.finish();
             }
         }
-        array_13.finish();
+        array_10.finish();
     }
     Ok(())
 }

@@ -10173,10 +10173,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeModelR
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_model::ser_invoke_model_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_model_input::ser_body_http_payload(input.body)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -12309,10 +12309,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeModelW
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_model_with_response_stream::ser_invoke_model_with_response_stream_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_invoke_model_with_response_stream_input::ser_body_http_payload(input.body)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -36695,15 +36695,18 @@ pub fn de_converse_stream_http_error(
 
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_converse_stream_http_response(
-    _response_status: u16,
-    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-    _response_body: &[u8],
+    response: &mut ::aws_smithy_runtime_api::http::Response,
 ) -> std::result::Result<super::super::operation::converse_stream::ConverseStreamOutput, super::super::operation::converse_stream::ConverseStreamError> {
+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+    ::std::mem::swap(&mut _response_body, response.body_mut());
+    let _response_body = &mut _response_body;
+
+    let _response_status = response.status().as_u16();
+    let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::converse_stream::builders::ConverseStreamOutputBuilder::default();
-        output = super::super::protocol_serde::shape_converse_stream::de_converse_stream(_response_body, output)
-            .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
+        output = output.set_stream(Some(super::super::protocol_serde::shape_converse_stream_output::de_stream_payload(_response_body)?));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -36717,40 +36720,6 @@ pub fn ser_converse_stream_input(
     super::super::protocol_serde::shape_converse_stream_input::ser_converse_stream_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_converse_stream(
-    _value: &[u8],
-    mut builder: super::super::operation::converse_stream::builders::ConverseStreamOutputBuilder,
-) -> ::std::result::Result<super::super::operation::converse_stream::builders::ConverseStreamOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "stream" => {
-                    builder = builder.set_stream(super::super::protocol_serde::shape_converse_stream_output::de_converse_stream_output(tokens, _value, depth + 1)?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -37022,17 +36991,6 @@ pub fn de_get_async_invoke_http_response(
             .map_err(super::super::operation::get_async_invoke::GetAsyncInvokeError::unhandled)?
     })
 }
-
-pub fn ser_get_async_invoke_input(
-    input: &super::super::operation::get_async_invoke::GetAsyncInvokeInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_async_invoke_input::ser_get_async_invoke_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_async_invoke(
     _value: &[u8],
@@ -37434,72 +37392,15 @@ pub fn de_invoke_model_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke_model::builders::InvokeModelOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke_model::de_invoke_model(_response_body, output)
-            .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?;
+        output = output.set_body(super::super::protocol_serde::shape_invoke_model_output::de_body_payload(_response_body)?);
+        output = output.set_content_type(super::super::protocol_serde::shape_invoke_model_output::de_content_type_header(_response_headers).map_err(|_| super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse contentType from header `Content-Type`"))?);
+        output = output.set_performance_config_latency(super::super::protocol_serde::shape_invoke_model_output::de_performance_config_latency_header(_response_headers).map_err(|_| super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency`"))?);
+        output = output.set_service_tier(super::super::protocol_serde::shape_invoke_model_output::de_service_tier_header(_response_headers).map_err(|_| super::super::operation::invoke_model::InvokeModelError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier`"))?);
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::invoke_model_output_output_correct_errors(output)
             .build()
             .map_err(super::super::operation::invoke_model::InvokeModelError::unhandled)?
     })
-}
-
-pub fn ser_invoke_model_input(
-    input: &super::super::operation::invoke_model::InvokeModelInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_model_input::ser_invoke_model_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_invoke_model(
-    _value: &[u8],
-    mut builder: super::super::operation::invoke_model::builders::InvokeModelOutputBuilder,
-) -> ::std::result::Result<super::super::operation::invoke_model::builders::InvokeModelOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "body" => {
-                    builder = builder.set_body(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-                },
-                "contentType" => {
-                    builder = builder.set_content_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "performanceConfigLatency" => {
-                    builder = builder.set_performance_config_latency(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::PerformanceConfigLatency::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "serviceTier" => {
-                    builder = builder.set_service_tier(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::ServiceTierType::from(u.as_ref())))
-                            .transpose()?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -37683,64 +37584,23 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
 
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_invoke_model_with_bidirectional_stream_http_response(
-    _response_status: u16,
-    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-    _response_body: &[u8],
+    response: &mut ::aws_smithy_runtime_api::http::Response,
 ) -> std::result::Result<super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput, super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError> {
+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+    ::std::mem::swap(&mut _response_body, response.body_mut());
+    let _response_body = &mut _response_body;
+
+    let _response_status = response.status().as_u16();
+    let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream::de_invoke_model_with_bidirectional_stream(_response_body, output)
-            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+        output = output.set_body(Some(super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output)
             .build()
             .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
     })
-}
-
-pub fn ser_invoke_model_with_bidirectional_stream_input(
-    input: &super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input::ser_invoke_model_with_bidirectional_stream_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_invoke_model_with_bidirectional_stream(
-    _value: &[u8],
-    mut builder: super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder,
-) -> ::std::result::Result<super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "body" => {
-                    builder = builder.set_body(super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_invoke_model_with_bidirectional_stream_output(tokens, _value, depth + 1)?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -37924,79 +37784,26 @@ pub fn de_invoke_model_with_response_stream_http_error(
 
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_invoke_model_with_response_stream_http_response(
-    _response_status: u16,
-    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-    _response_body: &[u8],
+    response: &mut ::aws_smithy_runtime_api::http::Response,
 ) -> std::result::Result<super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput, super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError> {
+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+    ::std::mem::swap(&mut _response_body, response.body_mut());
+    let _response_body = &mut _response_body;
+
+    let _response_status = response.status().as_u16();
+    let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke_model_with_response_stream::de_invoke_model_with_response_stream(_response_body, output)
-            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+        output = output.set_body(Some(super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_body_payload(_response_body)?));
+        output = output.set_content_type(super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_content_type_header(_response_headers).map_err(|_| super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled("Failed to parse contentType from header `X-Amzn-Bedrock-Content-Type`"))?);
+        output = output.set_performance_config_latency(super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_performance_config_latency_header(_response_headers).map_err(|_| super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled("Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency`"))?);
+        output = output.set_service_tier(super::super::protocol_serde::shape_invoke_model_with_response_stream_output::de_service_tier_header(_response_headers).map_err(|_| super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled("Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier`"))?);
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::invoke_model_with_response_stream_output_output_correct_errors(output)
             .build()
             .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?
     })
-}
-
-pub fn ser_invoke_model_with_response_stream_input(
-    input: &super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_model_with_response_stream_input::ser_invoke_model_with_response_stream_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_invoke_model_with_response_stream(
-    _value: &[u8],
-    mut builder: super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
-) -> ::std::result::Result<super::super::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "body" => {
-                    builder = builder.set_body(super::super::protocol_serde::shape_response_stream::de_response_stream(tokens, _value, depth + 1)?);
-                },
-                "contentType" => {
-                    builder = builder.set_content_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?);
-                },
-                "performanceConfigLatency" => {
-                    builder = builder.set_performance_config_latency(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::PerformanceConfigLatency::from(u.as_ref())))
-                            .transpose()?);
-                },
-                "serviceTier" => {
-                    builder = builder.set_service_tier(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::ServiceTierType::from(u.as_ref())))
-                            .transpose()?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -38095,17 +37902,6 @@ pub fn de_list_async_invokes_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_async_invokes_input(
-    input: &super::super::operation::list_async_invokes::ListAsyncInvokesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_async_invokes_input::ser_list_async_invokes_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_async_invokes(
     _value: &[u8],
@@ -38399,29 +38195,23 @@ pub fn ser_apply_guardrail_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::apply_guardrail::ApplyGuardrailInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.guardrail_identifier {
-    object.key("guardrailIdentifier").string(var_1.as_str());
+if let Some(var_1) = &input.source {
+    object.key("source").string(var_1.as_str());
 }
-if let Some(var_2) = &input.guardrail_version {
-    object.key("guardrailVersion").string(var_2.as_str());
-}
-if let Some(var_3) = &input.source {
-    object.key("source").string(var_3.as_str());
-}
-if let Some(var_4) = &input.content {
-    let mut array_5 = object.key("content").start_array();
-    for item_6 in var_4 {
+if let Some(var_2) = &input.content {
+    let mut array_3 = object.key("content").start_array();
+    for item_4 in var_2 {
         {
             #[allow(unused_mut)]
-            let mut object_7 = array_5.value().start_object();
-            super::super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_7, item_6)?;
-            object_7.finish();
+            let mut object_5 = array_3.value().start_object();
+            super::super::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_5, item_4)?;
+            object_5.finish();
         }
     }
-    array_5.finish();
+    array_3.finish();
 }
-if let Some(var_8) = &input.output_scope {
-    object.key("outputScope").string(var_8.as_str());
+if let Some(var_6) = &input.output_scope {
+    object.key("outputScope").string(var_6.as_str());
 }
     Ok(())
 }
@@ -38471,100 +38261,97 @@ pub fn ser_converse_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::converse::ConverseInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.model_id {
-    object.key("modelId").string(var_1.as_str());
-}
-if let Some(var_2) = &input.messages {
-    let mut array_3 = object.key("messages").start_array();
-    for item_4 in var_2 {
+if let Some(var_1) = &input.messages {
+    let mut array_2 = object.key("messages").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_message::ser_message(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_message::ser_message(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_3.finish();
+    array_2.finish();
 }
-if let Some(var_6) = &input.system {
-    let mut array_7 = object.key("system").start_array();
-    for item_8 in var_6 {
+if let Some(var_5) = &input.system {
+    let mut array_6 = object.key("system").start_array();
+    for item_7 in var_5 {
         {
             #[allow(unused_mut)]
-            let mut object_9 = array_7.value().start_object();
-            super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_9, item_8)?;
-            object_9.finish();
+            let mut object_8 = array_6.value().start_object();
+            super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_8, item_7)?;
+            object_8.finish();
         }
     }
-    array_7.finish();
+    array_6.finish();
 }
-if let Some(var_10) = &input.inference_config {
+if let Some(var_9) = &input.inference_config {
     #[allow(unused_mut)]
-    let mut object_11 = object.key("inferenceConfig").start_object();
-    super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_11, var_10)?;
-    object_11.finish();
+    let mut object_10 = object.key("inferenceConfig").start_object();
+    super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_10, var_9)?;
+    object_10.finish();
 }
-if let Some(var_12) = &input.tool_config {
+if let Some(var_11) = &input.tool_config {
     #[allow(unused_mut)]
-    let mut object_13 = object.key("toolConfig").start_object();
-    super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_13, var_12)?;
-    object_13.finish();
+    let mut object_12 = object.key("toolConfig").start_object();
+    super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_12, var_11)?;
+    object_12.finish();
 }
-if let Some(var_14) = &input.guardrail_config {
+if let Some(var_13) = &input.guardrail_config {
     #[allow(unused_mut)]
-    let mut object_15 = object.key("guardrailConfig").start_object();
-    super::super::protocol_serde::shape_guardrail_configuration::ser_guardrail_configuration(&mut object_15, var_14)?;
-    object_15.finish();
+    let mut object_14 = object.key("guardrailConfig").start_object();
+    super::super::protocol_serde::shape_guardrail_configuration::ser_guardrail_configuration(&mut object_14, var_13)?;
+    object_14.finish();
 }
-if let Some(var_16) = &input.additional_model_request_fields {
+if let Some(var_15) = &input.additional_model_request_fields {
 }
-if let Some(var_17) = &input.prompt_variables {
+if let Some(var_16) = &input.prompt_variables {
     #[allow(unused_mut)]
-    let mut object_18 = object.key("promptVariables").start_object();
-    for (key_19, value_20) in var_17 {
+    let mut object_17 = object.key("promptVariables").start_object();
+    for (key_18, value_19) in var_16 {
         {
             #[allow(unused_mut)]
-            let mut object_21 = object_18.key(key_19.as_str()).start_object();
-            super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_21, value_20)?;
-            object_21.finish();
+            let mut object_20 = object_17.key(key_18.as_str()).start_object();
+            super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_20, value_19)?;
+            object_20.finish();
         }
     }
-    object_18.finish();
+    object_17.finish();
 }
-if let Some(var_22) = &input.additional_model_response_field_paths {
-    let mut array_23 = object.key("additionalModelResponseFieldPaths").start_array();
-    for item_24 in var_22 {
+if let Some(var_21) = &input.additional_model_response_field_paths {
+    let mut array_22 = object.key("additionalModelResponseFieldPaths").start_array();
+    for item_23 in var_21 {
         {
         }
     }
-    array_23.finish();
+    array_22.finish();
 }
-if let Some(var_25) = &input.request_metadata {
+if let Some(var_24) = &input.request_metadata {
     #[allow(unused_mut)]
-    let mut object_26 = object.key("requestMetadata").start_object();
-    for (key_27, value_28) in var_25 {
+    let mut object_25 = object.key("requestMetadata").start_object();
+    for (key_26, value_27) in var_24 {
         {
         }
     }
-    object_26.finish();
+    object_25.finish();
 }
-if let Some(var_29) = &input.performance_config {
+if let Some(var_28) = &input.performance_config {
     #[allow(unused_mut)]
-    let mut object_30 = object.key("performanceConfig").start_object();
-    super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_30, var_29)?;
-    object_30.finish();
+    let mut object_29 = object.key("performanceConfig").start_object();
+    super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_29, var_28)?;
+    object_29.finish();
 }
-if let Some(var_31) = &input.service_tier {
+if let Some(var_30) = &input.service_tier {
     #[allow(unused_mut)]
-    let mut object_32 = object.key("serviceTier").start_object();
-    super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_32, var_31)?;
-    object_32.finish();
+    let mut object_31 = object.key("serviceTier").start_object();
+    super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_31, var_30)?;
+    object_31.finish();
 }
-if let Some(var_33) = &input.output_config {
+if let Some(var_32) = &input.output_config {
     #[allow(unused_mut)]
-    let mut object_34 = object.key("outputConfig").start_object();
-    super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_34, var_33)?;
-    object_34.finish();
+    let mut object_33 = object.key("outputConfig").start_object();
+    super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_33, var_32)?;
+    object_33.finish();
 }
     Ok(())
 }
@@ -38576,102 +38363,111 @@ pub fn ser_converse_stream_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::converse_stream::ConverseStreamInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.model_id {
-    object.key("modelId").string(var_1.as_str());
-}
-if let Some(var_2) = &input.messages {
-    let mut array_3 = object.key("messages").start_array();
-    for item_4 in var_2 {
+if let Some(var_1) = &input.messages {
+    let mut array_2 = object.key("messages").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_message::ser_message(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_message::ser_message(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_3.finish();
+    array_2.finish();
 }
-if let Some(var_6) = &input.system {
-    let mut array_7 = object.key("system").start_array();
-    for item_8 in var_6 {
+if let Some(var_5) = &input.system {
+    let mut array_6 = object.key("system").start_array();
+    for item_7 in var_5 {
         {
             #[allow(unused_mut)]
-            let mut object_9 = array_7.value().start_object();
-            super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_9, item_8)?;
-            object_9.finish();
+            let mut object_8 = array_6.value().start_object();
+            super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_8, item_7)?;
+            object_8.finish();
         }
     }
-    array_7.finish();
+    array_6.finish();
 }
-if let Some(var_10) = &input.inference_config {
+if let Some(var_9) = &input.inference_config {
     #[allow(unused_mut)]
-    let mut object_11 = object.key("inferenceConfig").start_object();
-    super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_11, var_10)?;
-    object_11.finish();
+    let mut object_10 = object.key("inferenceConfig").start_object();
+    super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_10, var_9)?;
+    object_10.finish();
 }
-if let Some(var_12) = &input.tool_config {
+if let Some(var_11) = &input.tool_config {
     #[allow(unused_mut)]
-    let mut object_13 = object.key("toolConfig").start_object();
-    super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_13, var_12)?;
-    object_13.finish();
+    let mut object_12 = object.key("toolConfig").start_object();
+    super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_12, var_11)?;
+    object_12.finish();
 }
-if let Some(var_14) = &input.guardrail_config {
+if let Some(var_13) = &input.guardrail_config {
     #[allow(unused_mut)]
-    let mut object_15 = object.key("guardrailConfig").start_object();
-    super::super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_15, var_14)?;
-    object_15.finish();
+    let mut object_14 = object.key("guardrailConfig").start_object();
+    super::super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_14, var_13)?;
+    object_14.finish();
 }
-if let Some(var_16) = &input.additional_model_request_fields {
+if let Some(var_15) = &input.additional_model_request_fields {
 }
-if let Some(var_17) = &input.prompt_variables {
+if let Some(var_16) = &input.prompt_variables {
     #[allow(unused_mut)]
-    let mut object_18 = object.key("promptVariables").start_object();
-    for (key_19, value_20) in var_17 {
+    let mut object_17 = object.key("promptVariables").start_object();
+    for (key_18, value_19) in var_16 {
         {
             #[allow(unused_mut)]
-            let mut object_21 = object_18.key(key_19.as_str()).start_object();
-            super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_21, value_20)?;
-            object_21.finish();
+            let mut object_20 = object_17.key(key_18.as_str()).start_object();
+            super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_20, value_19)?;
+            object_20.finish();
         }
     }
-    object_18.finish();
+    object_17.finish();
 }
-if let Some(var_22) = &input.additional_model_response_field_paths {
-    let mut array_23 = object.key("additionalModelResponseFieldPaths").start_array();
-    for item_24 in var_22 {
+if let Some(var_21) = &input.additional_model_response_field_paths {
+    let mut array_22 = object.key("additionalModelResponseFieldPaths").start_array();
+    for item_23 in var_21 {
         {
         }
     }
-    array_23.finish();
+    array_22.finish();
 }
-if let Some(var_25) = &input.request_metadata {
+if let Some(var_24) = &input.request_metadata {
     #[allow(unused_mut)]
-    let mut object_26 = object.key("requestMetadata").start_object();
-    for (key_27, value_28) in var_25 {
+    let mut object_25 = object.key("requestMetadata").start_object();
+    for (key_26, value_27) in var_24 {
         {
         }
     }
-    object_26.finish();
+    object_25.finish();
 }
-if let Some(var_29) = &input.performance_config {
+if let Some(var_28) = &input.performance_config {
     #[allow(unused_mut)]
-    let mut object_30 = object.key("performanceConfig").start_object();
-    super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_30, var_29)?;
-    object_30.finish();
+    let mut object_29 = object.key("performanceConfig").start_object();
+    super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_29, var_28)?;
+    object_29.finish();
 }
-if let Some(var_31) = &input.service_tier {
+if let Some(var_30) = &input.service_tier {
     #[allow(unused_mut)]
-    let mut object_32 = object.key("serviceTier").start_object();
-    super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_32, var_31)?;
-    object_32.finish();
+    let mut object_31 = object.key("serviceTier").start_object();
+    super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_31, var_30)?;
+    object_31.finish();
 }
-if let Some(var_33) = &input.output_config {
+if let Some(var_32) = &input.output_config {
     #[allow(unused_mut)]
-    let mut object_34 = object.key("outputConfig").start_object();
-    super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_34, var_33)?;
-    object_34.finish();
+    let mut object_33 = object.key("outputConfig").start_object();
+    super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_33, var_32)?;
+    object_33.finish();
 }
     Ok(())
+}
+}
+
+pub(crate) mod shape_converse_stream_output {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_stream_payload(
+    body: &mut ::aws_smithy_types::body::SdkBody,
+) -> ::std::result::Result<super::super::event_receiver::EventReceiver<super::super::types::ConverseStreamOutput, super::super::types::error::ConverseStreamOutputError>, super::super::operation::converse_stream::ConverseStreamError> {
+    let unmarshaller = super::super::event_stream_serde::ConverseStreamOutputUnmarshaller::new();
+    let body = ::std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
+    let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
+    Ok(receiver)
 }
 }
 
@@ -38700,19 +38496,6 @@ pub fn ser_count_tokens_input(
             ))
         }
     }
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_async_invoke_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_async_invoke_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_async_invoke::GetAsyncInvokeInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.invocation_arn {
-    object.key("invocationArn").string(var_1.as_str());
-}
     Ok(())
 }
 }
@@ -38794,134 +38577,120 @@ if let Some(var_5) = &input.checks {
 
 pub(crate) mod shape_invoke_model_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_invoke_model_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::invoke_model::InvokeModelInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.body {
-    object.key("body").string_unchecked(&::aws_smithy_types::base64::encode(var_1));
+pub fn ser_body_http_payload(
+    payload: ::std::option::Option<::aws_smithy_types::Blob>,
+) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = match payload {
+        Some(t) => t,
+        None => return Ok(::bytes::Bytes::new()),
+    };
+    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 }
-if let Some(var_2) = &input.content_type {
-    object.key("contentType").string(var_2.as_str());
 }
-if let Some(var_3) = &input.accept {
-    object.key("accept").string(var_3.as_str());
+
+pub(crate) mod shape_invoke_model_output {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub(crate) fn de_body_payload(
+    body: &[u8],
+) -> ::std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::super::operation::invoke_model::InvokeModelError> {
+    (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()
 }
-if let Some(var_4) = &input.model_id {
-    object.key("modelId").string(var_4.as_str());
+pub(crate) fn de_content_type_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("Content-Type");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
-if let Some(var_5) = &input.trace {
-    object.key("trace").string(var_5.as_str());
+
+pub(crate) fn de_performance_config_latency_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<super::super::types::PerformanceConfigLatency>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amzn-Bedrock-PerformanceConfig-Latency");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
-if let Some(var_6) = &input.guardrail_identifier {
-    object.key("guardrailIdentifier").string(var_6.as_str());
-}
-if let Some(var_7) = &input.guardrail_version {
-    object.key("guardrailVersion").string(var_7.as_str());
-}
-if let Some(var_8) = &input.performance_config_latency {
-    object.key("performanceConfigLatency").string(var_8.as_str());
-}
-if let Some(var_9) = &input.service_tier {
-    object.key("serviceTier").string(var_9.as_str());
-}
-if let Some(var_10) = &input.request_metadata {
-    object.key("requestMetadata").string(var_10.as_str());
-}
-    Ok(())
+
+pub(crate) fn de_service_tier_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<super::super::types::ServiceTierType>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amzn-Bedrock-Service-Tier");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
 }
 
 pub(crate) mod shape_invoke_model_with_bidirectional_stream_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_invoke_model_with_bidirectional_stream_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.model_id {
-    object.key("modelId").string(var_1.as_str());
+pub fn ser_chunk_http_payload(
+    payload: &super::super::types::BidirectionalInputPayloadPart,
+) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = payload;
+    Ok(super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input::ser_chunk_payload(payload)?)
 }
-if let Some(var_2) = &input.body {
-    #[allow(unused_mut)]
-    let mut object_3 = object.key("body").start_object();
-    super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input::ser_invoke_model_with_bidirectional_stream_input(&mut object_3, var_2)?;
-    object_3.finish();
+
+pub fn ser_chunk_payload(
+    input: &super::super::types::BidirectionalInputPayloadPart,
+) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
+    super::super::protocol_serde::shape_bidirectional_input_payload_part::ser_bidirectional_input_payload_part(&mut object, input)?;
+    object.finish();
+    Ok(out.into_bytes())
 }
-    Ok(())
+}
+
+pub(crate) mod shape_invoke_model_with_bidirectional_stream_output {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_body_payload(
+    body: &mut ::aws_smithy_types::body::SdkBody,
+) -> ::std::result::Result<super::super::event_receiver::EventReceiver<super::super::types::InvokeModelWithBidirectionalStreamOutput, super::super::types::error::InvokeModelWithBidirectionalStreamOutputError>, super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError> {
+    let unmarshaller = super::super::event_stream_serde::InvokeModelWithBidirectionalStreamOutputUnmarshaller::new();
+    let body = ::std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
+    let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
+    Ok(receiver)
 }
 }
 
 pub(crate) mod shape_invoke_model_with_response_stream_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_invoke_model_with_response_stream_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.body {
-    object.key("body").string_unchecked(&::aws_smithy_types::base64::encode(var_1));
-}
-if let Some(var_2) = &input.content_type {
-    object.key("contentType").string(var_2.as_str());
-}
-if let Some(var_3) = &input.accept {
-    object.key("accept").string(var_3.as_str());
-}
-if let Some(var_4) = &input.model_id {
-    object.key("modelId").string(var_4.as_str());
-}
-if let Some(var_5) = &input.trace {
-    object.key("trace").string(var_5.as_str());
-}
-if let Some(var_6) = &input.guardrail_identifier {
-    object.key("guardrailIdentifier").string(var_6.as_str());
-}
-if let Some(var_7) = &input.guardrail_version {
-    object.key("guardrailVersion").string(var_7.as_str());
-}
-if let Some(var_8) = &input.performance_config_latency {
-    object.key("performanceConfigLatency").string(var_8.as_str());
-}
-if let Some(var_9) = &input.service_tier {
-    object.key("serviceTier").string(var_9.as_str());
-}
-if let Some(var_10) = &input.request_metadata {
-    object.key("requestMetadata").string(var_10.as_str());
-}
-    Ok(())
+pub fn ser_body_http_payload(
+    payload: ::std::option::Option<::aws_smithy_types::Blob>,
+) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {
+    let payload = match payload {
+        Some(t) => t,
+        None => return Ok(::bytes::Bytes::new()),
+    };
+    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
 }
 }
 
-pub(crate) mod shape_list_async_invokes_input {
+pub(crate) mod shape_invoke_model_with_response_stream_output {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_async_invokes_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_async_invokes::ListAsyncInvokesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.submit_time_after {
-    object.key("submitTimeAfter").date_time(var_1, ::aws_smithy_types::date_time::Format::DateTimeWithOffset)?;
+pub fn de_body_payload(
+    body: &mut ::aws_smithy_types::body::SdkBody,
+) -> ::std::result::Result<super::super::event_receiver::EventReceiver<super::super::types::ResponseStream, super::super::types::error::ResponseStreamError>, super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError> {
+    let unmarshaller = super::super::event_stream_serde::ResponseStreamUnmarshaller::new();
+    let body = ::std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
+    let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
+    Ok(receiver)
 }
-if let Some(var_2) = &input.submit_time_before {
-    object.key("submitTimeBefore").date_time(var_2, ::aws_smithy_types::date_time::Format::DateTimeWithOffset)?;
+pub(crate) fn de_content_type_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amzn-Bedrock-Content-Type");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
-if let Some(var_3) = &input.status_equals {
-    object.key("statusEquals").string(var_3.as_str());
+
+pub(crate) fn de_performance_config_latency_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<super::super::types::PerformanceConfigLatency>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amzn-Bedrock-PerformanceConfig-Latency");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
-if let Some(var_4) = &input.max_results {
-    object.key("maxResults").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
-    );
-}
-if let Some(var_5) = &input.next_token {
-    object.key("nextToken").string(var_5.as_str());
-}
-if let Some(var_6) = &input.sort_by {
-    object.key("sortBy").string(var_6.as_str());
-}
-if let Some(var_7) = &input.sort_order {
-    object.key("sortOrder").string(var_7.as_str());
-}
-    Ok(())
+
+pub(crate) fn de_service_tier_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> ::std::result::Result<::std::option::Option<super::super::types::ServiceTierType>, ::aws_smithy_http::header::ParseError> {
+    let headers = header_map.get_all("X-Amzn-Bedrock-Service-Tier");
+    ::aws_smithy_http::header::one_or_none(headers)
 }
 }
 

@@ -115282,47 +115282,6 @@ pub fn de_cancel_export_job_http_response(
         output.build()
     })
 }
-
-pub fn ser_cancel_export_job_input(
-    input: &super::super::operation::cancel_export_job::CancelExportJobInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_cancel_export_job_input::ser_cancel_export_job_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_cancel_export_job(
-    _value: &[u8],
-    mut builder: super::super::operation::cancel_export_job::builders::CancelExportJobOutputBuilder,
-) -> ::std::result::Result<super::super::operation::cancel_export_job::builders::CancelExportJobOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_create_configuration_set {
@@ -115456,37 +115415,6 @@ pub fn ser_create_configuration_set_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_create_configuration_set(
-    _value: &[u8],
-    mut builder: super::super::operation::create_configuration_set::builders::CreateConfigurationSetOutputBuilder,
-) -> ::std::result::Result<super::super::operation::create_configuration_set::builders::CreateConfigurationSetOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_create_configuration_set_event_destination {
@@ -115606,37 +115534,6 @@ pub fn ser_create_configuration_set_event_destination_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_create_configuration_set_event_destination(
-    _value: &[u8],
-    mut builder: super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder,
-) -> ::std::result::Result<super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_create_contact {
@@ -115742,37 +115639,6 @@ pub fn ser_create_contact_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_create_contact(
-    _value: &[u8],
-    mut builder: super::super::operation::create_contact::builders::CreateContactOutputBuilder,
-) -> ::std::result::Result<super::super::operation::create_contact::builders::CreateContactOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_create_contact_list {
@@ -115877,37 +115743,6 @@ pub fn ser_create_contact_list_input(
     super::super::protocol_serde::shape_create_contact_list_input::ser_create_contact_list_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_create_contact_list(
-    _value: &[u8],
-    mut builder: super::super::operation::create_contact_list::builders::CreateContactListOutputBuilder,
-) -> ::std::result::Result<super::super::operation::create_contact_list::builders::CreateContactListOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -116028,37 +115863,6 @@ pub fn ser_create_custom_verification_email_template_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_create_custom_verification_email_template(
-    _value: &[u8],
-    mut builder: super::super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder,
-) -> ::std::result::Result<super::super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_create_dedicated_ip_pool {
@@ -116177,37 +115981,6 @@ pub fn ser_create_dedicated_ip_pool_input(
     super::super::protocol_serde::shape_create_dedicated_ip_pool_input::ser_create_dedicated_ip_pool_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_create_dedicated_ip_pool(
-    _value: &[u8],
-    mut builder: super::super::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolOutputBuilder,
-) -> ::std::result::Result<super::super::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -116725,37 +116498,6 @@ pub fn ser_create_email_identity_policy_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_create_email_identity_policy(
-    _value: &[u8],
-    mut builder: super::super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyOutputBuilder,
-) -> ::std::result::Result<super::super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_create_email_template {
@@ -116860,37 +116602,6 @@ pub fn ser_create_email_template_input(
     super::super::protocol_serde::shape_create_email_template_input::ser_create_email_template_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_create_email_template(
-    _value: &[u8],
-    mut builder: super::super::operation::create_email_template::builders::CreateEmailTemplateOutputBuilder,
-) -> ::std::result::Result<super::super::operation::create_email_template::builders::CreateEmailTemplateOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -117584,37 +117295,6 @@ pub fn ser_create_tenant_resource_association_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_create_tenant_resource_association(
-    _value: &[u8],
-    mut builder: super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder,
-) -> ::std::result::Result<super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_configuration_set {
@@ -117710,47 +117390,6 @@ pub fn de_delete_configuration_set_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_configuration_set_input(
-    input: &super::super::operation::delete_configuration_set::DeleteConfigurationSetInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_configuration_set_input::ser_delete_configuration_set_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_configuration_set(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_configuration_set_event_destination {
@@ -117832,47 +117471,6 @@ pub fn de_delete_configuration_set_event_destination_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_configuration_set_event_destination_input(
-    input: &super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_configuration_set_event_destination_input::ser_delete_configuration_set_event_destination_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_configuration_set_event_destination(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_contact {
@@ -117953,47 +117551,6 @@ pub fn de_delete_contact_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_delete_contact_input(
-    input: &super::super::operation::delete_contact::DeleteContactInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_contact_input::ser_delete_contact_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_contact(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_contact::builders::DeleteContactOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_contact::builders::DeleteContactOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -118090,47 +117647,6 @@ pub fn de_delete_contact_list_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_contact_list_input(
-    input: &super::super::operation::delete_contact_list::DeleteContactListInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_contact_list_input::ser_delete_contact_list_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_contact_list(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_contact_list::builders::DeleteContactListOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_contact_list::builders::DeleteContactListOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_custom_verification_email_template {
@@ -118211,47 +117727,6 @@ pub fn de_delete_custom_verification_email_template_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_delete_custom_verification_email_template_input(
-    input: &super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_custom_verification_email_template_input::ser_delete_custom_verification_email_template_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_custom_verification_email_template(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -118348,47 +117823,6 @@ pub fn de_delete_dedicated_ip_pool_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_dedicated_ip_pool_input(
-    input: &super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_dedicated_ip_pool_input::ser_delete_dedicated_ip_pool_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_dedicated_ip_pool(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_email_identity {
@@ -118484,47 +117918,6 @@ pub fn de_delete_email_identity_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_email_identity_input(
-    input: &super::super::operation::delete_email_identity::DeleteEmailIdentityInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_email_identity_input::ser_delete_email_identity_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_email_identity(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_email_identity_policy {
@@ -118606,47 +117999,6 @@ pub fn de_delete_email_identity_policy_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_email_identity_policy_input(
-    input: &super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_email_identity_policy_input::ser_delete_email_identity_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_email_identity_policy(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_email_template {
@@ -118727,47 +118079,6 @@ pub fn de_delete_email_template_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_delete_email_template_input(
-    input: &super::super::operation::delete_email_template::DeleteEmailTemplateInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_email_template_input::ser_delete_email_template_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_email_template(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -118866,17 +118177,6 @@ pub fn de_delete_multi_region_endpoint_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_multi_region_endpoint_input(
-    input: &super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_multi_region_endpoint_input::ser_delete_multi_region_endpoint_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_delete_multi_region_endpoint(
     _value: &[u8],
@@ -118993,47 +118293,6 @@ pub fn de_delete_suppressed_destination_http_response(
         output.build()
     })
 }
-
-pub fn ser_delete_suppressed_destination_input(
-    input: &super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_suppressed_destination_input::ser_delete_suppressed_destination_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_suppressed_destination(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_delete_tenant {
@@ -119124,37 +118383,6 @@ pub fn ser_delete_tenant_input(
     super::super::protocol_serde::shape_delete_tenant_input::ser_delete_tenant_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_delete_tenant(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_tenant::builders::DeleteTenantOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_tenant::builders::DeleteTenantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -119247,37 +118475,6 @@ pub fn ser_delete_tenant_resource_association_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_delete_tenant_resource_association(
-    _value: &[u8],
-    mut builder: super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationOutputBuilder,
-) -> ::std::result::Result<super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_get_account {
@@ -119346,12 +118543,6 @@ pub fn de_get_account_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_get_account_input(
-    _input: &super::super::operation::get_account::GetAccountInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
 }
 
 pub(crate) fn de_get_account(
@@ -119498,17 +118689,6 @@ pub fn de_get_blacklist_reports_http_response(
     })
 }
 
-pub fn ser_get_blacklist_reports_input(
-    input: &super::super::operation::get_blacklist_reports::GetBlacklistReportsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_blacklist_reports_input::ser_get_blacklist_reports_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_blacklist_reports(
     _value: &[u8],
     mut builder: super::super::operation::get_blacklist_reports::builders::GetBlacklistReportsOutputBuilder,
@@ -119624,17 +118804,6 @@ pub fn de_get_configuration_set_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_configuration_set_input(
-    input: &super::super::operation::get_configuration_set::GetConfigurationSetInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_configuration_set_input::ser_get_configuration_set_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_configuration_set(
     _value: &[u8],
@@ -119778,17 +118947,6 @@ pub fn de_get_configuration_set_event_destinations_http_response(
     })
 }
 
-pub fn ser_get_configuration_set_event_destinations_input(
-    input: &super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_configuration_set_event_destinations_input::ser_get_configuration_set_event_destinations_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_configuration_set_event_destinations(
     _value: &[u8],
     mut builder: super::super::operation::get_configuration_set_event_destinations::builders::GetConfigurationSetEventDestinationsOutputBuilder,
@@ -119904,17 +119062,6 @@ pub fn de_get_contact_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_contact_input(
-    input: &super::super::operation::get_contact::GetContactInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_contact_input::ser_get_contact_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_contact(
     _value: &[u8],
@@ -120059,17 +119206,6 @@ pub fn de_get_contact_list_http_response(
     })
 }
 
-pub fn ser_get_contact_list_input(
-    input: &super::super::operation::get_contact_list::GetContactListInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_contact_list_input::ser_get_contact_list_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_contact_list(
     _value: &[u8],
     mut builder: super::super::operation::get_contact_list::builders::GetContactListOutputBuilder,
@@ -120204,17 +119340,6 @@ pub fn de_get_custom_verification_email_template_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_custom_verification_email_template_input(
-    input: &super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_custom_verification_email_template_input::ser_get_custom_verification_email_template_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_custom_verification_email_template(
     _value: &[u8],
@@ -120362,17 +119487,6 @@ pub fn de_get_dedicated_ip_http_response(
     })
 }
 
-pub fn ser_get_dedicated_ip_input(
-    input: &super::super::operation::get_dedicated_ip::GetDedicatedIpInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_dedicated_ip_input::ser_get_dedicated_ip_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_dedicated_ip(
     _value: &[u8],
     mut builder: super::super::operation::get_dedicated_ip::builders::GetDedicatedIpOutputBuilder,
@@ -120489,17 +119603,6 @@ pub fn de_get_dedicated_ip_pool_http_response(
     })
 }
 
-pub fn ser_get_dedicated_ip_pool_input(
-    input: &super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_dedicated_ip_pool_input::ser_get_dedicated_ip_pool_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_dedicated_ip_pool(
     _value: &[u8],
     mut builder: super::super::operation::get_dedicated_ip_pool::builders::GetDedicatedIpPoolOutputBuilder,
@@ -120615,17 +119718,6 @@ pub fn de_get_dedicated_ips_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_dedicated_ips_input(
-    input: &super::super::operation::get_dedicated_ips::GetDedicatedIpsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_dedicated_ips_input::ser_get_dedicated_ips_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_dedicated_ips(
     _value: &[u8],
@@ -120748,12 +119840,6 @@ pub fn de_get_deliverability_dashboard_options_http_response(
             .build()
             .map_err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?
     })
-}
-
-pub fn ser_get_deliverability_dashboard_options_input(
-    _input: &super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
 }
 
 pub(crate) fn de_get_deliverability_dashboard_options(
@@ -120888,17 +119974,6 @@ pub fn de_get_deliverability_test_report_http_response(
     })
 }
 
-pub fn ser_get_deliverability_test_report_input(
-    input: &super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_deliverability_test_report_input::ser_get_deliverability_test_report_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_deliverability_test_report(
     _value: &[u8],
     mut builder: super::super::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportOutputBuilder,
@@ -121030,17 +120105,6 @@ pub fn de_get_domain_deliverability_campaign_http_response(
 }
 
 
-pub fn ser_get_domain_deliverability_campaign_input(
-    input: &super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_domain_deliverability_campaign_input::ser_get_domain_deliverability_campaign_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_domain_deliverability_campaign(
     _value: &[u8],
     mut builder: super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder,
@@ -121158,17 +120222,6 @@ pub fn de_get_domain_statistics_report_http_response(
             .map_err(super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled)?
     })
 }
-
-pub fn ser_get_domain_statistics_report_input(
-    input: &super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_domain_statistics_report_input::ser_get_domain_statistics_report_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_domain_statistics_report(
     _value: &[u8],
@@ -121402,17 +120455,6 @@ pub fn de_get_email_identity_http_response(
     })
 }
 
-pub fn ser_get_email_identity_input(
-    input: &super::super::operation::get_email_identity::GetEmailIdentityInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_email_identity_input::ser_get_email_identity_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_email_identity(
     _value: &[u8],
     mut builder: super::super::operation::get_email_identity::builders::GetEmailIdentityOutputBuilder,
@@ -121562,17 +120604,6 @@ pub fn de_get_email_identity_policies_http_response(
     })
 }
 
-pub fn ser_get_email_identity_policies_input(
-    input: &super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_email_identity_policies_input::ser_get_email_identity_policies_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_email_identity_policies(
     _value: &[u8],
     mut builder: super::super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesOutputBuilder,
@@ -121690,17 +120721,6 @@ pub fn de_get_email_template_http_response(
             .map_err(super::super::operation::get_email_template::GetEmailTemplateError::unhandled)?
     })
 }
-
-pub fn ser_get_email_template_input(
-    input: &super::super::operation::get_email_template::GetEmailTemplateInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_email_template_input::ser_get_email_template_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_email_template(
     _value: &[u8],
@@ -121825,17 +120845,6 @@ pub fn de_get_export_job_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_export_job_input(
-    input: &super::super::operation::get_export_job::GetExportJobInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_export_job_input::ser_get_export_job_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_export_job(
     _value: &[u8],
@@ -121982,17 +120991,6 @@ pub fn de_get_import_job_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_import_job_input(
-    input: &super::super::operation::get_import_job::GetImportJobInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_import_job_input::ser_get_import_job_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_import_job(
     _value: &[u8],
@@ -122142,17 +121140,6 @@ pub fn de_get_message_insights_http_response(
     })
 }
 
-pub fn ser_get_message_insights_input(
-    input: &super::super::operation::get_message_insights::GetMessageInsightsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_message_insights_input::ser_get_message_insights_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_message_insights(
     _value: &[u8],
     mut builder: super::super::operation::get_message_insights::builders::GetMessageInsightsOutputBuilder,
@@ -122286,17 +121273,6 @@ pub fn de_get_multi_region_endpoint_http_response(
         output.build()
     })
 }
-
-pub fn ser_get_multi_region_endpoint_input(
-    input: &super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_multi_region_endpoint_input::ser_get_multi_region_endpoint_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_get_multi_region_endpoint(
     _value: &[u8],
@@ -122435,17 +121411,6 @@ pub fn de_get_reputation_entity_http_response(
     })
 }
 
-pub fn ser_get_reputation_entity_input(
-    input: &super::super::operation::get_reputation_entity::GetReputationEntityInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_reputation_entity_input::ser_get_reputation_entity_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_get_reputation_entity(
     _value: &[u8],
     mut builder: super::super::operation::get_reputation_entity::builders::GetReputationEntityOutputBuilder,
@@ -122560,17 +121525,6 @@ pub fn de_get_suppressed_destination_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::get_suppressed_destination_output_output_correct_errors(output).build()
     })
-}
-
-
-pub fn ser_get_suppressed_destination_input(
-    input: &super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_suppressed_destination_input::ser_get_suppressed_destination_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
 
@@ -122803,17 +121757,6 @@ pub fn de_list_configuration_sets_http_response(
     })
 }
 
-pub fn ser_list_configuration_sets_input(
-    input: &super::super::operation::list_configuration_sets::ListConfigurationSetsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_configuration_sets_input::ser_list_configuration_sets_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_configuration_sets(
     _value: &[u8],
     mut builder: super::super::operation::list_configuration_sets::builders::ListConfigurationSetsOutputBuilder,
@@ -122920,17 +121863,6 @@ pub fn de_list_contact_lists_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_contact_lists_input(
-    input: &super::super::operation::list_contact_lists::ListContactListsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_contact_lists_input::ser_list_contact_lists_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_contact_lists(
     _value: &[u8],
@@ -123171,17 +122103,6 @@ pub fn de_list_custom_verification_email_templates_http_response(
     })
 }
 
-pub fn ser_list_custom_verification_email_templates_input(
-    input: &super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_custom_verification_email_templates_input::ser_list_custom_verification_email_templates_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_custom_verification_email_templates(
     _value: &[u8],
     mut builder: super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesOutputBuilder,
@@ -123288,17 +122209,6 @@ pub fn de_list_dedicated_ip_pools_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_dedicated_ip_pools_input(
-    input: &super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_dedicated_ip_pools_input::ser_list_dedicated_ip_pools_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_dedicated_ip_pools(
     _value: &[u8],
@@ -123423,17 +122333,6 @@ pub fn de_list_deliverability_test_reports_http_response(
     })
 }
 
-pub fn ser_list_deliverability_test_reports_input(
-    input: &super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_deliverability_test_reports_input::ser_list_deliverability_test_reports_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_deliverability_test_reports(
     _value: &[u8],
     mut builder: super::super::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsOutputBuilder,
@@ -123557,17 +122456,6 @@ pub fn de_list_domain_deliverability_campaigns_http_response(
     })
 }
 
-pub fn ser_list_domain_deliverability_campaigns_input(
-    input: &super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_domain_deliverability_campaigns_input::ser_list_domain_deliverability_campaigns_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_domain_deliverability_campaigns(
     _value: &[u8],
     mut builder: super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder,
@@ -123675,17 +122563,6 @@ pub fn de_list_email_identities_http_response(
     })
 }
 
-pub fn ser_list_email_identities_input(
-    input: &super::super::operation::list_email_identities::ListEmailIdentitiesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_email_identities_input::ser_list_email_identities_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_email_identities(
     _value: &[u8],
     mut builder: super::super::operation::list_email_identities::builders::ListEmailIdentitiesOutputBuilder,
@@ -123792,17 +122669,6 @@ pub fn de_list_email_templates_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_email_templates_input(
-    input: &super::super::operation::list_email_templates::ListEmailTemplatesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_email_templates_input::ser_list_email_templates_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_email_templates(
     _value: &[u8],
@@ -124146,17 +123012,6 @@ pub fn de_list_multi_region_endpoints_http_response(
         output.build()
     })
 }
-
-pub fn ser_list_multi_region_endpoints_input(
-    input: &super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_multi_region_endpoints_input::ser_list_multi_region_endpoints_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_multi_region_endpoints(
     _value: &[u8],
@@ -124675,17 +123530,6 @@ pub fn de_list_suppressed_destinations_http_response(
     })
 }
 
-pub fn ser_list_suppressed_destinations_input(
-    input: &super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_suppressed_destinations_input::ser_list_suppressed_destinations_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
 pub(crate) fn de_list_suppressed_destinations(
     _value: &[u8],
     mut builder: super::super::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsOutputBuilder,
@@ -124808,17 +123652,6 @@ pub fn de_list_tags_for_resource_http_response(
             .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
     })
 }
-
-pub fn ser_list_tags_for_resource_input(
-    input: &super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 
 pub(crate) fn de_list_tags_for_resource(
     _value: &[u8],
@@ -125179,37 +124012,6 @@ pub fn ser_put_account_dedicated_ip_warmup_attributes_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_account_dedicated_ip_warmup_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_account_details {
@@ -125300,37 +124102,6 @@ pub fn ser_put_account_details_input(
     super::super::protocol_serde::shape_put_account_details_input::ser_put_account_details_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_account_details(
-    _value: &[u8],
-    mut builder: super::super::operation::put_account_details::builders::PutAccountDetailsOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_account_details::builders::PutAccountDetailsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -125423,37 +124194,6 @@ pub fn ser_put_account_pricing_attributes_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_account_pricing_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_account_sending_attributes {
@@ -125530,37 +124270,6 @@ pub fn ser_put_account_sending_attributes_input(
     super::super::protocol_serde::shape_put_account_sending_attributes_input::ser_put_account_sending_attributes_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_account_sending_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_account_sending_attributes::builders::PutAccountSendingAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_account_sending_attributes::builders::PutAccountSendingAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -125639,37 +124348,6 @@ pub fn ser_put_account_suppression_attributes_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_account_suppression_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_account_vdm_attributes {
@@ -125746,37 +124424,6 @@ pub fn ser_put_account_vdm_attributes_input(
     super::super::protocol_serde::shape_put_account_vdm_attributes_input::ser_put_account_vdm_attributes_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_account_vdm_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -125869,37 +124516,6 @@ pub fn ser_put_configuration_set_archiving_options_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_configuration_set_archiving_options(
-    _value: &[u8],
-    mut builder: super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_configuration_set_delivery_options {
@@ -125990,37 +124606,6 @@ pub fn ser_put_configuration_set_delivery_options_input(
     super::super::protocol_serde::shape_put_configuration_set_delivery_options_input::ser_put_configuration_set_delivery_options_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_configuration_set_delivery_options(
-    _value: &[u8],
-    mut builder: super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -126113,37 +124698,6 @@ pub fn ser_put_configuration_set_reputation_options_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_configuration_set_reputation_options(
-    _value: &[u8],
-    mut builder: super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_configuration_set_sending_options {
@@ -126234,37 +124788,6 @@ pub fn ser_put_configuration_set_sending_options_input(
     super::super::protocol_serde::shape_put_configuration_set_sending_options_input::ser_put_configuration_set_sending_options_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_configuration_set_sending_options(
-    _value: &[u8],
-    mut builder: super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -126357,37 +124880,6 @@ pub fn ser_put_configuration_set_suppression_options_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_configuration_set_suppression_options(
-    _value: &[u8],
-    mut builder: super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_configuration_set_tracking_options {
@@ -126478,37 +124970,6 @@ pub fn ser_put_configuration_set_tracking_options_input(
     super::super::protocol_serde::shape_put_configuration_set_tracking_options_input::ser_put_configuration_set_tracking_options_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_configuration_set_tracking_options(
-    _value: &[u8],
-    mut builder: super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -126601,37 +125062,6 @@ pub fn ser_put_configuration_set_vdm_options_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_configuration_set_vdm_options(
-    _value: &[u8],
-    mut builder: super::super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_dedicated_ip_in_pool {
@@ -126722,37 +125152,6 @@ pub fn ser_put_dedicated_ip_in_pool_input(
     super::super::protocol_serde::shape_put_dedicated_ip_in_pool_input::ser_put_dedicated_ip_in_pool_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_dedicated_ip_in_pool(
-    _value: &[u8],
-    mut builder: super::super::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -126859,37 +125258,6 @@ pub fn ser_put_dedicated_ip_pool_scaling_attributes_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_dedicated_ip_pool_scaling_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_dedicated_ip_warmup_attributes {
@@ -126980,37 +125348,6 @@ pub fn ser_put_dedicated_ip_warmup_attributes_input(
     super::super::protocol_serde::shape_put_dedicated_ip_warmup_attributes_input::ser_put_dedicated_ip_warmup_attributes_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_dedicated_ip_warmup_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -127131,37 +125468,6 @@ pub fn ser_put_deliverability_dashboard_option_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_deliverability_dashboard_option(
-    _value: &[u8],
-    mut builder: super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_email_identity_configuration_set_attributes {
@@ -127253,37 +125559,6 @@ pub fn ser_put_email_identity_configuration_set_attributes_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_email_identity_configuration_set_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_email_identity_dkim_attributes {
@@ -127374,37 +125649,6 @@ pub fn ser_put_email_identity_dkim_attributes_input(
     super::super::protocol_serde::shape_put_email_identity_dkim_attributes_input::ser_put_email_identity_dkim_attributes_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_email_identity_dkim_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -127634,37 +125878,6 @@ pub fn ser_put_email_identity_feedback_attributes_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_email_identity_feedback_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_email_identity_mail_from_attributes {
@@ -127755,37 +125968,6 @@ pub fn ser_put_email_identity_mail_from_attributes_input(
     super::super::protocol_serde::shape_put_email_identity_mail_from_attributes_input::ser_put_email_identity_mail_from_attributes_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_email_identity_mail_from_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -127878,37 +126060,6 @@ pub fn ser_put_suppressed_destination_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_put_suppressed_destination(
-    _value: &[u8],
-    mut builder: super::super::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_put_tenant_suppression_attributes {
@@ -127999,37 +126150,6 @@ pub fn ser_put_tenant_suppression_attributes_input(
     super::super::protocol_serde::shape_put_tenant_suppression_attributes_input::ser_put_tenant_suppression_attributes_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_put_tenant_suppression_attributes(
-    _value: &[u8],
-    mut builder: super::super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -128719,37 +126839,6 @@ pub fn ser_tag_resource_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_tag_resource(
-    _value: &[u8],
-    mut builder: super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
-) -> ::std::result::Result<super::super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_test_render_email_template {
@@ -128976,47 +127065,6 @@ pub fn de_untag_resource_http_response(
         output.build()
     })
 }
-
-pub fn ser_untag_resource_input(
-    input: &super::super::operation::untag_resource::UntagResourceInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_untag_resource(
-    _value: &[u8],
-    mut builder: super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
-) -> ::std::result::Result<super::super::operation::untag_resource::builders::UntagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_update_configuration_set_event_destination {
@@ -129107,37 +127155,6 @@ pub fn ser_update_configuration_set_event_destination_input(
     super::super::protocol_serde::shape_update_configuration_set_event_destination_input::ser_update_configuration_set_event_destination_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_update_configuration_set_event_destination(
-    _value: &[u8],
-    mut builder: super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationOutputBuilder,
-) -> ::std::result::Result<super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -129244,37 +127261,6 @@ pub fn ser_update_contact_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_update_contact(
-    _value: &[u8],
-    mut builder: super::super::operation::update_contact::builders::UpdateContactOutputBuilder,
-) -> ::std::result::Result<super::super::operation::update_contact::builders::UpdateContactOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_update_contact_list {
@@ -129380,37 +127366,6 @@ pub fn ser_update_contact_list_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_update_contact_list(
-    _value: &[u8],
-    mut builder: super::super::operation::update_contact_list::builders::UpdateContactListOutputBuilder,
-) -> ::std::result::Result<super::super::operation::update_contact_list::builders::UpdateContactListOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_update_custom_verification_email_template {
@@ -129501,37 +127456,6 @@ pub fn ser_update_custom_verification_email_template_input(
     super::super::protocol_serde::shape_update_custom_verification_email_template_input::ser_update_custom_verification_email_template_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_update_custom_verification_email_template(
-    _value: &[u8],
-    mut builder: super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateOutputBuilder,
-) -> ::std::result::Result<super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -129624,37 +127548,6 @@ pub fn ser_update_email_identity_policy_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_update_email_identity_policy(
-    _value: &[u8],
-    mut builder: super::super::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder,
-) -> ::std::result::Result<super::super::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_update_email_template {
@@ -129745,37 +127638,6 @@ pub fn ser_update_email_template_input(
     super::super::protocol_serde::shape_update_email_template_input::ser_update_email_template_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_update_email_template(
-    _value: &[u8],
-    mut builder: super::super::operation::update_email_template::builders::UpdateEmailTemplateOutputBuilder,
-) -> ::std::result::Result<super::super::operation::update_email_template::builders::UpdateEmailTemplateOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -129868,37 +127730,6 @@ pub fn ser_update_reputation_entity_customer_managed_status_input(
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
-
-
-pub(crate) fn de_update_reputation_entity_customer_managed_status(
-    _value: &[u8],
-    mut builder: super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder,
-) -> ::std::result::Result<super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
-}
 }
 
 pub(crate) mod shape_update_reputation_entity_policy {
@@ -129989,37 +127820,6 @@ pub fn ser_update_reputation_entity_policy_input(
     super::super::protocol_serde::shape_update_reputation_entity_policy_input::ser_update_reputation_entity_policy_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_update_reputation_entity_policy(
-    _value: &[u8],
-    mut builder: super::super::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyOutputBuilder,
-) -> ::std::result::Result<super::super::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -130167,19 +127967,6 @@ if let Some(var_1) = &input.queries {
 }
 }
 
-pub(crate) mod shape_cancel_export_job_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_cancel_export_job_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::cancel_export_job::CancelExportJobInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_id {
-    object.key("JobId").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_concurrent_modification_exception {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub(crate) fn de_concurrent_modification_exception_json_err(
@@ -130262,17 +128049,14 @@ pub fn ser_create_configuration_set_event_destination_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
+if let Some(var_1) = &input.event_destination_name {
+    object.key("EventDestinationName").string(var_1.as_str());
 }
-if let Some(var_2) = &input.event_destination_name {
-    object.key("EventDestinationName").string(var_2.as_str());
-}
-if let Some(var_3) = &input.event_destination {
+if let Some(var_2) = &input.event_destination {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("EventDestination").start_object();
-    super::super::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_3 = object.key("EventDestination").start_object();
+    super::super::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(&mut object_3, var_2)?;
+    object_3.finish();
 }
     Ok(())
 }
@@ -130351,29 +128135,26 @@ pub fn ser_create_contact_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_contact::CreateContactInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.contact_list_name {
-    object.key("ContactListName").string(var_1.as_str());
+if let Some(var_1) = &input.email_address {
+    object.key("EmailAddress").string(var_1.as_str());
 }
-if let Some(var_2) = &input.email_address {
-    object.key("EmailAddress").string(var_2.as_str());
-}
-if let Some(var_3) = &input.topic_preferences {
-    let mut array_4 = object.key("TopicPreferences").start_array();
-    for item_5 in var_3 {
+if let Some(var_2) = &input.topic_preferences {
+    let mut array_3 = object.key("TopicPreferences").start_array();
+    for item_4 in var_2 {
         {
             #[allow(unused_mut)]
-            let mut object_6 = array_4.value().start_object();
-            super::super::protocol_serde::shape_topic_preference::ser_topic_preference(&mut object_6, item_5)?;
-            object_6.finish();
+            let mut object_5 = array_3.value().start_object();
+            super::super::protocol_serde::shape_topic_preference::ser_topic_preference(&mut object_5, item_4)?;
+            object_5.finish();
         }
     }
-    array_4.finish();
+    array_3.finish();
 }
-if let Some(var_7) = &input.unsubscribe_all {
-    object.key("UnsubscribeAll").boolean(*var_7);
+if let Some(var_6) = &input.unsubscribe_all {
+    object.key("UnsubscribeAll").boolean(*var_6);
 }
-if let Some(var_8) = &input.attributes_data {
-    object.key("AttributesData").string(var_8.as_str());
+if let Some(var_7) = &input.attributes_data {
+    object.key("AttributesData").string(var_7.as_str());
 }
     Ok(())
 }
@@ -130561,14 +128342,8 @@ pub fn ser_create_email_identity_policy_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
-}
-if let Some(var_2) = &input.policy_name {
-    object.key("PolicyName").string(var_2.as_str());
-}
-if let Some(var_3) = &input.policy {
-    object.key("Policy").string(var_3.as_str());
+if let Some(var_1) = &input.policy {
+    object.key("Policy").string(var_1.as_str());
 }
     Ok(())
 }
@@ -130727,161 +128502,6 @@ if let Some(var_2) = &input.resource_arn {
 }
 }
 
-pub(crate) mod shape_delete_configuration_set_event_destination_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_configuration_set_event_destination_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.event_destination_name {
-    object.key("EventDestinationName").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_configuration_set_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_configuration_set_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_configuration_set::DeleteConfigurationSetInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_contact_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_contact_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_contact::DeleteContactInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.contact_list_name {
-    object.key("ContactListName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.email_address {
-    object.key("EmailAddress").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_contact_list_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_contact_list_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_contact_list::DeleteContactListInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.contact_list_name {
-    object.key("ContactListName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_custom_verification_email_template_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_custom_verification_email_template_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.template_name {
-    object.key("TemplateName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_dedicated_ip_pool_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_dedicated_ip_pool_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.pool_name {
-    object.key("PoolName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_email_identity_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_email_identity_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_email_identity::DeleteEmailIdentityInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_email_identity_policy_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_email_identity_policy_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
-}
-if let Some(var_2) = &input.policy_name {
-    object.key("PolicyName").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_email_template_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_email_template_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_email_template::DeleteEmailTemplateInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.template_name {
-    object.key("TemplateName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_multi_region_endpoint_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_multi_region_endpoint_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.endpoint_name {
-    object.key("EndpointName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_delete_suppressed_destination_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_delete_suppressed_destination_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_address {
-    object.key("EmailAddress").string(var_1.as_str());
-}
-if let Some(var_2) = &input.tenant_name {
-    object.key("TenantName").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_delete_tenant_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn ser_delete_tenant_input_input(
@@ -130911,186 +128531,6 @@ if let Some(var_2) = &input.resource_arn {
 }
 }
 
-pub(crate) mod shape_get_blacklist_reports_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_blacklist_reports_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_blacklist_reports::GetBlacklistReportsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.blacklist_item_names {
-    let mut array_2 = object.key("BlacklistItemNames").start_array();
-    for item_3 in var_1 {
-        {
-            array_2.value().string(item_3.as_str());
-        }
-    }
-    array_2.finish();
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_configuration_set_event_destinations_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_configuration_set_event_destinations_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_configuration_set_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_configuration_set_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_configuration_set::GetConfigurationSetInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_contact_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_contact_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_contact::GetContactInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.contact_list_name {
-    object.key("ContactListName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.email_address {
-    object.key("EmailAddress").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_contact_list_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_contact_list_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_contact_list::GetContactListInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.contact_list_name {
-    object.key("ContactListName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_custom_verification_email_template_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_custom_verification_email_template_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.template_name {
-    object.key("TemplateName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_dedicated_ip_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_dedicated_ip_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_dedicated_ip::GetDedicatedIpInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.ip {
-    object.key("Ip").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_dedicated_ip_pool_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_dedicated_ip_pool_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.pool_name {
-    object.key("PoolName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_dedicated_ips_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_dedicated_ips_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_dedicated_ips::GetDedicatedIpsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.pool_name {
-    object.key("PoolName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.next_token {
-    object.key("NextToken").string(var_2.as_str());
-}
-if let Some(var_3) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_deliverability_test_report_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_deliverability_test_report_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.report_id {
-    object.key("ReportId").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_domain_deliverability_campaign_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_domain_deliverability_campaign_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.campaign_id {
-    object.key("CampaignId").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_domain_statistics_report_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_domain_statistics_report_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.domain {
-    object.key("Domain").string(var_1.as_str());
-}
-if let Some(var_2) = &input.start_date {
-    object.key("StartDate").date_time(var_2, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-}
-if let Some(var_3) = &input.end_date {
-    object.key("EndDate").date_time(var_3, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_get_email_address_insights_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn ser_get_email_address_insights_input_input(
@@ -131099,129 +128539,6 @@ pub fn ser_get_email_address_insights_input_input(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.email_address {
     object.key("EmailAddress").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_email_identity_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_email_identity_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_email_identity::GetEmailIdentityInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_email_identity_policies_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_email_identity_policies_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_email_template_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_email_template_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_email_template::GetEmailTemplateInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.template_name {
-    object.key("TemplateName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_export_job_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_export_job_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_export_job::GetExportJobInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_id {
-    object.key("JobId").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_import_job_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_import_job_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_import_job::GetImportJobInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.job_id {
-    object.key("JobId").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_message_insights_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_message_insights_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_message_insights::GetMessageInsightsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.message_id {
-    object.key("MessageId").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_multi_region_endpoint_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_multi_region_endpoint_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.endpoint_name {
-    object.key("EndpointName").string(var_1.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_reputation_entity_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_reputation_entity_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_reputation_entity::GetReputationEntityInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.reputation_entity_reference {
-    object.key("ReputationEntityReference").string(var_1.as_str());
-}
-if let Some(var_2) = &input.reputation_entity_type {
-    object.key("ReputationEntityType").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_get_suppressed_destination_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_get_suppressed_destination_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_address {
-    object.key("EmailAddress").string(var_1.as_str());
-}
-if let Some(var_2) = &input.tenant_name {
-    object.key("TenantName").string(var_2.as_str());
 }
     Ok(())
 }
@@ -131354,190 +128671,26 @@ pub(crate) fn de_limit_exceeded_exception_json_err(
 }
 }
 
-pub(crate) mod shape_list_configuration_sets_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_configuration_sets_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_configuration_sets::ListConfigurationSetsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.next_token {
-    object.key("NextToken").string(var_1.as_str());
-}
-if let Some(var_2) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_contact_lists_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_contact_lists_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_contact_lists::ListContactListsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_1).into()),
-    );
-}
-if let Some(var_2) = &input.next_token {
-    object.key("NextToken").string(var_2.as_str());
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_list_contacts_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn ser_list_contacts_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::list_contacts::ListContactsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.contact_list_name {
-    object.key("ContactListName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.filter {
+if let Some(var_1) = &input.filter {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("Filter").start_object();
-    super::super::protocol_serde::shape_list_contacts_filter::ser_list_contacts_filter(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("Filter").start_object();
+    super::super::protocol_serde::shape_list_contacts_filter::ser_list_contacts_filter(&mut object_2, var_1)?;
+    object_2.finish();
 }
-if let Some(var_4) = &input.page_size {
+if let Some(var_3) = &input.page_size {
     object.key("PageSize").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
     );
-}
-if let Some(var_5) = &input.next_token {
-    object.key("NextToken").string(var_5.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_custom_verification_email_templates_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_custom_verification_email_templates_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.next_token {
-    object.key("NextToken").string(var_1.as_str());
-}
-if let Some(var_2) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_dedicated_ip_pools_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_dedicated_ip_pools_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.next_token {
-    object.key("NextToken").string(var_1.as_str());
-}
-if let Some(var_2) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_deliverability_test_reports_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_deliverability_test_reports_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.next_token {
-    object.key("NextToken").string(var_1.as_str());
-}
-if let Some(var_2) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_domain_deliverability_campaigns_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_domain_deliverability_campaigns_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.start_date {
-    object.key("StartDate").date_time(var_1, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-}
-if let Some(var_2) = &input.end_date {
-    object.key("EndDate").date_time(var_2, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-}
-if let Some(var_3) = &input.subscribed_domain {
-    object.key("SubscribedDomain").string(var_3.as_str());
 }
 if let Some(var_4) = &input.next_token {
     object.key("NextToken").string(var_4.as_str());
-}
-if let Some(var_5) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_5).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_email_identities_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_email_identities_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_email_identities::ListEmailIdentitiesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.next_token {
-    object.key("NextToken").string(var_1.as_str());
-}
-if let Some(var_2) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_email_templates_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_email_templates_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_email_templates::ListEmailTemplatesInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.next_token {
-    object.key("NextToken").string(var_1.as_str());
-}
-if let Some(var_2) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
-    );
 }
     Ok(())
 }
@@ -131584,25 +128737,6 @@ if let Some(var_3) = &input.page_size {
     object.key("PageSize").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((*var_3).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_multi_region_endpoints_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_multi_region_endpoints_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.next_token {
-    object.key("NextToken").string(var_1.as_str());
-}
-if let Some(var_2) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
     );
 }
     Ok(())
@@ -131684,56 +128818,6 @@ if let Some(var_2) = &input.page_size {
 }
 if let Some(var_3) = &input.next_token {
     object.key("NextToken").string(var_3.as_str());
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_suppressed_destinations_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_suppressed_destinations_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.tenant_name {
-    object.key("TenantName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.reasons {
-    let mut array_3 = object.key("Reasons").start_array();
-    for item_4 in var_2 {
-        {
-            array_3.value().string(item_4.as_str());
-        }
-    }
-    array_3.finish();
-}
-if let Some(var_5) = &input.start_date {
-    object.key("StartDate").date_time(var_5, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-}
-if let Some(var_6) = &input.end_date {
-    object.key("EndDate").date_time(var_6, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
-}
-if let Some(var_7) = &input.next_token {
-    object.key("NextToken").string(var_7.as_str());
-}
-if let Some(var_8) = &input.page_size {
-    object.key("PageSize").number(
-        #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_8).into()),
-    );
-}
-    Ok(())
-}
-}
-
-pub(crate) mod shape_list_tags_for_resource_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_list_tags_for_resource_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource_arn {
-    object.key("ResourceArn").string(var_1.as_str());
 }
     Ok(())
 }
@@ -132024,11 +129108,8 @@ pub fn ser_put_configuration_set_archiving_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.archive_arn {
-    object.key("ArchiveArn").string(var_2.as_str());
+if let Some(var_1) = &input.archive_arn {
+    object.key("ArchiveArn").string(var_1.as_str());
 }
     Ok(())
 }
@@ -132040,19 +129121,16 @@ pub fn ser_put_configuration_set_delivery_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
+if let Some(var_1) = &input.tls_policy {
+    object.key("TlsPolicy").string(var_1.as_str());
 }
-if let Some(var_2) = &input.tls_policy {
-    object.key("TlsPolicy").string(var_2.as_str());
+if let Some(var_2) = &input.sending_pool_name {
+    object.key("SendingPoolName").string(var_2.as_str());
 }
-if let Some(var_3) = &input.sending_pool_name {
-    object.key("SendingPoolName").string(var_3.as_str());
-}
-if let Some(var_4) = &input.max_delivery_seconds {
+if let Some(var_3) = &input.max_delivery_seconds {
     object.key("MaxDeliverySeconds").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_4).into()),
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
     );
 }
     Ok(())
@@ -132065,11 +129143,8 @@ pub fn ser_put_configuration_set_reputation_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.reputation_metrics_enabled {
-    object.key("ReputationMetricsEnabled").boolean(*var_2);
+if let Some(var_1) = &input.reputation_metrics_enabled {
+    object.key("ReputationMetricsEnabled").boolean(*var_1);
 }
     Ok(())
 }
@@ -132081,11 +129156,8 @@ pub fn ser_put_configuration_set_sending_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.sending_enabled {
-    object.key("SendingEnabled").boolean(*var_2);
+if let Some(var_1) = &input.sending_enabled {
+    object.key("SendingEnabled").boolean(*var_1);
 }
     Ok(())
 }
@@ -132097,26 +129169,23 @@ pub fn ser_put_configuration_set_suppression_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
+if let Some(var_1) = &input.suppression_scope {
+    object.key("SuppressionScope").string(var_1.as_str());
 }
-if let Some(var_2) = &input.suppression_scope {
-    object.key("SuppressionScope").string(var_2.as_str());
-}
-if let Some(var_3) = &input.suppressed_reasons {
-    let mut array_4 = object.key("SuppressedReasons").start_array();
-    for item_5 in var_3 {
+if let Some(var_2) = &input.suppressed_reasons {
+    let mut array_3 = object.key("SuppressedReasons").start_array();
+    for item_4 in var_2 {
         {
-            array_4.value().string(item_5.as_str());
+            array_3.value().string(item_4.as_str());
         }
     }
-    array_4.finish();
+    array_3.finish();
 }
-if let Some(var_6) = &input.validation_options {
+if let Some(var_5) = &input.validation_options {
     #[allow(unused_mut)]
-    let mut object_7 = object.key("ValidationOptions").start_object();
-    super::super::protocol_serde::shape_suppression_validation_options::ser_suppression_validation_options(&mut object_7, var_6)?;
-    object_7.finish();
+    let mut object_6 = object.key("ValidationOptions").start_object();
+    super::super::protocol_serde::shape_suppression_validation_options::ser_suppression_validation_options(&mut object_6, var_5)?;
+    object_6.finish();
 }
     Ok(())
 }
@@ -132128,14 +129197,11 @@ pub fn ser_put_configuration_set_tracking_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
+if let Some(var_1) = &input.custom_redirect_domain {
+    object.key("CustomRedirectDomain").string(var_1.as_str());
 }
-if let Some(var_2) = &input.custom_redirect_domain {
-    object.key("CustomRedirectDomain").string(var_2.as_str());
-}
-if let Some(var_3) = &input.https_policy {
-    object.key("HttpsPolicy").string(var_3.as_str());
+if let Some(var_2) = &input.https_policy {
+    object.key("HttpsPolicy").string(var_2.as_str());
 }
     Ok(())
 }
@@ -132147,14 +129213,11 @@ pub fn ser_put_configuration_set_vdm_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.vdm_options {
+if let Some(var_1) = &input.vdm_options {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("VdmOptions").start_object();
-    super::super::protocol_serde::shape_vdm_options::ser_vdm_options(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("VdmOptions").start_object();
+    super::super::protocol_serde::shape_vdm_options::ser_vdm_options(&mut object_2, var_1)?;
+    object_2.finish();
 }
     Ok(())
 }
@@ -132166,11 +129229,8 @@ pub fn ser_put_dedicated_ip_in_pool_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.ip {
-    object.key("Ip").string(var_1.as_str());
-}
-if let Some(var_2) = &input.destination_pool_name {
-    object.key("DestinationPoolName").string(var_2.as_str());
+if let Some(var_1) = &input.destination_pool_name {
+    object.key("DestinationPoolName").string(var_1.as_str());
 }
     Ok(())
 }
@@ -132182,11 +129242,8 @@ pub fn ser_put_dedicated_ip_pool_scaling_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.pool_name {
-    object.key("PoolName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.scaling_mode {
-    object.key("ScalingMode").string(var_2.as_str());
+if let Some(var_1) = &input.scaling_mode {
+    object.key("ScalingMode").string(var_1.as_str());
 }
     Ok(())
 }
@@ -132198,13 +129255,10 @@ pub fn ser_put_dedicated_ip_warmup_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.ip {
-    object.key("Ip").string(var_1.as_str());
-}
-if let Some(var_2) = &input.warmup_percentage {
+if let Some(var_1) = &input.warmup_percentage {
     object.key("WarmupPercentage").number(
         #[allow(clippy::useless_conversion)]
-        ::aws_smithy_types::Number::NegInt((*var_2).into()),
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
     );
 }
     Ok(())
@@ -132242,11 +129296,8 @@ pub fn ser_put_email_identity_configuration_set_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
-}
-if let Some(var_2) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_2.as_str());
+if let Some(var_1) = &input.configuration_set_name {
+    object.key("ConfigurationSetName").string(var_1.as_str());
 }
     Ok(())
 }
@@ -132258,11 +129309,8 @@ pub fn ser_put_email_identity_dkim_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
-}
-if let Some(var_2) = &input.signing_enabled {
-    object.key("SigningEnabled").boolean(*var_2);
+if let Some(var_1) = &input.signing_enabled {
+    object.key("SigningEnabled").boolean(*var_1);
 }
     Ok(())
 }
@@ -132274,17 +129322,14 @@ pub fn ser_put_email_identity_dkim_signing_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
+if let Some(var_1) = &input.signing_attributes_origin {
+    object.key("SigningAttributesOrigin").string(var_1.as_str());
 }
-if let Some(var_2) = &input.signing_attributes_origin {
-    object.key("SigningAttributesOrigin").string(var_2.as_str());
-}
-if let Some(var_3) = &input.signing_attributes {
+if let Some(var_2) = &input.signing_attributes {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("SigningAttributes").start_object();
-    super::super::protocol_serde::shape_dkim_signing_attributes::ser_dkim_signing_attributes(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_3 = object.key("SigningAttributes").start_object();
+    super::super::protocol_serde::shape_dkim_signing_attributes::ser_dkim_signing_attributes(&mut object_3, var_2)?;
+    object_3.finish();
 }
     Ok(())
 }
@@ -132296,11 +129341,8 @@ pub fn ser_put_email_identity_feedback_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
-}
-if let Some(var_2) = &input.email_forwarding_enabled {
-    object.key("EmailForwardingEnabled").boolean(*var_2);
+if let Some(var_1) = &input.email_forwarding_enabled {
+    object.key("EmailForwardingEnabled").boolean(*var_1);
 }
     Ok(())
 }
@@ -132312,14 +129354,11 @@ pub fn ser_put_email_identity_mail_from_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
+if let Some(var_1) = &input.mail_from_domain {
+    object.key("MailFromDomain").string(var_1.as_str());
 }
-if let Some(var_2) = &input.mail_from_domain {
-    object.key("MailFromDomain").string(var_2.as_str());
-}
-if let Some(var_3) = &input.behavior_on_mx_failure {
-    object.key("BehaviorOnMxFailure").string(var_3.as_str());
+if let Some(var_2) = &input.behavior_on_mx_failure {
+    object.key("BehaviorOnMxFailure").string(var_2.as_str());
 }
     Ok(())
 }
@@ -132609,11 +129648,8 @@ pub fn ser_test_render_email_template_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::test_render_email_template::TestRenderEmailTemplateInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.template_name {
-    object.key("TemplateName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.template_data {
-    object.key("TemplateData").string(var_2.as_str());
+if let Some(var_1) = &input.template_data {
+    object.key("TemplateData").string(var_1.as_str());
 }
     Ok(())
 }
@@ -132657,45 +129693,17 @@ pub(crate) fn de_too_many_requests_exception_json_err(
 }
 }
 
-pub(crate) mod shape_untag_resource_input {
-// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-pub fn ser_untag_resource_input_input(
-    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-    input: &super::super::operation::untag_resource::UntagResourceInput,
-) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.resource_arn {
-    object.key("ResourceArn").string(var_1.as_str());
-}
-if let Some(var_2) = &input.tag_keys {
-    let mut array_3 = object.key("TagKeys").start_array();
-    for item_4 in var_2 {
-        {
-            array_3.value().string(item_4.as_str());
-        }
-    }
-    array_3.finish();
-}
-    Ok(())
-}
-}
-
 pub(crate) mod shape_update_configuration_set_event_destination_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn ser_update_configuration_set_event_destination_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.configuration_set_name {
-    object.key("ConfigurationSetName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.event_destination_name {
-    object.key("EventDestinationName").string(var_2.as_str());
-}
-if let Some(var_3) = &input.event_destination {
+if let Some(var_1) = &input.event_destination {
     #[allow(unused_mut)]
-    let mut object_4 = object.key("EventDestination").start_object();
-    super::super::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(&mut object_4, var_3)?;
-    object_4.finish();
+    let mut object_2 = object.key("EventDestination").start_object();
+    super::super::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(&mut object_2, var_1)?;
+    object_2.finish();
 }
     Ok(())
 }
@@ -132707,29 +129715,23 @@ pub fn ser_update_contact_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_contact::UpdateContactInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.contact_list_name {
-    object.key("ContactListName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.email_address {
-    object.key("EmailAddress").string(var_2.as_str());
-}
-if let Some(var_3) = &input.topic_preferences {
-    let mut array_4 = object.key("TopicPreferences").start_array();
-    for item_5 in var_3 {
+if let Some(var_1) = &input.topic_preferences {
+    let mut array_2 = object.key("TopicPreferences").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_6 = array_4.value().start_object();
-            super::super::protocol_serde::shape_topic_preference::ser_topic_preference(&mut object_6, item_5)?;
-            object_6.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_topic_preference::ser_topic_preference(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_4.finish();
+    array_2.finish();
 }
-if let Some(var_7) = &input.unsubscribe_all {
-    object.key("UnsubscribeAll").boolean(*var_7);
+if let Some(var_5) = &input.unsubscribe_all {
+    object.key("UnsubscribeAll").boolean(*var_5);
 }
-if let Some(var_8) = &input.attributes_data {
-    object.key("AttributesData").string(var_8.as_str());
+if let Some(var_6) = &input.attributes_data {
+    object.key("AttributesData").string(var_6.as_str());
 }
     Ok(())
 }
@@ -132741,23 +129743,20 @@ pub fn ser_update_contact_list_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_contact_list::UpdateContactListInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.contact_list_name {
-    object.key("ContactListName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.topics {
-    let mut array_3 = object.key("Topics").start_array();
-    for item_4 in var_2 {
+if let Some(var_1) = &input.topics {
+    let mut array_2 = object.key("Topics").start_array();
+    for item_3 in var_1 {
         {
             #[allow(unused_mut)]
-            let mut object_5 = array_3.value().start_object();
-            super::super::protocol_serde::shape_topic::ser_topic(&mut object_5, item_4)?;
-            object_5.finish();
+            let mut object_4 = array_2.value().start_object();
+            super::super::protocol_serde::shape_topic::ser_topic(&mut object_4, item_3)?;
+            object_4.finish();
         }
     }
-    array_3.finish();
+    array_2.finish();
 }
-if let Some(var_6) = &input.description {
-    object.key("Description").string(var_6.as_str());
+if let Some(var_5) = &input.description {
+    object.key("Description").string(var_5.as_str());
 }
     Ok(())
 }
@@ -132769,23 +129768,20 @@ pub fn ser_update_custom_verification_email_template_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.template_name {
-    object.key("TemplateName").string(var_1.as_str());
+if let Some(var_1) = &input.from_email_address {
+    object.key("FromEmailAddress").string(var_1.as_str());
 }
-if let Some(var_2) = &input.from_email_address {
-    object.key("FromEmailAddress").string(var_2.as_str());
+if let Some(var_2) = &input.template_subject {
+    object.key("TemplateSubject").string(var_2.as_str());
 }
-if let Some(var_3) = &input.template_subject {
-    object.key("TemplateSubject").string(var_3.as_str());
+if let Some(var_3) = &input.template_content {
+    object.key("TemplateContent").string(var_3.as_str());
 }
-if let Some(var_4) = &input.template_content {
-    object.key("TemplateContent").string(var_4.as_str());
+if let Some(var_4) = &input.success_redirection_url {
+    object.key("SuccessRedirectionURL").string(var_4.as_str());
 }
-if let Some(var_5) = &input.success_redirection_url {
-    object.key("SuccessRedirectionURL").string(var_5.as_str());
-}
-if let Some(var_6) = &input.failure_redirection_url {
-    object.key("FailureRedirectionURL").string(var_6.as_str());
+if let Some(var_5) = &input.failure_redirection_url {
+    object.key("FailureRedirectionURL").string(var_5.as_str());
 }
     Ok(())
 }
@@ -132797,14 +129793,8 @@ pub fn ser_update_email_identity_policy_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.email_identity {
-    object.key("EmailIdentity").string(var_1.as_str());
-}
-if let Some(var_2) = &input.policy_name {
-    object.key("PolicyName").string(var_2.as_str());
-}
-if let Some(var_3) = &input.policy {
-    object.key("Policy").string(var_3.as_str());
+if let Some(var_1) = &input.policy {
+    object.key("Policy").string(var_1.as_str());
 }
     Ok(())
 }
@@ -132816,14 +129806,11 @@ pub fn ser_update_email_template_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_email_template::UpdateEmailTemplateInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.template_name {
-    object.key("TemplateName").string(var_1.as_str());
-}
-if let Some(var_2) = &input.template_content {
+if let Some(var_1) = &input.template_content {
     #[allow(unused_mut)]
-    let mut object_3 = object.key("TemplateContent").start_object();
-    super::super::protocol_serde::shape_email_template_content::ser_email_template_content(&mut object_3, var_2)?;
-    object_3.finish();
+    let mut object_2 = object.key("TemplateContent").start_object();
+    super::super::protocol_serde::shape_email_template_content::ser_email_template_content(&mut object_2, var_1)?;
+    object_2.finish();
 }
     Ok(())
 }
@@ -132835,14 +129822,8 @@ pub fn ser_update_reputation_entity_customer_managed_status_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.reputation_entity_type {
-    object.key("ReputationEntityType").string(var_1.as_str());
-}
-if let Some(var_2) = &input.reputation_entity_reference {
-    object.key("ReputationEntityReference").string(var_2.as_str());
-}
-if let Some(var_3) = &input.sending_status {
-    object.key("SendingStatus").string(var_3.as_str());
+if let Some(var_1) = &input.sending_status {
+    object.key("SendingStatus").string(var_1.as_str());
 }
     Ok(())
 }
@@ -132854,14 +129835,8 @@ pub fn ser_update_reputation_entity_policy_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.reputation_entity_type {
-    object.key("ReputationEntityType").string(var_1.as_str());
-}
-if let Some(var_2) = &input.reputation_entity_reference {
-    object.key("ReputationEntityReference").string(var_2.as_str());
-}
-if let Some(var_3) = &input.reputation_entity_policy {
-    object.key("ReputationEntityPolicy").string(var_3.as_str());
+if let Some(var_1) = &input.reputation_entity_policy {
+    object.key("ReputationEntityPolicy").string(var_1.as_str());
 }
     Ok(())
 }

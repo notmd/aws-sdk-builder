@@ -3,26 +3,20 @@ pub fn ser_update_alias_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_alias::UpdateAliasInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.function_name {
-        object.key("FunctionName").string(var_1.as_str());
+    if let Some(var_1) = &input.function_version {
+        object.key("FunctionVersion").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.name {
-        object.key("Name").string(var_2.as_str());
+    if let Some(var_2) = &input.description {
+        object.key("Description").string(var_2.as_str());
     }
-    if let Some(var_3) = &input.function_version {
-        object.key("FunctionVersion").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.description {
-        object.key("Description").string(var_4.as_str());
-    }
-    if let Some(var_5) = &input.routing_config {
+    if let Some(var_3) = &input.routing_config {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("RoutingConfig").start_object();
-        super::super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_6, var_5)?;
-        object_6.finish();
+        let mut object_4 = object.key("RoutingConfig").start_object();
+        super::super::protocol_serde::shape_alias_routing_configuration::ser_alias_routing_configuration(&mut object_4, var_3)?;
+        object_4.finish();
     }
-    if let Some(var_7) = &input.revision_id {
-        object.key("RevisionId").string(var_7.as_str());
+    if let Some(var_5) = &input.revision_id {
+        object.key("RevisionId").string(var_5.as_str());
     }
     Ok(())
 }

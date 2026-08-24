@@ -112,16 +112,6 @@ pub fn de_describe_package_http_response(
     })
 }
 
-pub fn ser_describe_package_input(
-    input: &super::super::operation::describe_package::DescribePackageInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_package_input::ser_describe_package_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_describe_package(
     _value: &[u8],
     mut builder: super::super::operation::describe_package::builders::DescribePackageOutputBuilder,

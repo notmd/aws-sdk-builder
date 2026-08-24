@@ -3,38 +3,35 @@ pub fn ser_publish_layer_version_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::publish_layer_version::PublishLayerVersionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.layer_name {
-        object.key("LayerName").string(var_1.as_str());
+    if let Some(var_1) = &input.description {
+        object.key("Description").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.description {
-        object.key("Description").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.content {
+    if let Some(var_2) = &input.content {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("Content").start_object();
-        super::super::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_4, var_3)?;
-        object_4.finish();
+        let mut object_3 = object.key("Content").start_object();
+        super::super::protocol_serde::shape_layer_version_content_input::ser_layer_version_content_input(&mut object_3, var_2)?;
+        object_3.finish();
     }
-    if let Some(var_5) = &input.compatible_architectures {
-        let mut array_6 = object.key("CompatibleArchitectures").start_array();
-        for item_7 in var_5 {
+    if let Some(var_4) = &input.compatible_architectures {
+        let mut array_5 = object.key("CompatibleArchitectures").start_array();
+        for item_6 in var_4 {
             {
-                array_6.value().string(item_7.as_str());
+                array_5.value().string(item_6.as_str());
             }
         }
-        array_6.finish();
+        array_5.finish();
     }
-    if let Some(var_8) = &input.compatible_runtimes {
-        let mut array_9 = object.key("CompatibleRuntimes").start_array();
-        for item_10 in var_8 {
+    if let Some(var_7) = &input.compatible_runtimes {
+        let mut array_8 = object.key("CompatibleRuntimes").start_array();
+        for item_9 in var_7 {
             {
-                array_9.value().string(item_10.as_str());
+                array_8.value().string(item_9.as_str());
             }
         }
-        array_9.finish();
+        array_8.finish();
     }
-    if let Some(var_11) = &input.license_info {
-        object.key("LicenseInfo").string(var_11.as_str());
+    if let Some(var_10) = &input.license_info {
+        object.key("LicenseInfo").string(var_10.as_str());
     }
     Ok(())
 }

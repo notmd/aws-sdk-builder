@@ -97,12 +97,6 @@ pub fn de_get_deliverability_dashboard_options_http_response(
     })
 }
 
-pub fn ser_get_deliverability_dashboard_options_input(
-    _input: &super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    Ok(::aws_smithy_types::body::SdkBody::from("{}"))
-}
-
 pub(crate) fn de_get_deliverability_dashboard_options(
     _value: &[u8],
     mut builder: super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder,

@@ -183,8 +183,6 @@ pub(crate) mod shape_list_scheduling_policies_input;
 
 pub(crate) mod shape_list_service_jobs_input;
 
-pub(crate) mod shape_list_tags_for_resource_input;
-
 pub(crate) mod shape_register_job_definition_input;
 
 pub(crate) mod shape_server_exception;
@@ -198,8 +196,6 @@ pub(crate) mod shape_tag_resource_input;
 pub(crate) mod shape_terminate_job_input;
 
 pub(crate) mod shape_terminate_service_job_input;
-
-pub(crate) mod shape_untag_resource_input;
 
 pub(crate) mod shape_update_compute_environment_input;
 

@@ -3,11 +3,8 @@ pub fn ser_put_configuration_set_reputation_options_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.configuration_set_name {
-        object.key("ConfigurationSetName").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.reputation_metrics_enabled {
-        object.key("ReputationMetricsEnabled").boolean(*var_2);
+    if let Some(var_1) = &input.reputation_metrics_enabled {
+        object.key("ReputationMetricsEnabled").boolean(*var_1);
     }
     Ok(())
 }

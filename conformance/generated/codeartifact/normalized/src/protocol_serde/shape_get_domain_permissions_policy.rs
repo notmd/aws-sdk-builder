@@ -118,16 +118,6 @@ pub fn de_get_domain_permissions_policy_http_response(
     })
 }
 
-pub fn ser_get_domain_permissions_policy_input(
-    input: &super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_domain_permissions_policy_input::ser_get_domain_permissions_policy_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_get_domain_permissions_policy(
     _value: &[u8],
     mut builder: super::super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,

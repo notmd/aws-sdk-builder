@@ -3,17 +3,11 @@ pub fn ser_put_runtime_management_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.function_name {
-        object.key("FunctionName").string(var_1.as_str());
+    if let Some(var_1) = &input.update_runtime_on {
+        object.key("UpdateRuntimeOn").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.qualifier {
-        object.key("Qualifier").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.update_runtime_on {
-        object.key("UpdateRuntimeOn").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.runtime_version_arn {
-        object.key("RuntimeVersionArn").string(var_4.as_str());
+    if let Some(var_2) = &input.runtime_version_arn {
+        object.key("RuntimeVersionArn").string(var_2.as_str());
     }
     Ok(())
 }

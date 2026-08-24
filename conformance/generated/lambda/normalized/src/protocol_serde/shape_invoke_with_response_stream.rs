@@ -640,92 +640,41 @@ pub fn de_invoke_with_response_stream_http_error(
 
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_invoke_with_response_stream_http_response(
-    _response_status: u16,
-    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-    _response_body: &[u8],
+    response: &mut ::aws_smithy_runtime_api::http::Response,
 ) -> std::result::Result<
     super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
     super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
 > {
+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+    ::std::mem::swap(&mut _response_body, response.body_mut());
+    let _response_body = &mut _response_body;
+
+    let _response_status = response.status().as_u16();
+    let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke_with_response_stream::de_invoke_with_response_stream(_response_body, output)
-            .map_err(super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
+        output = output.set_event_stream(Some(
+            super::super::protocol_serde::shape_invoke_with_response_stream_output::de_event_stream_payload(_response_body)?,
+        ));
+        output = output.set_executed_version(
+            super::super::protocol_serde::shape_invoke_with_response_stream_output::de_executed_version_header(_response_headers).map_err(|_| {
+                super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
+                    "Failed to parse ExecutedVersion from header `X-Amz-Executed-Version`",
+                )
+            })?,
+        );
+        output = output.set_response_stream_content_type(
+            super::super::protocol_serde::shape_invoke_with_response_stream_output::de_response_stream_content_type_header(_response_headers).map_err(
+                |_| {
+                    super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
+                        "Failed to parse ResponseStreamContentType from header `Content-Type`",
+                    )
+                },
+            )?,
+        );
+        output = output.set_status_code(Some(_response_status as _));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_invoke_with_response_stream_input(
-    input: &super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_with_response_stream_input::ser_invoke_with_response_stream_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-pub(crate) fn de_invoke_with_response_stream(
-    _value: &[u8],
-    mut builder: super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "StatusCode" => {
-                    builder = builder.set_status_code(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
-                    );
-                }
-                "ExecutedVersion" => {
-                    builder = builder.set_executed_version(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "EventStream" => {
-                    builder = builder.set_event_stream(
-                        super::super::protocol_serde::shape_invoke_with_response_stream_response_event::de_invoke_with_response_stream_response_event(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
-                    );
-                }
-                "ResponseStreamContentType" => {
-                    builder = builder.set_response_stream_content_type(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }

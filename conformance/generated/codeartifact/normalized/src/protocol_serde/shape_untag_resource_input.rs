@@ -3,17 +3,14 @@ pub fn ser_untag_resource_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::untag_resource::UntagResourceInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.resource_arn {
-        object.key("resourceArn").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.tag_keys {
-        let mut array_3 = object.key("tagKeys").start_array();
-        for item_4 in var_2 {
+    if let Some(var_1) = &input.tag_keys {
+        let mut array_2 = object.key("tagKeys").start_array();
+        for item_3 in var_1 {
             {
-                array_3.value().string(item_4.as_str());
+                array_2.value().string(item_3.as_str());
             }
         }
-        array_3.finish();
+        array_2.finish();
     }
     Ok(())
 }

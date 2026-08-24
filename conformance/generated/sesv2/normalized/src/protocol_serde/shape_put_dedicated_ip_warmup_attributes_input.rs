@@ -3,13 +3,10 @@ pub fn ser_put_dedicated_ip_warmup_attributes_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.ip {
-        object.key("Ip").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.warmup_percentage {
+    if let Some(var_1) = &input.warmup_percentage {
         object.key("WarmupPercentage").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_2).into()),
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
     Ok(())

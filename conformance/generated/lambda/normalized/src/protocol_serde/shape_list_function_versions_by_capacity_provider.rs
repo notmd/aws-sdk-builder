@@ -135,19 +135,6 @@ pub fn de_list_function_versions_by_capacity_provider_http_response(
     })
 }
 
-pub fn ser_list_function_versions_by_capacity_provider_input(
-    input: &super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_function_versions_by_capacity_provider_input::ser_list_function_versions_by_capacity_provider_input_input(
-        &mut object,
-        input,
-    )?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_list_function_versions_by_capacity_provider(
     _value: &[u8],
     mut builder: super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder,

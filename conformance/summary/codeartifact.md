@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## codeartifact
-**Progress:** `490/490` files compared · `348` matched · `110` mismatches · `1` missing · `31` extra · `71.02%` match (100.00% means fully matched)
+**Progress:** `459/459` files compared · `353` matched · `106` mismatches · `0` missing · `0` extra · `76.91%` match (100.00% means fully matched)
 
 ### `src/lib.rs`
 
@@ -833,18 +833,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/publish_package_version.rs
 +++ generated/src/operation/publish_package_version.rs
-@@ -375,10 +375,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+@@ -378,7 +378,9 @@
+             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/octet-stream");
              builder
          };
 -        let body = super::super::protocol_serde::shape_publish_package_version_input::ser_asset_content_http_payload(input.asset_content)?.into_inner();
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_package_version::ser_publish_package_version_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_publish_package_version_input::ser_asset_content_http_payload(input.asset_content)?,
++        );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1000,23 +996,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::associate_external_connection::AssociateExternalConnectionError::generic(generic),
-@@ -156,6 +156,16 @@
-     })
- }
-
-+pub fn ser_associate_external_connection_input(
-+    input: &super::super::operation::associate_external_connection::AssociateExternalConnectionInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_associate_external_connection_input::ser_associate_external_connection_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_associate_external_connection(
-     _value: &[u8],
-     mut builder: super::super::operation::associate_external_connection::builders::AssociateExternalConnectionOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_conflict_exception.rs`
@@ -1188,70 +1167,51 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_copy_package_versions_input.rs
 +++ generated/src/protocol_serde/shape_copy_package_versions_input.rs
-@@ -3,30 +3,51 @@
+@@ -3,30 +3,30 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
      input: &super::super::operation::copy_package_versions::CopyPackageVersionsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.allow_overwrite {
 -        object.key("allowOverwrite").boolean(*var_1);
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.source_repository {
-+        object.key("sourceRepository").string(var_3.as_str());
-+    }
-+    if let Some(var_4) = &input.destination_repository {
-+        object.key("destinationRepository").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.format {
-+        object.key("format").string(var_5.as_str());
-     }
+-    }
 -    if let Some(var_2) = &input.include_from_upstream {
 -        object.key("includeFromUpstream").boolean(*var_2);
-+    if let Some(var_6) = &input.namespace {
-+        object.key("namespace").string(var_6.as_str());
-     }
+-    }
 -    if let Some(var_3) = &input.version_revisions {
 -        #[allow(unused_mut)]
 -        let mut object_4 = object.key("versionRevisions").start_object();
 -        for (key_5, value_6) in var_3 {
-+    if let Some(var_7) = &input.package {
-+        object.key("package").string(var_7.as_str());
-+    }
-+    if let Some(var_8) = &input.versions {
-+        let mut array_9 = object.key("versions").start_array();
-+        for item_10 in var_8 {
++    if let Some(var_1) = &input.versions {
++        let mut array_2 = object.key("versions").start_array();
++        for item_3 in var_1 {
              {
 -                object_4.key(key_5.as_str()).string(value_6.as_str());
-+                array_9.value().string(item_10.as_str());
++                array_2.value().string(item_3.as_str());
              }
          }
 -        object_4.finish();
-+        array_9.finish();
++        array_2.finish();
      }
 -    if let Some(var_7) = &input.versions {
 -        let mut array_8 = object.key("versions").start_array();
 -        for item_9 in var_7 {
-+    if let Some(var_11) = &input.version_revisions {
++    if let Some(var_4) = &input.version_revisions {
 +        #[allow(unused_mut)]
-+        let mut object_12 = object.key("versionRevisions").start_object();
-+        for (key_13, value_14) in var_11 {
++        let mut object_5 = object.key("versionRevisions").start_object();
++        for (key_6, value_7) in var_4 {
              {
 -                array_8.value().string(item_9.as_str());
-+                object_12.key(key_13.as_str()).string(value_14.as_str());
++                object_5.key(key_6.as_str()).string(value_7.as_str());
              }
          }
 -        array_8.finish();
-+        object_12.finish();
++        object_5.finish();
 +    }
-+    if let Some(var_15) = &input.allow_overwrite {
-+        object.key("allowOverwrite").boolean(*var_15);
++    if let Some(var_8) = &input.allow_overwrite {
++        object.key("allowOverwrite").boolean(*var_8);
 +    }
-+    if let Some(var_16) = &input.include_from_upstream {
-+        object.key("includeFromUpstream").boolean(*var_16);
++    if let Some(var_9) = &input.include_from_upstream {
++        object.key("includeFromUpstream").boolean(*var_9);
      }
      Ok(())
  }
@@ -1373,46 +1333,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::create_domain::CreateDomainError::generic(generic),
-```
-
-### `src/protocol_serde/shape_create_domain_input.rs`
-
-```diff
---- reference/src/protocol_serde/shape_create_domain_input.rs
-+++ generated/src/protocol_serde/shape_create_domain_input.rs
-@@ -3,20 +3,23 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::operation::create_domain::CreateDomainInput,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if let Some(var_1) = &input.encryption_key {
--        object.key("encryptionKey").string(var_1.as_str());
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
-     }
--    if let Some(var_2) = &input.tags {
--        let mut array_3 = object.key("tags").start_array();
--        for item_4 in var_2 {
-+    if let Some(var_2) = &input.encryption_key {
-+        object.key("encryptionKey").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.tags {
-+        let mut array_4 = object.key("tags").start_array();
-+        for item_5 in var_3 {
-             {
-                 #[allow(unused_mut)]
--                let mut object_5 = array_3.value().start_object();
--                super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
--                object_5.finish();
-+                let mut object_6 = array_4.value().start_object();
-+                super::super::protocol_serde::shape_tag::ser_tag(&mut object_6, item_5)?;
-+                object_6.finish();
-             }
-         }
--        array_3.finish();
-+        array_4.finish();
-     }
-     Ok(())
- }
 ```
 
 ### `src/protocol_serde/shape_create_package_group.rs`
@@ -1540,50 +1460,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_package_group_input.rs
 +++ generated/src/protocol_serde/shape_create_package_group_input.rs
-@@ -3,26 +3,32 @@
+@@ -3,14 +3,14 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
      input: &super::super::operation::create_package_group::CreatePackageGroupInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.contact_info {
 -        object.key("contactInfo").string(var_1.as_str());
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
++    if let Some(var_1) = &input.package_group {
++        object.key("packageGroup").string(var_1.as_str());
      }
 -    if let Some(var_2) = &input.description {
 -        object.key("description").string(var_2.as_str());
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
++    if let Some(var_2) = &input.contact_info {
++        object.key("contactInfo").string(var_2.as_str());
      }
-     if let Some(var_3) = &input.package_group {
-         object.key("packageGroup").string(var_3.as_str());
+-    if let Some(var_3) = &input.package_group {
+-        object.key("packageGroup").string(var_3.as_str());
++    if let Some(var_3) = &input.description {
++        object.key("description").string(var_3.as_str());
      }
--    if let Some(var_4) = &input.tags {
--        let mut array_5 = object.key("tags").start_array();
--        for item_6 in var_4 {
-+    if let Some(var_4) = &input.contact_info {
-+        object.key("contactInfo").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.description {
-+        object.key("description").string(var_5.as_str());
-+    }
-+    if let Some(var_6) = &input.tags {
-+        let mut array_7 = object.key("tags").start_array();
-+        for item_8 in var_6 {
-             {
-                 #[allow(unused_mut)]
--                let mut object_7 = array_5.value().start_object();
--                super::super::protocol_serde::shape_tag::ser_tag(&mut object_7, item_6)?;
--                object_7.finish();
-+                let mut object_9 = array_7.value().start_object();
-+                super::super::protocol_serde::shape_tag::ser_tag(&mut object_9, item_8)?;
-+                object_9.finish();
-             }
-         }
--        array_5.finish();
-+        array_7.finish();
-     }
-     Ok(())
- }
+     if let Some(var_4) = &input.tags {
+         let mut array_5 = object.key("tags").start_array();
 ```
 
 ### `src/protocol_serde/shape_create_repository.rs`
@@ -1711,64 +1608,38 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_repository_input.rs
 +++ generated/src/protocol_serde/shape_create_repository_input.rs
-@@ -3,32 +3,41 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::operation::create_repository::CreateRepositoryInput,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if let Some(var_1) = &input.description {
--        object.key("description").string(var_1.as_str());
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
+@@ -6,25 +6,25 @@
+     if let Some(var_1) = &input.description {
+         object.key("description").string(var_1.as_str());
      }
 -    if let Some(var_2) = &input.tags {
 -        let mut array_3 = object.key("tags").start_array();
--        for item_4 in var_2 {
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.repository {
-+        object.key("repository").string(var_3.as_str());
-+    }
-+    if let Some(var_4) = &input.description {
-+        object.key("description").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.upstreams {
-+        let mut array_6 = object.key("upstreams").start_array();
-+        for item_7 in var_5 {
++    if let Some(var_2) = &input.upstreams {
++        let mut array_3 = object.key("upstreams").start_array();
+         for item_4 in var_2 {
              {
                  #[allow(unused_mut)]
--                let mut object_5 = array_3.value().start_object();
+                 let mut object_5 = array_3.value().start_object();
 -                super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
--                object_5.finish();
-+                let mut object_8 = array_6.value().start_object();
-+                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
-+                object_8.finish();
++                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_5, item_4)?;
+                 object_5.finish();
              }
          }
--        array_3.finish();
-+        array_6.finish();
+         array_3.finish();
      }
 -    if let Some(var_6) = &input.upstreams {
 -        let mut array_7 = object.key("upstreams").start_array();
--        for item_8 in var_6 {
-+    if let Some(var_9) = &input.tags {
-+        let mut array_10 = object.key("tags").start_array();
-+        for item_11 in var_9 {
++    if let Some(var_6) = &input.tags {
++        let mut array_7 = object.key("tags").start_array();
+         for item_8 in var_6 {
              {
                  #[allow(unused_mut)]
--                let mut object_9 = array_7.value().start_object();
+                 let mut object_9 = array_7.value().start_object();
 -                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_9, item_8)?;
--                object_9.finish();
-+                let mut object_12 = array_10.value().start_object();
-+                super::super::protocol_serde::shape_tag::ser_tag(&mut object_12, item_11)?;
-+                object_12.finish();
++                super::super::protocol_serde::shape_tag::ser_tag(&mut object_9, item_8)?;
+                 object_9.finish();
              }
          }
--        array_7.finish();
-+        array_10.finish();
-     }
-     Ok(())
- }
 ```
 
 ### `src/protocol_serde/shape_delete_domain.rs`
@@ -1857,23 +1728,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::delete_domain::DeleteDomainError::generic(generic),
-@@ -112,6 +112,16 @@
-     })
- }
-
-+pub fn ser_delete_domain_input(
-+    input: &super::super::operation::delete_domain::DeleteDomainInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_delete_domain_input::ser_delete_domain_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_delete_domain(
-     _value: &[u8],
-     mut builder: super::super::operation::delete_domain::builders::DeleteDomainOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_domain_permissions_policy.rs`
@@ -1979,23 +1833,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::generic(generic),
-@@ -139,6 +138,16 @@
-     })
- }
-
-+pub fn ser_delete_domain_permissions_policy_input(
-+    input: &super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_delete_domain_permissions_policy_input::ser_delete_domain_permissions_policy_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_delete_domain_permissions_policy(
-     _value: &[u8],
-     mut builder: super::super::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_package.rs`
@@ -2099,23 +1936,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::delete_package::DeletePackageError::generic(generic),
-@@ -126,6 +127,16 @@
-     })
- }
-
-+pub fn ser_delete_package_input(
-+    input: &super::super::operation::delete_package::DeletePackageInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_delete_package_input::ser_delete_package_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_delete_package(
-     _value: &[u8],
-     mut builder: super::super::operation::delete_package::builders::DeletePackageOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_package_group.rs`
@@ -2236,23 +2056,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::delete_package_group::DeletePackageGroupError::generic(generic),
-@@ -151,6 +151,16 @@
-     })
- }
-
-+pub fn ser_delete_package_group_input(
-+    input: &super::super::operation::delete_package_group::DeletePackageGroupInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_delete_package_group_input::ser_delete_package_group_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_delete_package_group(
-     _value: &[u8],
-     mut builder: super::super::operation::delete_package_group::builders::DeletePackageGroupOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_package_versions.rs`
@@ -2393,46 +2196,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_package_versions_input.rs
 +++ generated/src/protocol_serde/shape_delete_package_versions_input.rs
-@@ -3,17 +3,35 @@
+@@ -3,17 +3,17 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
      input: &super::super::operation::delete_package_versions::DeletePackageVersionsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.expected_status {
 -        object.key("expectedStatus").string(var_1.as_str());
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.repository {
-+        object.key("repository").string(var_3.as_str());
-+    }
-+    if let Some(var_4) = &input.format {
-+        object.key("format").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.namespace {
-+        object.key("namespace").string(var_5.as_str());
-+    }
-+    if let Some(var_6) = &input.package {
-+        object.key("package").string(var_6.as_str());
-     }
+-    }
 -    if let Some(var_2) = &input.versions {
 -        let mut array_3 = object.key("versions").start_array();
 -        for item_4 in var_2 {
-+    if let Some(var_7) = &input.versions {
-+        let mut array_8 = object.key("versions").start_array();
-+        for item_9 in var_7 {
++    if let Some(var_1) = &input.versions {
++        let mut array_2 = object.key("versions").start_array();
++        for item_3 in var_1 {
              {
 -                array_3.value().string(item_4.as_str());
-+                array_8.value().string(item_9.as_str());
++                array_2.value().string(item_3.as_str());
              }
          }
 -        array_3.finish();
-+        array_8.finish();
++        array_2.finish();
 +    }
-+    if let Some(var_10) = &input.expected_status {
-+        object.key("expectedStatus").string(var_10.as_str());
++    if let Some(var_4) = &input.expected_status {
++        object.key("expectedStatus").string(var_4.as_str());
      }
      Ok(())
  }
@@ -2541,23 +2327,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::delete_repository::DeleteRepositoryError::generic(generic),
-@@ -128,6 +127,16 @@
-     })
- }
-
-+pub fn ser_delete_repository_input(
-+    input: &super::super::operation::delete_repository::DeleteRepositoryInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_delete_repository_input::ser_delete_repository_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_delete_repository(
-     _value: &[u8],
-     mut builder: super::super::operation::delete_repository::builders::DeleteRepositoryOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_delete_repository_permissions_policy.rs`
@@ -2663,26 +2432,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  tmp
              })
          }
-@@ -145,6 +144,19 @@
-     })
- }
-
-+pub fn ser_delete_repository_permissions_policy_input(
-+    input: &super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_delete_repository_permissions_policy_input::ser_delete_repository_permissions_policy_input_input(
-+        &mut object,
-+        input,
-+    )?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_delete_repository_permissions_policy(
-     _value: &[u8],
-     mut builder: super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_describe_domain.rs`
@@ -2773,23 +2522,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::describe_domain::DescribeDomainError::generic(generic),
-@@ -114,6 +112,16 @@
-     })
- }
-
-+pub fn ser_describe_domain_input(
-+    input: &super::super::operation::describe_domain::DescribeDomainInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_describe_domain_input::ser_describe_domain_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_describe_domain(
-     _value: &[u8],
-     mut builder: super::super::operation::describe_domain::builders::DescribeDomainOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_describe_package.rs`
@@ -2880,23 +2612,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::describe_package::DescribePackageError::generic(generic),
-@@ -114,6 +112,16 @@
-     })
- }
-
-+pub fn ser_describe_package_input(
-+    input: &super::super::operation::describe_package::DescribePackageInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_describe_package_input::ser_describe_package_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_describe_package(
-     _value: &[u8],
-     mut builder: super::super::operation::describe_package::builders::DescribePackageOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_describe_package_group.rs`
@@ -2987,23 +2702,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::describe_package_group::DescribePackageGroupError::generic(generic),
-@@ -120,6 +118,16 @@
-     })
- }
-
-+pub fn ser_describe_package_group_input(
-+    input: &super::super::operation::describe_package_group::DescribePackageGroupInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_describe_package_group_input::ser_describe_package_group_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_describe_package_group(
-     _value: &[u8],
-     mut builder: super::super::operation::describe_package_group::builders::DescribePackageGroupOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_describe_package_version.rs`
@@ -3109,23 +2807,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::describe_package_version::DescribePackageVersionError::generic(generic),
-@@ -138,6 +137,16 @@
-     })
- }
-
-+pub fn ser_describe_package_version_input(
-+    input: &super::super::operation::describe_package_version::DescribePackageVersionInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_describe_package_version_input::ser_describe_package_version_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_describe_package_version(
-     _value: &[u8],
-     mut builder: super::super::operation::describe_package_version::builders::DescribePackageVersionOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_describe_repository.rs`
@@ -3216,23 +2897,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::describe_repository::DescribeRepositoryError::generic(generic),
-@@ -120,6 +118,16 @@
-     })
- }
-
-+pub fn ser_describe_repository_input(
-+    input: &super::super::operation::describe_repository::DescribeRepositoryInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_describe_repository_input::ser_describe_repository_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_describe_repository(
-     _value: &[u8],
-     mut builder: super::super::operation::describe_repository::builders::DescribeRepositoryOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_disassociate_external_connection.rs`
@@ -3353,23 +3017,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::generic(generic),
-@@ -158,6 +158,16 @@
-     })
- }
-
-+pub fn ser_disassociate_external_connection_input(
-+    input: &super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_disassociate_external_connection_input::ser_disassociate_external_connection_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_disassociate_external_connection(
-     _value: &[u8],
-     mut builder: super::super::operation::disassociate_external_connection::builders::DisassociateExternalConnectionOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_dispose_package_versions.rs`
@@ -3510,62 +3157,45 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_dispose_package_versions_input.rs
 +++ generated/src/protocol_serde/shape_dispose_package_versions_input.rs
-@@ -3,27 +3,45 @@
+@@ -3,27 +3,27 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
      input: &super::super::operation::dispose_package_versions::DisposePackageVersionsInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.expected_status {
 -        object.key("expectedStatus").string(var_1.as_str());
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.repository {
-+        object.key("repository").string(var_3.as_str());
-+    }
-+    if let Some(var_4) = &input.format {
-+        object.key("format").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.namespace {
-+        object.key("namespace").string(var_5.as_str());
-     }
+-    }
 -    if let Some(var_2) = &input.version_revisions {
 -        #[allow(unused_mut)]
 -        let mut object_3 = object.key("versionRevisions").start_object();
 -        for (key_4, value_5) in var_2 {
-+    if let Some(var_6) = &input.package {
-+        object.key("package").string(var_6.as_str());
-+    }
-+    if let Some(var_7) = &input.versions {
-+        let mut array_8 = object.key("versions").start_array();
-+        for item_9 in var_7 {
++    if let Some(var_1) = &input.versions {
++        let mut array_2 = object.key("versions").start_array();
++        for item_3 in var_1 {
              {
 -                object_3.key(key_4.as_str()).string(value_5.as_str());
-+                array_8.value().string(item_9.as_str());
++                array_2.value().string(item_3.as_str());
              }
          }
 -        object_3.finish();
-+        array_8.finish();
++        array_2.finish();
      }
 -    if let Some(var_6) = &input.versions {
 -        let mut array_7 = object.key("versions").start_array();
 -        for item_8 in var_6 {
-+    if let Some(var_10) = &input.version_revisions {
++    if let Some(var_4) = &input.version_revisions {
 +        #[allow(unused_mut)]
-+        let mut object_11 = object.key("versionRevisions").start_object();
-+        for (key_12, value_13) in var_10 {
++        let mut object_5 = object.key("versionRevisions").start_object();
++        for (key_6, value_7) in var_4 {
              {
 -                array_7.value().string(item_8.as_str());
-+                object_11.key(key_12.as_str()).string(value_13.as_str());
++                object_5.key(key_6.as_str()).string(value_7.as_str());
              }
          }
 -        array_7.finish();
-+        object_11.finish();
++        object_5.finish();
 +    }
-+    if let Some(var_14) = &input.expected_status {
-+        object.key("expectedStatus").string(var_14.as_str());
++    if let Some(var_8) = &input.expected_status {
++        object.key("expectedStatus").string(var_8.as_str());
      }
      Ok(())
  }
@@ -3636,48 +3266,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::generic(generic),
-@@ -103,6 +107,16 @@
-     })
- }
-
-+pub fn ser_get_associated_package_group_input(
-+    input: &super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_get_associated_package_group_input::ser_get_associated_package_group_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_get_associated_package_group(
-     _value: &[u8],
-     mut builder: super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder,
-@@ -119,6 +133,13 @@
+@@ -119,13 +123,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "packageGroup" => {
-+                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-                 "associationType" => {
-                     builder = builder.set_association_type(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -126,13 +147,6 @@
-                             .transpose()?,
-                     );
-                 }
--                "packageGroup" => {
--                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
+-                "associationType" => {
+-                    builder = builder.set_association_type(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageGroupAssociationType::from(u.as_ref())))
+-                            .transpose()?,
+-                    );
 -                }
+                 "packageGroup" => {
+                     builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
+                         tokens,
+@@ -133,6 +130,13 @@
+                         depth + 1,
+                     )?);
+                 }
++                "associationType" => {
++                    builder = builder.set_association_type(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageGroupAssociationType::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -3771,23 +3384,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::get_authorization_token::GetAuthorizationTokenError::generic(generic),
-@@ -120,6 +118,16 @@
-     })
- }
-
-+pub fn ser_get_authorization_token_input(
-+    input: &super::super::operation::get_authorization_token::GetAuthorizationTokenInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_get_authorization_token_input::ser_get_authorization_token_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_get_authorization_token(
-     _value: &[u8],
-     mut builder: super::super::operation::get_authorization_token::builders::GetAuthorizationTokenOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_domain_permissions_policy.rs`
@@ -3878,23 +3474,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::generic(generic),
-@@ -120,6 +118,16 @@
-     })
- }
-
-+pub fn ser_get_domain_permissions_policy_input(
-+    input: &super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_get_domain_permissions_policy_input::ser_get_domain_permissions_policy_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_get_domain_permissions_policy(
-     _value: &[u8],
-     mut builder: super::super::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_package_version_asset.rs`
@@ -4036,7 +3615,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          "ValidationException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ValidationException({
-@@ -154,12 +107,99 @@
+@@ -154,12 +107,58 @@
                  output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                      .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                  let output = output.meta(generic);
@@ -4056,89 +3635,73 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +#[allow(clippy::unnecessary_wraps)]
 +pub fn de_get_package_version_asset_http_response(
-+    _response_status: u16,
-+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-+    _response_body: &[u8],
++    response: &mut ::aws_smithy_runtime_api::http::Response,
 +) -> std::result::Result<
 +    super::super::operation::get_package_version_asset::GetPackageVersionAssetOutput,
 +    super::super::operation::get_package_version_asset::GetPackageVersionAssetError,
 +> {
++    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
++    ::std::mem::swap(&mut _response_body, response.body_mut());
++    let _response_body = &mut _response_body;
++
++    let _response_status = response.status().as_u16();
++    let _response_headers = response.headers();
 +    Ok({
 +        #[allow(unused_mut)]
 +        let mut output = super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default();
-+        output = super::super::protocol_serde::shape_get_package_version_asset::de_get_package_version_asset(_response_body, output)
-+            .map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
++        output = output.set_asset(Some(super::super::protocol_serde::shape_get_package_version_asset_output::de_asset_payload(
++            _response_body,
++        )?));
++        output = output.set_asset_name(
++            super::super::protocol_serde::shape_get_package_version_asset_output::de_asset_name_header(_response_headers).map_err(|_| {
++                super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
++                    "Failed to parse assetName from header `X-AssetName`",
++                )
++            })?,
++        );
++        output = output.set_package_version(
++            super::super::protocol_serde::shape_get_package_version_asset_output::de_package_version_header(_response_headers).map_err(|_| {
++                super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
++                    "Failed to parse packageVersion from header `X-PackageVersion`",
++                )
++            })?,
++        );
++        output = output.set_package_version_revision(
++            super::super::protocol_serde::shape_get_package_version_asset_output::de_package_version_revision_header(_response_headers).map_err(|_| {
++                super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
++                    "Failed to parse packageVersionRevision from header `X-PackageVersionRevision`",
++                )
++            })?,
++        );
 +        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 +        output.build()
 +    })
 +}
-+
-+pub fn ser_get_package_version_asset_input(
-+    input: &super::super::operation::get_package_version_asset::GetPackageVersionAssetInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_get_package_version_asset_input::ser_get_package_version_asset_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
-+pub(crate) fn de_get_package_version_asset(
-+    _value: &[u8],
-+    mut builder: super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "asset" => {
-+                    builder = builder.set_asset(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-+                }
-+                "assetName" => {
-+                    builder = builder.set_asset_name(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
-+                "packageVersion" => {
-+                    builder = builder.set_package_version(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
-+                "packageVersionRevision" => {
-+                    builder = builder.set_package_version_revision(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
+```
+
+### `src/protocol_serde/shape_get_package_version_asset_output.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_package_version_asset_output.rs
++++ generated/src/protocol_serde/shape_get_package_version_asset_output.rs
+@@ -1,12 +1,10 @@
+ // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+-pub fn de_asset_payload(
+-    body: &mut ::aws_smithy_types::body::SdkBody,
+-) -> std::result::Result<::aws_smithy_types::byte_stream::ByteStream, super::super::operation::get_package_version_asset::GetPackageVersionAssetError> {
+-    // replace the body with an empty body
+-    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
+-    Ok(::aws_smithy_types::byte_stream::ByteStream::new(body))
++pub(crate) fn de_asset_payload(
++    body: &[u8],
++) -> ::std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, super::super::operation::get_package_version_asset::GetPackageVersionAssetError>
++{
++    (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()
+ }
+-
+ pub(crate) fn de_asset_name_header(
+     header_map: &::aws_smithy_runtime_api::http::Headers,
+ ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
 ```
 
 ### `src/protocol_serde/shape_get_package_version_readme.rs`
@@ -4229,24 +3792,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::generic(generic),
-@@ -124,6 +122,16 @@
-     })
- }
-
-+pub fn ser_get_package_version_readme_input(
-+    input: &super::super::operation::get_package_version_readme::GetPackageVersionReadmeInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_get_package_version_readme_input::ser_get_package_version_readme_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_get_package_version_readme(
-     _value: &[u8],
-     mut builder: super::super::operation::get_package_version_readme::builders::GetPackageVersionReadmeOutputBuilder,
-@@ -161,22 +169,22 @@
+@@ -161,22 +159,22 @@
                              .transpose()?,
                      );
                  }
@@ -4365,23 +3911,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::generic(generic),
-@@ -120,6 +118,16 @@
-     })
- }
-
-+pub fn ser_get_repository_endpoint_input(
-+    input: &super::super::operation::get_repository_endpoint::GetRepositoryEndpointInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_get_repository_endpoint_input::ser_get_repository_endpoint_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_get_repository_endpoint(
-     _value: &[u8],
-     mut builder: super::super::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_get_repository_permissions_policy.rs`
@@ -4472,23 +4001,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::generic(generic),
-@@ -125,6 +123,16 @@
-     })
- }
-
-+pub fn ser_get_repository_permissions_policy_input(
-+    input: &super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_get_repository_permissions_policy_input::ser_get_repository_permissions_policy_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_get_repository_permissions_policy(
-     _value: &[u8],
-     mut builder: super::super::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_internal_server_exception.rs`
@@ -4610,23 +4122,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic),
-@@ -146,6 +145,16 @@
-     })
- }
-
-+pub fn ser_list_allowed_repositories_for_group_input(
-+    input: &super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_allowed_repositories_for_group_input::ser_list_allowed_repositories_for_group_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_allowed_repositories_for_group(
-     _value: &[u8],
-     mut builder: super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_list_associated_packages.rs`
@@ -4694,48 +4189,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_associated_packages::ListAssociatedPackagesError::generic(generic),
-@@ -103,6 +107,16 @@
-     })
- }
-
-+pub fn ser_list_associated_packages_input(
-+    input: &super::super::operation::list_associated_packages::ListAssociatedPackagesInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_associated_packages_input::ser_list_associated_packages_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_associated_packages(
-     _value: &[u8],
-     mut builder: super::super::operation::list_associated_packages::builders::ListAssociatedPackagesOutputBuilder,
-@@ -119,6 +133,13 @@
+@@ -119,13 +123,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "packages" => {
-+                    builder = builder.set_packages(super::super::protocol_serde::shape_associated_package_list::de_associated_package_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-                 "nextToken" => {
-                     builder = builder.set_next_token(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -126,13 +147,6 @@
-                             .transpose()?,
-                     );
-                 }
--                "packages" => {
--                    builder = builder.set_packages(super::super::protocol_serde::shape_associated_package_list::de_associated_package_list(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
+-                "nextToken" => {
+-                    builder = builder.set_next_token(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
 -                }
+                 "packages" => {
+                     builder = builder.set_packages(super::super::protocol_serde::shape_associated_package_list::de_associated_package_list(
+                         tokens,
+@@ -133,6 +130,13 @@
+                         depth + 1,
+                     )?);
+                 }
++                "nextToken" => {
++                    builder = builder.set_next_token(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -4902,24 +4380,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_package_groups::ListPackageGroupsError::generic(generic),
-@@ -116,6 +114,16 @@
-     })
- }
-
-+pub fn ser_list_package_groups_input(
-+    input: &super::super::operation::list_package_groups::ListPackageGroupsInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_package_groups_input::ser_list_package_groups_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_package_groups(
-     _value: &[u8],
-     mut builder: super::super::operation::list_package_groups::builders::ListPackageGroupsOutputBuilder,
-@@ -132,6 +140,13 @@
+@@ -132,6 +130,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -4933,7 +4394,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -139,13 +154,6 @@
+@@ -139,13 +144,6 @@
                              .transpose()?,
                      );
                  }
@@ -5037,24 +4498,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::generic(generic),
-@@ -124,6 +122,16 @@
-     })
- }
-
-+pub fn ser_list_package_version_assets_input(
-+    input: &super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_package_version_assets_input::ser_list_package_version_assets_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_package_version_assets(
-     _value: &[u8],
-     mut builder: super::super::operation::list_package_version_assets::builders::ListPackageVersionAssetsOutputBuilder,
-@@ -140,13 +148,6 @@
+@@ -140,13 +138,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5068,7 +4512,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "format" => {
                      builder = builder.set_format(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -161,13 +162,6 @@
+@@ -161,13 +152,6 @@
                              .transpose()?,
                      );
                  }
@@ -5082,7 +4526,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "package" => {
                      builder = builder.set_package(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -189,6 +183,20 @@
+@@ -189,6 +173,20 @@
                              .transpose()?,
                      );
                  }
@@ -5193,24 +4637,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::generic(generic),
-@@ -125,6 +123,16 @@
-     })
- }
-
-+pub fn ser_list_package_version_dependencies_input(
-+    input: &super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_package_version_dependencies_input::ser_list_package_version_dependencies_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_package_version_dependencies(
-     _value: &[u8],
-     mut builder: super::super::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder,
-@@ -141,13 +149,6 @@
+@@ -141,13 +139,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5224,7 +4651,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "format" => {
                      builder = builder.set_format(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -162,13 +163,6 @@
+@@ -162,13 +153,6 @@
                              .transpose()?,
                      );
                  }
@@ -5238,7 +4665,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "package" => {
                      builder = builder.set_package(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -190,6 +184,20 @@
+@@ -190,6 +174,20 @@
                              .transpose()?,
                      );
                  }
@@ -5349,24 +4776,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_package_versions::ListPackageVersionsError::generic(generic),
-@@ -120,6 +118,16 @@
-     })
- }
-
-+pub fn ser_list_package_versions_input(
-+    input: &super::super::operation::list_package_versions::ListPackageVersionsInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_package_versions_input::ser_list_package_versions_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_package_versions(
-     _value: &[u8],
-     mut builder: super::super::operation::list_package_versions::builders::ListPackageVersionsOutputBuilder,
-@@ -157,13 +165,6 @@
+@@ -157,13 +155,6 @@
                              .transpose()?,
                      );
                  }
@@ -5380,7 +4790,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "package" => {
                      builder = builder.set_package(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -176,6 +177,13 @@
+@@ -176,6 +167,13 @@
                          super::super::protocol_serde::shape_package_version_summary_list::de_package_version_summary_list(tokens, _value, depth + 1)?,
                      );
                  }
@@ -5482,48 +4892,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_packages::ListPackagesError::generic(generic),
-@@ -112,6 +112,16 @@
-     })
- }
-
-+pub fn ser_list_packages_input(
-+    input: &super::super::operation::list_packages::ListPackagesInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_packages_input::ser_list_packages_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_packages(
-     _value: &[u8],
-     mut builder: super::super::operation::list_packages::builders::ListPackagesOutputBuilder,
-@@ -128,6 +138,13 @@
+@@ -128,13 +128,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "packages" => {
-+                    builder = builder.set_packages(super::super::protocol_serde::shape_package_summary_list::de_package_summary_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-                 "nextToken" => {
-                     builder = builder.set_next_token(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -135,13 +152,6 @@
-                             .transpose()?,
-                     );
-                 }
--                "packages" => {
--                    builder = builder.set_packages(super::super::protocol_serde::shape_package_summary_list::de_package_summary_list(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
+-                "nextToken" => {
+-                    builder = builder.set_next_token(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
 -                }
+                 "packages" => {
+                     builder = builder.set_packages(super::super::protocol_serde::shape_package_summary_list::de_package_summary_list(
+                         tokens,
+@@ -142,6 +135,13 @@
+                         depth + 1,
+                     )?);
+                 }
++                "nextToken" => {
++                    builder = builder.set_next_token(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -5602,24 +4995,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_repositories::ListRepositoriesError::generic(generic),
-@@ -100,6 +97,16 @@
-     })
- }
-
-+pub fn ser_list_repositories_input(
-+    input: &super::super::operation::list_repositories::ListRepositoriesInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_repositories_input::ser_list_repositories_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_repositories(
-     _value: &[u8],
-     mut builder: super::super::operation::list_repositories::builders::ListRepositoriesOutputBuilder,
-@@ -116,6 +123,13 @@
+@@ -116,6 +113,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5633,7 +5009,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -123,13 +137,6 @@
+@@ -123,13 +127,6 @@
                              .transpose()?,
                      );
                  }
@@ -5737,24 +5113,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::generic(generic),
-@@ -124,6 +122,16 @@
-     })
- }
-
-+pub fn ser_list_repositories_in_domain_input(
-+    input: &super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_repositories_in_domain_input::ser_list_repositories_in_domain_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_repositories_in_domain(
-     _value: &[u8],
-     mut builder: super::super::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainOutputBuilder,
-@@ -140,6 +148,13 @@
+@@ -140,6 +138,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5768,7 +5127,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -147,13 +162,6 @@
+@@ -147,13 +152,6 @@
                              .transpose()?,
                      );
                  }
@@ -5872,24 +5231,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::generic(generic),
-@@ -120,6 +118,16 @@
-     })
- }
-
-+pub fn ser_list_sub_package_groups_input(
-+    input: &super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_sub_package_groups_input::ser_list_sub_package_groups_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_sub_package_groups(
-     _value: &[u8],
-     mut builder: super::super::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder,
-@@ -136,6 +144,13 @@
+@@ -136,6 +134,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -5903,7 +5245,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "nextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -143,13 +158,6 @@
+@@ -143,13 +148,6 @@
                              .transpose()?,
                      );
                  }
@@ -5992,23 +5334,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
-@@ -106,6 +103,16 @@
-     })
- }
-
-+pub fn ser_list_tags_for_resource_input(
-+    input: &super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
-+}
-+
- pub(crate) fn de_list_tags_for_resource(
-     _value: &[u8],
-     mut builder: super::super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
 ```
 
 ### `src/protocol_serde/shape_package_group_allowed_repository_update.rs`
@@ -6183,13 +5508,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::publish_package_version::PublishPackageVersionError::generic(generic),
-@@ -151,22 +151,14 @@
+@@ -151,24 +151,6 @@
      })
  }
 
 -pub fn ser_publish_package_version_headers(
-+pub fn ser_publish_package_version_input(
-     input: &super::super::operation::publish_package_version::PublishPackageVersionInput,
+-    input: &super::super::operation::publish_package_version::PublishPackageVersionInput,
 -    mut builder: ::http_1x::request::Builder,
 -) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
 -    if let ::std::option::Option::Some(inner_1) = &input.asset_sha256 {
@@ -6204,16 +5528,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        builder = builder.header("x-amz-content-sha256", header_value);
 -    }
 -    Ok(builder)
-+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-+    let mut out = String::new();
-+    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_publish_package_version_input::ser_publish_package_version_input_input(&mut object, input)?;
-+    object.finish();
-+    Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-
+-}
+-
  pub(crate) fn de_publish_package_version(
-@@ -185,9 +177,6 @@
+     _value: &[u8],
+     mut builder: super::super::operation::publish_package_version::builders::PublishPackageVersionOutputBuilder,
+@@ -185,9 +167,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6223,7 +5543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "format" => {
                      builder = builder.set_format(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -209,13 +198,6 @@
+@@ -209,13 +188,6 @@
                              .transpose()?,
                      );
                  }
@@ -6237,7 +5557,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "version" => {
                      builder = builder.set_version(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -230,6 +212,16 @@
+@@ -230,6 +202,16 @@
                              .transpose()?,
                      );
                  }
@@ -6261,50 +5581,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_publish_package_version_input.rs
 +++ generated/src/protocol_serde/shape_publish_package_version_input.rs
-@@ -1,6 +1,40 @@
+@@ -1,6 +1,10 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
--pub fn ser_asset_content_http_payload(
+ pub fn ser_asset_content_http_payload(
 -    payload: ::aws_smithy_types::byte_stream::ByteStream,
 -) -> ::std::result::Result<::aws_smithy_types::byte_stream::ByteStream, ::aws_smithy_types::error::operation::BuildError> {
 -    Ok(payload)
-+pub fn ser_publish_package_version_input_input(
-+    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-+    input: &super::super::operation::publish_package_version::PublishPackageVersionInput,
-+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.repository {
-+        object.key("repository").string(var_3.as_str());
-+    }
-+    if let Some(var_4) = &input.format {
-+        object.key("format").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.namespace {
-+        object.key("namespace").string(var_5.as_str());
-+    }
-+    if let Some(var_6) = &input.package {
-+        object.key("package").string(var_6.as_str());
-+    }
-+    if let Some(var_7) = &input.package_version {
-+        object.key("packageVersion").string(var_7.as_str());
-+    }
-+    if let Some(var_8) = &input.asset_content {
-+        object.key("assetContent").string_unchecked(&::aws_smithy_types::base64::encode(var_8));
-+    }
-+    if let Some(var_9) = &input.asset_name {
-+        object.key("assetName").string(var_9.as_str());
-+    }
-+    if let Some(var_10) = &input.asset_sha256 {
-+        object.key("assetSHA256").string(var_10.as_str());
-+    }
-+    if let Some(var_11) = &input.unfinished {
-+        object.key("unfinished").boolean(*var_11);
-+    }
-+    Ok(())
++    payload: ::std::option::Option<::aws_smithy_types::Blob>,
++) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {
++    let payload = match payload {
++        Some(t) => t,
++        None => return Ok(::bytes::Bytes::new()),
++    };
++    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())
  }
 ```
 
@@ -6541,47 +5830,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          _ => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::generic(generic),
 ```
 
-### `src/protocol_serde/shape_put_package_origin_configuration_input.rs`
-
-```diff
---- reference/src/protocol_serde/shape_put_package_origin_configuration_input.rs
-+++ generated/src/protocol_serde/shape_put_package_origin_configuration_input.rs
-@@ -3,11 +3,29 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if let Some(var_1) = &input.restrictions {
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.repository {
-+        object.key("repository").string(var_3.as_str());
-+    }
-+    if let Some(var_4) = &input.format {
-+        object.key("format").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.namespace {
-+        object.key("namespace").string(var_5.as_str());
-+    }
-+    if let Some(var_6) = &input.package {
-+        object.key("package").string(var_6.as_str());
-+    }
-+    if let Some(var_7) = &input.restrictions {
-         #[allow(unused_mut)]
--        let mut object_2 = object.key("restrictions").start_object();
--        super::super::protocol_serde::shape_package_origin_restrictions::ser_package_origin_restrictions(&mut object_2, var_1)?;
--        object_2.finish();
-+        let mut object_8 = object.key("restrictions").start_object();
-+        super::super::protocol_serde::shape_package_origin_restrictions::ser_package_origin_restrictions(&mut object_8, var_7)?;
-+        object_8.finish();
-     }
-     Ok(())
- }
-```
-
 ### `src/protocol_serde/shape_put_repository_permissions_policy.rs`
 
 ```diff
@@ -6707,28 +5955,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_repository_permissions_policy_input.rs
 +++ generated/src/protocol_serde/shape_put_repository_permissions_policy_input.rs
-@@ -3,11 +3,20 @@
+@@ -3,11 +3,11 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
      input: &super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.policy_document {
 -        object.key("policyDocument").string(var_1.as_str());
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
++    if let Some(var_1) = &input.policy_revision {
++        object.key("policyRevision").string(var_1.as_str());
      }
 -    if let Some(var_2) = &input.policy_revision {
 -        object.key("policyRevision").string(var_2.as_str());
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.repository {
-+        object.key("repository").string(var_3.as_str());
-+    }
-+    if let Some(var_4) = &input.policy_revision {
-+        object.key("policyRevision").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.policy_document {
-+        object.key("policyDocument").string(var_5.as_str());
++    if let Some(var_2) = &input.policy_document {
++        object.key("policyDocument").string(var_2.as_str());
      }
      Ok(())
  }
@@ -6852,76 +6091,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
-@@ -122,3 +122,34 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_tag_resource(
-+    _value: &[u8],
-+    mut builder: super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
-+) -> ::std::result::Result<super::super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
-```
-
-### `src/protocol_serde/shape_tag_resource_input.rs`
-
-```diff
---- reference/src/protocol_serde/shape_tag_resource_input.rs
-+++ generated/src/protocol_serde/shape_tag_resource_input.rs
-@@ -3,17 +3,20 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::operation::tag_resource::TagResourceInput,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if let Some(var_1) = &input.tags {
--        let mut array_2 = object.key("tags").start_array();
--        for item_3 in var_1 {
-+    if let Some(var_1) = &input.resource_arn {
-+        object.key("resourceArn").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.tags {
-+        let mut array_3 = object.key("tags").start_array();
-+        for item_4 in var_2 {
-             {
-                 #[allow(unused_mut)]
--                let mut object_4 = array_2.value().start_object();
--                super::super::protocol_serde::shape_tag::ser_tag(&mut object_4, item_3)?;
--                object_4.finish();
-+                let mut object_5 = array_3.value().start_object();
-+                super::super::protocol_serde::shape_tag::ser_tag(&mut object_5, item_4)?;
-+                object_5.finish();
-             }
-         }
--        array_2.finish();
-+        array_3.finish();
-     }
-     Ok(())
- }
 ```
 
 ### `src/protocol_serde/shape_throttling_exception.rs`
@@ -7027,73 +6196,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
-@@ -105,3 +104,36 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_untag_resource(
-+    _value: &[u8],
-+    mut builder: super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::untag_resource::builders::UntagResourceOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
-```
-
-### `src/protocol_serde/shape_untag_resource_input.rs`
-
-```diff
---- reference/src/protocol_serde/shape_untag_resource_input.rs
-+++ generated/src/protocol_serde/shape_untag_resource_input.rs
-@@ -3,14 +3,17 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::operation::untag_resource::UntagResourceInput,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if let Some(var_1) = &input.tag_keys {
--        let mut array_2 = object.key("tagKeys").start_array();
--        for item_3 in var_1 {
-+    if let Some(var_1) = &input.resource_arn {
-+        object.key("resourceArn").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.tag_keys {
-+        let mut array_3 = object.key("tagKeys").start_array();
-+        for item_4 in var_2 {
-             {
--                array_2.value().string(item_3.as_str());
-+                array_3.value().string(item_4.as_str());
-             }
-         }
--        array_2.finish();
-+        array_3.finish();
-     }
-     Ok(())
- }
 ```
 
 ### `src/protocol_serde/shape_update_package_group.rs`
@@ -7206,29 +6308,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_package_group_input.rs
 +++ generated/src/protocol_serde/shape_update_package_group_input.rs
-@@ -3,14 +3,20 @@
+@@ -3,14 +3,14 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
      input: &super::super::operation::update_package_group::UpdatePackageGroupInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.contact_info {
 -        object.key("contactInfo").string(var_1.as_str());
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
++    if let Some(var_1) = &input.package_group {
++        object.key("packageGroup").string(var_1.as_str());
      }
 -    if let Some(var_2) = &input.description {
 -        object.key("description").string(var_2.as_str());
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
++    if let Some(var_2) = &input.contact_info {
++        object.key("contactInfo").string(var_2.as_str());
      }
-     if let Some(var_3) = &input.package_group {
-         object.key("packageGroup").string(var_3.as_str());
+-    if let Some(var_3) = &input.package_group {
+-        object.key("packageGroup").string(var_3.as_str());
++    if let Some(var_3) = &input.description {
++        object.key("description").string(var_3.as_str());
      }
-+    if let Some(var_4) = &input.contact_info {
-+        object.key("contactInfo").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.description {
-+        object.key("description").string(var_5.as_str());
-+    }
      Ok(())
  }
 ```
@@ -7371,73 +6469,56 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_package_group_origin_configuration_input.rs
 +++ generated/src/protocol_serde/shape_update_package_group_origin_configuration_input.rs
-@@ -3,39 +3,48 @@
+@@ -3,20 +3,18 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
      input: &super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.add_allowed_repositories {
 -        let mut array_2 = object.key("addAllowedRepositories").start_array();
 -        for item_3 in var_1 {
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.package_group {
-+        object.key("packageGroup").string(var_3.as_str());
-+    }
-+    if let Some(var_4) = &input.restrictions {
++    if let Some(var_1) = &input.restrictions {
 +        #[allow(unused_mut)]
-+        let mut object_5 = object.key("restrictions").start_object();
-+        for (key_6, value_7) in var_4 {
++        let mut object_2 = object.key("restrictions").start_object();
++        for (key_3, value_4) in var_1 {
              {
 -                #[allow(unused_mut)]
 -                let mut object_4 = array_2.value().start_object();
 -                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_4, item_3)?;
 -                object_4.finish();
-+                object_5.key(key_6.as_str()).string(value_7.as_str());
++                object_2.key(key_3.as_str()).string(value_4.as_str());
              }
          }
 -        array_2.finish();
-+        object_5.finish();
++        object_2.finish();
      }
 -    if let Some(var_5) = &input.remove_allowed_repositories {
 -        let mut array_6 = object.key("removeAllowedRepositories").start_array();
--        for item_7 in var_5 {
-+    if let Some(var_8) = &input.add_allowed_repositories {
-+        let mut array_9 = object.key("addAllowedRepositories").start_array();
-+        for item_10 in var_8 {
++    if let Some(var_5) = &input.add_allowed_repositories {
++        let mut array_6 = object.key("addAllowedRepositories").start_array();
+         for item_7 in var_5 {
              {
                  #[allow(unused_mut)]
--                let mut object_8 = array_6.value().start_object();
--                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_8, item_7)?;
--                object_8.finish();
-+                let mut object_11 = array_9.value().start_object();
-+                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_11, item_10)?;
-+                object_11.finish();
-             }
+@@ -27,15 +25,17 @@
          }
--        array_6.finish();
-+        array_9.finish();
+         array_6.finish();
      }
 -    if let Some(var_9) = &input.restrictions {
 -        #[allow(unused_mut)]
 -        let mut object_10 = object.key("restrictions").start_object();
 -        for (key_11, value_12) in var_9 {
-+    if let Some(var_12) = &input.remove_allowed_repositories {
-+        let mut array_13 = object.key("removeAllowedRepositories").start_array();
-+        for item_14 in var_12 {
++    if let Some(var_9) = &input.remove_allowed_repositories {
++        let mut array_10 = object.key("removeAllowedRepositories").start_array();
++        for item_11 in var_9 {
              {
 -                object_10.key(key_11.as_str()).string(value_12.as_str());
 +                #[allow(unused_mut)]
-+                let mut object_15 = array_13.value().start_object();
-+                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_15, item_14)?;
-+                object_15.finish();
++                let mut object_12 = array_10.value().start_object();
++                super::super::protocol_serde::shape_package_group_allowed_repository::ser_package_group_allowed_repository(&mut object_12, item_11)?;
++                object_12.finish();
              }
          }
 -        object_10.finish();
-+        array_13.finish();
++        array_10.finish();
      }
      Ok(())
  }
@@ -7581,63 +6662,52 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_package_versions_status_input.rs
 +++ generated/src/protocol_serde/shape_update_package_versions_status_input.rs
-@@ -3,21 +3,23 @@
+@@ -3,30 +3,30 @@
      object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
      input: &super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput,
  ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 -    if let Some(var_1) = &input.expected_status {
 -        object.key("expectedStatus").string(var_1.as_str());
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.repository {
-+        object.key("repository").string(var_3.as_str());
-+    }
-+    if let Some(var_4) = &input.format {
-+        object.key("format").string(var_4.as_str());
-     }
+-    }
 -    if let Some(var_2) = &input.target_status {
 -        object.key("targetStatus").string(var_2.as_str());
-+    if let Some(var_5) = &input.namespace {
-+        object.key("namespace").string(var_5.as_str());
-     }
+-    }
 -    if let Some(var_3) = &input.version_revisions {
 -        #[allow(unused_mut)]
 -        let mut object_4 = object.key("versionRevisions").start_object();
 -        for (key_5, value_6) in var_3 {
--            {
++    if let Some(var_1) = &input.versions {
++        let mut array_2 = object.key("versions").start_array();
++        for item_3 in var_1 {
+             {
 -                object_4.key(key_5.as_str()).string(value_6.as_str());
--            }
--        }
--        object_4.finish();
-+    if let Some(var_6) = &input.package {
-+        object.key("package").string(var_6.as_str());
-     }
-     if let Some(var_7) = &input.versions {
-         let mut array_8 = object.key("versions").start_array();
-@@ -28,5 +30,21 @@
++                array_2.value().string(item_3.as_str());
+             }
          }
-         array_8.finish();
+-        object_4.finish();
++        array_2.finish();
      }
-+    if let Some(var_10) = &input.version_revisions {
+-    if let Some(var_7) = &input.versions {
+-        let mut array_8 = object.key("versions").start_array();
+-        for item_9 in var_7 {
++    if let Some(var_4) = &input.version_revisions {
 +        #[allow(unused_mut)]
-+        let mut object_11 = object.key("versionRevisions").start_object();
-+        for (key_12, value_13) in var_10 {
-+            {
-+                object_11.key(key_12.as_str()).string(value_13.as_str());
-+            }
-+        }
-+        object_11.finish();
++        let mut object_5 = object.key("versionRevisions").start_object();
++        for (key_6, value_7) in var_4 {
+             {
+-                array_8.value().string(item_9.as_str());
++                object_5.key(key_6.as_str()).string(value_7.as_str());
+             }
+         }
+-        array_8.finish();
++        object_5.finish();
 +    }
-+    if let Some(var_14) = &input.expected_status {
-+        object.key("expectedStatus").string(var_14.as_str());
++    if let Some(var_8) = &input.expected_status {
++        object.key("expectedStatus").string(var_8.as_str());
 +    }
-+    if let Some(var_15) = &input.target_status {
-+        object.key("targetStatus").string(var_15.as_str());
-+    }
++    if let Some(var_9) = &input.target_status {
++        object.key("targetStatus").string(var_9.as_str());
+     }
      Ok(())
  }
 ```
@@ -7762,52 +6832,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          _ => super::super::operation::update_repository::UpdateRepositoryError::generic(generic),
 ```
 
-### `src/protocol_serde/shape_update_repository_input.rs`
-
-```diff
---- reference/src/protocol_serde/shape_update_repository_input.rs
-+++ generated/src/protocol_serde/shape_update_repository_input.rs
-@@ -3,20 +3,29 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::operation::update_repository::UpdateRepositoryInput,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if let Some(var_1) = &input.description {
--        object.key("description").string(var_1.as_str());
-+    if let Some(var_1) = &input.domain {
-+        object.key("domain").string(var_1.as_str());
-+    }
-+    if let Some(var_2) = &input.domain_owner {
-+        object.key("domainOwner").string(var_2.as_str());
-+    }
-+    if let Some(var_3) = &input.repository {
-+        object.key("repository").string(var_3.as_str());
-     }
--    if let Some(var_2) = &input.upstreams {
--        let mut array_3 = object.key("upstreams").start_array();
--        for item_4 in var_2 {
-+    if let Some(var_4) = &input.description {
-+        object.key("description").string(var_4.as_str());
-+    }
-+    if let Some(var_5) = &input.upstreams {
-+        let mut array_6 = object.key("upstreams").start_array();
-+        for item_7 in var_5 {
-             {
-                 #[allow(unused_mut)]
--                let mut object_5 = array_3.value().start_object();
--                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_5, item_4)?;
--                object_5.finish();
-+                let mut object_8 = array_6.value().start_object();
-+                super::super::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_8, item_7)?;
-+                object_8.finish();
-             }
-         }
--        array_3.finish();
-+        array_6.finish();
-     }
-     Ok(())
- }
-```
-
 ### `src/protocol_serde/shape_validation_exception.rs`
 
 ```diff
@@ -7838,88 +6862,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_put_domain_permissions_policy;
 
  pub(crate) mod shape_put_package_origin_configuration;
-@@ -131,6 +129,8 @@
+@@ -151,6 +149,8 @@
 
- pub(crate) mod shape_access_denied_exception;
-
-+pub(crate) mod shape_associate_external_connection_input;
-+
- pub(crate) mod shape_conflict_exception;
-
- pub(crate) mod shape_copy_package_versions_input;
-@@ -141,16 +141,76 @@
-
- pub(crate) mod shape_create_repository_input;
-
-+pub(crate) mod shape_delete_domain_input;
-+
-+pub(crate) mod shape_delete_domain_permissions_policy_input;
-+
-+pub(crate) mod shape_delete_package_group_input;
-+
-+pub(crate) mod shape_delete_package_input;
-+
- pub(crate) mod shape_delete_package_versions_input;
-
-+pub(crate) mod shape_delete_repository_input;
-+
-+pub(crate) mod shape_delete_repository_permissions_policy_input;
-+
-+pub(crate) mod shape_describe_domain_input;
-+
-+pub(crate) mod shape_describe_package_group_input;
-+
-+pub(crate) mod shape_describe_package_input;
-+
-+pub(crate) mod shape_describe_package_version_input;
-+
-+pub(crate) mod shape_describe_repository_input;
-+
-+pub(crate) mod shape_disassociate_external_connection_input;
-+
- pub(crate) mod shape_dispose_package_versions_input;
-
--pub(crate) mod shape_get_package_version_asset_output;
-+pub(crate) mod shape_get_associated_package_group_input;
-+
-+pub(crate) mod shape_get_authorization_token_input;
-+
-+pub(crate) mod shape_get_domain_permissions_policy_input;
-+
-+pub(crate) mod shape_get_package_version_asset_input;
-+
-+pub(crate) mod shape_get_package_version_readme_input;
-+
-+pub(crate) mod shape_get_repository_endpoint_input;
-+
-+pub(crate) mod shape_get_repository_permissions_policy_input;
-
- pub(crate) mod shape_internal_server_exception;
-
-+pub(crate) mod shape_list_allowed_repositories_for_group_input;
-+
-+pub(crate) mod shape_list_associated_packages_input;
-+
  pub(crate) mod shape_list_domains_input;
 
-+pub(crate) mod shape_list_package_groups_input;
-+
-+pub(crate) mod shape_list_package_version_assets_input;
-+
-+pub(crate) mod shape_list_package_version_dependencies_input;
-+
-+pub(crate) mod shape_list_package_versions_input;
-+
-+pub(crate) mod shape_list_packages_input;
-+
-+pub(crate) mod shape_list_repositories_in_domain_input;
-+
-+pub(crate) mod shape_list_repositories_input;
-+
-+pub(crate) mod shape_list_sub_package_groups_input;
-+
-+pub(crate) mod shape_list_tags_for_resource_input;
-+
 +pub(crate) mod shape_publish_package_version_input;
 +
  pub(crate) mod shape_put_domain_permissions_policy_input;
@@ -7991,41 +6937,3 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
      }
 ```
-
-### Missing reference files
-
-- `src/protocol_serde/shape_get_package_version_asset_output.rs`
-
-### Unexpected generated files
-
-- `src/protocol_serde/shape_associate_external_connection_input.rs`
-- `src/protocol_serde/shape_delete_domain_input.rs`
-- `src/protocol_serde/shape_delete_domain_permissions_policy_input.rs`
-- `src/protocol_serde/shape_delete_package_group_input.rs`
-- `src/protocol_serde/shape_delete_package_input.rs`
-- `src/protocol_serde/shape_delete_repository_input.rs`
-- `src/protocol_serde/shape_delete_repository_permissions_policy_input.rs`
-- `src/protocol_serde/shape_describe_domain_input.rs`
-- `src/protocol_serde/shape_describe_package_group_input.rs`
-- `src/protocol_serde/shape_describe_package_input.rs`
-- `src/protocol_serde/shape_describe_package_version_input.rs`
-- `src/protocol_serde/shape_describe_repository_input.rs`
-- `src/protocol_serde/shape_disassociate_external_connection_input.rs`
-- `src/protocol_serde/shape_get_associated_package_group_input.rs`
-- `src/protocol_serde/shape_get_authorization_token_input.rs`
-- `src/protocol_serde/shape_get_domain_permissions_policy_input.rs`
-- `src/protocol_serde/shape_get_package_version_asset_input.rs`
-- `src/protocol_serde/shape_get_package_version_readme_input.rs`
-- `src/protocol_serde/shape_get_repository_endpoint_input.rs`
-- `src/protocol_serde/shape_get_repository_permissions_policy_input.rs`
-- `src/protocol_serde/shape_list_allowed_repositories_for_group_input.rs`
-- `src/protocol_serde/shape_list_associated_packages_input.rs`
-- `src/protocol_serde/shape_list_package_groups_input.rs`
-- `src/protocol_serde/shape_list_package_version_assets_input.rs`
-- `src/protocol_serde/shape_list_package_version_dependencies_input.rs`
-- `src/protocol_serde/shape_list_package_versions_input.rs`
-- `src/protocol_serde/shape_list_packages_input.rs`
-- `src/protocol_serde/shape_list_repositories_in_domain_input.rs`
-- `src/protocol_serde/shape_list_repositories_input.rs`
-- `src/protocol_serde/shape_list_sub_package_groups_input.rs`
-- `src/protocol_serde/shape_list_tags_for_resource_input.rs`

@@ -269,8 +269,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for StopDurableE
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_stop_durable_execution::ser_stop_durable_execution_input(
-            &input,
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_stop_durable_execution_input::ser_error_http_payload(
+            &input.error,
         )?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();

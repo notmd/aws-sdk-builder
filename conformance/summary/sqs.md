@@ -637,43 +637,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -134,3 +134,36 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_add_permission(
-+    _value: &[u8],
-+    mut builder: super::super::operation::add_permission::builders::AddPermissionOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::add_permission::builders::AddPermissionOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_cancel_message_move_task.rs`
@@ -804,43 +767,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          _ => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic),
      })
  }
-@@ -163,3 +159,36 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_change_message_visibility(
-+    _value: &[u8],
-+    mut builder: super::super::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_change_message_visibility_batch.rs`
@@ -1088,43 +1014,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -149,3 +149,36 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_delete_message(
-+    _value: &[u8],
-+    mut builder: super::super::operation::delete_message::builders::DeleteMessageOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::delete_message::builders::DeleteMessageOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_delete_message_batch.rs`
@@ -1262,41 +1151,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -119,3 +119,34 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_delete_queue(
-+    _value: &[u8],
-+    mut builder: super::super::operation::delete_queue::builders::DeleteQueueOutputBuilder,
-+) -> ::std::result::Result<super::super::operation::delete_queue::builders::DeleteQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_get_queue_attributes.rs`
@@ -1606,41 +1460,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -134,3 +134,34 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_purge_queue(
-+    _value: &[u8],
-+    mut builder: super::super::operation::purge_queue::builders::PurgeQueueOutputBuilder,
-+) -> ::std::result::Result<super::super::operation::purge_queue::builders::PurgeQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_queue_attribute_map.rs`
@@ -1770,43 +1589,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -119,3 +119,36 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_remove_permission(
-+    _value: &[u8],
-+    mut builder: super::super::operation::remove_permission::builders::RemovePermissionOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::remove_permission::builders::RemovePermissionOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_send_message.rs`
@@ -2081,43 +1863,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -170,3 +170,36 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_set_queue_attributes(
-+    _value: &[u8],
-+    mut builder: super::super::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_start_message_move_task.rs`
@@ -2188,40 +1933,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -119,3 +119,33 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_tag_queue(
-+    _value: &[u8],
-+    mut builder: super::super::operation::tag_queue::builders::TagQueueOutputBuilder,
-+) -> ::std::result::Result<super::super::operation::tag_queue::builders::TagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde/shape_untag_queue.rs`
@@ -2247,41 +1958,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -119,3 +119,34 @@
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-+
-+pub(crate) fn de_untag_queue(
-+    _value: &[u8],
-+    mut builder: super::super::operation::untag_queue::builders::UntagQueueOutputBuilder,
-+) -> ::std::result::Result<super::super::operation::untag_queue::builders::UntagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+{
-+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-+    let tokens = &mut tokens_owned;
-+    #[allow(unused_variables)]
-+    let depth = 0u32;
-+    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-+    loop {
-+        match tokens.next().transpose()? {
-+            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-+            other => {
-+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-+                    "expected object key or end object, found: {other:?}"
-+                )))
-+            }
-+        }
-+    }
-+    if tokens.next().is_some() {
-+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-+            "found more JSON tokens after completing parsing",
-+        ));
-+    }
-+    Ok(builder)
-+}
 ```
 
 ### `src/protocol_serde.rs`

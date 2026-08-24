@@ -3,23 +3,17 @@ pub fn ser_update_function_url_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_function_url_config::UpdateFunctionUrlConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.function_name {
-        object.key("FunctionName").string(var_1.as_str());
+    if let Some(var_1) = &input.auth_type {
+        object.key("AuthType").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.qualifier {
-        object.key("Qualifier").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.auth_type {
-        object.key("AuthType").string(var_3.as_str());
-    }
-    if let Some(var_4) = &input.cors {
+    if let Some(var_2) = &input.cors {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("Cors").start_object();
-        super::super::protocol_serde::shape_cors::ser_cors(&mut object_5, var_4)?;
-        object_5.finish();
+        let mut object_3 = object.key("Cors").start_object();
+        super::super::protocol_serde::shape_cors::ser_cors(&mut object_3, var_2)?;
+        object_3.finish();
     }
-    if let Some(var_6) = &input.invoke_mode {
-        object.key("InvokeMode").string(var_6.as_str());
+    if let Some(var_4) = &input.invoke_mode {
+        object.key("InvokeMode").string(var_4.as_str());
     }
     Ok(())
 }

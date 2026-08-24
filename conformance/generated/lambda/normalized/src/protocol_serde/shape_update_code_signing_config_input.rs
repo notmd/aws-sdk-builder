@@ -3,23 +3,20 @@ pub fn ser_update_code_signing_config_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::update_code_signing_config::UpdateCodeSigningConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.code_signing_config_arn {
-        object.key("CodeSigningConfigArn").string(var_1.as_str());
+    if let Some(var_1) = &input.description {
+        object.key("Description").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.description {
-        object.key("Description").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.allowed_publishers {
+    if let Some(var_2) = &input.allowed_publishers {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("AllowedPublishers").start_object();
-        super::super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_4, var_3)?;
-        object_4.finish();
+        let mut object_3 = object.key("AllowedPublishers").start_object();
+        super::super::protocol_serde::shape_allowed_publishers::ser_allowed_publishers(&mut object_3, var_2)?;
+        object_3.finish();
     }
-    if let Some(var_5) = &input.code_signing_policies {
+    if let Some(var_4) = &input.code_signing_policies {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("CodeSigningPolicies").start_object();
-        super::super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_6, var_5)?;
-        object_6.finish();
+        let mut object_5 = object.key("CodeSigningPolicies").start_object();
+        super::super::protocol_serde::shape_code_signing_policies::ser_code_signing_policies(&mut object_5, var_4)?;
+        object_5.finish();
     }
     Ok(())
 }

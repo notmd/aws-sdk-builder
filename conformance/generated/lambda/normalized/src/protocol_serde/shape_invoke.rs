@@ -714,86 +714,27 @@ pub fn de_invoke_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke::builders::InvokeOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke::de_invoke(_response_body, output).map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+        output = output.set_durable_execution_arn(
+            super::super::protocol_serde::shape_invoke_output::de_durable_execution_arn_header(_response_headers).map_err(|_| {
+                super::super::operation::invoke::InvokeError::unhandled("Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn`")
+            })?,
+        );
+        output = output.set_executed_version(
+            super::super::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(|_| {
+                super::super::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version`")
+            })?,
+        );
+        output = output.set_function_error(
+            super::super::protocol_serde::shape_invoke_output::de_function_error_header(_response_headers)
+                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse FunctionError from header `X-Amz-Function-Error`"))?,
+        );
+        output = output.set_log_result(
+            super::super::protocol_serde::shape_invoke_output::de_log_result_header(_response_headers)
+                .map_err(|_| super::super::operation::invoke::InvokeError::unhandled("Failed to parse LogResult from header `X-Amz-Log-Result`"))?,
+        );
+        output = output.set_payload(super::super::protocol_serde::shape_invoke_output::de_payload_payload(_response_body)?);
+        output = output.set_status_code(Some(_response_status as _));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
-}
-
-pub fn ser_invoke_input(
-    input: &super::super::operation::invoke::InvokeInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_input::ser_invoke_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-pub(crate) fn de_invoke(
-    _value: &[u8],
-    mut builder: super::super::operation::invoke::builders::InvokeOutputBuilder,
-) -> ::std::result::Result<super::super::operation::invoke::builders::InvokeOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "StatusCode" => {
-                    builder = builder.set_status_code(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
-                    );
-                }
-                "FunctionError" => {
-                    builder = builder.set_function_error(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "LogResult" => {
-                    builder = builder.set_log_result(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "Payload" => {
-                    builder = builder.set_payload(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-                }
-                "ExecutedVersion" => {
-                    builder = builder.set_executed_version(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "DurableExecutionArn" => {
-                    builder = builder.set_durable_execution_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }

@@ -102,16 +102,6 @@ pub fn de_list_layer_versions_http_response(
     })
 }
 
-pub fn ser_list_layer_versions_input(
-    input: &super::super::operation::list_layer_versions::ListLayerVersionsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_layer_versions_input::ser_list_layer_versions_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_list_layer_versions(
     _value: &[u8],
     mut builder: super::super::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder,

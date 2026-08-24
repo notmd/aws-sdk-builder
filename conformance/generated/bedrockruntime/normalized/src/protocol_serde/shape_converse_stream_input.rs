@@ -3,97 +3,94 @@ pub fn ser_converse_stream_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::converse_stream::ConverseStreamInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.model_id {
-        object.key("modelId").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.messages {
-        let mut array_3 = object.key("messages").start_array();
-        for item_4 in var_2 {
+    if let Some(var_1) = &input.messages {
+        let mut array_2 = object.key("messages").start_array();
+        for item_3 in var_1 {
             {
                 #[allow(unused_mut)]
-                let mut object_5 = array_3.value().start_object();
-                super::super::protocol_serde::shape_message::ser_message(&mut object_5, item_4)?;
-                object_5.finish();
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_message::ser_message(&mut object_4, item_3)?;
+                object_4.finish();
             }
         }
-        array_3.finish();
+        array_2.finish();
     }
-    if let Some(var_6) = &input.system {
-        let mut array_7 = object.key("system").start_array();
-        for item_8 in var_6 {
+    if let Some(var_5) = &input.system {
+        let mut array_6 = object.key("system").start_array();
+        for item_7 in var_5 {
             {
                 #[allow(unused_mut)]
-                let mut object_9 = array_7.value().start_object();
-                super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_9, item_8)?;
-                object_9.finish();
+                let mut object_8 = array_6.value().start_object();
+                super::super::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_8, item_7)?;
+                object_8.finish();
             }
         }
-        array_7.finish();
+        array_6.finish();
     }
-    if let Some(var_10) = &input.inference_config {
+    if let Some(var_9) = &input.inference_config {
         #[allow(unused_mut)]
-        let mut object_11 = object.key("inferenceConfig").start_object();
-        super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_11, var_10)?;
-        object_11.finish();
+        let mut object_10 = object.key("inferenceConfig").start_object();
+        super::super::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_10, var_9)?;
+        object_10.finish();
     }
-    if let Some(var_12) = &input.tool_config {
+    if let Some(var_11) = &input.tool_config {
         #[allow(unused_mut)]
-        let mut object_13 = object.key("toolConfig").start_object();
-        super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_13, var_12)?;
-        object_13.finish();
+        let mut object_12 = object.key("toolConfig").start_object();
+        super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_12, var_11)?;
+        object_12.finish();
     }
-    if let Some(var_14) = &input.guardrail_config {
+    if let Some(var_13) = &input.guardrail_config {
         #[allow(unused_mut)]
-        let mut object_15 = object.key("guardrailConfig").start_object();
-        super::super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_15, var_14)?;
-        object_15.finish();
+        let mut object_14 = object.key("guardrailConfig").start_object();
+        super::super::protocol_serde::shape_guardrail_stream_configuration::ser_guardrail_stream_configuration(&mut object_14, var_13)?;
+        object_14.finish();
     }
-    if let Some(var_16) = &input.additional_model_request_fields {}
-    if let Some(var_17) = &input.prompt_variables {
+    if let Some(var_15) = &input.additional_model_request_fields {}
+    if let Some(var_16) = &input.prompt_variables {
         #[allow(unused_mut)]
-        let mut object_18 = object.key("promptVariables").start_object();
-        for (key_19, value_20) in var_17 {
+        let mut object_17 = object.key("promptVariables").start_object();
+        for (key_18, value_19) in var_16 {
             {
                 #[allow(unused_mut)]
-                let mut object_21 = object_18.key(key_19.as_str()).start_object();
-                super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_21, value_20)?;
-                object_21.finish();
+                let mut object_20 = object_17.key(key_18.as_str()).start_object();
+                super::super::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_20, value_19)?;
+                object_20.finish();
             }
         }
-        object_18.finish();
+        object_17.finish();
     }
-    if let Some(var_22) = &input.additional_model_response_field_paths {
-        let mut array_23 = object.key("additionalModelResponseFieldPaths").start_array();
-        for item_24 in var_22 {
+    if let Some(var_21) = &input.additional_model_response_field_paths {
+        let mut array_22 = object.key("additionalModelResponseFieldPaths").start_array();
+        for item_23 in var_21 {
             {}
         }
-        array_23.finish();
+        array_22.finish();
     }
-    if let Some(var_25) = &input.request_metadata {
+    if let Some(var_24) = &input.request_metadata {
         #[allow(unused_mut)]
-        let mut object_26 = object.key("requestMetadata").start_object();
-        for (key_27, value_28) in var_25 {
+        let mut object_25 = object.key("requestMetadata").start_object();
+        for (key_26, value_27) in var_24 {
             {}
         }
-        object_26.finish();
+        object_25.finish();
     }
-    if let Some(var_29) = &input.performance_config {
+    if let Some(var_28) = &input.performance_config {
         #[allow(unused_mut)]
-        let mut object_30 = object.key("performanceConfig").start_object();
-        super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_30, var_29)?;
-        object_30.finish();
+        let mut object_29 = object.key("performanceConfig").start_object();
+        super::super::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_29, var_28)?;
+        object_29.finish();
     }
-    if let Some(var_31) = &input.service_tier {
+    if let Some(var_30) = &input.service_tier {
         #[allow(unused_mut)]
-        let mut object_32 = object.key("serviceTier").start_object();
-        super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_32, var_31)?;
-        object_32.finish();
+        let mut object_31 = object.key("serviceTier").start_object();
+        super::super::protocol_serde::shape_service_tier::ser_service_tier(&mut object_31, var_30)?;
+        object_31.finish();
     }
-    if let Some(var_33) = &input.output_config {
+    if let Some(var_32) = &input.output_config {
         #[allow(unused_mut)]
-        let mut object_34 = object.key("outputConfig").start_object();
-        super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_34, var_33)?;
-        object_34.finish();
+        let mut object_33 = object.key("outputConfig").start_object();
+        super::super::protocol_serde::shape_output_config::ser_output_config(&mut object_33, var_32)?;
+        object_33.finish();
     }
     Ok(())
 }

@@ -3,11 +3,8 @@ pub fn ser_put_dedicated_ip_in_pool_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.ip {
-        object.key("Ip").string(var_1.as_str());
-    }
-    if let Some(var_2) = &input.destination_pool_name {
-        object.key("DestinationPoolName").string(var_2.as_str());
+    if let Some(var_1) = &input.destination_pool_name {
+        object.key("DestinationPoolName").string(var_1.as_str());
     }
     Ok(())
 }

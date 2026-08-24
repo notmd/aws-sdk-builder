@@ -3,26 +3,23 @@ pub fn ser_checkpoint_durable_execution_input_input(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.durable_execution_arn {
-        object.key("DurableExecutionArn").string(var_1.as_str());
+    if let Some(var_1) = &input.checkpoint_token {
+        object.key("CheckpointToken").string(var_1.as_str());
     }
-    if let Some(var_2) = &input.checkpoint_token {
-        object.key("CheckpointToken").string(var_2.as_str());
-    }
-    if let Some(var_3) = &input.updates {
-        let mut array_4 = object.key("Updates").start_array();
-        for item_5 in var_3 {
+    if let Some(var_2) = &input.updates {
+        let mut array_3 = object.key("Updates").start_array();
+        for item_4 in var_2 {
             {
                 #[allow(unused_mut)]
-                let mut object_6 = array_4.value().start_object();
-                super::super::protocol_serde::shape_operation_update::ser_operation_update(&mut object_6, item_5)?;
-                object_6.finish();
+                let mut object_5 = array_3.value().start_object();
+                super::super::protocol_serde::shape_operation_update::ser_operation_update(&mut object_5, item_4)?;
+                object_5.finish();
             }
         }
-        array_4.finish();
+        array_3.finish();
     }
-    if let Some(var_7) = &input.client_token {
-        object.key("ClientToken").string(var_7.as_str());
+    if let Some(var_6) = &input.client_token {
+        object.key("ClientToken").string(var_6.as_str());
     }
     Ok(())
 }

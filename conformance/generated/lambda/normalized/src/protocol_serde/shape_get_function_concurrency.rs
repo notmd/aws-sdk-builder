@@ -112,16 +112,6 @@ pub fn de_get_function_concurrency_http_response(
     })
 }
 
-pub fn ser_get_function_concurrency_input(
-    input: &super::super::operation::get_function_concurrency::GetFunctionConcurrencyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-    let mut out = String::new();
-    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_function_concurrency_input::ser_get_function_concurrency_input_input(&mut object, input)?;
-    object.finish();
-    Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
 pub(crate) fn de_get_function_concurrency(
     _value: &[u8],
     mut builder: super::super::operation::get_function_concurrency::builders::GetFunctionConcurrencyOutputBuilder,

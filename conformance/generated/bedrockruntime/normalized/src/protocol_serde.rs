@@ -63,9 +63,9 @@ pub(crate) mod shape_converse_input;
 
 pub(crate) mod shape_converse_stream_input;
 
-pub(crate) mod shape_count_tokens_input;
+pub(crate) mod shape_converse_stream_output;
 
-pub(crate) mod shape_get_async_invoke_input;
+pub(crate) mod shape_count_tokens_input;
 
 pub(crate) mod shape_internal_server_exception;
 
@@ -73,11 +73,15 @@ pub(crate) mod shape_invoke_guardrail_checks_input;
 
 pub(crate) mod shape_invoke_model_input;
 
+pub(crate) mod shape_invoke_model_output;
+
 pub(crate) mod shape_invoke_model_with_bidirectional_stream_input;
+
+pub(crate) mod shape_invoke_model_with_bidirectional_stream_output;
 
 pub(crate) mod shape_invoke_model_with_response_stream_input;
 
-pub(crate) mod shape_list_async_invokes_input;
+pub(crate) mod shape_invoke_model_with_response_stream_output;
 
 pub(crate) mod shape_model_error_exception;
 
