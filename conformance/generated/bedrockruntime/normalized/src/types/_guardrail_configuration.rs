@@ -90,7 +90,11 @@ impl GuardrailConfigurationBuilder {
         super::super::types::GuardrailConfiguration {
             guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
             guardrail_version: self.guardrail_version.unwrap_or_default(),
-            trace: self.trace.unwrap_or_default(),
+            trace: self.trace.unwrap_or(
+                "disabled"
+                    .parse::<super::super::types::GuardrailTrace>()
+                    .expect("static value validated to member"),
+            ),
         }
     }
 }

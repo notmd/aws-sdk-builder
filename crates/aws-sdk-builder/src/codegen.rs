@@ -14134,6 +14134,26 @@ fn builder_member_is_required(
             && member_is_effectively_required(selected, member, target))
 }
 
+fn builder_member_default_expression(
+    selected: &SelectedModel,
+    member: &Value,
+    target: &str,
+    context: &Context,
+) -> Option<String> {
+    if protocol_shape_kind(selected, target) != "enum" {
+        return None;
+    }
+    let value = member
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#default"))
+        .and_then(Value::as_str)?;
+    let enum_type = type_expr(selected, target, context.clone());
+    Some(format!(
+        "{value:?}.parse::<{enum_type}>().expect(\"static value validated to member\")"
+    ))
+}
+
 fn builder_argument_type(selected: &SelectedModel, target: &str, value_type: &str) -> String {
     if is_string_type(target, selected.model.shapes.get(target)) {
         format!("impl ::std::convert::Into<{value_type}>")
@@ -14907,11 +14927,21 @@ fn render_type_builder(
         // `BuilderGenerator` applies a default only when the member symbol is
         // non-optional; operation-input symbols are optional by construction.
         if has_trait(member, "smithy.api#default") && !operation_input(&context) {
-            writeln!(
-                output,
-                "{inner}        {field}: self.{field}.unwrap_or_default(),"
-            )
-            .unwrap();
+            if let Some(default) =
+                builder_member_default_expression(selected, member, target, &context)
+            {
+                writeln!(
+                    output,
+                    "{inner}        {field}: self.{field}.unwrap_or({default}),"
+                )
+                .unwrap();
+            } else {
+                writeln!(
+                    output,
+                    "{inner}        {field}: self.{field}.unwrap_or_default(),"
+                )
+                .unwrap();
+            }
         } else if builder_member_is_required(selected, member, target, &context) {
             writeln!(
                 output,
@@ -16990,6 +17020,73 @@ mod tests {
             rendered.find("Example::First => \"a\"").unwrap()
                 < rendered.find("Example::Second => \"b\"").unwrap()
         );
+    }
+
+    #[test]
+    fn builders_render_modeled_enum_defaults_as_validated_values() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#Config"}
+                    },
+                    "example#Config": {
+                        "type": "structure",
+                        "members": {
+                            "latency": {
+                                "target": "example#Latency",
+                                "traits": {"smithy.api#default": "standard"}
+                            }
+                        }
+                    },
+                    "example#Latency": {
+                        "type": "enum",
+                        "members": {
+                            "STANDARD": {
+                                "target": "smithy.api#Unit",
+                                "traits": {"smithy.api#enumValue": "standard"}
+                            },
+                            "OPTIMIZED": {
+                                "target": "smithy.api#Unit",
+                                "traits": {"smithy.api#enumValue": "optimized"}
+                            }
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let mut rendered = String::new();
+        render_structure(
+            &mut rendered,
+            &selected,
+            selected
+                .model
+                .shapes
+                .get("example.synthetic#GetOutput")
+                .unwrap(),
+            "Config",
+            Context::Types {},
+        );
+
+        assert!(rendered.contains(
+            "latency: self.latency.unwrap_or(\"standard\".parse::<crate::types::Latency>().expect(\"static value validated to member\"))"
+        ));
     }
 
     #[test]

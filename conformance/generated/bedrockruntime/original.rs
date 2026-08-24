@@ -19560,7 +19560,7 @@ impl DocumentBlockBuilder {
     /// - [`name`](crate::types::builders::DocumentBlockBuilder::name)
     pub fn build(self) -> ::std::result::Result<super::super::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::DocumentBlock {
-            format: self.format.unwrap_or_default(),
+            format: self.format.unwrap_or("txt".parse::<super::super::types::DocumentFormat>().expect("static value validated to member")),
             name: self.name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building DocumentBlock"))?,
             source: self.source,
             context: self.context,
@@ -23865,7 +23865,7 @@ impl GuardrailConfigurationBuilder {
         super::super::types::GuardrailConfiguration {
             guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
             guardrail_version: self.guardrail_version.unwrap_or_default(),
-            trace: self.trace.unwrap_or_default(),
+            trace: self.trace.unwrap_or("disabled".parse::<super::super::types::GuardrailTrace>().expect("static value validated to member")),
         }
     }
 }
@@ -27689,8 +27689,8 @@ impl GuardrailStreamConfigurationBuilder {
         super::super::types::GuardrailStreamConfiguration {
             guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
             guardrail_version: self.guardrail_version.unwrap_or_default(),
-            trace: self.trace.unwrap_or_default(),
-            stream_processing_mode: self.stream_processing_mode.unwrap_or_default(),
+            trace: self.trace.unwrap_or("disabled".parse::<super::super::types::GuardrailTrace>().expect("static value validated to member")),
+            stream_processing_mode: self.stream_processing_mode.unwrap_or("sync".parse::<super::super::types::GuardrailStreamProcessingMode>().expect("static value validated to member")),
         }
     }
 }
@@ -30512,7 +30512,7 @@ impl PerformanceConfigurationBuilder {
     /// Consumes the builder and constructs a [`PerformanceConfiguration`](crate::types::PerformanceConfiguration).
     pub fn build(self) -> super::super::types::PerformanceConfiguration {
         super::super::types::PerformanceConfiguration {
-            latency: self.latency.unwrap_or_default(),
+            latency: self.latency.unwrap_or("standard".parse::<super::super::types::PerformanceConfigLatency>().expect("static value validated to member")),
         }
     }
 }

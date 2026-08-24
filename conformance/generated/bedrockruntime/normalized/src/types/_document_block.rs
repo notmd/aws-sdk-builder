@@ -203,7 +203,9 @@ impl DocumentBlockBuilder {
     /// - [`name`](crate::types::builders::DocumentBlockBuilder::name)
     pub fn build(self) -> ::std::result::Result<super::super::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::DocumentBlock {
-            format: self.format.unwrap_or_default(),
+            format: self
+                .format
+                .unwrap_or("txt".parse::<super::super::types::DocumentFormat>().expect("static value validated to member")),
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "name",

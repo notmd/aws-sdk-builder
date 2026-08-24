@@ -44,7 +44,11 @@ impl PerformanceConfigurationBuilder {
     /// Consumes the builder and constructs a [`PerformanceConfiguration`](crate::types::PerformanceConfiguration).
     pub fn build(self) -> super::super::types::PerformanceConfiguration {
         super::super::types::PerformanceConfiguration {
-            latency: self.latency.unwrap_or_default(),
+            latency: self.latency.unwrap_or(
+                "standard"
+                    .parse::<super::super::types::PerformanceConfigLatency>()
+                    .expect("static value validated to member"),
+            ),
         }
     }
 }

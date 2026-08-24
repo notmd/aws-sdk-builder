@@ -4,6 +4,26 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Render modeled enum defaults as validated values
+- State: in progress
+- Changed: structure builders now render non-optional members targeting modeled enum
+  shapes with an explicit parsed wire-value default and Smithy-RS's
+  `static value validated to member` assertion. Primitive defaults and operation-input
+  optionality retain their existing model-driven behavior. The rule follows the pinned
+  Smithy-RS `BuilderGenerator` and `DefaultValueGenerator` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`, with a focused regression test.
+- Evidence: focused regression, `just conformance` regeneration and formatting,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance generated and
+  formatted all `13,166` snapshot files without generated-source parse errors.
+- Conformance: `12,878/13,168` exact, `287` mismatches, `2` missing, and `1` extra
+  (`97.62%`) -> `12,882/13,168` exact, `283` mismatches, `2` missing, and `1` extra
+  (`97.67%`). Bedrock Runtime improved from `501/35` to `505/31` mismatches.
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic parity mismatch after
+  committing this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Order modeled enums by wire values
 - State: in progress
 - Changed: enum rendering now orders documentation examples, variants, parsers,

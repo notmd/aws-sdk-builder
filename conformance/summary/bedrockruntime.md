@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `501` matched · `35` mismatches · `0` missing · `0` extra · `93.47%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `505` matched · `31` mismatches · `0` missing · `0` extra · `94.22%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -2020,24 +2020,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let ContentBlockDelta::ToolResult(val) = &self {
 ```
 
-### `src/types/_document_block.rs`
-
-```diff
---- reference/src/types/_document_block.rs
-+++ generated/src/types/_document_block.rs
-@@ -203,9 +203,7 @@
-     /// - [`name`](crate::types::builders::DocumentBlockBuilder::name)
-     pub fn build(self) -> ::std::result::Result<super::super::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::types::DocumentBlock {
--            format: self
--                .format
--                .unwrap_or("txt".parse::<super::super::types::DocumentFormat>().expect("static value validated to member")),
-+            format: self.format.unwrap_or_default(),
-             name: self.name.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-                     "name",
-```
-
 ### `src/types/_document_source.rs`
 
 ```diff
@@ -2052,26 +2034,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// Returns `Err(&Self)` if it can't be converted.
      pub fn as_content(&self) -> ::std::result::Result<&::std::vec::Vec<super::super::types::DocumentContentBlock>, &Self> {
          if let DocumentSource::Content(val) = &self {
-```
-
-### `src/types/_guardrail_configuration.rs`
-
-```diff
---- reference/src/types/_guardrail_configuration.rs
-+++ generated/src/types/_guardrail_configuration.rs
-@@ -90,11 +90,7 @@
-         super::super::types::GuardrailConfiguration {
-             guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
-             guardrail_version: self.guardrail_version.unwrap_or_default(),
--            trace: self.trace.unwrap_or(
--                "disabled"
--                    .parse::<super::super::types::GuardrailTrace>()
--                    .expect("static value validated to member"),
--            ),
-+            trace: self.trace.unwrap_or_default(),
-         }
-     }
- }
 ```
 
 ### `src/types/_guardrail_converse_content_block.rs`
@@ -2154,32 +2116,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_guardrail_stream_configuration.rs`
-
-```diff
---- reference/src/types/_guardrail_stream_configuration.rs
-+++ generated/src/types/_guardrail_stream_configuration.rs
-@@ -116,16 +116,8 @@
-         super::super::types::GuardrailStreamConfiguration {
-             guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
-             guardrail_version: self.guardrail_version.unwrap_or_default(),
--            trace: self.trace.unwrap_or(
--                "disabled"
--                    .parse::<super::super::types::GuardrailTrace>()
--                    .expect("static value validated to member"),
--            ),
--            stream_processing_mode: self.stream_processing_mode.unwrap_or(
--                "sync"
--                    .parse::<super::super::types::GuardrailStreamProcessingMode>()
--                    .expect("static value validated to member"),
--            ),
-+            trace: self.trace.unwrap_or_default(),
-+            stream_processing_mode: self.stream_processing_mode.unwrap_or_default(),
-         }
-     }
- }
-```
-
 ### `src/types/_output_format.rs`
 
 ```diff
@@ -2203,26 +2139,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          formatter.field("structure", &"*** Sensitive Data Redacted ***");
          formatter.finish()
      }
-```
-
-### `src/types/_performance_configuration.rs`
-
-```diff
---- reference/src/types/_performance_configuration.rs
-+++ generated/src/types/_performance_configuration.rs
-@@ -44,11 +44,7 @@
-     /// Consumes the builder and constructs a [`PerformanceConfiguration`](crate::types::PerformanceConfiguration).
-     pub fn build(self) -> super::super::types::PerformanceConfiguration {
-         super::super::types::PerformanceConfiguration {
--            latency: self.latency.unwrap_or(
--                "standard"
--                    .parse::<super::super::types::PerformanceConfigLatency>()
--                    .expect("static value validated to member"),
--            ),
-+            latency: self.latency.unwrap_or_default(),
-         }
-     }
- }
 ```
 
 ### `src/types/builders.rs`

@@ -116,8 +116,16 @@ impl GuardrailStreamConfigurationBuilder {
         super::super::types::GuardrailStreamConfiguration {
             guardrail_identifier: self.guardrail_identifier.unwrap_or_default(),
             guardrail_version: self.guardrail_version.unwrap_or_default(),
-            trace: self.trace.unwrap_or_default(),
-            stream_processing_mode: self.stream_processing_mode.unwrap_or_default(),
+            trace: self.trace.unwrap_or(
+                "disabled"
+                    .parse::<super::super::types::GuardrailTrace>()
+                    .expect("static value validated to member"),
+            ),
+            stream_processing_mode: self.stream_processing_mode.unwrap_or(
+                "sync"
+                    .parse::<super::super::types::GuardrailStreamProcessingMode>()
+                    .expect("static value validated to member"),
+            ),
         }
     }
 }
