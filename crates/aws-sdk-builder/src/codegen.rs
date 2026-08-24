@@ -1626,12 +1626,15 @@ fn render_event_stream_primitives(has_streaming: bool) -> String {
 }
 
 fn model_has_streaming(selected: &SelectedModel) -> bool {
-    selected.model.shapes.values().any(|shape| {
-        shape
+    selected.model.shapes.values().any(is_streaming_blob)
+}
+
+fn is_streaming_blob(shape: &Value) -> bool {
+    shape.get("type").and_then(Value::as_str) == Some("blob")
+        && shape
             .get("traits")
             .and_then(Value::as_object)
             .is_some_and(|traits| traits.contains_key("smithy.api#streaming"))
-    })
 }
 
 fn model_has_event_stream(selected: &SelectedModel) -> bool {
@@ -16456,6 +16459,21 @@ mod tests {
             primitive_type_for_namespace("Document"),
             "::aws_smithy_types::Document"
         );
+    }
+
+    #[test]
+    fn event_stream_unions_do_not_enable_byte_stream_primitives() {
+        let event_stream_union = serde_json::json!({
+            "type": "union",
+            "traits": {"smithy.api#streaming": {}}
+        });
+        let streaming_blob = serde_json::json!({
+            "type": "blob",
+            "traits": {"smithy.api#streaming": {}}
+        });
+
+        assert!(!is_streaming_blob(&event_stream_union));
+        assert!(is_streaming_blob(&streaming_blob));
     }
 
     #[test]

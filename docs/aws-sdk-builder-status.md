@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Distinguish streaming blobs from event streams
+- State: in progress
+- Changed: the shared primitive-export predicate now enables `SdkBody` and byte-stream
+  re-exports only when a reachable shape is a streaming Smithy blob. Streaming unions
+  used for event streams no longer incorrectly enable those raw-body primitives. A
+  focused regression covers both shape kinds, following Smithy-RS's streaming blob
+  symbol behavior at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: focused regression, `just conformance` generation and parsing,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. `just conformance` exits
+  1 only because broader parity gaps remain.
+- Conformance: `12,719/13,168` exact, `444` mismatches, `4` missing, `1` extra ->
+  `12,721/13,168` exact, `442` mismatches, `4` missing, `1` extra (`96.12%` average).
+  Bedrock Runtime improved from `420/116` to `421/115`; CloudWatch Logs improved
+  from `1,249/36` to `1,250/35`.
+- Blocker: broader protocol, shape, and installation parity gaps remain; no blocker in
+  this checkpoint.
+- Next action: fix the model-driven request-ID extension predicate and continue the
+  remaining generic Bedrock Runtime protocol/shape mismatches.
+
 ### Checkpoint: 2026-08-25 — Match event-stream input direction
 - State: in progress
 - Changed: the shared model-driven type planner now distinguishes client input event
