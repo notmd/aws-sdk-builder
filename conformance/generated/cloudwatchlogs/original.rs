@@ -60289,7 +60289,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetLogO
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetLogObject")
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetLogObjectTelemetryInputCaptureInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetLogObjectEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_log_object::GetLogObjectError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_log_object::GetLogObjectError>::new())
@@ -60345,23 +60344,35 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetLogObjectT
 #[derive(Debug)]
 struct GetLogObjectResponseDeserializer;
 impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetLogObjectResponseDeserializer {
+    fn deserialize_streaming(
+        &self,
+        response: &mut ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
+        #[allow(unused_mut)]
+        let mut force_error = false;
+        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+
+        // If this is an error, defer to the non-streaming parser
+        if (!response.status().is_success() && response.status().as_u16() != 200) || force_error {
+            return ::std::option::Option::None;
+        }
+        ::std::option::Option::Some(super::super::protocol_serde::type_erase_result(
+            super::super::protocol_serde::shape_get_log_object::de_get_log_object_http_response(response),
+        ))
+    }
+
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         _cfg: &::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
-        let (success, status) = (response.status().is_success(), response.status().as_u16());
-        let headers = response.headers();
+        // For streaming operations, we only hit this case if its an error
         let body = response.body().bytes().expect("body loaded");
-        #[allow(unused_mut)]
-        let mut force_error = false;
-        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-        let parse_result = if !success && status != 200 || force_error {
-            super::super::protocol_serde::shape_get_log_object::de_get_log_object_http_error(status, headers, body)
-        } else {
-            super::super::protocol_serde::shape_get_log_object::de_get_log_object_http_response(status, headers, body)
-        };
-        super::super::protocol_serde::type_erase_result(parse_result)
+        super::super::protocol_serde::type_erase_result(super::super::protocol_serde::shape_get_log_object::de_get_log_object_http_error(
+            response.status().as_u16(),
+            response.headers(),
+            body,
+        ))
     }
 }
 #[derive(Debug)]
@@ -93976,7 +93987,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for StartLi
         #[allow(unused_mut)]
                     let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("StartLiveTail")
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(StartLiveTailTelemetryInputCaptureInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(StartLiveTailEndpointParamsInterceptor))
                             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::start_live_tail::StartLiveTailError>::new())
 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::start_live_tail::StartLiveTailError>::new())
@@ -94032,23 +94042,35 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for StartLiveTail
 #[derive(Debug)]
 struct StartLiveTailResponseDeserializer;
 impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for StartLiveTailResponseDeserializer {
+    fn deserialize_streaming(
+        &self,
+        response: &mut ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
+        #[allow(unused_mut)]
+        let mut force_error = false;
+        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+
+        // If this is an error, defer to the non-streaming parser
+        if (!response.status().is_success() && response.status().as_u16() != 200) || force_error {
+            return ::std::option::Option::None;
+        }
+        ::std::option::Option::Some(super::super::protocol_serde::type_erase_result(
+            super::super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_response(response),
+        ))
+    }
+
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         _cfg: &::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
-        let (success, status) = (response.status().is_success(), response.status().as_u16());
-        let headers = response.headers();
+        // For streaming operations, we only hit this case if its an error
         let body = response.body().bytes().expect("body loaded");
-        #[allow(unused_mut)]
-        let mut force_error = false;
-        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-        let parse_result = if !success && status != 200 || force_error {
-            super::super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_error(status, headers, body)
-        } else {
-            super::super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_response(status, headers, body)
-        };
-        super::super::protocol_serde::type_erase_result(parse_result)
+        super::super::protocol_serde::type_erase_result(super::super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_error(
+            response.status().as_u16(),
+            response.headers(),
+            body,
+        ))
     }
 }
 #[derive(Debug)]
@@ -135184,6 +135206,26 @@ pub(crate) fn de_get_log_group_fields(
 pub(crate) mod shape_get_log_object {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 #[allow(clippy::unnecessary_wraps)]
+pub fn de_get_log_object_http_response(
+    response: &mut ::aws_smithy_runtime_api::http::Response,
+) -> std::result::Result<super::super::operation::get_log_object::GetLogObjectOutput, super::super::operation::get_log_object::GetLogObjectError> {
+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+    std::mem::swap(&mut _response_body, response.body_mut());
+    let _response_body = &mut _response_body;
+
+    let _response_status = response.status().as_u16();
+    let _response_headers = response.headers();
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder::default();
+        output = output.set_field_stream(Some(super::super::protocol_serde::shape_get_log_object_output::de_field_stream_payload(_response_body)?));
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output
+            .build()
+            .map_err(super::super::operation::get_log_object::GetLogObjectError::unhandled)?
+    })
+}
+#[allow(clippy::unnecessary_wraps)]
 pub fn de_get_log_object_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
@@ -135289,21 +135331,6 @@ pub fn de_get_log_object_http_error(
     })
 }
 
-#[allow(clippy::unnecessary_wraps)]
-pub fn de_get_log_object_http_response(
-    _response_status: u16,
-    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-    _response_body: &[u8],
-) -> std::result::Result<super::super::operation::get_log_object::GetLogObjectOutput, super::super::operation::get_log_object::GetLogObjectError> {
-    Ok({
-        #[allow(unused_mut)]
-        let mut output = super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder::default();
-        output = super::super::protocol_serde::shape_get_log_object::de_get_log_object(_response_body, output)
-            .map_err(super::super::operation::get_log_object::GetLogObjectError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        output.build()
-    })
-}
 
 pub fn ser_get_log_object_input(
     input: &super::super::operation::get_log_object::GetLogObjectInput,
@@ -135313,40 +135340,6 @@ pub fn ser_get_log_object_input(
     super::super::protocol_serde::shape_get_log_object_input::ser_get_log_object_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_get_log_object(
-    _value: &[u8],
-    mut builder: super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder,
-) -> ::std::result::Result<super::super::operation::get_log_object::builders::GetLogObjectOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "fieldStream" => {
-                    builder = builder.set_field_stream(super::super::protocol_serde::shape_get_log_object_response_stream::de_get_log_object_response_stream(tokens, _value, depth + 1)?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -140930,6 +140923,26 @@ pub fn ser_put_transformer_input(
 pub(crate) mod shape_start_live_tail {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 #[allow(clippy::unnecessary_wraps)]
+pub fn de_start_live_tail_http_response(
+    response: &mut ::aws_smithy_runtime_api::http::Response,
+) -> std::result::Result<super::super::operation::start_live_tail::StartLiveTailOutput, super::super::operation::start_live_tail::StartLiveTailError> {
+    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
+    std::mem::swap(&mut _response_body, response.body_mut());
+    let _response_body = &mut _response_body;
+
+    let _response_status = response.status().as_u16();
+    let _response_headers = response.headers();
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default();
+        output = output.set_response_stream(Some(super::super::protocol_serde::shape_start_live_tail_output::de_response_stream_payload(_response_body)?));
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output
+            .build()
+            .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?
+    })
+}
+#[allow(clippy::unnecessary_wraps)]
 pub fn de_start_live_tail_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
@@ -141049,21 +141062,6 @@ pub fn de_start_live_tail_http_error(
     })
 }
 
-#[allow(clippy::unnecessary_wraps)]
-pub fn de_start_live_tail_http_response(
-    _response_status: u16,
-    _response_headers: &::aws_smithy_runtime_api::http::Headers,
-    _response_body: &[u8],
-) -> std::result::Result<super::super::operation::start_live_tail::StartLiveTailOutput, super::super::operation::start_live_tail::StartLiveTailError> {
-    Ok({
-        #[allow(unused_mut)]
-        let mut output = super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default();
-        output = super::super::protocol_serde::shape_start_live_tail::de_start_live_tail(_response_body, output)
-            .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        output.build()
-    })
-}
 
 pub fn ser_start_live_tail_input(
     input: &super::super::operation::start_live_tail::StartLiveTailInput,
@@ -141073,40 +141071,6 @@ pub fn ser_start_live_tail_input(
     super::super::protocol_serde::shape_start_live_tail_input::ser_start_live_tail_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
-}
-
-
-pub(crate) fn de_start_live_tail(
-    _value: &[u8],
-    mut builder: super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder,
-) -> ::std::result::Result<super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-    let tokens = &mut tokens_owned;
-    #[allow(unused_variables)]
-    let depth = 0u32;
-    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
-    loop {
-        match tokens.next().transpose()? {
-            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "responseStream" => {
-                    builder = builder.set_response_stream(super::super::protocol_serde::shape_start_live_tail_response_stream::de_start_live_tail_response_stream(tokens, _value, depth + 1)?);
-                },
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
-            other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
-            }
-        }
-    }
-    if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
-    }
-    Ok(builder)
 }
 }
 
@@ -144354,6 +144318,18 @@ if let Some(var_2) = &input.log_object_pointer {
 }
 }
 
+pub(crate) mod shape_get_log_object_output {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_field_stream_payload(
+    body: &mut ::aws_smithy_types::body::SdkBody,
+) -> std::result::Result<super::super::event_receiver::EventReceiver<super::super::types::GetLogObjectResponseStream, super::super::types::error::GetLogObjectResponseStreamError>, super::super::operation::get_log_object::GetLogObjectError> {
+    let unmarshaller = super::super::event_stream_serde::GetLogObjectResponseStreamUnmarshaller::new();
+    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
+    let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
+    Ok(receiver)
+}
+}
+
 pub(crate) mod shape_get_log_record_input {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 pub fn ser_get_log_record_input_input(
@@ -145902,6 +145878,18 @@ if let Some(var_10) = &input.log_event_filter_pattern {
     object.key("logEventFilterPattern").string(var_10.as_str());
 }
     Ok(())
+}
+}
+
+pub(crate) mod shape_start_live_tail_output {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_response_stream_payload(
+    body: &mut ::aws_smithy_types::body::SdkBody,
+) -> std::result::Result<super::super::event_receiver::EventReceiver<super::super::types::StartLiveTailResponseStream, super::super::types::error::StartLiveTailResponseStreamError>, super::super::operation::start_live_tail::StartLiveTailError> {
+    let unmarshaller = super::super::event_stream_serde::StartLiveTailResponseStreamUnmarshaller::new();
+    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
+    let receiver = super::super::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
+    Ok(receiver)
 }
 }
 
@@ -147589,6 +147577,22 @@ where
 
 pub(crate) mod shape_fields_data {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub(crate) fn de_fields_data_payload(
+    _value: &[u8],
+) -> ::std::result::Result<super::super::types::FieldsData, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+    let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    let result = super::super::protocol_serde::shape_fields_data::de_fields_data(tokens, _value, depth + 1)?
+        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
+    if tokens.next().is_some() {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
+    }
+    result
+}
 pub(crate) fn de_fields_data<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
@@ -148136,6 +148140,22 @@ where
 
 pub(crate) mod shape_live_tail_session_start {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub(crate) fn de_live_tail_session_start_payload(
+    _value: &[u8],
+) -> ::std::result::Result<super::super::types::LiveTailSessionStart, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+    let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    let result = super::super::protocol_serde::shape_live_tail_session_start::de_live_tail_session_start(tokens, _value, depth + 1)?
+        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
+    if tokens.next().is_some() {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
+    }
+    result
+}
 pub(crate) fn de_live_tail_session_start<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
@@ -148202,6 +148222,22 @@ where
 
 pub(crate) mod shape_live_tail_session_update {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub(crate) fn de_live_tail_session_update_payload(
+    _value: &[u8],
+) -> ::std::result::Result<super::super::types::LiveTailSessionUpdate, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
+    let tokens = &mut tokens_owned;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    let result = super::super::protocol_serde::shape_live_tail_session_update::de_live_tail_session_update(tokens, _value, depth + 1)?
+        .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("expected payload member value"));
+    if tokens.next().is_some() {
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
+    }
+    result
+}
 pub(crate) fn de_live_tail_session_update<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
@@ -159173,6 +159209,174 @@ pub(crate) fn lens_list_sources_for_s3_table_integration_output_output_sources(
 
 mod event_stream_serde {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[non_exhaustive]
+#[derive(Debug)]
+pub struct GetLogObjectResponseStreamUnmarshaller;
+
+impl GetLogObjectResponseStreamUnmarshaller {
+    pub fn new() -> Self {
+        GetLogObjectResponseStreamUnmarshaller
+    }
+}
+impl ::aws_smithy_eventstream::frame::UnmarshallMessage for GetLogObjectResponseStreamUnmarshaller {
+    type Output = super::types::GetLogObjectResponseStream;
+    type Error = super::types::error::GetLogObjectResponseStreamError;
+    fn unmarshall(
+        &self,
+        message: &::aws_smithy_types::event_stream::Message,
+    ) -> std::result::Result<::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>, ::aws_smithy_eventstream::error::Error>
+    {
+        let response_headers = ::aws_smithy_eventstream::smithy::parse_response_headers(message)?;
+        match response_headers.message_type.as_str() {
+            "event" => match response_headers.smithy_type.as_str() {
+                "fields" => {
+                    let parsed =
+                        super::protocol_serde::shape_fields_data::de_fields_data_payload(&message.payload()[..])
+                            .map_err(|err| {
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall Fields: {err}"))
+                            })?
+                        ;
+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                        super::types::GetLogObjectResponseStream::Fields(parsed),
+                    ))
+                }
+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                    super::types::GetLogObjectResponseStream::Unknown,
+                )),
+            },
+            "exception" => {
+                let generic = match super::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
+                    Ok(builder) => builder.build(),
+                    Err(err) => {
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::GetLogObjectResponseStreamError::unhandled(err),
+                        ))
+                    }
+                };
+                    if response_headers.smithy_type.as_str() == "InternalStreamingException" {
+                        let mut builder = super::types::error::builders::InternalStreamingExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_internal_streaming_exception::de_internal_streaming_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InternalStreamingException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::GetLogObjectResponseStreamError::InternalStreamingException(builder.build()),
+                        ));
+                    }
+                Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                    super::types::error::GetLogObjectResponseStreamError::generic(generic),
+                ))
+            }
+            value => {
+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                    "unrecognized :message-type: {value}"
+                )));
+            }
+        }
+    }
+}
+#[non_exhaustive]
+#[derive(Debug)]
+pub struct StartLiveTailResponseStreamUnmarshaller;
+
+impl StartLiveTailResponseStreamUnmarshaller {
+    pub fn new() -> Self {
+        StartLiveTailResponseStreamUnmarshaller
+    }
+}
+impl ::aws_smithy_eventstream::frame::UnmarshallMessage for StartLiveTailResponseStreamUnmarshaller {
+    type Output = super::types::StartLiveTailResponseStream;
+    type Error = super::types::error::StartLiveTailResponseStreamError;
+    fn unmarshall(
+        &self,
+        message: &::aws_smithy_types::event_stream::Message,
+    ) -> std::result::Result<::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>, ::aws_smithy_eventstream::error::Error>
+    {
+        let response_headers = ::aws_smithy_eventstream::smithy::parse_response_headers(message)?;
+        match response_headers.message_type.as_str() {
+            "event" => match response_headers.smithy_type.as_str() {
+                "sessionStart" => {
+                    let parsed =
+                        super::protocol_serde::shape_live_tail_session_start::de_live_tail_session_start_payload(&message.payload()[..])
+                            .map_err(|err| {
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionStart: {err}"))
+                            })?
+                        ;
+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                        super::types::StartLiveTailResponseStream::SessionStart(parsed),
+                    ))
+                }
+                "sessionUpdate" => {
+                    let parsed =
+                        super::protocol_serde::shape_live_tail_session_update::de_live_tail_session_update_payload(&message.payload()[..])
+                            .map_err(|err| {
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionUpdate: {err}"))
+                            })?
+                        ;
+                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                        super::types::StartLiveTailResponseStream::SessionUpdate(parsed),
+                    ))
+                }
+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                    super::types::StartLiveTailResponseStream::Unknown,
+                )),
+            },
+            "exception" => {
+                let generic = match super::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
+                    Ok(builder) => builder.build(),
+                    Err(err) => {
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::StartLiveTailResponseStreamError::unhandled(err),
+                        ))
+                    }
+                };
+                match response_headers.smithy_type.as_str() {
+                    "SessionTimeoutException" => {
+                        let mut builder = super::types::error::builders::SessionTimeoutExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_session_timeout_exception::de_session_timeout_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionTimeoutException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::StartLiveTailResponseStreamError::SessionTimeoutException(builder.build()),
+                        ));
+                    }
+                    "SessionStreamingException" => {
+                        let mut builder = super::types::error::builders::SessionStreamingExceptionBuilder::default();
+                        builder = super::protocol_serde::shape_session_streaming_exception::de_session_streaming_exception_json_err(
+                            &message.payload()[..],
+                            builder,
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionStreamingException: {err}"))
+                        })?;
+                        builder.set_meta(Some(generic));
+                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                            super::types::error::StartLiveTailResponseStreamError::SessionStreamingException(builder.build()),
+                        ));
+                    }
+                    _ => {}
+                }
+                Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
+                    super::types::error::StartLiveTailResponseStreamError::generic(generic),
+                ))
+            }
+            value => {
+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                    "unrecognized :message-type: {value}"
+                )));
+            }
+        }
+    }
+}
 }
 
 mod json_errors {

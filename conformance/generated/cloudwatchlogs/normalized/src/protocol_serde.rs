@@ -405,6 +405,8 @@ pub(crate) mod shape_get_log_group_fields_input;
 
 pub(crate) mod shape_get_log_object_input;
 
+pub(crate) mod shape_get_log_object_output;
+
 pub(crate) mod shape_get_log_record_input;
 
 pub(crate) mod shape_get_lookup_table_input;
@@ -508,6 +510,8 @@ pub(crate) mod shape_session_streaming_exception;
 pub(crate) mod shape_session_timeout_exception;
 
 pub(crate) mod shape_start_live_tail_input;
+
+pub(crate) mod shape_start_live_tail_output;
 
 pub(crate) mod shape_start_query_input;
 

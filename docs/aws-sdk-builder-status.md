@@ -4,6 +4,31 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Detect event streams from target union shapes
+- State: in progress
+- Changed: event-stream discovery now follows Smithy-RS `MemberShape.isEventStream` and
+  recognizes a member whose target is a streaming union even when the member has no
+  `smithy.api#httpPayload` trait. The shared rule feeds event-stream serde generation,
+  request/response streaming classification, JSON payload helpers, and lazy protocol
+  module ordering. A focused regression covers an output event stream without
+  `httpPayload`; single modeled event-stream errors also now use Smithy-RS's single
+  `if` dispatch form without a nested condition. The implementation follows the pinned
+  Smithy-RS `Smithy.kt` event-stream helpers at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: the focused event-stream suite, `just conformance`, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass. Conformance generation and rustfmt completed all `13,166`
+  generated Rust files without generated-source parse errors; `just conformance` exits
+  1 only because broader parity gaps remain.
+- Conformance: `12,847/13,168` exact, `316` mismatches, `4` missing, and `1` extra
+  (`97.34%`) -> `12,855/13,168` exact, `310` mismatches, `2` missing, and `1` extra
+  (`97.38%`). CloudWatch Logs improved from `1,260/25` to `1,268/19` and both
+  previously missing event-stream projection files are now generated.
+- Blocker: broader protocol, streaming, shape, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the remaining generic event-stream operation/runtime
+  parity gaps, then the next largest protocol or shape mismatch.
+
 ### Checkpoint: 2026-08-25 — Omit modeled JSON primitive defaults
 - State: in progress
 - Changed: shared JSON structure serializers now omit non-required primitive members when

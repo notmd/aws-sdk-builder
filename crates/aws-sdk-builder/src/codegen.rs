@@ -1757,11 +1757,6 @@ fn render_event_stream_serde_file(selected: &SelectedModel) -> String {
         match error_members.as_slice() {
             [] => {}
             [(member_name, target)] => {
-                writeln!(
-                    output,
-                    "                if response_headers.smithy_type.as_str() == {member_name:?} {{"
-                )
-                .unwrap();
                 render_event_stream_error_member(
                     &mut output,
                     selected,
@@ -1770,7 +1765,6 @@ fn render_event_stream_serde_file(selected: &SelectedModel) -> String {
                     target,
                     false,
                 );
-                output.push_str("                }\n");
             }
             _ => {
                 output.push_str("                match response_headers.smithy_type.as_str() {\n");
@@ -1802,11 +1796,7 @@ fn event_stream_input_union_ids(selected: &SelectedModel) -> BTreeSet<String> {
         .filter_map(|operation| operation.get("input").and_then(target_value))
         .filter_map(|input_id| selected.model.shapes.get(input_id))
         .flat_map(members)
-        .filter_map(|(_, member)| {
-            has_trait(member, "smithy.api#httpPayload")
-                .then(|| member_target(member).map(ToOwned::to_owned))
-                .flatten()
-        })
+        .filter_map(|(_, member)| member_target(member).map(ToOwned::to_owned))
         .filter(|target| is_event_stream_target(selected, target))
         .collect()
 }
@@ -1819,11 +1809,7 @@ fn event_stream_output_union_ids(selected: &SelectedModel) -> BTreeSet<String> {
         .filter_map(|operation| operation.get("output").and_then(target_value))
         .filter_map(|output_id| selected.model.shapes.get(output_id))
         .flat_map(members)
-        .filter_map(|(_, member)| {
-            has_trait(member, "smithy.api#httpPayload")
-                .then(|| member_target(member).map(ToOwned::to_owned))
-                .flatten()
-        })
+        .filter_map(|(_, member)| member_target(member).map(ToOwned::to_owned))
         .filter(|target| is_event_stream_target(selected, target))
         .collect()
 }
@@ -4664,7 +4650,7 @@ fn operation_requires_aws_chunked(
     }
     input_shape.is_some_and(|shape| {
         members(shape).into_iter().any(|(_, member)| {
-            has_trait(member, "smithy.api#httpPayload")
+            is_http_payload_or_event_stream_member(selected, member)
                 && member_target(member).is_some_and(|target| {
                     is_streaming_target(target)
                         || selected
@@ -4696,15 +4682,28 @@ fn operation_has_input_event_stream(selected: &SelectedModel, operation: &Value)
 }
 
 fn shape_has_event_stream(selected: &SelectedModel, shape: &Value) -> bool {
-    members(shape).into_iter().any(|(_, member)| {
-        has_trait(member, "smithy.api#httpPayload")
-            && member_target(member).is_some_and(|target| {
-                selected.model.shapes.get(target).is_some_and(|shape| {
-                    shape_is_streaming(shape)
-                        && shape.get("type").and_then(Value::as_str) != Some("blob")
-                })
-            })
-    })
+    members(shape)
+        .into_iter()
+        .any(|(_, member)| is_event_stream_member(selected, member))
+}
+
+fn is_event_stream_member(selected: &SelectedModel, member: &Value) -> bool {
+    member_target(member).is_some_and(|target| is_event_stream_target(selected, target))
+}
+
+fn is_http_payload_or_event_stream_member(selected: &SelectedModel, member: &Value) -> bool {
+    has_trait(member, "smithy.api#httpPayload") || is_event_stream_member(selected, member)
+}
+
+fn is_streaming_payload_member(selected: &SelectedModel, member: &Value) -> bool {
+    is_http_payload_or_event_stream_member(selected, member)
+        && member_target(member).is_some_and(|target| {
+            selected
+                .model
+                .shapes
+                .get(target)
+                .is_some_and(shape_is_streaming)
+        })
 }
 
 fn operation_uses_stalled_stream_protection(selected: &SelectedModel, operation: &Value) -> bool {
@@ -4931,10 +4930,10 @@ fn standalone_request_body(
             None,
         );
     };
-    if let Some((name, member)) = members(input_shape).into_iter().find(|(_, member)| {
-        has_trait(member, "smithy.api#httpPayload")
-            && member_target(member).is_some_and(|target| is_event_stream_target(selected, target))
-    }) {
+    if let Some((name, member)) = members(input_shape)
+        .into_iter()
+        .find(|(_, member)| is_event_stream_member(selected, member))
+    {
         let field = names::rust_identifier(&name);
         let union_name = rust_type_name(terminal(member_target(member).unwrap_or_default()));
         let error_marshaller = format!("{union_name}ErrorMarshaller");
@@ -5449,16 +5448,9 @@ fn render_standalone_response_deserializer(
         .and_then(target_value)
         .and_then(|id| selected.model.shapes.get(id))
         .is_some_and(|shape| {
-            members(shape).into_iter().any(|(_, member)| {
-                has_trait(member, "smithy.api#httpPayload")
-                    && member_target(member).is_some_and(|target| {
-                        selected
-                            .model
-                            .shapes
-                            .get(target)
-                            .is_some_and(shape_is_streaming)
-                    })
-            })
+            members(shape)
+                .into_iter()
+                .any(|(_, member)| is_streaming_payload_member(selected, member))
         });
     if streaming_output {
         render_standalone_streaming_response_deserializer(
@@ -7984,16 +7976,9 @@ fn render_protocol_operation_file(
     client_operation_header(&mut output);
 
     let streaming_output = output_shape.is_some_and(|shape| {
-        members(shape).into_iter().any(|(_, member)| {
-            has_trait(member, "smithy.api#httpPayload")
-                && member_target(member).is_some_and(|target| {
-                    selected
-                        .model
-                        .shapes
-                        .get(target)
-                        .is_some_and(shape_is_streaming)
-                })
-        })
+        members(shape)
+            .into_iter()
+            .any(|(_, member)| is_streaming_payload_member(selected, member))
     });
     if streaming_output {
         render_protocol_http_response(&mut output, selected, operation_name, output_shape);
@@ -8869,11 +8854,9 @@ fn render_protocol_serde_files(
                 .and_then(target_value)
                 .and_then(|id| selected.model.shapes.get(id))
                 .is_some_and(|output| {
-                    members(output).into_iter().any(|(_, member)| {
-                        has_trait(member, "smithy.api#httpPayload")
-                            && member_target(member)
-                                .is_some_and(|target| is_event_stream_target(selected, target))
-                    })
+                    members(output)
+                        .into_iter()
+                        .any(|(_, member)| is_event_stream_member(selected, member))
                 });
             if output_is_event_stream {
                 deferred_modules.insert(input_module);
@@ -9043,7 +9026,7 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
         else {
             continue;
         };
-        if json_protocol_input_needs_file(input) {
+        if json_protocol_input_needs_file(selected, input) {
             let module = format!("{}_input", names::rust_module_name(operation_name));
             if seen.insert(module.clone()) {
                 modules.push(module);
@@ -9058,7 +9041,7 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
         else {
             continue;
         };
-        if json_protocol_output_needs_file(output) {
+        if json_protocol_output_needs_file(selected, output) {
             let module = format!("{}_output", names::rust_module_name(operation_name));
             if seen.insert(module.clone()) {
                 modules.push(module);
@@ -9101,7 +9084,7 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
             .and_then(|operation| operation.get("input"))
             .and_then(target_value)
             .and_then(|id| selected.model.shapes.get(id))
-            .is_some_and(json_protocol_input_needs_file);
+            .is_some_and(|shape| json_protocol_input_needs_file(selected, shape));
         if has_input {
             let (source, next_name) = render_json_protocol_operation_input_file_with_context(
                 selected,
@@ -9118,7 +9101,7 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
             .and_then(|operation| operation.get("output"))
             .and_then(target_value)
             .and_then(|id| selected.model.shapes.get(id))
-            .is_some_and(json_protocol_output_needs_file);
+            .is_some_and(|shape| json_protocol_output_needs_file(selected, shape));
         if has_output {
             files.push((
                 format!("src/protocol_serde/shape_{module}_output.rs"),
@@ -9216,15 +9199,26 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
     (module, files)
 }
 
-fn json_protocol_input_needs_file(shape: &Value) -> bool {
-    members(shape).into_iter().any(|(_, member)| {
-        is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload")
-    })
+fn is_json_protocol_binding_member(selected: &SelectedModel, member: &Value) -> bool {
+    is_json_document_member(member)
+        || has_trait(member, "smithy.api#httpPayload")
+        || is_event_stream_member(selected, member)
 }
 
-fn json_protocol_output_needs_file(shape: &Value) -> bool {
+fn is_json_document_operation_member(selected: &SelectedModel, member: &Value) -> bool {
+    is_json_document_member(member) && !is_event_stream_member(selected, member)
+}
+
+fn json_protocol_input_needs_file(selected: &SelectedModel, shape: &Value) -> bool {
+    members(shape)
+        .into_iter()
+        .any(|(_, member)| is_json_protocol_binding_member(selected, member))
+}
+
+fn json_protocol_output_needs_file(selected: &SelectedModel, shape: &Value) -> bool {
     members(shape).into_iter().any(|(_, member)| {
         has_trait(member, "smithy.api#httpPayload")
+            || is_event_stream_member(selected, member)
             || has_trait(member, "smithy.api#httpHeader")
             || has_trait(member, "smithy.api#httpPrefixHeaders")
     })
@@ -9245,7 +9239,7 @@ fn json_protocol_shape_order(
             .and_then(|id| selected.model.shapes.get(id))
         {
             for (_, member) in members(input) {
-                if (is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload"))
+                if is_json_protocol_binding_member(selected, member)
                     && let Some(target) = member_target(member)
                 {
                     json_protocol_first_role_dependencies(
@@ -9265,7 +9259,7 @@ fn json_protocol_shape_order(
             .and_then(|id| selected.model.shapes.get(id))
         {
             for (_, member) in members(output) {
-                if (is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload"))
+                if is_json_protocol_binding_member(selected, member)
                     && let Some(target) = member_target(member)
                 {
                     json_protocol_first_role_dependencies(
@@ -9400,7 +9394,7 @@ fn json_protocol_serde_roles(selected: &SelectedModel) -> BTreeMap<String, Proto
             .and_then(|id| selected.model.shapes.get(id))
         {
             for (_, member) in members(input) {
-                if (is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload"))
+                if is_json_protocol_binding_member(selected, member)
                     && let Some(target) = member_target(member)
                 {
                     json_protocol_mark_role(
@@ -9419,7 +9413,7 @@ fn json_protocol_serde_roles(selected: &SelectedModel) -> BTreeMap<String, Proto
             .and_then(|id| selected.model.shapes.get(id))
         {
             for (_, member) in members(output) {
-                if (is_json_document_member(member) || has_trait(member, "smithy.api#httpPayload"))
+                if is_json_protocol_binding_member(selected, member)
                     && let Some(target) = member_target(member)
                 {
                     json_protocol_mark_role(
@@ -9509,7 +9503,7 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
     let output_payload = output_shape.and_then(|shape| {
         members(shape)
             .into_iter()
-            .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+            .find(|(_, member)| is_http_payload_or_event_stream_member(selected, member))
     });
     let streaming_output = output_payload.as_ref().is_some_and(|(_, member)| {
         member_target(member).is_some_and(|target| {
@@ -9540,7 +9534,7 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
         && output_shape.is_some_and(|shape| {
             members(shape)
                 .into_iter()
-                .any(|(_, member)| is_json_document_member(member))
+                .any(|(_, member)| is_json_document_operation_member(selected, member))
         })
     {
         writeln!(
@@ -9552,7 +9546,7 @@ fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name:
     if let Some(shape) = output_shape {
         for (name, member) in sorted_members(shape) {
             let field = names::rust_identifier(&name);
-            if has_trait(member, "smithy.api#httpPayload") {
+            if is_http_payload_or_event_stream_member(selected, member) {
                 let helper = format!("crate::protocol_serde::shape_{module}_output");
                 if streaming_output {
                     writeln!(
@@ -9661,7 +9655,7 @@ fn render_json_protocol_operation_input_and_parser(
     let input_has_document_members = input_shape.is_some_and(|shape| {
         members(shape)
             .into_iter()
-            .any(|(_, member)| is_json_document_member(member))
+            .any(|(_, member)| is_json_document_operation_member(selected, member))
     });
     if input_has_document_members {
         writeln!(
@@ -9683,7 +9677,7 @@ fn render_json_protocol_operation_input_and_parser(
     if output_shape.is_none_or(|shape| {
         !members(shape)
             .into_iter()
-            .any(|(_, member)| is_json_document_member(member))
+            .any(|(_, member)| is_json_document_operation_member(selected, member))
     }) {
         return;
     }
@@ -9740,7 +9734,7 @@ fn render_json_protocol_operation_input_file_with_context(
     let mut state = JsonRenderState::default();
     let has_document_members = members(input_shape)
         .into_iter()
-        .any(|(_, member)| is_json_document_member(member));
+        .any(|(_, member)| is_json_document_operation_member(selected, member));
     if has_document_members {
         writeln!(
             output,
@@ -9763,7 +9757,7 @@ fn render_json_protocol_operation_input_file_with_context(
     }
     if let Some((field, member)) = members(input_shape)
         .into_iter()
-        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+        .find(|(_, member)| is_http_payload_or_event_stream_member(selected, member))
     {
         let target = member_target(member).unwrap_or_default();
         let target_kind = protocol_shape_kind(selected, target);
@@ -9897,7 +9891,7 @@ fn render_json_protocol_operation_output_file(
     client_operation_header(&mut output);
     if let Some((field_name, member)) = members(output_shape)
         .into_iter()
-        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+        .find(|(_, member)| is_http_payload_or_event_stream_member(selected, member))
     {
         let field = names::rust_identifier(&field_name);
         let target = member_target(member).unwrap_or_default();
@@ -10363,7 +10357,7 @@ fn render_json_structure_serializer_body(
         members(shape)
     };
     for (name, member) in ordered_members {
-        if document_only && !is_json_document_member(member) {
+        if document_only && !is_json_document_operation_member(selected, member) {
             continue;
         }
         let field = names::rust_identifier(&name);
@@ -10856,7 +10850,7 @@ fn render_json_structure_deserializer_loop(
             members(shape)
         };
         for (name, member) in ordered_members {
-            if document_only && !is_json_document_member(member) {
+            if document_only && !is_json_document_operation_member(selected, member) {
                 continue;
             }
             let target = member_target(member).unwrap_or_default();
@@ -10976,7 +10970,7 @@ fn protocol_input_payload_kind(
         .and_then(|id| selected.model.shapes.get(id))?;
     let member = members(input)
         .into_iter()
-        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))?
+        .find(|(_, member)| is_http_payload_or_event_stream_member(selected, member))?
         .1;
     let target = member_target(member)?;
     match protocol_shape_kind(selected, target) {
@@ -13002,16 +12996,9 @@ fn render_protocol_http_response(
     let output_path = protocol_operation_type_path(&module, &rust_operation, "Output");
     let error_path = protocol_operation_type_path(&module, &operation_symbol, "Error");
     let streaming_payload = output_shape.and_then(|shape| {
-        members(shape).into_iter().find(|(_, member)| {
-            has_trait(member, "smithy.api#httpPayload")
-                && member_target(member).is_some_and(|target| {
-                    selected
-                        .model
-                        .shapes
-                        .get(target)
-                        .is_some_and(shape_is_streaming)
-                })
-        })
+        members(shape)
+            .into_iter()
+            .find(|(_, member)| is_streaming_payload_member(selected, member))
     });
     if streaming_payload.is_some() {
         writeln!(
@@ -13046,7 +13033,7 @@ fn render_protocol_http_response(
     }
     if let Some(shape) = output_shape {
         for (name, member) in sorted_members(shape) {
-            if has_trait(member, "smithy.api#httpPayload") {
+            if is_http_payload_or_event_stream_member(selected, member) {
                 let field = names::rust_identifier(&name);
                 let helper_module = format!("shape_{module}_output");
                 let helper_path = format!("crate::protocol_serde::{helper_module}");
@@ -13439,7 +13426,7 @@ fn render_protocol_output_file(selected: &SelectedModel, operation_name: &str) -
         .and_then(|id| selected.model.shapes.get(id))?;
     let (payload_name, _) = members(output_shape)
         .into_iter()
-        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))?;
+        .find(|(_, member)| is_http_payload_or_event_stream_member(selected, member))?;
     let payload = payload
         .strip_prefix(
             "// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.\n",
@@ -13557,7 +13544,7 @@ fn render_protocol_output_payload_file(
         .and_then(|id| selected.model.shapes.get(id))?;
     let (field_name, member) = members(output_shape)
         .into_iter()
-        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))?;
+        .find(|(_, member)| is_http_payload_or_event_stream_member(selected, member))?;
     let target = member_target(member)?;
     let field = names::rust_identifier(&field_name);
     let error = format!(
@@ -17682,6 +17669,66 @@ mod tests {
         let event_stream = render_event_stream_serde_file(&selected);
         assert!(event_stream.contains("shape_input_events::ser_chunk_payload"));
         assert!(!event_stream.contains("shape_input_events_input::ser_chunk_payload"));
+    }
+
+    #[test]
+    fn event_stream_members_are_detected_without_http_payload() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "events": {"target": "example#Events"}
+                        }
+                    },
+                    "example#Events": {
+                        "type": "union",
+                        "members": {"chunk": {"target": "example#Chunk"}},
+                        "traits": {"smithy.api#streaming": {}}
+                    },
+                    "example#Chunk": {
+                        "type": "structure",
+                        "members": {}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let output = operation_shape(&selected, "Invoke")
+            .and_then(|operation| operation.get("output"))
+            .and_then(target_value)
+            .and_then(|target| selected.model.shapes.get(target))
+            .expect("output shape");
+
+        assert!(shape_has_event_stream(&selected, output));
+        assert!(event_stream_output_union_ids(&selected).contains("example#Events"));
+        assert!(json_protocol_output_needs_file(&selected, output));
+        assert!(render_event_stream_serde_file(&selected).contains("EventsUnmarshaller"));
+        let operation = render_json_protocol_operation_file(&selected, "Invoke");
+        assert!(operation.contains("de_events_payload"));
+        assert!(
+            render_json_protocol_operation_output_file(&selected, "Invoke")
+                .contains("de_events_payload")
+        );
     }
 
     #[test]

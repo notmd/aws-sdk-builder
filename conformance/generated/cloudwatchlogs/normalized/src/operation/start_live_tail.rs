@@ -130,9 +130,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for StartLi
                 StartLiveTailTelemetryInputCaptureInterceptor,
             ))
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 StartLiveTailEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
@@ -195,23 +192,35 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for StartLiveTail
 #[derive(Debug)]
 struct StartLiveTailResponseDeserializer;
 impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for StartLiveTailResponseDeserializer {
+    fn deserialize_streaming(
+        &self,
+        response: &mut ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
+        #[allow(unused_mut)]
+        let mut force_error = false;
+        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+
+        // If this is an error, defer to the non-streaming parser
+        if (!response.status().is_success() && response.status().as_u16() != 200) || force_error {
+            return ::std::option::Option::None;
+        }
+        ::std::option::Option::Some(super::super::protocol_serde::type_erase_result(
+            super::super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_response(response),
+        ))
+    }
+
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         _cfg: &::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
-        let (success, status) = (response.status().is_success(), response.status().as_u16());
-        let headers = response.headers();
+        // For streaming operations, we only hit this case if its an error
         let body = response.body().bytes().expect("body loaded");
-        #[allow(unused_mut)]
-        let mut force_error = false;
-        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-        let parse_result = if !success && status != 200 || force_error {
-            super::super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_error(status, headers, body)
-        } else {
-            super::super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_response(status, headers, body)
-        };
-        super::super::protocol_serde::type_erase_result(parse_result)
+        super::super::protocol_serde::type_erase_result(super::super::protocol_serde::shape_start_live_tail::de_start_live_tail_http_error(
+            response.status().as_u16(),
+            response.headers(),
+            body,
+        ))
     }
 }
 #[derive(Debug)]
