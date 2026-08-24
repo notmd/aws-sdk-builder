@@ -5249,7 +5249,7 @@ pub struct ConverseInput {
     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
     pub guardrail_config: ::std::option::Option<super::super::super::types::GuardrailConfiguration>,
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub additional_model_request_fields: ::std::option::Option<::std::string::String>,
+    pub additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
     pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
@@ -5310,7 +5310,7 @@ impl ConverseInput {
         self.guardrail_config.as_ref()
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_request_fields.as_ref()
     }
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
@@ -5379,7 +5379,7 @@ pub struct ConverseInputBuilder {
     pub(crate) inference_config: ::std::option::Option<super::super::super::types::InferenceConfiguration>,
     pub(crate) tool_config: ::std::option::Option<super::super::super::types::ToolConfiguration>,
     pub(crate) guardrail_config: ::std::option::Option<super::super::super::types::GuardrailConfiguration>,
-    pub(crate) additional_model_request_fields: ::std::option::Option<::std::string::String>,
+    pub(crate) additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
     pub(crate) additional_model_response_field_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -5498,14 +5498,14 @@ impl ConverseInputBuilder {
     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
     pub fn get_guardrail_config(&self) -> &::std::option::Option<super::super::super::types::GuardrailConfiguration> { &self.guardrail_config }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_request_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.additional_model_request_fields = ::std::option::Option::Some(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.additional_model_request_fields = input; self }
+    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self { self.additional_model_request_fields = input; self }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::std::string::String> { &self.additional_model_request_fields }
+    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> { &self.additional_model_request_fields }
     /// Adds a key-value pair to `prompt_variables`.
     ///
     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
@@ -5642,7 +5642,7 @@ pub struct ConverseOutput {
     /// <p>Metrics for the call to <code>Converse</code>.</p>
     pub metrics: ::std::option::Option<super::super::super::types::ConverseMetrics>,
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub additional_model_response_fields: ::std::option::Option<::std::string::String>,
+    pub additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>A trace object that contains information about the Guardrail behavior.</p>
     pub trace: ::std::option::Option<super::super::super::types::ConverseTrace>,
     /// <p>Model performance settings for the request.</p>
@@ -5669,7 +5669,7 @@ impl ConverseOutput {
         self.metrics.as_ref()
     }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn additional_model_response_fields(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn additional_model_response_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_response_fields.as_ref()
     }
     /// <p>A trace object that contains information about the Guardrail behavior.</p>
@@ -5705,7 +5705,7 @@ pub struct ConverseOutputBuilder {
     pub(crate) stop_reason: ::std::option::Option<super::super::super::types::StopReason>,
     pub(crate) usage: ::std::option::Option<super::super::super::types::TokenUsage>,
     pub(crate) metrics: ::std::option::Option<super::super::super::types::ConverseMetrics>,
-    pub(crate) additional_model_response_fields: ::std::option::Option<::std::string::String>,
+    pub(crate) additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) trace: ::std::option::Option<super::super::super::types::ConverseTrace>,
     pub(crate) performance_config: ::std::option::Option<super::super::super::types::PerformanceConfiguration>,
     pub(crate) service_tier: ::std::option::Option<super::super::super::types::ServiceTier>,
@@ -5753,14 +5753,14 @@ impl ConverseOutputBuilder {
     /// <p>Metrics for the call to <code>Converse</code>.</p>
     pub fn get_metrics(&self) -> &::std::option::Option<super::super::super::types::ConverseMetrics> { &self.metrics }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn additional_model_response_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_response_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.additional_model_response_fields = ::std::option::Option::Some(input);
         self
     }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn set_additional_model_response_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.additional_model_response_fields = input; self }
+    pub fn set_additional_model_response_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self { self.additional_model_response_fields = input; self }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn get_additional_model_response_fields(&self) -> &::std::option::Option<::std::string::String> { &self.additional_model_response_fields }
+    pub fn get_additional_model_response_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> { &self.additional_model_response_fields }
     /// <p>A trace object that contains information about the Guardrail behavior.</p>
     pub fn trace(mut self, input: super::super::super::types::ConverseTrace) -> Self {
         self.trace = ::std::option::Option::Some(input);
@@ -6075,17 +6075,17 @@ impl ConverseFluentBuilder {
         self.inner.get_guardrail_config()
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_request_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.inner = self.inner.additional_model_request_fields(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_additional_model_request_fields(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_additional_model_request_fields()
     }
     ///
@@ -6730,7 +6730,7 @@ pub struct ConverseStreamInput {
     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
     pub guardrail_config: ::std::option::Option<super::super::super::types::GuardrailStreamConfiguration>,
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub additional_model_request_fields: ::std::option::Option<::std::string::String>,
+    pub additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
     pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
@@ -6791,7 +6791,7 @@ impl ConverseStreamInput {
         self.guardrail_config.as_ref()
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_request_fields.as_ref()
     }
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
@@ -6860,7 +6860,7 @@ pub struct ConverseStreamInputBuilder {
     pub(crate) inference_config: ::std::option::Option<super::super::super::types::InferenceConfiguration>,
     pub(crate) tool_config: ::std::option::Option<super::super::super::types::ToolConfiguration>,
     pub(crate) guardrail_config: ::std::option::Option<super::super::super::types::GuardrailStreamConfiguration>,
-    pub(crate) additional_model_request_fields: ::std::option::Option<::std::string::String>,
+    pub(crate) additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
     pub(crate) additional_model_response_field_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -6979,14 +6979,14 @@ impl ConverseStreamInputBuilder {
     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
     pub fn get_guardrail_config(&self) -> &::std::option::Option<super::super::super::types::GuardrailStreamConfiguration> { &self.guardrail_config }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_request_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.additional_model_request_fields = ::std::option::Option::Some(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.additional_model_request_fields = input; self }
+    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self { self.additional_model_request_fields = input; self }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::std::string::String> { &self.additional_model_request_fields }
+    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> { &self.additional_model_request_fields }
     /// Adds a key-value pair to `prompt_variables`.
     ///
     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
@@ -7435,17 +7435,17 @@ impl ConverseStreamFluentBuilder {
         self.inner.get_guardrail_config()
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_request_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.inner = self.inner.additional_model_request_fields(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_additional_model_request_fields(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_additional_model_request_fields()
     }
     ///
@@ -14927,7 +14927,7 @@ pub struct StartAsyncInvokeInput {
     /// <p>The model to invoke.</p>
     pub model_id: ::std::option::Option<::std::string::String>,
     /// <p>Input to send to the model.</p>
-    pub model_input: ::std::option::Option<::std::string::String>,
+    pub model_input: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>Where to store the output.</p>
     pub output_data_config: ::std::option::Option<super::super::super::types::AsyncInvokeOutputDataConfig>,
     /// <p>Tags to apply to the invocation.</p>
@@ -14943,7 +14943,7 @@ impl StartAsyncInvokeInput {
         self.model_id.as_deref()
     }
     /// <p>Input to send to the model.</p>
-    pub fn model_input(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn model_input(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.model_input.as_ref()
     }
     /// <p>Where to store the output.</p>
@@ -14981,7 +14981,7 @@ impl StartAsyncInvokeInput {
 pub struct StartAsyncInvokeInputBuilder {
     pub(crate) client_request_token: ::std::option::Option<::std::string::String>,
     pub(crate) model_id: ::std::option::Option<::std::string::String>,
-    pub(crate) model_input: ::std::option::Option<::std::string::String>,
+    pub(crate) model_input: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) output_data_config: ::std::option::Option<super::super::super::types::AsyncInvokeOutputDataConfig>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
@@ -15007,14 +15007,14 @@ impl StartAsyncInvokeInputBuilder {
     pub fn get_model_id(&self) -> &::std::option::Option<::std::string::String> { &self.model_id }
     /// <p>Input to send to the model.</p>
     /// This field is required.
-    pub fn model_input(mut self, input: ::std::string::String) -> Self {
+    pub fn model_input(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.model_input = ::std::option::Option::Some(input);
         self
     }
     /// <p>Input to send to the model.</p>
-    pub fn set_model_input(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.model_input = input; self }
+    pub fn set_model_input(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self { self.model_input = input; self }
     /// <p>Input to send to the model.</p>
-    pub fn get_model_input(&self) -> &::std::option::Option<::std::string::String> { &self.model_input }
+    pub fn get_model_input(&self) -> &::std::option::Option<::aws_smithy_types::Document> { &self.model_input }
     /// <p>Where to store the output.</p>
     /// This field is required.
     pub fn output_data_config(mut self, input: super::super::super::types::AsyncInvokeOutputDataConfig) -> Self {
@@ -15276,17 +15276,17 @@ impl StartAsyncInvokeFluentBuilder {
         self.inner.get_model_id()
     }
     /// <p>Input to send to the model.</p>
-    pub fn model_input(mut self, input: ::std::string::String) -> Self {
+    pub fn model_input(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.inner = self.inner.model_input(input);
         self
     }
     /// <p>Input to send to the model.</p>
-    pub fn set_model_input(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_model_input(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_model_input(input);
         self
     }
     /// <p>Input to send to the model.</p>
-    pub fn get_model_input(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_model_input(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_model_input()
     }
     /// <p>Where to store the output.</p>
@@ -19099,7 +19099,7 @@ pub struct ConverseTokensRequest {
     /// <p>The toolConfig of Converse input request to count tokens for. Configuration information for the tools that the model can use when generating a response.</p>
     pub tool_config: ::std::option::Option<super::super::types::ToolConfiguration>,
     /// <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
-    pub additional_model_request_fields: ::std::option::Option<::std::string::String>,
+    pub additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl ConverseTokensRequest {
     /// <p>An array of messages to count tokens for.</p>
@@ -19119,7 +19119,7 @@ impl ConverseTokensRequest {
         self.tool_config.as_ref()
     }
     /// <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
-    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_request_fields.as_ref()
     }
 }
@@ -19137,7 +19137,7 @@ pub struct ConverseTokensRequestBuilder {
     pub(crate) messages: ::std::option::Option<::std::vec::Vec<super::super::types::Message>>,
     pub(crate) system: ::std::option::Option<::std::vec::Vec<super::super::types::SystemContentBlock>>,
     pub(crate) tool_config: ::std::option::Option<super::super::types::ToolConfiguration>,
-    pub(crate) additional_model_request_fields: ::std::option::Option<::std::string::String>,
+    pub(crate) additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl ConverseTokensRequestBuilder {
     /// Appends an item to `messages`.
@@ -19180,14 +19180,14 @@ impl ConverseTokensRequestBuilder {
     /// <p>The toolConfig of Converse input request to count tokens for. Configuration information for the tools that the model can use when generating a response.</p>
     pub fn get_tool_config(&self) -> &::std::option::Option<super::super::types::ToolConfiguration> { &self.tool_config }
     /// <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
-    pub fn additional_model_request_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_request_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.additional_model_request_fields = ::std::option::Option::Some(input);
         self
     }
     /// <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
-    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.additional_model_request_fields = input; self }
+    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self { self.additional_model_request_fields = input; self }
     /// <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
-    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::std::string::String> { &self.additional_model_request_fields }
+    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> { &self.additional_model_request_fields }
     /// Consumes the builder and constructs a [`ConverseTokensRequest`](crate::types::ConverseTokensRequest).
     pub fn build(self) -> super::super::types::ConverseTokensRequest {
         super::super::types::ConverseTokensRequest {
@@ -29905,7 +29905,7 @@ pub struct MessageStopEvent {
     /// <p>The reason why the model stopped generating output.</p>
     pub stop_reason: super::super::types::StopReason,
     /// <p>The additional model response fields.</p>
-    pub additional_model_response_fields: ::std::option::Option<::std::string::String>,
+    pub additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl MessageStopEvent {
     /// <p>The reason why the model stopped generating output.</p>
@@ -29913,7 +29913,7 @@ impl MessageStopEvent {
         &self.stop_reason
     }
     /// <p>The additional model response fields.</p>
-    pub fn additional_model_response_fields(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn additional_model_response_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_response_fields.as_ref()
     }
 }
@@ -29929,7 +29929,7 @@ impl MessageStopEvent {
 #[non_exhaustive]
 pub struct MessageStopEventBuilder {
     pub(crate) stop_reason: ::std::option::Option<super::super::types::StopReason>,
-    pub(crate) additional_model_response_fields: ::std::option::Option<::std::string::String>,
+    pub(crate) additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl MessageStopEventBuilder {
     /// <p>The reason why the model stopped generating output.</p>
@@ -29943,14 +29943,14 @@ impl MessageStopEventBuilder {
     /// <p>The reason why the model stopped generating output.</p>
     pub fn get_stop_reason(&self) -> &::std::option::Option<super::super::types::StopReason> { &self.stop_reason }
     /// <p>The additional model response fields.</p>
-    pub fn additional_model_response_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_response_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.additional_model_response_fields = ::std::option::Option::Some(input);
         self
     }
     /// <p>The additional model response fields.</p>
-    pub fn set_additional_model_response_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.additional_model_response_fields = input; self }
+    pub fn set_additional_model_response_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self { self.additional_model_response_fields = input; self }
     /// <p>The additional model response fields.</p>
-    pub fn get_additional_model_response_fields(&self) -> &::std::option::Option<::std::string::String> { &self.additional_model_response_fields }
+    pub fn get_additional_model_response_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> { &self.additional_model_response_fields }
     /// Consumes the builder and constructs a [`MessageStopEvent`](crate::types::MessageStopEvent).
     /// This method will fail if any of the following fields are not set:
     /// - [`stop_reason`](crate::types::builders::MessageStopEventBuilder::stop_reason)
@@ -32450,7 +32450,7 @@ mod _tool_input_schema {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub enum ToolInputSchema {
     /// <p>The JSON schema for the tool. For more information, see <a href="https://json-schema.org/understanding-json-schema/reference">JSON Schema Reference</a>.</p>
-    Json(::std::string::String),
+    Json(::aws_smithy_types::Document),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -32463,9 +32463,9 @@ pub enum ToolInputSchema {
 }
 impl ToolInputSchema {
 #[allow(irrefutable_let_patterns)]
-/// Tries to convert the enum instance into [`Json`](crate::types::ToolInputSchema::Json), extracting the inner [`Document`](::std::string::String).
+/// Tries to convert the enum instance into [`Json`](crate::types::ToolInputSchema::Json), extracting the inner [`Document`](::aws_smithy_types::Document).
 /// Returns `Err(&Self)` if it can't be converted.
-pub fn as_json(&self) -> ::std::result::Result<&::std::string::String, &Self> {
+pub fn as_json(&self) -> ::std::result::Result<&::aws_smithy_types::Document, &Self> {
     if let ToolInputSchema::Json(val) = &self {
         ::std::result::Result::Ok(val)
     } else {
@@ -32743,7 +32743,7 @@ mod _tool_result_block_delta {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub enum ToolResultBlockDelta {
     /// <p>The JSON schema for the tool result content block. see <a href="https://json-schema.org/understanding-json-schema/reference">JSON Schema Reference</a>.</p>
-    Json(::std::string::String),
+    Json(::aws_smithy_types::Document),
     /// <p>The reasoning the model used to return the output.</p>
     Text(::std::string::String),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
@@ -32757,9 +32757,9 @@ pub enum ToolResultBlockDelta {
     Unknown,
 }
 impl ToolResultBlockDelta {
-/// Tries to convert the enum instance into [`Json`](crate::types::ToolResultBlockDelta::Json), extracting the inner [`Document`](::std::string::String).
+/// Tries to convert the enum instance into [`Json`](crate::types::ToolResultBlockDelta::Json), extracting the inner [`Document`](::aws_smithy_types::Document).
 /// Returns `Err(&Self)` if it can't be converted.
-pub fn as_json(&self) -> ::std::result::Result<&::std::string::String, &Self> {
+pub fn as_json(&self) -> ::std::result::Result<&::aws_smithy_types::Document, &Self> {
     if let ToolResultBlockDelta::Json(val) = &self {
         ::std::result::Result::Ok(val)
     } else {
@@ -32890,7 +32890,7 @@ pub enum ToolResultContentBlock {
     /// </note>
     Image(super::super::types::ImageBlock),
     /// <p>A tool result that is JSON format data.</p>
-    Json(::std::string::String),
+    Json(::aws_smithy_types::Document),
     /// <p>A tool result that is a search result.</p>
     SearchResult(super::super::types::SearchResultBlock),
     /// <p>A tool result that is text.</p>
@@ -32934,9 +32934,9 @@ pub fn as_image(&self) -> ::std::result::Result<&super::super::types::ImageBlock
 pub fn is_image(&self) -> bool {
     self.as_image().is_ok()
 }
-/// Tries to convert the enum instance into [`Json`](crate::types::ToolResultContentBlock::Json), extracting the inner [`Document`](::std::string::String).
+/// Tries to convert the enum instance into [`Json`](crate::types::ToolResultContentBlock::Json), extracting the inner [`Document`](::aws_smithy_types::Document).
 /// Returns `Err(&Self)` if it can't be converted.
-pub fn as_json(&self) -> ::std::result::Result<&::std::string::String, &Self> {
+pub fn as_json(&self) -> ::std::result::Result<&::aws_smithy_types::Document, &Self> {
     if let ToolResultContentBlock::Json(val) = &self {
         ::std::result::Result::Ok(val)
     } else {
@@ -33221,7 +33221,7 @@ pub struct ToolUseBlock {
     /// <p>The name of the tool that the model wants to use.</p>
     pub name: ::std::string::String,
     /// <p>The input to pass to the tool.</p>
-    pub input: ::std::string::String,
+    pub input: ::aws_smithy_types::Document,
     /// <p>The type for the tool request.</p>
     pub r#type: ::std::option::Option<super::super::types::ToolUseType>,
 }
@@ -33237,7 +33237,7 @@ impl ToolUseBlock {
         self.name.deref()
     }
     /// <p>The input to pass to the tool.</p>
-    pub fn input(&self) -> &::std::string::String {
+    pub fn input(&self) -> &::aws_smithy_types::Document {
         &self.input
     }
     /// <p>The type for the tool request.</p>
@@ -33258,7 +33258,7 @@ impl ToolUseBlock {
 pub struct ToolUseBlockBuilder {
     pub(crate) tool_use_id: ::std::option::Option<::std::string::String>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
-    pub(crate) input: ::std::option::Option<::std::string::String>,
+    pub(crate) input: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) r#type: ::std::option::Option<super::super::types::ToolUseType>,
 }
 impl ToolUseBlockBuilder {
@@ -33284,14 +33284,14 @@ impl ToolUseBlockBuilder {
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> { &self.name }
     /// <p>The input to pass to the tool.</p>
     /// This field is required.
-    pub fn input(mut self, input: ::std::string::String) -> Self {
+    pub fn input(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.input = ::std::option::Option::Some(input);
         self
     }
     /// <p>The input to pass to the tool.</p>
-    pub fn set_input(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.input = input; self }
+    pub fn set_input(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self { self.input = input; self }
     /// <p>The input to pass to the tool.</p>
-    pub fn get_input(&self) -> &::std::option::Option<::std::string::String> { &self.input }
+    pub fn get_input(&self) -> &::std::option::Option<::aws_smithy_types::Document> { &self.input }
     /// <p>The type for the tool request.</p>
     pub fn r#type(mut self, input: super::super::types::ToolUseType) -> Self {
         self.r#type = ::std::option::Option::Some(input);

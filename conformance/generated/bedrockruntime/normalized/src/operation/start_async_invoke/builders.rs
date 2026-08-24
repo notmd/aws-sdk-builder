@@ -140,17 +140,17 @@ impl StartAsyncInvokeFluentBuilder {
         self.inner.get_model_id()
     }
     /// <p>Input to send to the model.</p>
-    pub fn model_input(mut self, input: ::std::string::String) -> Self {
+    pub fn model_input(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.inner = self.inner.model_input(input);
         self
     }
     /// <p>Input to send to the model.</p>
-    pub fn set_model_input(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_model_input(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_model_input(input);
         self
     }
     /// <p>Input to send to the model.</p>
-    pub fn get_model_input(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_model_input(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_model_input()
     }
     /// <p>Where to store the output.</p>

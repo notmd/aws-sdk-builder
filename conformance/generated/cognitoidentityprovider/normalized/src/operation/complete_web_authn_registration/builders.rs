@@ -124,17 +124,17 @@ impl CompleteWebAuthnRegistrationFluentBuilder {
         self.inner.get_access_token()
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub fn credential(mut self, input: ::std::string::String) -> Self {
+    pub fn credential(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.inner = self.inner.credential(input);
         self
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub fn set_credential(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_credential(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_credential(input);
         self
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub fn get_credential(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_credential(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_credential()
     }
 }

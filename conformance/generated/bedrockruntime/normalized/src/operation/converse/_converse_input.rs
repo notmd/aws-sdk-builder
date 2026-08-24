@@ -30,7 +30,7 @@ pub struct ConverseInput {
     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
     pub guardrail_config: ::std::option::Option<super::super::super::types::GuardrailConfiguration>,
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub additional_model_request_fields: ::std::option::Option<::std::string::String>,
+    pub additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
     pub prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
@@ -91,7 +91,7 @@ impl ConverseInput {
         self.guardrail_config.as_ref()
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_request_fields.as_ref()
     }
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
@@ -160,7 +160,7 @@ pub struct ConverseInputBuilder {
     pub(crate) inference_config: ::std::option::Option<super::super::super::types::InferenceConfiguration>,
     pub(crate) tool_config: ::std::option::Option<super::super::super::types::ToolConfiguration>,
     pub(crate) guardrail_config: ::std::option::Option<super::super::super::types::GuardrailConfiguration>,
-    pub(crate) additional_model_request_fields: ::std::option::Option<::std::string::String>,
+    pub(crate) additional_model_request_fields: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
     pub(crate) additional_model_response_field_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -309,17 +309,17 @@ impl ConverseInputBuilder {
         &self.guardrail_config
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_request_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.additional_model_request_fields = ::std::option::Option::Some(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.additional_model_request_fields = input;
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.additional_model_request_fields
     }
     /// Adds a key-value pair to `prompt_variables`.

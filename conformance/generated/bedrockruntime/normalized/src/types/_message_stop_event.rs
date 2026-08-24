@@ -7,7 +7,7 @@ pub struct MessageStopEvent {
     /// <p>The reason why the model stopped generating output.</p>
     pub stop_reason: super::super::types::StopReason,
     /// <p>The additional model response fields.</p>
-    pub additional_model_response_fields: ::std::option::Option<::std::string::String>,
+    pub additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl MessageStopEvent {
     /// <p>The reason why the model stopped generating output.</p>
@@ -15,7 +15,7 @@ impl MessageStopEvent {
         &self.stop_reason
     }
     /// <p>The additional model response fields.</p>
-    pub fn additional_model_response_fields(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn additional_model_response_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_response_fields.as_ref()
     }
 }
@@ -31,7 +31,7 @@ impl MessageStopEvent {
 #[non_exhaustive]
 pub struct MessageStopEventBuilder {
     pub(crate) stop_reason: ::std::option::Option<super::super::types::StopReason>,
-    pub(crate) additional_model_response_fields: ::std::option::Option<::std::string::String>,
+    pub(crate) additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl MessageStopEventBuilder {
     /// <p>The reason why the model stopped generating output.</p>
@@ -50,17 +50,17 @@ impl MessageStopEventBuilder {
         &self.stop_reason
     }
     /// <p>The additional model response fields.</p>
-    pub fn additional_model_response_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_response_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.additional_model_response_fields = ::std::option::Option::Some(input);
         self
     }
     /// <p>The additional model response fields.</p>
-    pub fn set_additional_model_response_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_additional_model_response_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.additional_model_response_fields = input;
         self
     }
     /// <p>The additional model response fields.</p>
-    pub fn get_additional_model_response_fields(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_additional_model_response_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.additional_model_response_fields
     }
     /// Consumes the builder and constructs a [`MessageStopEvent`](crate::types::MessageStopEvent).

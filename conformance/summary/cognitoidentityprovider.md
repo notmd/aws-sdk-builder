@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cognitoidentityprovider
-**Progress:** `1361/1361` files compared · `1306` matched · `55` mismatches · `0` missing · `0` extra · `95.96%` match (100.00% means fully matched)
+**Progress:** `1361/1361` files compared · `1312` matched · `49` mismatches · `0` missing · `0` extra · `96.40%` match (100.00% means fully matched)
 
 ### `src/client/add_custom_attributes.rs`
 
@@ -259,89 +259,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/complete_web_authn_registration/_complete_web_authn_registration_input.rs`
-
-```diff
---- reference/src/operation/complete_web_authn_registration/_complete_web_authn_registration_input.rs
-+++ generated/src/operation/complete_web_authn_registration/_complete_web_authn_registration_input.rs
-@@ -6,7 +6,7 @@
-     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
-     pub access_token: ::std::option::Option<::std::string::String>,
-     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
--    pub credential: ::std::option::Option<::aws_smithy_types::Document>,
-+    pub credential: ::std::option::Option<::std::string::String>,
- }
- impl CompleteWebAuthnRegistrationInput {
-     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
-@@ -14,7 +14,7 @@
-         self.access_token.as_deref()
-     }
-     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
--    pub fn credential(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
-+    pub fn credential(&self) -> ::std::option::Option<&::std::string::String> {
-         self.credential.as_ref()
-     }
- }
-@@ -38,7 +38,7 @@
- #[non_exhaustive]
- pub struct CompleteWebAuthnRegistrationInputBuilder {
-     pub(crate) access_token: ::std::option::Option<::std::string::String>,
--    pub(crate) credential: ::std::option::Option<::aws_smithy_types::Document>,
-+    pub(crate) credential: ::std::option::Option<::std::string::String>,
- }
- impl CompleteWebAuthnRegistrationInputBuilder {
-     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
-@@ -58,17 +58,17 @@
-     }
-     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-     /// This field is required.
--    pub fn credential(mut self, input: ::aws_smithy_types::Document) -> Self {
-+    pub fn credential(mut self, input: ::std::string::String) -> Self {
-         self.credential = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
--    pub fn set_credential(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
-+    pub fn set_credential(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.credential = input;
-         self
-     }
-     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
--    pub fn get_credential(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
-+    pub fn get_credential(&self) -> &::std::option::Option<::std::string::String> {
-         &self.credential
-     }
-     /// Consumes the builder and constructs a [`CompleteWebAuthnRegistrationInput`](crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput).
-```
-
-### `src/operation/complete_web_authn_registration/builders.rs`
-
-```diff
---- reference/src/operation/complete_web_authn_registration/builders.rs
-+++ generated/src/operation/complete_web_authn_registration/builders.rs
-@@ -124,17 +124,17 @@
-         self.inner.get_access_token()
-     }
-     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
--    pub fn credential(mut self, input: ::aws_smithy_types::Document) -> Self {
-+    pub fn credential(mut self, input: ::std::string::String) -> Self {
-         self.inner = self.inner.credential(input);
-         self
-     }
-     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
--    pub fn set_credential(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
-+    pub fn set_credential(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.inner = self.inner.set_credential(input);
-         self
-     }
-     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
--    pub fn get_credential(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
-+    pub fn get_credential(&self) -> &::std::option::Option<::std::string::String> {
-         self.inner.get_credential()
-     }
- }
-```
-
 ### `src/operation/confirm_sign_up/_confirm_sign_up_input.rs`
 
 ```diff
@@ -363,60 +280,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_managed_login_branding/_create_managed_login_branding_input.rs
 +++ generated/src/operation/create_managed_login_branding/_create_managed_login_branding_input.rs
-@@ -22,7 +22,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub settings: ::std::option::Option<::aws_smithy_types::Document>,
-+    pub settings: ::std::option::Option<::std::string::String>,
-     /// <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-     pub assets: ::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>>,
- }
-@@ -52,7 +52,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn settings(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
-+    pub fn settings(&self) -> ::std::option::Option<&::std::string::String> {
-         self.settings.as_ref()
-     }
-     /// <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-@@ -87,7 +87,7 @@
-     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
-     pub(crate) client_id: ::std::option::Option<::std::string::String>,
-     pub(crate) use_cognito_provided_values: ::std::option::Option<bool>,
--    pub(crate) settings: ::std::option::Option<::aws_smithy_types::Document>,
-+    pub(crate) settings: ::std::option::Option<::std::string::String>,
-     pub(crate) assets: ::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>>,
- }
- impl CreateManagedLoginBrandingInputBuilder {
-@@ -150,7 +150,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn settings(mut self, input: ::aws_smithy_types::Document) -> Self {
-+    pub fn settings(mut self, input: ::std::string::String) -> Self {
-         self.settings = ::std::option::Option::Some(input);
-         self
-     }
-@@ -166,7 +166,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
-+    pub fn set_settings(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.settings = input;
-         self
-     }
-@@ -182,7 +182,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn get_settings(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
-+    pub fn get_settings(&self) -> &::std::option::Option<::std::string::String> {
-         &self.settings
-     }
-     /// Appends an item to `assets`.
 @@ -215,7 +215,7 @@
          ::std::result::Result::Ok(super::super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
              user_pool_id: self.user_pool_id,
@@ -426,40 +289,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              settings: self.settings,
              assets: self.assets,
          })
-```
-
-### `src/operation/create_managed_login_branding/builders.rs`
-
-```diff
---- reference/src/operation/create_managed_login_branding/builders.rs
-+++ generated/src/operation/create_managed_login_branding/builders.rs
-@@ -176,7 +176,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn settings(mut self, input: ::aws_smithy_types::Document) -> Self {
-+    pub fn settings(mut self, input: ::std::string::String) -> Self {
-         self.inner = self.inner.settings(input);
-         self
-     }
-@@ -192,7 +192,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
-+    pub fn set_settings(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.inner = self.inner.set_settings(input);
-         self
-     }
-@@ -208,7 +208,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn get_settings(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
-+    pub fn get_settings(&self) -> &::std::option::Option<::std::string::String> {
-         self.inner.get_settings()
-     }
-     ///
 ```
 
 ### `src/operation/create_user_pool_client/_create_user_pool_client_input.rs`
@@ -748,115 +577,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/start_web_authn_registration/_start_web_authn_registration_output.rs`
-
-```diff
---- reference/src/operation/start_web_authn_registration/_start_web_authn_registration_output.rs
-+++ generated/src/operation/start_web_authn_registration/_start_web_authn_registration_output.rs
-@@ -4,12 +4,12 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct StartWebAuthnRegistrationOutput {
-     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
--    pub credential_creation_options: ::aws_smithy_types::Document,
-+    pub credential_creation_options: ::std::string::String,
-     _request_id: Option<String>,
- }
- impl StartWebAuthnRegistrationOutput {
-     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
--    pub fn credential_creation_options(&self) -> &::aws_smithy_types::Document {
-+    pub fn credential_creation_options(&self) -> &::std::string::String {
-         &self.credential_creation_options
-     }
- }
-@@ -29,23 +29,23 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
- #[non_exhaustive]
- pub struct StartWebAuthnRegistrationOutputBuilder {
--    pub(crate) credential_creation_options: ::std::option::Option<::aws_smithy_types::Document>,
-+    pub(crate) credential_creation_options: ::std::option::Option<::std::string::String>,
-     _request_id: Option<String>,
- }
- impl StartWebAuthnRegistrationOutputBuilder {
-     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
-     /// This field is required.
--    pub fn credential_creation_options(mut self, input: ::aws_smithy_types::Document) -> Self {
-+    pub fn credential_creation_options(mut self, input: ::std::string::String) -> Self {
-         self.credential_creation_options = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
--    pub fn set_credential_creation_options(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
-+    pub fn set_credential_creation_options(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.credential_creation_options = input;
-         self
-     }
-     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
--    pub fn get_credential_creation_options(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
-+    pub fn get_credential_creation_options(&self) -> &::std::option::Option<::std::string::String> {
-         &self.credential_creation_options
-     }
-     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-```
-
 ### `src/operation/update_managed_login_branding/_update_managed_login_branding_input.rs`
 
 ```diff
 --- reference/src/operation/update_managed_login_branding/_update_managed_login_branding_input.rs
 +++ generated/src/operation/update_managed_login_branding/_update_managed_login_branding_input.rs
-@@ -22,7 +22,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub settings: ::std::option::Option<::aws_smithy_types::Document>,
-+    pub settings: ::std::option::Option<::std::string::String>,
-     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-     pub assets: ::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>>,
- }
-@@ -52,7 +52,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn settings(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
-+    pub fn settings(&self) -> ::std::option::Option<&::std::string::String> {
-         self.settings.as_ref()
-     }
-     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-@@ -76,7 +76,7 @@
-     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
-     pub(crate) managed_login_branding_id: ::std::option::Option<::std::string::String>,
-     pub(crate) use_cognito_provided_values: ::std::option::Option<bool>,
--    pub(crate) settings: ::std::option::Option<::aws_smithy_types::Document>,
-+    pub(crate) settings: ::std::option::Option<::std::string::String>,
-     pub(crate) assets: ::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>>,
- }
- impl UpdateManagedLoginBrandingInputBuilder {
-@@ -137,7 +137,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn settings(mut self, input: ::aws_smithy_types::Document) -> Self {
-+    pub fn settings(mut self, input: ::std::string::String) -> Self {
-         self.settings = ::std::option::Option::Some(input);
-         self
-     }
-@@ -153,7 +153,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
-+    pub fn set_settings(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.settings = input;
-         self
-     }
-@@ -169,7 +169,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn get_settings(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
-+    pub fn get_settings(&self) -> &::std::option::Option<::std::string::String> {
-         &self.settings
-     }
-     /// Appends an item to `assets`.
 @@ -202,7 +202,7 @@
          ::std::result::Result::Ok(super::super::super::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput {
              user_pool_id: self.user_pool_id,
@@ -866,40 +591,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              settings: self.settings,
              assets: self.assets,
          })
-```
-
-### `src/operation/update_managed_login_branding/builders.rs`
-
-```diff
---- reference/src/operation/update_managed_login_branding/builders.rs
-+++ generated/src/operation/update_managed_login_branding/builders.rs
-@@ -176,7 +176,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn settings(mut self, input: ::aws_smithy_types::Document) -> Self {
-+    pub fn settings(mut self, input: ::std::string::String) -> Self {
-         self.inner = self.inner.settings(input);
-         self
-     }
-@@ -192,7 +192,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
-+    pub fn set_settings(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.inner = self.inner.set_settings(input);
-         self
-     }
-@@ -208,7 +208,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn get_settings(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
-+    pub fn get_settings(&self) -> &::std::option::Option<::std::string::String> {
-         self.inner.get_settings()
-     }
-     ///
 ```
 
 ### `src/operation/update_provisioned_limit/_update_provisioned_limit_input.rs`
@@ -1834,67 +1525,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn account_takeover_risk_configuration_type_correct_errors(
      mut builder: super::types::builders::AccountTakeoverRiskConfigurationTypeBuilder,
  ) -> super::types::builders::AccountTakeoverRiskConfigurationTypeBuilder {
-```
-
-### `src/types/_managed_login_branding_type.rs`
-
-```diff
---- reference/src/types/_managed_login_branding_type.rs
-+++ generated/src/types/_managed_login_branding_type.rs
-@@ -23,7 +23,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub settings: ::std::option::Option<::aws_smithy_types::Document>,
-+    pub settings: ::std::option::Option<::std::string::String>,
-     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-     pub assets: ::std::option::Option<::std::vec::Vec<super::super::types::AssetType>>,
-     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-@@ -57,7 +57,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn settings(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
-+    pub fn settings(&self) -> ::std::option::Option<&::std::string::String> {
-         self.settings.as_ref()
-     }
-     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-@@ -89,7 +89,7 @@
-     pub(crate) managed_login_branding_id: ::std::option::Option<::std::string::String>,
-     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
-     pub(crate) use_cognito_provided_values: ::std::option::Option<bool>,
--    pub(crate) settings: ::std::option::Option<::aws_smithy_types::Document>,
-+    pub(crate) settings: ::std::option::Option<::std::string::String>,
-     pub(crate) assets: ::std::option::Option<::std::vec::Vec<super::super::types::AssetType>>,
-     pub(crate) creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-     pub(crate) last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-@@ -152,7 +152,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn settings(mut self, input: ::aws_smithy_types::Document) -> Self {
-+    pub fn settings(mut self, input: ::std::string::String) -> Self {
-         self.settings = ::std::option::Option::Some(input);
-         self
-     }
-@@ -168,7 +168,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
-+    pub fn set_settings(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.settings = input;
-         self
-     }
-@@ -184,7 +184,7 @@
-     /// <li>
-     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
-     /// </ul>
--    pub fn get_settings(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
-+    pub fn get_settings(&self) -> &::std::option::Option<::std::string::String> {
-         &self.settings
-     }
-     /// Appends an item to `assets`.
 ```
 
 ### `src/types/_schema_attribute_type.rs`

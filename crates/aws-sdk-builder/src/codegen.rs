@@ -15675,7 +15675,7 @@ fn primitive_type(name: &str) -> String {
         "Double" | "double" => "f64",
         "Blob" | "blob" => "::std::vec::Vec<u8>",
         "Timestamp" | "timestamp" => "::std::time::SystemTime",
-        "Document" | "document" => "::std::string::String",
+        "Document" | "document" => "::aws_smithy_types::Document",
         _ => "::std::string::String",
     }
     .to_owned()
@@ -15783,6 +15783,15 @@ mod tests {
             "AssumeRoleWithSAML"
         );
         assert_eq!(operation_error_type_name("CreateThing"), "CreateThing");
+    }
+
+    #[test]
+    fn document_shapes_use_the_smithy_document_runtime_type() {
+        assert_eq!(primitive_type("document"), "::aws_smithy_types::Document");
+        assert_eq!(
+            primitive_type_for_namespace("Document"),
+            "::aws_smithy_types::Document"
+        );
     }
 
     #[test]

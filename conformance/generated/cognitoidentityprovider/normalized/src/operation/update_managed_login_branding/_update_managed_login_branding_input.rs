@@ -22,7 +22,7 @@ pub struct UpdateManagedLoginBrandingInput {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub settings: ::std::option::Option<::std::string::String>,
+    pub settings: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
     pub assets: ::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>>,
 }
@@ -52,7 +52,7 @@ impl UpdateManagedLoginBrandingInput {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn settings(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn settings(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.settings.as_ref()
     }
     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
@@ -76,7 +76,7 @@ pub struct UpdateManagedLoginBrandingInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) managed_login_branding_id: ::std::option::Option<::std::string::String>,
     pub(crate) use_cognito_provided_values: ::std::option::Option<bool>,
-    pub(crate) settings: ::std::option::Option<::std::string::String>,
+    pub(crate) settings: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) assets: ::std::option::Option<::std::vec::Vec<super::super::super::types::AssetType>>,
 }
 impl UpdateManagedLoginBrandingInputBuilder {
@@ -137,7 +137,7 @@ impl UpdateManagedLoginBrandingInputBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn settings(mut self, input: ::std::string::String) -> Self {
+    pub fn settings(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.settings = ::std::option::Option::Some(input);
         self
     }
@@ -153,7 +153,7 @@ impl UpdateManagedLoginBrandingInputBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn set_settings(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.settings = input;
         self
     }
@@ -169,7 +169,7 @@ impl UpdateManagedLoginBrandingInputBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn get_settings(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_settings(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.settings
     }
     /// Appends an item to `assets`.

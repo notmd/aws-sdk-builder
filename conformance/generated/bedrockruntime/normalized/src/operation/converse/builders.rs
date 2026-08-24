@@ -245,17 +245,17 @@ impl ConverseFluentBuilder {
         self.inner.get_guardrail_config()
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn additional_model_request_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_request_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.inner = self.inner.additional_model_request_fields(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_additional_model_request_fields(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_additional_model_request_fields()
     }
     ///

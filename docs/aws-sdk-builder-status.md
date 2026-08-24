@@ -4,6 +4,23 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Use Smithy Document runtime type
+- State: in progress
+- Changed: Smithy `Document` shapes now map to
+  `::aws_smithy_types::Document` instead of `String`, so generated structures,
+  builders, and protocol code use the Smithy runtime document representation. The
+  mapping follows the pinned Smithy-RS checkout at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,211`
+  matched, `952` mismatched, `4` missing, and `1` extra (`90.84%` average match).
+  This is `+18` exact files and `-18` mismatches from the previous
+  `12,193/970/4/1` checkpoint. The command exits 1 only because broader parity
+  gaps remain; generation completed without generated-source parse errors.
+- Verification: focused Document mapping test, workspace tests, workspace Clippy
+  with `-D warnings`, formatting, and `git diff --check` pass.
+- Next action: continue with the largest remaining generic protocol mismatch.
+
 ### Checkpoint: 2026-08-24 — Deserialize modeled HTTP headers on protocol errors
 - State: in progress
 - Changed: JSON and XML protocol error files now emit the same model-driven HTTP header

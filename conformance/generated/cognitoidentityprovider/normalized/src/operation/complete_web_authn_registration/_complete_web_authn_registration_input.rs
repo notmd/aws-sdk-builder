@@ -6,7 +6,7 @@ pub struct CompleteWebAuthnRegistrationInput {
     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
     pub access_token: ::std::option::Option<::std::string::String>,
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub credential: ::std::option::Option<::std::string::String>,
+    pub credential: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl CompleteWebAuthnRegistrationInput {
     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
@@ -14,7 +14,7 @@ impl CompleteWebAuthnRegistrationInput {
         self.access_token.as_deref()
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub fn credential(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn credential(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.credential.as_ref()
     }
 }
@@ -38,7 +38,7 @@ impl CompleteWebAuthnRegistrationInput {
 #[non_exhaustive]
 pub struct CompleteWebAuthnRegistrationInputBuilder {
     pub(crate) access_token: ::std::option::Option<::std::string::String>,
-    pub(crate) credential: ::std::option::Option<::std::string::String>,
+    pub(crate) credential: ::std::option::Option<::aws_smithy_types::Document>,
 }
 impl CompleteWebAuthnRegistrationInputBuilder {
     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
@@ -58,17 +58,17 @@ impl CompleteWebAuthnRegistrationInputBuilder {
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
     /// This field is required.
-    pub fn credential(mut self, input: ::std::string::String) -> Self {
+    pub fn credential(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.credential = ::std::option::Option::Some(input);
         self
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub fn set_credential(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_credential(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.credential = input;
         self
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub fn get_credential(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_credential(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.credential
     }
     /// Consumes the builder and constructs a [`CompleteWebAuthnRegistrationInput`](crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput).

@@ -12,7 +12,7 @@ pub struct ConverseOutput {
     /// <p>Metrics for the call to <code>Converse</code>.</p>
     pub metrics: ::std::option::Option<super::super::super::types::ConverseMetrics>,
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub additional_model_response_fields: ::std::option::Option<::std::string::String>,
+    pub additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>A trace object that contains information about the Guardrail behavior.</p>
     pub trace: ::std::option::Option<super::super::super::types::ConverseTrace>,
     /// <p>Model performance settings for the request.</p>
@@ -39,7 +39,7 @@ impl ConverseOutput {
         self.metrics.as_ref()
     }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn additional_model_response_fields(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn additional_model_response_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_response_fields.as_ref()
     }
     /// <p>A trace object that contains information about the Guardrail behavior.</p>
@@ -75,7 +75,7 @@ pub struct ConverseOutputBuilder {
     pub(crate) stop_reason: ::std::option::Option<super::super::super::types::StopReason>,
     pub(crate) usage: ::std::option::Option<super::super::super::types::TokenUsage>,
     pub(crate) metrics: ::std::option::Option<super::super::super::types::ConverseMetrics>,
-    pub(crate) additional_model_response_fields: ::std::option::Option<::std::string::String>,
+    pub(crate) additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) trace: ::std::option::Option<super::super::super::types::ConverseTrace>,
     pub(crate) performance_config: ::std::option::Option<super::super::super::types::PerformanceConfiguration>,
     pub(crate) service_tier: ::std::option::Option<super::super::super::types::ServiceTier>,
@@ -143,17 +143,17 @@ impl ConverseOutputBuilder {
         &self.metrics
     }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn additional_model_response_fields(mut self, input: ::std::string::String) -> Self {
+    pub fn additional_model_response_fields(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.additional_model_response_fields = ::std::option::Option::Some(input);
         self
     }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn set_additional_model_response_fields(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_additional_model_response_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.additional_model_response_fields = input;
         self
     }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn get_additional_model_response_fields(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_additional_model_response_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.additional_model_response_fields
     }
     /// <p>A trace object that contains information about the Guardrail behavior.</p>

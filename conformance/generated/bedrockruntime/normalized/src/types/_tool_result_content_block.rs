@@ -11,7 +11,7 @@ pub enum ToolResultContentBlock {
     /// </note>
     Image(super::super::types::ImageBlock),
     /// <p>A tool result that is JSON format data.</p>
-    Json(::std::string::String),
+    Json(::aws_smithy_types::Document),
     /// <p>A tool result that is a search result.</p>
     SearchResult(super::super::types::SearchResultBlock),
     /// <p>A tool result that is text.</p>
@@ -55,9 +55,9 @@ impl ToolResultContentBlock {
     pub fn is_image(&self) -> bool {
         self.as_image().is_ok()
     }
-    /// Tries to convert the enum instance into [`Json`](crate::types::ToolResultContentBlock::Json), extracting the inner [`Document`](::std::string::String).
+    /// Tries to convert the enum instance into [`Json`](crate::types::ToolResultContentBlock::Json), extracting the inner [`Document`](::aws_smithy_types::Document).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_json(&self) -> ::std::result::Result<&::std::string::String, &Self> {
+    pub fn as_json(&self) -> ::std::result::Result<&::aws_smithy_types::Document, &Self> {
         if let ToolResultContentBlock::Json(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

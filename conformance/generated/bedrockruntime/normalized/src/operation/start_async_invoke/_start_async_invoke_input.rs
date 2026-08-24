@@ -8,7 +8,7 @@ pub struct StartAsyncInvokeInput {
     /// <p>The model to invoke.</p>
     pub model_id: ::std::option::Option<::std::string::String>,
     /// <p>Input to send to the model.</p>
-    pub model_input: ::std::option::Option<::std::string::String>,
+    pub model_input: ::std::option::Option<::aws_smithy_types::Document>,
     /// <p>Where to store the output.</p>
     pub output_data_config: ::std::option::Option<super::super::super::types::AsyncInvokeOutputDataConfig>,
     /// <p>Tags to apply to the invocation.</p>
@@ -24,7 +24,7 @@ impl StartAsyncInvokeInput {
         self.model_id.as_deref()
     }
     /// <p>Input to send to the model.</p>
-    pub fn model_input(&self) -> ::std::option::Option<&::std::string::String> {
+    pub fn model_input(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.model_input.as_ref()
     }
     /// <p>Where to store the output.</p>
@@ -62,7 +62,7 @@ impl StartAsyncInvokeInput {
 pub struct StartAsyncInvokeInputBuilder {
     pub(crate) client_request_token: ::std::option::Option<::std::string::String>,
     pub(crate) model_id: ::std::option::Option<::std::string::String>,
-    pub(crate) model_input: ::std::option::Option<::std::string::String>,
+    pub(crate) model_input: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) output_data_config: ::std::option::Option<super::super::super::types::AsyncInvokeOutputDataConfig>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
@@ -98,17 +98,17 @@ impl StartAsyncInvokeInputBuilder {
     }
     /// <p>Input to send to the model.</p>
     /// This field is required.
-    pub fn model_input(mut self, input: ::std::string::String) -> Self {
+    pub fn model_input(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.model_input = ::std::option::Option::Some(input);
         self
     }
     /// <p>Input to send to the model.</p>
-    pub fn set_model_input(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_model_input(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.model_input = input;
         self
     }
     /// <p>Input to send to the model.</p>
-    pub fn get_model_input(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_model_input(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.model_input
     }
     /// <p>Where to store the output.</p>

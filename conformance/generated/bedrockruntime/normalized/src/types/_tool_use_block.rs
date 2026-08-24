@@ -9,7 +9,7 @@ pub struct ToolUseBlock {
     /// <p>The name of the tool that the model wants to use.</p>
     pub name: ::std::string::String,
     /// <p>The input to pass to the tool.</p>
-    pub input: ::std::string::String,
+    pub input: ::aws_smithy_types::Document,
     /// <p>The type for the tool request.</p>
     pub r#type: ::std::option::Option<super::super::types::ToolUseType>,
 }
@@ -25,7 +25,7 @@ impl ToolUseBlock {
         self.name.deref()
     }
     /// <p>The input to pass to the tool.</p>
-    pub fn input(&self) -> &::std::string::String {
+    pub fn input(&self) -> &::aws_smithy_types::Document {
         &self.input
     }
     /// <p>The type for the tool request.</p>
@@ -46,7 +46,7 @@ impl ToolUseBlock {
 pub struct ToolUseBlockBuilder {
     pub(crate) tool_use_id: ::std::option::Option<::std::string::String>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
-    pub(crate) input: ::std::option::Option<::std::string::String>,
+    pub(crate) input: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) r#type: ::std::option::Option<super::super::types::ToolUseType>,
 }
 impl ToolUseBlockBuilder {
@@ -82,17 +82,17 @@ impl ToolUseBlockBuilder {
     }
     /// <p>The input to pass to the tool.</p>
     /// This field is required.
-    pub fn input(mut self, input: ::std::string::String) -> Self {
+    pub fn input(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.input = ::std::option::Option::Some(input);
         self
     }
     /// <p>The input to pass to the tool.</p>
-    pub fn set_input(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_input(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.input = input;
         self
     }
     /// <p>The input to pass to the tool.</p>
-    pub fn get_input(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_input(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.input
     }
     /// <p>The type for the tool request.</p>

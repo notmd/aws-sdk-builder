@@ -4,12 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct StartWebAuthnRegistrationOutput {
     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
-    pub credential_creation_options: ::std::string::String,
+    pub credential_creation_options: ::aws_smithy_types::Document,
     _request_id: Option<String>,
 }
 impl StartWebAuthnRegistrationOutput {
     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
-    pub fn credential_creation_options(&self) -> &::std::string::String {
+    pub fn credential_creation_options(&self) -> &::aws_smithy_types::Document {
         &self.credential_creation_options
     }
 }
@@ -29,23 +29,23 @@ impl StartWebAuthnRegistrationOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StartWebAuthnRegistrationOutputBuilder {
-    pub(crate) credential_creation_options: ::std::option::Option<::std::string::String>,
+    pub(crate) credential_creation_options: ::std::option::Option<::aws_smithy_types::Document>,
     _request_id: Option<String>,
 }
 impl StartWebAuthnRegistrationOutputBuilder {
     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
     /// This field is required.
-    pub fn credential_creation_options(mut self, input: ::std::string::String) -> Self {
+    pub fn credential_creation_options(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.credential_creation_options = ::std::option::Option::Some(input);
         self
     }
     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
-    pub fn set_credential_creation_options(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_credential_creation_options(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.credential_creation_options = input;
         self
     }
     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
-    pub fn get_credential_creation_options(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_credential_creation_options(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.credential_creation_options
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

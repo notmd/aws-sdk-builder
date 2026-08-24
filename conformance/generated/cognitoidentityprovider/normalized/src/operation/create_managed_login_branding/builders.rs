@@ -176,7 +176,7 @@ impl CreateManagedLoginBrandingFluentBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn settings(mut self, input: ::std::string::String) -> Self {
+    pub fn settings(mut self, input: ::aws_smithy_types::Document) -> Self {
         self.inner = self.inner.settings(input);
         self
     }
@@ -192,7 +192,7 @@ impl CreateManagedLoginBrandingFluentBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn set_settings(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_settings(input);
         self
     }
@@ -208,7 +208,7 @@ impl CreateManagedLoginBrandingFluentBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn get_settings(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_settings(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_settings()
     }
     ///

@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub enum ToolResultBlockDelta {
     /// <p>The JSON schema for the tool result content block. see <a href="https://json-schema.org/understanding-json-schema/reference">JSON Schema Reference</a>.</p>
-    Json(::std::string::String),
+    Json(::aws_smithy_types::Document),
     /// <p>The reasoning the model used to return the output.</p>
     Text(::std::string::String),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
@@ -19,9 +19,9 @@ pub enum ToolResultBlockDelta {
     Unknown,
 }
 impl ToolResultBlockDelta {
-    /// Tries to convert the enum instance into [`Json`](crate::types::ToolResultBlockDelta::Json), extracting the inner [`Document`](::std::string::String).
+    /// Tries to convert the enum instance into [`Json`](crate::types::ToolResultBlockDelta::Json), extracting the inner [`Document`](::aws_smithy_types::Document).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_json(&self) -> ::std::result::Result<&::std::string::String, &Self> {
+    pub fn as_json(&self) -> ::std::result::Result<&::aws_smithy_types::Document, &Self> {
         if let ToolResultBlockDelta::Json(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
