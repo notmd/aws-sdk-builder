@@ -90475,7 +90475,7 @@ pub fn de_batch_execute_statement_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::batch_execute_statement::BatchExecuteStatementError::generic(generic),
+        _ => super::super::operation::batch_execute_statement::BatchExecuteStatementError::generic(generic)
     })
 }
 
@@ -90647,7 +90647,7 @@ pub fn de_batch_get_item_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::batch_get_item::BatchGetItemError::generic(generic),
+        _ => super::super::operation::batch_get_item::BatchGetItemError::generic(generic)
     })
 }
 
@@ -90850,7 +90850,7 @@ pub fn de_batch_write_item_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::batch_write_item::BatchWriteItemError::generic(generic),
+        _ => super::super::operation::batch_write_item::BatchWriteItemError::generic(generic)
     })
 }
 
@@ -91039,7 +91039,7 @@ pub fn de_create_backup_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_backup::CreateBackupError::generic(generic),
+        _ => super::super::operation::create_backup::CreateBackupError::generic(generic)
     })
 }
 
@@ -91194,7 +91194,7 @@ pub fn de_create_global_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_global_table::CreateGlobalTableError::generic(generic),
+        _ => super::super::operation::create_global_table::CreateGlobalTableError::generic(generic)
     })
 }
 
@@ -91335,7 +91335,7 @@ pub fn de_create_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_table::CreateTableError::generic(generic),
+        _ => super::super::operation::create_table::CreateTableError::generic(generic)
     })
 }
 
@@ -91490,7 +91490,7 @@ pub fn de_delete_backup_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_backup::DeleteBackupError::generic(generic),
+        _ => super::super::operation::delete_backup::DeleteBackupError::generic(generic)
     })
 }
 
@@ -91715,7 +91715,7 @@ pub fn de_delete_item_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_item::DeleteItemError::generic(generic),
+        _ => super::super::operation::delete_item::DeleteItemError::generic(generic)
     })
 }
 
@@ -91890,7 +91890,7 @@ pub fn de_delete_resource_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_resource_policy::DeleteResourcePolicyError::generic(generic),
+        _ => super::super::operation::delete_resource_policy::DeleteResourcePolicyError::generic(generic)
     })
 }
 
@@ -92047,7 +92047,7 @@ pub fn de_delete_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_table::DeleteTableError::generic(generic),
+        _ => super::super::operation::delete_table::DeleteTableError::generic(generic)
     })
 }
 
@@ -92174,7 +92174,7 @@ pub fn de_describe_backup_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_backup::DescribeBackupError::generic(generic),
+        _ => super::super::operation::describe_backup::DescribeBackupError::generic(generic)
     })
 }
 
@@ -92301,7 +92301,7 @@ pub fn de_describe_continuous_backups_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_continuous_backups::DescribeContinuousBackupsError::generic(generic),
+        _ => super::super::operation::describe_continuous_backups::DescribeContinuousBackupsError::generic(generic)
     })
 }
 
@@ -92414,7 +92414,7 @@ pub fn de_describe_contributor_insights_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_contributor_insights::DescribeContributorInsightsError::generic(generic),
+        _ => super::super::operation::describe_contributor_insights::DescribeContributorInsightsError::generic(generic)
     })
 }
 
@@ -92635,7 +92635,7 @@ pub fn de_describe_export_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_export::DescribeExportError::generic(generic),
+        _ => super::super::operation::describe_export::DescribeExportError::generic(generic)
     })
 }
 
@@ -92762,7 +92762,7 @@ pub fn de_describe_global_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_global_table::DescribeGlobalTableError::generic(generic),
+        _ => super::super::operation::describe_global_table::DescribeGlobalTableError::generic(generic)
     })
 }
 
@@ -92889,7 +92889,7 @@ pub fn de_describe_global_table_settings_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_global_table_settings::DescribeGlobalTableSettingsError::generic(generic),
+        _ => super::super::operation::describe_global_table_settings::DescribeGlobalTableSettingsError::generic(generic)
     })
 }
 
@@ -92993,7 +92993,7 @@ pub fn de_describe_import_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_import::DescribeImportError::generic(generic),
+        _ => super::super::operation::describe_import::DescribeImportError::generic(generic)
     })
 }
 
@@ -93121,7 +93121,7 @@ pub fn de_describe_kinesis_streaming_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::generic(generic),
+        _ => super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::generic(generic)
     })
 }
 
@@ -93239,7 +93239,7 @@ pub fn de_describe_limits_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_limits::DescribeLimitsError::generic(generic),
+        _ => super::super::operation::describe_limits::DescribeLimitsError::generic(generic)
     })
 }
 
@@ -93372,7 +93372,7 @@ pub fn de_describe_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_table::DescribeTableError::generic(generic),
+        _ => super::super::operation::describe_table::DescribeTableError::generic(generic)
     })
 }
 
@@ -93485,7 +93485,7 @@ pub fn de_describe_table_replica_auto_scaling_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingError::generic(generic),
+        _ => super::super::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingError::generic(generic)
     })
 }
 
@@ -93612,7 +93612,7 @@ pub fn de_describe_time_to_live_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_time_to_live::DescribeTimeToLiveError::generic(generic),
+        _ => super::super::operation::describe_time_to_live::DescribeTimeToLiveError::generic(generic)
     })
 }
 
@@ -93767,7 +93767,7 @@ pub fn de_disable_kinesis_streaming_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError::generic(generic),
+        _ => super::super::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError::generic(generic)
     })
 }
 
@@ -93937,7 +93937,7 @@ pub fn de_enable_kinesis_streaming_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationError::generic(generic),
+        _ => super::super::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationError::generic(generic)
     })
 }
 
@@ -94163,7 +94163,7 @@ pub fn de_execute_statement_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::execute_statement::ExecuteStatementError::generic(generic),
+        _ => super::super::operation::execute_statement::ExecuteStatementError::generic(generic)
     })
 }
 
@@ -94371,7 +94371,7 @@ pub fn de_execute_transaction_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::execute_transaction::ExecuteTransactionError::generic(generic),
+        _ => super::super::operation::execute_transaction::ExecuteTransactionError::generic(generic)
     })
 }
 
@@ -94543,7 +94543,7 @@ pub fn de_export_table_to_point_in_time_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::export_table_to_point_in_time::ExportTableToPointInTimeError::generic(generic),
+        _ => super::super::operation::export_table_to_point_in_time::ExportTableToPointInTimeError::generic(generic)
     })
 }
 
@@ -94712,7 +94712,7 @@ pub fn de_get_item_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_item::GetItemError::generic(generic),
+        _ => super::super::operation::get_item::GetItemError::generic(generic)
     })
 }
 
@@ -94856,7 +94856,7 @@ pub fn de_get_resource_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_resource_policy::GetResourcePolicyError::generic(generic),
+        _ => super::super::operation::get_resource_policy::GetResourcePolicyError::generic(generic)
     })
 }
 
@@ -94990,7 +94990,7 @@ pub fn de_import_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::import_table::ImportTableError::generic(generic),
+        _ => super::super::operation::import_table::ImportTableError::generic(generic)
     })
 }
 
@@ -95104,7 +95104,7 @@ pub fn de_list_backups_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_backups::ListBackupsError::generic(generic),
+        _ => super::super::operation::list_backups::ListBackupsError::generic(generic)
     })
 }
 
@@ -95222,7 +95222,7 @@ pub fn de_list_contributor_insights_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_contributor_insights::ListContributorInsightsError::generic(generic),
+        _ => super::super::operation::list_contributor_insights::ListContributorInsightsError::generic(generic)
     })
 }
 
@@ -95340,7 +95340,7 @@ pub fn de_list_exports_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_exports::ListExportsError::generic(generic),
+        _ => super::super::operation::list_exports::ListExportsError::generic(generic)
     })
 }
 
@@ -95458,7 +95458,7 @@ pub fn de_list_global_tables_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_global_tables::ListGlobalTablesError::generic(generic),
+        _ => super::super::operation::list_global_tables::ListGlobalTablesError::generic(generic)
     })
 }
 
@@ -95562,7 +95562,7 @@ pub fn de_list_imports_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_imports::ListImportsError::generic(generic),
+        _ => super::super::operation::list_imports::ListImportsError::generic(generic)
     })
 }
 
@@ -95680,7 +95680,7 @@ pub fn de_list_tables_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tables::ListTablesError::generic(generic),
+        _ => super::super::operation::list_tables::ListTablesError::generic(generic)
     })
 }
 
@@ -95812,7 +95812,7 @@ pub fn de_list_tags_of_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tags_of_resource::ListTagsOfResourceError::generic(generic),
+        _ => super::super::operation::list_tags_of_resource::ListTagsOfResourceError::generic(generic)
     })
 }
 
@@ -96042,7 +96042,7 @@ pub fn de_put_item_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_item::PutItemError::generic(generic),
+        _ => super::super::operation::put_item::PutItemError::generic(generic)
     })
 }
 
@@ -96217,7 +96217,7 @@ pub fn de_put_resource_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_resource_policy::PutResourcePolicyError::generic(generic),
+        _ => super::super::operation::put_resource_policy::PutResourcePolicyError::generic(generic)
     })
 }
 
@@ -96388,7 +96388,7 @@ pub fn de_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::query::QueryError::generic(generic),
+        _ => super::super::operation::query::QueryError::generic(generic)
     })
 }
 
@@ -96587,7 +96587,7 @@ pub fn de_restore_table_from_backup_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::generic(generic),
+        _ => super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::generic(generic)
     })
 }
 
@@ -96784,7 +96784,7 @@ pub fn de_restore_table_to_point_in_time_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::generic(generic),
+        _ => super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::generic(generic)
     })
 }
 
@@ -96953,7 +96953,7 @@ pub fn de_scan_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::scan::ScanError::generic(generic),
+        _ => super::super::operation::scan::ScanError::generic(generic)
     })
 }
 
@@ -97110,7 +97110,7 @@ pub fn de_search_vectors_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::search_vectors::SearchVectorsError::generic(generic),
+        _ => super::super::operation::search_vectors::SearchVectorsError::generic(generic)
     })
 }
 
@@ -97268,7 +97268,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -97415,7 +97415,7 @@ pub fn de_transact_get_items_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::transact_get_items::TransactGetItemsError::generic(generic),
+        _ => super::super::operation::transact_get_items::TransactGetItemsError::generic(generic)
     })
 }
 
@@ -97629,7 +97629,7 @@ pub fn de_transact_write_items_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::transact_write_items::TransactWriteItemsError::generic(generic),
+        _ => super::super::operation::transact_write_items::TransactWriteItemsError::generic(generic)
     })
 }
 
@@ -97787,7 +97787,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 
@@ -97892,7 +97892,7 @@ pub fn de_update_continuous_backups_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_continuous_backups::UpdateContinuousBackupsError::generic(generic),
+        _ => super::super::operation::update_continuous_backups::UpdateContinuousBackupsError::generic(generic)
     })
 }
 
@@ -98005,7 +98005,7 @@ pub fn de_update_contributor_insights_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_contributor_insights::UpdateContributorInsightsError::generic(generic),
+        _ => super::super::operation::update_contributor_insights::UpdateContributorInsightsError::generic(generic)
     })
 }
 
@@ -98191,7 +98191,7 @@ pub fn de_update_global_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_global_table::UpdateGlobalTableError::generic(generic),
+        _ => super::super::operation::update_global_table::UpdateGlobalTableError::generic(generic)
     })
 }
 
@@ -98374,7 +98374,7 @@ pub fn de_update_global_table_settings_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::generic(generic),
+        _ => super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::generic(generic)
     })
 }
 
@@ -98604,7 +98604,7 @@ pub fn de_update_item_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_item::UpdateItemError::generic(generic),
+        _ => super::super::operation::update_item::UpdateItemError::generic(generic)
     })
 }
 
@@ -98765,7 +98765,7 @@ pub fn de_update_kinesis_streaming_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::generic(generic),
+        _ => super::super::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::generic(generic)
     })
 }
 
@@ -98935,7 +98935,7 @@ pub fn de_update_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_table::UpdateTableError::generic(generic),
+        _ => super::super::operation::update_table::UpdateTableError::generic(generic)
     })
 }
 
@@ -99076,7 +99076,7 @@ pub fn de_update_table_replica_auto_scaling_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::generic(generic),
+        _ => super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::generic(generic)
     })
 }
 
@@ -99231,7 +99231,7 @@ pub fn de_update_time_to_live_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_time_to_live::UpdateTimeToLiveError::generic(generic),
+        _ => super::super::operation::update_time_to_live::UpdateTimeToLiveError::generic(generic)
     })
 }
 

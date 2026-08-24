@@ -82,7 +82,7 @@ pub fn de_disable_organizations_root_credentials_management_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::generic(generic),
+        _ => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::generic(generic)
     })
 }
 

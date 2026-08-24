@@ -82,7 +82,7 @@ pub fn de_get_aggregate_conformance_pack_compliance_summary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::generic(generic),
+        _ => super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::generic(generic)
     })
 }
 

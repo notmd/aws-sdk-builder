@@ -154792,7 +154792,7 @@ pub fn de_add_custom_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::add_custom_attributes::AddCustomAttributesError::generic(generic),
+        _ => super::super::operation::add_custom_attributes::AddCustomAttributesError::generic(generic)
     })
 }
 
@@ -154925,7 +154925,7 @@ pub fn de_add_user_pool_client_secret_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::generic(generic),
+        _ => super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::generic(generic)
     })
 }
 
@@ -155108,7 +155108,7 @@ pub fn de_admin_add_user_to_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_add_user_to_group::AdminAddUserToGroupError::generic(generic),
+        _ => super::super::operation::admin_add_user_to_group::AdminAddUserToGroupError::generic(generic)
     })
 }
 
@@ -155325,7 +155325,7 @@ pub fn de_admin_confirm_sign_up_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::generic(generic),
+        _ => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::generic(generic)
     })
 }
 
@@ -155612,7 +155612,7 @@ pub fn de_admin_create_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_create_user::AdminCreateUserError::generic(generic),
+        _ => super::super::operation::admin_create_user::AdminCreateUserError::generic(generic)
     })
 }
 
@@ -155795,7 +155795,7 @@ pub fn de_admin_delete_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_delete_user::AdminDeleteUserError::generic(generic),
+        _ => super::super::operation::admin_delete_user::AdminDeleteUserError::generic(generic)
     })
 }
 
@@ -155942,7 +155942,7 @@ pub fn de_admin_delete_user_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError::generic(generic),
+        _ => super::super::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError::generic(generic)
     })
 }
 
@@ -156103,7 +156103,7 @@ pub fn de_admin_disable_provider_for_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError::generic(generic),
+        _ => super::super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError::generic(generic)
     })
 }
 
@@ -156250,7 +156250,7 @@ pub fn de_admin_disable_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_disable_user::AdminDisableUserError::generic(generic),
+        _ => super::super::operation::admin_disable_user::AdminDisableUserError::generic(generic)
     })
 }
 
@@ -156397,7 +156397,7 @@ pub fn de_admin_enable_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_enable_user::AdminEnableUserError::generic(generic),
+        _ => super::super::operation::admin_enable_user::AdminEnableUserError::generic(generic)
     })
 }
 
@@ -156558,7 +156558,7 @@ pub fn de_admin_forget_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_forget_device::AdminForgetDeviceError::generic(generic),
+        _ => super::super::operation::admin_forget_device::AdminForgetDeviceError::generic(generic)
     })
 }
 
@@ -156705,7 +156705,7 @@ pub fn de_admin_get_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_get_device::AdminGetDeviceError::generic(generic),
+        _ => super::super::operation::admin_get_device::AdminGetDeviceError::generic(generic)
     })
 }
 
@@ -156889,7 +156889,7 @@ pub fn de_admin_get_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_get_user::AdminGetUserError::generic(generic),
+        _ => super::super::operation::admin_get_user::AdminGetUserError::generic(generic)
     })
 }
 
@@ -157104,7 +157104,7 @@ pub fn de_admin_get_user_auth_factors_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::generic(generic),
+        _ => super::super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::generic(generic)
     })
 }
 
@@ -157456,7 +157456,7 @@ pub fn de_admin_initiate_auth_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_initiate_auth::AdminInitiateAuthError::generic(generic),
+        _ => super::super::operation::admin_initiate_auth::AdminInitiateAuthError::generic(generic)
     })
 }
 
@@ -157683,7 +157683,7 @@ pub fn de_admin_link_provider_for_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_link_provider_for_user::AdminLinkProviderForUserError::generic(generic),
+        _ => super::super::operation::admin_link_provider_for_user::AdminLinkProviderForUserError::generic(generic)
     })
 }
 
@@ -157830,7 +157830,7 @@ pub fn de_admin_list_devices_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_list_devices::AdminListDevicesError::generic(generic),
+        _ => super::super::operation::admin_list_devices::AdminListDevicesError::generic(generic)
     })
 }
 
@@ -158018,7 +158018,7 @@ pub fn de_admin_list_groups_for_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_list_groups_for_user::AdminListGroupsForUserError::generic(generic),
+        _ => super::super::operation::admin_list_groups_for_user::AdminListGroupsForUserError::generic(generic)
     })
 }
 
@@ -158220,7 +158220,7 @@ pub fn de_admin_list_user_auth_events_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_list_user_auth_events::AdminListUserAuthEventsError::generic(generic),
+        _ => super::super::operation::admin_list_user_auth_events::AdminListUserAuthEventsError::generic(generic)
     })
 }
 
@@ -158408,7 +158408,7 @@ pub fn de_admin_remove_user_from_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError::generic(generic),
+        _ => super::super::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError::generic(generic)
     })
 }
 
@@ -158653,7 +158653,7 @@ pub fn de_admin_reset_user_password_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_reset_user_password::AdminResetUserPasswordError::generic(generic),
+        _ => super::super::operation::admin_reset_user_password::AdminResetUserPasswordError::generic(generic)
     })
 }
 
@@ -159024,7 +159024,7 @@ pub fn de_admin_respond_to_auth_challenge_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::generic(generic),
+        _ => super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::generic(generic)
     })
 }
 
@@ -159234,7 +159234,7 @@ pub fn de_admin_set_user_mfa_preference_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::generic(generic),
+        _ => super::super::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::generic(generic)
     })
 }
 
@@ -159409,7 +159409,7 @@ pub fn de_admin_set_user_password_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_set_user_password::AdminSetUserPasswordError::generic(generic),
+        _ => super::super::operation::admin_set_user_password::AdminSetUserPasswordError::generic(generic)
     })
 }
 
@@ -159542,7 +159542,7 @@ pub fn de_admin_set_user_settings_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::generic(generic),
+        _ => super::super::operation::admin_set_user_settings::AdminSetUserSettingsError::generic(generic)
     })
 }
 
@@ -159703,7 +159703,7 @@ pub fn de_admin_update_auth_event_feedback_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::generic(generic),
+        _ => super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::generic(generic)
     })
 }
 
@@ -159864,7 +159864,7 @@ pub fn de_admin_update_device_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_update_device_status::AdminUpdateDeviceStatusError::generic(generic),
+        _ => super::super::operation::admin_update_device_status::AdminUpdateDeviceStatusError::generic(generic)
     })
 }
 
@@ -160109,7 +160109,7 @@ pub fn de_admin_update_user_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::generic(generic),
+        _ => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::generic(generic)
     })
 }
 
@@ -160256,7 +160256,7 @@ pub fn de_admin_user_global_sign_out_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::generic(generic),
+        _ => super::super::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::generic(generic)
     })
 }
 
@@ -160417,7 +160417,7 @@ pub fn de_associate_software_token_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::associate_software_token::AssociateSoftwareTokenError::generic(generic),
+        _ => super::super::operation::associate_software_token::AssociateSoftwareTokenError::generic(generic)
     })
 }
 
@@ -160691,7 +160691,7 @@ pub fn de_change_password_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::change_password::ChangePasswordError::generic(generic),
+        _ => super::super::operation::change_password::ChangePasswordError::generic(generic)
     })
 }
 
@@ -160936,7 +160936,7 @@ pub fn de_complete_web_authn_registration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::generic(generic),
+        _ => super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::generic(generic)
     })
 }
 
@@ -161195,7 +161195,7 @@ pub fn de_confirm_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::confirm_device::ConfirmDeviceError::generic(generic),
+        _ => super::super::operation::confirm_device::ConfirmDeviceError::generic(generic)
     })
 }
 
@@ -161532,7 +161532,7 @@ pub fn de_confirm_forgot_password_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::generic(generic),
+        _ => super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::generic(generic)
     })
 }
 
@@ -161805,7 +161805,7 @@ pub fn de_confirm_sign_up_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::confirm_sign_up::ConfirmSignUpError::generic(generic),
+        _ => super::super::operation::confirm_sign_up::ConfirmSignUpError::generic(generic)
     })
 }
 
@@ -162004,7 +162004,7 @@ pub fn de_create_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_group::CreateGroupError::generic(generic),
+        _ => super::super::operation::create_group::CreateGroupError::generic(generic)
     })
 }
 
@@ -162187,7 +162187,7 @@ pub fn de_create_identity_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_identity_provider::CreateIdentityProviderError::generic(generic),
+        _ => super::super::operation::create_identity_provider::CreateIdentityProviderError::generic(generic)
     })
 }
 
@@ -162399,7 +162399,7 @@ pub fn de_create_managed_login_branding_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingError::generic(generic),
+        _ => super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingError::generic(generic)
     })
 }
 
@@ -162582,7 +162582,7 @@ pub fn de_create_resource_server_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_resource_server::CreateResourceServerError::generic(generic),
+        _ => super::super::operation::create_resource_server::CreateResourceServerError::generic(generic)
     })
 }
 
@@ -162794,7 +162794,7 @@ pub fn de_create_terms_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_terms::CreateTermsError::generic(generic),
+        _ => super::super::operation::create_terms::CreateTermsError::generic(generic)
     })
 }
 
@@ -162991,7 +162991,7 @@ pub fn de_create_user_import_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_user_import_job::CreateUserImportJobError::generic(generic),
+        _ => super::super::operation::create_user_import_job::CreateUserImportJobError::generic(generic)
     })
 }
 
@@ -163230,7 +163230,7 @@ pub fn de_create_user_pool_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_user_pool::CreateUserPoolError::generic(generic),
+        _ => super::super::operation::create_user_pool::CreateUserPoolError::generic(generic)
     })
 }
 
@@ -163455,7 +163455,7 @@ pub fn de_create_user_pool_client_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_user_pool_client::CreateUserPoolClientError::generic(generic),
+        _ => super::super::operation::create_user_pool_client::CreateUserPoolClientError::generic(generic)
     })
 }
 
@@ -163652,7 +163652,7 @@ pub fn de_create_user_pool_domain_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::generic(generic),
+        _ => super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::generic(generic)
     })
 }
 
@@ -163873,7 +163873,7 @@ pub fn de_create_user_pool_replica_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_user_pool_replica::CreateUserPoolReplicaError::generic(generic),
+        _ => super::super::operation::create_user_pool_replica::CreateUserPoolReplicaError::generic(generic)
     })
 }
 
@@ -164042,7 +164042,7 @@ pub fn de_delete_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_group::DeleteGroupError::generic(generic),
+        _ => super::super::operation::delete_group::DeleteGroupError::generic(generic)
     })
 }
 
@@ -164189,7 +164189,7 @@ pub fn de_delete_identity_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_identity_provider::DeleteIdentityProviderError::generic(generic),
+        _ => super::super::operation::delete_identity_provider::DeleteIdentityProviderError::generic(generic)
     })
 }
 
@@ -164336,7 +164336,7 @@ pub fn de_delete_managed_login_branding_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::generic(generic),
+        _ => super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::generic(generic)
     })
 }
 
@@ -164469,7 +164469,7 @@ pub fn de_delete_resource_server_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_resource_server::DeleteResourceServerError::generic(generic),
+        _ => super::super::operation::delete_resource_server::DeleteResourceServerError::generic(generic)
     })
 }
 
@@ -164616,7 +164616,7 @@ pub fn de_delete_terms_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_terms::DeleteTermsError::generic(generic),
+        _ => super::super::operation::delete_terms::DeleteTermsError::generic(generic)
     })
 }
 
@@ -164805,7 +164805,7 @@ pub fn de_delete_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user::DeleteUserError::generic(generic),
+        _ => super::super::operation::delete_user::DeleteUserError::generic(generic)
     })
 }
 
@@ -164994,7 +164994,7 @@ pub fn de_delete_user_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user_attributes::DeleteUserAttributesError::generic(generic),
+        _ => super::super::operation::delete_user_attributes::DeleteUserAttributesError::generic(generic)
     })
 }
 
@@ -165141,7 +165141,7 @@ pub fn de_delete_user_pool_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user_pool::DeleteUserPoolError::generic(generic),
+        _ => super::super::operation::delete_user_pool::DeleteUserPoolError::generic(generic)
     })
 }
 
@@ -165288,7 +165288,7 @@ pub fn de_delete_user_pool_client_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user_pool_client::DeleteUserPoolClientError::generic(generic),
+        _ => super::super::operation::delete_user_pool_client::DeleteUserPoolClientError::generic(generic)
     })
 }
 
@@ -165407,7 +165407,7 @@ pub fn de_delete_user_pool_client_secret_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::generic(generic),
+        _ => super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::generic(generic)
     })
 }
 
@@ -165540,7 +165540,7 @@ pub fn de_delete_user_pool_domain_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user_pool_domain::DeleteUserPoolDomainError::generic(generic),
+        _ => super::super::operation::delete_user_pool_domain::DeleteUserPoolDomainError::generic(generic)
     })
 }
 
@@ -165673,7 +165673,7 @@ pub fn de_delete_user_pool_replica_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::generic(generic),
+        _ => super::super::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::generic(generic)
     })
 }
 
@@ -165884,7 +165884,7 @@ pub fn de_delete_web_authn_credential_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::generic(generic),
+        _ => super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::generic(generic)
     })
 }
 
@@ -166003,7 +166003,7 @@ pub fn de_describe_identity_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_identity_provider::DescribeIdentityProviderError::generic(generic),
+        _ => super::super::operation::describe_identity_provider::DescribeIdentityProviderError::generic(generic)
     })
 }
 
@@ -166173,7 +166173,7 @@ pub fn de_describe_managed_login_branding_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError::generic(generic),
+        _ => super::super::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError::generic(generic)
     })
 }
 
@@ -166342,7 +166342,7 @@ pub fn de_describe_managed_login_branding_by_client_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::generic(generic),
+        _ => super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::generic(generic)
     })
 }
 
@@ -166511,7 +166511,7 @@ pub fn de_describe_resource_server_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_resource_server::DescribeResourceServerError::generic(generic),
+        _ => super::super::operation::describe_resource_server::DescribeResourceServerError::generic(generic)
     })
 }
 
@@ -166695,7 +166695,7 @@ pub fn de_describe_risk_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::generic(generic),
+        _ => super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::generic(generic)
     })
 }
 
@@ -166865,7 +166865,7 @@ pub fn de_describe_terms_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_terms::DescribeTermsError::generic(generic),
+        _ => super::super::operation::describe_terms::DescribeTermsError::generic(generic)
     })
 }
 
@@ -167034,7 +167034,7 @@ pub fn de_describe_user_import_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_user_import_job::DescribeUserImportJobError::generic(generic),
+        _ => super::super::operation::describe_user_import_job::DescribeUserImportJobError::generic(generic)
     })
 }
 
@@ -167217,7 +167217,7 @@ pub fn de_describe_user_pool_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_user_pool::DescribeUserPoolError::generic(generic),
+        _ => super::super::operation::describe_user_pool::DescribeUserPoolError::generic(generic)
     })
 }
 
@@ -167386,7 +167386,7 @@ pub fn de_describe_user_pool_client_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_user_pool_client::DescribeUserPoolClientError::generic(generic),
+        _ => super::super::operation::describe_user_pool_client::DescribeUserPoolClientError::generic(generic)
     })
 }
 
@@ -167541,7 +167541,7 @@ pub fn de_describe_user_pool_domain_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_user_pool_domain::DescribeUserPoolDomainError::generic(generic),
+        _ => super::super::operation::describe_user_pool_domain::DescribeUserPoolDomainError::generic(generic)
     })
 }
 
@@ -167780,7 +167780,7 @@ pub fn de_forget_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::forget_device::ForgetDeviceError::generic(generic),
+        _ => super::super::operation::forget_device::ForgetDeviceError::generic(generic)
     })
 }
 
@@ -168053,7 +168053,7 @@ pub fn de_forgot_password_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::forgot_password::ForgotPasswordError::generic(generic),
+        _ => super::super::operation::forgot_password::ForgotPasswordError::generic(generic)
     })
 }
 
@@ -168222,7 +168222,7 @@ pub fn de_get_csv_header_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_csv_header::GetCSVHeaderError::generic(generic),
+        _ => super::super::operation::get_csv_header::GetCSVHeaderError::generic(generic)
     })
 }
 
@@ -168466,7 +168466,7 @@ pub fn de_get_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_device::GetDeviceError::generic(generic),
+        _ => super::super::operation::get_device::GetDeviceError::generic(generic)
     })
 }
 
@@ -168636,7 +168636,7 @@ pub fn de_get_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_group::GetGroupError::generic(generic),
+        _ => super::super::operation::get_group::GetGroupError::generic(generic)
     })
 }
 
@@ -168791,7 +168791,7 @@ pub fn de_get_identity_provider_by_identifier_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::generic(generic),
+        _ => super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::generic(generic)
     })
 }
 
@@ -168947,7 +168947,7 @@ pub fn de_get_log_delivery_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError::generic(generic),
+        _ => super::super::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError::generic(generic)
     })
 }
 
@@ -169102,7 +169102,7 @@ pub fn de_get_provisioned_limit_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_provisioned_limit::GetProvisionedLimitError::generic(generic),
+        _ => super::super::operation::get_provisioned_limit::GetProvisionedLimitError::generic(generic)
     })
 }
 
@@ -169244,7 +169244,7 @@ pub fn de_get_signing_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_signing_certificate::GetSigningCertificateError::generic(generic),
+        _ => super::super::operation::get_signing_certificate::GetSigningCertificateError::generic(generic)
     })
 }
 
@@ -169499,7 +169499,7 @@ pub fn de_get_tokens_from_refresh_token_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::generic(generic),
+        _ => super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::generic(generic)
     })
 }
 
@@ -169668,7 +169668,7 @@ pub fn de_get_ui_customization_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_ui_customization::GetUICustomizationError::generic(generic),
+        _ => super::super::operation::get_ui_customization::GetUICustomizationError::generic(generic)
     })
 }
 
@@ -169894,7 +169894,7 @@ pub fn de_get_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_user::GetUserError::generic(generic),
+        _ => super::super::operation::get_user::GetUserError::generic(generic)
     })
 }
 
@@ -170249,7 +170249,7 @@ pub fn de_get_user_attribute_verification_code_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::generic(generic),
+        _ => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::generic(generic)
     })
 }
 
@@ -170474,7 +170474,7 @@ pub fn de_get_user_auth_factors_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_user_auth_factors::GetUserAuthFactorsError::generic(generic),
+        _ => super::super::operation::get_user_auth_factors::GetUserAuthFactorsError::generic(generic)
     })
 }
 
@@ -170644,7 +170644,7 @@ pub fn de_get_user_pool_mfa_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::generic(generic),
+        _ => super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::generic(generic)
     })
 }
 
@@ -170869,7 +170869,7 @@ pub fn de_global_sign_out_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::global_sign_out::GlobalSignOutError::generic(generic),
+        _ => super::super::operation::global_sign_out::GlobalSignOutError::generic(generic)
     })
 }
 
@@ -171170,7 +171170,7 @@ pub fn de_initiate_auth_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::initiate_auth::InitiateAuthError::generic(generic),
+        _ => super::super::operation::initiate_auth::InitiateAuthError::generic(generic)
     })
 }
 
@@ -171425,7 +171425,7 @@ pub fn de_list_devices_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_devices::ListDevicesError::generic(generic),
+        _ => super::super::operation::list_devices::ListDevicesError::generic(generic)
     })
 }
 
@@ -171599,7 +171599,7 @@ pub fn de_list_groups_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_groups::ListGroupsError::generic(generic),
+        _ => super::super::operation::list_groups::ListGroupsError::generic(generic)
     })
 }
 
@@ -171759,7 +171759,7 @@ pub fn de_list_identity_providers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_identity_providers::ListIdentityProvidersError::generic(generic),
+        _ => super::super::operation::list_identity_providers::ListIdentityProvidersError::generic(generic)
     })
 }
 
@@ -171935,7 +171935,7 @@ pub fn de_list_resource_servers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_resource_servers::ListResourceServersError::generic(generic),
+        _ => super::super::operation::list_resource_servers::ListResourceServersError::generic(generic)
     })
 }
 
@@ -172111,7 +172111,7 @@ pub fn de_list_tags_for_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic)
     })
 }
 
@@ -172280,7 +172280,7 @@ pub fn de_list_terms_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_terms::ListTermsError::generic(generic),
+        _ => super::super::operation::list_terms::ListTermsError::generic(generic)
     })
 }
 
@@ -172456,7 +172456,7 @@ pub fn de_list_user_import_jobs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_user_import_jobs::ListUserImportJobsError::generic(generic),
+        _ => super::super::operation::list_user_import_jobs::ListUserImportJobsError::generic(generic)
     })
 }
 
@@ -172616,7 +172616,7 @@ pub fn de_list_user_pool_client_secrets_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError::generic(generic),
+        _ => super::super::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError::generic(generic)
     })
 }
 
@@ -172790,7 +172790,7 @@ pub fn de_list_user_pool_clients_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_user_pool_clients::ListUserPoolClientsError::generic(generic),
+        _ => super::super::operation::list_user_pool_clients::ListUserPoolClientsError::generic(generic)
     })
 }
 
@@ -172964,7 +172964,7 @@ pub fn de_list_user_pool_replicas_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_user_pool_replicas::ListUserPoolReplicasError::generic(generic),
+        _ => super::super::operation::list_user_pool_replicas::ListUserPoolReplicasError::generic(generic)
     })
 }
 
@@ -173110,7 +173110,7 @@ pub fn de_list_user_pools_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_user_pools::ListUserPoolsError::generic(generic),
+        _ => super::super::operation::list_user_pools::ListUserPoolsError::generic(generic)
     })
 }
 
@@ -173284,7 +173284,7 @@ pub fn de_list_users_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_users::ListUsersError::generic(generic),
+        _ => super::super::operation::list_users::ListUsersError::generic(generic)
     })
 }
 
@@ -173458,7 +173458,7 @@ pub fn de_list_users_in_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_users_in_group::ListUsersInGroupError::generic(generic),
+        _ => super::super::operation::list_users_in_group::ListUsersInGroupError::generic(generic)
     })
 }
 
@@ -173660,7 +173660,7 @@ pub fn de_list_web_authn_credentials_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::generic(generic),
+        _ => super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::generic(generic)
     })
 }
 
@@ -173976,7 +173976,7 @@ pub fn de_resend_confirmation_code_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::generic(generic),
+        _ => super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::generic(generic)
     })
 }
 
@@ -174397,7 +174397,7 @@ pub fn de_respond_to_auth_challenge_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::generic(generic),
+        _ => super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::generic(generic)
     })
 }
 
@@ -174607,7 +174607,7 @@ pub fn de_revoke_token_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::revoke_token::RevokeTokenError::generic(generic),
+        _ => super::super::operation::revoke_token::RevokeTokenError::generic(generic)
     })
 }
 
@@ -174740,7 +174740,7 @@ pub fn de_set_log_delivery_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError::generic(generic),
+        _ => super::super::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError::generic(generic)
     })
 }
 
@@ -174951,7 +174951,7 @@ pub fn de_set_risk_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_risk_configuration::SetRiskConfigurationError::generic(generic),
+        _ => super::super::operation::set_risk_configuration::SetRiskConfigurationError::generic(generic)
     })
 }
 
@@ -175121,7 +175121,7 @@ pub fn de_set_ui_customization_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_ui_customization::SetUICustomizationError::generic(generic),
+        _ => super::super::operation::set_ui_customization::SetUICustomizationError::generic(generic)
     })
 }
 
@@ -175333,7 +175333,7 @@ pub fn de_set_user_mfa_preference_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_user_mfa_preference::SetUserMFAPreferenceError::generic(generic),
+        _ => super::super::operation::set_user_mfa_preference::SetUserMFAPreferenceError::generic(generic)
     })
 }
 
@@ -175522,7 +175522,7 @@ pub fn de_set_user_pool_mfa_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigError::generic(generic),
+        _ => super::super::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigError::generic(generic)
     })
 }
 
@@ -175747,7 +175747,7 @@ pub fn de_set_user_settings_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_user_settings::SetUserSettingsError::generic(generic),
+        _ => super::super::operation::set_user_settings::SetUserSettingsError::generic(generic)
     })
 }
 
@@ -176034,7 +176034,7 @@ pub fn de_sign_up_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::sign_up::SignUpError::generic(generic),
+        _ => super::super::operation::sign_up::SignUpError::generic(generic)
     })
 }
 
@@ -176232,7 +176232,7 @@ pub fn de_start_user_import_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_user_import_job::StartUserImportJobError::generic(generic),
+        _ => super::super::operation::start_user_import_job::StartUserImportJobError::generic(generic)
     })
 }
 
@@ -176457,7 +176457,7 @@ pub fn de_start_web_authn_registration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::generic(generic),
+        _ => super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::generic(generic)
     })
 }
 
@@ -176642,7 +176642,7 @@ pub fn de_stop_user_import_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::stop_user_import_job::StopUserImportJobError::generic(generic),
+        _ => super::super::operation::stop_user_import_job::StopUserImportJobError::generic(generic)
     })
 }
 
@@ -176811,7 +176811,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -176944,7 +176944,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 
@@ -177105,7 +177105,7 @@ pub fn de_update_auth_event_feedback_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::generic(generic),
+        _ => super::super::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::generic(generic)
     })
 }
 
@@ -177308,7 +177308,7 @@ pub fn de_update_device_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_device_status::UpdateDeviceStatusError::generic(generic),
+        _ => super::super::operation::update_device_status::UpdateDeviceStatusError::generic(generic)
     })
 }
 
@@ -177441,7 +177441,7 @@ pub fn de_update_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_group::UpdateGroupError::generic(generic),
+        _ => super::super::operation::update_group::UpdateGroupError::generic(generic)
     })
 }
 
@@ -177624,7 +177624,7 @@ pub fn de_update_identity_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_identity_provider::UpdateIdentityProviderError::generic(generic),
+        _ => super::super::operation::update_identity_provider::UpdateIdentityProviderError::generic(generic)
     })
 }
 
@@ -177808,7 +177808,7 @@ pub fn de_update_managed_login_branding_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_managed_login_branding::UpdateManagedLoginBrandingError::generic(generic),
+        _ => super::super::operation::update_managed_login_branding::UpdateManagedLoginBrandingError::generic(generic)
     })
 }
 
@@ -177977,7 +177977,7 @@ pub fn de_update_provisioned_limit_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::generic(generic),
+        _ => super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::generic(generic)
     })
 }
 
@@ -178147,7 +178147,7 @@ pub fn de_update_resource_server_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_resource_server::UpdateResourceServerError::generic(generic),
+        _ => super::super::operation::update_resource_server::UpdateResourceServerError::generic(generic)
     })
 }
 
@@ -178345,7 +178345,7 @@ pub fn de_update_terms_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_terms::UpdateTermsError::generic(generic),
+        _ => super::super::operation::update_terms::UpdateTermsError::generic(generic)
     })
 }
 
@@ -178710,7 +178710,7 @@ pub fn de_update_user_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_user_attributes::UpdateUserAttributesError::generic(generic),
+        _ => super::super::operation::update_user_attributes::UpdateUserAttributesError::generic(generic)
     })
 }
 
@@ -178991,7 +178991,7 @@ pub fn de_update_user_pool_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_user_pool::UpdateUserPoolError::generic(generic),
+        _ => super::super::operation::update_user_pool::UpdateUserPoolError::generic(generic)
     })
 }
 
@@ -179180,7 +179180,7 @@ pub fn de_update_user_pool_client_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_user_pool_client::UpdateUserPoolClientError::generic(generic),
+        _ => super::super::operation::update_user_pool_client::UpdateUserPoolClientError::generic(generic)
     })
 }
 
@@ -179377,7 +179377,7 @@ pub fn de_update_user_pool_domain_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_user_pool_domain::UpdateUserPoolDomainError::generic(generic),
+        _ => super::super::operation::update_user_pool_domain::UpdateUserPoolDomainError::generic(generic)
     })
 }
 
@@ -179556,7 +179556,7 @@ pub fn de_update_user_pool_replica_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_user_pool_replica::UpdateUserPoolReplicaError::generic(generic),
+        _ => super::super::operation::update_user_pool_replica::UpdateUserPoolReplicaError::generic(generic)
     })
 }
 
@@ -179837,7 +179837,7 @@ pub fn de_verify_software_token_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::verify_software_token::VerifySoftwareTokenError::generic(generic),
+        _ => super::super::operation::verify_software_token::VerifySoftwareTokenError::generic(generic)
     })
 }
 
@@ -180125,7 +180125,7 @@ pub fn de_verify_user_attribute_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::verify_user_attribute::VerifyUserAttributeError::generic(generic),
+        _ => super::super::operation::verify_user_attribute::VerifyUserAttributeError::generic(generic)
     })
 }
 

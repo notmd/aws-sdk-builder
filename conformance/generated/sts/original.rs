@@ -15514,7 +15514,7 @@ pub fn de_assume_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::assume_role::AssumeRoleError::generic(generic),
+        _ => super::super::operation::assume_role::AssumeRoleError::generic(generic)
     })
 }
 
@@ -15818,7 +15818,7 @@ pub fn de_assume_role_with_saml_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::generic(generic),
+        _ => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::generic(generic)
     })
 }
 
@@ -16153,7 +16153,7 @@ pub fn de_assume_role_with_web_identity_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::generic(generic),
+        _ => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::generic(generic)
     })
 }
 
@@ -16397,7 +16397,7 @@ pub fn de_assume_root_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::assume_root::AssumeRootError::generic(generic),
+        _ => super::super::operation::assume_root::AssumeRootError::generic(generic)
     })
 }
 
@@ -16537,7 +16537,7 @@ pub fn de_decode_authorization_message_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError::generic(generic),
+        _ => super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError::generic(generic)
     })
 }
 
@@ -16900,7 +16900,7 @@ pub fn de_get_delegated_access_token_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::generic(generic),
+        _ => super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::generic(generic)
     })
 }
 
@@ -17072,7 +17072,7 @@ pub fn de_get_federation_token_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_federation_token::GetFederationTokenError::generic(generic),
+        _ => super::super::operation::get_federation_token::GetFederationTokenError::generic(generic)
     })
 }
 
@@ -17246,7 +17246,7 @@ pub fn de_get_session_token_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_session_token::GetSessionTokenError::generic(generic),
+        _ => super::super::operation::get_session_token::GetSessionTokenError::generic(generic)
     })
 }
 
@@ -17401,7 +17401,7 @@ pub fn de_get_web_identity_token_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_web_identity_token::GetWebIdentityTokenError::generic(generic),
+        _ => super::super::operation::get_web_identity_token::GetWebIdentityTokenError::generic(generic)
     })
 }
 

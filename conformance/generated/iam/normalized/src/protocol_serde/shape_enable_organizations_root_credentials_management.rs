@@ -96,7 +96,7 @@ pub fn de_enable_organizations_root_credentials_management_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::generic(generic),
+        _ => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::generic(generic)
     })
 }
 

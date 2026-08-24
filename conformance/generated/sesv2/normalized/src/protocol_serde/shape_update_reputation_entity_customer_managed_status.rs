@@ -68,7 +68,7 @@ pub fn de_update_reputation_entity_customer_managed_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::generic(generic),
+        _ => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::generic(generic)
     })
 }
 

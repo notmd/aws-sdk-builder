@@ -68,7 +68,7 @@ pub fn de_put_email_identity_configuration_set_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::generic(generic),
+        _ => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::generic(generic)
     })
 }
 

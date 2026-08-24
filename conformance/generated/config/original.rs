@@ -120279,7 +120279,7 @@ pub fn de_associate_resource_types_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::associate_resource_types::AssociateResourceTypesError::generic(generic),
+        _ => super::super::operation::associate_resource_types::AssociateResourceTypesError::generic(generic)
     })
 }
 
@@ -120393,7 +120393,7 @@ pub fn de_batch_get_aggregate_resource_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError::generic(generic),
+        _ => super::super::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError::generic(generic)
     })
 }
 
@@ -120509,7 +120509,7 @@ pub fn de_batch_get_resource_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::batch_get_resource_config::BatchGetResourceConfigError::generic(generic),
+        _ => super::super::operation::batch_get_resource_config::BatchGetResourceConfigError::generic(generic)
     })
 }
 
@@ -120611,7 +120611,7 @@ pub fn de_delete_aggregation_authorization_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationError::generic(generic),
+        _ => super::super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationError::generic(generic)
     })
 }
 
@@ -120688,7 +120688,7 @@ pub fn de_delete_config_rule_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_config_rule::DeleteConfigRuleError::generic(generic),
+        _ => super::super::operation::delete_config_rule::DeleteConfigRuleError::generic(generic)
     })
 }
 
@@ -120751,7 +120751,7 @@ pub fn de_delete_configuration_aggregator_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError::generic(generic),
+        _ => super::super::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError::generic(generic)
     })
 }
 
@@ -120828,7 +120828,7 @@ pub fn de_delete_configuration_recorder_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_configuration_recorder::DeleteConfigurationRecorderError::generic(generic),
+        _ => super::super::operation::delete_configuration_recorder::DeleteConfigurationRecorderError::generic(generic)
     })
 }
 
@@ -120905,7 +120905,7 @@ pub fn de_delete_conformance_pack_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_conformance_pack::DeleteConformancePackError::generic(generic),
+        _ => super::super::operation::delete_conformance_pack::DeleteConformancePackError::generic(generic)
     })
 }
 
@@ -120982,7 +120982,7 @@ pub fn de_delete_connector_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_connector::DeleteConnectorError::generic(generic),
+        _ => super::super::operation::delete_connector::DeleteConnectorError::generic(generic)
     })
 }
 
@@ -121059,7 +121059,7 @@ pub fn de_delete_delivery_channel_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_delivery_channel::DeleteDeliveryChannelError::generic(generic),
+        _ => super::super::operation::delete_delivery_channel::DeleteDeliveryChannelError::generic(generic)
     })
 }
 
@@ -121136,7 +121136,7 @@ pub fn de_delete_evaluation_results_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_evaluation_results::DeleteEvaluationResultsError::generic(generic),
+        _ => super::super::operation::delete_evaluation_results::DeleteEvaluationResultsError::generic(generic)
     })
 }
 
@@ -121227,7 +121227,7 @@ pub fn de_delete_organization_config_rule_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::generic(generic),
+        _ => super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::generic(generic)
     })
 }
 
@@ -121318,7 +121318,7 @@ pub fn de_delete_organization_conformance_pack_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::generic(generic),
+        _ => super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::generic(generic)
     })
 }
 
@@ -121381,7 +121381,7 @@ pub fn de_delete_pending_aggregation_request_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::generic(generic),
+        _ => super::super::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::generic(generic)
     })
 }
 
@@ -121486,7 +121486,7 @@ pub fn de_delete_remediation_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_remediation_configuration::DeleteRemediationConfigurationError::generic(generic),
+        _ => super::super::operation::delete_remediation_configuration::DeleteRemediationConfigurationError::generic(generic)
     })
 }
 
@@ -121549,7 +121549,7 @@ pub fn de_delete_remediation_exceptions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError::generic(generic),
+        _ => super::super::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError::generic(generic)
     })
 }
 
@@ -121662,7 +121662,7 @@ pub fn de_delete_resource_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_resource_config::DeleteResourceConfigError::generic(generic),
+        _ => super::super::operation::delete_resource_config::DeleteResourceConfigError::generic(generic)
     })
 }
 
@@ -121739,7 +121739,7 @@ pub fn de_delete_retention_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_retention_configuration::DeleteRetentionConfigurationError::generic(generic),
+        _ => super::super::operation::delete_retention_configuration::DeleteRetentionConfigurationError::generic(generic)
     })
 }
 
@@ -121830,7 +121830,7 @@ pub fn de_delete_service_linked_configuration_recorder_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::generic(generic),
+        _ => super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::generic(generic)
     })
 }
 
@@ -121952,7 +121952,7 @@ pub fn de_delete_stored_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_stored_query::DeleteStoredQueryError::generic(generic),
+        _ => super::super::operation::delete_stored_query::DeleteStoredQueryError::generic(generic)
     })
 }
 
@@ -122043,7 +122043,7 @@ pub fn de_deliver_config_snapshot_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::deliver_config_snapshot::DeliverConfigSnapshotError::generic(generic),
+        _ => super::super::operation::deliver_config_snapshot::DeliverConfigSnapshotError::generic(generic)
     })
 }
 
@@ -122186,7 +122186,7 @@ pub fn de_describe_aggregate_compliance_by_config_rules_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesError::generic(generic),
+        _ => super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesError::generic(generic)
     })
 }
 
@@ -122332,7 +122332,7 @@ pub fn de_describe_aggregate_compliance_by_conformance_packs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksError::generic(generic),
+        _ => super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksError::generic(generic)
     })
 }
 
@@ -122464,7 +122464,7 @@ pub fn de_describe_aggregation_authorizations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsError::generic(generic),
+        _ => super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsError::generic(generic)
     })
 }
 
@@ -122596,7 +122596,7 @@ pub fn de_describe_compliance_by_config_rule_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError::generic(generic),
+        _ => super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError::generic(generic)
     })
 }
 
@@ -122714,7 +122714,7 @@ pub fn de_describe_compliance_by_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_compliance_by_resource::DescribeComplianceByResourceError::generic(generic),
+        _ => super::super::operation::describe_compliance_by_resource::DescribeComplianceByResourceError::generic(generic)
     })
 }
 
@@ -122846,7 +122846,7 @@ pub fn de_describe_config_rule_evaluation_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::generic(generic),
+        _ => super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::generic(generic)
     })
 }
 
@@ -122978,7 +122978,7 @@ pub fn de_describe_config_rules_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_config_rules::DescribeConfigRulesError::generic(generic),
+        _ => super::super::operation::describe_config_rules::DescribeConfigRulesError::generic(generic)
     })
 }
 
@@ -123124,7 +123124,7 @@ pub fn de_describe_configuration_aggregator_sources_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::generic(generic),
+        _ => super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::generic(generic)
     })
 }
 
@@ -123270,7 +123270,7 @@ pub fn de_describe_configuration_aggregators_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::generic(generic),
+        _ => super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::generic(generic)
     })
 }
 
@@ -123388,7 +123388,7 @@ pub fn de_describe_configuration_recorder_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::generic(generic),
+        _ => super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::generic(generic)
     })
 }
 
@@ -123501,7 +123501,7 @@ pub fn de_describe_configuration_recorders_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::generic(generic),
+        _ => super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::generic(generic)
     })
 }
 
@@ -123656,7 +123656,7 @@ pub fn de_describe_conformance_pack_compliance_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::generic(generic),
+        _ => super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::generic(generic)
     })
 }
 
@@ -123795,7 +123795,7 @@ pub fn de_describe_conformance_pack_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::generic(generic),
+        _ => super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::generic(generic)
     })
 }
 
@@ -123941,7 +123941,7 @@ pub fn de_describe_conformance_packs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_conformance_packs::DescribeConformancePacksError::generic(generic),
+        _ => super::super::operation::describe_conformance_packs::DescribeConformancePacksError::generic(generic)
     })
 }
 
@@ -124045,7 +124045,7 @@ pub fn de_describe_delivery_channel_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError::generic(generic),
+        _ => super::super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError::generic(generic)
     })
 }
 
@@ -124144,7 +124144,7 @@ pub fn de_describe_delivery_channels_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_delivery_channels::DescribeDeliveryChannelsError::generic(generic),
+        _ => super::super::operation::describe_delivery_channels::DescribeDeliveryChannelsError::generic(generic)
     })
 }
 
@@ -124285,7 +124285,7 @@ pub fn de_describe_organization_config_rule_statuses_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesError::generic(generic),
+        _ => super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesError::generic(generic)
     })
 }
 
@@ -124431,7 +124431,7 @@ pub fn de_describe_organization_config_rules_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::generic(generic),
+        _ => super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::generic(generic)
     })
 }
 
@@ -124577,7 +124577,7 @@ pub fn de_describe_organization_conformance_pack_statuses_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesError::generic(generic),
+        _ => super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesError::generic(generic)
     })
 }
 
@@ -124723,7 +124723,7 @@ pub fn de_describe_organization_conformance_packs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError::generic(generic),
+        _ => super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError::generic(generic)
     })
 }
 
@@ -124855,7 +124855,7 @@ pub fn de_describe_pending_aggregation_requests_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::generic(generic),
+        _ => super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::generic(generic)
     })
 }
 
@@ -125050,7 +125050,7 @@ pub fn de_describe_remediation_exceptions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError::generic(generic),
+        _ => super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError::generic(generic)
     })
 }
 
@@ -125182,7 +125182,7 @@ pub fn de_describe_remediation_execution_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::generic(generic),
+        _ => super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::generic(generic)
     })
 }
 
@@ -125314,7 +125314,7 @@ pub fn de_describe_retention_configurations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_retention_configurations::DescribeRetentionConfigurationsError::generic(generic),
+        _ => super::super::operation::describe_retention_configurations::DescribeRetentionConfigurationsError::generic(generic)
     })
 }
 
@@ -125446,7 +125446,7 @@ pub fn de_disassociate_resource_types_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disassociate_resource_types::DisassociateResourceTypesError::generic(generic),
+        _ => super::super::operation::disassociate_resource_types::DisassociateResourceTypesError::generic(generic)
     })
 }
 
@@ -125588,7 +125588,7 @@ pub fn de_get_aggregate_compliance_details_by_config_rule_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError::generic(generic),
+        _ => super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError::generic(generic)
     })
 }
 
@@ -125734,7 +125734,7 @@ pub fn de_get_aggregate_config_rule_compliance_summary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryError::generic(generic),
+        _ => super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryError::generic(generic)
     })
 }
 
@@ -125885,7 +125885,7 @@ pub fn de_get_aggregate_conformance_pack_compliance_summary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::generic(generic),
+        _ => super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::generic(generic)
     })
 }
 
@@ -126036,7 +126036,7 @@ pub fn de_get_aggregate_discovered_resource_counts_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::generic(generic),
+        _ => super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::generic(generic)
     })
 }
 
@@ -126194,7 +126194,7 @@ pub fn de_get_aggregate_resource_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_aggregate_resource_config::GetAggregateResourceConfigError::generic(generic),
+        _ => super::super::operation::get_aggregate_resource_config::GetAggregateResourceConfigError::generic(generic)
     })
 }
 
@@ -126321,7 +126321,7 @@ pub fn de_get_compliance_details_by_config_rule_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRuleError::generic(generic),
+        _ => super::super::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRuleError::generic(generic)
     })
 }
 
@@ -126425,7 +126425,7 @@ pub fn de_get_compliance_details_by_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceError::generic(generic),
+        _ => super::super::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceError::generic(generic)
     })
 }
 
@@ -126595,7 +126595,7 @@ pub fn de_get_compliance_summary_by_resource_type_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::generic(generic),
+        _ => super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::generic(generic)
     })
 }
 
@@ -126750,7 +126750,7 @@ pub fn de_get_conformance_pack_compliance_details_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetailsError::generic(generic),
+        _ => super::super::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetailsError::generic(generic)
     })
 }
 
@@ -126889,7 +126889,7 @@ pub fn de_get_conformance_pack_compliance_summary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::generic(generic),
+        _ => super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::generic(generic)
     })
 }
 
@@ -127007,7 +127007,7 @@ pub fn de_get_connector_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_connector::GetConnectorError::generic(generic),
+        _ => super::super::operation::get_connector::GetConnectorError::generic(generic)
     })
 }
 
@@ -127107,7 +127107,7 @@ pub fn de_get_custom_rule_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_custom_rule_policy::GetCustomRulePolicyError::generic(generic),
+        _ => super::super::operation::get_custom_rule_policy::GetCustomRulePolicyError::generic(generic)
     })
 }
 
@@ -127236,7 +127236,7 @@ pub fn de_get_discovered_resource_counts_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsError::generic(generic),
+        _ => super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsError::generic(generic)
     })
 }
 
@@ -127387,7 +127387,7 @@ pub fn de_get_organization_config_rule_detailed_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusError::generic(generic),
+        _ => super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusError::generic(generic)
     })
 }
 
@@ -127533,7 +127533,7 @@ pub fn de_get_organization_conformance_pack_detailed_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::generic(generic),
+        _ => super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::generic(generic)
     })
 }
 
@@ -127651,7 +127651,7 @@ pub fn de_get_organization_custom_rule_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::generic(generic),
+        _ => super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::generic(generic)
     })
 }
 
@@ -127822,7 +127822,7 @@ pub fn de_get_resource_config_history_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::generic(generic),
+        _ => super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::generic(generic)
     })
 }
 
@@ -127926,7 +127926,7 @@ pub fn de_get_resource_evaluation_summary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError::generic(generic),
+        _ => super::super::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError::generic(generic)
     })
 }
 
@@ -128063,7 +128063,7 @@ pub fn de_get_stored_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_stored_query::GetStoredQueryError::generic(generic),
+        _ => super::super::operation::get_stored_query::GetStoredQueryError::generic(generic)
     })
 }
 
@@ -128204,7 +128204,7 @@ pub fn de_list_aggregate_discovered_resources_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::generic(generic),
+        _ => super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::generic(generic)
     })
 }
 
@@ -128308,7 +128308,7 @@ pub fn de_list_configuration_recorders_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_configuration_recorders::ListConfigurationRecordersError::generic(generic),
+        _ => super::super::operation::list_configuration_recorders::ListConfigurationRecordersError::generic(generic)
     })
 }
 
@@ -128442,7 +128442,7 @@ pub fn de_list_conformance_pack_compliance_scores_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::generic(generic),
+        _ => super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::generic(generic)
     })
 }
 
@@ -128548,7 +128548,7 @@ pub fn de_list_connectors_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_connectors::ListConnectorsError::generic(generic),
+        _ => super::super::operation::list_connectors::ListConnectorsError::generic(generic)
     })
 }
 
@@ -128696,7 +128696,7 @@ pub fn de_list_discovered_resources_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_discovered_resources::ListDiscoveredResourcesError::generic(generic),
+        _ => super::super::operation::list_discovered_resources::ListDiscoveredResourcesError::generic(generic)
     })
 }
 
@@ -128828,7 +128828,7 @@ pub fn de_list_resource_evaluations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_resource_evaluations::ListResourceEvaluationsError::generic(generic),
+        _ => super::super::operation::list_resource_evaluations::ListResourceEvaluationsError::generic(generic)
     })
 }
 
@@ -128946,7 +128946,7 @@ pub fn de_list_stored_queries_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_stored_queries::ListStoredQueriesError::generic(generic),
+        _ => super::super::operation::list_stored_queries::ListStoredQueriesError::generic(generic)
     })
 }
 
@@ -129092,7 +129092,7 @@ pub fn de_list_tags_for_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic)
     })
 }
 
@@ -129196,7 +129196,7 @@ pub fn de_put_aggregation_authorization_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_aggregation_authorization::PutAggregationAuthorizationError::generic(generic),
+        _ => super::super::operation::put_aggregation_authorization::PutAggregationAuthorizationError::generic(generic)
     })
 }
 
@@ -129351,7 +129351,7 @@ pub fn de_put_config_rule_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_config_rule::PutConfigRuleError::generic(generic),
+        _ => super::super::operation::put_config_rule::PutConfigRuleError::generic(generic)
     })
 }
 
@@ -129484,7 +129484,7 @@ pub fn de_put_configuration_aggregator_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_configuration_aggregator::PutConfigurationAggregatorError::generic(generic),
+        _ => super::super::operation::put_configuration_aggregator::PutConfigurationAggregatorError::generic(generic)
     })
 }
 
@@ -129653,7 +129653,7 @@ pub fn de_put_configuration_recorder_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::generic(generic),
+        _ => super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::generic(generic)
     })
 }
 
@@ -129772,7 +129772,7 @@ pub fn de_put_conformance_pack_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_conformance_pack::PutConformancePackError::generic(generic),
+        _ => super::super::operation::put_conformance_pack::PutConformancePackError::generic(generic)
     })
 }
 
@@ -129915,7 +129915,7 @@ pub fn de_put_connector_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_connector::PutConnectorError::generic(generic),
+        _ => super::super::operation::put_connector::PutConnectorError::generic(generic)
     })
 }
 
@@ -130116,7 +130116,7 @@ pub fn de_put_delivery_channel_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_delivery_channel::PutDeliveryChannelError::generic(generic),
+        _ => super::super::operation::put_delivery_channel::PutDeliveryChannelError::generic(generic)
     })
 }
 
@@ -130207,7 +130207,7 @@ pub fn de_put_evaluations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_evaluations::PutEvaluationsError::generic(generic),
+        _ => super::super::operation::put_evaluations::PutEvaluationsError::generic(generic)
     })
 }
 
@@ -130320,7 +130320,7 @@ pub fn de_put_external_evaluation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_external_evaluation::PutExternalEvaluationError::generic(generic),
+        _ => super::super::operation::put_external_evaluation::PutExternalEvaluationError::generic(generic)
     })
 }
 
@@ -130481,7 +130481,7 @@ pub fn de_put_organization_config_rule_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::generic(generic),
+        _ => super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::generic(generic)
     })
 }
 
@@ -130680,7 +130680,7 @@ pub fn de_put_organization_conformance_pack_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::generic(generic),
+        _ => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::generic(generic)
     })
 }
 
@@ -130795,7 +130795,7 @@ pub fn de_put_remediation_configurations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_remediation_configurations::PutRemediationConfigurationsError::generic(generic),
+        _ => super::super::operation::put_remediation_configurations::PutRemediationConfigurationsError::generic(generic)
     })
 }
 
@@ -130908,7 +130908,7 @@ pub fn de_put_remediation_exceptions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_remediation_exceptions::PutRemediationExceptionsError::generic(generic),
+        _ => super::super::operation::put_remediation_exceptions::PutRemediationExceptionsError::generic(generic)
     })
 }
 
@@ -131049,7 +131049,7 @@ pub fn de_put_resource_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_resource_config::PutResourceConfigError::generic(generic),
+        _ => super::super::operation::put_resource_config::PutResourceConfigError::generic(generic)
     })
 }
 
@@ -131126,7 +131126,7 @@ pub fn de_put_retention_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_retention_configuration::PutRetentionConfigurationError::generic(generic),
+        _ => super::super::operation::put_retention_configuration::PutRetentionConfigurationError::generic(generic)
     })
 }
 
@@ -131267,7 +131267,7 @@ pub fn de_put_service_linked_configuration_recorder_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::generic(generic),
+        _ => super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::generic(generic)
     })
 }
 
@@ -131401,7 +131401,7 @@ pub fn de_put_stored_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_stored_query::PutStoredQueryError::generic(generic),
+        _ => super::super::operation::put_stored_query::PutStoredQueryError::generic(generic)
     })
 }
 
@@ -131530,7 +131530,7 @@ pub fn de_put_third_party_service_linked_configuration_recorder_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError::generic(generic),
+        _ => super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError::generic(generic)
     })
 }
 
@@ -131680,7 +131680,7 @@ pub fn de_select_aggregate_resource_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError::generic(generic),
+        _ => super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError::generic(generic)
     })
 }
 
@@ -131815,7 +131815,7 @@ pub fn de_select_resource_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::select_resource_config::SelectResourceConfigError::generic(generic),
+        _ => super::super::operation::select_resource_config::SelectResourceConfigError::generic(generic)
     })
 }
 
@@ -131964,7 +131964,7 @@ pub fn de_start_config_rules_evaluation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::generic(generic),
+        _ => super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::generic(generic)
     })
 }
 
@@ -132055,7 +132055,7 @@ pub fn de_start_configuration_recorder_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_configuration_recorder::StartConfigurationRecorderError::generic(generic),
+        _ => super::super::operation::start_configuration_recorder::StartConfigurationRecorderError::generic(generic)
     })
 }
 
@@ -132146,7 +132146,7 @@ pub fn de_start_remediation_execution_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_remediation_execution::StartRemediationExecutionError::generic(generic),
+        _ => super::super::operation::start_remediation_execution::StartRemediationExecutionError::generic(generic)
     })
 }
 
@@ -132264,7 +132264,7 @@ pub fn de_start_resource_evaluation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_resource_evaluation::StartResourceEvaluationError::generic(generic),
+        _ => super::super::operation::start_resource_evaluation::StartResourceEvaluationError::generic(generic)
     })
 }
 
@@ -132379,7 +132379,7 @@ pub fn de_stop_configuration_recorder_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError::generic(generic),
+        _ => super::super::operation::stop_configuration_recorder::StopConfigurationRecorderError::generic(generic)
     })
 }
 
@@ -132470,7 +132470,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -132547,7 +132547,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 

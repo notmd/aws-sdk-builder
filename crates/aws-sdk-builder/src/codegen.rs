@@ -10147,7 +10147,7 @@ fn render_json_protocol_http_error(
     }
     writeln!(
         output,
-        "        _ => {error_path}::generic(generic),\n    }})\n}}\n"
+        "        _ => {error_path}::generic(generic)\n    }})\n}}\n"
     )
     .unwrap();
 }
@@ -13009,7 +13009,7 @@ fn render_protocol_http_error(
     }
     writeln!(
         output,
-        "        _ => {error_path}::generic(generic),\n    }})\n}}\n"
+        "        _ => {error_path}::generic(generic)\n    }})\n}}\n"
     )
     .unwrap();
 }
@@ -18108,6 +18108,8 @@ mod tests {
         assert!(operation.contains("de_retry_after_seconds_header(_response_headers)"));
         assert!(operation.contains("crate::serde_util::too_many_correct_errors(output)"));
         assert!(!operation.contains("if tmp.message.is_none()"));
+        assert!(operation.contains("_ => crate::operation::get::GetError::generic(generic)\n"));
+        assert!(!operation.contains("_ => crate::operation::get::GetError::generic(generic),"));
         assert!(error.contains("pub(crate) fn de_retry_after_seconds_header("));
     }
 

@@ -76,7 +76,7 @@ pub fn de_describe_organization_conformance_packs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError::generic(generic),
+        _ => super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError::generic(generic)
     })
 }
 

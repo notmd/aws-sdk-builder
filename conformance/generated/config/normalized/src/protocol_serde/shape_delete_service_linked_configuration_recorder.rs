@@ -66,7 +66,7 @@ pub fn de_delete_service_linked_configuration_recorder_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::generic(generic),
+        _ => super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::generic(generic)
     })
 }
 

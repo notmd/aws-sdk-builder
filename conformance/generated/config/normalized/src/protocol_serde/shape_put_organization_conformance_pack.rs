@@ -132,7 +132,7 @@ pub fn de_put_organization_conformance_pack_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::generic(generic),
+        _ => super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::generic(generic)
     })
 }
 

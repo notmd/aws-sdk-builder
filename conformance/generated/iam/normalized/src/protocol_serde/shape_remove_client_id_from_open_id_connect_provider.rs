@@ -80,7 +80,7 @@ pub fn de_remove_client_id_from_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::generic(generic),
+        _ => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::generic(generic)
     })
 }
 

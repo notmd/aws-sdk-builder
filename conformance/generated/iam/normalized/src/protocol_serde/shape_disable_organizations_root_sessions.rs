@@ -76,7 +76,7 @@ pub fn de_disable_organizations_root_sessions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::generic(generic),
+        _ => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::generic(generic)
     })
 }
 

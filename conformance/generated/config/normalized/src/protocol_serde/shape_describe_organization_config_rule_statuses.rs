@@ -78,7 +78,7 @@ pub fn de_describe_organization_config_rule_statuses_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesError::generic(generic),
+        _ => super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesError::generic(generic)
     })
 }
 

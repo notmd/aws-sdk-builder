@@ -46113,7 +46113,7 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::add_permission::AddPermissionError::generic(generic),
+        _ => super::super::operation::add_permission::AddPermissionError::generic(generic)
     })
 }
 
@@ -46253,7 +46253,7 @@ pub fn de_check_if_phone_number_is_opted_out_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::generic(generic),
+        _ => super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::generic(generic)
     })
 }
 
@@ -46458,7 +46458,7 @@ pub fn de_confirm_subscription_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::confirm_subscription::ConfirmSubscriptionError::generic(generic),
+        _ => super::super::operation::confirm_subscription::ConfirmSubscriptionError::generic(generic)
     })
 }
 
@@ -46615,7 +46615,7 @@ pub fn de_create_platform_application_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_platform_application::CreatePlatformApplicationError::generic(generic),
+        _ => super::super::operation::create_platform_application::CreatePlatformApplicationError::generic(generic)
     })
 }
 
@@ -46794,7 +46794,7 @@ pub fn de_create_platform_endpoint_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::generic(generic),
+        _ => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::generic(generic)
     })
 }
 
@@ -47006,7 +47006,7 @@ pub fn de_create_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::generic(generic),
+        _ => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::generic(generic)
     })
 }
 
@@ -47194,7 +47194,7 @@ pub fn de_create_topic_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_topic::CreateTopicError::generic(generic),
+        _ => super::super::operation::create_topic::CreateTopicError::generic(generic)
     })
 }
 
@@ -47370,7 +47370,7 @@ pub fn de_delete_endpoint_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_endpoint::DeleteEndpointError::generic(generic),
+        _ => super::super::operation::delete_endpoint::DeleteEndpointError::generic(generic)
     })
 }
 
@@ -47469,7 +47469,7 @@ pub fn de_delete_platform_application_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_platform_application::DeletePlatformApplicationError::generic(generic),
+        _ => super::super::operation::delete_platform_application::DeletePlatformApplicationError::generic(generic)
     })
 }
 
@@ -47610,7 +47610,7 @@ pub fn de_delete_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::generic(generic),
+        _ => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::generic(generic)
     })
 }
 
@@ -47779,7 +47779,7 @@ pub fn de_delete_topic_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_topic::DeleteTopicError::generic(generic),
+        _ => super::super::operation::delete_topic::DeleteTopicError::generic(generic)
     })
 }
 
@@ -47906,7 +47906,7 @@ pub fn de_get_data_protection_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::generic(generic),
+        _ => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::generic(generic)
     })
 }
 
@@ -48067,7 +48067,7 @@ pub fn de_get_endpoint_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::generic(generic),
+        _ => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::generic(generic)
     })
 }
 
@@ -48225,7 +48225,7 @@ pub fn de_get_platform_application_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::generic(generic),
+        _ => super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::generic(generic)
     })
 }
 
@@ -48383,7 +48383,7 @@ pub fn de_get_sms_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_sms_attributes::GetSMSAttributesError::generic(generic),
+        _ => super::super::operation::get_sms_attributes::GetSMSAttributesError::generic(generic)
     })
 }
 
@@ -48533,7 +48533,7 @@ pub fn de_get_sms_sandbox_account_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::generic(generic),
+        _ => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::generic(generic)
     })
 }
 
@@ -48693,7 +48693,7 @@ pub fn de_get_subscription_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::generic(generic),
+        _ => super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::generic(generic)
     })
 }
 
@@ -48865,7 +48865,7 @@ pub fn de_get_topic_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_topic_attributes::GetTopicAttributesError::generic(generic),
+        _ => super::super::operation::get_topic_attributes::GetTopicAttributesError::generic(generic)
     })
 }
 
@@ -49023,7 +49023,7 @@ pub fn de_list_endpoints_by_platform_application_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::generic(generic),
+        _ => super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::generic(generic)
     })
 }
 
@@ -49213,7 +49213,7 @@ pub fn de_list_origination_numbers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_origination_numbers::ListOriginationNumbersError::generic(generic),
+        _ => super::super::operation::list_origination_numbers::ListOriginationNumbersError::generic(generic)
     })
 }
 
@@ -49390,7 +49390,7 @@ pub fn de_list_phone_numbers_opted_out_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::generic(generic),
+        _ => super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::generic(generic)
     })
 }
 
@@ -49547,7 +49547,7 @@ pub fn de_list_platform_applications_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_platform_applications::ListPlatformApplicationsError::generic(generic),
+        _ => super::super::operation::list_platform_applications::ListPlatformApplicationsError::generic(generic)
     })
 }
 
@@ -49732,7 +49732,7 @@ pub fn de_list_sms_sandbox_phone_numbers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::generic(generic),
+        _ => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::generic(generic)
     })
 }
 
@@ -49896,7 +49896,7 @@ pub fn de_list_subscriptions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_subscriptions::ListSubscriptionsError::generic(generic),
+        _ => super::super::operation::list_subscriptions::ListSubscriptionsError::generic(generic)
     })
 }
 
@@ -50049,7 +50049,7 @@ pub fn de_list_subscriptions_by_topic_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::generic(generic),
+        _ => super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::generic(generic)
     })
 }
 
@@ -50257,7 +50257,7 @@ pub fn de_list_tags_for_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic)
     })
 }
 
@@ -50401,7 +50401,7 @@ pub fn de_list_topics_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_topics::ListTopicsError::generic(generic),
+        _ => super::super::operation::list_topics::ListTopicsError::generic(generic)
     })
 }
 
@@ -50572,7 +50572,7 @@ pub fn de_opt_in_phone_number_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::opt_in_phone_number::OptInPhoneNumberError::generic(generic),
+        _ => super::super::operation::opt_in_phone_number::OptInPhoneNumberError::generic(generic)
     })
 }
 
@@ -50839,7 +50839,7 @@ pub fn de_publish_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::publish::PublishError::generic(generic),
+        _ => super::super::operation::publish::PublishError::generic(generic)
     })
 }
 
@@ -51219,7 +51219,7 @@ pub fn de_publish_batch_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::publish_batch::PublishBatchError::generic(generic),
+        _ => super::super::operation::publish_batch::PublishBatchError::generic(generic)
     })
 }
 
@@ -51478,7 +51478,7 @@ pub fn de_put_data_protection_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::generic(generic),
+        _ => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::generic(generic)
     })
 }
 
@@ -51596,7 +51596,7 @@ pub fn de_remove_permission_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::remove_permission::RemovePermissionError::generic(generic),
+        _ => super::super::operation::remove_permission::RemovePermissionError::generic(generic)
     })
 }
 
@@ -51714,7 +51714,7 @@ pub fn de_set_endpoint_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::generic(generic),
+        _ => super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::generic(generic)
     })
 }
 
@@ -51840,7 +51840,7 @@ pub fn de_set_platform_application_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::generic(generic),
+        _ => super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::generic(generic)
     })
 }
 
@@ -51966,7 +51966,7 @@ pub fn de_set_sms_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_sms_attributes::SetSMSAttributesError::generic(generic),
+        _ => super::super::operation::set_sms_attributes::SetSMSAttributesError::generic(generic)
     })
 }
 
@@ -52115,7 +52115,7 @@ pub fn de_set_subscription_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::generic(generic),
+        _ => super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::generic(generic)
     })
 }
 
@@ -52252,7 +52252,7 @@ pub fn de_set_topic_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_topic_attributes::SetTopicAttributesError::generic(generic),
+        _ => super::super::operation::set_topic_attributes::SetTopicAttributesError::generic(generic)
     })
 }
 
@@ -52431,7 +52431,7 @@ pub fn de_subscribe_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::subscribe::SubscribeError::generic(generic),
+        _ => super::super::operation::subscribe::SubscribeError::generic(generic)
     })
 }
 
@@ -52662,7 +52662,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -52800,7 +52800,7 @@ pub fn de_unsubscribe_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::unsubscribe::UnsubscribeError::generic(generic),
+        _ => super::super::operation::unsubscribe::UnsubscribeError::generic(generic)
     })
 }
 
@@ -52955,7 +52955,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 
@@ -53107,7 +53107,7 @@ pub fn de_verify_sms_sandbox_phone_number_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::generic(generic),
+        _ => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::generic(generic)
     })
 }
 

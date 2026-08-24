@@ -172994,7 +172994,7 @@ pub fn de_abort_multipart_upload_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::abort_multipart_upload::AbortMultipartUploadError::generic(generic),
+        _ => super::super::operation::abort_multipart_upload::AbortMultipartUploadError::generic(generic)
     })
 }
 
@@ -173632,7 +173632,7 @@ pub fn de_copy_object_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::copy_object::CopyObjectError::generic(generic),
+        _ => super::super::operation::copy_object::CopyObjectError::generic(generic)
     })
 }
 
@@ -174232,7 +174232,7 @@ pub fn de_create_bucket_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_bucket::CreateBucketError::generic(generic),
+        _ => super::super::operation::create_bucket::CreateBucketError::generic(generic)
     })
 }
 
@@ -175128,7 +175128,7 @@ pub fn de_create_session_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_session::CreateSessionError::generic(generic),
+        _ => super::super::operation::create_session::CreateSessionError::generic(generic)
     })
 }
 
@@ -176213,7 +176213,7 @@ pub fn de_delete_object_annotation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_object_annotation::DeleteObjectAnnotationError::generic(generic),
+        _ => super::super::operation::delete_object_annotation::DeleteObjectAnnotationError::generic(generic)
     })
 }
 
@@ -178640,7 +178640,7 @@ pub fn de_get_object_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_object::GetObjectError::generic(generic),
+        _ => super::super::operation::get_object::GetObjectError::generic(generic)
     })
 }
 
@@ -178808,7 +178808,7 @@ pub fn de_get_object_acl_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_object_acl::GetObjectAclError::generic(generic),
+        _ => super::super::operation::get_object_acl::GetObjectAclError::generic(generic)
     })
 }
 
@@ -179085,7 +179085,7 @@ pub fn de_get_object_annotation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_object_annotation::GetObjectAnnotationError::generic(generic),
+        _ => super::super::operation::get_object_annotation::GetObjectAnnotationError::generic(generic)
     })
 }
 
@@ -179165,7 +179165,7 @@ pub fn de_get_object_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_object_attributes::GetObjectAttributesError::generic(generic),
+        _ => super::super::operation::get_object_attributes::GetObjectAttributesError::generic(generic)
     })
 }
 
@@ -179838,7 +179838,7 @@ pub fn de_head_bucket_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::head_bucket::HeadBucketError::generic(generic),
+        _ => super::super::operation::head_bucket::HeadBucketError::generic(generic)
     })
 }
 
@@ -179936,7 +179936,7 @@ pub fn de_head_object_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::head_object::HeadObjectError::generic(generic),
+        _ => super::super::operation::head_object::HeadObjectError::generic(generic)
     })
 }
 
@@ -181379,7 +181379,7 @@ pub fn de_list_object_annotations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_object_annotations::ListObjectAnnotationsError::generic(generic),
+        _ => super::super::operation::list_object_annotations::ListObjectAnnotationsError::generic(generic)
     })
 }
 
@@ -181909,7 +181909,7 @@ pub fn de_list_objects_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_objects::ListObjectsError::generic(generic),
+        _ => super::super::operation::list_objects::ListObjectsError::generic(generic)
     })
 }
 
@@ -182189,7 +182189,7 @@ pub fn de_list_objects_v2_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_objects_v2::ListObjectsV2Error::generic(generic),
+        _ => super::super::operation::list_objects_v2::ListObjectsV2Error::generic(generic)
     })
 }
 
@@ -184753,7 +184753,7 @@ pub fn de_put_object_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_object::PutObjectError::generic(generic),
+        _ => super::super::operation::put_object::PutObjectError::generic(generic)
     })
 }
 
@@ -185411,7 +185411,7 @@ pub fn de_put_object_acl_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_object_acl::PutObjectAclError::generic(generic),
+        _ => super::super::operation::put_object_acl::PutObjectAclError::generic(generic)
     })
 }
 
@@ -185700,7 +185700,7 @@ pub fn de_put_object_annotation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_object_annotation::PutObjectAnnotationError::generic(generic),
+        _ => super::super::operation::put_object_annotation::PutObjectAnnotationError::generic(generic)
     })
 }
 
@@ -186668,7 +186668,7 @@ pub fn de_rename_object_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::rename_object::RenameObjectError::generic(generic),
+        _ => super::super::operation::rename_object::RenameObjectError::generic(generic)
     })
 }
 
@@ -186840,7 +186840,7 @@ pub fn de_restore_object_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::restore_object::RestoreObjectError::generic(generic),
+        _ => super::super::operation::restore_object::RestoreObjectError::generic(generic)
     })
 }
 
@@ -187411,7 +187411,7 @@ pub fn de_update_object_encryption_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_object_encryption::UpdateObjectEncryptionError::generic(generic),
+        _ => super::super::operation::update_object_encryption::UpdateObjectEncryptionError::generic(generic)
     })
 }
 

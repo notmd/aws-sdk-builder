@@ -90,7 +90,7 @@ pub fn de_get_conformance_pack_compliance_details_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetailsError::generic(generic),
+        _ => super::super::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetailsError::generic(generic)
     })
 }
 

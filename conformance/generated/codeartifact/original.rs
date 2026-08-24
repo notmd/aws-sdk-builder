@@ -59382,7 +59382,7 @@ pub fn de_associate_external_connection_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::associate_external_connection::AssociateExternalConnectionError::generic(generic),
+        _ => super::super::operation::associate_external_connection::AssociateExternalConnectionError::generic(generic)
     })
 }
 
@@ -59538,7 +59538,7 @@ pub fn de_copy_package_versions_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::copy_package_versions::CopyPackageVersionsError::generic(generic),
+        _ => super::super::operation::copy_package_versions::CopyPackageVersionsError::generic(generic)
     })
 }
 
@@ -59708,7 +59708,7 @@ pub fn de_create_domain_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::create_domain::CreateDomainError::generic(generic),
+        _ => super::super::operation::create_domain::CreateDomainError::generic(generic)
     })
 }
 
@@ -59875,7 +59875,7 @@ pub fn de_create_package_group_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::create_package_group::CreatePackageGroupError::generic(generic),
+        _ => super::super::operation::create_package_group::CreatePackageGroupError::generic(generic)
     })
 }
 
@@ -60042,7 +60042,7 @@ pub fn de_create_repository_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::create_repository::CreateRepositoryError::generic(generic),
+        _ => super::super::operation::create_repository::CreateRepositoryError::generic(generic)
     })
 }
 
@@ -60187,7 +60187,7 @@ pub fn de_delete_domain_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::delete_domain::DeleteDomainError::generic(generic),
+        _ => super::super::operation::delete_domain::DeleteDomainError::generic(generic)
     })
 }
 
@@ -60332,7 +60332,7 @@ pub fn de_delete_domain_permissions_policy_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::generic(generic),
+        _ => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::generic(generic)
     })
 }
 
@@ -60477,7 +60477,7 @@ pub fn de_delete_package_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::delete_package::DeletePackageError::generic(generic),
+        _ => super::super::operation::delete_package::DeletePackageError::generic(generic)
     })
 }
 
@@ -60633,7 +60633,7 @@ pub fn de_delete_package_group_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::delete_package_group::DeletePackageGroupError::generic(generic),
+        _ => super::super::operation::delete_package_group::DeletePackageGroupError::generic(generic)
     })
 }
 
@@ -60778,7 +60778,7 @@ pub fn de_delete_package_versions_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::delete_package_versions::DeletePackageVersionsError::generic(generic),
+        _ => super::super::operation::delete_package_versions::DeletePackageVersionsError::generic(generic)
     })
 }
 
@@ -60937,7 +60937,7 @@ pub fn de_delete_repository_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::delete_repository::DeleteRepositoryError::generic(generic),
+        _ => super::super::operation::delete_repository::DeleteRepositoryError::generic(generic)
     })
 }
 
@@ -61082,7 +61082,7 @@ pub fn de_delete_repository_permissions_policy_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::generic(generic),
+        _ => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::generic(generic)
     })
 }
 
@@ -61216,7 +61216,7 @@ pub fn de_describe_domain_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::describe_domain::DescribeDomainError::generic(generic),
+        _ => super::super::operation::describe_domain::DescribeDomainError::generic(generic)
     })
 }
 
@@ -61350,7 +61350,7 @@ pub fn de_describe_package_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::describe_package::DescribePackageError::generic(generic),
+        _ => super::super::operation::describe_package::DescribePackageError::generic(generic)
     })
 }
 
@@ -61485,7 +61485,7 @@ pub fn de_describe_package_group_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::describe_package_group::DescribePackageGroupError::generic(generic),
+        _ => super::super::operation::describe_package_group::DescribePackageGroupError::generic(generic)
     })
 }
 
@@ -61630,7 +61630,7 @@ pub fn de_describe_package_version_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::describe_package_version::DescribePackageVersionError::generic(generic),
+        _ => super::super::operation::describe_package_version::DescribePackageVersionError::generic(generic)
     })
 }
 
@@ -61765,7 +61765,7 @@ pub fn de_describe_repository_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::describe_repository::DescribeRepositoryError::generic(generic),
+        _ => super::super::operation::describe_repository::DescribeRepositoryError::generic(generic)
     })
 }
 
@@ -61921,7 +61921,7 @@ pub fn de_disassociate_external_connection_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::generic(generic),
+        _ => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::generic(generic)
     })
 }
 
@@ -62066,7 +62066,7 @@ pub fn de_dispose_package_versions_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::dispose_package_versions::DisposePackageVersionsError::generic(generic),
+        _ => super::super::operation::dispose_package_versions::DisposePackageVersionsError::generic(generic)
     })
 }
 
@@ -62198,7 +62198,7 @@ pub fn de_get_associated_package_group_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::generic(generic),
+        _ => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::generic(generic)
     })
 }
 
@@ -62337,7 +62337,7 @@ pub fn de_get_authorization_token_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::get_authorization_token::GetAuthorizationTokenError::generic(generic),
+        _ => super::super::operation::get_authorization_token::GetAuthorizationTokenError::generic(generic)
     })
 }
 
@@ -62476,7 +62476,7 @@ pub fn de_get_domain_permissions_policy_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::generic(generic),
+        _ => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::generic(generic)
     })
 }
 
@@ -62642,7 +62642,7 @@ pub fn de_get_package_version_asset_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::generic(generic),
+        _ => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::generic(generic)
     })
 }
 }
@@ -62727,7 +62727,7 @@ pub fn de_get_package_version_readme_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::generic(generic),
+        _ => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::generic(generic)
     })
 }
 
@@ -62888,7 +62888,7 @@ pub fn de_get_repository_endpoint_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::generic(generic),
+        _ => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::generic(generic)
     })
 }
 
@@ -63024,7 +63024,7 @@ pub fn de_get_repository_permissions_policy_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::generic(generic),
+        _ => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::generic(generic)
     })
 }
 
@@ -63169,7 +63169,7 @@ pub fn de_list_allowed_repositories_for_group_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic),
+        _ => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic)
     })
 }
 
@@ -63292,7 +63292,7 @@ pub fn de_list_associated_packages_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_associated_packages::ListAssociatedPackagesError::generic(generic),
+        _ => super::super::operation::list_associated_packages::ListAssociatedPackagesError::generic(generic)
     })
 }
 
@@ -63420,7 +63420,7 @@ pub fn de_list_domains_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_domains::ListDomainsError::generic(generic),
+        _ => super::super::operation::list_domains::ListDomainsError::generic(generic)
     })
 }
 
@@ -63570,7 +63570,7 @@ pub fn de_list_package_groups_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_package_groups::ListPackageGroupsError::generic(generic),
+        _ => super::super::operation::list_package_groups::ListPackageGroupsError::generic(generic)
     })
 }
 
@@ -63709,7 +63709,7 @@ pub fn de_list_package_version_assets_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::generic(generic),
+        _ => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::generic(generic)
     })
 }
 
@@ -63873,7 +63873,7 @@ pub fn de_list_package_version_dependencies_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::generic(generic),
+        _ => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::generic(generic)
     })
 }
 
@@ -64037,7 +64037,7 @@ pub fn de_list_package_versions_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_package_versions::ListPackageVersionsError::generic(generic),
+        _ => super::super::operation::list_package_versions::ListPackageVersionsError::generic(generic)
     })
 }
 
@@ -64196,7 +64196,7 @@ pub fn de_list_packages_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_packages::ListPackagesError::generic(generic),
+        _ => super::super::operation::list_packages::ListPackagesError::generic(generic)
     })
 }
 
@@ -64324,7 +64324,7 @@ pub fn de_list_repositories_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_repositories::ListRepositoriesError::generic(generic),
+        _ => super::super::operation::list_repositories::ListRepositoriesError::generic(generic)
     })
 }
 
@@ -64463,7 +64463,7 @@ pub fn de_list_repositories_in_domain_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::generic(generic),
+        _ => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::generic(generic)
     })
 }
 
@@ -64602,7 +64602,7 @@ pub fn de_list_sub_package_groups_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::generic(generic),
+        _ => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::generic(generic)
     })
 }
 
@@ -64730,7 +64730,7 @@ pub fn de_list_tags_for_resource_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic)
     })
 }
 
@@ -64886,7 +64886,7 @@ pub fn de_publish_package_version_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::publish_package_version::PublishPackageVersionError::generic(generic),
+        _ => super::super::operation::publish_package_version::PublishPackageVersionError::generic(generic)
     })
 }
 
@@ -65072,7 +65072,7 @@ pub fn de_put_domain_permissions_policy_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::generic(generic),
+        _ => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::generic(generic)
     })
 }
 
@@ -65217,7 +65217,7 @@ pub fn de_put_package_origin_configuration_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::generic(generic),
+        _ => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::generic(generic)
     })
 }
 
@@ -65384,7 +65384,7 @@ pub fn de_put_repository_permissions_policy_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::generic(generic),
+        _ => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::generic(generic)
     })
 }
 
@@ -65529,7 +65529,7 @@ pub fn de_tag_resource_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -65627,7 +65627,7 @@ pub fn de_untag_resource_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 
@@ -65747,7 +65747,7 @@ pub fn de_update_package_group_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::update_package_group::UpdatePackageGroupError::generic(generic),
+        _ => super::super::operation::update_package_group::UpdatePackageGroupError::generic(generic)
     })
 }
 
@@ -65903,7 +65903,7 @@ pub fn de_update_package_group_origin_configuration_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::generic(generic),
+        _ => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::generic(generic)
     })
 }
 
@@ -66062,7 +66062,7 @@ pub fn de_update_package_versions_status_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::generic(generic),
+        _ => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::generic(generic)
     })
 }
 
@@ -66232,7 +66232,7 @@ pub fn de_update_repository_http_error(
             };
             tmp
         }),
-        _ => super::super::operation::update_repository::UpdateRepositoryError::generic(generic),
+        _ => super::super::operation::update_repository::UpdateRepositoryError::generic(generic)
     })
 }
 

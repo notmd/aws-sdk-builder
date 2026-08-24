@@ -67,7 +67,7 @@ pub fn de_put_third_party_service_linked_configuration_recorder_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError::generic(generic),
+        _ => super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError::generic(generic)
     })
 }
 

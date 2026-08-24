@@ -31353,7 +31353,7 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::add_permission::AddPermissionError::generic(generic),
+        _ => super::super::operation::add_permission::AddPermissionError::generic(generic)
     })
 }
 
@@ -31472,7 +31472,7 @@ pub fn de_cancel_message_move_task_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::cancel_message_move_task::CancelMessageMoveTaskError::generic(generic),
+        _ => super::super::operation::cancel_message_move_task::CancelMessageMoveTaskError::generic(generic)
     })
 }
 
@@ -31657,7 +31657,7 @@ pub fn de_change_message_visibility_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic),
+        _ => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic)
     })
 }
 
@@ -31832,7 +31832,7 @@ pub fn de_change_message_visibility_batch_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::generic(generic),
+        _ => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::generic(generic)
     })
 }
 
@@ -32034,7 +32034,7 @@ pub fn de_create_queue_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_queue::CreateQueueError::generic(generic),
+        _ => super::super::operation::create_queue::CreateQueueError::generic(generic)
     })
 }
 
@@ -32219,7 +32219,7 @@ pub fn de_delete_message_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_message::DeleteMessageError::generic(generic),
+        _ => super::super::operation::delete_message::DeleteMessageError::generic(generic)
     })
 }
 
@@ -32394,7 +32394,7 @@ pub fn de_delete_message_batch_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_message_batch::DeleteMessageBatchError::generic(generic),
+        _ => super::super::operation::delete_message_batch::DeleteMessageBatchError::generic(generic)
     })
 }
 
@@ -32554,7 +32554,7 @@ pub fn de_delete_queue_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_queue::DeleteQueueError::generic(generic),
+        _ => super::super::operation::delete_queue::DeleteQueueError::generic(generic)
     })
 }
 
@@ -32687,7 +32687,7 @@ pub fn de_get_queue_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_queue_attributes::GetQueueAttributesError::generic(generic),
+        _ => super::super::operation::get_queue_attributes::GetQueueAttributesError::generic(generic)
     })
 }
 
@@ -32842,7 +32842,7 @@ pub fn de_get_queue_url_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_queue_url::GetQueueUrlError::generic(generic),
+        _ => super::super::operation::get_queue_url::GetQueueUrlError::generic(generic)
     })
 }
 
@@ -32999,7 +32999,7 @@ pub fn de_list_dead_letter_source_queues_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::generic(generic),
+        _ => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::generic(generic)
     })
 }
 
@@ -33161,7 +33161,7 @@ pub fn de_list_message_move_tasks_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::generic(generic),
+        _ => super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::generic(generic)
     })
 }
 
@@ -33316,7 +33316,7 @@ pub fn de_list_queue_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_queue_tags::ListQueueTagsError::generic(generic),
+        _ => super::super::operation::list_queue_tags::ListQueueTagsError::generic(generic)
     })
 }
 
@@ -33457,7 +33457,7 @@ pub fn de_list_queues_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_queues::ListQueuesError::generic(generic),
+        _ => super::super::operation::list_queues::ListQueuesError::generic(generic)
     })
 }
 
@@ -33631,7 +33631,7 @@ pub fn de_purge_queue_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::purge_queue::PurgeQueueError::generic(generic),
+        _ => super::super::operation::purge_queue::PurgeQueueError::generic(generic)
     })
 }
 
@@ -33862,7 +33862,7 @@ pub fn de_receive_message_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::receive_message::ReceiveMessageError::generic(generic),
+        _ => super::super::operation::receive_message::ReceiveMessageError::generic(generic)
     })
 }
 
@@ -34017,7 +34017,7 @@ pub fn de_remove_permission_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::remove_permission::RemovePermissionError::generic(generic),
+        _ => super::super::operation::remove_permission::RemovePermissionError::generic(generic)
     })
 }
 
@@ -34248,7 +34248,7 @@ pub fn de_send_message_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::send_message::SendMessageError::generic(generic),
+        _ => super::super::operation::send_message::SendMessageError::generic(generic)
     })
 }
 
@@ -34593,7 +34593,7 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::send_message_batch::SendMessageBatchError::generic(generic),
+        _ => super::super::operation::send_message_batch::SendMessageBatchError::generic(generic)
     })
 }
 
@@ -34795,7 +34795,7 @@ pub fn de_set_queue_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_queue_attributes::SetQueueAttributesError::generic(generic),
+        _ => super::super::operation::set_queue_attributes::SetQueueAttributesError::generic(generic)
     })
 }
 
@@ -34914,7 +34914,7 @@ pub fn de_start_message_move_task_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_message_move_task::StartMessageMoveTaskError::generic(generic),
+        _ => super::super::operation::start_message_move_task::StartMessageMoveTaskError::generic(generic)
     })
 }
 
@@ -35071,7 +35071,7 @@ pub fn de_tag_queue_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_queue::TagQueueError::generic(generic),
+        _ => super::super::operation::tag_queue::TagQueueError::generic(generic)
     })
 }
 
@@ -35190,7 +35190,7 @@ pub fn de_untag_queue_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_queue::UntagQueueError::generic(generic),
+        _ => super::super::operation::untag_queue::UntagQueueError::generic(generic)
     })
 }
 

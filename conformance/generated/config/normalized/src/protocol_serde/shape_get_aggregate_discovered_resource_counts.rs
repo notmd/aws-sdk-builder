@@ -78,7 +78,7 @@ pub fn de_get_aggregate_discovered_resource_counts_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::generic(generic),
+        _ => super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::generic(generic)
     })
 }
 

@@ -36861,7 +36861,7 @@ pub fn de_apply_guardrail_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::apply_guardrail::ApplyGuardrailError::generic(generic),
+        _ => super::super::operation::apply_guardrail::ApplyGuardrailError::generic(generic)
     })
 }
 
@@ -37093,7 +37093,7 @@ pub fn de_converse_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::converse::ConverseError::generic(generic),
+        _ => super::super::operation::converse::ConverseError::generic(generic)
     })
 }
 
@@ -37363,7 +37363,7 @@ pub fn de_converse_stream_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::converse_stream::ConverseStreamError::generic(generic),
+        _ => super::super::operation::converse_stream::ConverseStreamError::generic(generic)
     })
 }
 
@@ -37483,7 +37483,7 @@ pub fn de_count_tokens_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::count_tokens::CountTokensError::generic(generic),
+        _ => super::super::operation::count_tokens::CountTokensError::generic(generic)
     })
 }
 
@@ -37628,7 +37628,7 @@ pub fn de_get_async_invoke_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_async_invoke::GetAsyncInvokeError::generic(generic),
+        _ => super::super::operation::get_async_invoke::GetAsyncInvokeError::generic(generic)
     })
 }
 
@@ -37808,7 +37808,7 @@ pub fn de_invoke_guardrail_checks_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::generic(generic),
+        _ => super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::generic(generic)
     })
 }
 
@@ -38037,7 +38037,7 @@ pub fn de_invoke_model_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::invoke_model::InvokeModelError::generic(generic),
+        _ => super::super::operation::invoke_model::InvokeModelError::generic(generic)
     })
 }
 
@@ -38256,7 +38256,7 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::generic(generic),
+        _ => super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::generic(generic)
     })
 }
 }
@@ -38458,7 +38458,7 @@ pub fn de_invoke_model_with_response_stream_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::generic(generic),
+        _ => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::generic(generic)
     })
 }
 }
@@ -38539,7 +38539,7 @@ pub fn de_list_async_invokes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_async_invokes::ListAsyncInvokesError::generic(generic),
+        _ => super::super::operation::list_async_invokes::ListAsyncInvokesError::generic(generic)
     })
 }
 
@@ -38730,7 +38730,7 @@ pub fn de_start_async_invoke_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_async_invoke::StartAsyncInvokeError::generic(generic),
+        _ => super::super::operation::start_async_invoke::StartAsyncInvokeError::generic(generic)
     })
 }
 

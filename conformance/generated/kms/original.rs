@@ -72938,7 +72938,7 @@ pub fn de_cancel_key_deletion_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::cancel_key_deletion::CancelKeyDeletionError::generic(generic),
+        _ => super::super::operation::cancel_key_deletion::CancelKeyDeletionError::generic(generic)
     })
 }
 
@@ -73095,7 +73095,7 @@ pub fn de_connect_custom_key_store_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::connect_custom_key_store::ConnectCustomKeyStoreError::generic(generic),
+        _ => super::super::operation::connect_custom_key_store::ConnectCustomKeyStoreError::generic(generic)
     })
 }
 
@@ -73242,7 +73242,7 @@ pub fn de_create_alias_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_alias::CreateAliasError::generic(generic),
+        _ => super::super::operation::create_alias::CreateAliasError::generic(generic)
     })
 }
 
@@ -73529,7 +73529,7 @@ pub fn de_create_custom_key_store_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::generic(generic),
+        _ => super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::generic(generic)
     })
 }
 
@@ -73742,7 +73742,7 @@ pub fn de_create_grant_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_grant::CreateGrantError::generic(generic),
+        _ => super::super::operation::create_grant::CreateGrantError::generic(generic)
     })
 }
 
@@ -74016,7 +74016,7 @@ pub fn de_create_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_key::CreateKeyError::generic(generic),
+        _ => super::super::operation::create_key::CreateKeyError::generic(generic)
     })
 }
 
@@ -74255,7 +74255,7 @@ pub fn de_decrypt_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::decrypt::DecryptError::generic(generic),
+        _ => super::super::operation::decrypt::DecryptError::generic(generic)
     })
 }
 
@@ -74414,7 +74414,7 @@ pub fn de_delete_alias_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_alias::DeleteAliasError::generic(generic),
+        _ => super::super::operation::delete_alias::DeleteAliasError::generic(generic)
     })
 }
 
@@ -74519,7 +74519,7 @@ pub fn de_delete_custom_key_store_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::generic(generic),
+        _ => super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::generic(generic)
     })
 }
 
@@ -74652,7 +74652,7 @@ pub fn de_delete_imported_key_material_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::generic(generic),
+        _ => super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::generic(generic)
     })
 }
 
@@ -74870,7 +74870,7 @@ pub fn de_derive_shared_secret_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::derive_shared_secret::DeriveSharedSecretError::generic(generic),
+        _ => super::super::operation::derive_shared_secret::DeriveSharedSecretError::generic(generic)
     })
 }
 
@@ -75015,7 +75015,7 @@ pub fn de_describe_custom_key_stores_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::generic(generic),
+        _ => super::super::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::generic(generic)
     })
 }
 
@@ -75164,7 +75164,7 @@ pub fn de_describe_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_key::DescribeKeyError::generic(generic),
+        _ => super::super::operation::describe_key::DescribeKeyError::generic(generic)
     })
 }
 
@@ -75319,7 +75319,7 @@ pub fn de_disable_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disable_key::DisableKeyError::generic(generic),
+        _ => super::super::operation::disable_key::DisableKeyError::generic(generic)
     })
 }
 
@@ -75466,7 +75466,7 @@ pub fn de_disable_key_rotation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disable_key_rotation::DisableKeyRotationError::generic(generic),
+        _ => super::super::operation::disable_key_rotation::DisableKeyRotationError::generic(generic)
     })
 }
 
@@ -75557,7 +75557,7 @@ pub fn de_disconnect_custom_key_store_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::generic(generic),
+        _ => super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::generic(generic)
     })
 }
 
@@ -75690,7 +75690,7 @@ pub fn de_enable_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_key::EnableKeyError::generic(generic),
+        _ => super::super::operation::enable_key::EnableKeyError::generic(generic)
     })
 }
 
@@ -75837,7 +75837,7 @@ pub fn de_enable_key_rotation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_key_rotation::EnableKeyRotationError::generic(generic),
+        _ => super::super::operation::enable_key_rotation::EnableKeyRotationError::generic(generic)
     })
 }
 
@@ -76012,7 +76012,7 @@ pub fn de_encrypt_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::encrypt::EncryptError::generic(generic),
+        _ => super::super::operation::encrypt::EncryptError::generic(generic)
     })
 }
 
@@ -76233,7 +76233,7 @@ pub fn de_generate_data_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::generate_data_key::GenerateDataKeyError::generic(generic),
+        _ => super::super::operation::generate_data_key::GenerateDataKeyError::generic(generic)
     })
 }
 
@@ -76474,7 +76474,7 @@ pub fn de_generate_data_key_pair_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::generate_data_key_pair::GenerateDataKeyPairError::generic(generic),
+        _ => super::super::operation::generate_data_key_pair::GenerateDataKeyPairError::generic(generic)
     })
 }
 
@@ -76723,7 +76723,7 @@ pub fn de_generate_data_key_pair_without_plaintext_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError::generic(generic),
+        _ => super::super::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError::generic(generic)
     })
 }
 
@@ -76952,7 +76952,7 @@ pub fn de_generate_data_key_without_plaintext_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::generic(generic),
+        _ => super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::generic(generic)
     })
 }
 
@@ -77159,7 +77159,7 @@ pub fn de_generate_mac_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::generate_mac::GenerateMacError::generic(generic),
+        _ => super::super::operation::generate_mac::GenerateMacError::generic(generic)
     })
 }
 
@@ -77324,7 +77324,7 @@ pub fn de_generate_random_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::generate_random::GenerateRandomError::generic(generic),
+        _ => super::super::operation::generate_random::GenerateRandomError::generic(generic)
     })
 }
 
@@ -77468,7 +77468,7 @@ pub fn de_get_key_last_usage_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_key_last_usage::GetKeyLastUsageError::generic(generic),
+        _ => super::super::operation::get_key_last_usage::GetKeyLastUsageError::generic(generic)
     })
 }
 
@@ -77634,7 +77634,7 @@ pub fn de_get_key_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_key_policy::GetKeyPolicyError::generic(generic),
+        _ => super::super::operation::get_key_policy::GetKeyPolicyError::generic(generic)
     })
 }
 
@@ -77810,7 +77810,7 @@ pub fn de_get_key_rotation_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::generic(generic),
+        _ => super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::generic(generic)
     })
 }
 
@@ -77995,7 +77995,7 @@ pub fn de_get_parameters_for_import_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_parameters_for_import::GetParametersForImportError::generic(generic),
+        _ => super::super::operation::get_parameters_for_import::GetParametersForImportError::generic(generic)
     })
 }
 
@@ -78231,7 +78231,7 @@ pub fn de_get_public_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_public_key::GetPublicKeyError::generic(generic),
+        _ => super::super::operation::get_public_key::GetPublicKeyError::generic(generic)
     })
 }
 
@@ -78485,7 +78485,7 @@ pub fn de_import_key_material_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::import_key_material::ImportKeyMaterialError::generic(generic),
+        _ => super::super::operation::import_key_material::ImportKeyMaterialError::generic(generic)
     })
 }
 
@@ -78647,7 +78647,7 @@ pub fn de_list_aliases_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_aliases::ListAliasesError::generic(generic),
+        _ => super::super::operation::list_aliases::ListAliasesError::generic(generic)
     })
 }
 
@@ -78838,7 +78838,7 @@ pub fn de_list_grants_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_grants::ListGrantsError::generic(generic),
+        _ => super::super::operation::list_grants::ListGrantsError::generic(generic)
     })
 }
 
@@ -79001,7 +79001,7 @@ pub fn de_list_key_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_key_policies::ListKeyPoliciesError::generic(generic),
+        _ => super::super::operation::list_key_policies::ListKeyPoliciesError::generic(generic)
     })
 }
 
@@ -79178,7 +79178,7 @@ pub fn de_list_key_rotations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_key_rotations::ListKeyRotationsError::generic(generic),
+        _ => super::super::operation::list_key_rotations::ListKeyRotationsError::generic(generic)
     })
 }
 
@@ -79313,7 +79313,7 @@ pub fn de_list_keys_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_keys::ListKeysError::generic(generic),
+        _ => super::super::operation::list_keys::ListKeysError::generic(generic)
     })
 }
 
@@ -79462,7 +79462,7 @@ pub fn de_list_resource_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_resource_tags::ListResourceTagsError::generic(generic),
+        _ => super::super::operation::list_resource_tags::ListResourceTagsError::generic(generic)
     })
 }
 
@@ -79625,7 +79625,7 @@ pub fn de_list_retirable_grants_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_retirable_grants::ListRetirableGrantsError::generic(generic),
+        _ => super::super::operation::list_retirable_grants::ListRetirableGrantsError::generic(generic)
     })
 }
 
@@ -79830,7 +79830,7 @@ pub fn de_put_key_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_key_policy::PutKeyPolicyError::generic(generic),
+        _ => super::super::operation::put_key_policy::PutKeyPolicyError::generic(generic)
     })
 }
 
@@ -80033,7 +80033,7 @@ pub fn de_re_encrypt_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::re_encrypt::ReEncryptError::generic(generic),
+        _ => super::super::operation::re_encrypt::ReEncryptError::generic(generic)
     })
 }
 
@@ -80288,7 +80288,7 @@ pub fn de_replicate_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::replicate_key::ReplicateKeyError::generic(generic),
+        _ => super::super::operation::replicate_key::ReplicateKeyError::generic(generic)
     })
 }
 
@@ -80493,7 +80493,7 @@ pub fn de_retire_grant_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::retire_grant::RetireGrantError::generic(generic),
+        _ => super::super::operation::retire_grant::RetireGrantError::generic(generic)
     })
 }
 
@@ -80640,7 +80640,7 @@ pub fn de_revoke_grant_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::revoke_grant::RevokeGrantError::generic(generic),
+        _ => super::super::operation::revoke_grant::RevokeGrantError::generic(generic)
     })
 }
 
@@ -80815,7 +80815,7 @@ pub fn de_rotate_key_on_demand_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::rotate_key_on_demand::RotateKeyOnDemandError::generic(generic),
+        _ => super::super::operation::rotate_key_on_demand::RotateKeyOnDemandError::generic(generic)
     })
 }
 
@@ -80972,7 +80972,7 @@ pub fn de_schedule_key_deletion_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::schedule_key_deletion::ScheduleKeyDeletionError::generic(generic),
+        _ => super::super::operation::schedule_key_deletion::ScheduleKeyDeletionError::generic(generic)
     })
 }
 
@@ -81198,7 +81198,7 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::sign::SignError::generic(generic),
+        _ => super::super::operation::sign::SignError::generic(generic)
     })
 }
 
@@ -81377,7 +81377,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -81496,7 +81496,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 
@@ -81615,7 +81615,7 @@ pub fn de_update_alias_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_alias::UpdateAliasError::generic(generic),
+        _ => super::super::operation::update_alias::UpdateAliasError::generic(generic)
     })
 }
 
@@ -81902,7 +81902,7 @@ pub fn de_update_custom_key_store_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_custom_key_store::UpdateCustomKeyStoreError::generic(generic),
+        _ => super::super::operation::update_custom_key_store::UpdateCustomKeyStoreError::generic(generic)
     })
 }
 
@@ -82021,7 +82021,7 @@ pub fn de_update_key_description_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_key_description::UpdateKeyDescriptionError::generic(generic),
+        _ => super::super::operation::update_key_description::UpdateKeyDescriptionError::generic(generic)
     })
 }
 
@@ -82154,7 +82154,7 @@ pub fn de_update_primary_region_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_primary_region::UpdatePrimaryRegionError::generic(generic),
+        _ => super::super::operation::update_primary_region::UpdatePrimaryRegionError::generic(generic)
     })
 }
 
@@ -82343,7 +82343,7 @@ pub fn de_verify_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::verify::VerifyError::generic(generic),
+        _ => super::super::operation::verify::VerifyError::generic(generic)
     })
 }
 
@@ -82564,7 +82564,7 @@ pub fn de_verify_mac_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::verify_mac::VerifyMacError::generic(generic),
+        _ => super::super::operation::verify_mac::VerifyMacError::generic(generic)
     })
 }
 

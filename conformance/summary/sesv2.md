@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sesv2
-**Progress:** `1159/1159` files compared · `1139` matched · `19` mismatches · `1` missing · `0` extra · `98.27%` match (100.00% means fully matched)
+**Progress:** `1159/1159` files compared · `1141` matched · `17` mismatches · `1` missing · `0` extra · `98.45%` match (100.00% means fully matched)
 
 ### `src/config/auth.rs`
 
@@ -399,95 +399,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_put_email_identity_configuration_set_attributes.rs`
-
-```diff
---- reference/src/protocol_serde/shape_put_email_identity_configuration_set_attributes.rs
-+++ generated/src/protocol_serde/shape_put_email_identity_configuration_set_attributes.rs
-@@ -28,53 +28,47 @@
-     Err(match error_code {
-         "BadRequestException" => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::BadRequestException({
-             #[allow(unused_mut)]
--            let mut tmp =
--                 {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::unhandled)?;
--                    let output = output.meta(generic);
--                    output.build()
--                }
--            ;
-+            let mut tmp = {
-+                #[allow(unused_mut)]
-+                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-             if tmp.message.is_none() {
--                                                            tmp.message = _error_message;
--                                                        }
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "NotFoundException" => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::NotFoundException({
-             #[allow(unused_mut)]
--            let mut tmp =
--                 {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::unhandled)?;
--                    let output = output.meta(generic);
--                    output.build()
--                }
--            ;
-+            let mut tmp = {
-+                #[allow(unused_mut)]
-+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-             if tmp.message.is_none() {
--                                                            tmp.message = _error_message;
--                                                        }
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "TooManyRequestsException" => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::TooManyRequestsException({
-             #[allow(unused_mut)]
--            let mut tmp =
--                 {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::unhandled)?;
--                    let output = output.meta(generic);
--                    output.build()
--                }
--            ;
-+            let mut tmp = {
-+                #[allow(unused_mut)]
-+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-             if tmp.message.is_none() {
--                                                            tmp.message = _error_message;
--                                                        }
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
--        _ => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::generic(generic)
-+        _ => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::generic(generic),
-     })
- }
-
-```
-
 ### `src/protocol_serde/shape_raw_message.rs`
 
 ```diff
@@ -502,95 +413,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-```
-
-### `src/protocol_serde/shape_update_reputation_entity_customer_managed_status.rs`
-
-```diff
---- reference/src/protocol_serde/shape_update_reputation_entity_customer_managed_status.rs
-+++ generated/src/protocol_serde/shape_update_reputation_entity_customer_managed_status.rs
-@@ -28,53 +28,47 @@
-     Err(match error_code {
-         "BadRequestException" => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::BadRequestException({
-             #[allow(unused_mut)]
--            let mut tmp =
--                 {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled)?;
--                    let output = output.meta(generic);
--                    output.build()
--                }
--            ;
-+            let mut tmp = {
-+                #[allow(unused_mut)]
-+                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-             if tmp.message.is_none() {
--                                                            tmp.message = _error_message;
--                                                        }
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "ConflictException" => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::ConflictException({
-             #[allow(unused_mut)]
--            let mut tmp =
--                 {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled)?;
--                    let output = output.meta(generic);
--                    output.build()
--                }
--            ;
-+            let mut tmp = {
-+                #[allow(unused_mut)]
-+                let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-             if tmp.message.is_none() {
--                                                            tmp.message = _error_message;
--                                                        }
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
-         "TooManyRequestsException" => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::TooManyRequestsException({
-             #[allow(unused_mut)]
--            let mut tmp =
--                 {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled)?;
--                    let output = output.meta(generic);
--                    output.build()
--                }
--            ;
-+            let mut tmp = {
-+                #[allow(unused_mut)]
-+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-             if tmp.message.is_none() {
--                                                            tmp.message = _error_message;
--                                                        }
-+                tmp.message = _error_message;
-+            }
-             tmp
-         }),
--        _ => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::generic(generic)
-+        _ => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::generic(generic),
-     })
- }
-
 ```
 
 ### `src/types/_dkim_attributes.rs`

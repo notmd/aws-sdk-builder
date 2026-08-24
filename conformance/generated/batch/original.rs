@@ -70560,7 +70560,7 @@ pub fn de_cancel_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::cancel_job::CancelJobError::generic(generic),
+        _ => super::super::operation::cancel_job::CancelJobError::generic(generic)
     })
 }
 
@@ -70637,7 +70637,7 @@ pub fn de_create_compute_environment_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_compute_environment::CreateComputeEnvironmentError::generic(generic),
+        _ => super::super::operation::create_compute_environment::CreateComputeEnvironmentError::generic(generic)
     })
 }
 
@@ -70757,7 +70757,7 @@ pub fn de_create_consumable_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_consumable_resource::CreateConsumableResourceError::generic(generic),
+        _ => super::super::operation::create_consumable_resource::CreateConsumableResourceError::generic(generic)
     })
 }
 
@@ -70878,7 +70878,7 @@ pub fn de_create_job_queue_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_job_queue::CreateJobQueueError::generic(generic),
+        _ => super::super::operation::create_job_queue::CreateJobQueueError::generic(generic)
     })
 }
 
@@ -70999,7 +70999,7 @@ pub fn de_create_quota_share_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_quota_share::CreateQuotaShareError::generic(generic),
+        _ => super::super::operation::create_quota_share::CreateQuotaShareError::generic(generic)
     })
 }
 
@@ -71119,7 +71119,7 @@ pub fn de_create_scheduling_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_scheduling_policy::CreateSchedulingPolicyError::generic(generic),
+        _ => super::super::operation::create_scheduling_policy::CreateSchedulingPolicyError::generic(generic)
     })
 }
 
@@ -71240,7 +71240,7 @@ pub fn de_create_service_environment_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_service_environment::CreateServiceEnvironmentError::generic(generic),
+        _ => super::super::operation::create_service_environment::CreateServiceEnvironmentError::generic(generic)
     })
 }
 
@@ -71361,7 +71361,7 @@ pub fn de_delete_compute_environment_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_compute_environment::DeleteComputeEnvironmentError::generic(generic),
+        _ => super::super::operation::delete_compute_environment::DeleteComputeEnvironmentError::generic(generic)
     })
 }
 
@@ -71438,7 +71438,7 @@ pub fn de_delete_consumable_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_consumable_resource::DeleteConsumableResourceError::generic(generic),
+        _ => super::super::operation::delete_consumable_resource::DeleteConsumableResourceError::generic(generic)
     })
 }
 
@@ -71515,7 +71515,7 @@ pub fn de_delete_job_queue_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_job_queue::DeleteJobQueueError::generic(generic),
+        _ => super::super::operation::delete_job_queue::DeleteJobQueueError::generic(generic)
     })
 }
 
@@ -71592,7 +71592,7 @@ pub fn de_delete_quota_share_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_quota_share::DeleteQuotaShareError::generic(generic),
+        _ => super::super::operation::delete_quota_share::DeleteQuotaShareError::generic(generic)
     })
 }
 
@@ -71669,7 +71669,7 @@ pub fn de_delete_scheduling_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_scheduling_policy::DeleteSchedulingPolicyError::generic(generic),
+        _ => super::super::operation::delete_scheduling_policy::DeleteSchedulingPolicyError::generic(generic)
     })
 }
 
@@ -71746,7 +71746,7 @@ pub fn de_delete_service_environment_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_service_environment::DeleteServiceEnvironmentError::generic(generic),
+        _ => super::super::operation::delete_service_environment::DeleteServiceEnvironmentError::generic(generic)
     })
 }
 
@@ -71823,7 +71823,7 @@ pub fn de_deregister_job_definition_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::deregister_job_definition::DeregisterJobDefinitionError::generic(generic),
+        _ => super::super::operation::deregister_job_definition::DeregisterJobDefinitionError::generic(generic)
     })
 }
 
@@ -71900,7 +71900,7 @@ pub fn de_describe_compute_environments_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsError::generic(generic),
+        _ => super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsError::generic(generic)
     })
 }
 
@@ -72018,7 +72018,7 @@ pub fn de_describe_consumable_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_consumable_resource::DescribeConsumableResourceError::generic(generic),
+        _ => super::super::operation::describe_consumable_resource::DescribeConsumableResourceError::generic(generic)
     })
 }
 
@@ -72167,7 +72167,7 @@ pub fn de_describe_job_definitions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_job_definitions::DescribeJobDefinitionsError::generic(generic),
+        _ => super::super::operation::describe_job_definitions::DescribeJobDefinitionsError::generic(generic)
     })
 }
 
@@ -72285,7 +72285,7 @@ pub fn de_describe_job_queues_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_job_queues::DescribeJobQueuesError::generic(generic),
+        _ => super::super::operation::describe_job_queues::DescribeJobQueuesError::generic(generic)
     })
 }
 
@@ -72403,7 +72403,7 @@ pub fn de_describe_jobs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_jobs::DescribeJobsError::generic(generic),
+        _ => super::super::operation::describe_jobs::DescribeJobsError::generic(generic)
     })
 }
 
@@ -72516,7 +72516,7 @@ pub fn de_describe_quota_share_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_quota_share::DescribeQuotaShareError::generic(generic),
+        _ => super::super::operation::describe_quota_share::DescribeQuotaShareError::generic(generic)
     })
 }
 
@@ -72663,7 +72663,7 @@ pub fn de_describe_scheduling_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError::generic(generic),
+        _ => super::super::operation::describe_scheduling_policies::DescribeSchedulingPoliciesError::generic(generic)
     })
 }
 
@@ -72776,7 +72776,7 @@ pub fn de_describe_service_environments_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_service_environments::DescribeServiceEnvironmentsError::generic(generic),
+        _ => super::super::operation::describe_service_environments::DescribeServiceEnvironmentsError::generic(generic)
     })
 }
 
@@ -72894,7 +72894,7 @@ pub fn de_describe_service_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_service_job::DescribeServiceJobError::generic(generic),
+        _ => super::super::operation::describe_service_job::DescribeServiceJobError::generic(generic)
     })
 }
 
@@ -73107,7 +73107,7 @@ pub fn de_get_job_queue_snapshot_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::generic(generic),
+        _ => super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::generic(generic)
     })
 }
 
@@ -73226,7 +73226,7 @@ pub fn de_list_consumable_resources_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_consumable_resources::ListConsumableResourcesError::generic(generic),
+        _ => super::super::operation::list_consumable_resources::ListConsumableResourcesError::generic(generic)
     })
 }
 
@@ -73345,7 +73345,7 @@ pub fn de_list_jobs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_jobs::ListJobsError::generic(generic),
+        _ => super::super::operation::list_jobs::ListJobsError::generic(generic)
     })
 }
 
@@ -73464,7 +73464,7 @@ pub fn de_list_jobs_by_consumable_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError::generic(generic),
+        _ => super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError::generic(generic)
     })
 }
 
@@ -73583,7 +73583,7 @@ pub fn de_list_quota_shares_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_quota_shares::ListQuotaSharesError::generic(generic),
+        _ => super::super::operation::list_quota_shares::ListQuotaSharesError::generic(generic)
     })
 }
 
@@ -73701,7 +73701,7 @@ pub fn de_list_scheduling_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_scheduling_policies::ListSchedulingPoliciesError::generic(generic),
+        _ => super::super::operation::list_scheduling_policies::ListSchedulingPoliciesError::generic(generic)
     })
 }
 
@@ -73819,7 +73819,7 @@ pub fn de_list_service_jobs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_service_jobs::ListServiceJobsError::generic(generic),
+        _ => super::super::operation::list_service_jobs::ListServiceJobsError::generic(generic)
     })
 }
 
@@ -73938,7 +73938,7 @@ pub fn de_list_tags_for_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic)
     })
 }
 
@@ -74040,7 +74040,7 @@ pub fn de_register_job_definition_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::register_job_definition::RegisterJobDefinitionError::generic(generic),
+        _ => super::super::operation::register_job_definition::RegisterJobDefinitionError::generic(generic)
     })
 }
 
@@ -74166,7 +74166,7 @@ pub fn de_submit_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::submit_job::SubmitJobError::generic(generic),
+        _ => super::super::operation::submit_job::SubmitJobError::generic(generic)
     })
 }
 
@@ -74292,7 +74292,7 @@ pub fn de_submit_service_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::submit_service_job::SubmitServiceJobError::generic(generic),
+        _ => super::super::operation::submit_service_job::SubmitServiceJobError::generic(generic)
     })
 }
 
@@ -74418,7 +74418,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -74495,7 +74495,7 @@ pub fn de_terminate_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::terminate_job::TerminateJobError::generic(generic),
+        _ => super::super::operation::terminate_job::TerminateJobError::generic(generic)
     })
 }
 
@@ -74572,7 +74572,7 @@ pub fn de_terminate_service_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::terminate_service_job::TerminateServiceJobError::generic(generic),
+        _ => super::super::operation::terminate_service_job::TerminateServiceJobError::generic(generic)
     })
 }
 
@@ -74649,7 +74649,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 
@@ -74716,7 +74716,7 @@ pub fn de_update_compute_environment_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_compute_environment::UpdateComputeEnvironmentError::generic(generic),
+        _ => super::super::operation::update_compute_environment::UpdateComputeEnvironmentError::generic(generic)
     })
 }
 
@@ -74836,7 +74836,7 @@ pub fn de_update_consumable_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_consumable_resource::UpdateConsumableResourceError::generic(generic),
+        _ => super::super::operation::update_consumable_resource::UpdateConsumableResourceError::generic(generic)
     })
 }
 
@@ -74962,7 +74962,7 @@ pub fn de_update_job_queue_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_job_queue::UpdateJobQueueError::generic(generic),
+        _ => super::super::operation::update_job_queue::UpdateJobQueueError::generic(generic)
     })
 }
 
@@ -75082,7 +75082,7 @@ pub fn de_update_quota_share_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_quota_share::UpdateQuotaShareError::generic(generic),
+        _ => super::super::operation::update_quota_share::UpdateQuotaShareError::generic(generic)
     })
 }
 
@@ -75202,7 +75202,7 @@ pub fn de_update_scheduling_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_scheduling_policy::UpdateSchedulingPolicyError::generic(generic),
+        _ => super::super::operation::update_scheduling_policy::UpdateSchedulingPolicyError::generic(generic)
     })
 }
 
@@ -75279,7 +75279,7 @@ pub fn de_update_service_environment_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_service_environment::UpdateServiceEnvironmentError::generic(generic),
+        _ => super::super::operation::update_service_environment::UpdateServiceEnvironmentError::generic(generic)
     })
 }
 
@@ -75400,7 +75400,7 @@ pub fn de_update_service_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_service_job::UpdateServiceJobError::generic(generic),
+        _ => super::super::operation::update_service_job::UpdateServiceJobError::generic(generic)
     })
 }
 

@@ -82,7 +82,7 @@ pub fn de_get_organization_conformance_pack_detailed_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::generic(generic),
+        _ => super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::generic(generic)
     })
 }
 

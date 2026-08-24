@@ -82,7 +82,7 @@ pub fn de_describe_configuration_aggregator_sources_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::generic(generic),
+        _ => super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::generic(generic)
     })
 }
 

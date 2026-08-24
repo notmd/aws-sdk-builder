@@ -80,7 +80,7 @@ pub fn de_get_organization_config_rule_detailed_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusError::generic(generic),
+        _ => super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusError::generic(generic)
     })
 }
 

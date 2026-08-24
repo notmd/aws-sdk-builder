@@ -114953,7 +114953,7 @@ pub fn de_batch_get_metric_data_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::batch_get_metric_data::BatchGetMetricDataError::generic(generic),
+        _ => super::super::operation::batch_get_metric_data::BatchGetMetricDataError::generic(generic)
     })
 }
 
@@ -115083,7 +115083,7 @@ pub fn de_cancel_export_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::cancel_export_job::CancelExportJobError::generic(generic),
+        _ => super::super::operation::cancel_export_job::CancelExportJobError::generic(generic)
     })
 }
 
@@ -115206,7 +115206,7 @@ pub fn de_create_configuration_set_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_configuration_set::CreateConfigurationSetError::generic(generic),
+        _ => super::super::operation::create_configuration_set::CreateConfigurationSetError::generic(generic)
     })
 }
 
@@ -115325,7 +115325,7 @@ pub fn de_create_configuration_set_event_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::generic(generic),
+        _ => super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::generic(generic)
     })
 }
 
@@ -115430,7 +115430,7 @@ pub fn de_create_contact_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_contact::CreateContactError::generic(generic),
+        _ => super::super::operation::create_contact::CreateContactError::generic(generic)
     })
 }
 
@@ -115535,7 +115535,7 @@ pub fn de_create_contact_list_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_contact_list::CreateContactListError::generic(generic),
+        _ => super::super::operation::create_contact_list::CreateContactListError::generic(generic)
     })
 }
 
@@ -115654,7 +115654,7 @@ pub fn de_create_custom_verification_email_template_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::generic(generic),
+        _ => super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::generic(generic)
     })
 }
 
@@ -115773,7 +115773,7 @@ pub fn de_create_dedicated_ip_pool_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError::generic(generic),
+        _ => super::super::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError::generic(generic)
     })
 }
 
@@ -115948,7 +115948,7 @@ pub fn de_create_deliverability_test_report_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::generic(generic),
+        _ => super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::generic(generic)
     })
 }
 
@@ -116126,7 +116126,7 @@ pub fn de_create_email_identity_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_email_identity::CreateEmailIdentityError::generic(generic),
+        _ => super::super::operation::create_email_identity::CreateEmailIdentityError::generic(generic)
     })
 }
 
@@ -116289,7 +116289,7 @@ pub fn de_create_email_identity_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::generic(generic),
+        _ => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::generic(generic)
     })
 }
 
@@ -116394,7 +116394,7 @@ pub fn de_create_email_template_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_email_template::CreateEmailTemplateError::generic(generic),
+        _ => super::super::operation::create_email_template::CreateEmailTemplateError::generic(generic)
     })
 }
 
@@ -116499,7 +116499,7 @@ pub fn de_create_export_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_export_job::CreateExportJobError::generic(generic),
+        _ => super::super::operation::create_export_job::CreateExportJobError::generic(generic)
     })
 }
 
@@ -116628,7 +116628,7 @@ pub fn de_create_import_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_import_job::CreateImportJobError::generic(generic),
+        _ => super::super::operation::create_import_job::CreateImportJobError::generic(generic)
     })
 }
 
@@ -116771,7 +116771,7 @@ pub fn de_create_multi_region_endpoint_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError::generic(generic),
+        _ => super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError::generic(generic)
     })
 }
 
@@ -116919,7 +116919,7 @@ pub fn de_create_tenant_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_tenant::CreateTenantError::generic(generic),
+        _ => super::super::operation::create_tenant::CreateTenantError::generic(generic)
     })
 }
 
@@ -117086,7 +117086,7 @@ pub fn de_create_tenant_resource_association_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::generic(generic),
+        _ => super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::generic(generic)
     })
 }
 
@@ -117191,7 +117191,7 @@ pub fn de_delete_configuration_set_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_configuration_set::DeleteConfigurationSetError::generic(generic),
+        _ => super::super::operation::delete_configuration_set::DeleteConfigurationSetError::generic(generic)
     })
 }
 
@@ -117272,7 +117272,7 @@ pub fn de_delete_configuration_set_event_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::generic(generic),
+        _ => super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::generic(generic)
     })
 }
 
@@ -117353,7 +117353,7 @@ pub fn de_delete_contact_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_contact::DeleteContactError::generic(generic),
+        _ => super::super::operation::delete_contact::DeleteContactError::generic(generic)
     })
 }
 
@@ -117448,7 +117448,7 @@ pub fn de_delete_contact_list_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_contact_list::DeleteContactListError::generic(generic),
+        _ => super::super::operation::delete_contact_list::DeleteContactListError::generic(generic)
     })
 }
 
@@ -117529,7 +117529,7 @@ pub fn de_delete_custom_verification_email_template_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::generic(generic),
+        _ => super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::generic(generic)
     })
 }
 
@@ -117624,7 +117624,7 @@ pub fn de_delete_dedicated_ip_pool_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError::generic(generic),
+        _ => super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError::generic(generic)
     })
 }
 
@@ -117719,7 +117719,7 @@ pub fn de_delete_email_identity_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_email_identity::DeleteEmailIdentityError::generic(generic),
+        _ => super::super::operation::delete_email_identity::DeleteEmailIdentityError::generic(generic)
     })
 }
 
@@ -117800,7 +117800,7 @@ pub fn de_delete_email_identity_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError::generic(generic),
+        _ => super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError::generic(generic)
     })
 }
 
@@ -117881,7 +117881,7 @@ pub fn de_delete_email_template_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_email_template::DeleteEmailTemplateError::generic(generic),
+        _ => super::super::operation::delete_email_template::DeleteEmailTemplateError::generic(generic)
     })
 }
 
@@ -117976,7 +117976,7 @@ pub fn de_delete_multi_region_endpoint_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError::generic(generic),
+        _ => super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError::generic(generic)
     })
 }
 
@@ -118094,7 +118094,7 @@ pub fn de_delete_suppressed_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::generic(generic),
+        _ => super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::generic(generic)
     })
 }
 
@@ -118175,7 +118175,7 @@ pub fn de_delete_tenant_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_tenant::DeleteTenantError::generic(generic),
+        _ => super::super::operation::delete_tenant::DeleteTenantError::generic(generic)
     })
 }
 
@@ -118266,7 +118266,7 @@ pub fn de_delete_tenant_resource_association_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::generic(generic),
+        _ => super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::generic(generic)
     })
 }
 
@@ -118343,7 +118343,7 @@ pub fn de_get_account_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_account::GetAccountError::generic(generic),
+        _ => super::super::operation::get_account::GetAccountError::generic(generic)
     })
 }
 
@@ -118485,7 +118485,7 @@ pub fn de_get_blacklist_reports_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_blacklist_reports::GetBlacklistReportsError::generic(generic),
+        _ => super::super::operation::get_blacklist_reports::GetBlacklistReportsError::generic(generic)
     })
 }
 
@@ -118603,7 +118603,7 @@ pub fn de_get_configuration_set_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_configuration_set::GetConfigurationSetError::generic(generic),
+        _ => super::super::operation::get_configuration_set::GetConfigurationSetError::generic(generic)
     })
 }
 
@@ -118745,7 +118745,7 @@ pub fn de_get_configuration_set_event_destinations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::generic(generic),
+        _ => super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::generic(generic)
     })
 }
 
@@ -118861,7 +118861,7 @@ pub fn de_get_contact_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_contact::GetContactError::generic(generic),
+        _ => super::super::operation::get_contact::GetContactError::generic(generic)
     })
 }
 
@@ -119004,7 +119004,7 @@ pub fn de_get_contact_list_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_contact_list::GetContactListError::generic(generic),
+        _ => super::super::operation::get_contact_list::GetContactListError::generic(generic)
     })
 }
 
@@ -119139,7 +119139,7 @@ pub fn de_get_custom_verification_email_template_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::generic(generic),
+        _ => super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::generic(generic)
     })
 }
 
@@ -119285,7 +119285,7 @@ pub fn de_get_dedicated_ip_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_dedicated_ip::GetDedicatedIpError::generic(generic),
+        _ => super::super::operation::get_dedicated_ip::GetDedicatedIpError::generic(generic)
     })
 }
 
@@ -119401,7 +119401,7 @@ pub fn de_get_dedicated_ip_pool_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError::generic(generic),
+        _ => super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError::generic(generic)
     })
 }
 
@@ -119517,7 +119517,7 @@ pub fn de_get_dedicated_ips_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_dedicated_ips::GetDedicatedIpsError::generic(generic),
+        _ => super::super::operation::get_dedicated_ips::GetDedicatedIpsError::generic(generic)
     })
 }
 
@@ -119638,7 +119638,7 @@ pub fn de_get_deliverability_dashboard_options_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::generic(generic),
+        _ => super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::generic(generic)
     })
 }
 
@@ -119770,7 +119770,7 @@ pub fn de_get_deliverability_test_report_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::generic(generic),
+        _ => super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::generic(generic)
     })
 }
 
@@ -119902,7 +119902,7 @@ pub fn de_get_domain_deliverability_campaign_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::generic(generic),
+        _ => super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::generic(generic)
     })
 }
 
@@ -120019,7 +120019,7 @@ pub fn de_get_domain_statistics_report_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::generic(generic),
+        _ => super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::generic(generic)
     })
 }
 
@@ -120126,7 +120126,7 @@ pub fn de_get_email_address_insights_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_email_address_insights::GetEmailAddressInsightsError::generic(generic),
+        _ => super::super::operation::get_email_address_insights::GetEmailAddressInsightsError::generic(generic)
     })
 }
 
@@ -120253,7 +120253,7 @@ pub fn de_get_email_identity_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_email_identity::GetEmailIdentityError::generic(generic),
+        _ => super::super::operation::get_email_identity::GetEmailIdentityError::generic(generic)
     })
 }
 
@@ -120402,7 +120402,7 @@ pub fn de_get_email_identity_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesError::generic(generic),
+        _ => super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesError::generic(generic)
     })
 }
 
@@ -120518,7 +120518,7 @@ pub fn de_get_email_template_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_email_template::GetEmailTemplateError::generic(generic),
+        _ => super::super::operation::get_email_template::GetEmailTemplateError::generic(generic)
     })
 }
 
@@ -120644,7 +120644,7 @@ pub fn de_get_export_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_export_job::GetExportJobError::generic(generic),
+        _ => super::super::operation::get_export_job::GetExportJobError::generic(generic)
     })
 }
 
@@ -120790,7 +120790,7 @@ pub fn de_get_import_job_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_import_job::GetImportJobError::generic(generic),
+        _ => super::super::operation::get_import_job::GetImportJobError::generic(generic)
     })
 }
 
@@ -120938,7 +120938,7 @@ pub fn de_get_message_insights_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_message_insights::GetMessageInsightsError::generic(generic),
+        _ => super::super::operation::get_message_insights::GetMessageInsightsError::generic(generic)
     })
 }
 
@@ -121072,7 +121072,7 @@ pub fn de_get_multi_region_endpoint_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointError::generic(generic),
+        _ => super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointError::generic(generic)
     })
 }
 
@@ -121209,7 +121209,7 @@ pub fn de_get_reputation_entity_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_reputation_entity::GetReputationEntityError::generic(generic),
+        _ => super::super::operation::get_reputation_entity::GetReputationEntityError::generic(generic)
     })
 }
 
@@ -121325,7 +121325,7 @@ pub fn de_get_suppressed_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::generic(generic),
+        _ => super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::generic(generic)
     })
 }
 
@@ -121442,7 +121442,7 @@ pub fn de_get_tenant_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_tenant::GetTenantError::generic(generic),
+        _ => super::super::operation::get_tenant::GetTenantError::generic(generic)
     })
 }
 
@@ -121555,7 +121555,7 @@ pub fn de_list_configuration_sets_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_configuration_sets::ListConfigurationSetsError::generic(generic),
+        _ => super::super::operation::list_configuration_sets::ListConfigurationSetsError::generic(generic)
     })
 }
 
@@ -121662,7 +121662,7 @@ pub fn de_list_contact_lists_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_contact_lists::ListContactListsError::generic(generic),
+        _ => super::super::operation::list_contact_lists::ListContactListsError::generic(generic)
     })
 }
 
@@ -121783,7 +121783,7 @@ pub fn de_list_contacts_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_contacts::ListContactsError::generic(generic),
+        _ => super::super::operation::list_contacts::ListContactsError::generic(generic)
     })
 }
 
@@ -121901,7 +121901,7 @@ pub fn de_list_custom_verification_email_templates_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::generic(generic),
+        _ => super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::generic(generic)
     })
 }
 
@@ -122008,7 +122008,7 @@ pub fn de_list_dedicated_ip_pools_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::generic(generic),
+        _ => super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::generic(generic)
     })
 }
 
@@ -122129,7 +122129,7 @@ pub fn de_list_deliverability_test_reports_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::generic(generic),
+        _ => super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::generic(generic)
     })
 }
 
@@ -122252,7 +122252,7 @@ pub fn de_list_domain_deliverability_campaigns_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::generic(generic),
+        _ => super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::generic(generic)
     })
 }
 
@@ -122361,7 +122361,7 @@ pub fn de_list_email_identities_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_email_identities::ListEmailIdentitiesError::generic(generic),
+        _ => super::super::operation::list_email_identities::ListEmailIdentitiesError::generic(generic)
     })
 }
 
@@ -122468,7 +122468,7 @@ pub fn de_list_email_templates_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_email_templates::ListEmailTemplatesError::generic(generic),
+        _ => super::super::operation::list_email_templates::ListEmailTemplatesError::generic(generic)
     })
 }
 
@@ -122575,7 +122575,7 @@ pub fn de_list_export_jobs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_export_jobs::ListExportJobsError::generic(generic),
+        _ => super::super::operation::list_export_jobs::ListExportJobsError::generic(generic)
     })
 }
 
@@ -122693,7 +122693,7 @@ pub fn de_list_import_jobs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_import_jobs::ListImportJobsError::generic(generic),
+        _ => super::super::operation::list_import_jobs::ListImportJobsError::generic(generic)
     })
 }
 
@@ -122811,7 +122811,7 @@ pub fn de_list_multi_region_endpoints_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError::generic(generic),
+        _ => super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError::generic(generic)
     })
 }
 
@@ -122932,7 +122932,7 @@ pub fn de_list_recommendations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_recommendations::ListRecommendationsError::generic(generic),
+        _ => super::super::operation::list_recommendations::ListRecommendationsError::generic(generic)
     })
 }
 
@@ -123050,7 +123050,7 @@ pub fn de_list_reputation_entities_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_reputation_entities::ListReputationEntitiesError::generic(generic),
+        _ => super::super::operation::list_reputation_entities::ListReputationEntitiesError::generic(generic)
     })
 }
 
@@ -123182,7 +123182,7 @@ pub fn de_list_resource_tenants_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_resource_tenants::ListResourceTenantsError::generic(generic),
+        _ => super::super::operation::list_resource_tenants::ListResourceTenantsError::generic(generic)
     })
 }
 
@@ -123328,7 +123328,7 @@ pub fn de_list_suppressed_destinations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::generic(generic),
+        _ => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::generic(generic)
     })
 }
 
@@ -123449,7 +123449,7 @@ pub fn de_list_tags_for_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic)
     })
 }
 
@@ -123567,7 +123567,7 @@ pub fn de_list_tenant_resources_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tenant_resources::ListTenantResourcesError::generic(generic),
+        _ => super::super::operation::list_tenant_resources::ListTenantResourcesError::generic(generic)
     })
 }
 
@@ -123685,7 +123685,7 @@ pub fn de_list_tenants_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tenants::ListTenantsError::generic(generic),
+        _ => super::super::operation::list_tenants::ListTenantsError::generic(generic)
     })
 }
 
@@ -123803,7 +123803,7 @@ pub fn de_put_account_dedicated_ip_warmup_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::generic(generic),
+        _ => super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::generic(generic)
     })
 }
 
@@ -123894,7 +123894,7 @@ pub fn de_put_account_details_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_account_details::PutAccountDetailsError::generic(generic),
+        _ => super::super::operation::put_account_details::PutAccountDetailsError::generic(generic)
     })
 }
 
@@ -123985,7 +123985,7 @@ pub fn de_put_account_pricing_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesError::generic(generic),
+        _ => super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesError::generic(generic)
     })
 }
 
@@ -124062,7 +124062,7 @@ pub fn de_put_account_sending_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::generic(generic),
+        _ => super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::generic(generic)
     })
 }
 
@@ -124139,7 +124139,7 @@ pub fn de_put_account_suppression_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::generic(generic),
+        _ => super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::generic(generic)
     })
 }
 
@@ -124216,7 +124216,7 @@ pub fn de_put_account_vdm_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesError::generic(generic),
+        _ => super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesError::generic(generic)
     })
 }
 
@@ -124307,7 +124307,7 @@ pub fn de_put_configuration_set_archiving_options_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::generic(generic),
+        _ => super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::generic(generic)
     })
 }
 
@@ -124398,7 +124398,7 @@ pub fn de_put_configuration_set_delivery_options_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::generic(generic),
+        _ => super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::generic(generic)
     })
 }
 
@@ -124489,7 +124489,7 @@ pub fn de_put_configuration_set_reputation_options_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::generic(generic),
+        _ => super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::generic(generic)
     })
 }
 
@@ -124580,7 +124580,7 @@ pub fn de_put_configuration_set_sending_options_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::generic(generic),
+        _ => super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::generic(generic)
     })
 }
 
@@ -124671,7 +124671,7 @@ pub fn de_put_configuration_set_suppression_options_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::generic(generic),
+        _ => super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::generic(generic)
     })
 }
 
@@ -124762,7 +124762,7 @@ pub fn de_put_configuration_set_tracking_options_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::generic(generic),
+        _ => super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::generic(generic)
     })
 }
 
@@ -124853,7 +124853,7 @@ pub fn de_put_configuration_set_vdm_options_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::generic(generic),
+        _ => super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::generic(generic)
     })
 }
 
@@ -124944,7 +124944,7 @@ pub fn de_put_dedicated_ip_in_pool_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError::generic(generic),
+        _ => super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError::generic(generic)
     })
 }
 
@@ -125049,7 +125049,7 @@ pub fn de_put_dedicated_ip_pool_scaling_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::generic(generic),
+        _ => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::generic(generic)
     })
 }
 
@@ -125140,7 +125140,7 @@ pub fn de_put_dedicated_ip_warmup_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::generic(generic),
+        _ => super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::generic(generic)
     })
 }
 
@@ -125259,7 +125259,7 @@ pub fn de_put_deliverability_dashboard_option_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::generic(generic),
+        _ => super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::generic(generic)
     })
 }
 
@@ -125350,7 +125350,7 @@ pub fn de_put_email_identity_configuration_set_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::generic(generic),
+        _ => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::generic(generic)
     })
 }
 
@@ -125441,7 +125441,7 @@ pub fn de_put_email_identity_dkim_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::generic(generic),
+        _ => super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::generic(generic)
     })
 }
 
@@ -125532,7 +125532,7 @@ pub fn de_put_email_identity_dkim_signing_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::generic(generic),
+        _ => super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::generic(generic)
     })
 }
 
@@ -125669,7 +125669,7 @@ pub fn de_put_email_identity_feedback_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::generic(generic),
+        _ => super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::generic(generic)
     })
 }
 
@@ -125760,7 +125760,7 @@ pub fn de_put_email_identity_mail_from_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::generic(generic),
+        _ => super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::generic(generic)
     })
 }
 
@@ -125851,7 +125851,7 @@ pub fn de_put_suppressed_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_suppressed_destination::PutSuppressedDestinationError::generic(generic),
+        _ => super::super::operation::put_suppressed_destination::PutSuppressedDestinationError::generic(generic)
     })
 }
 
@@ -125942,7 +125942,7 @@ pub fn de_put_tenant_suppression_attributes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::generic(generic),
+        _ => super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::generic(generic)
     })
 }
 
@@ -126103,7 +126103,7 @@ pub fn de_send_bulk_email_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::send_bulk_email::SendBulkEmailError::generic(generic),
+        _ => super::super::operation::send_bulk_email::SendBulkEmailError::generic(generic)
     })
 }
 
@@ -126288,7 +126288,7 @@ pub fn de_send_custom_verification_email_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::generic(generic),
+        _ => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::generic(generic)
     })
 }
 
@@ -126487,7 +126487,7 @@ pub fn de_send_email_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::send_email::SendEmailError::generic(generic),
+        _ => super::super::operation::send_email::SendEmailError::generic(generic)
     })
 }
 
@@ -126630,7 +126630,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -126721,7 +126721,7 @@ pub fn de_test_render_email_template_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::test_render_email_template::TestRenderEmailTemplateError::generic(generic),
+        _ => super::super::operation::test_render_email_template::TestRenderEmailTemplateError::generic(generic)
     })
 }
 
@@ -126866,7 +126866,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 
@@ -126947,7 +126947,7 @@ pub fn de_update_configuration_set_event_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::generic(generic),
+        _ => super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::generic(generic)
     })
 }
 
@@ -127052,7 +127052,7 @@ pub fn de_update_contact_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_contact::UpdateContactError::generic(generic),
+        _ => super::super::operation::update_contact::UpdateContactError::generic(generic)
     })
 }
 
@@ -127157,7 +127157,7 @@ pub fn de_update_contact_list_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_contact_list::UpdateContactListError::generic(generic),
+        _ => super::super::operation::update_contact_list::UpdateContactListError::generic(generic)
     })
 }
 
@@ -127248,7 +127248,7 @@ pub fn de_update_custom_verification_email_template_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::generic(generic),
+        _ => super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::generic(generic)
     })
 }
 
@@ -127339,7 +127339,7 @@ pub fn de_update_email_identity_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::generic(generic),
+        _ => super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::generic(generic)
     })
 }
 
@@ -127430,7 +127430,7 @@ pub fn de_update_email_template_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_email_template::UpdateEmailTemplateError::generic(generic),
+        _ => super::super::operation::update_email_template::UpdateEmailTemplateError::generic(generic)
     })
 }
 
@@ -127521,7 +127521,7 @@ pub fn de_update_reputation_entity_customer_managed_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::generic(generic),
+        _ => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::generic(generic)
     })
 }
 
@@ -127612,7 +127612,7 @@ pub fn de_update_reputation_entity_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError::generic(generic),
+        _ => super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError::generic(generic)
     })
 }
 

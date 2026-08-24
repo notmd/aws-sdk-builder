@@ -4,6 +4,26 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy modeled-error fallback arms
+- State: in progress
+- Changed: shared JSON and XML HTTP error dispatch now renders the modeled-error
+  fallback arm exactly as Smithy-RS's `ProtocolParserGenerator`: `_ =>
+  Error::generic(generic)` has no trailing comma. The correction is shared by every
+  service and protocol renderer, with a focused JSON regression.
+- Evidence: inspected the pinned Smithy-RS `ProtocolParserGenerator.kt` and
+  `ResponseDeserializerGenerator.kt` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `just conformance` regenerated and
+  formatted all `13,166` snapshot files without parse errors. Workspace tests, clippy
+  with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `12,966/13,168` exact, `199` mismatches, `2` missing, and `1` extra
+  (`98.35%`) -> `12,988/13,168` exact, `177` mismatches, `2` missing, and `1` extra
+  (`98.46%`). Config improved from `1,236/26` to `1,251/11`; IAM from `1,597/29` to
+  `1,602/24`; SESv2 from `1,139/19` to `1,141/17` mismatches.
+- Blocker: broader protocol ordering, documentation, shape, and runtime parity gaps
+  remain; no blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic mismatch after committing
+  this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Match JSON response/request dependency phase ordering
 - State: in progress
 - Changed: shared JSON protocol dependency discovery now follows the pinned

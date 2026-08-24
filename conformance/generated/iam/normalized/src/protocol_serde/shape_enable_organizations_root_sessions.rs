@@ -90,7 +90,7 @@ pub fn de_enable_organizations_root_sessions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::generic(generic),
+        _ => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::generic(generic)
     })
 }
 

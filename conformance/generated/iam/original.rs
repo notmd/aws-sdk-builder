@@ -166319,7 +166319,7 @@ pub fn de_accept_delegation_request_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::accept_delegation_request::AcceptDelegationRequestError::generic(generic),
+        _ => super::super::operation::accept_delegation_request::AcceptDelegationRequestError::generic(generic)
     })
 }
 
@@ -166516,7 +166516,7 @@ pub fn de_acquire_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::acquire_role::AcquireRoleError::generic(generic),
+        _ => super::super::operation::acquire_role::AcquireRoleError::generic(generic)
     })
 }
 
@@ -166708,7 +166708,7 @@ pub fn de_add_client_id_to_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::generic(generic),
+        _ => super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::generic(generic)
     })
 }
 
@@ -166840,7 +166840,7 @@ pub fn de_add_role_to_instance_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::generic(generic),
+        _ => super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::generic(generic)
     })
 }
 
@@ -166944,7 +166944,7 @@ pub fn de_add_user_to_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::add_user_to_group::AddUserToGroupError::generic(generic),
+        _ => super::super::operation::add_user_to_group::AddUserToGroupError::generic(generic)
     })
 }
 
@@ -167062,7 +167062,7 @@ pub fn de_associate_delegation_request_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::associate_delegation_request::AssociateDelegationRequestError::generic(generic),
+        _ => super::super::operation::associate_delegation_request::AssociateDelegationRequestError::generic(generic)
     })
 }
 
@@ -167189,7 +167189,7 @@ pub fn de_attach_group_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::attach_group_policy::AttachGroupPolicyError::generic(generic),
+        _ => super::super::operation::attach_group_policy::AttachGroupPolicyError::generic(generic)
     })
 }
 
@@ -167335,7 +167335,7 @@ pub fn de_attach_role_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::attach_role_policy::AttachRolePolicyError::generic(generic),
+        _ => super::super::operation::attach_role_policy::AttachRolePolicyError::generic(generic)
     })
 }
 
@@ -167467,7 +167467,7 @@ pub fn de_attach_user_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::attach_user_policy::AttachUserPolicyError::generic(generic),
+        _ => super::super::operation::attach_user_policy::AttachUserPolicyError::generic(generic)
     })
 }
 
@@ -167613,7 +167613,7 @@ pub fn de_change_password_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::change_password::ChangePasswordError::generic(generic),
+        _ => super::super::operation::change_password::ChangePasswordError::generic(generic)
     })
 }
 
@@ -167717,7 +167717,7 @@ pub fn de_create_access_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_access_key::CreateAccessKeyError::generic(generic),
+        _ => super::super::operation::create_access_key::CreateAccessKeyError::generic(generic)
     })
 }
 
@@ -167876,7 +167876,7 @@ pub fn de_create_account_alias_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_account_alias::CreateAccountAliasError::generic(generic),
+        _ => super::super::operation::create_account_alias::CreateAccountAliasError::generic(generic)
     })
 }
 
@@ -168003,7 +168003,7 @@ pub fn de_create_delegation_request_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_delegation_request::CreateDelegationRequestError::generic(generic),
+        _ => super::super::operation::create_delegation_request::CreateDelegationRequestError::generic(generic)
     })
 }
 
@@ -168218,7 +168218,7 @@ pub fn de_create_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_group::CreateGroupError::generic(generic),
+        _ => super::super::operation::create_group::CreateGroupError::generic(generic)
     })
 }
 
@@ -168396,7 +168396,7 @@ pub fn de_create_instance_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_instance_profile::CreateInstanceProfileError::generic(generic),
+        _ => super::super::operation::create_instance_profile::CreateInstanceProfileError::generic(generic)
     })
 }
 
@@ -168585,7 +168585,7 @@ pub fn de_create_login_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_login_profile::CreateLoginProfileError::generic(generic),
+        _ => super::super::operation::create_login_profile::CreateLoginProfileError::generic(generic)
     })
 }
 
@@ -168782,7 +168782,7 @@ pub fn de_create_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::generic(generic),
+        _ => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::generic(generic)
     })
 }
 
@@ -169014,7 +169014,7 @@ pub fn de_create_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_policy::CreatePolicyError::generic(generic),
+        _ => super::super::operation::create_policy::CreatePolicyError::generic(generic)
     })
 }
 
@@ -169212,7 +169212,7 @@ pub fn de_create_policy_version_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_policy_version::CreatePolicyVersionError::generic(generic),
+        _ => super::super::operation::create_policy_version::CreatePolicyVersionError::generic(generic)
     })
 }
 
@@ -169408,7 +169408,7 @@ pub fn de_create_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_role::CreateRoleError::generic(generic),
+        _ => super::super::operation::create_role::CreateRoleError::generic(generic)
     })
 }
 
@@ -169618,7 +169618,7 @@ pub fn de_create_saml_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_saml_provider::CreateSAMLProviderError::generic(generic),
+        _ => super::super::operation::create_saml_provider::CreateSAMLProviderError::generic(generic)
     })
 }
 
@@ -169815,7 +169815,7 @@ pub fn de_create_service_linked_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_service_linked_role::CreateServiceLinkedRoleError::generic(generic),
+        _ => super::super::operation::create_service_linked_role::CreateServiceLinkedRoleError::generic(generic)
     })
 }
 
@@ -169969,7 +169969,7 @@ pub fn de_create_service_specific_credential_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_service_specific_credential::CreateServiceSpecificCredentialError::generic(generic),
+        _ => super::super::operation::create_service_specific_credential::CreateServiceSpecificCredentialError::generic(generic)
     })
 }
 
@@ -170166,7 +170166,7 @@ pub fn de_create_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_user::CreateUserError::generic(generic),
+        _ => super::super::operation::create_user::CreateUserError::generic(generic)
     })
 }
 
@@ -170359,7 +170359,7 @@ pub fn de_create_virtual_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::generic(generic),
+        _ => super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::generic(generic)
     })
 }
 
@@ -170548,7 +170548,7 @@ pub fn de_deactivate_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::generic(generic),
+        _ => super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::generic(generic)
     })
 }
 
@@ -170652,7 +170652,7 @@ pub fn de_delete_access_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_access_key::DeleteAccessKeyError::generic(generic),
+        _ => super::super::operation::delete_access_key::DeleteAccessKeyError::generic(generic)
     })
 }
 
@@ -170770,7 +170770,7 @@ pub fn de_delete_account_alias_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_account_alias::DeleteAccountAliasError::generic(generic),
+        _ => super::super::operation::delete_account_alias::DeleteAccountAliasError::generic(generic)
     })
 }
 
@@ -170869,7 +170869,7 @@ pub fn de_delete_account_password_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError::generic(generic),
+        _ => super::super::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError::generic(generic)
     })
 }
 
@@ -170978,7 +170978,7 @@ pub fn de_delete_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_group::DeleteGroupError::generic(generic),
+        _ => super::super::operation::delete_group::DeleteGroupError::generic(generic)
     })
 }
 
@@ -171077,7 +171077,7 @@ pub fn de_delete_group_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_group_policy::DeleteGroupPolicyError::generic(generic),
+        _ => super::super::operation::delete_group_policy::DeleteGroupPolicyError::generic(generic)
     })
 }
 
@@ -171195,7 +171195,7 @@ pub fn de_delete_instance_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_instance_profile::DeleteInstanceProfileError::generic(generic),
+        _ => super::super::operation::delete_instance_profile::DeleteInstanceProfileError::generic(generic)
     })
 }
 
@@ -171308,7 +171308,7 @@ pub fn de_delete_login_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_login_profile::DeleteLoginProfileError::generic(generic),
+        _ => super::super::operation::delete_login_profile::DeleteLoginProfileError::generic(generic)
     })
 }
 
@@ -171407,7 +171407,7 @@ pub fn de_delete_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::generic(generic),
+        _ => super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::generic(generic)
     })
 }
 
@@ -171534,7 +171534,7 @@ pub fn de_delete_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_policy::DeletePolicyError::generic(generic),
+        _ => super::super::operation::delete_policy::DeletePolicyError::generic(generic)
     })
 }
 
@@ -171661,7 +171661,7 @@ pub fn de_delete_policy_version_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_policy_version::DeletePolicyVersionError::generic(generic),
+        _ => super::super::operation::delete_policy_version::DeletePolicyVersionError::generic(generic)
     })
 }
 
@@ -171807,7 +171807,7 @@ pub fn de_delete_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_role::DeleteRoleError::generic(generic),
+        _ => super::super::operation::delete_role::DeleteRoleError::generic(generic)
     })
 }
 
@@ -171906,7 +171906,7 @@ pub fn de_delete_role_permissions_boundary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError::generic(generic),
+        _ => super::super::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError::generic(generic)
     })
 }
 
@@ -172019,7 +172019,7 @@ pub fn de_delete_role_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_role_policy::DeleteRolePolicyError::generic(generic),
+        _ => super::super::operation::delete_role_policy::DeleteRolePolicyError::generic(generic)
     })
 }
 
@@ -172137,7 +172137,7 @@ pub fn de_delete_saml_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_saml_provider::DeleteSAMLProviderError::generic(generic),
+        _ => super::super::operation::delete_saml_provider::DeleteSAMLProviderError::generic(generic)
     })
 }
 
@@ -172250,7 +172250,7 @@ pub fn de_delete_server_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_server_certificate::DeleteServerCertificateError::generic(generic),
+        _ => super::super::operation::delete_server_certificate::DeleteServerCertificateError::generic(generic)
     })
 }
 
@@ -172349,7 +172349,7 @@ pub fn de_delete_service_linked_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::generic(generic),
+        _ => super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::generic(generic)
     })
 }
 
@@ -172469,7 +172469,7 @@ pub fn de_delete_service_specific_credential_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError::generic(generic),
+        _ => super::super::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError::generic(generic)
     })
 }
 
@@ -172587,7 +172587,7 @@ pub fn de_delete_signing_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_signing_certificate::DeleteSigningCertificateError::generic(generic),
+        _ => super::super::operation::delete_signing_certificate::DeleteSigningCertificateError::generic(generic)
     })
 }
 
@@ -172663,7 +172663,7 @@ pub fn de_delete_ssh_public_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::generic(generic),
+        _ => super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::generic(generic)
     })
 }
 
@@ -172795,7 +172795,7 @@ pub fn de_delete_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user::DeleteUserError::generic(generic),
+        _ => super::super::operation::delete_user::DeleteUserError::generic(generic)
     })
 }
 
@@ -172880,7 +172880,7 @@ pub fn de_delete_user_permissions_boundary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError::generic(generic),
+        _ => super::super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError::generic(generic)
     })
 }
 
@@ -172979,7 +172979,7 @@ pub fn de_delete_user_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_user_policy::DeleteUserPolicyError::generic(generic),
+        _ => super::super::operation::delete_user_policy::DeleteUserPolicyError::generic(generic)
     })
 }
 
@@ -173111,7 +173111,7 @@ pub fn de_delete_virtual_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::generic(generic),
+        _ => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::generic(generic)
     })
 }
 
@@ -173224,7 +173224,7 @@ pub fn de_detach_group_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::detach_group_policy::DetachGroupPolicyError::generic(generic),
+        _ => super::super::operation::detach_group_policy::DetachGroupPolicyError::generic(generic)
     })
 }
 
@@ -173356,7 +173356,7 @@ pub fn de_detach_role_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::detach_role_policy::DetachRolePolicyError::generic(generic),
+        _ => super::super::operation::detach_role_policy::DetachRolePolicyError::generic(generic)
     })
 }
 
@@ -173474,7 +173474,7 @@ pub fn de_detach_user_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::detach_user_policy::DetachUserPolicyError::generic(generic),
+        _ => super::super::operation::detach_user_policy::DetachUserPolicyError::generic(generic)
     })
 }
 
@@ -173592,7 +173592,7 @@ pub fn de_disable_organizations_root_credentials_management_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::generic(generic),
+        _ => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::generic(generic)
     })
 }
 
@@ -173759,7 +173759,7 @@ pub fn de_disable_organizations_root_sessions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::generic(generic),
+        _ => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::generic(generic)
     })
 }
 
@@ -173884,7 +173884,7 @@ pub fn de_disable_outbound_web_identity_federation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError::generic(generic),
+        _ => super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError::generic(generic)
     })
 }
 
@@ -174035,7 +174035,7 @@ pub fn de_enable_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_mfa_device::EnableMFADeviceError::generic(generic),
+        _ => super::super::operation::enable_mfa_device::EnableMFADeviceError::generic(generic)
     })
 }
 
@@ -174177,7 +174177,7 @@ pub fn de_enable_organizations_root_credentials_management_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::generic(generic),
+        _ => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::generic(generic)
     })
 }
 
@@ -174358,7 +174358,7 @@ pub fn de_enable_organizations_root_sessions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::generic(generic),
+        _ => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::generic(generic)
     })
 }
 
@@ -174483,7 +174483,7 @@ pub fn de_enable_outbound_web_identity_federation_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError::generic(generic),
+        _ => super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError::generic(generic)
     })
 }
 
@@ -174612,7 +174612,7 @@ pub fn de_generate_credential_report_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::generate_credential_report::GenerateCredentialReportError::generic(generic),
+        _ => super::super::operation::generate_credential_report::GenerateCredentialReportError::generic(generic)
     })
 }
 
@@ -174741,7 +174741,7 @@ pub fn de_generate_organizations_access_report_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError::generic(generic),
+        _ => super::super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError::generic(generic)
     })
 }
 
@@ -174879,7 +174879,7 @@ pub fn de_generate_service_last_accessed_details_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError::generic(generic),
+        _ => super::super::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError::generic(generic)
     })
 }
 
@@ -175110,7 +175110,7 @@ pub fn de_get_account_authorization_details_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::generic(generic),
+        _ => super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::generic(generic)
     })
 }
 
@@ -175315,7 +175315,7 @@ pub fn de_get_account_password_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_account_password_policy::GetAccountPasswordPolicyError::generic(generic),
+        _ => super::super::operation::get_account_password_policy::GetAccountPasswordPolicyError::generic(generic)
     })
 }
 
@@ -175442,7 +175442,7 @@ pub fn de_get_account_properties_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_account_properties::GetAccountPropertiesError::generic(generic),
+        _ => super::super::operation::get_account_properties::GetAccountPropertiesError::generic(generic)
     })
 }
 
@@ -175554,7 +175554,7 @@ pub fn de_get_account_summary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_account_summary::GetAccountSummaryError::generic(generic),
+        _ => super::super::operation::get_account_summary::GetAccountSummaryError::generic(generic)
     })
 }
 
@@ -175666,7 +175666,7 @@ pub fn de_get_context_keys_for_custom_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError::generic(generic),
+        _ => super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError::generic(generic)
     })
 }
 
@@ -175802,7 +175802,7 @@ pub fn de_get_context_keys_for_principal_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::generic(generic),
+        _ => super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::generic(generic)
     })
 }
 
@@ -175971,7 +175971,7 @@ pub fn de_get_credential_report_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_credential_report::GetCredentialReportError::generic(generic),
+        _ => super::super::operation::get_credential_report::GetCredentialReportError::generic(generic)
     })
 }
 
@@ -176128,7 +176128,7 @@ pub fn de_get_delegation_request_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_delegation_request::GetDelegationRequestError::generic(generic),
+        _ => super::super::operation::get_delegation_request::GetDelegationRequestError::generic(generic)
     })
 }
 
@@ -176291,7 +176291,7 @@ pub fn de_get_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_group::GetGroupError::generic(generic),
+        _ => super::super::operation::get_group::GetGroupError::generic(generic)
     })
 }
 
@@ -176471,7 +176471,7 @@ pub fn de_get_group_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_group_policy::GetGroupPolicyError::generic(generic),
+        _ => super::super::operation::get_group_policy::GetGroupPolicyError::generic(generic)
     })
 }
 
@@ -176650,7 +176650,7 @@ pub fn de_get_human_readable_summary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_human_readable_summary::GetHumanReadableSummaryError::generic(generic),
+        _ => super::super::operation::get_human_readable_summary::GetHumanReadableSummaryError::generic(generic)
     })
 }
 
@@ -176815,7 +176815,7 @@ pub fn de_get_instance_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_instance_profile::GetInstanceProfileError::generic(generic),
+        _ => super::super::operation::get_instance_profile::GetInstanceProfileError::generic(generic)
     })
 }
 
@@ -176946,7 +176946,7 @@ pub fn de_get_login_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_login_profile::GetLoginProfileError::generic(generic),
+        _ => super::super::operation::get_login_profile::GetLoginProfileError::generic(generic)
     })
 }
 
@@ -177077,7 +177077,7 @@ pub fn de_get_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_mfa_device::GetMFADeviceError::generic(generic),
+        _ => super::super::operation::get_mfa_device::GetMFADeviceError::generic(generic)
     })
 }
 
@@ -177267,7 +177267,7 @@ pub fn de_get_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::generic(generic),
+        _ => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::generic(generic)
     })
 }
 
@@ -177430,7 +177430,7 @@ pub fn de_get_organizations_access_report_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportError::generic(generic),
+        _ => super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportError::generic(generic)
     })
 }
 
@@ -177673,7 +177673,7 @@ pub fn de_get_outbound_web_identity_federation_info_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::generic(generic),
+        _ => super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::generic(generic)
     })
 }
 
@@ -177831,7 +177831,7 @@ pub fn de_get_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_policy::GetPolicyError::generic(generic),
+        _ => super::super::operation::get_policy::GetPolicyError::generic(generic)
     })
 }
 
@@ -177975,7 +177975,7 @@ pub fn de_get_policy_version_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_policy_version::GetPolicyVersionError::generic(generic),
+        _ => super::super::operation::get_policy_version::GetPolicyVersionError::generic(generic)
     })
 }
 
@@ -178110,7 +178110,7 @@ pub fn de_get_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_role::GetRoleError::generic(generic),
+        _ => super::super::operation::get_role::GetRoleError::generic(generic)
     })
 }
 
@@ -178241,7 +178241,7 @@ pub fn de_get_role_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_role_policy::GetRolePolicyError::generic(generic),
+        _ => super::super::operation::get_role_policy::GetRolePolicyError::generic(generic)
     })
 }
 
@@ -178420,7 +178420,7 @@ pub fn de_get_role_template_version_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_role_template_version::GetRoleTemplateVersionError::generic(generic),
+        _ => super::super::operation::get_role_template_version::GetRoleTemplateVersionError::generic(generic)
     })
 }
 
@@ -178571,7 +178571,7 @@ pub fn de_get_saml_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_saml_provider::GetSAMLProviderError::generic(generic),
+        _ => super::super::operation::get_saml_provider::GetSAMLProviderError::generic(generic)
     })
 }
 
@@ -178779,7 +178779,7 @@ pub fn de_get_server_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_server_certificate::GetServerCertificateError::generic(generic),
+        _ => super::super::operation::get_server_certificate::GetServerCertificateError::generic(generic)
     })
 }
 
@@ -178910,7 +178910,7 @@ pub fn de_get_service_last_accessed_details_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::generic(generic),
+        _ => super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::generic(generic)
     })
 }
 
@@ -179146,7 +179146,7 @@ pub fn de_get_service_last_accessed_details_with_entities_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError::generic(generic),
+        _ => super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError::generic(generic)
     })
 }
 
@@ -179387,7 +179387,7 @@ pub fn de_get_service_linked_role_deletion_status_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError::generic(generic),
+        _ => super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError::generic(generic)
     })
 }
 
@@ -179532,7 +179532,7 @@ pub fn de_get_ssh_public_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::generic(generic),
+        _ => super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::generic(generic)
     })
 }
 
@@ -179672,7 +179672,7 @@ pub fn de_get_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_user::GetUserError::generic(generic),
+        _ => super::super::operation::get_user::GetUserError::generic(generic)
     })
 }
 
@@ -179803,7 +179803,7 @@ pub fn de_get_user_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_user_policy::GetUserPolicyError::generic(generic),
+        _ => super::super::operation::get_user_policy::GetUserPolicyError::generic(generic)
     })
 }
 
@@ -179968,7 +179968,7 @@ pub fn de_list_access_keys_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_access_keys::ListAccessKeysError::generic(generic),
+        _ => super::super::operation::list_access_keys::ListAccessKeysError::generic(generic)
     })
 }
 
@@ -180124,7 +180124,7 @@ pub fn de_list_account_aliases_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_account_aliases::ListAccountAliasesError::generic(generic),
+        _ => super::super::operation::list_account_aliases::ListAccountAliasesError::generic(generic)
     })
 }
 
@@ -180303,7 +180303,7 @@ pub fn de_list_attached_group_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::generic(generic),
+        _ => super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::generic(generic)
     })
 }
 
@@ -180491,7 +180491,7 @@ pub fn de_list_attached_role_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_attached_role_policies::ListAttachedRolePoliciesError::generic(generic),
+        _ => super::super::operation::list_attached_role_policies::ListAttachedRolePoliciesError::generic(generic)
     })
 }
 
@@ -180679,7 +180679,7 @@ pub fn de_list_attached_user_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_attached_user_policies::ListAttachedUserPoliciesError::generic(generic),
+        _ => super::super::operation::list_attached_user_policies::ListAttachedUserPoliciesError::generic(generic)
     })
 }
 
@@ -180867,7 +180867,7 @@ pub fn de_list_delegation_requests_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_delegation_requests::ListDelegationRequestsError::generic(generic),
+        _ => super::super::operation::list_delegation_requests::ListDelegationRequestsError::generic(generic)
     })
 }
 
@@ -181050,7 +181050,7 @@ pub fn de_list_entities_for_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_entities_for_policy::ListEntitiesForPolicyError::generic(generic),
+        _ => super::super::operation::list_entities_for_policy::ListEntitiesForPolicyError::generic(generic)
     })
 }
 
@@ -181254,7 +181254,7 @@ pub fn de_list_group_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_group_policies::ListGroupPoliciesError::generic(generic),
+        _ => super::super::operation::list_group_policies::ListGroupPoliciesError::generic(generic)
     })
 }
 
@@ -181410,7 +181410,7 @@ pub fn de_list_groups_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_groups::ListGroupsError::generic(generic),
+        _ => super::super::operation::list_groups::ListGroupsError::generic(generic)
     })
 }
 
@@ -181551,7 +181551,7 @@ pub fn de_list_groups_for_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_groups_for_user::ListGroupsForUserError::generic(generic),
+        _ => super::super::operation::list_groups_for_user::ListGroupsForUserError::generic(generic)
     })
 }
 
@@ -181750,7 +181750,7 @@ pub fn de_list_instance_profile_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_instance_profile_tags::ListInstanceProfileTagsError::generic(generic),
+        _ => super::super::operation::list_instance_profile_tags::ListInstanceProfileTagsError::generic(generic)
     })
 }
 
@@ -181906,7 +181906,7 @@ pub fn de_list_instance_profiles_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_instance_profiles::ListInstanceProfilesError::generic(generic),
+        _ => super::super::operation::list_instance_profiles::ListInstanceProfilesError::generic(generic)
     })
 }
 
@@ -182047,7 +182047,7 @@ pub fn de_list_instance_profiles_for_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::generic(generic),
+        _ => super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::generic(generic)
     })
 }
 
@@ -182260,7 +182260,7 @@ pub fn de_list_mfa_device_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::generic(generic),
+        _ => super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::generic(generic)
     })
 }
 
@@ -182430,7 +182430,7 @@ pub fn de_list_mfa_devices_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_mfa_devices::ListMFADevicesError::generic(generic),
+        _ => super::super::operation::list_mfa_devices::ListMFADevicesError::generic(generic)
     })
 }
 
@@ -182614,7 +182614,7 @@ pub fn de_list_open_id_connect_provider_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::generic(generic),
+        _ => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::generic(generic)
     })
 }
 
@@ -182770,7 +182770,7 @@ pub fn de_list_open_id_connect_providers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::generic(generic),
+        _ => super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::generic(generic)
     })
 }
 
@@ -182924,7 +182924,7 @@ pub fn de_list_organizations_features_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_organizations_features::ListOrganizationsFeaturesError::generic(generic),
+        _ => super::super::operation::list_organizations_features::ListOrganizationsFeaturesError::generic(generic)
     })
 }
 
@@ -183049,7 +183049,7 @@ pub fn de_list_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_policies::ListPoliciesError::generic(generic),
+        _ => super::super::operation::list_policies::ListPoliciesError::generic(generic)
     })
 }
 
@@ -183189,7 +183189,7 @@ pub fn de_list_policies_granting_service_access_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError::generic(generic),
+        _ => super::super::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError::generic(generic)
     })
 }
 
@@ -183422,7 +183422,7 @@ pub fn de_list_policy_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_policy_tags::ListPolicyTagsError::generic(generic),
+        _ => super::super::operation::list_policy_tags::ListPolicyTagsError::generic(generic)
     })
 }
 
@@ -183606,7 +183606,7 @@ pub fn de_list_policy_versions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_policy_versions::ListPolicyVersionsError::generic(generic),
+        _ => super::super::operation::list_policy_versions::ListPolicyVersionsError::generic(generic)
     })
 }
 
@@ -183775,7 +183775,7 @@ pub fn de_list_role_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_role_policies::ListRolePoliciesError::generic(generic),
+        _ => super::super::operation::list_role_policies::ListRolePoliciesError::generic(generic)
     })
 }
 
@@ -183945,7 +183945,7 @@ pub fn de_list_role_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_role_tags::ListRoleTagsError::generic(generic),
+        _ => super::super::operation::list_role_tags::ListRoleTagsError::generic(generic)
     })
 }
 
@@ -184101,7 +184101,7 @@ pub fn de_list_roles_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_roles::ListRolesError::generic(generic),
+        _ => super::super::operation::list_roles::ListRolesError::generic(generic)
     })
 }
 
@@ -184285,7 +184285,7 @@ pub fn de_list_saml_provider_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::generic(generic),
+        _ => super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::generic(generic)
     })
 }
 
@@ -184441,7 +184441,7 @@ pub fn de_list_saml_providers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_saml_providers::ListSAMLProvidersError::generic(generic),
+        _ => super::super::operation::list_saml_providers::ListSAMLProvidersError::generic(generic)
     })
 }
 
@@ -184567,7 +184567,7 @@ pub fn de_list_server_certificate_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_server_certificate_tags::ListServerCertificateTagsError::generic(generic),
+        _ => super::super::operation::list_server_certificate_tags::ListServerCertificateTagsError::generic(generic)
     })
 }
 
@@ -184723,7 +184723,7 @@ pub fn de_list_server_certificates_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_server_certificates::ListServerCertificatesError::generic(generic),
+        _ => super::super::operation::list_server_certificates::ListServerCertificatesError::generic(generic)
     })
 }
 
@@ -184893,7 +184893,7 @@ pub fn de_list_service_specific_credentials_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError::generic(generic),
+        _ => super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError::generic(generic)
     })
 }
 
@@ -185072,7 +185072,7 @@ pub fn de_list_signing_certificates_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_signing_certificates::ListSigningCertificatesError::generic(generic),
+        _ => super::super::operation::list_signing_certificates::ListSigningCertificatesError::generic(generic)
     })
 }
 
@@ -185228,7 +185228,7 @@ pub fn de_list_ssh_public_keys_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError::generic(generic),
+        _ => super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError::generic(generic)
     })
 }
 
@@ -185397,7 +185397,7 @@ pub fn de_list_user_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_user_policies::ListUserPoliciesError::generic(generic),
+        _ => super::super::operation::list_user_policies::ListUserPoliciesError::generic(generic)
     })
 }
 
@@ -185567,7 +185567,7 @@ pub fn de_list_user_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_user_tags::ListUserTagsError::generic(generic),
+        _ => super::super::operation::list_user_tags::ListUserTagsError::generic(generic)
     })
 }
 
@@ -185723,7 +185723,7 @@ pub fn de_list_users_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_users::ListUsersError::generic(generic),
+        _ => super::super::operation::list_users::ListUsersError::generic(generic)
     })
 }
 
@@ -186041,7 +186041,7 @@ pub fn de_put_account_properties_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_account_properties::PutAccountPropertiesError::generic(generic),
+        _ => super::super::operation::put_account_properties::PutAccountPropertiesError::generic(generic)
     })
 }
 
@@ -186162,7 +186162,7 @@ pub fn de_put_group_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_group_policy::PutGroupPolicyError::generic(generic),
+        _ => super::super::operation::put_group_policy::PutGroupPolicyError::generic(generic)
     })
 }
 
@@ -186299,7 +186299,7 @@ pub fn de_put_role_permissions_boundary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError::generic(generic),
+        _ => super::super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError::generic(generic)
     })
 }
 
@@ -186431,7 +186431,7 @@ pub fn de_put_role_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_role_policy::PutRolePolicyError::generic(generic),
+        _ => super::super::operation::put_role_policy::PutRolePolicyError::generic(generic)
     })
 }
 
@@ -186554,7 +186554,7 @@ pub fn de_put_user_permissions_boundary_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError::generic(generic),
+        _ => super::super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError::generic(generic)
     })
 }
 
@@ -186672,7 +186672,7 @@ pub fn de_put_user_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_user_policy::PutUserPolicyError::generic(generic),
+        _ => super::super::operation::put_user_policy::PutUserPolicyError::generic(generic)
     })
 }
 
@@ -186795,7 +186795,7 @@ pub fn de_reject_delegation_request_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::reject_delegation_request::RejectDelegationRequestError::generic(generic),
+        _ => super::super::operation::reject_delegation_request::RejectDelegationRequestError::generic(generic)
     })
 }
 
@@ -186913,7 +186913,7 @@ pub fn de_remove_client_id_from_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::generic(generic),
+        _ => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::generic(generic)
     })
 }
 
@@ -187031,7 +187031,7 @@ pub fn de_remove_role_from_instance_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError::generic(generic),
+        _ => super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError::generic(generic)
     })
 }
 
@@ -187135,7 +187135,7 @@ pub fn de_remove_user_from_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::remove_user_from_group::RemoveUserFromGroupError::generic(generic),
+        _ => super::super::operation::remove_user_from_group::RemoveUserFromGroupError::generic(generic)
     })
 }
 
@@ -187211,7 +187211,7 @@ pub fn de_reset_service_specific_credential_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError::generic(generic),
+        _ => super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError::generic(generic)
     })
 }
 
@@ -187388,7 +187388,7 @@ pub fn de_resync_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::resync_mfa_device::ResyncMFADeviceError::generic(generic),
+        _ => super::super::operation::resync_mfa_device::ResyncMFADeviceError::generic(generic)
     })
 }
 
@@ -187516,7 +187516,7 @@ pub fn de_send_delegation_token_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::send_delegation_token::SendDelegationTokenError::generic(generic),
+        _ => super::super::operation::send_delegation_token::SendDelegationTokenError::generic(generic)
     })
 }
 
@@ -187629,7 +187629,7 @@ pub fn de_set_default_policy_version_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_default_policy_version::SetDefaultPolicyVersionError::generic(generic),
+        _ => super::super::operation::set_default_policy_version::SetDefaultPolicyVersionError::generic(generic)
     })
 }
 
@@ -187705,7 +187705,7 @@ pub fn de_set_security_token_service_preferences_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError::generic(generic),
+        _ => super::super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError::generic(generic)
     })
 }
 
@@ -187790,7 +187790,7 @@ pub fn de_simulate_custom_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::generic(generic),
+        _ => super::super::operation::simulate_custom_policy::SimulateCustomPolicyError::generic(generic)
     })
 }
 
@@ -188054,7 +188054,7 @@ pub fn de_simulate_principal_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::generic(generic),
+        _ => super::super::operation::simulate_principal_policy::SimulatePrincipalPolicyError::generic(generic)
     })
 }
 
@@ -188351,7 +188351,7 @@ pub fn de_tag_instance_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_instance_profile::TagInstanceProfileError::generic(generic),
+        _ => super::super::operation::tag_instance_profile::TagInstanceProfileError::generic(generic)
     })
 }
 
@@ -188489,7 +188489,7 @@ pub fn de_tag_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_mfa_device::TagMFADeviceError::generic(generic),
+        _ => super::super::operation::tag_mfa_device::TagMFADeviceError::generic(generic)
     })
 }
 
@@ -188627,7 +188627,7 @@ pub fn de_tag_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::generic(generic),
+        _ => super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::generic(generic)
     })
 }
 
@@ -188765,7 +188765,7 @@ pub fn de_tag_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_policy::TagPolicyError::generic(generic),
+        _ => super::super::operation::tag_policy::TagPolicyError::generic(generic)
     })
 }
 
@@ -188903,7 +188903,7 @@ pub fn de_tag_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_role::TagRoleError::generic(generic),
+        _ => super::super::operation::tag_role::TagRoleError::generic(generic)
     })
 }
 
@@ -189041,7 +189041,7 @@ pub fn de_tag_saml_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_saml_provider::TagSAMLProviderError::generic(generic),
+        _ => super::super::operation::tag_saml_provider::TagSAMLProviderError::generic(generic)
     })
 }
 
@@ -189179,7 +189179,7 @@ pub fn de_tag_server_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_server_certificate::TagServerCertificateError::generic(generic),
+        _ => super::super::operation::tag_server_certificate::TagServerCertificateError::generic(generic)
     })
 }
 
@@ -189317,7 +189317,7 @@ pub fn de_tag_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_user::TagUserError::generic(generic),
+        _ => super::super::operation::tag_user::TagUserError::generic(generic)
     })
 }
 
@@ -189441,7 +189441,7 @@ pub fn de_untag_instance_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_instance_profile::UntagInstanceProfileError::generic(generic),
+        _ => super::super::operation::untag_instance_profile::UntagInstanceProfileError::generic(generic)
     })
 }
 
@@ -189565,7 +189565,7 @@ pub fn de_untag_mfa_device_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_mfa_device::UntagMFADeviceError::generic(generic),
+        _ => super::super::operation::untag_mfa_device::UntagMFADeviceError::generic(generic)
     })
 }
 
@@ -189689,7 +189689,7 @@ pub fn de_untag_open_id_connect_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::generic(generic),
+        _ => super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::generic(generic)
     })
 }
 
@@ -189813,7 +189813,7 @@ pub fn de_untag_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_policy::UntagPolicyError::generic(generic),
+        _ => super::super::operation::untag_policy::UntagPolicyError::generic(generic)
     })
 }
 
@@ -189923,7 +189923,7 @@ pub fn de_untag_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_role::UntagRoleError::generic(generic),
+        _ => super::super::operation::untag_role::UntagRoleError::generic(generic)
     })
 }
 
@@ -190047,7 +190047,7 @@ pub fn de_untag_saml_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_saml_provider::UntagSAMLProviderError::generic(generic),
+        _ => super::super::operation::untag_saml_provider::UntagSAMLProviderError::generic(generic)
     })
 }
 
@@ -190171,7 +190171,7 @@ pub fn de_untag_server_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_server_certificate::UntagServerCertificateError::generic(generic),
+        _ => super::super::operation::untag_server_certificate::UntagServerCertificateError::generic(generic)
     })
 }
 
@@ -190281,7 +190281,7 @@ pub fn de_untag_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_user::UntagUserError::generic(generic),
+        _ => super::super::operation::untag_user::UntagUserError::generic(generic)
     })
 }
 
@@ -190405,7 +190405,7 @@ pub fn de_update_access_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_access_key::UpdateAccessKeyError::generic(generic),
+        _ => super::super::operation::update_access_key::UpdateAccessKeyError::generic(generic)
     })
 }
 
@@ -190528,7 +190528,7 @@ pub fn de_update_account_password_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyError::generic(generic),
+        _ => super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyError::generic(generic)
     })
 }
 
@@ -190698,7 +190698,7 @@ pub fn de_update_assume_role_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_assume_role_policy::UpdateAssumeRolePolicyError::generic(generic),
+        _ => super::super::operation::update_assume_role_policy::UpdateAssumeRolePolicyError::generic(generic)
     })
 }
 
@@ -190816,7 +190816,7 @@ pub fn de_update_delegation_request_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_delegation_request::UpdateDelegationRequestError::generic(generic),
+        _ => super::super::operation::update_delegation_request::UpdateDelegationRequestError::generic(generic)
     })
 }
 
@@ -190934,7 +190934,7 @@ pub fn de_update_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_group::UpdateGroupError::generic(generic),
+        _ => super::super::operation::update_group::UpdateGroupError::generic(generic)
     })
 }
 
@@ -191071,7 +191071,7 @@ pub fn de_update_login_profile_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_login_profile::UpdateLoginProfileError::generic(generic),
+        _ => super::super::operation::update_login_profile::UpdateLoginProfileError::generic(generic)
     })
 }
 
@@ -191194,7 +191194,7 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::generic(generic),
+        _ => super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::generic(generic)
     })
 }
 
@@ -191304,7 +191304,7 @@ pub fn de_update_role_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_role::UpdateRoleError::generic(generic),
+        _ => super::super::operation::update_role::UpdateRoleError::generic(generic)
     })
 }
 
@@ -191385,7 +191385,7 @@ pub fn de_update_role_description_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_role_description::UpdateRoleDescriptionError::generic(generic),
+        _ => super::super::operation::update_role_description::UpdateRoleDescriptionError::generic(generic)
     })
 }
 
@@ -191591,7 +191591,7 @@ pub fn de_update_saml_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_saml_provider::UpdateSAMLProviderError::generic(generic),
+        _ => super::super::operation::update_saml_provider::UpdateSAMLProviderError::generic(generic)
     })
 }
 
@@ -191772,7 +191772,7 @@ pub fn de_update_server_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_server_certificate::UpdateServerCertificateError::generic(generic),
+        _ => super::super::operation::update_server_certificate::UpdateServerCertificateError::generic(generic)
     })
 }
 
@@ -191853,7 +191853,7 @@ pub fn de_update_service_specific_credential_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError::generic(generic),
+        _ => super::super::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError::generic(generic)
     })
 }
 
@@ -191976,7 +191976,7 @@ pub fn de_update_signing_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_signing_certificate::UpdateSigningCertificateError::generic(generic),
+        _ => super::super::operation::update_signing_certificate::UpdateSigningCertificateError::generic(generic)
     })
 }
 
@@ -192071,7 +192071,7 @@ pub fn de_update_ssh_public_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::generic(generic),
+        _ => super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::generic(generic)
     })
 }
 
@@ -192222,7 +192222,7 @@ pub fn de_update_user_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_user::UpdateUserError::generic(generic),
+        _ => super::super::operation::update_user::UpdateUserError::generic(generic)
     })
 }
 
@@ -192387,7 +192387,7 @@ pub fn de_upload_server_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::upload_server_certificate::UploadServerCertificateError::generic(generic),
+        _ => super::super::operation::upload_server_certificate::UploadServerCertificateError::generic(generic)
     })
 }
 
@@ -192642,7 +192642,7 @@ pub fn de_upload_signing_certificate_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::upload_signing_certificate::UploadSigningCertificateError::generic(generic),
+        _ => super::super::operation::upload_signing_certificate::UploadSigningCertificateError::generic(generic)
     })
 }
 
@@ -192820,7 +192820,7 @@ pub fn de_upload_ssh_public_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::generic(generic),
+        _ => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::generic(generic)
     })
 }
 

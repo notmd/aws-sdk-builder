@@ -126576,7 +126576,7 @@ pub fn de_associate_kms_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::associate_kms_key::AssociateKmsKeyError::generic(generic),
+        _ => super::super::operation::associate_kms_key::AssociateKmsKeyError::generic(generic)
     })
 }
 
@@ -126695,7 +126695,7 @@ pub fn de_associate_source_to_s3_table_integration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::generic(generic),
+        _ => super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::generic(generic)
     })
 }
 
@@ -126838,7 +126838,7 @@ pub fn de_cancel_export_task_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::cancel_export_task::CancelExportTaskError::generic(generic),
+        _ => super::super::operation::cancel_export_task::CancelExportTaskError::generic(generic)
     })
 }
 
@@ -126957,7 +126957,7 @@ pub fn de_cancel_import_task_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::cancel_import_task::CancelImportTaskError::generic(generic),
+        _ => super::super::operation::cancel_import_task::CancelImportTaskError::generic(generic)
     })
 }
 
@@ -127160,7 +127160,7 @@ pub fn de_create_delivery_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_delivery::CreateDeliveryError::generic(generic),
+        _ => super::super::operation::create_delivery::CreateDeliveryError::generic(generic)
     })
 }
 
@@ -127329,7 +127329,7 @@ pub fn de_create_export_task_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_export_task::CreateExportTaskError::generic(generic),
+        _ => super::super::operation::create_export_task::CreateExportTaskError::generic(generic)
     })
 }
 
@@ -127514,7 +127514,7 @@ pub fn de_create_import_task_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_import_task::CreateImportTaskError::generic(generic),
+        _ => super::super::operation::create_import_task::CreateImportTaskError::generic(generic)
     })
 }
 
@@ -127681,7 +127681,7 @@ pub fn de_create_log_anomaly_detector_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorError::generic(generic),
+        _ => super::super::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorError::generic(generic)
     })
 }
 
@@ -127838,7 +127838,7 @@ pub fn de_create_log_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_log_group::CreateLogGroupError::generic(generic),
+        _ => super::super::operation::create_log_group::CreateLogGroupError::generic(generic)
     })
 }
 
@@ -127943,7 +127943,7 @@ pub fn de_create_log_stream_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_log_stream::CreateLogStreamError::generic(generic),
+        _ => super::super::operation::create_log_stream::CreateLogStreamError::generic(generic)
     })
 }
 
@@ -128076,7 +128076,7 @@ pub fn de_create_lookup_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_lookup_table::CreateLookupTableError::generic(generic),
+        _ => super::super::operation::create_lookup_table::CreateLookupTableError::generic(generic)
     })
 }
 
@@ -128266,7 +128266,7 @@ pub fn de_create_scheduled_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_scheduled_query::CreateScheduledQueryError::generic(generic),
+        _ => super::super::operation::create_scheduled_query::CreateScheduledQueryError::generic(generic)
     })
 }
 
@@ -128414,7 +128414,7 @@ pub fn de_delete_account_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_account_policy::DeleteAccountPolicyError::generic(generic),
+        _ => super::super::operation::delete_account_policy::DeleteAccountPolicyError::generic(generic)
     })
 }
 
@@ -128519,7 +128519,7 @@ pub fn de_delete_data_protection_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_data_protection_policy::DeleteDataProtectionPolicyError::generic(generic),
+        _ => super::super::operation::delete_data_protection_policy::DeleteDataProtectionPolicyError::generic(generic)
     })
 }
 
@@ -128652,7 +128652,7 @@ pub fn de_delete_delivery_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_delivery::DeleteDeliveryError::generic(generic),
+        _ => super::super::operation::delete_delivery::DeleteDeliveryError::generic(generic)
     })
 }
 
@@ -128785,7 +128785,7 @@ pub fn de_delete_delivery_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::generic(generic),
+        _ => super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::generic(generic)
     })
 }
 
@@ -128890,7 +128890,7 @@ pub fn de_delete_delivery_destination_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::generic(generic),
+        _ => super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::generic(generic)
     })
 }
 
@@ -129023,7 +129023,7 @@ pub fn de_delete_delivery_source_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_delivery_source::DeleteDeliverySourceError::generic(generic),
+        _ => super::super::operation::delete_delivery_source::DeleteDeliverySourceError::generic(generic)
     })
 }
 
@@ -129128,7 +129128,7 @@ pub fn de_delete_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_destination::DeleteDestinationError::generic(generic),
+        _ => super::super::operation::delete_destination::DeleteDestinationError::generic(generic)
     })
 }
 
@@ -129247,7 +129247,7 @@ pub fn de_delete_index_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_index_policy::DeleteIndexPolicyError::generic(generic),
+        _ => super::super::operation::delete_index_policy::DeleteIndexPolicyError::generic(generic)
     })
 }
 
@@ -129352,7 +129352,7 @@ pub fn de_delete_integration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_integration::DeleteIntegrationError::generic(generic),
+        _ => super::super::operation::delete_integration::DeleteIntegrationError::generic(generic)
     })
 }
 
@@ -129457,7 +129457,7 @@ pub fn de_delete_log_anomaly_detector_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorError::generic(generic),
+        _ => super::super::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorError::generic(generic)
     })
 }
 
@@ -129576,7 +129576,7 @@ pub fn de_delete_log_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_log_group::DeleteLogGroupError::generic(generic),
+        _ => super::super::operation::delete_log_group::DeleteLogGroupError::generic(generic)
     })
 }
 
@@ -129695,7 +129695,7 @@ pub fn de_delete_log_stream_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_log_stream::DeleteLogStreamError::generic(generic),
+        _ => super::super::operation::delete_log_stream::DeleteLogStreamError::generic(generic)
     })
 }
 
@@ -129800,7 +129800,7 @@ pub fn de_delete_lookup_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_lookup_table::DeleteLookupTableError::generic(generic),
+        _ => super::super::operation::delete_lookup_table::DeleteLookupTableError::generic(generic)
     })
 }
 
@@ -129905,7 +129905,7 @@ pub fn de_delete_metric_filter_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_metric_filter::DeleteMetricFilterError::generic(generic),
+        _ => super::super::operation::delete_metric_filter::DeleteMetricFilterError::generic(generic)
     })
 }
 
@@ -129996,7 +129996,7 @@ pub fn de_delete_query_definition_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_query_definition::DeleteQueryDefinitionError::generic(generic),
+        _ => super::super::operation::delete_query_definition::DeleteQueryDefinitionError::generic(generic)
     })
 }
 
@@ -130137,7 +130137,7 @@ pub fn de_delete_resource_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_resource_policy::DeleteResourcePolicyError::generic(generic),
+        _ => super::super::operation::delete_resource_policy::DeleteResourcePolicyError::generic(generic)
     })
 }
 
@@ -130242,7 +130242,7 @@ pub fn de_delete_retention_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_retention_policy::DeleteRetentionPolicyError::generic(generic),
+        _ => super::super::operation::delete_retention_policy::DeleteRetentionPolicyError::generic(generic)
     })
 }
 
@@ -130361,7 +130361,7 @@ pub fn de_delete_scheduled_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_scheduled_query::DeleteScheduledQueryError::generic(generic),
+        _ => super::super::operation::delete_scheduled_query::DeleteScheduledQueryError::generic(generic)
     })
 }
 
@@ -130466,7 +130466,7 @@ pub fn de_delete_subscription_filter_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_subscription_filter::DeleteSubscriptionFilterError::generic(generic),
+        _ => super::super::operation::delete_subscription_filter::DeleteSubscriptionFilterError::generic(generic)
     })
 }
 
@@ -130613,7 +130613,7 @@ pub fn de_delete_syslog_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::generic(generic),
+        _ => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::generic(generic)
     })
 }
 
@@ -130732,7 +130732,7 @@ pub fn de_delete_transformer_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_transformer::DeleteTransformerError::generic(generic),
+        _ => super::super::operation::delete_transformer::DeleteTransformerError::generic(generic)
     })
 }
 
@@ -130837,7 +130837,7 @@ pub fn de_describe_account_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_account_policies::DescribeAccountPoliciesError::generic(generic),
+        _ => super::super::operation::describe_account_policies::DescribeAccountPoliciesError::generic(generic)
     })
 }
 
@@ -130983,7 +130983,7 @@ pub fn de_describe_configuration_templates_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_configuration_templates::DescribeConfigurationTemplatesError::generic(generic),
+        _ => super::super::operation::describe_configuration_templates::DescribeConfigurationTemplatesError::generic(generic)
     })
 }
 
@@ -131129,7 +131129,7 @@ pub fn de_describe_deliveries_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_deliveries::DescribeDeliveriesError::generic(generic),
+        _ => super::super::operation::describe_deliveries::DescribeDeliveriesError::generic(generic)
     })
 }
 
@@ -131275,7 +131275,7 @@ pub fn de_describe_delivery_destinations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_delivery_destinations::DescribeDeliveryDestinationsError::generic(generic),
+        _ => super::super::operation::describe_delivery_destinations::DescribeDeliveryDestinationsError::generic(generic)
     })
 }
 
@@ -131421,7 +131421,7 @@ pub fn de_describe_delivery_sources_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_delivery_sources::DescribeDeliverySourcesError::generic(generic),
+        _ => super::super::operation::describe_delivery_sources::DescribeDeliverySourcesError::generic(generic)
     })
 }
 
@@ -131539,7 +131539,7 @@ pub fn de_describe_destinations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_destinations::DescribeDestinationsError::generic(generic),
+        _ => super::super::operation::describe_destinations::DescribeDestinationsError::generic(generic)
     })
 }
 
@@ -131657,7 +131657,7 @@ pub fn de_describe_export_tasks_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_export_tasks::DescribeExportTasksError::generic(generic),
+        _ => super::super::operation::describe_export_tasks::DescribeExportTasksError::generic(generic)
     })
 }
 
@@ -131817,7 +131817,7 @@ pub fn de_describe_field_indexes_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_field_indexes::DescribeFieldIndexesError::generic(generic),
+        _ => super::super::operation::describe_field_indexes::DescribeFieldIndexesError::generic(generic)
     })
 }
 
@@ -131977,7 +131977,7 @@ pub fn de_describe_import_task_batches_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_import_task_batches::DescribeImportTaskBatchesError::generic(generic),
+        _ => super::super::operation::describe_import_task_batches::DescribeImportTaskBatchesError::generic(generic)
     })
 }
 
@@ -132147,7 +132147,7 @@ pub fn de_describe_import_tasks_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_import_tasks::DescribeImportTasksError::generic(generic),
+        _ => super::super::operation::describe_import_tasks::DescribeImportTasksError::generic(generic)
     })
 }
 
@@ -132307,7 +132307,7 @@ pub fn de_describe_index_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_index_policies::DescribeIndexPoliciesError::generic(generic),
+        _ => super::super::operation::describe_index_policies::DescribeIndexPoliciesError::generic(generic)
     })
 }
 
@@ -132425,7 +132425,7 @@ pub fn de_describe_log_groups_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_log_groups::DescribeLogGroupsError::generic(generic),
+        _ => super::super::operation::describe_log_groups::DescribeLogGroupsError::generic(generic)
     })
 }
 
@@ -132557,7 +132557,7 @@ pub fn de_describe_log_streams_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_log_streams::DescribeLogStreamsError::generic(generic),
+        _ => super::super::operation::describe_log_streams::DescribeLogStreamsError::generic(generic)
     })
 }
 
@@ -132703,7 +132703,7 @@ pub fn de_describe_lookup_tables_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_lookup_tables::DescribeLookupTablesError::generic(generic),
+        _ => super::super::operation::describe_lookup_tables::DescribeLookupTablesError::generic(generic)
     })
 }
 
@@ -132835,7 +132835,7 @@ pub fn de_describe_metric_filters_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_metric_filters::DescribeMetricFiltersError::generic(generic),
+        _ => super::super::operation::describe_metric_filters::DescribeMetricFiltersError::generic(generic)
     })
 }
 
@@ -132967,7 +132967,7 @@ pub fn de_describe_queries_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_queries::DescribeQueriesError::generic(generic),
+        _ => super::super::operation::describe_queries::DescribeQueriesError::generic(generic)
     })
 }
 
@@ -133085,7 +133085,7 @@ pub fn de_describe_query_definitions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_query_definitions::DescribeQueryDefinitionsError::generic(generic),
+        _ => super::super::operation::describe_query_definitions::DescribeQueryDefinitionsError::generic(generic)
     })
 }
 
@@ -133203,7 +133203,7 @@ pub fn de_describe_resource_policies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_resource_policies::DescribeResourcePoliciesError::generic(generic),
+        _ => super::super::operation::describe_resource_policies::DescribeResourcePoliciesError::generic(generic)
     })
 }
 
@@ -133335,7 +133335,7 @@ pub fn de_describe_subscription_filters_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersError::generic(generic),
+        _ => super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersError::generic(generic)
     })
 }
 
@@ -133481,7 +133481,7 @@ pub fn de_disassociate_kms_key_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disassociate_kms_key::DisassociateKmsKeyError::generic(generic),
+        _ => super::super::operation::disassociate_kms_key::DisassociateKmsKeyError::generic(generic)
     })
 }
 
@@ -133600,7 +133600,7 @@ pub fn de_disassociate_source_from_s3_table_integration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::generic(generic),
+        _ => super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::generic(generic)
     })
 }
 
@@ -133729,7 +133729,7 @@ pub fn de_filter_log_events_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::filter_log_events::FilterLogEventsError::generic(generic),
+        _ => super::super::operation::filter_log_events::FilterLogEventsError::generic(generic)
     })
 }
 
@@ -133878,7 +133878,7 @@ pub fn de_get_data_protection_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::generic(generic),
+        _ => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::generic(generic)
     })
 }
 
@@ -134045,7 +134045,7 @@ pub fn de_get_delivery_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_delivery::GetDeliveryError::generic(generic),
+        _ => super::super::operation::get_delivery::GetDeliveryError::generic(generic)
     })
 }
 
@@ -134200,7 +134200,7 @@ pub fn de_get_delivery_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_delivery_destination::GetDeliveryDestinationError::generic(generic),
+        _ => super::super::operation::get_delivery_destination::GetDeliveryDestinationError::generic(generic)
     })
 }
 
@@ -134327,7 +134327,7 @@ pub fn de_get_delivery_destination_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyError::generic(generic),
+        _ => super::super::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyError::generic(generic)
     })
 }
 
@@ -134482,7 +134482,7 @@ pub fn de_get_delivery_source_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_delivery_source::GetDeliverySourceError::generic(generic),
+        _ => super::super::operation::get_delivery_source::GetDeliverySourceError::generic(generic)
     })
 }
 
@@ -134609,7 +134609,7 @@ pub fn de_get_integration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_integration::GetIntegrationError::generic(generic),
+        _ => super::super::operation::get_integration::GetIntegrationError::generic(generic)
     })
 }
 
@@ -134765,7 +134765,7 @@ pub fn de_get_log_anomaly_detector_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_log_anomaly_detector::GetLogAnomalyDetectorError::generic(generic),
+        _ => super::super::operation::get_log_anomaly_detector::GetLogAnomalyDetectorError::generic(generic)
     })
 }
 
@@ -134932,7 +134932,7 @@ pub fn de_get_log_events_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_log_events::GetLogEventsError::generic(generic),
+        _ => super::super::operation::get_log_events::GetLogEventsError::generic(generic)
     })
 }
 
@@ -135083,7 +135083,7 @@ pub fn de_get_log_fields_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_log_fields::GetLogFieldsError::generic(generic),
+        _ => super::super::operation::get_log_fields::GetLogFieldsError::generic(generic)
     })
 }
 
@@ -135224,7 +135224,7 @@ pub fn de_get_log_group_fields_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_log_group_fields::GetLogGroupFieldsError::generic(generic),
+        _ => super::super::operation::get_log_group_fields::GetLogGroupFieldsError::generic(generic)
     })
 }
 
@@ -135413,7 +135413,7 @@ pub fn de_get_log_object_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_log_object::GetLogObjectError::generic(generic),
+        _ => super::super::operation::get_log_object::GetLogObjectError::generic(generic)
     })
 }
 
@@ -135505,7 +135505,7 @@ pub fn de_get_log_record_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_log_record::GetLogRecordError::generic(generic),
+        _ => super::super::operation::get_log_record::GetLogRecordError::generic(generic)
     })
 }
 
@@ -135646,7 +135646,7 @@ pub fn de_get_lookup_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_lookup_table::GetLookupTableError::generic(generic),
+        _ => super::super::operation::get_lookup_table::GetLookupTableError::generic(generic)
     })
 }
 
@@ -135805,7 +135805,7 @@ pub fn de_get_query_results_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_query_results::GetQueryResultsError::generic(generic),
+        _ => super::super::operation::get_query_results::GetQueryResultsError::generic(generic)
     })
 }
 
@@ -135983,7 +135983,7 @@ pub fn de_get_scheduled_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_scheduled_query::GetScheduledQueryError::generic(generic),
+        _ => super::super::operation::get_scheduled_query::GetScheduledQueryError::generic(generic)
     })
 }
 
@@ -136231,7 +136231,7 @@ pub fn de_get_scheduled_query_history_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_scheduled_query_history::GetScheduledQueryHistoryError::generic(generic),
+        _ => super::super::operation::get_scheduled_query_history::GetScheduledQueryHistoryError::generic(generic)
     })
 }
 
@@ -136401,7 +136401,7 @@ pub fn de_get_storage_tier_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_storage_tier_policy::GetStorageTierPolicyError::generic(generic),
+        _ => super::super::operation::get_storage_tier_policy::GetStorageTierPolicyError::generic(generic)
     })
 }
 
@@ -136538,7 +136538,7 @@ pub fn de_get_transformer_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_transformer::GetTransformerError::generic(generic),
+        _ => super::super::operation::get_transformer::GetTransformerError::generic(generic)
     })
 }
 
@@ -136680,7 +136680,7 @@ pub fn de_list_aggregate_log_group_summaries_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::generic(generic),
+        _ => super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::generic(generic)
     })
 }
 
@@ -136826,7 +136826,7 @@ pub fn de_list_anomalies_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_anomalies::ListAnomaliesError::generic(generic),
+        _ => super::super::operation::list_anomalies::ListAnomaliesError::generic(generic)
     })
 }
 
@@ -136944,7 +136944,7 @@ pub fn de_list_integrations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_integrations::ListIntegrationsError::generic(generic),
+        _ => super::super::operation::list_integrations::ListIntegrationsError::generic(generic)
     })
 }
 
@@ -137085,7 +137085,7 @@ pub fn de_list_log_anomaly_detectors_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsError::generic(generic),
+        _ => super::super::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsError::generic(generic)
     })
 }
 
@@ -137203,7 +137203,7 @@ pub fn de_list_log_groups_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_log_groups::ListLogGroupsError::generic(generic),
+        _ => super::super::operation::list_log_groups::ListLogGroupsError::generic(generic)
     })
 }
 
@@ -137349,7 +137349,7 @@ pub fn de_list_log_groups_for_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_log_groups_for_query::ListLogGroupsForQueryError::generic(generic),
+        _ => super::super::operation::list_log_groups_for_query::ListLogGroupsForQueryError::generic(generic)
     })
 }
 
@@ -137495,7 +137495,7 @@ pub fn de_list_scheduled_queries_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_scheduled_queries::ListScheduledQueriesError::generic(generic),
+        _ => super::super::operation::list_scheduled_queries::ListScheduledQueriesError::generic(generic)
     })
 }
 
@@ -137655,7 +137655,7 @@ pub fn de_list_sources_for_s3_table_integration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::generic(generic),
+        _ => super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::generic(generic)
     })
 }
 
@@ -137829,7 +137829,7 @@ pub fn de_list_syslog_configurations_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_syslog_configurations::ListSyslogConfigurationsError::generic(generic),
+        _ => super::super::operation::list_syslog_configurations::ListSyslogConfigurationsError::generic(generic)
     })
 }
 
@@ -137961,7 +137961,7 @@ pub fn de_list_tags_for_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic)
     })
 }
 
@@ -138074,7 +138074,7 @@ pub fn de_list_tags_log_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tags_log_group::ListTagsLogGroupError::generic(generic),
+        _ => super::super::operation::list_tags_log_group::ListTagsLogGroupError::generic(generic)
     })
 }
 
@@ -138215,7 +138215,7 @@ pub fn de_put_account_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_account_policy::PutAccountPolicyError::generic(generic),
+        _ => super::super::operation::put_account_policy::PutAccountPolicyError::generic(generic)
     })
 }
 
@@ -138384,7 +138384,7 @@ pub fn de_put_bearer_token_authentication_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::generic(generic),
+        _ => super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::generic(generic)
     })
 }
 
@@ -138503,7 +138503,7 @@ pub fn de_put_data_protection_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::generic(generic),
+        _ => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::generic(generic)
     })
 }
 
@@ -138684,7 +138684,7 @@ pub fn de_put_delivery_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_delivery_destination::PutDeliveryDestinationError::generic(generic),
+        _ => super::super::operation::put_delivery_destination::PutDeliveryDestinationError::generic(generic)
     })
 }
 
@@ -138825,7 +138825,7 @@ pub fn de_put_delivery_destination_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyError::generic(generic),
+        _ => super::super::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyError::generic(generic)
     })
 }
 
@@ -138994,7 +138994,7 @@ pub fn de_put_delivery_source_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_delivery_source::PutDeliverySourceError::generic(generic),
+        _ => super::super::operation::put_delivery_source::PutDeliverySourceError::generic(generic)
     })
 }
 
@@ -139121,7 +139121,7 @@ pub fn de_put_destination_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_destination::PutDestinationError::generic(generic),
+        _ => super::super::operation::put_destination::PutDestinationError::generic(generic)
     })
 }
 
@@ -139248,7 +139248,7 @@ pub fn de_put_destination_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_destination_policy::PutDestinationPolicyError::generic(generic),
+        _ => super::super::operation::put_destination_policy::PutDestinationPolicyError::generic(generic)
     })
 }
 
@@ -139367,7 +139367,7 @@ pub fn de_put_index_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_index_policy::PutIndexPolicyError::generic(generic),
+        _ => super::super::operation::put_index_policy::PutIndexPolicyError::generic(generic)
     })
 }
 
@@ -139508,7 +139508,7 @@ pub fn de_put_integration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_integration::PutIntegrationError::generic(generic),
+        _ => super::super::operation::put_integration::PutIntegrationError::generic(generic)
     })
 }
 
@@ -139684,7 +139684,7 @@ pub fn de_put_log_events_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_log_events::PutLogEventsError::generic(generic),
+        _ => super::super::operation::put_log_events::PutLogEventsError::generic(generic)
     })
 }
 
@@ -139861,7 +139861,7 @@ pub fn de_put_log_group_deletion_protection_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::generic(generic),
+        _ => super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::generic(generic)
     })
 }
 
@@ -139994,7 +139994,7 @@ pub fn de_put_metric_filter_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_metric_filter::PutMetricFilterError::generic(generic),
+        _ => super::super::operation::put_metric_filter::PutMetricFilterError::generic(generic)
     })
 }
 
@@ -140099,7 +140099,7 @@ pub fn de_put_query_definition_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_query_definition::PutQueryDefinitionError::generic(generic),
+        _ => super::super::operation::put_query_definition::PutQueryDefinitionError::generic(generic)
     })
 }
 
@@ -140256,7 +140256,7 @@ pub fn de_put_resource_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_resource_policy::PutResourcePolicyError::generic(generic),
+        _ => super::super::operation::put_resource_policy::PutResourcePolicyError::generic(generic)
     })
 }
 
@@ -140402,7 +140402,7 @@ pub fn de_put_retention_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_retention_policy::PutRetentionPolicyError::generic(generic),
+        _ => super::super::operation::put_retention_policy::PutRetentionPolicyError::generic(generic)
     })
 }
 
@@ -140521,7 +140521,7 @@ pub fn de_put_storage_tier_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_storage_tier_policy::PutStorageTierPolicyError::generic(generic),
+        _ => super::super::operation::put_storage_tier_policy::PutStorageTierPolicyError::generic(generic)
     })
 }
 
@@ -140697,7 +140697,7 @@ pub fn de_put_subscription_filter_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_subscription_filter::PutSubscriptionFilterError::generic(generic),
+        _ => super::super::operation::put_subscription_filter::PutSubscriptionFilterError::generic(generic)
     })
 }
 
@@ -140844,7 +140844,7 @@ pub fn de_put_syslog_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_syslog_configuration::PutSyslogConfigurationError::generic(generic),
+        _ => super::super::operation::put_syslog_configuration::PutSyslogConfigurationError::generic(generic)
     })
 }
 
@@ -140977,7 +140977,7 @@ pub fn de_put_transformer_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_transformer::PutTransformerError::generic(generic),
+        _ => super::super::operation::put_transformer::PutTransformerError::generic(generic)
     })
 }
 
@@ -141144,7 +141144,7 @@ pub fn de_start_live_tail_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_live_tail::StartLiveTailError::generic(generic),
+        _ => super::super::operation::start_live_tail::StartLiveTailError::generic(generic)
     })
 }
 
@@ -141250,7 +141250,7 @@ pub fn de_start_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::start_query::StartQueryError::generic(generic),
+        _ => super::super::operation::start_query::StartQueryError::generic(generic)
     })
 }
 
@@ -141379,7 +141379,7 @@ pub fn de_stop_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::stop_query::StopQueryError::generic(generic),
+        _ => super::super::operation::stop_query::StopQueryError::generic(generic)
     })
 }
 
@@ -141492,7 +141492,7 @@ pub fn de_tag_log_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_log_group::TagLogGroupError::generic(generic),
+        _ => super::super::operation::tag_log_group::TagLogGroupError::generic(generic)
     })
 }
 
@@ -141597,7 +141597,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -141674,7 +141674,7 @@ pub fn de_test_metric_filter_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::test_metric_filter::TestMetricFilterError::generic(generic),
+        _ => super::super::operation::test_metric_filter::TestMetricFilterError::generic(generic)
     })
 }
 
@@ -141801,7 +141801,7 @@ pub fn de_test_transformer_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::test_transformer::TestTransformerError::generic(generic),
+        _ => super::super::operation::test_transformer::TestTransformerError::generic(generic)
     })
 }
 
@@ -141900,7 +141900,7 @@ pub fn de_untag_log_group_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_log_group::UntagLogGroupError::generic(generic),
+        _ => super::super::operation::untag_log_group::UntagLogGroupError::generic(generic)
     })
 }
 
@@ -141991,7 +141991,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 
@@ -142096,7 +142096,7 @@ pub fn de_update_anomaly_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_anomaly::UpdateAnomalyError::generic(generic),
+        _ => super::super::operation::update_anomaly::UpdateAnomalyError::generic(generic)
     })
 }
 
@@ -142229,7 +142229,7 @@ pub fn de_update_delivery_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_delivery_configuration::UpdateDeliveryConfigurationError::generic(generic),
+        _ => super::super::operation::update_delivery_configuration::UpdateDeliveryConfigurationError::generic(generic)
     })
 }
 
@@ -142334,7 +142334,7 @@ pub fn de_update_log_anomaly_detector_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorError::generic(generic),
+        _ => super::super::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorError::generic(generic)
     })
 }
 
@@ -142453,7 +142453,7 @@ pub fn de_update_lookup_table_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_lookup_table::UpdateLookupTableError::generic(generic),
+        _ => super::super::operation::update_lookup_table::UpdateLookupTableError::generic(generic)
     })
 }
 
@@ -142629,7 +142629,7 @@ pub fn de_update_scheduled_query_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_scheduled_query::UpdateScheduledQueryError::generic(generic),
+        _ => super::super::operation::update_scheduled_query::UpdateScheduledQueryError::generic(generic)
     })
 }
 

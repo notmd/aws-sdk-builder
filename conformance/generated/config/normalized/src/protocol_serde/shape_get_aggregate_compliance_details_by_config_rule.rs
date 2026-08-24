@@ -80,7 +80,7 @@ pub fn de_get_aggregate_compliance_details_by_config_rule_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError::generic(generic),
+        _ => super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError::generic(generic)
     })
 }
 

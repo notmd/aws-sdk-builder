@@ -121746,7 +121746,7 @@ pub fn de_add_layer_version_permission_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::add_layer_version_permission::AddLayerVersionPermissionError::generic(generic),
+        _ => super::super::operation::add_layer_version_permission::AddLayerVersionPermissionError::generic(generic)
     })
 }
 
@@ -121955,7 +121955,7 @@ pub fn de_add_permission_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::add_permission::AddPermissionError::generic(generic),
+        _ => super::super::operation::add_permission::AddPermissionError::generic(generic)
     })
 }
 
@@ -122145,7 +122145,7 @@ pub fn de_checkpoint_durable_execution_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::generic(generic),
+        _ => super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::generic(generic)
     })
 }
 
@@ -122325,7 +122325,7 @@ pub fn de_create_alias_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_alias::CreateAliasError::generic(generic),
+        _ => super::super::operation::create_alias::CreateAliasError::generic(generic)
     })
 }
 
@@ -122510,7 +122510,7 @@ pub fn de_create_capacity_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_capacity_provider::CreateCapacityProviderError::generic(generic),
+        _ => super::super::operation::create_capacity_provider::CreateCapacityProviderError::generic(generic)
     })
 }
 
@@ -122624,7 +122624,7 @@ pub fn de_create_code_signing_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_code_signing_config::CreateCodeSigningConfigError::generic(generic),
+        _ => super::super::operation::create_code_signing_config::CreateCodeSigningConfigError::generic(generic)
     })
 }
 
@@ -122785,7 +122785,7 @@ pub fn de_create_event_source_mapping_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_event_source_mapping::CreateEventSourceMappingError::generic(generic),
+        _ => super::super::operation::create_event_source_mapping::CreateEventSourceMappingError::generic(generic)
     })
 }
 
@@ -123141,7 +123141,7 @@ pub fn de_create_function_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_function::CreateFunctionError::generic(generic),
+        _ => super::super::operation::create_function::CreateFunctionError::generic(generic)
     })
 }
 
@@ -123468,7 +123468,7 @@ pub fn de_create_function_url_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::create_function_url_config::CreateFunctionUrlConfigError::generic(generic),
+        _ => super::super::operation::create_function_url_config::CreateFunctionUrlConfigError::generic(generic)
     })
 }
 
@@ -123655,7 +123655,7 @@ pub fn de_delete_alias_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_alias::DeleteAliasError::generic(generic),
+        _ => super::super::operation::delete_alias::DeleteAliasError::generic(generic)
     })
 }
 
@@ -123769,7 +123769,7 @@ pub fn de_delete_capacity_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_capacity_provider::DeleteCapacityProviderError::generic(generic),
+        _ => super::super::operation::delete_capacity_provider::DeleteCapacityProviderError::generic(generic)
     })
 }
 
@@ -123900,7 +123900,7 @@ pub fn de_delete_code_signing_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_code_signing_config::DeleteCodeSigningConfigError::generic(generic),
+        _ => super::super::operation::delete_code_signing_config::DeleteCodeSigningConfigError::generic(generic)
     })
 }
 
@@ -124028,7 +124028,7 @@ pub fn de_delete_event_source_mapping_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_event_source_mapping::DeleteEventSourceMappingError::generic(generic),
+        _ => super::super::operation::delete_event_source_mapping::DeleteEventSourceMappingError::generic(generic)
     })
 }
 
@@ -124303,7 +124303,7 @@ pub fn de_delete_function_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_function::DeleteFunctionError::generic(generic),
+        _ => super::super::operation::delete_function::DeleteFunctionError::generic(generic)
     })
 }
 
@@ -124432,7 +124432,7 @@ pub fn de_delete_function_code_signing_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::generic(generic),
+        _ => super::super::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::generic(generic)
     })
 }
 
@@ -124546,7 +124546,7 @@ pub fn de_delete_function_concurrency_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::generic(generic),
+        _ => super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::generic(generic)
     })
 }
 
@@ -124660,7 +124660,7 @@ pub fn de_delete_function_event_invoke_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::generic(generic),
+        _ => super::super::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::generic(generic)
     })
 }
 
@@ -124774,7 +124774,7 @@ pub fn de_delete_function_url_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::generic(generic),
+        _ => super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::generic(generic)
     })
 }
 
@@ -124874,7 +124874,7 @@ pub fn de_delete_layer_version_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_layer_version::DeleteLayerVersionError::generic(generic),
+        _ => super::super::operation::delete_layer_version::DeleteLayerVersionError::generic(generic)
     })
 }
 
@@ -124988,7 +124988,7 @@ pub fn de_delete_provisioned_concurrency_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::generic(generic),
+        _ => super::super::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError::generic(generic)
     })
 }
 
@@ -125116,7 +125116,7 @@ pub fn de_delete_resource_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::delete_resource_policy::DeleteResourcePolicyError::generic(generic),
+        _ => super::super::operation::delete_resource_policy::DeleteResourcePolicyError::generic(generic)
     })
 }
 
@@ -125188,7 +125188,7 @@ pub fn de_get_account_settings_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_account_settings::GetAccountSettingsError::generic(generic),
+        _ => super::super::operation::get_account_settings::GetAccountSettingsError::generic(generic)
     })
 }
 
@@ -125326,7 +125326,7 @@ pub fn de_get_alias_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_alias::GetAliasError::generic(generic),
+        _ => super::super::operation::get_alias::GetAliasError::generic(generic)
     })
 }
 
@@ -125486,7 +125486,7 @@ pub fn de_get_capacity_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_capacity_provider::GetCapacityProviderError::generic(generic),
+        _ => super::super::operation::get_capacity_provider::GetCapacityProviderError::generic(generic)
     })
 }
 
@@ -125603,7 +125603,7 @@ pub fn de_get_code_signing_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_code_signing_config::GetCodeSigningConfigError::generic(generic),
+        _ => super::super::operation::get_code_signing_config::GetCodeSigningConfigError::generic(generic)
     })
 }
 
@@ -125795,7 +125795,7 @@ pub fn de_get_durable_execution_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_durable_execution::GetDurableExecutionError::generic(generic),
+        _ => super::super::operation::get_durable_execution::GetDurableExecutionError::generic(generic)
     })
 }
 
@@ -126038,7 +126038,7 @@ pub fn de_get_durable_execution_history_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::generic(generic),
+        _ => super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryError::generic(generic)
     })
 }
 
@@ -126222,7 +126222,7 @@ pub fn de_get_durable_execution_state_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_durable_execution_state::GetDurableExecutionStateError::generic(generic),
+        _ => super::super::operation::get_durable_execution_state::GetDurableExecutionStateError::generic(generic)
     })
 }
 
@@ -126364,7 +126364,7 @@ pub fn de_get_event_source_mapping_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_event_source_mapping::GetEventSourceMappingError::generic(generic),
+        _ => super::super::operation::get_event_source_mapping::GetEventSourceMappingError::generic(generic)
     })
 }
 
@@ -126625,7 +126625,7 @@ pub fn de_get_function_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_function::GetFunctionError::generic(generic),
+        _ => super::super::operation::get_function::GetFunctionError::generic(generic)
     })
 }
 
@@ -126786,7 +126786,7 @@ pub fn de_get_function_code_signing_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::generic(generic),
+        _ => super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::generic(generic)
     })
 }
 
@@ -126930,7 +126930,7 @@ pub fn de_get_function_concurrency_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_function_concurrency::GetFunctionConcurrencyError::generic(generic),
+        _ => super::super::operation::get_function_concurrency::GetFunctionConcurrencyError::generic(generic)
     })
 }
 
@@ -127067,7 +127067,7 @@ pub fn de_get_function_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_function_configuration::GetFunctionConfigurationError::generic(generic),
+        _ => super::super::operation::get_function_configuration::GetFunctionConfigurationError::generic(generic)
     })
 }
 
@@ -127369,7 +127369,7 @@ pub fn de_get_function_event_invoke_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::generic(generic),
+        _ => super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::generic(generic)
     })
 }
 
@@ -127522,7 +127522,7 @@ pub fn de_get_function_recursion_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigError::generic(generic),
+        _ => super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigError::generic(generic)
     })
 }
 
@@ -127659,7 +127659,7 @@ pub fn de_get_function_scaling_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_function_scaling_config::GetFunctionScalingConfigError::generic(generic),
+        _ => super::super::operation::get_function_scaling_config::GetFunctionScalingConfigError::generic(generic)
     })
 }
 
@@ -127802,7 +127802,7 @@ pub fn de_get_function_url_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_function_url_config::GetFunctionUrlConfigError::generic(generic),
+        _ => super::super::operation::get_function_url_config::GetFunctionUrlConfigError::generic(generic)
     })
 }
 
@@ -127969,7 +127969,7 @@ pub fn de_get_layer_version_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_layer_version::GetLayerVersionError::generic(generic),
+        _ => super::super::operation::get_layer_version::GetLayerVersionError::generic(generic)
     })
 }
 
@@ -128140,7 +128140,7 @@ pub fn de_get_layer_version_by_arn_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_layer_version_by_arn::GetLayerVersionByArnError::generic(generic),
+        _ => super::super::operation::get_layer_version_by_arn::GetLayerVersionByArnError::generic(generic)
     })
 }
 
@@ -128311,7 +128311,7 @@ pub fn de_get_layer_version_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_layer_version_policy::GetLayerVersionPolicyError::generic(generic),
+        _ => super::super::operation::get_layer_version_policy::GetLayerVersionPolicyError::generic(generic)
     })
 }
 
@@ -128453,7 +128453,7 @@ pub fn de_get_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_policy::GetPolicyError::generic(generic),
+        _ => super::super::operation::get_policy::GetPolicyError::generic(generic)
     })
 }
 
@@ -128609,7 +128609,7 @@ pub fn de_get_provisioned_concurrency_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::generic(generic),
+        _ => super::super::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::generic(generic)
     })
 }
 
@@ -128771,7 +128771,7 @@ pub fn de_get_resource_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_resource_policy::GetResourcePolicyError::generic(generic),
+        _ => super::super::operation::get_resource_policy::GetResourcePolicyError::generic(generic)
     })
 }
 
@@ -128913,7 +128913,7 @@ pub fn de_get_runtime_management_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::generic(generic),
+        _ => super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::generic(generic)
     })
 }
 
@@ -129606,7 +129606,7 @@ pub fn de_invoke_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::invoke::InvokeError::generic(generic),
+        _ => super::super::operation::invoke::InvokeError::generic(generic)
     })
 }
 
@@ -130057,7 +130057,7 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::invoke_async::InvokeAsyncError::generic(generic),
+        _ => super::super::operation::invoke_async::InvokeAsyncError::generic(generic)
     })
 }
 
@@ -130643,7 +130643,7 @@ pub fn de_invoke_with_response_stream_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::generic(generic),
+        _ => super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamError::generic(generic)
     })
 }
 }
@@ -130729,7 +130729,7 @@ pub fn de_list_aliases_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_aliases::ListAliasesError::generic(generic),
+        _ => super::super::operation::list_aliases::ListAliasesError::generic(generic)
     })
 }
 
@@ -130855,7 +130855,7 @@ pub fn de_list_capacity_providers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_capacity_providers::ListCapacityProvidersError::generic(generic),
+        _ => super::super::operation::list_capacity_providers::ListCapacityProvidersError::generic(generic)
     })
 }
 
@@ -130964,7 +130964,7 @@ pub fn de_list_code_signing_configs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_code_signing_configs::ListCodeSigningConfigsError::generic(generic),
+        _ => super::super::operation::list_code_signing_configs::ListCodeSigningConfigsError::generic(generic)
     })
 }
 
@@ -131104,7 +131104,7 @@ pub fn de_list_durable_executions_by_function_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::generic(generic),
+        _ => super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::generic(generic)
     })
 }
 
@@ -131244,7 +131244,7 @@ pub fn de_list_event_source_mappings_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_event_source_mappings::ListEventSourceMappingsError::generic(generic),
+        _ => super::super::operation::list_event_source_mappings::ListEventSourceMappingsError::generic(generic)
     })
 }
 
@@ -131384,7 +131384,7 @@ pub fn de_list_function_event_invoke_configs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::generic(generic),
+        _ => super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::generic(generic)
     })
 }
 
@@ -131524,7 +131524,7 @@ pub fn de_list_function_url_configs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::generic(generic),
+        _ => super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::generic(generic)
     })
 }
 
@@ -131666,7 +131666,7 @@ pub fn de_list_function_versions_by_capacity_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::generic(generic),
+        _ => super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::generic(generic)
     })
 }
 
@@ -131799,7 +131799,7 @@ pub fn de_list_functions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_functions::ListFunctionsError::generic(generic),
+        _ => super::super::operation::list_functions::ListFunctionsError::generic(generic)
     })
 }
 
@@ -131920,7 +131920,7 @@ pub fn de_list_functions_by_code_signing_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigError::generic(generic),
+        _ => super::super::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigError::generic(generic)
     })
 }
 
@@ -132060,7 +132060,7 @@ pub fn de_list_layer_versions_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_layer_versions::ListLayerVersionsError::generic(generic),
+        _ => super::super::operation::list_layer_versions::ListLayerVersionsError::generic(generic)
     })
 }
 
@@ -132186,7 +132186,7 @@ pub fn de_list_layers_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_layers::ListLayersError::generic(generic),
+        _ => super::super::operation::list_layers::ListLayersError::generic(generic)
     })
 }
 
@@ -132326,7 +132326,7 @@ pub fn de_list_provisioned_concurrency_configs_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::generic(generic),
+        _ => super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::generic(generic)
     })
 }
 
@@ -132466,7 +132466,7 @@ pub fn de_list_tags_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_tags::ListTagsError::generic(generic),
+        _ => super::super::operation::list_tags::ListTagsError::generic(generic)
     })
 }
 
@@ -132601,7 +132601,7 @@ pub fn de_list_versions_by_function_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::list_versions_by_function::ListVersionsByFunctionError::generic(generic),
+        _ => super::super::operation::list_versions_by_function::ListVersionsByFunctionError::generic(generic)
     })
 }
 
@@ -132755,7 +132755,7 @@ pub fn de_publish_layer_version_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::publish_layer_version::PublishLayerVersionError::generic(generic),
+        _ => super::super::operation::publish_layer_version::PublishLayerVersionError::generic(generic)
     })
 }
 
@@ -132993,7 +132993,7 @@ pub fn de_publish_version_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::publish_version::PublishVersionError::generic(generic),
+        _ => super::super::operation::publish_version::PublishVersionError::generic(generic)
     })
 }
 
@@ -133334,7 +133334,7 @@ pub fn de_put_function_code_signing_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::generic(generic),
+        _ => super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::generic(generic)
     })
 }
 
@@ -133503,7 +133503,7 @@ pub fn de_put_function_concurrency_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_function_concurrency::PutFunctionConcurrencyError::generic(generic),
+        _ => super::super::operation::put_function_concurrency::PutFunctionConcurrencyError::generic(generic)
     })
 }
 
@@ -133665,7 +133665,7 @@ pub fn de_put_function_event_invoke_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::generic(generic),
+        _ => super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::generic(generic)
     })
 }
 
@@ -133843,7 +133843,7 @@ pub fn de_put_function_recursion_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigError::generic(generic),
+        _ => super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigError::generic(generic)
     })
 }
 
@@ -134005,7 +134005,7 @@ pub fn de_put_function_scaling_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_function_scaling_config::PutFunctionScalingConfigError::generic(generic),
+        _ => super::super::operation::put_function_scaling_config::PutFunctionScalingConfigError::generic(generic)
     })
 }
 
@@ -134167,7 +134167,7 @@ pub fn de_put_provisioned_concurrency_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::generic(generic),
+        _ => super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::generic(generic)
     })
 }
 
@@ -134396,7 +134396,7 @@ pub fn de_put_resource_policy_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_resource_policy::PutResourcePolicyError::generic(generic),
+        _ => super::super::operation::put_resource_policy::PutResourcePolicyError::generic(generic)
     })
 }
 
@@ -134563,7 +134563,7 @@ pub fn de_put_runtime_management_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigError::generic(generic),
+        _ => super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigError::generic(generic)
     })
 }
 
@@ -134737,7 +134737,7 @@ pub fn de_remove_layer_version_permission_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::generic(generic),
+        _ => super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::generic(generic)
     })
 }
 
@@ -134865,7 +134865,7 @@ pub fn de_remove_permission_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::remove_permission::RemovePermissionError::generic(generic),
+        _ => super::super::operation::remove_permission::RemovePermissionError::generic(generic)
     })
 }
 
@@ -135035,7 +135035,7 @@ pub fn de_send_durable_execution_callback_failure_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::generic(generic),
+        _ => super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::generic(generic)
     })
 }
 
@@ -135149,7 +135149,7 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::generic(generic),
+        _ => super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::generic(generic)
     })
 }
 
@@ -135319,7 +135319,7 @@ pub fn de_send_durable_execution_callback_success_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::generic(generic),
+        _ => super::super::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessError::generic(generic)
     })
 }
 
@@ -135475,7 +135475,7 @@ pub fn de_stop_durable_execution_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::stop_durable_execution::StopDurableExecutionError::generic(generic),
+        _ => super::super::operation::stop_durable_execution::StopDurableExecutionError::generic(generic)
     })
 }
 
@@ -135626,7 +135626,7 @@ pub fn de_tag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic)
     })
 }
 
@@ -135750,7 +135750,7 @@ pub fn de_untag_resource_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic)
     })
 }
 
@@ -135878,7 +135878,7 @@ pub fn de_update_alias_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_alias::UpdateAliasError::generic(generic),
+        _ => super::super::operation::update_alias::UpdateAliasError::generic(generic)
     })
 }
 
@@ -136063,7 +136063,7 @@ pub fn de_update_capacity_provider_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_capacity_provider::UpdateCapacityProviderError::generic(generic),
+        _ => super::super::operation::update_capacity_provider::UpdateCapacityProviderError::generic(generic)
     })
 }
 
@@ -136191,7 +136191,7 @@ pub fn de_update_code_signing_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_code_signing_config::UpdateCodeSigningConfigError::generic(generic),
+        _ => super::super::operation::update_code_signing_config::UpdateCodeSigningConfigError::generic(generic)
     })
 }
 
@@ -136366,7 +136366,7 @@ pub fn de_update_event_source_mapping_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_event_source_mapping::UpdateEventSourceMappingError::generic(generic),
+        _ => super::super::operation::update_event_source_mapping::UpdateEventSourceMappingError::generic(generic)
     })
 }
 
@@ -136722,7 +136722,7 @@ pub fn de_update_function_code_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_function_code::UpdateFunctionCodeError::generic(generic),
+        _ => super::super::operation::update_function_code::UpdateFunctionCodeError::generic(generic)
     })
 }
 
@@ -137105,7 +137105,7 @@ pub fn de_update_function_configuration_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_function_configuration::UpdateFunctionConfigurationError::generic(generic),
+        _ => super::super::operation::update_function_configuration::UpdateFunctionConfigurationError::generic(generic)
     })
 }
 
@@ -137432,7 +137432,7 @@ pub fn de_update_function_event_invoke_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::generic(generic),
+        _ => super::super::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::generic(generic)
     })
 }
 
@@ -137610,7 +137610,7 @@ pub fn de_update_function_url_config_http_error(
             }
             tmp
         }),
-        _ => super::super::operation::update_function_url_config::UpdateFunctionUrlConfigError::generic(generic),
+        _ => super::super::operation::update_function_url_config::UpdateFunctionUrlConfigError::generic(generic)
     })
 }
 
