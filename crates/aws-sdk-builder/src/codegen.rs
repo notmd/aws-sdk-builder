@@ -9121,9 +9121,6 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
         if seen.insert(module.clone()) {
             modules.push(module);
         }
-    }
-    let operation_module_count = modules.len();
-    for operation_name in &selected.operations {
         let Some(input) = operation_shape(selected, operation_name)
             .and_then(|operation| operation.get("input"))
             .and_then(target_value)
@@ -9138,6 +9135,7 @@ fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(S
             }
         }
     }
+    let operation_module_count = modules.len();
     for operation_name in &selected.operations {
         let Some(output) = operation_shape(selected, operation_name)
             .and_then(|operation| operation.get("output"))
