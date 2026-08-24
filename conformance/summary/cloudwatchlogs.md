@@ -3,31 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1245` matched · `40` mismatches · `2` missing · `0` extra · `96.74%` match (100.00% means fully matched)
-
-### `src/error_meta.rs`
-
-```diff
---- reference/src/error_meta.rs
-+++ generated/src/error_meta.rs
-@@ -2251,7 +2251,6 @@
-             super::operation::get_log_object::GetLogObjectError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-             super::operation::get_log_object::GetLogObjectError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-             super::operation::get_log_object::GetLogObjectError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
--            super::operation::get_log_object::GetLogObjectError::InternalStreamingException(inner) => Error::InternalStreamingException(inner),
-             super::operation::get_log_object::GetLogObjectError::Unhandled(inner) => Error::Unhandled(inner),
-         }
-     }
-@@ -3515,8 +3514,6 @@
-             super::operation::start_live_tail::StartLiveTailError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-             super::operation::start_live_tail::StartLiveTailError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-             super::operation::start_live_tail::StartLiveTailError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
--            super::operation::start_live_tail::StartLiveTailError::SessionTimeoutException(inner) => Error::SessionTimeoutException(inner),
--            super::operation::start_live_tail::StartLiveTailError::SessionStreamingException(inner) => Error::SessionStreamingException(inner),
-             super::operation::start_live_tail::StartLiveTailError::Unhandled(inner) => Error::Unhandled(inner),
-         }
-     }
-```
+**Progress:** `1287/1287` files compared · `1249` matched · `36` mismatches · `2` missing · `0` extra · `97.05%` match (100.00% means fully matched)
 
 ### `src/event_stream_serde.rs`
 
@@ -366,58 +342,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err)
          })?;
          cfg.interceptor_state().store_put(endpoint_prefix);
-@@ -336,8 +327,6 @@
-     LimitExceededException(super::super::types::error::LimitExceededException),
-     /// <p>The specified resource does not exist.</p>
-     ResourceNotFoundException(super::super::types::error::ResourceNotFoundException),
--    /// <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
--    InternalStreamingException(super::super::types::error::InternalStreamingException),
-     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
-     variable wildcard pattern and check `.code()`:
-@@ -376,7 +365,6 @@
-             Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-             Self::LimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
--            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-             Self::Unhandled(e) => &e.meta,
-         }
-     }
-@@ -400,10 +388,6 @@
-     pub fn is_resource_not_found_exception(&self) -> bool {
-         matches!(self, Self::ResourceNotFoundException(_))
-     }
--    /// Returns `true` if the error kind is `GetLogObjectError::InternalStreamingException`.
--    pub fn is_internal_streaming_exception(&self) -> bool {
--        matches!(self, Self::InternalStreamingException(_))
--    }
- }
- impl ::std::error::Error for GetLogObjectError {
-     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
-@@ -413,7 +397,6 @@
-             Self::InvalidParameterException(_inner) => ::std::option::Option::Some(_inner),
-             Self::LimitExceededException(_inner) => ::std::option::Option::Some(_inner),
-             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
--            Self::InternalStreamingException(_inner) => ::std::option::Option::Some(_inner),
-             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
-         }
-     }
-@@ -426,7 +409,6 @@
-             Self::InvalidParameterException(_inner) => _inner.fmt(f),
-             Self::LimitExceededException(_inner) => _inner.fmt(f),
-             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
--            Self::InternalStreamingException(_inner) => _inner.fmt(f),
-             Self::Unhandled(_inner) => {
-                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
-                     write!(f, "unhandled error ({code})")
-@@ -453,7 +435,6 @@
-             Self::InvalidParameterException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-             Self::LimitExceededException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
--            Self::InternalStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-             Self::Unhandled(_inner) => &_inner.meta,
-         }
-     }
 ```
 
 ### `src/operation/get_storage_tier_policy.rs`
@@ -626,68 +550,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint prefix could not be built", err)
          })?;
          cfg.interceptor_state().store_put(endpoint_prefix);
-@@ -336,10 +327,6 @@
-     LimitExceededException(super::super::types::error::LimitExceededException),
-     /// <p>The specified resource does not exist.</p>
-     ResourceNotFoundException(super::super::types::error::ResourceNotFoundException),
--    /// <p>This exception is returned in a Live Tail stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
--    SessionTimeoutException(super::super::types::error::SessionTimeoutException),
--    /// <p>This exception is returned if an unknown error occurs during a Live Tail session.</p>
--    SessionStreamingException(super::super::types::error::SessionStreamingException),
-     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
-     variable wildcard pattern and check `.code()`:
-@@ -378,8 +365,6 @@
-             Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-             Self::LimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
--            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
--            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-             Self::Unhandled(e) => &e.meta,
-         }
-     }
-@@ -403,14 +388,6 @@
-     pub fn is_resource_not_found_exception(&self) -> bool {
-         matches!(self, Self::ResourceNotFoundException(_))
-     }
--    /// Returns `true` if the error kind is `StartLiveTailError::SessionTimeoutException`.
--    pub fn is_session_timeout_exception(&self) -> bool {
--        matches!(self, Self::SessionTimeoutException(_))
--    }
--    /// Returns `true` if the error kind is `StartLiveTailError::SessionStreamingException`.
--    pub fn is_session_streaming_exception(&self) -> bool {
--        matches!(self, Self::SessionStreamingException(_))
--    }
- }
- impl ::std::error::Error for StartLiveTailError {
-     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
-@@ -420,8 +397,6 @@
-             Self::InvalidParameterException(_inner) => ::std::option::Option::Some(_inner),
-             Self::LimitExceededException(_inner) => ::std::option::Option::Some(_inner),
-             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
--            Self::SessionTimeoutException(_inner) => ::std::option::Option::Some(_inner),
--            Self::SessionStreamingException(_inner) => ::std::option::Option::Some(_inner),
-             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
-         }
-     }
-@@ -434,8 +409,6 @@
-             Self::InvalidParameterException(_inner) => _inner.fmt(f),
-             Self::LimitExceededException(_inner) => _inner.fmt(f),
-             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
--            Self::SessionTimeoutException(_inner) => _inner.fmt(f),
--            Self::SessionStreamingException(_inner) => _inner.fmt(f),
-             Self::Unhandled(_inner) => {
-                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
-                     write!(f, "unhandled error ({code})")
-@@ -462,8 +435,6 @@
-             Self::InvalidParameterException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-             Self::LimitExceededException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
--            Self::SessionTimeoutException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
--            Self::SessionStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-             Self::Unhandled(_inner) => &_inner.meta,
-         }
-     }
 ```
 
 ### `src/primitives.rs`
@@ -803,26 +665,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn de_get_log_object_http_error(
      _response_status: u16,
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -113,25 +92,26 @@
-             }
-             tmp
-         }),
--        "InternalStreamingException" => super::super::operation::get_log_object::GetLogObjectError::InternalStreamingException({
--            #[allow(unused_mut)]
--            let mut tmp = {
--                #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::InternalStreamingExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_internal_streaming_exception::de_internal_streaming_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_log_object::GetLogObjectError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-         _ => super::super::operation::get_log_object::GetLogObjectError::generic(generic),
+@@ -132,6 +111,22 @@
      })
  }
 
@@ -845,7 +688,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_get_log_object_input(
      input: &super::super::operation::get_log_object::GetLogObjectInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-@@ -141,3 +121,41 @@
+@@ -141,3 +136,41 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -1376,41 +1219,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn de_start_live_tail_http_error(
      _response_status: u16,
      _response_headers: &::aws_smithy_runtime_api::http::Headers,
-@@ -113,40 +92,26 @@
-             }
-             tmp
-         }),
--        "SessionTimeoutException" => super::super::operation::start_live_tail::StartLiveTailError::SessionTimeoutException({
--            #[allow(unused_mut)]
--            let mut tmp = {
--                #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::SessionTimeoutExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_session_timeout_exception::de_session_timeout_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
--        "SessionStreamingException" => super::super::operation::start_live_tail::StartLiveTailError::SessionStreamingException({
--            #[allow(unused_mut)]
--            let mut tmp = {
--                #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::SessionStreamingExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_session_streaming_exception::de_session_streaming_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-         _ => super::super::operation::start_live_tail::StartLiveTailError::generic(generic),
+@@ -147,6 +126,22 @@
      })
  }
 
@@ -1433,7 +1242,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub fn ser_start_live_tail_input(
      input: &super::super::operation::start_live_tail::StartLiveTailInput,
  ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-@@ -156,3 +121,41 @@
+@@ -156,3 +151,41 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -1611,43 +1420,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub(crate) mod shape_live_tail_session_log_event;
 ```
 
-### `src/types/_get_log_object_response_stream.rs`
-
-```diff
---- reference/src/types/_get_log_object_response_stream.rs
-+++ generated/src/types/_get_log_object_response_stream.rs
-@@ -4,6 +4,8 @@
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum GetLogObjectResponseStream {
-+    /// <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
-+    InternalStreamingException(super::super::types::InternalStreamingException),
-     /// <p>A structure containing the extracted fields from a log event. These fields are extracted based on the log format and can be used for structured querying and analysis.</p>
-     Fields(super::super::types::FieldsData),
-     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
-@@ -17,7 +19,19 @@
-     Unknown,
- }
- impl GetLogObjectResponseStream {
--    #[allow(irrefutable_let_patterns)]
-+    /// Tries to convert the enum instance into [`InternalStreamingException`](crate::types::GetLogObjectResponseStream::InternalStreamingException), extracting the inner [`InternalStreamingException`](crate::types::InternalStreamingException).
-+    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_internal_streaming_exception(&self) -> ::std::result::Result<&super::super::types::InternalStreamingException, &Self> {
-+        if let GetLogObjectResponseStream::InternalStreamingException(val) = &self {
-+            ::std::result::Result::Ok(val)
-+        } else {
-+            ::std::result::Result::Err(self)
-+        }
-+    }
-+    /// Returns true if this is a [`InternalStreamingException`](crate::types::GetLogObjectResponseStream::InternalStreamingException).
-+    pub fn is_internal_streaming_exception(&self) -> bool {
-+        self.as_internal_streaming_exception().is_ok()
-+    }
-     /// Tries to convert the enum instance into [`Fields`](crate::types::GetLogObjectResponseStream::Fields), extracting the inner [`FieldsData`](crate::types::FieldsData).
-     /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_fields(&self) -> ::std::result::Result<&super::super::types::FieldsData, &Self> {
-```
-
 ### `src/types/_log_field_type.rs`
 
 ```diff
@@ -1769,57 +1541,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_start_live_tail_response_stream.rs`
-
-```diff
---- reference/src/types/_start_live_tail_response_stream.rs
-+++ generated/src/types/_start_live_tail_response_stream.rs
-@@ -4,6 +4,10 @@
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub enum StartLiveTailResponseStream {
-+    /// <p>This exception is returned if an unknown error occurs.</p>
-+    SessionStreamingException(super::super::types::SessionStreamingException),
-+    /// <p>This exception is returned in the stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
-+    SessionTimeoutException(super::super::types::SessionTimeoutException),
-     /// <p>This object contains information about this Live Tail session, including the log groups included and the log stream filters, if any.</p>
-     SessionStart(super::super::types::LiveTailSessionStart),
-     /// <p>This object contains the log events and session metadata.</p>
-@@ -19,6 +23,32 @@
-     Unknown,
- }
- impl StartLiveTailResponseStream {
-+    /// Tries to convert the enum instance into [`SessionStreamingException`](crate::types::StartLiveTailResponseStream::SessionStreamingException), extracting the inner [`SessionStreamingException`](crate::types::SessionStreamingException).
-+    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_session_streaming_exception(&self) -> ::std::result::Result<&super::super::types::SessionStreamingException, &Self> {
-+        if let StartLiveTailResponseStream::SessionStreamingException(val) = &self {
-+            ::std::result::Result::Ok(val)
-+        } else {
-+            ::std::result::Result::Err(self)
-+        }
-+    }
-+    /// Returns true if this is a [`SessionStreamingException`](crate::types::StartLiveTailResponseStream::SessionStreamingException).
-+    pub fn is_session_streaming_exception(&self) -> bool {
-+        self.as_session_streaming_exception().is_ok()
-+    }
-+    /// Tries to convert the enum instance into [`SessionTimeoutException`](crate::types::StartLiveTailResponseStream::SessionTimeoutException), extracting the inner [`SessionTimeoutException`](crate::types::SessionTimeoutException).
-+    /// Returns `Err(&Self)` if it can't be converted.
-+    pub fn as_session_timeout_exception(&self) -> ::std::result::Result<&super::super::types::SessionTimeoutException, &Self> {
-+        if let StartLiveTailResponseStream::SessionTimeoutException(val) = &self {
-+            ::std::result::Result::Ok(val)
-+        } else {
-+            ::std::result::Result::Err(self)
-+        }
-+    }
-+    /// Returns true if this is a [`SessionTimeoutException`](crate::types::StartLiveTailResponseStream::SessionTimeoutException).
-+    pub fn is_session_timeout_exception(&self) -> bool {
-+        self.as_session_timeout_exception().is_ok()
-+    }
-     /// Tries to convert the enum instance into [`SessionStart`](crate::types::StartLiveTailResponseStream::SessionStart), extracting the inner [`LiveTailSessionStart`](crate::types::LiveTailSessionStart).
-     /// Returns `Err(&Self)` if it can't be converted.
-     pub fn as_session_start(&self) -> ::std::result::Result<&super::super::types::LiveTailSessionStart, &Self> {
-```
-
 ### `src/types/_substitute_string_entry.rs`
 
 ```diff
@@ -1867,74 +1588,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/error/builders.rs`
-
-```diff
---- reference/src/types/error/builders.rs
-+++ generated/src/types/error/builders.rs
-@@ -25,8 +25,6 @@
-
- pub use super::super::super::types::error::_resource_already_exists_exception::ResourceAlreadyExistsExceptionBuilder;
-
--pub use super::super::super::types::error::_internal_streaming_exception::InternalStreamingExceptionBuilder;
--
- pub use super::super::super::types::error::_data_already_accepted_exception::DataAlreadyAcceptedExceptionBuilder;
-
- pub use super::super::super::types::error::_invalid_sequence_token_exception::InvalidSequenceTokenExceptionBuilder;
-@@ -33,10 +31,12 @@
-
- pub use super::super::super::types::error::_unrecognized_client_exception::UnrecognizedClientExceptionBuilder;
-
--pub use super::super::super::types::error::_session_timeout_exception::SessionTimeoutExceptionBuilder;
-+pub use super::super::super::types::error::_malformed_query_exception::MalformedQueryExceptionBuilder;
-+
-+pub use super::super::super::types::error::_too_many_tags_exception::TooManyTagsExceptionBuilder;
-+
-+pub use super::super::super::types::error::_internal_streaming_exception::InternalStreamingExceptionBuilder;
-
- pub use super::super::super::types::error::_session_streaming_exception::SessionStreamingExceptionBuilder;
-
--pub use super::super::super::types::error::_malformed_query_exception::MalformedQueryExceptionBuilder;
--
--pub use super::super::super::types::error::_too_many_tags_exception::TooManyTagsExceptionBuilder;
-+pub use super::super::super::types::error::_session_timeout_exception::SessionTimeoutExceptionBuilder;
-```
-
 ### `src/types/error.rs`
 
 ```diff
 --- reference/src/types/error.rs
 +++ generated/src/types/error.rs
-@@ -25,8 +25,6 @@
-
- pub use super::super::types::error::_resource_already_exists_exception::ResourceAlreadyExistsException;
-
--pub use super::super::types::error::_internal_streaming_exception::InternalStreamingException;
--
- pub use super::super::types::error::_data_already_accepted_exception::DataAlreadyAcceptedException;
-
- pub use super::super::types::error::_invalid_sequence_token_exception::InvalidSequenceTokenException;
-@@ -33,14 +31,16 @@
-
- pub use super::super::types::error::_unrecognized_client_exception::UnrecognizedClientException;
-
--pub use super::super::types::error::_session_timeout_exception::SessionTimeoutException;
--
--pub use super::super::types::error::_session_streaming_exception::SessionStreamingException;
--
- pub use super::super::types::error::_malformed_query_exception::MalformedQueryException;
-
- pub use super::super::types::error::_too_many_tags_exception::TooManyTagsException;
-
-+pub use super::super::types::error::_internal_streaming_exception::InternalStreamingException;
-+
-+pub use super::super::types::error::_session_streaming_exception::SessionStreamingException;
-+
-+pub use super::super::types::error::_session_timeout_exception::SessionTimeoutException;
-+
- /// Error type for the `GetLogObjectResponseStreamError` operation.
- #[non_exhaustive]
- #[derive(::std::fmt::Debug)]
 @@ -84,7 +84,7 @@
              Self::Unhandled(e) => &e.meta,
          }

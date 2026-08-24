@@ -1660,18 +1660,25 @@ fn render_event_stream_serde_file(selected: &SelectedModel) -> String {
     union_ids.sort();
     let input_unions = event_stream_input_union_ids(selected);
     let output_unions = event_stream_output_union_ids(selected);
-    for union_id in union_ids {
-        let Some(shape) = selected.model.shapes.get(&union_id) else {
+    for union_id in union_ids
+        .iter()
+        .filter(|union_id| input_unions.contains(*union_id))
+    {
+        let Some(shape) = selected.model.shapes.get(union_id) else {
             continue;
         };
-        let union_name = rust_type_name(terminal(&union_id));
-        if input_unions.contains(&union_id) {
-            render_event_stream_error_marshaller(&mut output, &union_name);
-            render_event_stream_marshaller(&mut output, selected, &union_name, &union_id, shape);
-        }
-        if !output_unions.contains(&union_id) {
+        let union_name = rust_type_name(terminal(union_id));
+        render_event_stream_error_marshaller(&mut output, &union_name);
+        render_event_stream_marshaller(&mut output, selected, &union_name, union_id, shape);
+    }
+    for union_id in union_ids
+        .iter()
+        .filter(|union_id| output_unions.contains(*union_id))
+    {
+        let Some(shape) = selected.model.shapes.get(union_id) else {
             continue;
-        }
+        };
+        let union_name = rust_type_name(terminal(union_id));
         let unmarshaller_name = format!("{union_name}Unmarshaller");
         writeln!(
             output,
@@ -1894,7 +1901,7 @@ fn render_event_stream_marshaller_payload(
             ),
             "string" | "enum" => format!("::bytes::Bytes::from({input}.to_string().into_bytes())"),
             _ => format!(
-                "::bytes::Bytes::from(crate::protocol_serde::shape_{}_input::ser_{}_payload(&{input}).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!(\"{{err}}\")))?)",
+                "::bytes::Bytes::from(crate::protocol_serde::shape_{}::ser_{}_payload(&{input}).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!(\"{{err}}\")))?)",
                 names::rust_module_name(terminal(union_id)),
                 names::rust_identifier(member_name),
             ),
@@ -1907,7 +1914,7 @@ fn render_event_stream_marshaller_payload(
         "                headers.push(::aws_smithy_types::event_stream::Header::new(\":content-type\", ::aws_smithy_types::event_stream::HeaderValue::String(\"application/json\".into())));\n",
     );
     format!(
-        "::bytes::Bytes::from(crate::protocol_serde::shape_{}_input::ser_{}_payload(&inner).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!(\"{{err}}\")))?)",
+        "::bytes::Bytes::from(crate::protocol_serde::shape_{}::ser_{}_payload(&inner).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!(\"{{err}}\")))?)",
         names::rust_module_name(terminal(union_id)),
         names::rust_identifier(member_name),
     )
@@ -1979,9 +1986,10 @@ fn render_event_stream_member(
         );
     } else {
         let module = names::rust_module_name(terminal(target));
+        let diagnostic_name = rust_type_name(member_name);
         writeln!(
             output,
-            "                    let parsed =\n                        crate::protocol_serde::shape_{module}::de_{module}_payload(&message.payload()[..])\n                            .map_err(|err| {{\n                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(\"failed to unmarshall {member_name}: {{err}}\"))\n                            }})?\n                        ;\n                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(\n                        crate::types::{union_name}::{variant}(parsed),\n                    ))"
+            "                    let parsed =\n                        crate::protocol_serde::shape_{module}::de_{module}_payload(&message.payload()[..])\n                            .map_err(|err| {{\n                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(\"failed to unmarshall {diagnostic_name}: {{err}}\"))\n                            }})?\n                        ;\n                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(\n                        crate::types::{union_name}::{variant}(parsed),\n                    ))"
         )
         .unwrap();
     }
@@ -14544,7 +14552,19 @@ fn render_union(
         "    #[non_exhaustive]\n    #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]\n",
     );
     writeln!(output, "    pub enum {rust_name} {{").unwrap();
-    let ordered_members = sorted_members(shape);
+    let ordered_members = sorted_members(shape)
+        .into_iter()
+        .filter(|(_, member)| {
+            !(shape_is_streaming(shape)
+                && member_target(member).is_some_and(|target| {
+                    selected
+                        .model
+                        .shapes
+                        .get(target)
+                        .is_some_and(is_error_shape)
+                }))
+        })
+        .collect::<BTreeMap<_, _>>();
     for (member_name, member) in &ordered_members {
         if let Some(documentation) = modeled_member_documentation(selected, member) {
             render_doc_lines(output, &documentation, 8);
@@ -16850,6 +16870,9 @@ mod tests {
                 .get("example#Chunk")
                 .is_some_and(|roles| roles.serialize)
         );
+        let event_stream = render_event_stream_serde_file(&selected);
+        assert!(event_stream.contains("shape_input_events::ser_chunk_payload"));
+        assert!(!event_stream.contains("shape_input_events_input::ser_chunk_payload"));
     }
 
     #[test]
@@ -16905,6 +16928,84 @@ mod tests {
 
         assert!(!exception.contains("match response_headers.smithy_type.as_str()"));
         assert!(!exception.contains("if response_headers.smithy_type.as_str()"));
+    }
+
+    #[test]
+    fn event_stream_errors_are_promoted_and_removed_from_public_unions() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "events": {
+                                "target": "example#Events",
+                                "traits": {"smithy.api#httpPayload": {}}
+                            }
+                        }
+                    },
+                    "example#Events": {
+                        "type": "union",
+                        "members": {
+                            "chunk": {"target": "example#Chunk"},
+                            "failure": {"target": "example#Failure"}
+                        },
+                        "traits": {"smithy.api#streaming": {}}
+                    },
+                    "example#Chunk": {
+                        "type": "structure",
+                        "members": {"data": {"target": "smithy.api#Blob"}}
+                    },
+                    "example#Failure": {
+                        "type": "structure",
+                        "members": {},
+                        "traits": {"smithy.api#error": "client"}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let operation = operation_shape(&selected, "Invoke").unwrap();
+        assert!(
+            operation
+                .get("errors")
+                .and_then(Value::as_array)
+                .is_some_and(|errors| errors
+                    .iter()
+                    .any(|error| { target_value(error) == Some("example#Failure") }))
+        );
+
+        let mut union = String::new();
+        render_union(
+            &mut union,
+            &selected,
+            selected.model.shapes.get("example#Events").unwrap(),
+            "Events",
+            &Context::Types {},
+        );
+        assert!(union.contains("Chunk("));
+        assert!(!union.contains("Failure("));
+
+        let event_stream = render_event_stream_serde_file(&selected);
+        assert!(event_stream.contains("failed to unmarshall Chunk: {err}"));
     }
 
     #[test]

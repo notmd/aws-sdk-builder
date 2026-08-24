@@ -4,8 +4,6 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub enum GetLogObjectResponseStream {
-    /// <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
-    InternalStreamingException(super::super::types::InternalStreamingException),
     /// <p>A structure containing the extracted fields from a log event. These fields are extracted based on the log format and can be used for structured querying and analysis.</p>
     Fields(super::super::types::FieldsData),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
@@ -19,19 +17,7 @@ pub enum GetLogObjectResponseStream {
     Unknown,
 }
 impl GetLogObjectResponseStream {
-    /// Tries to convert the enum instance into [`InternalStreamingException`](crate::types::GetLogObjectResponseStream::InternalStreamingException), extracting the inner [`InternalStreamingException`](crate::types::InternalStreamingException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_internal_streaming_exception(&self) -> ::std::result::Result<&super::super::types::InternalStreamingException, &Self> {
-        if let GetLogObjectResponseStream::InternalStreamingException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`InternalStreamingException`](crate::types::GetLogObjectResponseStream::InternalStreamingException).
-    pub fn is_internal_streaming_exception(&self) -> bool {
-        self.as_internal_streaming_exception().is_ok()
-    }
+    #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`Fields`](crate::types::GetLogObjectResponseStream::Fields), extracting the inner [`FieldsData`](crate::types::FieldsData).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_fields(&self) -> ::std::result::Result<&super::super::types::FieldsData, &Self> {

@@ -92,6 +92,36 @@ pub fn de_start_live_tail_http_error(
             }
             tmp
         }),
+        "SessionTimeoutException" => super::super::operation::start_live_tail::StartLiveTailError::SessionTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::SessionTimeoutExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_session_timeout_exception::de_session_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "SessionStreamingException" => super::super::operation::start_live_tail::StartLiveTailError::SessionStreamingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::SessionStreamingExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_session_streaming_exception::de_session_streaming_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::start_live_tail::StartLiveTailError::generic(generic),
     })
 }

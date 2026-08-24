@@ -4,10 +4,6 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub enum StartLiveTailResponseStream {
-    /// <p>This exception is returned if an unknown error occurs.</p>
-    SessionStreamingException(super::super::types::SessionStreamingException),
-    /// <p>This exception is returned in the stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
-    SessionTimeoutException(super::super::types::SessionTimeoutException),
     /// <p>This object contains information about this Live Tail session, including the log groups included and the log stream filters, if any.</p>
     SessionStart(super::super::types::LiveTailSessionStart),
     /// <p>This object contains the log events and session metadata.</p>
@@ -23,32 +19,6 @@ pub enum StartLiveTailResponseStream {
     Unknown,
 }
 impl StartLiveTailResponseStream {
-    /// Tries to convert the enum instance into [`SessionStreamingException`](crate::types::StartLiveTailResponseStream::SessionStreamingException), extracting the inner [`SessionStreamingException`](crate::types::SessionStreamingException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_session_streaming_exception(&self) -> ::std::result::Result<&super::super::types::SessionStreamingException, &Self> {
-        if let StartLiveTailResponseStream::SessionStreamingException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`SessionStreamingException`](crate::types::StartLiveTailResponseStream::SessionStreamingException).
-    pub fn is_session_streaming_exception(&self) -> bool {
-        self.as_session_streaming_exception().is_ok()
-    }
-    /// Tries to convert the enum instance into [`SessionTimeoutException`](crate::types::StartLiveTailResponseStream::SessionTimeoutException), extracting the inner [`SessionTimeoutException`](crate::types::SessionTimeoutException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_session_timeout_exception(&self) -> ::std::result::Result<&super::super::types::SessionTimeoutException, &Self> {
-        if let StartLiveTailResponseStream::SessionTimeoutException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`SessionTimeoutException`](crate::types::StartLiveTailResponseStream::SessionTimeoutException).
-    pub fn is_session_timeout_exception(&self) -> bool {
-        self.as_session_timeout_exception().is_ok()
-    }
     /// Tries to convert the enum instance into [`SessionStart`](crate::types::StartLiveTailResponseStream::SessionStart), extracting the inner [`LiveTailSessionStart`](crate::types::LiveTailSessionStart).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_session_start(&self) -> ::std::result::Result<&super::super::types::LiveTailSessionStart, &Self> {

@@ -10,22 +10,12 @@ pub enum ConverseStreamOutput {
     ContentBlockStart(super::super::types::ContentBlockStartEvent),
     /// <p>Stop information for a content block.</p>
     ContentBlockStop(super::super::types::ContentBlockStopEvent),
-    /// <p>An internal server error occurred. Retry your request.</p>
-    InternalServerException(super::super::types::InternalServerException),
     /// <p>Message start information.</p>
     MessageStart(super::super::types::MessageStartEvent),
     /// <p>Message stop information.</p>
     MessageStop(super::super::types::MessageStopEvent),
     /// <p>Metadata for the converse output stream.</p>
     Metadata(super::super::types::ConverseStreamMetadataEvent),
-    /// <p>A streaming error occurred. Retry your request.</p>
-    ModelStreamErrorException(super::super::types::ModelStreamErrorException),
-    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
-    ServiceUnavailableException(super::super::types::ServiceUnavailableException),
-    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide.</p>
-    ThrottlingException(super::super::types::ThrottlingException),
-    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide.</p>
-    ValidationException(super::super::types::ValidationException),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -76,19 +66,6 @@ impl ConverseStreamOutput {
     pub fn is_content_block_stop(&self) -> bool {
         self.as_content_block_stop().is_ok()
     }
-    /// Tries to convert the enum instance into [`InternalServerException`](crate::types::ConverseStreamOutput::InternalServerException), extracting the inner [`InternalServerException`](crate::types::InternalServerException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::super::types::InternalServerException, &Self> {
-        if let ConverseStreamOutput::InternalServerException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`InternalServerException`](crate::types::ConverseStreamOutput::InternalServerException).
-    pub fn is_internal_server_exception(&self) -> bool {
-        self.as_internal_server_exception().is_ok()
-    }
     /// Tries to convert the enum instance into [`MessageStart`](crate::types::ConverseStreamOutput::MessageStart), extracting the inner [`MessageStartEvent`](crate::types::MessageStartEvent).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_message_start(&self) -> ::std::result::Result<&super::super::types::MessageStartEvent, &Self> {
@@ -127,58 +104,6 @@ impl ConverseStreamOutput {
     /// Returns true if this is a [`Metadata`](crate::types::ConverseStreamOutput::Metadata).
     pub fn is_metadata(&self) -> bool {
         self.as_metadata().is_ok()
-    }
-    /// Tries to convert the enum instance into [`ModelStreamErrorException`](crate::types::ConverseStreamOutput::ModelStreamErrorException), extracting the inner [`ModelStreamErrorException`](crate::types::ModelStreamErrorException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::super::types::ModelStreamErrorException, &Self> {
-        if let ConverseStreamOutput::ModelStreamErrorException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`ModelStreamErrorException`](crate::types::ConverseStreamOutput::ModelStreamErrorException).
-    pub fn is_model_stream_error_exception(&self) -> bool {
-        self.as_model_stream_error_exception().is_ok()
-    }
-    /// Tries to convert the enum instance into [`ServiceUnavailableException`](crate::types::ConverseStreamOutput::ServiceUnavailableException), extracting the inner [`ServiceUnavailableException`](crate::types::ServiceUnavailableException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::super::types::ServiceUnavailableException, &Self> {
-        if let ConverseStreamOutput::ServiceUnavailableException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`ServiceUnavailableException`](crate::types::ConverseStreamOutput::ServiceUnavailableException).
-    pub fn is_service_unavailable_exception(&self) -> bool {
-        self.as_service_unavailable_exception().is_ok()
-    }
-    /// Tries to convert the enum instance into [`ThrottlingException`](crate::types::ConverseStreamOutput::ThrottlingException), extracting the inner [`ThrottlingException`](crate::types::ThrottlingException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::super::types::ThrottlingException, &Self> {
-        if let ConverseStreamOutput::ThrottlingException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`ThrottlingException`](crate::types::ConverseStreamOutput::ThrottlingException).
-    pub fn is_throttling_exception(&self) -> bool {
-        self.as_throttling_exception().is_ok()
-    }
-    /// Tries to convert the enum instance into [`ValidationException`](crate::types::ConverseStreamOutput::ValidationException), extracting the inner [`ValidationException`](crate::types::ValidationException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_validation_exception(&self) -> ::std::result::Result<&super::super::types::ValidationException, &Self> {
-        if let ConverseStreamOutput::ValidationException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`ValidationException`](crate::types::ConverseStreamOutput::ValidationException).
-    pub fn is_validation_exception(&self) -> bool {
-        self.as_validation_exception().is_ok()
     }
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {

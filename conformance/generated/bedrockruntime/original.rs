@@ -3473,6 +3473,7 @@ impl From<super::operation::converse_stream::ConverseStreamError> for Error {
             super::operation::converse_stream::ConverseStreamError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             super::operation::converse_stream::ConverseStreamError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             super::operation::converse_stream::ConverseStreamError::ValidationException(inner) => Error::ValidationException(inner),
+            super::operation::converse_stream::ConverseStreamError::ModelStreamErrorException(inner) => Error::ModelStreamErrorException(inner),
             super::operation::converse_stream::ConverseStreamError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -6627,6 +6628,8 @@ pub enum ConverseStreamError {
     ThrottlingException(super::super::types::error::ThrottlingException),
     /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
     ValidationException(super::super::types::error::ValidationException),
+    /// <p>An error occurred while streaming the response. Retry your request.</p>
+    ModelStreamErrorException(super::super::types::error::ModelStreamErrorException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -6669,6 +6672,7 @@ impl ConverseStreamError {
             Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -6708,6 +6712,10 @@ impl ConverseStreamError {
     pub fn is_validation_exception(&self) -> bool {
         matches!(self, Self::ValidationException(_))
     }
+    /// Returns `true` if the error kind is `ConverseStreamError::ModelStreamErrorException`.
+    pub fn is_model_stream_error_exception(&self) -> bool {
+        matches!(self, Self::ModelStreamErrorException(_))
+    }
 }
 impl ::std::error::Error for ConverseStreamError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
@@ -6721,6 +6729,7 @@ impl ::std::error::Error for ConverseStreamError {
             Self::ServiceUnavailableException(_inner) => ::std::option::Option::Some(_inner),
             Self::ThrottlingException(_inner) => ::std::option::Option::Some(_inner),
             Self::ValidationException(_inner) => ::std::option::Option::Some(_inner),
+            Self::ModelStreamErrorException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
@@ -6737,6 +6746,7 @@ impl ::std::fmt::Display for ConverseStreamError {
             Self::ServiceUnavailableException(_inner) => _inner.fmt(f),
             Self::ThrottlingException(_inner) => _inner.fmt(f),
             Self::ValidationException(_inner) => _inner.fmt(f),
+            Self::ModelStreamErrorException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
@@ -6770,6 +6780,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ConverseStrea
             Self::ServiceUnavailableException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ThrottlingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ValidationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::ModelStreamErrorException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
@@ -18935,22 +18946,12 @@ pub enum ConverseStreamOutput {
     ContentBlockStart(super::super::types::ContentBlockStartEvent),
     /// <p>Stop information for a content block.</p>
     ContentBlockStop(super::super::types::ContentBlockStopEvent),
-    /// <p>An internal server error occurred. Retry your request.</p>
-    InternalServerException(super::super::types::InternalServerException),
     /// <p>Message start information.</p>
     MessageStart(super::super::types::MessageStartEvent),
     /// <p>Message stop information.</p>
     MessageStop(super::super::types::MessageStopEvent),
     /// <p>Metadata for the converse output stream.</p>
     Metadata(super::super::types::ConverseStreamMetadataEvent),
-    /// <p>A streaming error occurred. Retry your request.</p>
-    ModelStreamErrorException(super::super::types::ModelStreamErrorException),
-    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
-    ServiceUnavailableException(super::super::types::ServiceUnavailableException),
-    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide.</p>
-    ThrottlingException(super::super::types::ThrottlingException),
-    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide.</p>
-    ValidationException(super::super::types::ValidationException),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -19001,19 +19002,6 @@ pub fn as_content_block_stop(&self) -> ::std::result::Result<&super::super::type
 pub fn is_content_block_stop(&self) -> bool {
     self.as_content_block_stop().is_ok()
 }
-/// Tries to convert the enum instance into [`InternalServerException`](crate::types::ConverseStreamOutput::InternalServerException), extracting the inner [`InternalServerException`](crate::types::InternalServerException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::super::types::InternalServerException, &Self> {
-    if let ConverseStreamOutput::InternalServerException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`InternalServerException`](crate::types::ConverseStreamOutput::InternalServerException).
-pub fn is_internal_server_exception(&self) -> bool {
-    self.as_internal_server_exception().is_ok()
-}
 /// Tries to convert the enum instance into [`MessageStart`](crate::types::ConverseStreamOutput::MessageStart), extracting the inner [`MessageStartEvent`](crate::types::MessageStartEvent).
 /// Returns `Err(&Self)` if it can't be converted.
 pub fn as_message_start(&self) -> ::std::result::Result<&super::super::types::MessageStartEvent, &Self> {
@@ -19052,58 +19040,6 @@ pub fn as_metadata(&self) -> ::std::result::Result<&super::super::types::Convers
 /// Returns true if this is a [`Metadata`](crate::types::ConverseStreamOutput::Metadata).
 pub fn is_metadata(&self) -> bool {
     self.as_metadata().is_ok()
-}
-/// Tries to convert the enum instance into [`ModelStreamErrorException`](crate::types::ConverseStreamOutput::ModelStreamErrorException), extracting the inner [`ModelStreamErrorException`](crate::types::ModelStreamErrorException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::super::types::ModelStreamErrorException, &Self> {
-    if let ConverseStreamOutput::ModelStreamErrorException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ModelStreamErrorException`](crate::types::ConverseStreamOutput::ModelStreamErrorException).
-pub fn is_model_stream_error_exception(&self) -> bool {
-    self.as_model_stream_error_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ServiceUnavailableException`](crate::types::ConverseStreamOutput::ServiceUnavailableException), extracting the inner [`ServiceUnavailableException`](crate::types::ServiceUnavailableException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::super::types::ServiceUnavailableException, &Self> {
-    if let ConverseStreamOutput::ServiceUnavailableException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ServiceUnavailableException`](crate::types::ConverseStreamOutput::ServiceUnavailableException).
-pub fn is_service_unavailable_exception(&self) -> bool {
-    self.as_service_unavailable_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ThrottlingException`](crate::types::ConverseStreamOutput::ThrottlingException), extracting the inner [`ThrottlingException`](crate::types::ThrottlingException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::super::types::ThrottlingException, &Self> {
-    if let ConverseStreamOutput::ThrottlingException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ThrottlingException`](crate::types::ConverseStreamOutput::ThrottlingException).
-pub fn is_throttling_exception(&self) -> bool {
-    self.as_throttling_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ValidationException`](crate::types::ConverseStreamOutput::ValidationException), extracting the inner [`ValidationException`](crate::types::ValidationException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_validation_exception(&self) -> ::std::result::Result<&super::super::types::ValidationException, &Self> {
-    if let ConverseStreamOutput::ValidationException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ValidationException`](crate::types::ConverseStreamOutput::ValidationException).
-pub fn is_validation_exception(&self) -> bool {
-    self.as_validation_exception().is_ok()
 }
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
@@ -29600,18 +29536,6 @@ mod _invoke_model_with_bidirectional_stream_output {
 pub enum InvokeModelWithBidirectionalStreamOutput {
     /// <p>The speech chunk that was provided as output from the invocation step.</p>
     Chunk(super::super::types::BidirectionalOutputPayloadPart),
-    /// <p>The request encountered an unknown internal error.</p>
-    InternalServerException(super::super::types::InternalServerException),
-    /// <p>The request encountered an error with the model stream.</p>
-    ModelStreamErrorException(super::super::types::ModelStreamErrorException),
-    /// <p>The connection was closed because a request was not received within the timeout period.</p>
-    ModelTimeoutException(super::super::types::ModelTimeoutException),
-    /// <p>The request has failed due to a temporary failure of the server.</p>
-    ServiceUnavailableException(super::super::types::ServiceUnavailableException),
-    /// <p>The request was denied due to request throttling.</p>
-    ThrottlingException(super::super::types::ThrottlingException),
-    /// <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
-    ValidationException(super::super::types::ValidationException),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -29623,6 +29547,7 @@ pub enum InvokeModelWithBidirectionalStreamOutput {
     Unknown,
 }
 impl InvokeModelWithBidirectionalStreamOutput {
+#[allow(irrefutable_let_patterns)]
 /// Tries to convert the enum instance into [`Chunk`](crate::types::InvokeModelWithBidirectionalStreamOutput::Chunk), extracting the inner [`BidirectionalOutputPayloadPart`](crate::types::BidirectionalOutputPayloadPart).
 /// Returns `Err(&Self)` if it can't be converted.
 pub fn as_chunk(&self) -> ::std::result::Result<&super::super::types::BidirectionalOutputPayloadPart, &Self> {
@@ -29635,84 +29560,6 @@ pub fn as_chunk(&self) -> ::std::result::Result<&super::super::types::Bidirectio
 /// Returns true if this is a [`Chunk`](crate::types::InvokeModelWithBidirectionalStreamOutput::Chunk).
 pub fn is_chunk(&self) -> bool {
     self.as_chunk().is_ok()
-}
-/// Tries to convert the enum instance into [`InternalServerException`](crate::types::InvokeModelWithBidirectionalStreamOutput::InternalServerException), extracting the inner [`InternalServerException`](crate::types::InternalServerException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::super::types::InternalServerException, &Self> {
-    if let InvokeModelWithBidirectionalStreamOutput::InternalServerException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`InternalServerException`](crate::types::InvokeModelWithBidirectionalStreamOutput::InternalServerException).
-pub fn is_internal_server_exception(&self) -> bool {
-    self.as_internal_server_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ModelStreamErrorException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException), extracting the inner [`ModelStreamErrorException`](crate::types::ModelStreamErrorException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::super::types::ModelStreamErrorException, &Self> {
-    if let InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ModelStreamErrorException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException).
-pub fn is_model_stream_error_exception(&self) -> bool {
-    self.as_model_stream_error_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ModelTimeoutException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException), extracting the inner [`ModelTimeoutException`](crate::types::ModelTimeoutException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_model_timeout_exception(&self) -> ::std::result::Result<&super::super::types::ModelTimeoutException, &Self> {
-    if let InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ModelTimeoutException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException).
-pub fn is_model_timeout_exception(&self) -> bool {
-    self.as_model_timeout_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ServiceUnavailableException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException), extracting the inner [`ServiceUnavailableException`](crate::types::ServiceUnavailableException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::super::types::ServiceUnavailableException, &Self> {
-    if let InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ServiceUnavailableException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException).
-pub fn is_service_unavailable_exception(&self) -> bool {
-    self.as_service_unavailable_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ThrottlingException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ThrottlingException), extracting the inner [`ThrottlingException`](crate::types::ThrottlingException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::super::types::ThrottlingException, &Self> {
-    if let InvokeModelWithBidirectionalStreamOutput::ThrottlingException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ThrottlingException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ThrottlingException).
-pub fn is_throttling_exception(&self) -> bool {
-    self.as_throttling_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ValidationException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ValidationException), extracting the inner [`ValidationException`](crate::types::ValidationException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_validation_exception(&self) -> ::std::result::Result<&super::super::types::ValidationException, &Self> {
-    if let InvokeModelWithBidirectionalStreamOutput::ValidationException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ValidationException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ValidationException).
-pub fn is_validation_exception(&self) -> bool {
-    self.as_validation_exception().is_ok()
 }
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
@@ -30887,18 +30734,6 @@ mod _response_stream {
 pub enum ResponseStream {
     /// <p>Content included in the response.</p>
     Chunk(super::super::types::PayloadPart),
-    /// <p>An internal server error occurred. Retry your request.</p>
-    InternalServerException(super::super::types::InternalServerException),
-    /// <p>An error occurred while streaming the response. Retry your request.</p>
-    ModelStreamErrorException(super::super::types::ModelStreamErrorException),
-    /// <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
-    ModelTimeoutException(super::super::types::ModelTimeoutException),
-    /// <p>The service isn't available. Try again later.</p>
-    ServiceUnavailableException(super::super::types::ServiceUnavailableException),
-    /// <p>Your request was throttled because of service-wide limitations. Resubmit your request later or in a different region. You can also purchase <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> to increase the rate or number of tokens you can process.</p>
-    ThrottlingException(super::super::types::ThrottlingException),
-    /// <p>Input validation failed. Check your request parameters and retry the request.</p>
-    ValidationException(super::super::types::ValidationException),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -30910,6 +30745,7 @@ pub enum ResponseStream {
     Unknown,
 }
 impl ResponseStream {
+#[allow(irrefutable_let_patterns)]
 /// Tries to convert the enum instance into [`Chunk`](crate::types::ResponseStream::Chunk), extracting the inner [`PayloadPart`](crate::types::PayloadPart).
 /// Returns `Err(&Self)` if it can't be converted.
 pub fn as_chunk(&self) -> ::std::result::Result<&super::super::types::PayloadPart, &Self> {
@@ -30922,84 +30758,6 @@ pub fn as_chunk(&self) -> ::std::result::Result<&super::super::types::PayloadPar
 /// Returns true if this is a [`Chunk`](crate::types::ResponseStream::Chunk).
 pub fn is_chunk(&self) -> bool {
     self.as_chunk().is_ok()
-}
-/// Tries to convert the enum instance into [`InternalServerException`](crate::types::ResponseStream::InternalServerException), extracting the inner [`InternalServerException`](crate::types::InternalServerException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::super::types::InternalServerException, &Self> {
-    if let ResponseStream::InternalServerException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`InternalServerException`](crate::types::ResponseStream::InternalServerException).
-pub fn is_internal_server_exception(&self) -> bool {
-    self.as_internal_server_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ModelStreamErrorException`](crate::types::ResponseStream::ModelStreamErrorException), extracting the inner [`ModelStreamErrorException`](crate::types::ModelStreamErrorException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::super::types::ModelStreamErrorException, &Self> {
-    if let ResponseStream::ModelStreamErrorException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ModelStreamErrorException`](crate::types::ResponseStream::ModelStreamErrorException).
-pub fn is_model_stream_error_exception(&self) -> bool {
-    self.as_model_stream_error_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ModelTimeoutException`](crate::types::ResponseStream::ModelTimeoutException), extracting the inner [`ModelTimeoutException`](crate::types::ModelTimeoutException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_model_timeout_exception(&self) -> ::std::result::Result<&super::super::types::ModelTimeoutException, &Self> {
-    if let ResponseStream::ModelTimeoutException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ModelTimeoutException`](crate::types::ResponseStream::ModelTimeoutException).
-pub fn is_model_timeout_exception(&self) -> bool {
-    self.as_model_timeout_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ServiceUnavailableException`](crate::types::ResponseStream::ServiceUnavailableException), extracting the inner [`ServiceUnavailableException`](crate::types::ServiceUnavailableException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::super::types::ServiceUnavailableException, &Self> {
-    if let ResponseStream::ServiceUnavailableException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ServiceUnavailableException`](crate::types::ResponseStream::ServiceUnavailableException).
-pub fn is_service_unavailable_exception(&self) -> bool {
-    self.as_service_unavailable_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ThrottlingException`](crate::types::ResponseStream::ThrottlingException), extracting the inner [`ThrottlingException`](crate::types::ThrottlingException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::super::types::ThrottlingException, &Self> {
-    if let ResponseStream::ThrottlingException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ThrottlingException`](crate::types::ResponseStream::ThrottlingException).
-pub fn is_throttling_exception(&self) -> bool {
-    self.as_throttling_exception().is_ok()
-}
-/// Tries to convert the enum instance into [`ValidationException`](crate::types::ResponseStream::ValidationException), extracting the inner [`ValidationException`](crate::types::ValidationException).
-/// Returns `Err(&Self)` if it can't be converted.
-pub fn as_validation_exception(&self) -> ::std::result::Result<&super::super::types::ValidationException, &Self> {
-    if let ResponseStream::ValidationException(val) = &self {
-        ::std::result::Result::Ok(val)
-    } else {
-        ::std::result::Result::Err(self)
-    }
-}
-/// Returns true if this is a [`ValidationException`](crate::types::ResponseStream::ValidationException).
-pub fn is_validation_exception(&self) -> bool {
-    self.as_validation_exception().is_ok()
 }
 /// Returns true if the enum instance is the `Unknown` variant.
 pub fn is_unknown(&self) -> bool {
@@ -36942,6 +36700,20 @@ pub fn de_converse_stream_http_error(
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ModelStreamErrorException" => super::super::operation::converse_stream::ConverseStreamError::ModelStreamErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output).map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -51080,6 +50852,61 @@ mod event_stream_serde {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 #[non_exhaustive]
 #[derive(Debug)]
+pub struct InvokeModelWithBidirectionalStreamInputErrorMarshaller;
+
+impl InvokeModelWithBidirectionalStreamInputErrorMarshaller {
+    pub fn new() -> Self {
+        InvokeModelWithBidirectionalStreamInputErrorMarshaller
+    }
+}
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputErrorMarshaller {
+    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputError;
+    fn marshall(
+        &self,
+        _input: Self::Input,
+    ) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
+        let mut headers = Vec::new();
+        headers.push(::aws_smithy_types::event_stream::Header::new(
+            ":message-type",
+            ::aws_smithy_types::event_stream::HeaderValue::String("exception".into()),
+        ));
+        let payload = ::bytes::Bytes::new();
+        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
+    }
+}
+
+#[non_exhaustive]
+#[derive(Debug)]
+pub struct InvokeModelWithBidirectionalStreamInputMarshaller;
+
+impl InvokeModelWithBidirectionalStreamInputMarshaller {
+    pub fn new() -> Self {
+        InvokeModelWithBidirectionalStreamInputMarshaller
+    }
+}
+impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputMarshaller {
+    type Input = super::types::InvokeModelWithBidirectionalStreamInput;
+    fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
+        let mut headers = Vec::new();
+        headers.push(::aws_smithy_types::event_stream::Header::new(
+            ":message-type",
+            ::aws_smithy_types::event_stream::HeaderValue::String("event".into()),
+        ));
+        let payload = match input {
+            Self::Input::Chunk(inner) => {
+                headers.push(::aws_smithy_types::event_stream::Header::new(":event-type", ::aws_smithy_types::event_stream::HeaderValue::String("chunk".into())));
+                headers.push(::aws_smithy_types::event_stream::Header::new(":content-type", ::aws_smithy_types::event_stream::HeaderValue::String("application/json".into())));
+                ::bytes::Bytes::from(super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input::ser_chunk_payload(&inner).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!("{err}")))?)
+            }
+            Self::Input::Unknown => return Err(
+                ::aws_smithy_eventstream::error::Error::marshalling("Cannot serialize `InvokeModelWithBidirectionalStreamInput::Unknown` for the request. The `Unknown` variant is intended for responses only. It occurs when an outdated client is used after a new enum variant was added on the server side.".to_owned())
+            )
+        };
+        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
+    }
+}
+#[non_exhaustive]
+#[derive(Debug)]
 pub struct ConverseStreamOutputUnmarshaller;
 
 impl ConverseStreamOutputUnmarshaller {
@@ -51102,7 +50929,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                     let parsed =
                         super::protocol_serde::shape_message_start_event::de_message_start_event_payload(&message.payload()[..])
                             .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall messageStart: {err}"))
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall MessageStart: {err}"))
                             })?
                         ;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
@@ -51113,7 +50940,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                     let parsed =
                         super::protocol_serde::shape_content_block_start_event::de_content_block_start_event_payload(&message.payload()[..])
                             .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall contentBlockStart: {err}"))
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall ContentBlockStart: {err}"))
                             })?
                         ;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
@@ -51124,7 +50951,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                     let parsed =
                         super::protocol_serde::shape_content_block_delta_event::de_content_block_delta_event_payload(&message.payload()[..])
                             .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall contentBlockDelta: {err}"))
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall ContentBlockDelta: {err}"))
                             })?
                         ;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
@@ -51135,7 +50962,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                     let parsed =
                         super::protocol_serde::shape_content_block_stop_event::de_content_block_stop_event_payload(&message.payload()[..])
                             .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall contentBlockStop: {err}"))
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall ContentBlockStop: {err}"))
                             })?
                         ;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
@@ -51146,7 +50973,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                     let parsed =
                         super::protocol_serde::shape_message_stop_event::de_message_stop_event_payload(&message.payload()[..])
                             .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall messageStop: {err}"))
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall MessageStop: {err}"))
                             })?
                         ;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
@@ -51157,7 +50984,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
                     let parsed =
                         super::protocol_serde::shape_converse_stream_metadata_event::de_converse_stream_metadata_event_payload(&message.payload()[..])
                             .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall metadata: {err}"))
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall Metadata: {err}"))
                             })?
                         ;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
@@ -51264,61 +51091,6 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ConverseStreamOutput
 }
 #[non_exhaustive]
 #[derive(Debug)]
-pub struct InvokeModelWithBidirectionalStreamInputErrorMarshaller;
-
-impl InvokeModelWithBidirectionalStreamInputErrorMarshaller {
-    pub fn new() -> Self {
-        InvokeModelWithBidirectionalStreamInputErrorMarshaller
-    }
-}
-impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputErrorMarshaller {
-    type Input = super::types::error::InvokeModelWithBidirectionalStreamInputError;
-    fn marshall(
-        &self,
-        _input: Self::Input,
-    ) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
-        let mut headers = Vec::new();
-        headers.push(::aws_smithy_types::event_stream::Header::new(
-            ":message-type",
-            ::aws_smithy_types::event_stream::HeaderValue::String("exception".into()),
-        ));
-        let payload = ::bytes::Bytes::new();
-        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
-    }
-}
-
-#[non_exhaustive]
-#[derive(Debug)]
-pub struct InvokeModelWithBidirectionalStreamInputMarshaller;
-
-impl InvokeModelWithBidirectionalStreamInputMarshaller {
-    pub fn new() -> Self {
-        InvokeModelWithBidirectionalStreamInputMarshaller
-    }
-}
-impl ::aws_smithy_eventstream::frame::MarshallMessage for InvokeModelWithBidirectionalStreamInputMarshaller {
-    type Input = super::types::InvokeModelWithBidirectionalStreamInput;
-    fn marshall(&self, input: Self::Input) -> std::result::Result<::aws_smithy_types::event_stream::Message, ::aws_smithy_eventstream::error::Error> {
-        let mut headers = Vec::new();
-        headers.push(::aws_smithy_types::event_stream::Header::new(
-            ":message-type",
-            ::aws_smithy_types::event_stream::HeaderValue::String("event".into()),
-        ));
-        let payload = match input {
-            Self::Input::Chunk(inner) => {
-                headers.push(::aws_smithy_types::event_stream::Header::new(":event-type", ::aws_smithy_types::event_stream::HeaderValue::String("chunk".into())));
-                headers.push(::aws_smithy_types::event_stream::Header::new(":content-type", ::aws_smithy_types::event_stream::HeaderValue::String("application/json".into())));
-                ::bytes::Bytes::from(super::protocol_serde::shape_invoke_model_with_bidirectional_stream_input_input::ser_chunk_payload(&inner).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!("{err}")))?)
-            }
-            Self::Input::Unknown => return Err(
-                ::aws_smithy_eventstream::error::Error::marshalling("Cannot serialize `InvokeModelWithBidirectionalStreamInput::Unknown` for the request. The `Unknown` variant is intended for responses only. It occurs when an outdated client is used after a new enum variant was added on the server side.".to_owned())
-            )
-        };
-        Ok(::aws_smithy_types::event_stream::Message::new_from_parts(headers, payload))
-    }
-}
-#[non_exhaustive]
-#[derive(Debug)]
 pub struct InvokeModelWithBidirectionalStreamOutputUnmarshaller;
 
 impl InvokeModelWithBidirectionalStreamOutputUnmarshaller {
@@ -51341,7 +51113,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for InvokeModelWithBidir
                     let parsed =
                         super::protocol_serde::shape_bidirectional_output_payload_part::de_bidirectional_output_payload_part_payload(&message.payload()[..])
                             .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall chunk: {err}"))
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall Chunk: {err}"))
                             })?
                         ;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
@@ -51484,7 +51256,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for ResponseStreamUnmars
                     let parsed =
                         super::protocol_serde::shape_payload_part::de_payload_part_payload(&message.payload()[..])
                             .map_err(|err| {
-                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall chunk: {err}"))
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall Chunk: {err}"))
                             })?
                         ;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(

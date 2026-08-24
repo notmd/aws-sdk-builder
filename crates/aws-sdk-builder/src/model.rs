@@ -395,8 +395,88 @@ fn normalize_operation_shapes(
     for (id, operation) in rewritten_operations {
         shapes.insert(id, operation);
     }
+    for operation_id in operation_ids {
+        add_event_stream_errors_to_operation(shapes, operation_id);
+    }
     prune_to_directed_closure(shapes, service_id, operation_ids);
     Ok(())
+}
+
+/// Smithy-RS's event-stream normalization promotes errors carried by streaming
+/// unions into the containing operation's error list. This lets the operation
+/// error type represent both transport errors and errors received in the
+/// stream, while the public event union can expose only actual events.
+fn add_event_stream_errors_to_operation(shapes: &mut Map<String, Value>, operation_id: &str) {
+    let Some(operation) = shapes.get(operation_id).cloned() else {
+        return;
+    };
+    let mut stream_errors = Vec::new();
+    for io in ["input", "output"] {
+        let Some(root_id) = operation.get(io).and_then(member_target) else {
+            continue;
+        };
+        let Some(root) = shapes.get(root_id) else {
+            continue;
+        };
+        let Some(root_members) = root.get("members").and_then(Value::as_object) else {
+            continue;
+        };
+        for member in root_members.values() {
+            let Some(union_id) = member_target(member) else {
+                continue;
+            };
+            let Some(union) = shapes.get(union_id) else {
+                continue;
+            };
+            if union.get("type").and_then(Value::as_str) != Some("union")
+                || !shape_has_trait(union, "smithy.api#streaming")
+            {
+                continue;
+            }
+            let Some(union_members) = union.get("members").and_then(Value::as_object) else {
+                continue;
+            };
+            for union_member in union_members.values() {
+                let Some(error_id) = member_target(union_member) else {
+                    continue;
+                };
+                if shapes
+                    .get(error_id)
+                    .is_some_and(|shape| shape_has_trait(shape, "smithy.api#error"))
+                    && !stream_errors.iter().any(|id| id == error_id)
+                {
+                    stream_errors.push(error_id.to_owned());
+                }
+            }
+        }
+    }
+    if stream_errors.is_empty() {
+        return;
+    }
+    let operation = shapes
+        .get_mut(operation_id)
+        .and_then(Value::as_object_mut)
+        .expect("operation shape must remain an object");
+    let errors = operation
+        .entry("errors".to_owned())
+        .or_insert_with(|| Value::Array(Vec::new()))
+        .as_array_mut()
+        .expect("operation errors must be an array");
+    for error_id in stream_errors {
+        if !errors
+            .iter()
+            .any(|error| member_target(error) == Some(error_id.as_str()))
+        {
+            errors.push(operation_value(error_id));
+        }
+    }
+}
+
+fn shape_has_trait(shape: &Value, trait_id: &str) -> bool {
+    shape
+        .get("traits")
+        .and_then(Value::as_object)
+        .is_some_and(|traits| traits.contains_key(trait_id))
 }
 
 fn prune_to_directed_closure(

@@ -175,6 +175,21 @@ pub fn de_converse_stream_http_error(
             }
             tmp
         }),
+        "ModelStreamErrorException" => super::super::operation::converse_stream::ConverseStreamError::ModelStreamErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::converse_stream::ConverseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::converse_stream::ConverseStreamError::generic(generic),
     })
 }

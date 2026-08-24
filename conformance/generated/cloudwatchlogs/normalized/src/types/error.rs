@@ -25,21 +25,21 @@ pub use super::super::types::error::_limit_exceeded_exception::LimitExceededExce
 
 pub use super::super::types::error::_resource_already_exists_exception::ResourceAlreadyExistsException;
 
+pub use super::super::types::error::_internal_streaming_exception::InternalStreamingException;
+
 pub use super::super::types::error::_data_already_accepted_exception::DataAlreadyAcceptedException;
 
 pub use super::super::types::error::_invalid_sequence_token_exception::InvalidSequenceTokenException;
 
 pub use super::super::types::error::_unrecognized_client_exception::UnrecognizedClientException;
 
-pub use super::super::types::error::_malformed_query_exception::MalformedQueryException;
-
-pub use super::super::types::error::_too_many_tags_exception::TooManyTagsException;
-
-pub use super::super::types::error::_internal_streaming_exception::InternalStreamingException;
+pub use super::super::types::error::_session_timeout_exception::SessionTimeoutException;
 
 pub use super::super::types::error::_session_streaming_exception::SessionStreamingException;
 
-pub use super::super::types::error::_session_timeout_exception::SessionTimeoutException;
+pub use super::super::types::error::_malformed_query_exception::MalformedQueryException;
+
+pub use super::super::types::error::_too_many_tags_exception::TooManyTagsException;
 
 /// Error type for the `GetLogObjectResponseStreamError` operation.
 #[non_exhaustive]

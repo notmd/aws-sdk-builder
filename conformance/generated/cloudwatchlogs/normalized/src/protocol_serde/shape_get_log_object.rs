@@ -92,6 +92,21 @@ pub fn de_get_log_object_http_error(
             }
             tmp
         }),
+        "InternalStreamingException" => super::super::operation::get_log_object::GetLogObjectError::InternalStreamingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalStreamingExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_streaming_exception::de_internal_streaming_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_log_object::GetLogObjectError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::get_log_object::GetLogObjectError::generic(generic),
     })
 }

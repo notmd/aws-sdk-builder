@@ -174,6 +174,7 @@ impl From<super::operation::converse_stream::ConverseStreamError> for Error {
             super::operation::converse_stream::ConverseStreamError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             super::operation::converse_stream::ConverseStreamError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             super::operation::converse_stream::ConverseStreamError::ValidationException(inner) => Error::ValidationException(inner),
+            super::operation::converse_stream::ConverseStreamError::ModelStreamErrorException(inner) => Error::ModelStreamErrorException(inner),
             super::operation::converse_stream::ConverseStreamError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }

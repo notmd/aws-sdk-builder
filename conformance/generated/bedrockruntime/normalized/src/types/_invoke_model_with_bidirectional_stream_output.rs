@@ -6,18 +6,6 @@
 pub enum InvokeModelWithBidirectionalStreamOutput {
     /// <p>The speech chunk that was provided as output from the invocation step.</p>
     Chunk(super::super::types::BidirectionalOutputPayloadPart),
-    /// <p>The request encountered an unknown internal error.</p>
-    InternalServerException(super::super::types::InternalServerException),
-    /// <p>The request encountered an error with the model stream.</p>
-    ModelStreamErrorException(super::super::types::ModelStreamErrorException),
-    /// <p>The connection was closed because a request was not received within the timeout period.</p>
-    ModelTimeoutException(super::super::types::ModelTimeoutException),
-    /// <p>The request has failed due to a temporary failure of the server.</p>
-    ServiceUnavailableException(super::super::types::ServiceUnavailableException),
-    /// <p>The request was denied due to request throttling.</p>
-    ThrottlingException(super::super::types::ThrottlingException),
-    /// <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
-    ValidationException(super::super::types::ValidationException),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
     /// An unknown enum variant
     ///
@@ -29,6 +17,7 @@ pub enum InvokeModelWithBidirectionalStreamOutput {
     Unknown,
 }
 impl InvokeModelWithBidirectionalStreamOutput {
+    #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`Chunk`](crate::types::InvokeModelWithBidirectionalStreamOutput::Chunk), extracting the inner [`BidirectionalOutputPayloadPart`](crate::types::BidirectionalOutputPayloadPart).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_chunk(&self) -> ::std::result::Result<&super::super::types::BidirectionalOutputPayloadPart, &Self> {
@@ -41,84 +30,6 @@ impl InvokeModelWithBidirectionalStreamOutput {
     /// Returns true if this is a [`Chunk`](crate::types::InvokeModelWithBidirectionalStreamOutput::Chunk).
     pub fn is_chunk(&self) -> bool {
         self.as_chunk().is_ok()
-    }
-    /// Tries to convert the enum instance into [`InternalServerException`](crate::types::InvokeModelWithBidirectionalStreamOutput::InternalServerException), extracting the inner [`InternalServerException`](crate::types::InternalServerException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_internal_server_exception(&self) -> ::std::result::Result<&super::super::types::InternalServerException, &Self> {
-        if let InvokeModelWithBidirectionalStreamOutput::InternalServerException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`InternalServerException`](crate::types::InvokeModelWithBidirectionalStreamOutput::InternalServerException).
-    pub fn is_internal_server_exception(&self) -> bool {
-        self.as_internal_server_exception().is_ok()
-    }
-    /// Tries to convert the enum instance into [`ModelStreamErrorException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException), extracting the inner [`ModelStreamErrorException`](crate::types::ModelStreamErrorException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_model_stream_error_exception(&self) -> ::std::result::Result<&super::super::types::ModelStreamErrorException, &Self> {
-        if let InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`ModelStreamErrorException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelStreamErrorException).
-    pub fn is_model_stream_error_exception(&self) -> bool {
-        self.as_model_stream_error_exception().is_ok()
-    }
-    /// Tries to convert the enum instance into [`ModelTimeoutException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException), extracting the inner [`ModelTimeoutException`](crate::types::ModelTimeoutException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_model_timeout_exception(&self) -> ::std::result::Result<&super::super::types::ModelTimeoutException, &Self> {
-        if let InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`ModelTimeoutException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ModelTimeoutException).
-    pub fn is_model_timeout_exception(&self) -> bool {
-        self.as_model_timeout_exception().is_ok()
-    }
-    /// Tries to convert the enum instance into [`ServiceUnavailableException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException), extracting the inner [`ServiceUnavailableException`](crate::types::ServiceUnavailableException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_service_unavailable_exception(&self) -> ::std::result::Result<&super::super::types::ServiceUnavailableException, &Self> {
-        if let InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`ServiceUnavailableException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ServiceUnavailableException).
-    pub fn is_service_unavailable_exception(&self) -> bool {
-        self.as_service_unavailable_exception().is_ok()
-    }
-    /// Tries to convert the enum instance into [`ThrottlingException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ThrottlingException), extracting the inner [`ThrottlingException`](crate::types::ThrottlingException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_throttling_exception(&self) -> ::std::result::Result<&super::super::types::ThrottlingException, &Self> {
-        if let InvokeModelWithBidirectionalStreamOutput::ThrottlingException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`ThrottlingException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ThrottlingException).
-    pub fn is_throttling_exception(&self) -> bool {
-        self.as_throttling_exception().is_ok()
-    }
-    /// Tries to convert the enum instance into [`ValidationException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ValidationException), extracting the inner [`ValidationException`](crate::types::ValidationException).
-    /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_validation_exception(&self) -> ::std::result::Result<&super::super::types::ValidationException, &Self> {
-        if let InvokeModelWithBidirectionalStreamOutput::ValidationException(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
-    }
-    /// Returns true if this is a [`ValidationException`](crate::types::InvokeModelWithBidirectionalStreamOutput::ValidationException).
-    pub fn is_validation_exception(&self) -> bool {
-        self.as_validation_exception().is_ok()
     }
     /// Returns true if the enum instance is the `Unknown` variant.
     pub fn is_unknown(&self) -> bool {

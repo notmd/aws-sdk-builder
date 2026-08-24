@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Normalize event-stream errors and marshaller output
+- State: in progress
+- Changed: event-stream model normalization now promotes errors carried by streaming
+  unions into operation error lists and removes those error members from public event
+  unions, matching Smithy-RS `EventStreamNormalizer`. Event-stream serde emits input
+  marshallers before output unmarshaller definitions, uses PascalCase event names in
+  parse diagnostics, and resolves input union payload helpers from the union protocol
+  module without a duplicate `_input` suffix. Focused regressions cover normalization,
+  diagnostic naming, and the generated helper path.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,611`
+  matched, `552` mismatched, `4` missing, and `1` extra (`94.37%` average match).
+  This is `+8` exact files and `-8` mismatches from the `12,603/560` checkpoint;
+  Bedrock Runtime improved from `413/123` to `417/119` and CloudWatch Logs from
+  `1,245/40` to `1,249/36` exact/mismatched files. Generation and snapshot parsing
+  completed without generated-source parse errors. The command exits 1 only because
+  broader parity gaps remain.
+- Verification: focused event-stream regressions, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass.
+- Next action: continue with the remaining generic protocol and service parity gaps.
+
 ### Checkpoint: 2026-08-25 — Match careful nullability for required union members
 - State: in progress
 - Changed: member nullability now follows Smithy-RS `NullableIndex.CheckMode.CLIENT_CAREFUL`

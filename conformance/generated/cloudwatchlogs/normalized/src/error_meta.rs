@@ -2251,6 +2251,7 @@ impl From<super::operation::get_log_object::GetLogObjectError> for Error {
             super::operation::get_log_object::GetLogObjectError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
             super::operation::get_log_object::GetLogObjectError::LimitExceededException(inner) => Error::LimitExceededException(inner),
             super::operation::get_log_object::GetLogObjectError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            super::operation::get_log_object::GetLogObjectError::InternalStreamingException(inner) => Error::InternalStreamingException(inner),
             super::operation::get_log_object::GetLogObjectError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -3514,6 +3515,8 @@ impl From<super::operation::start_live_tail::StartLiveTailError> for Error {
             super::operation::start_live_tail::StartLiveTailError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
             super::operation::start_live_tail::StartLiveTailError::LimitExceededException(inner) => Error::LimitExceededException(inner),
             super::operation::start_live_tail::StartLiveTailError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            super::operation::start_live_tail::StartLiveTailError::SessionTimeoutException(inner) => Error::SessionTimeoutException(inner),
+            super::operation::start_live_tail::StartLiveTailError::SessionStreamingException(inner) => Error::SessionStreamingException(inner),
             super::operation::start_live_tail::StartLiveTailError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }

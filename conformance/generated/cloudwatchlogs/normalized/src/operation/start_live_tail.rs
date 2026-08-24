@@ -327,6 +327,10 @@ pub enum StartLiveTailError {
     LimitExceededException(super::super::types::error::LimitExceededException),
     /// <p>The specified resource does not exist.</p>
     ResourceNotFoundException(super::super::types::error::ResourceNotFoundException),
+    /// <p>This exception is returned in a Live Tail stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
+    SessionTimeoutException(super::super::types::error::SessionTimeoutException),
+    /// <p>This exception is returned if an unknown error occurs during a Live Tail session.</p>
+    SessionStreamingException(super::super::types::error::SessionStreamingException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
@@ -365,6 +369,8 @@ impl StartLiveTailError {
             Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::LimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -388,6 +394,14 @@ impl StartLiveTailError {
     pub fn is_resource_not_found_exception(&self) -> bool {
         matches!(self, Self::ResourceNotFoundException(_))
     }
+    /// Returns `true` if the error kind is `StartLiveTailError::SessionTimeoutException`.
+    pub fn is_session_timeout_exception(&self) -> bool {
+        matches!(self, Self::SessionTimeoutException(_))
+    }
+    /// Returns `true` if the error kind is `StartLiveTailError::SessionStreamingException`.
+    pub fn is_session_streaming_exception(&self) -> bool {
+        matches!(self, Self::SessionStreamingException(_))
+    }
 }
 impl ::std::error::Error for StartLiveTailError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
@@ -397,6 +411,8 @@ impl ::std::error::Error for StartLiveTailError {
             Self::InvalidParameterException(_inner) => ::std::option::Option::Some(_inner),
             Self::LimitExceededException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
+            Self::SessionTimeoutException(_inner) => ::std::option::Option::Some(_inner),
+            Self::SessionStreamingException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
@@ -409,6 +425,8 @@ impl ::std::fmt::Display for StartLiveTailError {
             Self::InvalidParameterException(_inner) => _inner.fmt(f),
             Self::LimitExceededException(_inner) => _inner.fmt(f),
             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
+            Self::SessionTimeoutException(_inner) => _inner.fmt(f),
+            Self::SessionStreamingException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
                 if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
@@ -435,6 +453,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for StartLiveTail
             Self::InvalidParameterException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::LimitExceededException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::SessionTimeoutException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::SessionStreamingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
