@@ -4,6 +4,29 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match JSON response/request dependency phase ordering
+- State: in progress
+- Changed: shared JSON protocol dependency discovery now follows the pinned
+  Smithy-RS `OperationGenerator` phase order: response deserializers and modeled error
+  parsers establish first-role ownership before request serializers. The rule is
+  model-driven and applies uniformly to shared structure, union, list, and map helpers.
+  A focused regression covers a shape shared by an operation's input and output. The
+  adjacent operation/input module insertion experiment was reverted after validation
+  showed it reduced parity.
+- Evidence: inspected `OperationGenerator.kt`, `ResponseDeserializerGenerator.kt`,
+  `RequestSerializerGenerator.kt`, `ProtocolFunctions.kt`, and `CodegenDelegator.kt`
+  in the pinned `/tmp/smithy-rs` checkout at commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `just conformance` generated and
+  formatted all `13,166` snapshot files without parse errors. Focused and workspace
+  tests, clippy with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `12,936/13,168` exact, `229` mismatches, `2` missing, and `1` extra
+  (`98.15%`) -> `12,966/13,168` exact, `199` mismatches, `2` missing, and `1` extra
+  (`98.35%`).
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic mismatch after committing
+  this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Match Smithy note boundaries after HTML lists
 - State: in progress
 - Changed: shared client documentation normalization now keeps custom note tags
