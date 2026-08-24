@@ -4025,10 +4025,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AssumeRoleRe
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_input::ser_assume_role_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_input::ser_assume_role_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -5460,10 +5460,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AssumeRoleWi
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -6743,10 +6743,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AssumeRoleWi
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -7991,10 +7991,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AssumeRootRe
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_root_input::ser_assume_root_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_root_input::ser_assume_root_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -8862,10 +8862,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DecodeAuthor
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -9514,10 +9514,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAccessKey
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -10105,10 +10105,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetCallerIde
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_caller_identity_input::ser_get_caller_identity_input_input_input(&input)?);
+        if let Some(content_length) = body.content_length() {
+            let content_length = content_length.to_string();
+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -10682,10 +10686,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDelegated
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -11411,10 +11415,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetFederatio
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -12463,10 +12467,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetSessionTo
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_session_token_input::ser_get_session_token_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_session_token_input::ser_get_session_token_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -13219,10 +13223,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetWebIdenti
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -15429,7 +15433,2798 @@ impl Intercept for ObservabilityFeatureTrackerInterceptor {
 }
 }
 
-pub(crate) mod protocol_serde;
+pub(crate) mod protocol_serde {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub(crate) fn type_erase_result<O, E>(
+    result: ::std::result::Result<O, E>,
+) -> ::std::result::Result<
+    ::aws_smithy_runtime_api::client::interceptors::context::Output,
+    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,
+>
+where
+    O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
+    E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
+{
+    result
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
+        .map_err(::std::convert::Into::into)
+}
+
+pub fn parse_http_error_metadata(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    response_body: &[u8],
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    super::rest_xml_wrapped_errors::parse_error_metadata(response_body)
+}
+
+pub(crate) mod shape_assume_role {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_assume_role_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::assume_role::AssumeRoleOutput, super::super::operation::assume_role::AssumeRoleError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::assume_role::AssumeRoleError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "ExpiredTokenException" => super::super::operation::assume_role::AssumeRoleError::ExpiredTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ExpiredTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "MalformedPolicyDocument" => super::super::operation::assume_role::AssumeRoleError::MalformedPolicyDocumentException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "PackedPolicyTooLarge" => super::super::operation::assume_role::AssumeRoleError::PackedPolicyTooLargeException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_packed_policy_too_large_exception::de_packed_policy_too_large_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RegionDisabledException" => super::super::operation::assume_role::AssumeRoleError::RegionDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::RegionDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::assume_role::AssumeRoleError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_assume_role_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::assume_role::AssumeRoleOutput, super::super::operation::assume_role::AssumeRoleError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::assume_role::builders::AssumeRoleOutputBuilder::default();
+        output = super::super::protocol_serde::shape_assume_role::de_assume_role(_response_body, output)
+            .map_err(super::super::operation::assume_role::AssumeRoleError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_assume_role(
+    inp: &[u8],
+    mut builder: super::super::operation::assume_role::builders::AssumeRoleOutputBuilder,
+) -> std::result::Result<super::super::operation::assume_role::builders::AssumeRoleOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("AssumeRoleResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected AssumeRoleResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("AssumeRoleResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected AssumeRoleResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#AssumeRoleOutput$Credentials */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_credentials(var_1);
+            }
+            ,
+            s if s.matches("AssumedRoleUser") /* AssumedRoleUser com.amazonaws.sts.synthetic#AssumeRoleOutput$AssumedRoleUser */ =>  {
+                let var_2 =
+                    Some(
+                        super::super::protocol_serde::shape_assumed_role_user::de_assumed_role_user(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_assumed_role_user(var_2);
+            }
+            ,
+            s if s.matches("PackedPolicySize") /* PackedPolicySize com.amazonaws.sts.synthetic#AssumeRoleOutput$PackedPolicySize */ =>  {
+                let var_3 =
+                    Some(
+                         {
+                            <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (integer: `com.amazonaws.sts#nonNegativeIntegerType`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_packed_policy_size(var_3);
+            }
+            ,
+            s if s.matches("SourceIdentity") /* SourceIdentity com.amazonaws.sts.synthetic#AssumeRoleOutput$SourceIdentity */ =>  {
+                let var_4 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_source_identity(var_4);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected AssumeRoleResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_assume_role_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_assume_role_input_input_input(
+    input: &super::super::operation::assume_role::AssumeRoleInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "AssumeRole", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("RoleArn");
+    if let Some(var_2) = &input.role_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("RoleSessionName");
+    if let Some(var_4) = &input.role_session_name {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("PolicyArns");
+    if let Some(var_6) = &input.policy_arns {
+        let mut list_8 = scope_5.start_list(false, None);
+        for item_7 in var_6 {
+            #[allow(unused_mut)]
+            let mut entry_9 = list_8.entry();
+        super::super::protocol_serde::shape_policy_descriptor_type::ser_policy_descriptor_type(entry_9, item_7)?;
+        }
+        list_8.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_10 = writer.prefix("Policy");
+    if let Some(var_11) = &input.policy {
+        scope_10.string(var_11);
+    }
+    #[allow(unused_mut)]
+    let mut scope_12 = writer.prefix("DurationSeconds");
+    if let Some(var_13) = &input.duration_seconds {
+        scope_12.number(#[allow(clippy::useless_conversion)]
+::aws_smithy_types::Number::NegInt((*var_13).into()));
+    }
+    #[allow(unused_mut)]
+    let mut scope_14 = writer.prefix("Tags");
+    if let Some(var_15) = &input.tags {
+        let mut list_17 = scope_14.start_list(false, None);
+        for item_16 in var_15 {
+            #[allow(unused_mut)]
+            let mut entry_18 = list_17.entry();
+        super::super::protocol_serde::shape_tag::ser_tag(entry_18, item_16)?;
+        }
+        list_17.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_19 = writer.prefix("TransitiveTagKeys");
+    if let Some(var_20) = &input.transitive_tag_keys {
+        let mut list_22 = scope_19.start_list(false, None);
+        for item_21 in var_20 {
+            #[allow(unused_mut)]
+            let mut entry_23 = list_22.entry();
+        entry_23.string(item_21);
+        }
+        list_22.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_24 = writer.prefix("ExternalId");
+    if let Some(var_25) = &input.external_id {
+        scope_24.string(var_25);
+    }
+    #[allow(unused_mut)]
+    let mut scope_26 = writer.prefix("SerialNumber");
+    if let Some(var_27) = &input.serial_number {
+        scope_26.string(var_27);
+    }
+    #[allow(unused_mut)]
+    let mut scope_28 = writer.prefix("TokenCode");
+    if let Some(var_29) = &input.token_code {
+        scope_28.string(var_29);
+    }
+    #[allow(unused_mut)]
+    let mut scope_30 = writer.prefix("SourceIdentity");
+    if let Some(var_31) = &input.source_identity {
+        scope_30.string(var_31);
+    }
+    #[allow(unused_mut)]
+    let mut scope_32 = writer.prefix("ProvidedContexts");
+    if let Some(var_33) = &input.provided_contexts {
+        let mut list_35 = scope_32.start_list(false, None);
+        for item_34 in var_33 {
+            #[allow(unused_mut)]
+            let mut entry_36 = list_35.entry();
+        super::super::protocol_serde::shape_provided_context::ser_provided_context(entry_36, item_34)?;
+        }
+        list_35.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_assume_role_with_saml {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_assume_role_with_saml_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput, super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "ExpiredTokenException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::ExpiredTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ExpiredTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "IDPRejectedClaim" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::IdpRejectedClaimException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::IdpRejectedClaimExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_idp_rejected_claim_exception::de_idp_rejected_claim_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidIdentityToken" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::InvalidIdentityTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidIdentityTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_identity_token_exception::de_invalid_identity_token_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "MalformedPolicyDocument" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::MalformedPolicyDocumentException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "PackedPolicyTooLarge" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::PackedPolicyTooLargeException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_packed_policy_too_large_exception::de_packed_policy_too_large_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RegionDisabledException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::RegionDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::RegionDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_assume_role_with_saml_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput, super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlOutputBuilder::default();
+        output = super::super::protocol_serde::shape_assume_role_with_saml::de_assume_role_with_saml(_response_body, output)
+            .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_assume_role_with_saml(
+    inp: &[u8],
+    mut builder: super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlOutputBuilder,
+) -> std::result::Result<super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("AssumeRoleWithSAMLResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected AssumeRoleWithSAMLResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("AssumeRoleWithSAMLResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected AssumeRoleWithSAMLResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Credentials */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_credentials(var_1);
+            }
+            ,
+            s if s.matches("AssumedRoleUser") /* AssumedRoleUser com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$AssumedRoleUser */ =>  {
+                let var_2 =
+                    Some(
+                        super::super::protocol_serde::shape_assumed_role_user::de_assumed_role_user(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_assumed_role_user(var_2);
+            }
+            ,
+            s if s.matches("PackedPolicySize") /* PackedPolicySize com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$PackedPolicySize */ =>  {
+                let var_3 =
+                    Some(
+                         {
+                            <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (integer: `com.amazonaws.sts#nonNegativeIntegerType`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_packed_policy_size(var_3);
+            }
+            ,
+            s if s.matches("Subject") /* Subject com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Subject */ =>  {
+                let var_4 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_subject(var_4);
+            }
+            ,
+            s if s.matches("SubjectType") /* SubjectType com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$SubjectType */ =>  {
+                let var_5 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_subject_type(var_5);
+            }
+            ,
+            s if s.matches("Issuer") /* Issuer com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Issuer */ =>  {
+                let var_6 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_issuer(var_6);
+            }
+            ,
+            s if s.matches("Audience") /* Audience com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Audience */ =>  {
+                let var_7 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_audience(var_7);
+            }
+            ,
+            s if s.matches("NameQualifier") /* NameQualifier com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$NameQualifier */ =>  {
+                let var_8 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_name_qualifier(var_8);
+            }
+            ,
+            s if s.matches("SourceIdentity") /* SourceIdentity com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$SourceIdentity */ =>  {
+                let var_9 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_source_identity(var_9);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected AssumeRoleWithSAMLResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_assume_role_with_saml_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_assume_role_with_saml_input_input_input(
+    input: &super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "AssumeRoleWithSAML", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("RoleArn");
+    if let Some(var_2) = &input.role_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("PrincipalArn");
+    if let Some(var_4) = &input.principal_arn {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("SAMLAssertion");
+    if let Some(var_6) = &input.saml_assertion {
+        scope_5.string(var_6);
+    }
+    #[allow(unused_mut)]
+    let mut scope_7 = writer.prefix("PolicyArns");
+    if let Some(var_8) = &input.policy_arns {
+        let mut list_10 = scope_7.start_list(false, None);
+        for item_9 in var_8 {
+            #[allow(unused_mut)]
+            let mut entry_11 = list_10.entry();
+        super::super::protocol_serde::shape_policy_descriptor_type::ser_policy_descriptor_type(entry_11, item_9)?;
+        }
+        list_10.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_12 = writer.prefix("Policy");
+    if let Some(var_13) = &input.policy {
+        scope_12.string(var_13);
+    }
+    #[allow(unused_mut)]
+    let mut scope_14 = writer.prefix("DurationSeconds");
+    if let Some(var_15) = &input.duration_seconds {
+        scope_14.number(#[allow(clippy::useless_conversion)]
+::aws_smithy_types::Number::NegInt((*var_15).into()));
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_assume_role_with_web_identity {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_assume_role_with_web_identity_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityOutput, super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "ExpiredTokenException" => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::ExpiredTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ExpiredTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "IDPCommunicationError" => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::IdpCommunicationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::IdpCommunicationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_idp_communication_error_exception::de_idp_communication_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "IDPRejectedClaim" => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::IdpRejectedClaimException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::IdpRejectedClaimExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_idp_rejected_claim_exception::de_idp_rejected_claim_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidIdentityToken" => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::InvalidIdentityTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidIdentityTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_identity_token_exception::de_invalid_identity_token_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "MalformedPolicyDocument" => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::MalformedPolicyDocumentException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "PackedPolicyTooLarge" => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::PackedPolicyTooLargeException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_packed_policy_too_large_exception::de_packed_policy_too_large_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RegionDisabledException" => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::RegionDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::RegionDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_assume_role_with_web_identity_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityOutput, super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityOutputBuilder::default();
+        output = super::super::protocol_serde::shape_assume_role_with_web_identity::de_assume_role_with_web_identity(_response_body, output)
+            .map_err(super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_assume_role_with_web_identity(
+    inp: &[u8],
+    mut builder: super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityOutputBuilder,
+) -> std::result::Result<super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("AssumeRoleWithWebIdentityResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected AssumeRoleWithWebIdentityResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("AssumeRoleWithWebIdentityResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected AssumeRoleWithWebIdentityResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#AssumeRoleWithWebIdentityOutput$Credentials */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_credentials(var_1);
+            }
+            ,
+            s if s.matches("SubjectFromWebIdentityToken") /* SubjectFromWebIdentityToken com.amazonaws.sts.synthetic#AssumeRoleWithWebIdentityOutput$SubjectFromWebIdentityToken */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_subject_from_web_identity_token(var_2);
+            }
+            ,
+            s if s.matches("AssumedRoleUser") /* AssumedRoleUser com.amazonaws.sts.synthetic#AssumeRoleWithWebIdentityOutput$AssumedRoleUser */ =>  {
+                let var_3 =
+                    Some(
+                        super::super::protocol_serde::shape_assumed_role_user::de_assumed_role_user(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_assumed_role_user(var_3);
+            }
+            ,
+            s if s.matches("PackedPolicySize") /* PackedPolicySize com.amazonaws.sts.synthetic#AssumeRoleWithWebIdentityOutput$PackedPolicySize */ =>  {
+                let var_4 =
+                    Some(
+                         {
+                            <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (integer: `com.amazonaws.sts#nonNegativeIntegerType`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_packed_policy_size(var_4);
+            }
+            ,
+            s if s.matches("Provider") /* Provider com.amazonaws.sts.synthetic#AssumeRoleWithWebIdentityOutput$Provider */ =>  {
+                let var_5 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_provider(var_5);
+            }
+            ,
+            s if s.matches("Audience") /* Audience com.amazonaws.sts.synthetic#AssumeRoleWithWebIdentityOutput$Audience */ =>  {
+                let var_6 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_audience(var_6);
+            }
+            ,
+            s if s.matches("SourceIdentity") /* SourceIdentity com.amazonaws.sts.synthetic#AssumeRoleWithWebIdentityOutput$SourceIdentity */ =>  {
+                let var_7 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_source_identity(var_7);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected AssumeRoleWithWebIdentityResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_assume_role_with_web_identity_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_assume_role_with_web_identity_input_input_input(
+    input: &super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "AssumeRoleWithWebIdentity", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("RoleArn");
+    if let Some(var_2) = &input.role_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("RoleSessionName");
+    if let Some(var_4) = &input.role_session_name {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("WebIdentityToken");
+    if let Some(var_6) = &input.web_identity_token {
+        scope_5.string(var_6);
+    }
+    #[allow(unused_mut)]
+    let mut scope_7 = writer.prefix("ProviderId");
+    if let Some(var_8) = &input.provider_id {
+        scope_7.string(var_8);
+    }
+    #[allow(unused_mut)]
+    let mut scope_9 = writer.prefix("PolicyArns");
+    if let Some(var_10) = &input.policy_arns {
+        let mut list_12 = scope_9.start_list(false, None);
+        for item_11 in var_10 {
+            #[allow(unused_mut)]
+            let mut entry_13 = list_12.entry();
+        super::super::protocol_serde::shape_policy_descriptor_type::ser_policy_descriptor_type(entry_13, item_11)?;
+        }
+        list_12.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_14 = writer.prefix("Policy");
+    if let Some(var_15) = &input.policy {
+        scope_14.string(var_15);
+    }
+    #[allow(unused_mut)]
+    let mut scope_16 = writer.prefix("DurationSeconds");
+    if let Some(var_17) = &input.duration_seconds {
+        scope_16.number(#[allow(clippy::useless_conversion)]
+::aws_smithy_types::Number::NegInt((*var_17).into()));
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_assume_root {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_assume_root_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::assume_root::AssumeRootOutput, super::super::operation::assume_root::AssumeRootError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::assume_root::AssumeRootError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::assume_root::AssumeRootError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "ExpiredTokenException" => super::super::operation::assume_root::AssumeRootError::ExpiredTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ExpiredTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_root::AssumeRootError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RegionDisabledException" => super::super::operation::assume_root::AssumeRootError::RegionDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::RegionDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::assume_root::AssumeRootError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::assume_root::AssumeRootError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_assume_root_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::assume_root::AssumeRootOutput, super::super::operation::assume_root::AssumeRootError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::assume_root::builders::AssumeRootOutputBuilder::default();
+        output = super::super::protocol_serde::shape_assume_root::de_assume_root(_response_body, output)
+            .map_err(super::super::operation::assume_root::AssumeRootError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_assume_root(
+    inp: &[u8],
+    mut builder: super::super::operation::assume_root::builders::AssumeRootOutputBuilder,
+) -> std::result::Result<super::super::operation::assume_root::builders::AssumeRootOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("AssumeRootResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected AssumeRootResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("AssumeRootResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected AssumeRootResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#AssumeRootOutput$Credentials */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_credentials(var_1);
+            }
+            ,
+            s if s.matches("SourceIdentity") /* SourceIdentity com.amazonaws.sts.synthetic#AssumeRootOutput$SourceIdentity */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_source_identity(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected AssumeRootResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_assume_root_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_assume_root_input_input_input(
+    input: &super::super::operation::assume_root::AssumeRootInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "AssumeRoot", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TargetPrincipal");
+    if let Some(var_2) = &input.target_principal {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("TaskPolicyArn");
+    if let Some(var_4) = &input.task_policy_arn {
+        super::super::protocol_serde::shape_policy_descriptor_type::ser_policy_descriptor_type(scope_3, var_4)?;
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("DurationSeconds");
+    if let Some(var_6) = &input.duration_seconds {
+        scope_5.number(#[allow(clippy::useless_conversion)]
+::aws_smithy_types::Number::NegInt((*var_6).into()));
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_decode_authorization_message {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_decode_authorization_message_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::decode_authorization_message::DecodeAuthorizationMessageOutput, super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "InvalidAuthorizationMessageException" => super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError::InvalidAuthorizationMessageException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidAuthorizationMessageExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_authorization_message_exception::de_invalid_authorization_message_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_decode_authorization_message_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::decode_authorization_message::DecodeAuthorizationMessageOutput, super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageOutputBuilder::default();
+        output = super::super::protocol_serde::shape_decode_authorization_message::de_decode_authorization_message(_response_body, output)
+            .map_err(super::super::operation::decode_authorization_message::DecodeAuthorizationMessageError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_decode_authorization_message(
+    inp: &[u8],
+    mut builder: super::super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageOutputBuilder,
+) -> std::result::Result<super::super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("DecodeAuthorizationMessageResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected DecodeAuthorizationMessageResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("DecodeAuthorizationMessageResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected DecodeAuthorizationMessageResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("DecodedMessage") /* DecodedMessage com.amazonaws.sts.synthetic#DecodeAuthorizationMessageOutput$DecodedMessage */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_decoded_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected DecodeAuthorizationMessageResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_decode_authorization_message_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_decode_authorization_message_input_input_input(
+    input: &super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "DecodeAuthorizationMessage", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("EncodedMessage");
+    if let Some(var_2) = &input.encoded_message {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_access_key_info {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_access_key_info_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_access_key_info::GetAccessKeyInfoOutput, super::super::operation::get_access_key_info::GetAccessKeyInfoError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_access_key_info::GetAccessKeyInfoError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    Err(super::super::operation::get_access_key_info::GetAccessKeyInfoError::generic(generic))
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_access_key_info_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_access_key_info::GetAccessKeyInfoOutput, super::super::operation::get_access_key_info::GetAccessKeyInfoError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_access_key_info::builders::GetAccessKeyInfoOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_access_key_info::de_get_access_key_info(_response_body, output)
+            .map_err(super::super::operation::get_access_key_info::GetAccessKeyInfoError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_access_key_info(
+    inp: &[u8],
+    mut builder: super::super::operation::get_access_key_info::builders::GetAccessKeyInfoOutputBuilder,
+) -> std::result::Result<super::super::operation::get_access_key_info::builders::GetAccessKeyInfoOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetAccessKeyInfoResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetAccessKeyInfoResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetAccessKeyInfoResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetAccessKeyInfoResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Account") /* Account com.amazonaws.sts.synthetic#GetAccessKeyInfoOutput$Account */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_account(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetAccessKeyInfoResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_access_key_info_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_access_key_info_input_input_input(
+    input: &super::super::operation::get_access_key_info::GetAccessKeyInfoInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetAccessKeyInfo", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("AccessKeyId");
+    if let Some(var_2) = &input.access_key_id {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_caller_identity {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_caller_identity_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_caller_identity::GetCallerIdentityOutput, super::super::operation::get_caller_identity::GetCallerIdentityError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_caller_identity::GetCallerIdentityError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    Err(super::super::operation::get_caller_identity::GetCallerIdentityError::generic(generic))
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_caller_identity_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_caller_identity::GetCallerIdentityOutput, super::super::operation::get_caller_identity::GetCallerIdentityError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_caller_identity::de_get_caller_identity(_response_body, output)
+            .map_err(super::super::operation::get_caller_identity::GetCallerIdentityError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_caller_identity(
+    inp: &[u8],
+    mut builder: super::super::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder,
+) -> std::result::Result<super::super::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetCallerIdentityResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetCallerIdentityResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetCallerIdentityResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetCallerIdentityResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("UserId") /* UserId com.amazonaws.sts.synthetic#GetCallerIdentityOutput$UserId */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_user_id(var_1);
+            }
+            ,
+            s if s.matches("Account") /* Account com.amazonaws.sts.synthetic#GetCallerIdentityOutput$Account */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_account(var_2);
+            }
+            ,
+            s if s.matches("Arn") /* Arn com.amazonaws.sts.synthetic#GetCallerIdentityOutput$Arn */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_arn(var_3);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetCallerIdentityResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_caller_identity_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_caller_identity_input_input_input(
+    input: &super::super::operation::get_caller_identity::GetCallerIdentityInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let _ = input;
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetCallerIdentity", "2011-06-15");
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_delegated_access_token {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_delegated_access_token_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput, super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "ExpiredTradeInTokenException" => super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::ExpiredTradeInTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ExpiredTradeInTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_expired_trade_in_token_exception::de_expired_trade_in_token_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "PackedPolicyTooLarge" => super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::PackedPolicyTooLargeException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_packed_policy_too_large_exception::de_packed_policy_too_large_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RegionDisabledException" => super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::RegionDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::RegionDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_delegated_access_token_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput, super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_delegated_access_token::de_get_delegated_access_token(_response_body, output)
+            .map_err(super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_delegated_access_token(
+    inp: &[u8],
+    mut builder: super::super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenOutputBuilder,
+) -> std::result::Result<super::super::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetDelegatedAccessTokenResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetDelegatedAccessTokenResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetDelegatedAccessTokenResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetDelegatedAccessTokenResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#GetDelegatedAccessTokenOutput$Credentials */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_credentials(var_1);
+            }
+            ,
+            s if s.matches("PackedPolicySize") /* PackedPolicySize com.amazonaws.sts.synthetic#GetDelegatedAccessTokenOutput$PackedPolicySize */ =>  {
+                let var_2 =
+                    Some(
+                         {
+                            <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (integer: `com.amazonaws.sts#nonNegativeIntegerType`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_packed_policy_size(var_2);
+            }
+            ,
+            s if s.matches("AssumedPrincipal") /* AssumedPrincipal com.amazonaws.sts.synthetic#GetDelegatedAccessTokenOutput$AssumedPrincipal */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_assumed_principal(var_3);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetDelegatedAccessTokenResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_delegated_access_token_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_delegated_access_token_input_input_input(
+    input: &super::super::operation::get_delegated_access_token::GetDelegatedAccessTokenInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetDelegatedAccessToken", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TradeInToken");
+    if let Some(var_2) = &input.trade_in_token {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_federation_token {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_federation_token_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_federation_token::GetFederationTokenOutput, super::super::operation::get_federation_token::GetFederationTokenError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_federation_token::GetFederationTokenError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_federation_token::GetFederationTokenError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "MalformedPolicyDocument" => super::super::operation::get_federation_token::GetFederationTokenError::MalformedPolicyDocumentException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_federation_token::GetFederationTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "PackedPolicyTooLarge" => super::super::operation::get_federation_token::GetFederationTokenError::PackedPolicyTooLargeException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::PackedPolicyTooLargeExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_packed_policy_too_large_exception::de_packed_policy_too_large_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_federation_token::GetFederationTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RegionDisabledException" => super::super::operation::get_federation_token::GetFederationTokenError::RegionDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::RegionDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_federation_token::GetFederationTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_federation_token::GetFederationTokenError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_federation_token_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_federation_token::GetFederationTokenOutput, super::super::operation::get_federation_token::GetFederationTokenError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_federation_token::builders::GetFederationTokenOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_federation_token::de_get_federation_token(_response_body, output)
+            .map_err(super::super::operation::get_federation_token::GetFederationTokenError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_federation_token(
+    inp: &[u8],
+    mut builder: super::super::operation::get_federation_token::builders::GetFederationTokenOutputBuilder,
+) -> std::result::Result<super::super::operation::get_federation_token::builders::GetFederationTokenOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetFederationTokenResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetFederationTokenResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetFederationTokenResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetFederationTokenResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#GetFederationTokenOutput$Credentials */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_credentials(var_1);
+            }
+            ,
+            s if s.matches("FederatedUser") /* FederatedUser com.amazonaws.sts.synthetic#GetFederationTokenOutput$FederatedUser */ =>  {
+                let var_2 =
+                    Some(
+                        super::super::protocol_serde::shape_federated_user::de_federated_user(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_federated_user(var_2);
+            }
+            ,
+            s if s.matches("PackedPolicySize") /* PackedPolicySize com.amazonaws.sts.synthetic#GetFederationTokenOutput$PackedPolicySize */ =>  {
+                let var_3 =
+                    Some(
+                         {
+                            <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (integer: `com.amazonaws.sts#nonNegativeIntegerType`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_packed_policy_size(var_3);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetFederationTokenResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_federation_token_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_federation_token_input_input_input(
+    input: &super::super::operation::get_federation_token::GetFederationTokenInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetFederationToken", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Name");
+    if let Some(var_2) = &input.name {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Policy");
+    if let Some(var_4) = &input.policy {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("PolicyArns");
+    if let Some(var_6) = &input.policy_arns {
+        let mut list_8 = scope_5.start_list(false, None);
+        for item_7 in var_6 {
+            #[allow(unused_mut)]
+            let mut entry_9 = list_8.entry();
+        super::super::protocol_serde::shape_policy_descriptor_type::ser_policy_descriptor_type(entry_9, item_7)?;
+        }
+        list_8.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_10 = writer.prefix("DurationSeconds");
+    if let Some(var_11) = &input.duration_seconds {
+        scope_10.number(#[allow(clippy::useless_conversion)]
+::aws_smithy_types::Number::NegInt((*var_11).into()));
+    }
+    #[allow(unused_mut)]
+    let mut scope_12 = writer.prefix("Tags");
+    if let Some(var_13) = &input.tags {
+        let mut list_15 = scope_12.start_list(false, None);
+        for item_14 in var_13 {
+            #[allow(unused_mut)]
+            let mut entry_16 = list_15.entry();
+        super::super::protocol_serde::shape_tag::ser_tag(entry_16, item_14)?;
+        }
+        list_15.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_session_token {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_session_token_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_session_token::GetSessionTokenOutput, super::super::operation::get_session_token::GetSessionTokenError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_session_token::GetSessionTokenError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_session_token::GetSessionTokenError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "RegionDisabledException" => super::super::operation::get_session_token::GetSessionTokenError::RegionDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::RegionDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_session_token::GetSessionTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_session_token::GetSessionTokenError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_session_token_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_session_token::GetSessionTokenOutput, super::super::operation::get_session_token::GetSessionTokenError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_session_token::builders::GetSessionTokenOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_session_token::de_get_session_token(_response_body, output)
+            .map_err(super::super::operation::get_session_token::GetSessionTokenError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_session_token(
+    inp: &[u8],
+    mut builder: super::super::operation::get_session_token::builders::GetSessionTokenOutputBuilder,
+) -> std::result::Result<super::super::operation::get_session_token::builders::GetSessionTokenOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetSessionTokenResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetSessionTokenResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetSessionTokenResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetSessionTokenResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#GetSessionTokenOutput$Credentials */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_credentials(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetSessionTokenResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_session_token_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_session_token_input_input_input(
+    input: &super::super::operation::get_session_token::GetSessionTokenInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetSessionToken", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("DurationSeconds");
+    if let Some(var_2) = &input.duration_seconds {
+        scope_1.number(#[allow(clippy::useless_conversion)]
+::aws_smithy_types::Number::NegInt((*var_2).into()));
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("SerialNumber");
+    if let Some(var_4) = &input.serial_number {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("TokenCode");
+    if let Some(var_6) = &input.token_code {
+        scope_5.string(var_6);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_web_identity_token {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_web_identity_token_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_web_identity_token::GetWebIdentityTokenOutput, super::super::operation::get_web_identity_token::GetWebIdentityTokenError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "JWTPayloadSizeExceededException" => super::super::operation::get_web_identity_token::GetWebIdentityTokenError::JwtPayloadSizeExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::JwtPayloadSizeExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_jwt_payload_size_exceeded_exception::de_jwt_payload_size_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "OutboundWebIdentityFederationDisabledException" => super::super::operation::get_web_identity_token::GetWebIdentityTokenError::OutboundWebIdentityFederationDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::OutboundWebIdentityFederationDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_outbound_web_identity_federation_disabled_exception::de_outbound_web_identity_federation_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "SessionDurationEscalationException" => super::super::operation::get_web_identity_token::GetWebIdentityTokenError::SessionDurationEscalationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::SessionDurationEscalationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_session_duration_escalation_exception::de_session_duration_escalation_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_web_identity_token::GetWebIdentityTokenError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_web_identity_token_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_web_identity_token::GetWebIdentityTokenOutput, super::super::operation::get_web_identity_token::GetWebIdentityTokenError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_web_identity_token::de_get_web_identity_token(_response_body, output)
+            .map_err(super::super::operation::get_web_identity_token::GetWebIdentityTokenError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_web_identity_token(
+    inp: &[u8],
+    mut builder: super::super::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder,
+) -> std::result::Result<super::super::operation::get_web_identity_token::builders::GetWebIdentityTokenOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetWebIdentityTokenResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetWebIdentityTokenResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetWebIdentityTokenResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetWebIdentityTokenResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("WebIdentityToken") /* WebIdentityToken com.amazonaws.sts.synthetic#GetWebIdentityTokenOutput$WebIdentityToken */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_web_identity_token(var_1);
+            }
+            ,
+            s if s.matches("Expiration") /* Expiration com.amazonaws.sts.synthetic#GetWebIdentityTokenOutput$Expiration */ =>  {
+                let var_2 =
+                    Some(
+                        ::aws_smithy_types::DateTime::from_str(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            , ::aws_smithy_types::date_time::Format::DateTimeWithOffset
+                        )
+                        .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (timestamp: `com.amazonaws.sts#dateType`)"))
+                        ?
+                    )
+                ;
+                builder = builder.set_expiration(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetWebIdentityTokenResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_web_identity_token_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_web_identity_token_input_input_input(
+    input: &super::super::operation::get_web_identity_token::GetWebIdentityTokenInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetWebIdentityToken", "2011-06-15");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Audience");
+    if let Some(var_2) = &input.audience {
+        let mut list_4 = scope_1.start_list(false, None);
+        for item_3 in var_2 {
+            #[allow(unused_mut)]
+            let mut entry_5 = list_4.entry();
+        entry_5.string(item_3);
+        }
+        list_4.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_6 = writer.prefix("DurationSeconds");
+    if let Some(var_7) = &input.duration_seconds {
+        scope_6.number(#[allow(clippy::useless_conversion)]
+::aws_smithy_types::Number::NegInt((*var_7).into()));
+    }
+    #[allow(unused_mut)]
+    let mut scope_8 = writer.prefix("SigningAlgorithm");
+    if let Some(var_9) = &input.signing_algorithm {
+        scope_8.string(var_9);
+    }
+    #[allow(unused_mut)]
+    let mut scope_10 = writer.prefix("Tags");
+    if let Some(var_11) = &input.tags {
+        let mut list_13 = scope_10.start_list(false, None);
+        for item_12 in var_11 {
+            #[allow(unused_mut)]
+            let mut entry_14 = list_13.entry();
+        super::super::protocol_serde::shape_tag::ser_tag(entry_14, item_12)?;
+        }
+        list_13.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_expired_token_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_expired_token_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::ExpiredTokenExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::ExpiredTokenExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#ExpiredTokenException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_expired_trade_in_token_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_expired_trade_in_token_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::ExpiredTradeInTokenExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::ExpiredTradeInTokenExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#ExpiredTradeInTokenException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_idp_communication_error_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_idp_communication_error_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::IdpCommunicationErrorExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::IdpCommunicationErrorExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#IDPCommunicationErrorException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_idp_rejected_claim_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_idp_rejected_claim_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::IdpRejectedClaimExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::IdpRejectedClaimExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#IDPRejectedClaimException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_invalid_authorization_message_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_invalid_authorization_message_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::InvalidAuthorizationMessageExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::InvalidAuthorizationMessageExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#InvalidAuthorizationMessageException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_invalid_identity_token_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_invalid_identity_token_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::InvalidIdentityTokenExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::InvalidIdentityTokenExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#InvalidIdentityTokenException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_jwt_payload_size_exceeded_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_jwt_payload_size_exceeded_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::JwtPayloadSizeExceededExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::JwtPayloadSizeExceededExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#JWTPayloadSizeExceededException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_malformed_policy_document_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_malformed_policy_document_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::MalformedPolicyDocumentExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::MalformedPolicyDocumentExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#MalformedPolicyDocumentException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_outbound_web_identity_federation_disabled_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_outbound_web_identity_federation_disabled_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::OutboundWebIdentityFederationDisabledExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::OutboundWebIdentityFederationDisabledExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#OutboundWebIdentityFederationDisabledException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_packed_policy_too_large_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_packed_policy_too_large_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::PackedPolicyTooLargeExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::PackedPolicyTooLargeExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#PackedPolicyTooLargeException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_region_disabled_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_region_disabled_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::RegionDisabledExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::RegionDisabledExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#RegionDisabledException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_session_duration_escalation_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_session_duration_escalation_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::SessionDurationEscalationExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::SessionDurationEscalationExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sts#SessionDurationEscalationException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_assumed_role_user {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_assumed_role_user(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::AssumedRoleUser, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::AssumedRoleUser::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("AssumedRoleId") /* AssumedRoleId com.amazonaws.sts#AssumedRoleUser$AssumedRoleId */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_assumed_role_id(var_1);
+            }
+            ,
+            s if s.matches("Arn") /* Arn com.amazonaws.sts#AssumedRoleUser$Arn */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_arn(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(super::super::serde_util::assumed_role_user_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+}
+}
+
+pub(crate) mod shape_credentials {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_credentials(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::Credentials, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::Credentials::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("AccessKeyId") /* AccessKeyId com.amazonaws.sts#Credentials$AccessKeyId */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_access_key_id(var_1);
+            }
+            ,
+            s if s.matches("SecretAccessKey") /* SecretAccessKey com.amazonaws.sts#Credentials$SecretAccessKey */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_secret_access_key(var_2);
+            }
+            ,
+            s if s.matches("SessionToken") /* SessionToken com.amazonaws.sts#Credentials$SessionToken */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_session_token(var_3);
+            }
+            ,
+            s if s.matches("Expiration") /* Expiration com.amazonaws.sts#Credentials$Expiration */ =>  {
+                let var_4 =
+                    Some(
+                        ::aws_smithy_types::DateTime::from_str(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            , ::aws_smithy_types::date_time::Format::DateTimeWithOffset
+                        )
+                        .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (timestamp: `com.amazonaws.sts#dateType`)"))
+                        ?
+                    )
+                ;
+                builder = builder.set_expiration(var_4);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(super::super::serde_util::credentials_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+}
+}
+
+pub(crate) mod shape_federated_user {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_federated_user(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::FederatedUser, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::FederatedUser::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("FederatedUserId") /* FederatedUserId com.amazonaws.sts#FederatedUser$FederatedUserId */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_federated_user_id(var_1);
+            }
+            ,
+            s if s.matches("Arn") /* Arn com.amazonaws.sts#FederatedUser$Arn */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_arn(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(super::super::serde_util::federated_user_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+}
+}
+
+pub(crate) mod shape_policy_descriptor_type {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_policy_descriptor_type(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::PolicyDescriptorType,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("arn");
+    if let Some(var_2) = &input.arn {
+        scope_1.string(var_2);
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_provided_context {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_provided_context(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::ProvidedContext,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("ProviderArn");
+    if let Some(var_2) = &input.provider_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("ContextAssertion");
+    if let Some(var_4) = &input.context_assertion {
+        scope_3.string(var_4);
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_tag {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_tag(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::Tag,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Key");
+    {
+        scope_1.string(&input.key);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("Value");
+    {
+        scope_2.string(&input.value);
+    }
+    Ok(())
+}
+}
+}
 
 mod sdk_feature_tracker {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
@@ -16413,7 +19208,64 @@ fn is_valid_segment(bytes: &[u8], start: usize, end: usize, e: &mut DiagnosticCo
 }
 }
 
-mod rest_xml_wrapped_errors;
+mod rest_xml_wrapped_errors {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+use aws_smithy_types::error::metadata::{Builder as ErrorMetadataBuilder, ErrorMetadata};
+use aws_smithy_xml::decode::{try_data, Document, ScopedDecoder, XmlDecodeError};
+
+#[allow(unused)]
+pub fn body_is_error(body: &[u8]) -> Result<bool, XmlDecodeError> {
+    let mut doc = Document::try_from(body)?;
+    let scoped = doc.root_element()?;
+    Ok(scoped.start_el().matches("ErrorResponse"))
+}
+
+#[allow(dead_code)]
+pub fn parse_error_metadata(body: &[u8]) -> Result<ErrorMetadataBuilder, XmlDecodeError> {
+    let mut doc = Document::try_from(body)?;
+    let mut root = doc.root_element()?;
+    let mut err_builder = ErrorMetadata::builder();
+    while let Some(mut tag) = root.next_tag() {
+        if tag.start_el().local() == "Error" {
+            while let Some(mut error_field) = tag.next_tag() {
+                match error_field.start_el().local() {
+                    "Code" => {
+                        err_builder = err_builder.code(try_data(&mut error_field)?);
+                    }
+                    "Message" => {
+                        err_builder = err_builder.message(try_data(&mut error_field)?);
+                    }
+                    _ => {}
+                }
+            }
+        }
+    }
+    Ok(err_builder)
+}
+
+#[allow(unused)]
+pub fn error_scope<'a, 'b>(doc: &'a mut Document<'b>) -> Result<ScopedDecoder<'b, 'a>, XmlDecodeError> {
+    let root = doc
+        .next_start_element()
+        .ok_or_else(|| XmlDecodeError::custom("no root found searching for an Error"))?;
+    if !root.matches("ErrorResponse") {
+        return Err(XmlDecodeError::custom("expected ErrorResponse as root"));
+    }
+
+    while let Some(el) = doc.next_start_element() {
+        if el.matches("Error") && el.depth() == 1 {
+            return Ok(doc.scoped_to(el));
+        }
+        // otherwise, ignore it
+    }
+    Err(XmlDecodeError::custom("no error found inside of ErrorResponse"))
+}
+}
 
 mod serde_util {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.

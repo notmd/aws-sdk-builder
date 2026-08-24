@@ -5297,10 +5297,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AddPermissio
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission_input::ser_add_permission_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission_input::ser_add_permission_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -6028,10 +6028,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CheckIfPhone
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_check_if_phone_number_is_opted_out_input::ser_check_if_phone_number_is_opted_out_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_check_if_phone_number_is_opted_out_input::ser_check_if_phone_number_is_opted_out_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -6749,10 +6749,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ConfirmSubsc
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_confirm_subscription_input::ser_confirm_subscription_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_confirm_subscription_input::ser_confirm_subscription_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -7513,10 +7513,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreatePlatfo
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_platform_application_input::ser_create_platform_application_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_platform_application_input::ser_create_platform_application_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -8273,10 +8273,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreatePlatfo
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_platform_endpoint_input::ser_create_platform_endpoint_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_platform_endpoint_input::ser_create_platform_endpoint_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -9001,10 +9001,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateSMSSan
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_sms_sandbox_phone_number_input::ser_create_sms_sandbox_phone_number_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_sms_sandbox_phone_number_input::ser_create_sms_sandbox_phone_number_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -9719,10 +9719,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateTopicR
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_topic_input::ser_create_topic_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_topic_input::ser_create_topic_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -11456,10 +11456,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteEndpoi
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -12093,10 +12093,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeletePlatfo
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_platform_application_input::ser_delete_platform_application_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_platform_application_input::ser_delete_platform_application_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -12685,10 +12685,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteSMSSan
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_sms_sandbox_phone_number_input::ser_delete_sms_sandbox_phone_number_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_sms_sandbox_phone_number_input::ser_delete_sms_sandbox_phone_number_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -13365,10 +13365,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteTopicR
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_topic_input::ser_delete_topic_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_topic_input::ser_delete_topic_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -14050,10 +14050,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDataProte
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_data_protection_policy_input::ser_get_data_protection_policy_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_data_protection_policy_input::ser_get_data_protection_policy_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -14732,10 +14732,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetEndpointA
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_endpoint_attributes_input::ser_get_endpoint_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_endpoint_attributes_input::ser_get_endpoint_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -15454,10 +15454,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPlatformA
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_platform_application_attributes_input::ser_get_platform_application_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_platform_application_attributes_input::ser_get_platform_application_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -16202,10 +16202,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetSMSAttrib
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -16859,10 +16859,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetSMSSandbo
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_sms_sandbox_account_status_input::ser_get_sms_sandbox_account_status_input_input_input(&input)?);
+        if let Some(content_length) = body.content_length() {
+            let content_length = content_length.to_string();
+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+        }
         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
@@ -17474,10 +17478,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetSubscript
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_subscription_attributes_input::ser_get_subscription_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_subscription_attributes_input::ser_get_subscription_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -18356,10 +18360,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetTopicAttr
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_topic_attributes_input::ser_get_topic_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_topic_attributes_input::ser_get_topic_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -19318,10 +19322,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListEndpoint
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -20190,10 +20194,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListOriginat
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_origination_numbers_input::ser_list_origination_numbers_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_origination_numbers_input::ser_list_origination_numbers_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -21076,10 +21080,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPhoneNum
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_phone_numbers_opted_out_input::ser_list_phone_numbers_opted_out_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_phone_numbers_opted_out_input::ser_list_phone_numbers_opted_out_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -21933,10 +21937,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPlatform
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_platform_applications_input::ser_list_platform_applications_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_platform_applications_input::ser_list_platform_applications_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -22763,10 +22767,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSMSSandb
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_sms_sandbox_phone_numbers_input::ser_list_sms_sandbox_phone_numbers_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_sms_sandbox_phone_numbers_input::ser_list_sms_sandbox_phone_numbers_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -23650,10 +23654,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSubscrip
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -24484,10 +24488,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSubscrip
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_subscriptions_by_topic_input::ser_list_subscriptions_by_topic_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_subscriptions_by_topic_input::ser_list_subscriptions_by_topic_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -25355,10 +25359,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListTagsForR
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -26037,10 +26041,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListTopicsRe
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_topics_input::ser_list_topics_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_topics_input::ser_list_topics_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -26821,10 +26825,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for OptInPhoneNu
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -27513,10 +27517,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PublishReque
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_input::ser_publish_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_input::ser_publish_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -29171,10 +29175,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PublishBatch
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_batch_input::ser_publish_batch_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_batch_input::ser_publish_batch_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -30087,10 +30091,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutDataProte
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_data_protection_policy_input::ser_put_data_protection_policy_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_data_protection_policy_input::ser_put_data_protection_policy_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -30803,10 +30807,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for RemovePermis
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission_input::ser_remove_permission_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission_input::ser_remove_permission_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -31483,10 +31487,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SetEndpointA
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_endpoint_attributes_input::ser_set_endpoint_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_endpoint_attributes_input::ser_set_endpoint_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -32235,10 +32239,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SetPlatformA
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_platform_application_attributes_input::ser_set_platform_application_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_platform_application_attributes_input::ser_set_platform_application_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -33303,10 +33307,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SetSMSAttrib
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -34253,10 +34257,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SetSubscript
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_subscription_attributes_input::ser_set_subscription_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_subscription_attributes_input::ser_set_subscription_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -35240,10 +35244,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SetTopicAttr
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_topic_attributes_input::ser_set_topic_attributes_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_topic_attributes_input::ser_set_topic_attributes_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -36835,10 +36839,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SubscribeReq
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_subscribe_input::ser_subscribe_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_subscribe_input::ser_subscribe_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -38407,10 +38411,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for TagResourceR
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_resource_input::ser_tag_resource_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_resource_input::ser_tag_resource_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -39139,10 +39143,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UnsubscribeR
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_unsubscribe_input::ser_unsubscribe_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_unsubscribe_input::ser_unsubscribe_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -39796,10 +39800,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UntagResourc
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -40515,10 +40519,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for VerifySMSSan
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_verify_sms_sandbox_phone_number_input::ser_verify_sms_sandbox_phone_number_op_input(& input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_verify_sms_sandbox_phone_number_input::ser_verify_sms_sandbox_phone_number_input_input_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -45716,17 +45720,15 @@ pub struct ValidationException {
 }
 impl ValidationException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 impl ::std::fmt::Display for ValidationException {
 fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     ::std::write!(f, "ValidationException")?;
-    if let ::std::option::Option::Some(inner_1) = &self.message {
-        {
-            ::std::write!(f, ": {inner_1}")?;
-        }
+    {
+        ::std::write!(f, ": {}", &self.message)?;
     }
     Ok(())
 }
@@ -45813,17 +45815,15 @@ impl VerificationException {
 }
 impl VerificationException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 impl ::std::fmt::Display for VerificationException {
 fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     ::std::write!(f, "VerificationException")?;
-    if let ::std::option::Option::Some(inner_1) = &self.message {
-        {
-            ::std::write!(f, ": {inner_1}")?;
-        }
+    {
+        ::std::write!(f, ": {}", &self.message)?;
     }
     Ok(())
 }
@@ -46015,7 +46015,9534 @@ impl Intercept for ObservabilityFeatureTrackerInterceptor {
 }
 }
 
-pub(crate) mod protocol_serde;
+pub(crate) mod protocol_serde {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub(crate) fn type_erase_result<O, E>(
+    result: ::std::result::Result<O, E>,
+) -> ::std::result::Result<
+    ::aws_smithy_runtime_api::client::interceptors::context::Output,
+    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,
+>
+where
+    O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
+    E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
+{
+    result
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
+        .map_err(::std::convert::Into::into)
+}
+
+pub fn parse_http_error_metadata(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    response_body: &[u8],
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    super::rest_xml_wrapped_errors::parse_error_metadata(response_body)
+}
+
+pub(crate) mod shape_add_permission {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_add_permission_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::add_permission::AddPermissionOutput, super::super::operation::add_permission::AddPermissionError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::add_permission::AddPermissionError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::add_permission::AddPermissionError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::add_permission::AddPermissionError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::add_permission::AddPermissionError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::add_permission::AddPermissionError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::add_permission::AddPermissionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::add_permission::AddPermissionError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_add_permission_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::add_permission::AddPermissionOutput, super::super::operation::add_permission::AddPermissionError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::add_permission::builders::AddPermissionOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_add_permission_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_add_permission_input_input_input(
+    input: &super::super::operation::add_permission::AddPermissionInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "AddPermission", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Label");
+    if let Some(var_4) = &input.label {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("AWSAccountId");
+    if let Some(var_6) = &input.aws_account_id {
+        let mut list_8 = scope_5.start_list(false, None);
+        for item_7 in var_6 {
+            #[allow(unused_mut)]
+            let mut entry_9 = list_8.entry();
+        entry_9.string(item_7);
+        }
+        list_8.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_10 = writer.prefix("ActionName");
+    if let Some(var_11) = &input.action_name {
+        let mut list_13 = scope_10.start_list(false, None);
+        for item_12 in var_11 {
+            #[allow(unused_mut)]
+            let mut entry_14 = list_13.entry();
+        entry_14.string(item_12);
+        }
+        list_13.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_check_if_phone_number_is_opted_out {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_check_if_phone_number_is_opted_out_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput, super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_check_if_phone_number_is_opted_out_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput, super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutOutputBuilder::default();
+        output = super::super::protocol_serde::shape_check_if_phone_number_is_opted_out::de_check_if_phone_number_is_opted_out(_response_body, output)
+            .map_err(super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_check_if_phone_number_is_opted_out(
+    inp: &[u8],
+    mut builder: super::super::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutOutputBuilder,
+) -> std::result::Result<super::super::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("CheckIfPhoneNumberIsOptedOutResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected CheckIfPhoneNumberIsOptedOutResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("CheckIfPhoneNumberIsOptedOutResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected CheckIfPhoneNumberIsOptedOutResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("isOptedOut") /* isOptedOut com.amazonaws.sns.synthetic#CheckIfPhoneNumberIsOptedOutOutput$isOptedOut */ =>  {
+                let var_1 =
+                    Some(
+                         {
+                            <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (boolean: `com.amazonaws.sns#boolean`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_is_opted_out(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected CheckIfPhoneNumberIsOptedOutResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_check_if_phone_number_is_opted_out_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_check_if_phone_number_is_opted_out_input_input_input(
+    input: &super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "CheckIfPhoneNumberIsOptedOut", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("phoneNumber");
+    if let Some(var_2) = &input.phone_number {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_confirm_subscription {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_confirm_subscription_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::confirm_subscription::ConfirmSubscriptionOutput, super::super::operation::confirm_subscription::ConfirmSubscriptionError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::confirm_subscription::ConfirmSubscriptionError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "FilterPolicyLimitExceeded" => super::super::operation::confirm_subscription::ConfirmSubscriptionError::FilterPolicyLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::FilterPolicyLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_filter_policy_limit_exceeded_exception::de_filter_policy_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::confirm_subscription::ConfirmSubscriptionError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::confirm_subscription::ConfirmSubscriptionError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::confirm_subscription::ConfirmSubscriptionError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ReplayLimitExceeded" => super::super::operation::confirm_subscription::ConfirmSubscriptionError::ReplayLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ReplayLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_replay_limit_exceeded_exception::de_replay_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "SubscriptionLimitExceeded" => super::super::operation::confirm_subscription::ConfirmSubscriptionError::SubscriptionLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::SubscriptionLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_subscription_limit_exceeded_exception::de_subscription_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::confirm_subscription::ConfirmSubscriptionError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_confirm_subscription_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::confirm_subscription::ConfirmSubscriptionOutput, super::super::operation::confirm_subscription::ConfirmSubscriptionError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder::default();
+        output = super::super::protocol_serde::shape_confirm_subscription::de_confirm_subscription(_response_body, output)
+            .map_err(super::super::operation::confirm_subscription::ConfirmSubscriptionError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_confirm_subscription(
+    inp: &[u8],
+    mut builder: super::super::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder,
+) -> std::result::Result<super::super::operation::confirm_subscription::builders::ConfirmSubscriptionOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ConfirmSubscriptionResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ConfirmSubscriptionResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ConfirmSubscriptionResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ConfirmSubscriptionResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("SubscriptionArn") /* SubscriptionArn com.amazonaws.sns.synthetic#ConfirmSubscriptionOutput$SubscriptionArn */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_subscription_arn(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ConfirmSubscriptionResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_confirm_subscription_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_confirm_subscription_input_input_input(
+    input: &super::super::operation::confirm_subscription::ConfirmSubscriptionInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ConfirmSubscription", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Token");
+    if let Some(var_4) = &input.token {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("AuthenticateOnUnsubscribe");
+    if let Some(var_6) = &input.authenticate_on_unsubscribe {
+        scope_5.string(var_6);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_create_platform_application {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_create_platform_application_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::create_platform_application::CreatePlatformApplicationOutput, super::super::operation::create_platform_application::CreatePlatformApplicationError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::create_platform_application::CreatePlatformApplicationError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::create_platform_application::CreatePlatformApplicationError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::create_platform_application::CreatePlatformApplicationError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::create_platform_application::CreatePlatformApplicationError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::create_platform_application::CreatePlatformApplicationError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_create_platform_application_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::create_platform_application::CreatePlatformApplicationOutput, super::super::operation::create_platform_application::CreatePlatformApplicationError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::create_platform_application::builders::CreatePlatformApplicationOutputBuilder::default();
+        output = super::super::protocol_serde::shape_create_platform_application::de_create_platform_application(_response_body, output)
+            .map_err(super::super::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_create_platform_application(
+    inp: &[u8],
+    mut builder: super::super::operation::create_platform_application::builders::CreatePlatformApplicationOutputBuilder,
+) -> std::result::Result<super::super::operation::create_platform_application::builders::CreatePlatformApplicationOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("CreatePlatformApplicationResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected CreatePlatformApplicationResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("CreatePlatformApplicationResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected CreatePlatformApplicationResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("PlatformApplicationArn") /* PlatformApplicationArn com.amazonaws.sns.synthetic#CreatePlatformApplicationOutput$PlatformApplicationArn */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_platform_application_arn(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected CreatePlatformApplicationResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_create_platform_application_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_create_platform_application_input_input_input(
+    input: &super::super::operation::create_platform_application::CreatePlatformApplicationInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "CreatePlatformApplication", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Name");
+    if let Some(var_2) = &input.name {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Platform");
+    if let Some(var_4) = &input.platform {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("Attributes");
+    if let Some(var_6) = &input.attributes {
+        let mut map_7 = scope_5.start_map(false, "key", "value");
+        for (key_8, value_9) in var_6 {
+            #[allow(unused_mut)]
+            let mut entry_10 = map_7.entry(key_8);
+            {
+        entry_10.string(value_9);
+            }
+        }
+        map_7.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_create_platform_endpoint {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_create_platform_endpoint_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::create_platform_endpoint::CreatePlatformEndpointOutput, super::super::operation::create_platform_endpoint::CreatePlatformEndpointError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_create_platform_endpoint_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::create_platform_endpoint::CreatePlatformEndpointOutput, super::super::operation::create_platform_endpoint::CreatePlatformEndpointError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder::default();
+        output = super::super::protocol_serde::shape_create_platform_endpoint::de_create_platform_endpoint(_response_body, output)
+            .map_err(super::super::operation::create_platform_endpoint::CreatePlatformEndpointError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_create_platform_endpoint(
+    inp: &[u8],
+    mut builder: super::super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder,
+) -> std::result::Result<super::super::operation::create_platform_endpoint::builders::CreatePlatformEndpointOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("CreatePlatformEndpointResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected CreatePlatformEndpointResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("CreatePlatformEndpointResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected CreatePlatformEndpointResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("EndpointArn") /* EndpointArn com.amazonaws.sns.synthetic#CreatePlatformEndpointOutput$EndpointArn */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_endpoint_arn(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected CreatePlatformEndpointResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_create_platform_endpoint_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_create_platform_endpoint_input_input_input(
+    input: &super::super::operation::create_platform_endpoint::CreatePlatformEndpointInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "CreatePlatformEndpoint", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PlatformApplicationArn");
+    if let Some(var_2) = &input.platform_application_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Token");
+    if let Some(var_4) = &input.token {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("CustomUserData");
+    if let Some(var_6) = &input.custom_user_data {
+        scope_5.string(var_6);
+    }
+    #[allow(unused_mut)]
+    let mut scope_7 = writer.prefix("Attributes");
+    if let Some(var_8) = &input.attributes {
+        let mut map_9 = scope_7.start_map(false, "key", "value");
+        for (key_10, value_11) in var_8 {
+            #[allow(unused_mut)]
+            let mut entry_12 = map_9.entry(key_10);
+            {
+        entry_12.string(value_11);
+            }
+        }
+        map_9.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_create_sms_sandbox_phone_number {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_create_sms_sandbox_phone_number_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput, super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "OptedOut" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::OptedOutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::OptedOutExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_opted_out_exception::de_opted_out_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "UserError" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::UserErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::UserErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_user_error_exception::de_user_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_create_sms_sandbox_phone_number_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput, super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_create_sms_sandbox_phone_number_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_create_sms_sandbox_phone_number_input_input_input(
+    input: &super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "CreateSMSSandboxPhoneNumber", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PhoneNumber");
+    if let Some(var_2) = &input.phone_number {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("LanguageCode");
+    if let Some(var_4) = &input.language_code {
+        scope_3.string(var_4.as_str());
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_create_topic {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_create_topic_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::create_topic::CreateTopicOutput, super::super::operation::create_topic::CreateTopicError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::create_topic::CreateTopicError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::create_topic::CreateTopicError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ConcurrentAccess" => super::super::operation::create_topic::CreateTopicError::ConcurrentAccessException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ConcurrentAccessExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_concurrent_access_exception::de_concurrent_access_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::create_topic::CreateTopicError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::create_topic::CreateTopicError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => super::super::operation::create_topic::CreateTopicError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "StaleTag" => super::super::operation::create_topic::CreateTopicError::StaleTagException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::StaleTagExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_stale_tag_exception::de_stale_tag_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TagLimitExceeded" => super::super::operation::create_topic::CreateTopicError::TagLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TagLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_tag_limit_exceeded_exception::de_tag_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TagPolicy" => super::super::operation::create_topic::CreateTopicError::TagPolicyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TagPolicyExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_tag_policy_exception::de_tag_policy_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TopicLimitExceeded" => super::super::operation::create_topic::CreateTopicError::TopicLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TopicLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_topic_limit_exceeded_exception::de_topic_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::create_topic::CreateTopicError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_create_topic_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::create_topic::CreateTopicOutput, super::super::operation::create_topic::CreateTopicError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::create_topic::builders::CreateTopicOutputBuilder::default();
+        output = super::super::protocol_serde::shape_create_topic::de_create_topic(_response_body, output)
+            .map_err(super::super::operation::create_topic::CreateTopicError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_create_topic(
+    inp: &[u8],
+    mut builder: super::super::operation::create_topic::builders::CreateTopicOutputBuilder,
+) -> std::result::Result<super::super::operation::create_topic::builders::CreateTopicOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("CreateTopicResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected CreateTopicResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("CreateTopicResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected CreateTopicResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("TopicArn") /* TopicArn com.amazonaws.sns.synthetic#CreateTopicOutput$TopicArn */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_topic_arn(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected CreateTopicResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_create_topic_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_create_topic_input_input_input(
+    input: &super::super::operation::create_topic::CreateTopicInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "CreateTopic", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Name");
+    if let Some(var_2) = &input.name {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Attributes");
+    if let Some(var_4) = &input.attributes {
+        let mut map_5 = scope_3.start_map(false, "key", "value");
+        for (key_6, value_7) in var_4 {
+            #[allow(unused_mut)]
+            let mut entry_8 = map_5.entry(key_6);
+            {
+        entry_8.string(value_7);
+            }
+        }
+        map_5.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_9 = writer.prefix("Tags");
+    if let Some(var_10) = &input.tags {
+        let mut list_12 = scope_9.start_list(false, None);
+        for item_11 in var_10 {
+            #[allow(unused_mut)]
+            let mut entry_13 = list_12.entry();
+        super::super::protocol_serde::shape_tag::ser_tag(entry_13, item_11)?;
+        }
+        list_12.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_14 = writer.prefix("DataProtectionPolicy");
+    if let Some(var_15) = &input.data_protection_policy {
+        scope_14.string(var_15);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_delete_endpoint {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_delete_endpoint_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::delete_endpoint::DeleteEndpointOutput, super::super::operation::delete_endpoint::DeleteEndpointError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::delete_endpoint::DeleteEndpointError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::delete_endpoint::DeleteEndpointError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::delete_endpoint::DeleteEndpointError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_endpoint::DeleteEndpointError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::delete_endpoint::DeleteEndpointError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_endpoint::DeleteEndpointError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::delete_endpoint::DeleteEndpointError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_endpoint::DeleteEndpointError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::delete_endpoint::DeleteEndpointError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_delete_endpoint_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::delete_endpoint::DeleteEndpointOutput, super::super::operation::delete_endpoint::DeleteEndpointError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::delete_endpoint::builders::DeleteEndpointOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_delete_endpoint_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_delete_endpoint_input_input_input(
+    input: &super::super::operation::delete_endpoint::DeleteEndpointInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "DeleteEndpoint", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("EndpointArn");
+    if let Some(var_2) = &input.endpoint_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_delete_platform_application {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_delete_platform_application_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::delete_platform_application::DeletePlatformApplicationOutput, super::super::operation::delete_platform_application::DeletePlatformApplicationError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::delete_platform_application::DeletePlatformApplicationError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::delete_platform_application::DeletePlatformApplicationError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::delete_platform_application::DeletePlatformApplicationError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_platform_application::DeletePlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::delete_platform_application::DeletePlatformApplicationError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_platform_application::DeletePlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::delete_platform_application::DeletePlatformApplicationError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_platform_application::DeletePlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::delete_platform_application::DeletePlatformApplicationError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_delete_platform_application_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::delete_platform_application::DeletePlatformApplicationOutput, super::super::operation::delete_platform_application::DeletePlatformApplicationError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::delete_platform_application::builders::DeletePlatformApplicationOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_delete_platform_application_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_delete_platform_application_input_input_input(
+    input: &super::super::operation::delete_platform_application::DeletePlatformApplicationInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "DeletePlatformApplication", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PlatformApplicationArn");
+    if let Some(var_2) = &input.platform_application_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_delete_sms_sandbox_phone_number {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_delete_sms_sandbox_phone_number_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput, super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFound" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "UserError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::UserErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::UserErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_user_error_exception::de_user_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_delete_sms_sandbox_phone_number_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput, super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_delete_sms_sandbox_phone_number_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_delete_sms_sandbox_phone_number_input_input_input(
+    input: &super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "DeleteSMSSandboxPhoneNumber", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PhoneNumber");
+    if let Some(var_2) = &input.phone_number {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_delete_topic {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_delete_topic_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::delete_topic::DeleteTopicOutput, super::super::operation::delete_topic::DeleteTopicError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::delete_topic::DeleteTopicError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::delete_topic::DeleteTopicError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ConcurrentAccess" => super::super::operation::delete_topic::DeleteTopicError::ConcurrentAccessException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ConcurrentAccessExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_concurrent_access_exception::de_concurrent_access_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::delete_topic::DeleteTopicError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::delete_topic::DeleteTopicError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidState" => super::super::operation::delete_topic::DeleteTopicError::InvalidStateException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidStateExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_state_exception::de_invalid_state_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::delete_topic::DeleteTopicError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "StaleTag" => super::super::operation::delete_topic::DeleteTopicError::StaleTagException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::StaleTagExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_stale_tag_exception::de_stale_tag_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TagPolicy" => super::super::operation::delete_topic::DeleteTopicError::TagPolicyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TagPolicyExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_tag_policy_exception::de_tag_policy_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::delete_topic::DeleteTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::delete_topic::DeleteTopicError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_delete_topic_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::delete_topic::DeleteTopicOutput, super::super::operation::delete_topic::DeleteTopicError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::delete_topic::builders::DeleteTopicOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_delete_topic_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_delete_topic_input_input_input(
+    input: &super::super::operation::delete_topic::DeleteTopicInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "DeleteTopic", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_data_protection_policy {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_data_protection_policy_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_data_protection_policy::GetDataProtectionPolicyOutput, super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_data_protection_policy_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_data_protection_policy::GetDataProtectionPolicyOutput, super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_data_protection_policy::builders::GetDataProtectionPolicyOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_data_protection_policy::de_get_data_protection_policy(_response_body, output)
+            .map_err(super::super::operation::get_data_protection_policy::GetDataProtectionPolicyError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_data_protection_policy(
+    inp: &[u8],
+    mut builder: super::super::operation::get_data_protection_policy::builders::GetDataProtectionPolicyOutputBuilder,
+) -> std::result::Result<super::super::operation::get_data_protection_policy::builders::GetDataProtectionPolicyOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetDataProtectionPolicyResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetDataProtectionPolicyResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetDataProtectionPolicyResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetDataProtectionPolicyResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("DataProtectionPolicy") /* DataProtectionPolicy com.amazonaws.sns.synthetic#GetDataProtectionPolicyOutput$DataProtectionPolicy */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_data_protection_policy(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetDataProtectionPolicyResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_data_protection_policy_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_data_protection_policy_input_input_input(
+    input: &super::super::operation::get_data_protection_policy::GetDataProtectionPolicyInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetDataProtectionPolicy", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("ResourceArn");
+    if let Some(var_2) = &input.resource_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_endpoint_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_endpoint_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_endpoint_attributes::GetEndpointAttributesOutput, super::super::operation::get_endpoint_attributes::GetEndpointAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_endpoint_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_endpoint_attributes::GetEndpointAttributesOutput, super::super::operation::get_endpoint_attributes::GetEndpointAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_endpoint_attributes::de_get_endpoint_attributes(_response_body, output)
+            .map_err(super::super::operation::get_endpoint_attributes::GetEndpointAttributesError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_endpoint_attributes(
+    inp: &[u8],
+    mut builder: super::super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder,
+) -> std::result::Result<super::super::operation::get_endpoint_attributes::builders::GetEndpointAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetEndpointAttributesResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetEndpointAttributesResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetEndpointAttributesResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetEndpointAttributesResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Attributes") /* Attributes com.amazonaws.sns.synthetic#GetEndpointAttributesOutput$Attributes */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_attributes(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetEndpointAttributesResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_endpoint_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_endpoint_attributes_input_input_input(
+    input: &super::super::operation::get_endpoint_attributes::GetEndpointAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetEndpointAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("EndpointArn");
+    if let Some(var_2) = &input.endpoint_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_platform_application_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_platform_application_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput, super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_platform_application_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput, super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_platform_application_attributes::de_get_platform_application_attributes(_response_body, output)
+            .map_err(super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_platform_application_attributes(
+    inp: &[u8],
+    mut builder: super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder,
+) -> std::result::Result<super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetPlatformApplicationAttributesResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetPlatformApplicationAttributesResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetPlatformApplicationAttributesResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetPlatformApplicationAttributesResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Attributes") /* Attributes com.amazonaws.sns.synthetic#GetPlatformApplicationAttributesOutput$Attributes */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_attributes(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetPlatformApplicationAttributesResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_platform_application_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_platform_application_attributes_input_input_input(
+    input: &super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetPlatformApplicationAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PlatformApplicationArn");
+    if let Some(var_2) = &input.platform_application_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_sms_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_sms_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSmsAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::get_sms_attributes::GetSmsAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::get_sms_attributes::GetSmsAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::get_sms_attributes::GetSmsAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::get_sms_attributes::GetSmsAttributesError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_sms_attributes::GetSmsAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_sms_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSmsAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_sms_attributes::de_get_sms_attributes(_response_body, output)
+            .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_sms_attributes(
+    inp: &[u8],
+    mut builder: super::super::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder,
+) -> std::result::Result<super::super::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetSMSAttributesResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetSMSAttributesResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetSMSAttributesResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetSMSAttributesResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("attributes") /* attributes com.amazonaws.sns.synthetic#GetSmsAttributesOutput$attributes */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_attributes(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetSMSAttributesResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_sms_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_sms_attributes_input_input_input(
+    input: &super::super::operation::get_sms_attributes::GetSmsAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetSMSAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("attributes");
+    if let Some(var_2) = &input.attributes {
+        let mut list_4 = scope_1.start_list(false, None);
+        for item_3 in var_2 {
+            #[allow(unused_mut)]
+            let mut entry_5 = list_4.entry();
+        entry_5.string(item_3);
+        }
+        list_4.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_sms_sandbox_account_status {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_sms_sandbox_account_status_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput, super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_sms_sandbox_account_status_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput, super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_sms_sandbox_account_status::de_get_sms_sandbox_account_status(_response_body, output)
+            .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        super::super::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output).build().map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?
+    })
+}
+
+
+
+#[allow(unused_mut)]
+pub fn de_get_sms_sandbox_account_status(
+    inp: &[u8],
+    mut builder: super::super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder,
+) -> std::result::Result<super::super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetSMSSandboxAccountStatusResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetSMSSandboxAccountStatusResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetSMSSandboxAccountStatusResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetSMSSandboxAccountStatusResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("IsInSandbox") /* IsInSandbox com.amazonaws.sns.synthetic#GetSmsSandboxAccountStatusOutput$IsInSandbox */ =>  {
+                let var_1 =
+                    Some(
+                         {
+                            <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (boolean: `com.amazonaws.sns#boolean`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_is_in_sandbox(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetSMSSandboxAccountStatusResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_sms_sandbox_account_status_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_sms_sandbox_account_status_input_input_input(
+    input: &super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let _ = input;
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetSMSSandboxAccountStatus", "2010-03-31");
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_subscription_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_subscription_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_subscription_attributes::GetSubscriptionAttributesOutput, super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_subscription_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_subscription_attributes::GetSubscriptionAttributesOutput, super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_subscription_attributes::de_get_subscription_attributes(_response_body, output)
+            .map_err(super::super::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_subscription_attributes(
+    inp: &[u8],
+    mut builder: super::super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesOutputBuilder,
+) -> std::result::Result<super::super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetSubscriptionAttributesResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetSubscriptionAttributesResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetSubscriptionAttributesResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetSubscriptionAttributesResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Attributes") /* Attributes com.amazonaws.sns.synthetic#GetSubscriptionAttributesOutput$Attributes */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_subscription_attributes_map::de_subscription_attributes_map(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_attributes(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetSubscriptionAttributesResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_subscription_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_subscription_attributes_input_input_input(
+    input: &super::super::operation::get_subscription_attributes::GetSubscriptionAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetSubscriptionAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("SubscriptionArn");
+    if let Some(var_2) = &input.subscription_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_get_topic_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_topic_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_topic_attributes::GetTopicAttributesOutput, super::super::operation::get_topic_attributes::GetTopicAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::get_topic_attributes::GetTopicAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::get_topic_attributes::GetTopicAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::get_topic_attributes::GetTopicAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => super::super::operation::get_topic_attributes::GetTopicAttributesError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::get_topic_attributes::GetTopicAttributesError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::get_topic_attributes::GetTopicAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_get_topic_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::get_topic_attributes::GetTopicAttributesOutput, super::super::operation::get_topic_attributes::GetTopicAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_topic_attributes::de_get_topic_attributes(_response_body, output)
+            .map_err(super::super::operation::get_topic_attributes::GetTopicAttributesError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_get_topic_attributes(
+    inp: &[u8],
+    mut builder: super::super::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder,
+) -> std::result::Result<super::super::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("GetTopicAttributesResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected GetTopicAttributesResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("GetTopicAttributesResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected GetTopicAttributesResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Attributes") /* Attributes com.amazonaws.sns.synthetic#GetTopicAttributesOutput$Attributes */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_topic_attributes_map::de_topic_attributes_map(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_attributes(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetTopicAttributesResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_get_topic_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_get_topic_attributes_input_input_input(
+    input: &super::super::operation::get_topic_attributes::GetTopicAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "GetTopicAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_list_endpoints_by_platform_application {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_endpoints_by_platform_application_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput, super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_endpoints_by_platform_application_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput, super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_endpoints_by_platform_application::de_list_endpoints_by_platform_application(_response_body, output)
+            .map_err(super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_list_endpoints_by_platform_application(
+    inp: &[u8],
+    mut builder: super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder,
+) -> std::result::Result<super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ListEndpointsByPlatformApplicationResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ListEndpointsByPlatformApplicationResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ListEndpointsByPlatformApplicationResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ListEndpointsByPlatformApplicationResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Endpoints") /* Endpoints com.amazonaws.sns.synthetic#ListEndpointsByPlatformApplicationOutput$Endpoints */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_list_of_endpoints::de_list_of_endpoints(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_endpoints(var_1);
+            }
+            ,
+            s if s.matches("NextToken") /* NextToken com.amazonaws.sns.synthetic#ListEndpointsByPlatformApplicationOutput$NextToken */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_token(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListEndpointsByPlatformApplicationResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_list_endpoints_by_platform_application_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_list_endpoints_by_platform_application_input_input_input(
+    input: &super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ListEndpointsByPlatformApplication", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PlatformApplicationArn");
+    if let Some(var_2) = &input.platform_application_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("NextToken");
+    if let Some(var_4) = &input.next_token {
+        scope_3.string(var_4);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_list_origination_numbers {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_origination_numbers_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_origination_numbers::ListOriginationNumbersOutput, super::super::operation::list_origination_numbers::ListOriginationNumbersError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::list_origination_numbers::ListOriginationNumbersError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::list_origination_numbers::ListOriginationNumbersError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::list_origination_numbers::ListOriginationNumbersError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::list_origination_numbers::ListOriginationNumbersError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => super::super::operation::list_origination_numbers::ListOriginationNumbersError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::list_origination_numbers::ListOriginationNumbersError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_origination_numbers_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_origination_numbers::ListOriginationNumbersOutput, super::super::operation::list_origination_numbers::ListOriginationNumbersError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_origination_numbers::de_list_origination_numbers(_response_body, output)
+            .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_list_origination_numbers(
+    inp: &[u8],
+    mut builder: super::super::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder,
+) -> std::result::Result<super::super::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ListOriginationNumbersResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ListOriginationNumbersResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ListOriginationNumbersResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ListOriginationNumbersResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("NextToken") /* NextToken com.amazonaws.sns.synthetic#ListOriginationNumbersOutput$NextToken */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_token(var_1);
+            }
+            ,
+            s if s.matches("PhoneNumbers") /* PhoneNumbers com.amazonaws.sns.synthetic#ListOriginationNumbersOutput$PhoneNumbers */ =>  {
+                let var_2 =
+                    Some(
+                        super::super::protocol_serde::shape_phone_number_information_list::de_phone_number_information_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_phone_numbers(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListOriginationNumbersResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_list_origination_numbers_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_list_origination_numbers_input_input_input(
+    input: &super::super::operation::list_origination_numbers::ListOriginationNumbersInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ListOriginationNumbers", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("NextToken");
+    if let Some(var_2) = &input.next_token {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("MaxResults");
+    if let Some(var_4) = &input.max_results {
+        scope_3.number(#[allow(clippy::useless_conversion)]
+::aws_smithy_types::Number::NegInt((*var_4).into()));
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_list_phone_numbers_opted_out {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_phone_numbers_opted_out_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput, super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_phone_numbers_opted_out_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput, super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_phone_numbers_opted_out::de_list_phone_numbers_opted_out(_response_body, output)
+            .map_err(super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_list_phone_numbers_opted_out(
+    inp: &[u8],
+    mut builder: super::super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutOutputBuilder,
+) -> std::result::Result<super::super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ListPhoneNumbersOptedOutResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ListPhoneNumbersOptedOutResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ListPhoneNumbersOptedOutResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ListPhoneNumbersOptedOutResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("phoneNumbers") /* phoneNumbers com.amazonaws.sns.synthetic#ListPhoneNumbersOptedOutOutput$phoneNumbers */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_phone_number_list::de_phone_number_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_phone_numbers(var_1);
+            }
+            ,
+            s if s.matches("nextToken") /* nextToken com.amazonaws.sns.synthetic#ListPhoneNumbersOptedOutOutput$nextToken */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_token(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListPhoneNumbersOptedOutResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_list_phone_numbers_opted_out_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_list_phone_numbers_opted_out_input_input_input(
+    input: &super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ListPhoneNumbersOptedOut", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("nextToken");
+    if let Some(var_2) = &input.next_token {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_list_platform_applications {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_platform_applications_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_platform_applications::ListPlatformApplicationsOutput, super::super::operation::list_platform_applications::ListPlatformApplicationsError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_platform_applications::ListPlatformApplicationsError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::list_platform_applications::ListPlatformApplicationsError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::list_platform_applications::ListPlatformApplicationsError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_platform_applications::ListPlatformApplicationsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::list_platform_applications::ListPlatformApplicationsError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_platform_applications::ListPlatformApplicationsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::list_platform_applications::ListPlatformApplicationsError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_platform_applications::ListPlatformApplicationsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::list_platform_applications::ListPlatformApplicationsError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_platform_applications_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_platform_applications::ListPlatformApplicationsOutput, super::super::operation::list_platform_applications::ListPlatformApplicationsError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::list_platform_applications::builders::ListPlatformApplicationsOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_platform_applications::de_list_platform_applications(_response_body, output)
+            .map_err(super::super::operation::list_platform_applications::ListPlatformApplicationsError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_list_platform_applications(
+    inp: &[u8],
+    mut builder: super::super::operation::list_platform_applications::builders::ListPlatformApplicationsOutputBuilder,
+) -> std::result::Result<super::super::operation::list_platform_applications::builders::ListPlatformApplicationsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ListPlatformApplicationsResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ListPlatformApplicationsResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ListPlatformApplicationsResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ListPlatformApplicationsResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("PlatformApplications") /* PlatformApplications com.amazonaws.sns.synthetic#ListPlatformApplicationsOutput$PlatformApplications */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_list_of_platform_applications::de_list_of_platform_applications(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_platform_applications(var_1);
+            }
+            ,
+            s if s.matches("NextToken") /* NextToken com.amazonaws.sns.synthetic#ListPlatformApplicationsOutput$NextToken */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_token(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListPlatformApplicationsResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_list_platform_applications_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_list_platform_applications_input_input_input(
+    input: &super::super::operation::list_platform_applications::ListPlatformApplicationsInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ListPlatformApplications", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("NextToken");
+    if let Some(var_2) = &input.next_token {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_list_sms_sandbox_phone_numbers {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_sms_sandbox_phone_numbers_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput, super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFound" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_sms_sandbox_phone_numbers_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput, super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_sms_sandbox_phone_numbers::de_list_sms_sandbox_phone_numbers(_response_body, output)
+            .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        super::super::serde_util::list_sms_sandbox_phone_numbers_output_output_correct_errors(output).build().map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?
+    })
+}
+
+
+
+#[allow(unused_mut)]
+pub fn de_list_sms_sandbox_phone_numbers(
+    inp: &[u8],
+    mut builder: super::super::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder,
+) -> std::result::Result<super::super::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ListSMSSandboxPhoneNumbersResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ListSMSSandboxPhoneNumbersResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ListSMSSandboxPhoneNumbersResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ListSMSSandboxPhoneNumbersResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("PhoneNumbers") /* PhoneNumbers com.amazonaws.sns.synthetic#ListSmsSandboxPhoneNumbersOutput$PhoneNumbers */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_sms_sandbox_phone_number_list::de_sms_sandbox_phone_number_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_phone_numbers(var_1);
+            }
+            ,
+            s if s.matches("NextToken") /* NextToken com.amazonaws.sns.synthetic#ListSmsSandboxPhoneNumbersOutput$NextToken */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_token(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListSMSSandboxPhoneNumbersResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_list_sms_sandbox_phone_numbers_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_list_sms_sandbox_phone_numbers_input_input_input(
+    input: &super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ListSMSSandboxPhoneNumbers", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("NextToken");
+    if let Some(var_2) = &input.next_token {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("MaxResults");
+    if let Some(var_4) = &input.max_results {
+        scope_3.number(#[allow(clippy::useless_conversion)]
+::aws_smithy_types::Number::NegInt((*var_4).into()));
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_list_subscriptions {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_subscriptions_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_subscriptions::ListSubscriptionsOutput, super::super::operation::list_subscriptions::ListSubscriptionsError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_subscriptions::ListSubscriptionsError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::list_subscriptions::ListSubscriptionsError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::list_subscriptions::ListSubscriptionsError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_subscriptions::ListSubscriptionsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::list_subscriptions::ListSubscriptionsError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_subscriptions::ListSubscriptionsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::list_subscriptions::ListSubscriptionsError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_subscriptions::ListSubscriptionsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::list_subscriptions::ListSubscriptionsError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_subscriptions_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_subscriptions::ListSubscriptionsOutput, super::super::operation::list_subscriptions::ListSubscriptionsError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::list_subscriptions::builders::ListSubscriptionsOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_subscriptions::de_list_subscriptions(_response_body, output)
+            .map_err(super::super::operation::list_subscriptions::ListSubscriptionsError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_list_subscriptions(
+    inp: &[u8],
+    mut builder: super::super::operation::list_subscriptions::builders::ListSubscriptionsOutputBuilder,
+) -> std::result::Result<super::super::operation::list_subscriptions::builders::ListSubscriptionsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ListSubscriptionsResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ListSubscriptionsResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ListSubscriptionsResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ListSubscriptionsResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Subscriptions") /* Subscriptions com.amazonaws.sns.synthetic#ListSubscriptionsOutput$Subscriptions */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_subscriptions_list::de_subscriptions_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_subscriptions(var_1);
+            }
+            ,
+            s if s.matches("NextToken") /* NextToken com.amazonaws.sns.synthetic#ListSubscriptionsOutput$NextToken */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_token(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListSubscriptionsResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_list_subscriptions_by_topic {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_subscriptions_by_topic_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput, super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_subscriptions_by_topic_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput, super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_subscriptions_by_topic::de_list_subscriptions_by_topic(_response_body, output)
+            .map_err(super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_list_subscriptions_by_topic(
+    inp: &[u8],
+    mut builder: super::super::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicOutputBuilder,
+) -> std::result::Result<super::super::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ListSubscriptionsByTopicResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ListSubscriptionsByTopicResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ListSubscriptionsByTopicResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ListSubscriptionsByTopicResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Subscriptions") /* Subscriptions com.amazonaws.sns.synthetic#ListSubscriptionsByTopicOutput$Subscriptions */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_subscriptions_list::de_subscriptions_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_subscriptions(var_1);
+            }
+            ,
+            s if s.matches("NextToken") /* NextToken com.amazonaws.sns.synthetic#ListSubscriptionsByTopicOutput$NextToken */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_token(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListSubscriptionsByTopicResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_list_subscriptions_by_topic_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_list_subscriptions_by_topic_input_input_input(
+    input: &super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ListSubscriptionsByTopic", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("NextToken");
+    if let Some(var_4) = &input.next_token {
+        scope_3.string(var_4);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_list_subscriptions_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_list_subscriptions_input_input_input(
+    input: &super::super::operation::list_subscriptions::ListSubscriptionsInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ListSubscriptions", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("NextToken");
+    if let Some(var_2) = &input.next_token {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_list_tags_for_resource {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_tags_for_resource_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_tags_for_resource::ListTagsForResourceOutput, super::super::operation::list_tags_for_resource::ListTagsForResourceError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ConcurrentAccess" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ConcurrentAccessException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ConcurrentAccessExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_concurrent_access_exception::de_concurrent_access_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFound" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TagPolicy" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::TagPolicyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TagPolicyExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_tag_policy_exception::de_tag_policy_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_tags_for_resource_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_tags_for_resource::ListTagsForResourceOutput, super::super::operation::list_tags_for_resource::ListTagsForResourceError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_tags_for_resource::de_list_tags_for_resource(_response_body, output)
+            .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_list_tags_for_resource(
+    inp: &[u8],
+    mut builder: super::super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder,
+) -> std::result::Result<super::super::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ListTagsForResourceResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ListTagsForResourceResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ListTagsForResourceResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ListTagsForResourceResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Tags") /* Tags com.amazonaws.sns.synthetic#ListTagsForResourceOutput$Tags */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_tag_list::de_tag_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_tags(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListTagsForResourceResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_list_tags_for_resource_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_list_tags_for_resource_input_input_input(
+    input: &super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ListTagsForResource", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("ResourceArn");
+    if let Some(var_2) = &input.resource_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_list_topics {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_topics_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_topics::ListTopicsOutput, super::super::operation::list_topics::ListTopicsError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_topics::ListTopicsError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::list_topics::ListTopicsError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::list_topics::ListTopicsError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_topics::ListTopicsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::list_topics::ListTopicsError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_topics::ListTopicsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::list_topics::ListTopicsError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::list_topics::ListTopicsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::list_topics::ListTopicsError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_list_topics_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::list_topics::ListTopicsOutput, super::super::operation::list_topics::ListTopicsError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::list_topics::builders::ListTopicsOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_topics::de_list_topics(_response_body, output)
+            .map_err(super::super::operation::list_topics::ListTopicsError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_list_topics(
+    inp: &[u8],
+    mut builder: super::super::operation::list_topics::builders::ListTopicsOutputBuilder,
+) -> std::result::Result<super::super::operation::list_topics::builders::ListTopicsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("ListTopicsResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected ListTopicsResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("ListTopicsResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected ListTopicsResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Topics") /* Topics com.amazonaws.sns.synthetic#ListTopicsOutput$Topics */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_topics_list::de_topics_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_topics(var_1);
+            }
+            ,
+            s if s.matches("NextToken") /* NextToken com.amazonaws.sns.synthetic#ListTopicsOutput$NextToken */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_token(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListTopicsResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_list_topics_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_list_topics_input_input_input(
+    input: &super::super::operation::list_topics::ListTopicsInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "ListTopics", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("NextToken");
+    if let Some(var_2) = &input.next_token {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_opt_in_phone_number {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_opt_in_phone_number_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::opt_in_phone_number::OptInPhoneNumberOutput, super::super::operation::opt_in_phone_number::OptInPhoneNumberError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::opt_in_phone_number::OptInPhoneNumberError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::opt_in_phone_number::OptInPhoneNumberError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::opt_in_phone_number::OptInPhoneNumberError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::opt_in_phone_number::OptInPhoneNumberError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::opt_in_phone_number::OptInPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::opt_in_phone_number::OptInPhoneNumberError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_opt_in_phone_number_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::opt_in_phone_number::OptInPhoneNumberOutput, super::super::operation::opt_in_phone_number::OptInPhoneNumberError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::opt_in_phone_number::builders::OptInPhoneNumberOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_opt_in_phone_number_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_opt_in_phone_number_input_input_input(
+    input: &super::super::operation::opt_in_phone_number::OptInPhoneNumberInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "OptInPhoneNumber", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("phoneNumber");
+    if let Some(var_2) = &input.phone_number {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_publish {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_publish_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::publish::PublishOutput, super::super::operation::publish::PublishError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::publish::PublishError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::publish::PublishError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::publish::PublishError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "EndpointDisabled" => super::super::operation::publish::PublishError::EndpointDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::EndpointDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_endpoint_disabled_exception::de_endpoint_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::publish::PublishError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::publish::PublishError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ParameterValueInvalid" => super::super::operation::publish::PublishError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => super::super::operation::publish::PublishError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSAccessDenied" => super::super::operation::publish::PublishError::KmsAccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSDisabled" => super::super::operation::publish::PublishError::KmsDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSInvalidState" => super::super::operation::publish::PublishError::KmsInvalidStateException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSNotFound" => super::super::operation::publish::PublishError::KmsNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSOptInRequired" => super::super::operation::publish::PublishError::KmsOptInRequired({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsOptInRequiredBuilder::default();
+                output = super::super::protocol_serde::shape_kms_opt_in_required::de_kms_opt_in_required_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSThrottling" => super::super::operation::publish::PublishError::KmsThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsThrottlingExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_throttling_exception::de_kms_throttling_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::publish::PublishError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "PlatformApplicationDisabled" => super::super::operation::publish::PublishError::PlatformApplicationDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::PlatformApplicationDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_platform_application_disabled_exception::de_platform_application_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => super::super::operation::publish::PublishError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish::PublishError::unhandled)?;
+                let output = output.meta(generic);
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::publish::PublishError::unhandled)?
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::publish::PublishError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_publish_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::publish::PublishOutput, super::super::operation::publish::PublishError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::publish::builders::PublishOutputBuilder::default();
+        output = super::super::protocol_serde::shape_publish::de_publish(_response_body, output)
+            .map_err(super::super::operation::publish::PublishError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_publish(
+    inp: &[u8],
+    mut builder: super::super::operation::publish::builders::PublishOutputBuilder,
+) -> std::result::Result<super::super::operation::publish::builders::PublishOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("PublishResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected PublishResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("PublishResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected PublishResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("MessageId") /* MessageId com.amazonaws.sns.synthetic#PublishOutput$MessageId */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message_id(var_1);
+            }
+            ,
+            s if s.matches("SequenceNumber") /* SequenceNumber com.amazonaws.sns.synthetic#PublishOutput$SequenceNumber */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_sequence_number(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected PublishResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_publish_batch {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_publish_batch_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::publish_batch::PublishBatchOutput, super::super::operation::publish_batch::PublishBatchError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::publish_batch::PublishBatchError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::publish_batch::PublishBatchError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "BatchEntryIdsNotDistinct" => super::super::operation::publish_batch::PublishBatchError::BatchEntryIdsNotDistinctException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::BatchEntryIdsNotDistinctExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct_exception::de_batch_entry_ids_not_distinct_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "BatchRequestTooLong" => super::super::operation::publish_batch::PublishBatchError::BatchRequestTooLongException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::BatchRequestTooLongExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_batch_request_too_long_exception::de_batch_request_too_long_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "EmptyBatchRequest" => super::super::operation::publish_batch::PublishBatchError::EmptyBatchRequestException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::EmptyBatchRequestExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_empty_batch_request_exception::de_empty_batch_request_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "EndpointDisabled" => super::super::operation::publish_batch::PublishBatchError::EndpointDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::EndpointDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_endpoint_disabled_exception::de_endpoint_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::publish_batch::PublishBatchError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidBatchEntryId" => super::super::operation::publish_batch::PublishBatchError::InvalidBatchEntryIdException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidBatchEntryIdExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_batch_entry_id_exception::de_invalid_batch_entry_id_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::publish_batch::PublishBatchError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ParameterValueInvalid" => super::super::operation::publish_batch::PublishBatchError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => super::super::operation::publish_batch::PublishBatchError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSAccessDenied" => super::super::operation::publish_batch::PublishBatchError::KmsAccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSDisabled" => super::super::operation::publish_batch::PublishBatchError::KmsDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSInvalidState" => super::super::operation::publish_batch::PublishBatchError::KmsInvalidStateException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSNotFound" => super::super::operation::publish_batch::PublishBatchError::KmsNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSOptInRequired" => super::super::operation::publish_batch::PublishBatchError::KmsOptInRequired({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsOptInRequiredBuilder::default();
+                output = super::super::protocol_serde::shape_kms_opt_in_required::de_kms_opt_in_required_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSThrottling" => super::super::operation::publish_batch::PublishBatchError::KmsThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::KmsThrottlingExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_throttling_exception::de_kms_throttling_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::publish_batch::PublishBatchError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "PlatformApplicationDisabled" => super::super::operation::publish_batch::PublishBatchError::PlatformApplicationDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::PlatformApplicationDisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_platform_application_disabled_exception::de_platform_application_disabled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TooManyEntriesInBatchRequest" => super::super::operation::publish_batch::PublishBatchError::TooManyEntriesInBatchRequestException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TooManyEntriesInBatchRequestExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_entries_in_batch_request_exception::de_too_many_entries_in_batch_request_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => super::super::operation::publish_batch::PublishBatchError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                let output = output.meta(generic);
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::publish_batch::PublishBatchError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_publish_batch_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::publish_batch::PublishBatchOutput, super::super::operation::publish_batch::PublishBatchError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::publish_batch::builders::PublishBatchOutputBuilder::default();
+        output = super::super::protocol_serde::shape_publish_batch::de_publish_batch(_response_body, output)
+            .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_publish_batch(
+    inp: &[u8],
+    mut builder: super::super::operation::publish_batch::builders::PublishBatchOutputBuilder,
+) -> std::result::Result<super::super::operation::publish_batch::builders::PublishBatchOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("PublishBatchResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected PublishBatchResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("PublishBatchResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected PublishBatchResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Successful") /* Successful com.amazonaws.sns.synthetic#PublishBatchOutput$Successful */ =>  {
+                let var_1 =
+                    Some(
+                        super::super::protocol_serde::shape_publish_batch_result_entry_list::de_publish_batch_result_entry_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_successful(var_1);
+            }
+            ,
+            s if s.matches("Failed") /* Failed com.amazonaws.sns.synthetic#PublishBatchOutput$Failed */ =>  {
+                let var_2 =
+                    Some(
+                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_failed(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected PublishBatchResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_publish_batch_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_publish_batch_input_input_input(
+    input: &super::super::operation::publish_batch::PublishBatchInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "PublishBatch", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("PublishBatchRequestEntries");
+    if let Some(var_4) = &input.publish_batch_request_entries {
+        let mut list_6 = scope_3.start_list(false, None);
+        for item_5 in var_4 {
+            #[allow(unused_mut)]
+            let mut entry_7 = list_6.entry();
+        super::super::protocol_serde::shape_publish_batch_request_entry::ser_publish_batch_request_entry(entry_7, item_5)?;
+        }
+        list_6.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_publish_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_publish_input_input_input(
+    input: &super::super::operation::publish::PublishInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "Publish", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("TargetArn");
+    if let Some(var_4) = &input.target_arn {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("PhoneNumber");
+    if let Some(var_6) = &input.phone_number {
+        scope_5.string(var_6);
+    }
+    #[allow(unused_mut)]
+    let mut scope_7 = writer.prefix("Message");
+    if let Some(var_8) = &input.message {
+        scope_7.string(var_8);
+    }
+    #[allow(unused_mut)]
+    let mut scope_9 = writer.prefix("Subject");
+    if let Some(var_10) = &input.subject {
+        scope_9.string(var_10);
+    }
+    #[allow(unused_mut)]
+    let mut scope_11 = writer.prefix("MessageStructure");
+    if let Some(var_12) = &input.message_structure {
+        scope_11.string(var_12);
+    }
+    #[allow(unused_mut)]
+    let mut scope_13 = writer.prefix("MessageAttributes");
+    if let Some(var_14) = &input.message_attributes {
+        let mut map_15 = scope_13.start_map(false, "Name", "Value");
+        for (key_16, value_17) in var_14 {
+            #[allow(unused_mut)]
+            let mut entry_18 = map_15.entry(key_16);
+            {
+        super::super::protocol_serde::shape_message_attribute_value::ser_message_attribute_value(entry_18, value_17)?;
+            }
+        }
+        map_15.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_19 = writer.prefix("MessageDeduplicationId");
+    if let Some(var_20) = &input.message_deduplication_id {
+        scope_19.string(var_20);
+    }
+    #[allow(unused_mut)]
+    let mut scope_21 = writer.prefix("MessageGroupId");
+    if let Some(var_22) = &input.message_group_id {
+        scope_21.string(var_22);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_put_data_protection_policy {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_put_data_protection_policy_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::put_data_protection_policy::PutDataProtectionPolicyOutput, super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_put_data_protection_policy_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::put_data_protection_policy::PutDataProtectionPolicyOutput, super::super::operation::put_data_protection_policy::PutDataProtectionPolicyError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::put_data_protection_policy::builders::PutDataProtectionPolicyOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_put_data_protection_policy_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_put_data_protection_policy_input_input_input(
+    input: &super::super::operation::put_data_protection_policy::PutDataProtectionPolicyInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "PutDataProtectionPolicy", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("ResourceArn");
+    if let Some(var_2) = &input.resource_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("DataProtectionPolicy");
+    if let Some(var_4) = &input.data_protection_policy {
+        scope_3.string(var_4);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_remove_permission {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_remove_permission_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::remove_permission::RemovePermissionOutput, super::super::operation::remove_permission::RemovePermissionError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::remove_permission::RemovePermissionError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::remove_permission::RemovePermissionError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::remove_permission::RemovePermissionError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::remove_permission::RemovePermissionError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::remove_permission::RemovePermissionError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::remove_permission::RemovePermissionError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_remove_permission_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::remove_permission::RemovePermissionOutput, super::super::operation::remove_permission::RemovePermissionError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::remove_permission::builders::RemovePermissionOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_remove_permission_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_remove_permission_input_input_input(
+    input: &super::super::operation::remove_permission::RemovePermissionInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "RemovePermission", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Label");
+    if let Some(var_4) = &input.label {
+        scope_3.string(var_4);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_set_endpoint_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_endpoint_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_endpoint_attributes::SetEndpointAttributesOutput, super::super::operation::set_endpoint_attributes::SetEndpointAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::set_endpoint_attributes::SetEndpointAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_endpoint_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_endpoint_attributes::SetEndpointAttributesOutput, super::super::operation::set_endpoint_attributes::SetEndpointAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::set_endpoint_attributes::builders::SetEndpointAttributesOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_set_endpoint_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_set_endpoint_attributes_input_input_input(
+    input: &super::super::operation::set_endpoint_attributes::SetEndpointAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "SetEndpointAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("EndpointArn");
+    if let Some(var_2) = &input.endpoint_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Attributes");
+    if let Some(var_4) = &input.attributes {
+        let mut map_5 = scope_3.start_map(false, "key", "value");
+        for (key_6, value_7) in var_4 {
+            #[allow(unused_mut)]
+            let mut entry_8 = map_5.entry(key_6);
+            {
+        entry_8.string(value_7);
+            }
+        }
+        map_5.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_set_platform_application_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_platform_application_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesOutput, super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_platform_application_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesOutput, super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_set_platform_application_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_set_platform_application_attributes_input_input_input(
+    input: &super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "SetPlatformApplicationAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PlatformApplicationArn");
+    if let Some(var_2) = &input.platform_application_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Attributes");
+    if let Some(var_4) = &input.attributes {
+        let mut map_5 = scope_3.start_map(false, "key", "value");
+        for (key_6, value_7) in var_4 {
+            #[allow(unused_mut)]
+            let mut entry_8 = map_5.entry(key_6);
+            {
+        entry_8.string(value_7);
+            }
+        }
+        map_5.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_set_sms_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_sms_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_sms_attributes::SetSmsAttributesOutput, super::super::operation::set_sms_attributes::SetSmsAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::set_sms_attributes::SetSmsAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::set_sms_attributes::SetSmsAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::set_sms_attributes::SetSmsAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::set_sms_attributes::SetSmsAttributesError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::set_sms_attributes::SetSmsAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_sms_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_sms_attributes::SetSmsAttributesOutput, super::super::operation::set_sms_attributes::SetSmsAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::set_sms_attributes::builders::SetSmsAttributesOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_set_sms_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_set_sms_attributes_input_input_input(
+    input: &super::super::operation::set_sms_attributes::SetSmsAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "SetSMSAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("attributes");
+    if let Some(var_2) = &input.attributes {
+        let mut map_3 = scope_1.start_map(false, "key", "value");
+        for (key_4, value_5) in var_2 {
+            #[allow(unused_mut)]
+            let mut entry_6 = map_3.entry(key_4);
+            {
+        entry_6.string(value_5);
+            }
+        }
+        map_3.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_set_subscription_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_subscription_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_subscription_attributes::SetSubscriptionAttributesOutput, super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "FilterPolicyLimitExceeded" => super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::FilterPolicyLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::FilterPolicyLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_filter_policy_limit_exceeded_exception::de_filter_policy_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ReplayLimitExceeded" => super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::ReplayLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ReplayLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_replay_limit_exceeded_exception::de_replay_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_subscription_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_subscription_attributes::SetSubscriptionAttributesOutput, super::super::operation::set_subscription_attributes::SetSubscriptionAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_set_subscription_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_set_subscription_attributes_input_input_input(
+    input: &super::super::operation::set_subscription_attributes::SetSubscriptionAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "SetSubscriptionAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("SubscriptionArn");
+    if let Some(var_2) = &input.subscription_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("AttributeName");
+    if let Some(var_4) = &input.attribute_name {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("AttributeValue");
+    if let Some(var_6) = &input.attribute_value {
+        scope_5.string(var_6);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_set_topic_attributes {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_topic_attributes_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_topic_attributes::SetTopicAttributesOutput, super::super::operation::set_topic_attributes::SetTopicAttributesError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::set_topic_attributes::SetTopicAttributesError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::set_topic_attributes::SetTopicAttributesError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::set_topic_attributes::SetTopicAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => super::super::operation::set_topic_attributes::SetTopicAttributesError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::set_topic_attributes::SetTopicAttributesError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::set_topic_attributes::SetTopicAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::set_topic_attributes::SetTopicAttributesError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_set_topic_attributes_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::set_topic_attributes::SetTopicAttributesOutput, super::super::operation::set_topic_attributes::SetTopicAttributesError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::set_topic_attributes::builders::SetTopicAttributesOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_set_topic_attributes_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_set_topic_attributes_input_input_input(
+    input: &super::super::operation::set_topic_attributes::SetTopicAttributesInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "SetTopicAttributes", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("AttributeName");
+    if let Some(var_4) = &input.attribute_name {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("AttributeValue");
+    if let Some(var_6) = &input.attribute_value {
+        scope_5.string(var_6);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_subscribe {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_subscribe_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::subscribe::SubscribeOutput, super::super::operation::subscribe::SubscribeError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::subscribe::SubscribeError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::subscribe::SubscribeError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "FilterPolicyLimitExceeded" => super::super::operation::subscribe::SubscribeError::FilterPolicyLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::FilterPolicyLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_filter_policy_limit_exceeded_exception::de_filter_policy_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::subscribe::SubscribeError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::subscribe::SubscribeError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => super::super::operation::subscribe::SubscribeError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::subscribe::SubscribeError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ReplayLimitExceeded" => super::super::operation::subscribe::SubscribeError::ReplayLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ReplayLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_replay_limit_exceeded_exception::de_replay_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "SubscriptionLimitExceeded" => super::super::operation::subscribe::SubscribeError::SubscriptionLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::SubscriptionLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_subscription_limit_exceeded_exception::de_subscription_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::subscribe::SubscribeError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_subscribe_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::subscribe::SubscribeOutput, super::super::operation::subscribe::SubscribeError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::subscribe::builders::SubscribeOutputBuilder::default();
+        output = super::super::protocol_serde::shape_subscribe::de_subscribe(_response_body, output)
+            .map_err(super::super::operation::subscribe::SubscribeError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+
+
+#[allow(unused_mut)]
+pub fn de_subscribe(
+    inp: &[u8],
+    mut builder: super::super::operation::subscribe::builders::SubscribeOutputBuilder,
+) -> std::result::Result<super::super::operation::subscribe::builders::SubscribeOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !(start_el.matches("SubscribeResponse")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid root, expected SubscribeResponse got {start_el:?}")));
+    }
+    if let Some(mut result_tag) = decoder.next_tag() {
+        let start_el = result_tag.start_el();
+        if !(start_el.matches("SubscribeResult")) {
+            return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid result, expected SubscribeResult got {start_el:?}")));
+        }
+    while let Some(mut tag) = result_tag.next_tag() {
+        match tag.start_el() {
+            s if s.matches("SubscriptionArn") /* SubscriptionArn com.amazonaws.sns.synthetic#SubscribeOutput$SubscriptionArn */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_subscription_arn(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    } else {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected SubscribeResult tag"));
+    };
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_subscribe_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_subscribe_input_input_input(
+    input: &super::super::operation::subscribe::SubscribeInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "Subscribe", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("TopicArn");
+    if let Some(var_2) = &input.topic_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Protocol");
+    if let Some(var_4) = &input.protocol {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("Endpoint");
+    if let Some(var_6) = &input.endpoint {
+        scope_5.string(var_6);
+    }
+    #[allow(unused_mut)]
+    let mut scope_7 = writer.prefix("Attributes");
+    if let Some(var_8) = &input.attributes {
+        let mut map_9 = scope_7.start_map(false, "key", "value");
+        for (key_10, value_11) in var_8 {
+            #[allow(unused_mut)]
+            let mut entry_12 = map_9.entry(key_10);
+            {
+        entry_12.string(value_11);
+            }
+        }
+        map_9.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_13 = writer.prefix("ReturnSubscriptionArn");
+    if let Some(var_14) = &input.return_subscription_arn {
+        scope_13.boolean(*var_14);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_tag_resource {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_tag_resource_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::tag_resource::TagResourceOutput, super::super::operation::tag_resource::TagResourceError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::tag_resource::TagResourceError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::tag_resource::TagResourceError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ConcurrentAccess" => super::super::operation::tag_resource::TagResourceError::ConcurrentAccessException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ConcurrentAccessExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_concurrent_access_exception::de_concurrent_access_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::tag_resource::TagResourceError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFound" => super::super::operation::tag_resource::TagResourceError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "StaleTag" => super::super::operation::tag_resource::TagResourceError::StaleTagException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::StaleTagExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_stale_tag_exception::de_stale_tag_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TagLimitExceeded" => super::super::operation::tag_resource::TagResourceError::TagLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TagLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_tag_limit_exceeded_exception::de_tag_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TagPolicy" => super::super::operation::tag_resource::TagResourceError::TagPolicyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TagPolicyExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_tag_policy_exception::de_tag_policy_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_tag_resource_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::tag_resource::TagResourceOutput, super::super::operation::tag_resource::TagResourceError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::tag_resource::builders::TagResourceOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_tag_resource_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_tag_resource_input_input_input(
+    input: &super::super::operation::tag_resource::TagResourceInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "TagResource", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("ResourceArn");
+    if let Some(var_2) = &input.resource_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Tags");
+    if let Some(var_4) = &input.tags {
+        let mut list_6 = scope_3.start_list(false, None);
+        for item_5 in var_4 {
+            #[allow(unused_mut)]
+            let mut entry_7 = list_6.entry();
+        super::super::protocol_serde::shape_tag::ser_tag(entry_7, item_5)?;
+        }
+        list_6.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_unsubscribe {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_unsubscribe_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::unsubscribe::UnsubscribeOutput, super::super::operation::unsubscribe::UnsubscribeError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::unsubscribe::UnsubscribeError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::unsubscribe::UnsubscribeError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::unsubscribe::UnsubscribeError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::unsubscribe::UnsubscribeError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurity" => super::super::operation::unsubscribe::UnsubscribeError::InvalidSecurityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFound" => super::super::operation::unsubscribe::UnsubscribeError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::unsubscribe::UnsubscribeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::unsubscribe::UnsubscribeError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_unsubscribe_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::unsubscribe::UnsubscribeOutput, super::super::operation::unsubscribe::UnsubscribeError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::unsubscribe::builders::UnsubscribeOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_unsubscribe_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_unsubscribe_input_input_input(
+    input: &super::super::operation::unsubscribe::UnsubscribeInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "Unsubscribe", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("SubscriptionArn");
+    if let Some(var_2) = &input.subscription_arn {
+        scope_1.string(var_2);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_untag_resource {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_untag_resource_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::untag_resource::UntagResourceOutput, super::super::operation::untag_resource::UntagResourceError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::untag_resource::UntagResourceError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::untag_resource::UntagResourceError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ConcurrentAccess" => super::super::operation::untag_resource::UntagResourceError::ConcurrentAccessException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ConcurrentAccessExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_concurrent_access_exception::de_concurrent_access_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::untag_resource::UntagResourceError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFound" => super::super::operation::untag_resource::UntagResourceError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "StaleTag" => super::super::operation::untag_resource::UntagResourceError::StaleTagException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::StaleTagExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_stale_tag_exception::de_stale_tag_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TagLimitExceeded" => super::super::operation::untag_resource::UntagResourceError::TagLimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TagLimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_tag_limit_exceeded_exception::de_tag_limit_exceeded_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TagPolicy" => super::super::operation::untag_resource::UntagResourceError::TagPolicyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TagPolicyExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_tag_policy_exception::de_tag_policy_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_untag_resource_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::untag_resource::UntagResourceOutput, super::super::operation::untag_resource::UntagResourceError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::untag_resource::builders::UntagResourceOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_untag_resource_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_untag_resource_input_input_input(
+    input: &super::super::operation::untag_resource::UntagResourceInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "UntagResource", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("ResourceArn");
+    if let Some(var_2) = &input.resource_arn {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("TagKeys");
+    if let Some(var_4) = &input.tag_keys {
+        let mut list_6 = scope_3.start_list(false, None);
+        for item_5 in var_4 {
+            #[allow(unused_mut)]
+            let mut entry_7 = list_6.entry();
+        entry_7.string(item_5);
+        }
+        list_6.finish();
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_verify_sms_sandbox_phone_number {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_verify_sms_sandbox_phone_number_http_error(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput, super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError> {
+    #[allow(unused_mut)]
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+    let generic = generic_builder.build();
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled(generic)),
+    };
+
+    let _error_message = generic.message().map(|msg| msg.to_owned());
+    Err(match error_code {
+        "AuthorizationError" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::AuthorizationErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalError" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameter" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFound" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "Throttled" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::ThrottledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "VerificationException" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::VerificationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::VerificationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_verification_exception::de_verification_exception_xml_err(_response_body, output)
+                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                let output = output.meta(generic);
+                super::super::serde_util::verification_exception_correct_errors(output).build().map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?
+            };            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        _ => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::generic(generic),
+    })
+}
+
+#[allow(clippy::unnecessary_wraps)]
+pub fn de_verify_sms_sandbox_phone_number_http_response(
+    _response_status: u16,
+    _response_headers: &::aws_smithy_runtime_api::http::Headers,
+    _response_body: &[u8],
+) -> std::result::Result<super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput, super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError> {
+    Ok({
+        #[allow(unused_mut)]
+        let mut output = super::super::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output.build()
+    })
+}
+}
+
+pub(crate) mod shape_verify_sms_sandbox_phone_number_input {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn ser_verify_sms_sandbox_phone_number_input_input_input(
+    input: &super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput,
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+    let mut out = String::new();
+    #[allow(unused_mut)]
+    let mut writer = ::aws_smithy_query::QueryWriter::new(&mut out, "VerifySMSSandboxPhoneNumber", "2010-03-31");
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("PhoneNumber");
+    if let Some(var_2) = &input.phone_number {
+        scope_1.string(var_2);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("OneTimePassword");
+    if let Some(var_4) = &input.one_time_password {
+        scope_3.string(var_4);
+    }
+    writer.finish();
+    Ok(::aws_smithy_types::body::SdkBody::from(out))
+}
+}
+
+pub(crate) mod shape_authorization_error_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_authorization_error_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::AuthorizationErrorExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::AuthorizationErrorExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#AuthorizationErrorException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_batch_entry_ids_not_distinct_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_batch_entry_ids_not_distinct_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::BatchEntryIdsNotDistinctExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::BatchEntryIdsNotDistinctExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#BatchEntryIdsNotDistinctException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_batch_request_too_long_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_batch_request_too_long_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::BatchRequestTooLongExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::BatchRequestTooLongExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#BatchRequestTooLongException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_concurrent_access_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_concurrent_access_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::ConcurrentAccessExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::ConcurrentAccessExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#ConcurrentAccessException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_empty_batch_request_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_empty_batch_request_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::EmptyBatchRequestExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::EmptyBatchRequestExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#EmptyBatchRequestException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_endpoint_disabled_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_endpoint_disabled_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::EndpointDisabledExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::EndpointDisabledExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#EndpointDisabledException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_filter_policy_limit_exceeded_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_filter_policy_limit_exceeded_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::FilterPolicyLimitExceededExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::FilterPolicyLimitExceededExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#FilterPolicyLimitExceededException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_internal_error_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_internal_error_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::InternalErrorExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::InternalErrorExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#InternalErrorException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_invalid_batch_entry_id_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_invalid_batch_entry_id_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::InvalidBatchEntryIdExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::InvalidBatchEntryIdExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#InvalidBatchEntryIdException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_invalid_parameter_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_invalid_parameter_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::InvalidParameterExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::InvalidParameterExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#InvalidParameterException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_invalid_parameter_value_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_invalid_parameter_value_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::InvalidParameterValueExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::InvalidParameterValueExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#InvalidParameterValueException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_invalid_security_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_invalid_security_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::InvalidSecurityExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::InvalidSecurityExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#InvalidSecurityException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_invalid_state_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_invalid_state_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::InvalidStateExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::InvalidStateExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#InvalidStateException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_kms_access_denied_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_kms_access_denied_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::KmsAccessDeniedExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::KmsAccessDeniedExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#KMSAccessDeniedException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_kms_disabled_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_kms_disabled_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::KmsDisabledExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::KmsDisabledExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#KMSDisabledException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_kms_invalid_state_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_kms_invalid_state_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::KmsInvalidStateExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::KmsInvalidStateExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#KMSInvalidStateException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_kms_not_found_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_kms_not_found_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::KmsNotFoundExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::KmsNotFoundExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#KMSNotFoundException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_kms_opt_in_required {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_kms_opt_in_required_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::KmsOptInRequiredBuilder,
+) -> std::result::Result<super::super::types::error::builders::KmsOptInRequiredBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#KMSOptInRequired$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_kms_throttling_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_kms_throttling_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::KmsThrottlingExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::KmsThrottlingExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#KMSThrottlingException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_not_found_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_not_found_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::NotFoundExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::NotFoundExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#NotFoundException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_opted_out_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_opted_out_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::OptedOutExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::OptedOutExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#OptedOutException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_platform_application_disabled_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_platform_application_disabled_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::PlatformApplicationDisabledExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::PlatformApplicationDisabledExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#PlatformApplicationDisabledException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_replay_limit_exceeded_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_replay_limit_exceeded_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::ReplayLimitExceededExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::ReplayLimitExceededExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#ReplayLimitExceededException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_resource_not_found_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_resource_not_found_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::ResourceNotFoundExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::ResourceNotFoundExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#ResourceNotFoundException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_stale_tag_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_stale_tag_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::StaleTagExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::StaleTagExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#StaleTagException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_subscription_limit_exceeded_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_subscription_limit_exceeded_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::SubscriptionLimitExceededExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::SubscriptionLimitExceededExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#SubscriptionLimitExceededException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_tag_limit_exceeded_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_tag_limit_exceeded_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::TagLimitExceededExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::TagLimitExceededExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#TagLimitExceededException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_tag_policy_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_tag_policy_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::TagPolicyExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::TagPolicyExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#TagPolicyException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_throttled_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_throttled_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::ThrottledExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::ThrottledExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#ThrottledException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_too_many_entries_in_batch_request_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_too_many_entries_in_batch_request_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::TooManyEntriesInBatchRequestExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::TooManyEntriesInBatchRequestExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#TooManyEntriesInBatchRequestException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_topic_limit_exceeded_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_topic_limit_exceeded_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::TopicLimitExceededExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::TopicLimitExceededExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#TopicLimitExceededException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_user_error_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_user_error_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::UserErrorExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::UserErrorExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("message") /* message com.amazonaws.sns#UserErrorException$message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_validation_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_validation_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::ValidationExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::ValidationExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Message") /* Message com.amazonaws.sns#ValidationException$Message */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_verification_exception {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn de_verification_exception_xml_err(
+    inp: &[u8],
+    mut builder: super::super::types::error::builders::VerificationExceptionBuilder,
+) -> std::result::Result<super::super::types::error::builders::VerificationExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if inp.is_empty() {
+        return Ok(builder);
+    }
+    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut error_decoder = super::super::rest_xml_wrapped_errors::error_scope(&mut document)?;
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = error_decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Status") /* Status com.amazonaws.sns#VerificationException$Status */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_status(var_1);
+            }
+            ,
+            s if s.matches("Message") /* Message com.amazonaws.sns#VerificationException$Message */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder)
+}
+}
+
+pub(crate) mod shape_batch_result_error_entry_list {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_batch_result_error_entry_list(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::BatchResultErrorEntry>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#BatchResultErrorEntryList$member */ =>  {
+                out.push(
+                    super::super::protocol_serde::shape_batch_result_error_entry::de_batch_result_error_entry(&mut tag, depth + 1)
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_list_of_endpoints {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_list_of_endpoints(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::Endpoint>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#ListOfEndpoints$member */ =>  {
+                out.push(
+                    super::super::protocol_serde::shape_endpoint::de_endpoint(&mut tag, depth + 1)
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_list_of_platform_applications {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_list_of_platform_applications(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::PlatformApplication>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#ListOfPlatformApplications$member */ =>  {
+                out.push(
+                    super::super::protocol_serde::shape_platform_application::de_platform_application(&mut tag, depth + 1)
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_map_string_to_string {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_map_string_to_string(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::collections::HashMap<::std::string::String, ::std::string::String>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = ::std::collections::HashMap::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("entry") => {
+                super::super::protocol_serde::shape_map_string_to_string::de_map_string_to_string_entry(&mut tag, &mut out, depth)?;
+            }
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+
+pub fn de_map_string_to_string_entry(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    out: &mut ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    depth: u32,
+) -> ::std::result::Result<(), ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut k: Option<::std::string::String> = None;
+    let mut v: Option<::std::string::String> = None;
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("key") /* key com.amazonaws.sns#MapStringToString$key */ =>  {
+                k = Some(
+                    Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                        .into()
+                    )
+                    ?
+                )
+            }
+            ,
+            s if s.matches("value") /* value com.amazonaws.sns#MapStringToString$value */ =>  {
+                v = Some(
+                    Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                        .into()
+                    )
+                    ?
+                )
+            }
+            ,
+            _ => {}
+        }
+    }
+    let k = k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
+    let v = v.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry"))?;
+    out.insert(k, v);
+    Ok(())
+}
+}
+
+pub(crate) mod shape_message_attribute_value {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_message_attribute_value(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::MessageAttributeValue,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("DataType");
+    {
+        scope_1.string(&input.data_type);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("StringValue");
+    if let Some(var_3) = &input.string_value {
+        scope_2.string(var_3);
+    }
+    #[allow(unused_mut)]
+    let mut scope_4 = writer.prefix("BinaryValue");
+    if let Some(var_5) = &input.binary_value {
+        scope_4.string(&::aws_smithy_types::base64::encode(var_5));
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_phone_number_information_list {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_phone_number_information_list(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::PhoneNumberInformation>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#PhoneNumberInformationList$member */ =>  {
+                out.push(
+                    super::super::protocol_serde::shape_phone_number_information::de_phone_number_information(&mut tag, depth + 1)
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_phone_number_list {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_phone_number_list(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<::std::string::String>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#PhoneNumberList$member */ =>  {
+                out.push(
+                    Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                        .into()
+                    )
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_publish_batch_request_entry {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_publish_batch_request_entry(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::PublishBatchRequestEntry,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Id");
+    {
+        scope_1.string(&input.id);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("Message");
+    {
+        scope_2.string(&input.message);
+    }
+    #[allow(unused_mut)]
+    let mut scope_3 = writer.prefix("Subject");
+    if let Some(var_4) = &input.subject {
+        scope_3.string(var_4);
+    }
+    #[allow(unused_mut)]
+    let mut scope_5 = writer.prefix("MessageStructure");
+    if let Some(var_6) = &input.message_structure {
+        scope_5.string(var_6);
+    }
+    #[allow(unused_mut)]
+    let mut scope_7 = writer.prefix("MessageAttributes");
+    if let Some(var_8) = &input.message_attributes {
+        let mut map_9 = scope_7.start_map(false, "Name", "Value");
+        for (key_10, value_11) in var_8 {
+            #[allow(unused_mut)]
+            let mut entry_12 = map_9.entry(key_10);
+            {
+        super::super::protocol_serde::shape_message_attribute_value::ser_message_attribute_value(entry_12, value_11)?;
+            }
+        }
+        map_9.finish();
+    }
+    #[allow(unused_mut)]
+    let mut scope_13 = writer.prefix("MessageDeduplicationId");
+    if let Some(var_14) = &input.message_deduplication_id {
+        scope_13.string(var_14);
+    }
+    #[allow(unused_mut)]
+    let mut scope_15 = writer.prefix("MessageGroupId");
+    if let Some(var_16) = &input.message_group_id {
+        scope_15.string(var_16);
+    }
+    Ok(())
+}
+}
+
+pub(crate) mod shape_publish_batch_result_entry_list {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_publish_batch_result_entry_list(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::PublishBatchResultEntry>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#PublishBatchResultEntryList$member */ =>  {
+                out.push(
+                    super::super::protocol_serde::shape_publish_batch_result_entry::de_publish_batch_result_entry(&mut tag, depth + 1)
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_sms_sandbox_phone_number_list {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_sms_sandbox_phone_number_list(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::SmsSandboxPhoneNumber>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#SMSSandboxPhoneNumberList$member */ =>  {
+                out.push(
+                    super::super::protocol_serde::shape_sms_sandbox_phone_number::de_sms_sandbox_phone_number(&mut tag, depth + 1)
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_subscription_attributes_map {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_subscription_attributes_map(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::collections::HashMap<::std::string::String, ::std::string::String>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = ::std::collections::HashMap::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("entry") => {
+                super::super::protocol_serde::shape_subscription_attributes_map::de_subscription_attributes_map_entry(&mut tag, &mut out, depth)?;
+            }
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+
+pub fn de_subscription_attributes_map_entry(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    out: &mut ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    depth: u32,
+) -> ::std::result::Result<(), ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut k: Option<::std::string::String> = None;
+    let mut v: Option<::std::string::String> = None;
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("key") /* key com.amazonaws.sns#SubscriptionAttributesMap$key */ =>  {
+                k = Some(
+                    Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                        .into()
+                    )
+                    ?
+                )
+            }
+            ,
+            s if s.matches("value") /* value com.amazonaws.sns#SubscriptionAttributesMap$value */ =>  {
+                v = Some(
+                    Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                        .into()
+                    )
+                    ?
+                )
+            }
+            ,
+            _ => {}
+        }
+    }
+    let k = k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
+    let v = v.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry"))?;
+    out.insert(k, v);
+    Ok(())
+}
+}
+
+pub(crate) mod shape_subscriptions_list {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_subscriptions_list(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::Subscription>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#SubscriptionsList$member */ =>  {
+                out.push(
+                    super::super::protocol_serde::shape_subscription::de_subscription(&mut tag, depth + 1)
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_tag {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(unused_mut)]
+pub fn ser_tag(
+    mut writer: ::aws_smithy_query::QueryValueWriter,
+    input: &super::super::types::Tag,
+) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+    #[allow(unused_mut)]
+    let mut scope_1 = writer.prefix("Key");
+    {
+        scope_1.string(&input.key);
+    }
+    #[allow(unused_mut)]
+    let mut scope_2 = writer.prefix("Value");
+    {
+        scope_2.string(&input.value);
+    }
+    Ok(())
+}
+#[allow(clippy::needless_question_mark)]
+pub fn de_tag(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::Tag, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::Tag::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Key") /* Key com.amazonaws.sns#Tag$Key */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_key(var_3);
+            }
+            ,
+            s if s.matches("Value") /* Value com.amazonaws.sns#Tag$Value */ =>  {
+                let var_4 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_value(var_4);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(super::super::serde_util::tag_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+}
+}
+
+pub(crate) mod shape_tag_list {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_tag_list(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::Tag>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#TagList$member */ =>  {
+                out.push(
+                    super::super::protocol_serde::shape_tag::de_tag(&mut tag, depth + 1)
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_topic_attributes_map {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_topic_attributes_map(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::collections::HashMap<::std::string::String, ::std::string::String>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = ::std::collections::HashMap::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("entry") => {
+                super::super::protocol_serde::shape_topic_attributes_map::de_topic_attributes_map_entry(&mut tag, &mut out, depth)?;
+            }
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+
+pub fn de_topic_attributes_map_entry(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    out: &mut ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    depth: u32,
+) -> ::std::result::Result<(), ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut k: Option<::std::string::String> = None;
+    let mut v: Option<::std::string::String> = None;
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("key") /* key com.amazonaws.sns#TopicAttributesMap$key */ =>  {
+                k = Some(
+                    Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                        .into()
+                    )
+                    ?
+                )
+            }
+            ,
+            s if s.matches("value") /* value com.amazonaws.sns#TopicAttributesMap$value */ =>  {
+                v = Some(
+                    Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                        .into()
+                    )
+                    ?
+                )
+            }
+            ,
+            _ => {}
+        }
+    }
+    let k = k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
+    let v = v.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry"))?;
+    out.insert(k, v);
+    Ok(())
+}
+}
+
+pub(crate) mod shape_topics_list {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_topics_list(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::Topic>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#TopicsList$member */ =>  {
+                out.push(
+                    super::super::protocol_serde::shape_topic::de_topic(&mut tag, depth + 1)
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+
+pub(crate) mod shape_batch_result_error_entry {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_batch_result_error_entry(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::BatchResultErrorEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::BatchResultErrorEntry::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Id") /* Id com.amazonaws.sns#BatchResultErrorEntry$Id */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_id(var_1);
+            }
+            ,
+            s if s.matches("Code") /* Code com.amazonaws.sns#BatchResultErrorEntry$Code */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_code(var_2);
+            }
+            ,
+            s if s.matches("Message") /* Message com.amazonaws.sns#BatchResultErrorEntry$Message */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_3);
+            }
+            ,
+            s if s.matches("SenderFault") /* SenderFault com.amazonaws.sns#BatchResultErrorEntry$SenderFault */ =>  {
+                let var_4 =
+                    Some(
+                         {
+                            <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (boolean: `com.amazonaws.sns#boolean`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_sender_fault(var_4);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(super::super::serde_util::batch_result_error_entry_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+}
+}
+
+pub(crate) mod shape_endpoint {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_endpoint(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::Endpoint, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::Endpoint::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("EndpointArn") /* EndpointArn com.amazonaws.sns#Endpoint$EndpointArn */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_endpoint_arn(var_1);
+            }
+            ,
+            s if s.matches("Attributes") /* Attributes com.amazonaws.sns#Endpoint$Attributes */ =>  {
+                let var_2 =
+                    Some(
+                        super::super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_attributes(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder.build())
+}
+}
+
+pub(crate) mod shape_phone_number_information {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_phone_number_information(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::PhoneNumberInformation, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::PhoneNumberInformation::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("CreatedAt") /* CreatedAt com.amazonaws.sns#PhoneNumberInformation$CreatedAt */ =>  {
+                let var_1 =
+                    Some(
+                        ::aws_smithy_types::DateTime::from_str(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            , ::aws_smithy_types::date_time::Format::DateTimeWithOffset
+                        )
+                        .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (timestamp: `com.amazonaws.sns#Timestamp`)"))
+                        ?
+                    )
+                ;
+                builder = builder.set_created_at(var_1);
+            }
+            ,
+            s if s.matches("PhoneNumber") /* PhoneNumber com.amazonaws.sns#PhoneNumberInformation$PhoneNumber */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_phone_number(var_2);
+            }
+            ,
+            s if s.matches("Status") /* Status com.amazonaws.sns#PhoneNumberInformation$Status */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_status(var_3);
+            }
+            ,
+            s if s.matches("Iso2CountryCode") /* Iso2CountryCode com.amazonaws.sns#PhoneNumberInformation$Iso2CountryCode */ =>  {
+                let var_4 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_iso2_country_code(var_4);
+            }
+            ,
+            s if s.matches("RouteType") /* RouteType com.amazonaws.sns#PhoneNumberInformation$RouteType */ =>  {
+                let var_5 =
+                    Some(
+                        Result::<super::super::types::RouteType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::super::types::RouteType::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_route_type(var_5);
+            }
+            ,
+            s if s.matches("NumberCapabilities") /* NumberCapabilities com.amazonaws.sns#PhoneNumberInformation$NumberCapabilities */ =>  {
+                let var_6 =
+                    Some(
+                        super::super::protocol_serde::shape_number_capability_list::de_number_capability_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_number_capabilities(var_6);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder.build())
+}
+}
+
+pub(crate) mod shape_platform_application {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_platform_application(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::PlatformApplication, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::PlatformApplication::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("PlatformApplicationArn") /* PlatformApplicationArn com.amazonaws.sns#PlatformApplication$PlatformApplicationArn */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_platform_application_arn(var_1);
+            }
+            ,
+            s if s.matches("Attributes") /* Attributes com.amazonaws.sns#PlatformApplication$Attributes */ =>  {
+                let var_2 =
+                    Some(
+                        super::super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_attributes(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder.build())
+}
+}
+
+pub(crate) mod shape_publish_batch_result_entry {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_publish_batch_result_entry(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::PublishBatchResultEntry, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::PublishBatchResultEntry::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Id") /* Id com.amazonaws.sns#PublishBatchResultEntry$Id */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_id(var_1);
+            }
+            ,
+            s if s.matches("MessageId") /* MessageId com.amazonaws.sns#PublishBatchResultEntry$MessageId */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message_id(var_2);
+            }
+            ,
+            s if s.matches("SequenceNumber") /* SequenceNumber com.amazonaws.sns#PublishBatchResultEntry$SequenceNumber */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_sequence_number(var_3);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder.build())
+}
+}
+
+pub(crate) mod shape_sms_sandbox_phone_number {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_sms_sandbox_phone_number(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::SmsSandboxPhoneNumber, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::SmsSandboxPhoneNumber::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("PhoneNumber") /* PhoneNumber com.amazonaws.sns#SMSSandboxPhoneNumber$PhoneNumber */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_phone_number(var_1);
+            }
+            ,
+            s if s.matches("Status") /* Status com.amazonaws.sns#SMSSandboxPhoneNumber$Status */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<super::super::types::SmsSandboxPhoneNumberVerificationStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            super::super::types::SmsSandboxPhoneNumberVerificationStatus::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_status(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder.build())
+}
+}
+
+pub(crate) mod shape_subscription {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_subscription(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::Subscription, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::Subscription::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("SubscriptionArn") /* SubscriptionArn com.amazonaws.sns#Subscription$SubscriptionArn */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_subscription_arn(var_1);
+            }
+            ,
+            s if s.matches("Owner") /* Owner com.amazonaws.sns#Subscription$Owner */ =>  {
+                let var_2 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_owner(var_2);
+            }
+            ,
+            s if s.matches("Protocol") /* Protocol com.amazonaws.sns#Subscription$Protocol */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_protocol(var_3);
+            }
+            ,
+            s if s.matches("Endpoint") /* Endpoint com.amazonaws.sns#Subscription$Endpoint */ =>  {
+                let var_4 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_endpoint(var_4);
+            }
+            ,
+            s if s.matches("TopicArn") /* TopicArn com.amazonaws.sns#Subscription$TopicArn */ =>  {
+                let var_5 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_topic_arn(var_5);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder.build())
+}
+}
+
+pub(crate) mod shape_topic {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+#[allow(clippy::needless_question_mark)]
+pub fn de_topic(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<super::super::types::Topic, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    #[allow(unused_mut)]
+    let mut builder = super::super::types::Topic::builder();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("TopicArn") /* TopicArn com.amazonaws.sns#Topic$TopicArn */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_topic_arn(var_1);
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(builder.build())
+}
+}
+
+pub(crate) mod shape_number_capability_list {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+pub fn de_number_capability_list(
+    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
+    depth: u32,
+) -> ::std::result::Result<::std::vec::Vec<super::super::types::NumberCapability>, ::aws_smithy_xml::decode::XmlDecodeError> {
+    if depth >= 128u32 {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+    }
+    let mut out = std::vec::Vec::new();
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("member") /* member com.amazonaws.sns#NumberCapabilityList$member */ =>  {
+                out.push(
+                    Result::<super::super::types::NumberCapability, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        super::super::types::NumberCapability::from(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                        )
+                    )
+                    ?
+                );
+            }
+            ,
+            _ => {}
+        }
+    }
+    Ok(out)
+}
+}
+}
 
 mod sdk_feature_tracker {
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
@@ -47207,7 +56734,64 @@ pub(crate) fn tag_correct_errors(
 }
 }
 
-mod rest_xml_wrapped_errors;
+mod rest_xml_wrapped_errors {
+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+use aws_smithy_types::error::metadata::{Builder as ErrorMetadataBuilder, ErrorMetadata};
+use aws_smithy_xml::decode::{try_data, Document, ScopedDecoder, XmlDecodeError};
+
+#[allow(unused)]
+pub fn body_is_error(body: &[u8]) -> Result<bool, XmlDecodeError> {
+    let mut doc = Document::try_from(body)?;
+    let scoped = doc.root_element()?;
+    Ok(scoped.start_el().matches("ErrorResponse"))
+}
+
+#[allow(dead_code)]
+pub fn parse_error_metadata(body: &[u8]) -> Result<ErrorMetadataBuilder, XmlDecodeError> {
+    let mut doc = Document::try_from(body)?;
+    let mut root = doc.root_element()?;
+    let mut err_builder = ErrorMetadata::builder();
+    while let Some(mut tag) = root.next_tag() {
+        if tag.start_el().local() == "Error" {
+            while let Some(mut error_field) = tag.next_tag() {
+                match error_field.start_el().local() {
+                    "Code" => {
+                        err_builder = err_builder.code(try_data(&mut error_field)?);
+                    }
+                    "Message" => {
+                        err_builder = err_builder.message(try_data(&mut error_field)?);
+                    }
+                    _ => {}
+                }
+            }
+        }
+    }
+    Ok(err_builder)
+}
+
+#[allow(unused)]
+pub fn error_scope<'a, 'b>(doc: &'a mut Document<'b>) -> Result<ScopedDecoder<'b, 'a>, XmlDecodeError> {
+    let root = doc
+        .next_start_element()
+        .ok_or_else(|| XmlDecodeError::custom("no root found searching for an Error"))?;
+    if !root.matches("ErrorResponse") {
+        return Err(XmlDecodeError::custom("expected ErrorResponse as root"));
+    }
+
+    while let Some(el) = doc.next_start_element() {
+        if el.matches("Error") && el.depth() == 1 {
+            return Ok(doc.scoped_to(el));
+        }
+        // otherwise, ignore it
+    }
+    Err(XmlDecodeError::custom("no error found inside of ErrorResponse"))
+}
+}
 
 #[doc(inline)]
 pub use client::Client;

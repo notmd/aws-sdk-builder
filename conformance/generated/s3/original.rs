@@ -172990,8 +172990,7 @@ pub fn de_abort_multipart_upload_http_error(
                     .map_err(super::super::operation::abort_multipart_upload::AbortMultipartUploadError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -173629,8 +173628,7 @@ pub fn de_copy_object_http_error(
                     .map_err(super::super::operation::copy_object::CopyObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -174216,8 +174214,7 @@ pub fn de_create_bucket_http_error(
                     .map_err(super::super::operation::create_bucket::CreateBucketError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -174231,8 +174228,7 @@ pub fn de_create_bucket_http_error(
                     .map_err(super::super::operation::create_bucket::CreateBucketError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -175128,8 +175124,7 @@ pub fn de_create_session_http_error(
                     .map_err(super::super::operation::create_session::CreateSessionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -176200,8 +176195,7 @@ pub fn de_delete_object_annotation_http_error(
                     .map_err(super::super::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -176215,8 +176209,7 @@ pub fn de_delete_object_annotation_http_error(
                     .map_err(super::super::operation::delete_object_annotation::DeleteObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -178629,8 +178622,7 @@ pub fn de_get_object_http_error(
                     .map_err(super::super::operation::get_object::GetObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -178644,8 +178636,7 @@ pub fn de_get_object_http_error(
                     .map_err(super::super::operation::get_object::GetObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -178813,8 +178804,7 @@ pub fn de_get_object_acl_http_error(
                     .map_err(super::super::operation::get_object_acl::GetObjectAclError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -179063,8 +179053,7 @@ pub fn de_get_object_annotation_http_error(
                     .map_err(super::super::operation::get_object_annotation::GetObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -179078,8 +179067,7 @@ pub fn de_get_object_annotation_http_error(
                     .map_err(super::super::operation::get_object_annotation::GetObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -179093,8 +179081,7 @@ pub fn de_get_object_annotation_http_error(
                     .map_err(super::super::operation::get_object_annotation::GetObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -179174,8 +179161,7 @@ pub fn de_get_object_attributes_http_error(
                     .map_err(super::super::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -179848,8 +179834,7 @@ pub fn de_head_bucket_http_error(
                     .map_err(super::super::operation::head_bucket::HeadBucketError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -179947,8 +179932,7 @@ pub fn de_head_object_http_error(
                     .map_err(super::super::operation::head_object::HeadObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -181363,8 +181347,7 @@ pub fn de_list_object_annotations_http_error(
                     .map_err(super::super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -181378,8 +181361,7 @@ pub fn de_list_object_annotations_http_error(
                     .map_err(super::super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -181393,8 +181375,7 @@ pub fn de_list_object_annotations_http_error(
                     .map_err(super::super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -181924,8 +181905,7 @@ pub fn de_list_objects_http_error(
                     .map_err(super::super::operation::list_objects::ListObjectsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -182205,8 +182185,7 @@ pub fn de_list_objects_v2_http_error(
                     .map_err(super::super::operation::list_objects_v2::ListObjectsV2Error::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -184728,8 +184707,7 @@ pub fn de_put_object_http_error(
                     .map_err(super::super::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -184743,8 +184721,7 @@ pub fn de_put_object_http_error(
                     .map_err(super::super::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -184758,8 +184735,7 @@ pub fn de_put_object_http_error(
                     .map_err(super::super::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -184773,8 +184749,7 @@ pub fn de_put_object_http_error(
                     .map_err(super::super::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -185432,8 +185407,7 @@ pub fn de_put_object_acl_http_error(
                     .map_err(super::super::operation::put_object_acl::PutObjectAclError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -185638,8 +185612,7 @@ pub fn de_put_object_annotation_http_error(
                     .map_err(super::super::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -185653,8 +185626,7 @@ pub fn de_put_object_annotation_http_error(
                     .map_err(super::super::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -185668,8 +185640,7 @@ pub fn de_put_object_annotation_http_error(
                     .map_err(super::super::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -185683,8 +185654,7 @@ pub fn de_put_object_annotation_http_error(
                     .map_err(super::super::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -185698,8 +185668,7 @@ pub fn de_put_object_annotation_http_error(
                     .map_err(super::super::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -185713,8 +185682,7 @@ pub fn de_put_object_annotation_http_error(
                     .map_err(super::super::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -185728,8 +185696,7 @@ pub fn de_put_object_annotation_http_error(
                     .map_err(super::super::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -186697,8 +186664,7 @@ pub fn de_rename_object_http_error(
                     .map_err(super::super::operation::rename_object::RenameObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -186870,8 +186836,7 @@ pub fn de_restore_object_http_error(
                     .map_err(super::super::operation::restore_object::RestoreObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -187414,8 +187379,7 @@ pub fn de_update_object_encryption_http_error(
                     .map_err(super::super::operation::update_object_encryption::UpdateObjectEncryptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -187429,8 +187393,7 @@ pub fn de_update_object_encryption_http_error(
                     .map_err(super::super::operation::update_object_encryption::UpdateObjectEncryptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp
@@ -187444,8 +187407,7 @@ pub fn de_update_object_encryption_http_error(
                     .map_err(super::super::operation::update_object_encryption::UpdateObjectEncryptionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
-            };
-            if tmp.message.is_none() {
+            };            if tmp.message.is_none() {
                 tmp.message = _error_message;
             }
             tmp

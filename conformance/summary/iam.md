@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1626/1626` files compared · `876` matched · `230` mismatches · `520` missing · `0` extra · `53.87%` match (100.00% means fully matched)
+**Progress:** `1626/1626` files compared · `1484` matched · `142` mismatches · `0` missing · `0` extra · `91.27%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -67,51 +67,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`resource_owner(impl Into<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::resource_owner) / [`set_resource_owner(Option<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_resource_owner):<br>required: **false**<br><p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p><br>
      ///   - [`caller_arn(impl Into<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::caller_arn) / [`set_caller_arn(Option<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_caller_arn):<br>required: **false**<br><p>The ARN of the IAM user, group, or role that you want to specify as the simulated caller of the API operations. If you do not specify a <code>CallerArn</code>, it defaults to the ARN of the user, group, or role that you specify in <code>PolicySourceArn</code>. If you include both a <code>PolicySourceArn</code> (for example, <code>arn:aws:iam::123456789012:user/David</code>) and a <code>CallerArn</code> (for example, <code>arn:aws:iam::123456789012:user/Bob</code>), the result is that you simulate calling the API operations as Bob, as if Bob had David's policies.</p> <p>You can specify the ARN of an IAM user, group, or role. You cannot specify the ARN of an assumed role, federated user, or a service principal.</p> <p><code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> and the <code>PolicySourceArn</code> is not the ARN for an IAM user, group, or role. This is required so that the resource-based policy's <code>Principal</code> element has a value to use in evaluating the policy.</p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><br>
      ///   - [`context_entries(ContextEntry)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::context_entries) / [`set_context_entries(Option<Vec::<ContextEntry>>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_context_entries):<br>required: **false**<br><p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p><br>
-```
-
-### `src/operation/accept_delegation_request.rs`
-
-```diff
---- reference/src/operation/accept_delegation_request.rs
-+++ generated/src/operation/accept_delegation_request.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_accept_delegation_request_input::ser_accept_delegation_request_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_accept_delegation_request_input::ser_accept_delegation_request_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/acquire_role.rs`
-
-```diff
---- reference/src/operation/acquire_role.rs
-+++ generated/src/operation/acquire_role.rs
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_acquire_role_input::ser_acquire_role_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_acquire_role_input::ser_acquire_role_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/add_client_id_to_open_id_connect_provider/builders.rs`
@@ -287,25 +242,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -265,11 +265,14 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_client_id_to_open_id_connect_provider_input::ser_add_client_id_to_open_id_connect_provider_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_add_client_id_to_open_id_connect_provider_input::ser_add_client_id_to_open_id_connect_provider_op_input(
-+                &input,
-+            )?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -278,12 +281,12 @@
+@@ -278,12 +278,12 @@
      }
  }
  #[derive(Debug)]
@@ -321,220 +258,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/add_role_to_instance_profile.rs`
-
-```diff
---- reference/src/operation/add_role_to_instance_profile.rs
-+++ generated/src/operation/add_role_to_instance_profile.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_add_role_to_instance_profile_input::ser_add_role_to_instance_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_add_role_to_instance_profile_input::ser_add_role_to_instance_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/add_user_to_group.rs`
-
-```diff
---- reference/src/operation/add_user_to_group.rs
-+++ generated/src/operation/add_user_to_group.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_add_user_to_group_input::ser_add_user_to_group_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_user_to_group_input::ser_add_user_to_group_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/associate_delegation_request.rs`
-
-```diff
---- reference/src/operation/associate_delegation_request.rs
-+++ generated/src/operation/associate_delegation_request.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_associate_delegation_request_input::ser_associate_delegation_request_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_associate_delegation_request_input::ser_associate_delegation_request_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/attach_group_policy.rs`
-
-```diff
---- reference/src/operation/attach_group_policy.rs
-+++ generated/src/operation/attach_group_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_attach_group_policy_input::ser_attach_group_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_attach_group_policy_input::ser_attach_group_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/attach_role_policy.rs`
-
-```diff
---- reference/src/operation/attach_role_policy.rs
-+++ generated/src/operation/attach_role_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_attach_role_policy_input::ser_attach_role_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_attach_role_policy_input::ser_attach_role_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/attach_user_policy.rs`
-
-```diff
---- reference/src/operation/attach_user_policy.rs
-+++ generated/src/operation/attach_user_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_attach_user_policy_input::ser_attach_user_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_attach_user_policy_input::ser_attach_user_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/change_password.rs`
-
-```diff
---- reference/src/operation/change_password.rs
-+++ generated/src/operation/change_password.rs
-@@ -201,13 +201,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_change_password_input::ser_change_password_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_change_password_input::ser_change_password_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_access_key.rs`
-
-```diff
---- reference/src/operation/create_access_key.rs
-+++ generated/src/operation/create_access_key.rs
-@@ -248,13 +248,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_access_key_input::ser_create_access_key_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_access_key_input::ser_create_access_key_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_account_alias.rs`
-
-```diff
---- reference/src/operation/create_account_alias.rs
-+++ generated/src/operation/create_account_alias.rs
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_account_alias_input::ser_create_account_alias_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_account_alias_input::ser_create_account_alias_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/create_delegation_request/_create_delegation_request_input.rs`
@@ -553,73 +276,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/create_delegation_request.rs`
-
-```diff
---- reference/src/operation/create_delegation_request.rs
-+++ generated/src/operation/create_delegation_request.rs
-@@ -275,12 +275,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_delegation_request_input::ser_create_delegation_request_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_delegation_request_input::ser_create_delegation_request_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/create_group.rs`
-
-```diff
---- reference/src/operation/create_group.rs
-+++ generated/src/operation/create_group.rs
-@@ -252,13 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_group_input::ser_create_group_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_group_input::ser_create_group_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_instance_profile.rs`
-
-```diff
---- reference/src/operation/create_instance_profile.rs
-+++ generated/src/operation/create_instance_profile.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_instance_profile_input::ser_create_instance_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_instance_profile_input::ser_create_instance_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
 ### `src/operation/create_login_profile/_create_login_profile_input.rs`
 
 ```diff
@@ -634,28 +290,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
-```
-
-### `src/operation/create_login_profile.rs`
-
-```diff
---- reference/src/operation/create_login_profile.rs
-+++ generated/src/operation/create_login_profile.rs
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_login_profile_input::ser_create_login_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_login_profile_input::ser_create_login_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/create_open_id_connect_provider/builders.rs`
@@ -834,22 +468,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_open_id_connect_provider_input::ser_create_open_id_connect_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_open_id_connect_provider_input::ser_create_open_id_connect_provider_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -265,12 +264,12 @@
+@@ -265,12 +265,12 @@
      }
  }
  #[derive(Debug)]
@@ -867,29 +486,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/create_policy.rs`
-
-```diff
---- reference/src/operation/create_policy.rs
-+++ generated/src/operation/create_policy.rs
-@@ -262,13 +262,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_policy_input::ser_create_policy_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_policy_input::ser_create_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
 ### `src/operation/create_policy_version/_create_policy_version_input.rs`
 
 ```diff
@@ -904,50 +500,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
-```
-
-### `src/operation/create_policy_version.rs`
-
-```diff
---- reference/src/operation/create_policy_version.rs
-+++ generated/src/operation/create_policy_version.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_policy_version_input::ser_create_policy_version_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_policy_version_input::ser_create_policy_version_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/create_role.rs`
-
-```diff
---- reference/src/operation/create_role.rs
-+++ generated/src/operation/create_role.rs
-@@ -265,12 +265,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_role_input::ser_create_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_role_input::ser_create_role_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/create_saml_provider/builders.rs`
@@ -1126,22 +678,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +252,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_saml_provider_input::ser_create_saml_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_saml_provider_input::ser_create_saml_provider_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -267,12 +266,12 @@
+@@ -267,12 +267,12 @@
      }
  }
  #[derive(Debug)]
@@ -1157,72 +694,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/create_service_linked_role.rs`
-
-```diff
---- reference/src/operation/create_service_linked_role.rs
-+++ generated/src/operation/create_service_linked_role.rs
-@@ -260,12 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_service_linked_role_input::ser_create_service_linked_role_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_service_linked_role_input::ser_create_service_linked_role_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/create_service_specific_credential.rs`
-
-```diff
---- reference/src/operation/create_service_specific_credential.rs
-+++ generated/src/operation/create_service_specific_credential.rs
-@@ -264,12 +264,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_service_specific_credential_input::ser_create_service_specific_credential_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_service_specific_credential_input::ser_create_service_specific_credential_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/create_user.rs`
-
-```diff
---- reference/src/operation/create_user.rs
-+++ generated/src/operation/create_user.rs
-@@ -255,12 +255,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_user_input::ser_create_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_user_input::ser_create_user_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/create_virtual_mfa_device/builders.rs`
@@ -1401,22 +872,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -256,12 +256,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_virtual_mfa_device_input::ser_create_virtual_mfa_device_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_virtual_mfa_device_input::ser_create_virtual_mfa_device_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -271,12 +270,12 @@
+@@ -271,12 +271,12 @@
      }
  }
  #[derive(Debug)]
@@ -1607,22 +1063,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_deactivate_mfa_device_input::ser_deactivate_mfa_device_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_deactivate_mfa_device_input::ser_deactivate_mfa_device_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -270,12 +269,12 @@
+@@ -270,12 +270,12 @@
      }
  }
  #[derive(Debug)]
@@ -1640,165 +1081,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/delete_access_key.rs`
-
-```diff
---- reference/src/operation/delete_access_key.rs
-+++ generated/src/operation/delete_access_key.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_access_key_input::ser_delete_access_key_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_access_key_input::ser_delete_access_key_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_account_alias.rs`
-
-```diff
---- reference/src/operation/delete_account_alias.rs
-+++ generated/src/operation/delete_account_alias.rs
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_account_alias_input::ser_delete_account_alias_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_account_alias_input::ser_delete_account_alias_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
 ### `src/operation/delete_account_password_policy.rs`
 
 ```diff
 --- reference/src/operation/delete_account_password_policy.rs
 +++ generated/src/operation/delete_account_password_policy.rs
-@@ -204,13 +204,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_account_password_policy_input::ser_delete_account_password_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -211,7 +211,10 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_delete_account_password_policy_input::ser_delete_account_password_policy_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/operation/delete_group.rs`
-
-```diff
---- reference/src/operation/delete_group.rs
-+++ generated/src/operation/delete_group.rs
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_group_input::ser_delete_group_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_group_input::ser_delete_group_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_group_policy.rs`
-
-```diff
---- reference/src/operation/delete_group_policy.rs
-+++ generated/src/operation/delete_group_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_group_policy_input::ser_delete_group_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_group_policy_input::ser_delete_group_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_instance_profile.rs`
-
-```diff
---- reference/src/operation/delete_instance_profile.rs
-+++ generated/src/operation/delete_instance_profile.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_instance_profile_input::ser_delete_instance_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_instance_profile_input::ser_delete_instance_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_login_profile.rs`
-
-```diff
---- reference/src/operation/delete_login_profile.rs
-+++ generated/src/operation/delete_login_profile.rs
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_login_profile_input::ser_delete_login_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_login_profile_input::ser_delete_login_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
+ }
 ```
 
 ### `src/operation/delete_open_id_connect_provider/builders.rs`
@@ -1975,22 +1274,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_open_id_connect_provider_input::ser_delete_open_id_connect_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_open_id_connect_provider_input::ser_delete_open_id_connect_provider_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -265,12 +264,12 @@
+@@ -265,12 +265,12 @@
      }
  }
  #[derive(Debug)]
@@ -2006,120 +1290,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/delete_policy.rs`
-
-```diff
---- reference/src/operation/delete_policy.rs
-+++ generated/src/operation/delete_policy.rs
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_policy_input::ser_delete_policy_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_policy_input::ser_delete_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_policy_version.rs`
-
-```diff
---- reference/src/operation/delete_policy_version.rs
-+++ generated/src/operation/delete_policy_version.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_policy_version_input::ser_delete_policy_version_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_policy_version_input::ser_delete_policy_version_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_role.rs`
-
-```diff
---- reference/src/operation/delete_role.rs
-+++ generated/src/operation/delete_role.rs
-@@ -245,12 +245,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_role_input::ser_delete_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_role_input::ser_delete_role_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_role_permissions_boundary.rs`
-
-```diff
---- reference/src/operation/delete_role_permissions_boundary.rs
-+++ generated/src/operation/delete_role_permissions_boundary.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_role_permissions_boundary_input::ser_delete_role_permissions_boundary_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_role_permissions_boundary_input::ser_delete_role_permissions_boundary_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_role_policy.rs`
-
-```diff
---- reference/src/operation/delete_role_policy.rs
-+++ generated/src/operation/delete_role_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_role_policy_input::ser_delete_role_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_role_policy_input::ser_delete_role_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/delete_saml_provider/builders.rs`
@@ -2298,22 +1468,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_saml_provider_input::ser_delete_saml_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_saml_provider_input::ser_delete_saml_provider_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -262,12 +261,12 @@
+@@ -262,12 +262,12 @@
      }
  }
  #[derive(Debug)]
@@ -2329,94 +1484,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/delete_server_certificate.rs`
-
-```diff
---- reference/src/operation/delete_server_certificate.rs
-+++ generated/src/operation/delete_server_certificate.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_server_certificate_input::ser_delete_server_certificate_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_server_certificate_input::ser_delete_server_certificate_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_service_linked_role.rs`
-
-```diff
---- reference/src/operation/delete_service_linked_role.rs
-+++ generated/src/operation/delete_service_linked_role.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_service_linked_role_input::ser_delete_service_linked_role_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_service_linked_role_input::ser_delete_service_linked_role_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_service_specific_credential.rs`
-
-```diff
---- reference/src/operation/delete_service_specific_credential.rs
-+++ generated/src/operation/delete_service_specific_credential.rs
-@@ -263,12 +263,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_service_specific_credential_input::ser_delete_service_specific_credential_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_service_specific_credential_input::ser_delete_service_specific_credential_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_signing_certificate.rs`
-
-```diff
---- reference/src/operation/delete_signing_certificate.rs
-+++ generated/src/operation/delete_signing_certificate.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_signing_certificate_input::ser_delete_signing_certificate_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_signing_certificate_input::ser_delete_signing_certificate_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/delete_ssh_public_key/builders.rs`
@@ -2592,22 +1659,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +252,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_ssh_public_key_input::ser_delete_ssh_public_key_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_ssh_public_key_input::ser_delete_ssh_public_key_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -267,12 +266,12 @@
+@@ -267,12 +267,12 @@
      }
  }
  #[derive(Debug)]
@@ -2623,75 +1675,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/delete_user.rs`
-
-```diff
---- reference/src/operation/delete_user.rs
-+++ generated/src/operation/delete_user.rs
-@@ -245,12 +245,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_user_input::ser_delete_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_user_input::ser_delete_user_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_user_permissions_boundary.rs`
-
-```diff
---- reference/src/operation/delete_user_permissions_boundary.rs
-+++ generated/src/operation/delete_user_permissions_boundary.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_user_permissions_boundary_input::ser_delete_user_permissions_boundary_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_user_permissions_boundary_input::ser_delete_user_permissions_boundary_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_user_policy.rs`
-
-```diff
---- reference/src/operation/delete_user_policy.rs
-+++ generated/src/operation/delete_user_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_user_policy_input::ser_delete_user_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_user_policy_input::ser_delete_user_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/delete_virtual_mfa_device/builders.rs`
@@ -2868,22 +1851,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_virtual_mfa_device_input::ser_delete_virtual_mfa_device_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_virtual_mfa_device_input::ser_delete_virtual_mfa_device_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -265,12 +264,12 @@
+@@ -265,12 +265,12 @@
      }
  }
  #[derive(Debug)]
@@ -2901,99 +1869,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/detach_group_policy.rs`
-
-```diff
---- reference/src/operation/detach_group_policy.rs
-+++ generated/src/operation/detach_group_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_detach_group_policy_input::ser_detach_group_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_detach_group_policy_input::ser_detach_group_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/detach_role_policy.rs`
-
-```diff
---- reference/src/operation/detach_role_policy.rs
-+++ generated/src/operation/detach_role_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_detach_role_policy_input::ser_detach_role_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_detach_role_policy_input::ser_detach_role_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/detach_user_policy.rs`
-
-```diff
---- reference/src/operation/detach_user_policy.rs
-+++ generated/src/operation/detach_user_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_detach_user_policy_input::ser_detach_user_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_detach_user_policy_input::ser_detach_user_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
 ### `src/operation/disable_organizations_root_credentials_management.rs`
 
 ```diff
 --- reference/src/operation/disable_organizations_root_credentials_management.rs
 +++ generated/src/operation/disable_organizations_root_credentials_management.rs
-@@ -211,11 +211,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
+@@ -216,7 +216,10 @@
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disable_organizations_root_credentials_management_input::ser_disable_organizations_root_credentials_management_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disable_organizations_root_credentials_management_input::ser_disable_organizations_root_credentials_management_input_input_input(&input)?);
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/disable_organizations_root_sessions.rs`
@@ -3001,23 +1893,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/disable_organizations_root_sessions.rs
 +++ generated/src/operation/disable_organizations_root_sessions.rs
-@@ -212,15 +212,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_disable_organizations_root_sessions_input::ser_disable_organizations_root_sessions_input_input_input(
--                &input,
--            )?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -221,7 +221,10 @@
+                 &input,
+             )?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/disable_outbound_web_identity_federation.rs`
@@ -3025,19 +1912,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/disable_outbound_web_identity_federation.rs
 +++ generated/src/operation/disable_outbound_web_identity_federation.rs
-@@ -214,11 +214,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
+@@ -219,7 +219,10 @@
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disable_outbound_web_identity_federation_input::ser_disable_outbound_web_identity_federation_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disable_outbound_web_identity_federation_input::ser_disable_outbound_web_identity_federation_input_input_input(&input)?);
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/enable_mfa_device/builders.rs`
@@ -3212,25 +2098,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -262,13 +262,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_enable_mfa_device_input::ser_enable_mfa_device_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_mfa_device_input::ser_enable_mfa_device_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -277,12 +276,12 @@
+@@ -277,12 +277,12 @@
      }
  }
  #[derive(Debug)]
@@ -3253,19 +2121,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/enable_organizations_root_credentials_management.rs
 +++ generated/src/operation/enable_organizations_root_credentials_management.rs
-@@ -212,11 +212,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
+@@ -217,7 +217,10 @@
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_organizations_root_credentials_management_input::ser_enable_organizations_root_credentials_management_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_organizations_root_credentials_management_input::ser_enable_organizations_root_credentials_management_input_input_input(&input)?);
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/enable_organizations_root_sessions.rs`
@@ -3273,21 +2140,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/enable_organizations_root_sessions.rs
 +++ generated/src/operation/enable_organizations_root_sessions.rs
-@@ -212,13 +212,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_enable_organizations_root_sessions_input::ser_enable_organizations_root_sessions_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -219,7 +219,10 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_enable_organizations_root_sessions_input::ser_enable_organizations_root_sessions_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/enable_outbound_web_identity_federation.rs`
@@ -3295,19 +2159,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/enable_outbound_web_identity_federation.rs
 +++ generated/src/operation/enable_outbound_web_identity_federation.rs
-@@ -214,11 +214,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
+@@ -219,7 +219,10 @@
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_outbound_web_identity_federation_input::ser_enable_outbound_web_identity_federation_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_outbound_web_identity_federation_input::ser_enable_outbound_web_identity_federation_input_input_input(&input)?);
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/generate_credential_report.rs`
@@ -3315,113 +2178,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/generate_credential_report.rs
 +++ generated/src/operation/generate_credential_report.rs
-@@ -204,13 +204,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_generate_credential_report_input::ser_generate_credential_report_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -211,7 +211,10 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_generate_credential_report_input::ser_generate_credential_report_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/operation/generate_organizations_access_report.rs`
-
-```diff
---- reference/src/operation/generate_organizations_access_report.rs
-+++ generated/src/operation/generate_organizations_access_report.rs
-@@ -265,14 +265,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_generate_organizations_access_report_input::ser_generate_organizations_access_report_input_input_input(
--                &input,
--            )?,
-+            super::super::protocol_serde::shape_generate_organizations_access_report_input::ser_generate_organizations_access_report_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/generate_service_last_accessed_details.rs`
-
-```diff
---- reference/src/operation/generate_service_last_accessed_details.rs
-+++ generated/src/operation/generate_service_last_accessed_details.rs
-@@ -260,14 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_generate_service_last_accessed_details_input::ser_generate_service_last_accessed_details_input_input_input(
--                &input,
--            )?,
-+            super::super::protocol_serde::shape_generate_service_last_accessed_details_input::ser_generate_service_last_accessed_details_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_access_key_last_used.rs`
-
-```diff
---- reference/src/operation/get_access_key_last_used.rs
-+++ generated/src/operation/get_access_key_last_used.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_access_key_last_used_input::ser_get_access_key_last_used_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_access_key_last_used_input::ser_get_access_key_last_used_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_account_authorization_details.rs`
-
-```diff
---- reference/src/operation/get_account_authorization_details.rs
-+++ generated/src/operation/get_account_authorization_details.rs
-@@ -256,12 +256,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_account_authorization_details_input::ser_get_account_authorization_details_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_account_authorization_details_input::ser_get_account_authorization_details_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
+ }
 ```
 
 ### `src/operation/get_account_password_policy.rs`
@@ -3429,21 +2197,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_account_password_policy.rs
 +++ generated/src/operation/get_account_password_policy.rs
-@@ -204,13 +204,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_account_password_policy_input::ser_get_account_password_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -211,7 +211,10 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_get_account_password_policy_input::ser_get_account_password_policy_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/get_account_properties.rs`
@@ -3451,21 +2216,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_account_properties.rs
 +++ generated/src/operation/get_account_properties.rs
-@@ -204,13 +204,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_account_properties_input::ser_get_account_properties_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -211,7 +211,10 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_get_account_properties_input::ser_get_account_properties_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/get_account_summary.rs`
@@ -3473,67 +2235,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_account_summary.rs
 +++ generated/src/operation/get_account_summary.rs
-@@ -201,13 +201,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_account_summary_input::ser_get_account_summary_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -208,7 +208,10 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_get_account_summary_input::ser_get_account_summary_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/operation/get_context_keys_for_custom_policy.rs`
-
-```diff
---- reference/src/operation/get_context_keys_for_custom_policy.rs
-+++ generated/src/operation/get_context_keys_for_custom_policy.rs
-@@ -206,12 +206,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_context_keys_for_custom_policy_input::ser_get_context_keys_for_custom_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_context_keys_for_custom_policy_input::ser_get_context_keys_for_custom_policy_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_context_keys_for_principal_policy.rs`
-
-```diff
---- reference/src/operation/get_context_keys_for_principal_policy.rs
-+++ generated/src/operation/get_context_keys_for_principal_policy.rs
-@@ -260,14 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_input_input_input(
--                &input,
--            )?,
-+            super::super::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
+ }
 ```
 
 ### `src/operation/get_credential_report.rs`
@@ -3541,21 +2254,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_credential_report.rs
 +++ generated/src/operation/get_credential_report.rs
-@@ -204,13 +204,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_credential_report_input::ser_get_credential_report_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -211,7 +211,10 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_get_credential_report_input::ser_get_credential_report_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/get_delegation_request/_get_delegation_request_input.rs`
@@ -3574,74 +2284,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_delegation_request.rs`
-
-```diff
---- reference/src/operation/get_delegation_request.rs
-+++ generated/src/operation/get_delegation_request.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_delegation_request_input::ser_get_delegation_request_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_delegation_request_input::ser_get_delegation_request_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_group.rs`
-
-```diff
---- reference/src/operation/get_group.rs
-+++ generated/src/operation/get_group.rs
-@@ -246,11 +246,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_group_input::ser_get_group_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_group_input::ser_get_group_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/get_group_policy.rs`
-
-```diff
---- reference/src/operation/get_group_policy.rs
-+++ generated/src/operation/get_group_policy.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_group_policy_input::ser_get_group_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_group_policy_input::ser_get_group_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
 ### `src/operation/get_human_readable_summary/builders.rs`
 
 ```diff
@@ -3656,75 +2298,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[derive(::std::clone::Clone, ::std::fmt::Debug)]
  pub struct GetHumanReadableSummaryFluentBuilder {
      handle: ::std::sync::Arc<super::super::super::client::Handle>,
-```
-
-### `src/operation/get_human_readable_summary.rs`
-
-```diff
---- reference/src/operation/get_human_readable_summary.rs
-+++ generated/src/operation/get_human_readable_summary.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_human_readable_summary_input::ser_get_human_readable_summary_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_human_readable_summary_input::ser_get_human_readable_summary_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_instance_profile.rs`
-
-```diff
---- reference/src/operation/get_instance_profile.rs
-+++ generated/src/operation/get_instance_profile.rs
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_instance_profile_input::ser_get_instance_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_instance_profile_input::ser_get_instance_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_login_profile.rs`
-
-```diff
---- reference/src/operation/get_login_profile.rs
-+++ generated/src/operation/get_login_profile.rs
-@@ -247,13 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_login_profile_input::ser_get_login_profile_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_login_profile_input::ser_get_login_profile_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/get_mfa_device/builders.rs`
@@ -3899,23 +2472,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,13 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_mfa_device_input::ser_get_mfa_device_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_mfa_device_input::ser_get_mfa_device_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -267,12 +264,12 @@
+@@ -267,12 +267,12 @@
      }
  }
  #[derive(Debug)]
@@ -4105,22 +2662,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_open_id_connect_provider_input::ser_get_open_id_connect_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_open_id_connect_provider_input::ser_get_open_id_connect_provider_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -265,12 +264,12 @@
+@@ -265,12 +265,12 @@
      }
  }
  #[derive(Debug)]
@@ -4138,158 +2680,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/get_organizations_access_report.rs`
-
-```diff
---- reference/src/operation/get_organizations_access_report.rs
-+++ generated/src/operation/get_organizations_access_report.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_organizations_access_report_input::ser_get_organizations_access_report_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_organizations_access_report_input::ser_get_organizations_access_report_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
 ### `src/operation/get_outbound_web_identity_federation_info.rs`
 
 ```diff
 --- reference/src/operation/get_outbound_web_identity_federation_info.rs
 +++ generated/src/operation/get_outbound_web_identity_federation_info.rs
-@@ -214,11 +214,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
+@@ -219,7 +219,10 @@
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_outbound_web_identity_federation_info_input::ser_get_outbound_web_identity_federation_info_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_outbound_web_identity_federation_info_input::ser_get_outbound_web_identity_federation_info_input_input_input(&input)?);
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/operation/get_policy.rs`
-
-```diff
---- reference/src/operation/get_policy.rs
-+++ generated/src/operation/get_policy.rs
-@@ -245,11 +245,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_policy_input::ser_get_policy_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_policy_input::ser_get_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/get_policy_version.rs`
-
-```diff
---- reference/src/operation/get_policy_version.rs
-+++ generated/src/operation/get_policy_version.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_policy_version_input::ser_get_policy_version_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_policy_version_input::ser_get_policy_version_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/get_role.rs`
-
-```diff
---- reference/src/operation/get_role.rs
-+++ generated/src/operation/get_role.rs
-@@ -241,11 +241,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_role_input::ser_get_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_role_input::ser_get_role_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/get_role_policy.rs`
-
-```diff
---- reference/src/operation/get_role_policy.rs
-+++ generated/src/operation/get_role_policy.rs
-@@ -252,13 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_role_policy_input::ser_get_role_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_role_policy_input::ser_get_role_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/get_role_template_version.rs`
-
-```diff
---- reference/src/operation/get_role_template_version.rs
-+++ generated/src/operation/get_role_template_version.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_role_template_version_input::ser_get_role_template_version_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_role_template_version_input::ser_get_role_template_version_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
+ }
 ```
 
 ### `src/operation/get_saml_provider/builders.rs`
@@ -4466,25 +2873,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_saml_provider_input::ser_get_saml_provider_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_saml_provider_input::ser_get_saml_provider_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +261,12 @@
+@@ -262,12 +262,12 @@
      }
  }
  #[derive(Debug)]
@@ -4500,94 +2889,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/get_server_certificate.rs`
-
-```diff
---- reference/src/operation/get_server_certificate.rs
-+++ generated/src/operation/get_server_certificate.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_server_certificate_input::ser_get_server_certificate_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_server_certificate_input::ser_get_server_certificate_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_service_last_accessed_details.rs`
-
-```diff
---- reference/src/operation/get_service_last_accessed_details.rs
-+++ generated/src/operation/get_service_last_accessed_details.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_service_last_accessed_details_input::ser_get_service_last_accessed_details_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_service_last_accessed_details_input::ser_get_service_last_accessed_details_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_service_last_accessed_details_with_entities.rs`
-
-```diff
---- reference/src/operation/get_service_last_accessed_details_with_entities.rs
-+++ generated/src/operation/get_service_last_accessed_details_with_entities.rs
-@@ -267,11 +267,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_service_last_accessed_details_with_entities_input::ser_get_service_last_accessed_details_with_entities_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_service_last_accessed_details_with_entities_input::ser_get_service_last_accessed_details_with_entities_op_input(& input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/get_service_linked_role_deletion_status.rs`
-
-```diff
---- reference/src/operation/get_service_linked_role_deletion_status.rs
-+++ generated/src/operation/get_service_linked_role_deletion_status.rs
-@@ -260,11 +260,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_service_linked_role_deletion_status_input::ser_get_service_linked_role_deletion_status_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_get_service_linked_role_deletion_status_input::ser_get_service_linked_role_deletion_status_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/get_ssh_public_key/builders.rs`
@@ -4763,25 +3064,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_ssh_public_key_input::ser_get_ssh_public_key_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_ssh_public_key_input::ser_get_ssh_public_key_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -267,12 +266,12 @@
+@@ -267,12 +267,12 @@
      }
  }
  #[derive(Debug)]
@@ -4797,342 +3080,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/get_user.rs`
-
-```diff
---- reference/src/operation/get_user.rs
-+++ generated/src/operation/get_user.rs
-@@ -241,11 +241,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_user_input::ser_get_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_user_input::ser_get_user_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/get_user_policy.rs`
-
-```diff
---- reference/src/operation/get_user_policy.rs
-+++ generated/src/operation/get_user_policy.rs
-@@ -252,13 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_user_policy_input::ser_get_user_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_user_policy_input::ser_get_user_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_access_keys.rs`
-
-```diff
---- reference/src/operation/list_access_keys.rs
-+++ generated/src/operation/list_access_keys.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_access_keys_input::ser_list_access_keys_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_access_keys_input::ser_list_access_keys_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_account_aliases.rs`
-
-```diff
---- reference/src/operation/list_account_aliases.rs
-+++ generated/src/operation/list_account_aliases.rs
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_account_aliases_input::ser_list_account_aliases_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_account_aliases_input::ser_list_account_aliases_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_attached_group_policies.rs`
-
-```diff
---- reference/src/operation/list_attached_group_policies.rs
-+++ generated/src/operation/list_attached_group_policies.rs
-@@ -260,12 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_attached_group_policies_input::ser_list_attached_group_policies_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_attached_group_policies_input::ser_list_attached_group_policies_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_attached_role_policies.rs`
-
-```diff
---- reference/src/operation/list_attached_role_policies.rs
-+++ generated/src/operation/list_attached_role_policies.rs
-@@ -260,12 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_attached_role_policies_input::ser_list_attached_role_policies_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_attached_role_policies_input::ser_list_attached_role_policies_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_attached_user_policies.rs`
-
-```diff
---- reference/src/operation/list_attached_user_policies.rs
-+++ generated/src/operation/list_attached_user_policies.rs
-@@ -260,12 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_attached_user_policies_input::ser_list_attached_user_policies_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_attached_user_policies_input::ser_list_attached_user_policies_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_delegation_requests.rs`
-
-```diff
---- reference/src/operation/list_delegation_requests.rs
-+++ generated/src/operation/list_delegation_requests.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_delegation_requests_input::ser_list_delegation_requests_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_delegation_requests_input::ser_list_delegation_requests_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_entities_for_policy.rs`
-
-```diff
---- reference/src/operation/list_entities_for_policy.rs
-+++ generated/src/operation/list_entities_for_policy.rs
-@@ -260,12 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_entities_for_policy_input::ser_list_entities_for_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_entities_for_policy_input::ser_list_entities_for_policy_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_group_policies.rs`
-
-```diff
---- reference/src/operation/list_group_policies.rs
-+++ generated/src/operation/list_group_policies.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_group_policies_input::ser_list_group_policies_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_group_policies_input::ser_list_group_policies_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_groups.rs`
-
-```diff
---- reference/src/operation/list_groups.rs
-+++ generated/src/operation/list_groups.rs
-@@ -250,12 +250,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_groups_input::ser_list_groups_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_groups_input::ser_list_groups_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_groups_for_user.rs`
-
-```diff
---- reference/src/operation/list_groups_for_user.rs
-+++ generated/src/operation/list_groups_for_user.rs
-@@ -252,12 +252,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_groups_for_user_input::ser_list_groups_for_user_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_groups_for_user_input::ser_list_groups_for_user_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_instance_profile_tags.rs`
-
-```diff
---- reference/src/operation/list_instance_profile_tags.rs
-+++ generated/src/operation/list_instance_profile_tags.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_instance_profile_tags_input::ser_list_instance_profile_tags_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_instance_profile_tags_input::ser_list_instance_profile_tags_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_instance_profiles.rs`
-
-```diff
---- reference/src/operation/list_instance_profiles.rs
-+++ generated/src/operation/list_instance_profiles.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_instance_profiles_input::ser_list_instance_profiles_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_instance_profiles_input::ser_list_instance_profiles_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_instance_profiles_for_role.rs`
-
-```diff
---- reference/src/operation/list_instance_profiles_for_role.rs
-+++ generated/src/operation/list_instance_profiles_for_role.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_instance_profiles_for_role_input::ser_list_instance_profiles_for_role_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_instance_profiles_for_role_input::ser_list_instance_profiles_for_role_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/list_mfa_device_tags/builders.rs`
@@ -5307,22 +3254,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +252,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_mfa_device_tags_input::ser_list_mfa_device_tags_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_mfa_device_tags_input::ser_list_mfa_device_tags_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -267,12 +266,12 @@
+@@ -267,12 +267,12 @@
      }
  }
  #[derive(Debug)]
@@ -5513,25 +3445,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_mfa_devices_input::ser_list_mfa_devices_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_mfa_devices_input::ser_list_mfa_devices_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -267,12 +266,12 @@
+@@ -267,12 +267,12 @@
      }
  }
  #[derive(Debug)]
@@ -5722,22 +3636,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -257,12 +257,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_open_id_connect_provider_tags_input::ser_list_open_id_connect_provider_tags_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_open_id_connect_provider_tags_input::ser_list_open_id_connect_provider_tags_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -272,12 +271,12 @@
+@@ -272,12 +272,12 @@
      }
  }
  #[derive(Debug)]
@@ -5906,19 +3805,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-@@ -204,24 +204,20 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_open_id_connect_providers_input::ser_list_open_id_connect_providers_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -211,17 +211,20 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_list_open_id_connect_providers_input::ser_list_open_id_connect_providers_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -5942,21 +3837,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_organizations_features.rs
 +++ generated/src/operation/list_organizations_features.rs
-@@ -204,13 +204,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_organizations_features_input::ser_list_organizations_features_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -211,7 +211,10 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_list_organizations_features_input::ser_list_organizations_features_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/list_policies/_list_policies_input.rs`
@@ -5973,169 +3865,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              path_prefix: self.path_prefix,
              policy_usage_filter: self.policy_usage_filter,
              marker: self.marker,
-```
-
-### `src/operation/list_policies.rs`
-
-```diff
---- reference/src/operation/list_policies.rs
-+++ generated/src/operation/list_policies.rs
-@@ -252,13 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_policies_input::ser_list_policies_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_policies_input::ser_list_policies_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_policies_granting_service_access.rs`
-
-```diff
---- reference/src/operation/list_policies_granting_service_access.rs
-+++ generated/src/operation/list_policies_granting_service_access.rs
-@@ -265,14 +265,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_input_input_input(
--                &input,
--            )?,
-+            super::super::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_policy_tags.rs`
-
-```diff
---- reference/src/operation/list_policy_tags.rs
-+++ generated/src/operation/list_policy_tags.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_policy_tags_input::ser_list_policy_tags_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_policy_tags_input::ser_list_policy_tags_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_policy_versions.rs`
-
-```diff
---- reference/src/operation/list_policy_versions.rs
-+++ generated/src/operation/list_policy_versions.rs
-@@ -252,12 +252,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_policy_versions_input::ser_list_policy_versions_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_policy_versions_input::ser_list_policy_versions_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_role_policies.rs`
-
-```diff
---- reference/src/operation/list_role_policies.rs
-+++ generated/src/operation/list_role_policies.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_role_policies_input::ser_list_role_policies_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_role_policies_input::ser_list_role_policies_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_role_tags.rs`
-
-```diff
---- reference/src/operation/list_role_tags.rs
-+++ generated/src/operation/list_role_tags.rs
-@@ -252,13 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_role_tags_input::ser_list_role_tags_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_role_tags_input::ser_list_role_tags_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_roles.rs`
-
-```diff
---- reference/src/operation/list_roles.rs
-+++ generated/src/operation/list_roles.rs
-@@ -250,11 +250,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_roles_input::ser_list_roles_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_roles_input::ser_list_roles_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_saml_provider_tags/builders.rs`
@@ -6311,22 +4040,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_saml_provider_tags_input::ser_list_saml_provider_tags_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_saml_provider_tags_input::ser_list_saml_provider_tags_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -270,12 +269,12 @@
+@@ -270,12 +270,12 @@
      }
  }
  #[derive(Debug)]
@@ -6495,19 +4209,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::list_saml_providers::ListSAMLProvidersError,
-@@ -201,24 +201,20 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_saml_providers_input::ser_list_saml_providers_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -208,17 +208,20 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_list_saml_providers_input::ser_list_saml_providers_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -6524,94 +4234,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/list_server_certificate_tags.rs`
-
-```diff
---- reference/src/operation/list_server_certificate_tags.rs
-+++ generated/src/operation/list_server_certificate_tags.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_server_certificate_tags_input::ser_list_server_certificate_tags_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_server_certificate_tags_input::ser_list_server_certificate_tags_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_server_certificates.rs`
-
-```diff
---- reference/src/operation/list_server_certificates.rs
-+++ generated/src/operation/list_server_certificates.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_server_certificates_input::ser_list_server_certificates_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_server_certificates_input::ser_list_server_certificates_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_service_specific_credentials.rs`
-
-```diff
---- reference/src/operation/list_service_specific_credentials.rs
-+++ generated/src/operation/list_service_specific_credentials.rs
-@@ -266,12 +266,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_service_specific_credentials_input::ser_list_service_specific_credentials_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_service_specific_credentials_input::ser_list_service_specific_credentials_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_signing_certificates.rs`
-
-```diff
---- reference/src/operation/list_signing_certificates.rs
-+++ generated/src/operation/list_signing_certificates.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_signing_certificates_input::ser_list_signing_certificates_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_signing_certificates_input::ser_list_signing_certificates_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/list_ssh_public_keys/builders.rs`
@@ -6788,22 +4410,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +252,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_ssh_public_keys_input::ser_list_ssh_public_keys_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_ssh_public_keys_input::ser_list_ssh_public_keys_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -267,12 +266,12 @@
+@@ -267,12 +267,12 @@
      }
  }
  #[derive(Debug)]
@@ -6819,75 +4426,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/list_user_policies.rs`
-
-```diff
---- reference/src/operation/list_user_policies.rs
-+++ generated/src/operation/list_user_policies.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_user_policies_input::ser_list_user_policies_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_user_policies_input::ser_list_user_policies_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_user_tags.rs`
-
-```diff
---- reference/src/operation/list_user_tags.rs
-+++ generated/src/operation/list_user_tags.rs
-@@ -252,13 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_user_tags_input::ser_list_user_tags_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_user_tags_input::ser_list_user_tags_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_users.rs`
-
-```diff
---- reference/src/operation/list_users.rs
-+++ generated/src/operation/list_users.rs
-@@ -250,11 +250,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_users_input::ser_list_users_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_users_input::ser_list_users_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_virtual_mfa_devices/builders.rs`
@@ -7066,22 +4604,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -251,12 +251,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_virtual_mfa_devices_input::ser_list_virtual_mfa_devices_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_virtual_mfa_devices_input::ser_list_virtual_mfa_devices_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -266,12 +265,12 @@
+@@ -266,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -7097,165 +4620,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/put_account_properties.rs`
-
-```diff
---- reference/src/operation/put_account_properties.rs
-+++ generated/src/operation/put_account_properties.rs
-@@ -204,12 +204,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_account_properties_input::ser_put_account_properties_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_put_account_properties_input::ser_put_account_properties_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/put_group_policy.rs`
-
-```diff
---- reference/src/operation/put_group_policy.rs
-+++ generated/src/operation/put_group_policy.rs
-@@ -257,13 +257,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_group_policy_input::ser_put_group_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_group_policy_input::ser_put_group_policy_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/put_role_permissions_boundary.rs`
-
-```diff
---- reference/src/operation/put_role_permissions_boundary.rs
-+++ generated/src/operation/put_role_permissions_boundary.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_role_permissions_boundary_input::ser_put_role_permissions_boundary_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_put_role_permissions_boundary_input::ser_put_role_permissions_boundary_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/put_role_policy.rs`
-
-```diff
---- reference/src/operation/put_role_policy.rs
-+++ generated/src/operation/put_role_policy.rs
-@@ -257,13 +257,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_role_policy_input::ser_put_role_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_role_policy_input::ser_put_role_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/put_user_permissions_boundary.rs`
-
-```diff
---- reference/src/operation/put_user_permissions_boundary.rs
-+++ generated/src/operation/put_user_permissions_boundary.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_user_permissions_boundary_input::ser_put_user_permissions_boundary_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_put_user_permissions_boundary_input::ser_put_user_permissions_boundary_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/put_user_policy.rs`
-
-```diff
---- reference/src/operation/put_user_policy.rs
-+++ generated/src/operation/put_user_policy.rs
-@@ -257,13 +257,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_user_policy_input::ser_put_user_policy_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_user_policy_input::ser_put_user_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/reject_delegation_request.rs`
-
-```diff
---- reference/src/operation/reject_delegation_request.rs
-+++ generated/src/operation/reject_delegation_request.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_reject_delegation_request_input::ser_reject_delegation_request_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_reject_delegation_request_input::ser_reject_delegation_request_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/remove_client_id_from_open_id_connect_provider/builders.rs`
@@ -7431,21 +4795,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -263,11 +263,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_client_id_from_open_id_connect_provider_input::ser_remove_client_id_from_open_id_connect_provider_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_client_id_from_open_id_connect_provider_input::ser_remove_client_id_from_open_id_connect_provider_op_input(& input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -276,12 +275,12 @@
+@@ -276,12 +276,12 @@
      }
  }
  #[derive(Debug)]
@@ -7461,72 +4811,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/remove_role_from_instance_profile.rs`
-
-```diff
---- reference/src/operation/remove_role_from_instance_profile.rs
-+++ generated/src/operation/remove_role_from_instance_profile.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_remove_role_from_instance_profile_input::ser_remove_role_from_instance_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_remove_role_from_instance_profile_input::ser_remove_role_from_instance_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/remove_user_from_group.rs`
-
-```diff
---- reference/src/operation/remove_user_from_group.rs
-+++ generated/src/operation/remove_user_from_group.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_remove_user_from_group_input::ser_remove_user_from_group_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_remove_user_from_group_input::ser_remove_user_from_group_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/reset_service_specific_credential.rs`
-
-```diff
---- reference/src/operation/reset_service_specific_credential.rs
-+++ generated/src/operation/reset_service_specific_credential.rs
-@@ -262,12 +262,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_reset_service_specific_credential_input::ser_reset_service_specific_credential_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_reset_service_specific_credential_input::ser_reset_service_specific_credential_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/resync_mfa_device/builders.rs`
@@ -7702,25 +4986,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -262,13 +262,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_resync_mfa_device_input::ser_resync_mfa_device_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_resync_mfa_device_input::ser_resync_mfa_device_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -277,12 +276,12 @@
+@@ -277,12 +277,12 @@
      }
  }
  #[derive(Debug)]
@@ -7736,140 +5002,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/send_delegation_token.rs`
-
-```diff
---- reference/src/operation/send_delegation_token.rs
-+++ generated/src/operation/send_delegation_token.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_send_delegation_token_input::ser_send_delegation_token_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_send_delegation_token_input::ser_send_delegation_token_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/set_default_policy_version.rs`
-
-```diff
---- reference/src/operation/set_default_policy_version.rs
-+++ generated/src/operation/set_default_policy_version.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_set_default_policy_version_input::ser_set_default_policy_version_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_set_default_policy_version_input::ser_set_default_policy_version_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/set_security_token_service_preferences.rs`
-
-```diff
---- reference/src/operation/set_security_token_service_preferences.rs
-+++ generated/src/operation/set_security_token_service_preferences.rs
-@@ -214,14 +214,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_input_input_input(
--                &input,
--            )?,
-+            super::super::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/simulate_custom_policy.rs`
-
-```diff
---- reference/src/operation/simulate_custom_policy.rs
-+++ generated/src/operation/simulate_custom_policy.rs
-@@ -270,12 +270,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_simulate_custom_policy_input::ser_simulate_custom_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_simulate_custom_policy_input::ser_simulate_custom_policy_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/simulate_principal_policy.rs`
-
-```diff
---- reference/src/operation/simulate_principal_policy.rs
-+++ generated/src/operation/simulate_principal_policy.rs
-@@ -275,12 +275,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_simulate_principal_policy_input::ser_simulate_principal_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_simulate_principal_policy_input::ser_simulate_principal_policy_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/tag_instance_profile.rs`
-
-```diff
---- reference/src/operation/tag_instance_profile.rs
-+++ generated/src/operation/tag_instance_profile.rs
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_tag_instance_profile_input::ser_tag_instance_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_tag_instance_profile_input::ser_tag_instance_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/tag_mfa_device/builders.rs`
@@ -8048,23 +5180,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_mfa_device_input::ser_tag_mfa_device_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_mfa_device_input::ser_tag_mfa_device_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +259,12 @@
+@@ -262,12 +262,12 @@
      }
  }
  #[derive(Debug)]
@@ -8258,22 +5374,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_tag_open_id_connect_provider_input::ser_tag_open_id_connect_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_tag_open_id_connect_provider_input::ser_tag_open_id_connect_provider_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -265,12 +264,12 @@
+@@ -265,12 +265,12 @@
      }
  }
  #[derive(Debug)]
@@ -8289,48 +5390,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/tag_policy.rs`
-
-```diff
---- reference/src/operation/tag_policy.rs
-+++ generated/src/operation/tag_policy.rs
-@@ -245,11 +245,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_policy_input::ser_tag_policy_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_policy_input::ser_tag_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/tag_role.rs`
-
-```diff
---- reference/src/operation/tag_role.rs
-+++ generated/src/operation/tag_role.rs
-@@ -241,11 +241,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_role_input::ser_tag_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_role_input::ser_tag_role_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/tag_saml_provider/builders.rs`
@@ -8509,25 +5568,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_tag_saml_provider_input::ser_tag_saml_provider_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_saml_provider_input::ser_tag_saml_provider_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +261,12 @@
+@@ -262,12 +262,12 @@
      }
  }
  #[derive(Debug)]
@@ -8543,71 +5584,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/tag_server_certificate.rs`
-
-```diff
---- reference/src/operation/tag_server_certificate.rs
-+++ generated/src/operation/tag_server_certificate.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_tag_server_certificate_input::ser_tag_server_certificate_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_tag_server_certificate_input::ser_tag_server_certificate_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/tag_user.rs`
-
-```diff
---- reference/src/operation/tag_user.rs
-+++ generated/src/operation/tag_user.rs
-@@ -241,11 +241,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_user_input::ser_tag_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_user_input::ser_tag_user_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/untag_instance_profile.rs`
-
-```diff
---- reference/src/operation/untag_instance_profile.rs
-+++ generated/src/operation/untag_instance_profile.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_untag_instance_profile_input::ser_untag_instance_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_untag_instance_profile_input::ser_untag_instance_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/untag_mfa_device/builders.rs`
@@ -8782,25 +5758,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_untag_mfa_device_input::ser_untag_mfa_device_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_mfa_device_input::ser_untag_mfa_device_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +261,12 @@
+@@ -262,12 +262,12 @@
      }
  }
  #[derive(Debug)]
@@ -8990,22 +5948,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_untag_open_id_connect_provider_input::ser_untag_open_id_connect_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_untag_open_id_connect_provider_input::ser_untag_open_id_connect_provider_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -265,12 +264,12 @@
+@@ -265,12 +265,12 @@
      }
  }
  #[derive(Debug)]
@@ -9021,50 +5964,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/untag_policy.rs`
-
-```diff
---- reference/src/operation/untag_policy.rs
-+++ generated/src/operation/untag_policy.rs
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_policy_input::ser_untag_policy_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_policy_input::ser_untag_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/untag_role.rs`
-
-```diff
---- reference/src/operation/untag_role.rs
-+++ generated/src/operation/untag_role.rs
-@@ -245,11 +245,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_role_input::ser_untag_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_role_input::ser_untag_role_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/untag_saml_provider/builders.rs`
@@ -9239,25 +6138,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_untag_saml_provider_input::ser_untag_saml_provider_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_saml_provider_input::ser_untag_saml_provider_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +261,12 @@
+@@ -262,12 +262,12 @@
      }
  }
  #[derive(Debug)]
@@ -9273,74 +6154,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/untag_server_certificate.rs`
-
-```diff
---- reference/src/operation/untag_server_certificate.rs
-+++ generated/src/operation/untag_server_certificate.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_untag_server_certificate_input::ser_untag_server_certificate_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_untag_server_certificate_input::ser_untag_server_certificate_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/untag_user.rs`
-
-```diff
---- reference/src/operation/untag_user.rs
-+++ generated/src/operation/untag_user.rs
-@@ -245,11 +245,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_user_input::ser_untag_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_user_input::ser_untag_user_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/update_access_key.rs`
-
-```diff
---- reference/src/operation/update_access_key.rs
-+++ generated/src/operation/update_access_key.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_access_key_input::ser_update_access_key_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_access_key_input::ser_update_access_key_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/update_account_password_policy/_update_account_password_policy_input.rs`
@@ -9365,117 +6178,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              max_password_age: self.max_password_age,
              password_reuse_prevention: self.password_reuse_prevention,
              hard_expiry: self.hard_expiry,
-```
-
-### `src/operation/update_account_password_policy.rs`
-
-```diff
---- reference/src/operation/update_account_password_policy.rs
-+++ generated/src/operation/update_account_password_policy.rs
-@@ -204,12 +204,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_account_password_policy_input::ser_update_account_password_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_account_password_policy_input::ser_update_account_password_policy_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/update_assume_role_policy.rs`
-
-```diff
---- reference/src/operation/update_assume_role_policy.rs
-+++ generated/src/operation/update_assume_role_policy.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_assume_role_policy_input::ser_update_assume_role_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_assume_role_policy_input::ser_update_assume_role_policy_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/update_delegation_request.rs`
-
-```diff
---- reference/src/operation/update_delegation_request.rs
-+++ generated/src/operation/update_delegation_request.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_delegation_request_input::ser_update_delegation_request_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_delegation_request_input::ser_update_delegation_request_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/update_group.rs`
-
-```diff
---- reference/src/operation/update_group.rs
-+++ generated/src/operation/update_group.rs
-@@ -257,13 +257,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_group_input::ser_update_group_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_group_input::ser_update_group_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/update_login_profile.rs`
-
-```diff
---- reference/src/operation/update_login_profile.rs
-+++ generated/src/operation/update_login_profile.rs
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_login_profile_input::ser_update_login_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_login_profile_input::ser_update_login_profile_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/update_open_id_connect_provider_thumbprint/builders.rs`
@@ -9654,25 +6356,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -260,11 +260,14 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_open_id_connect_provider_thumbprint_input::ser_update_open_id_connect_provider_thumbprint_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_update_open_id_connect_provider_thumbprint_input::ser_update_open_id_connect_provider_thumbprint_op_input(
-+                &input,
-+            )?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -273,12 +276,12 @@
+@@ -273,12 +273,12 @@
      }
  }
  #[derive(Debug)]
@@ -9688,50 +6372,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/update_role.rs`
-
-```diff
---- reference/src/operation/update_role.rs
-+++ generated/src/operation/update_role.rs
-@@ -250,12 +250,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_role_input::ser_update_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_role_input::ser_update_role_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/update_role_description.rs`
-
-```diff
---- reference/src/operation/update_role_description.rs
-+++ generated/src/operation/update_role_description.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_role_description_input::ser_update_role_description_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_role_description_input::ser_update_role_description_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/update_saml_provider/builders.rs`
@@ -9906,22 +6546,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -257,12 +257,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_saml_provider_input::ser_update_saml_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_saml_provider_input::ser_update_saml_provider_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -272,12 +271,12 @@
+@@ -272,12 +272,12 @@
      }
  }
  #[derive(Debug)]
@@ -9937,72 +6562,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/update_server_certificate.rs`
-
-```diff
---- reference/src/operation/update_server_certificate.rs
-+++ generated/src/operation/update_server_certificate.rs
-@@ -260,12 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_server_certificate_input::ser_update_server_certificate_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_server_certificate_input::ser_update_server_certificate_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/update_service_specific_credential.rs`
-
-```diff
---- reference/src/operation/update_service_specific_credential.rs
-+++ generated/src/operation/update_service_specific_credential.rs
-@@ -263,12 +263,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_service_specific_credential_input::ser_update_service_specific_credential_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_service_specific_credential_input::ser_update_service_specific_credential_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/update_signing_certificate.rs`
-
-```diff
---- reference/src/operation/update_signing_certificate.rs
-+++ generated/src/operation/update_signing_certificate.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_signing_certificate_input::ser_update_signing_certificate_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_signing_certificate_input::ser_update_signing_certificate_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/update_ssh_public_key/builders.rs`
@@ -10178,22 +6737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +252,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_ssh_public_key_input::ser_update_ssh_public_key_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_ssh_public_key_input::ser_update_ssh_public_key_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -267,12 +266,12 @@
+@@ -267,12 +267,12 @@
      }
  }
  #[derive(Debug)]
@@ -10209,72 +6753,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/update_user.rs`
-
-```diff
---- reference/src/operation/update_user.rs
-+++ generated/src/operation/update_user.rs
-@@ -255,12 +255,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_user_input::ser_update_user_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_user_input::ser_update_user_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/upload_server_certificate.rs`
-
-```diff
---- reference/src/operation/upload_server_certificate.rs
-+++ generated/src/operation/upload_server_certificate.rs
-@@ -265,12 +265,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_upload_server_certificate_input::ser_upload_server_certificate_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_upload_server_certificate_input::ser_upload_server_certificate_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/upload_signing_certificate.rs`
-
-```diff
---- reference/src/operation/upload_signing_certificate.rs
-+++ generated/src/operation/upload_signing_certificate.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_upload_signing_certificate_input::ser_upload_signing_certificate_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_upload_signing_certificate_input::ser_upload_signing_certificate_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/upload_ssh_public_key/builders.rs`
@@ -10450,22 +6928,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +252,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_upload_ssh_public_key_input::ser_upload_ssh_public_key_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_upload_ssh_public_key_input::ser_upload_ssh_public_key_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -267,12 +266,12 @@
+@@ -267,12 +267,12 @@
      }
  }
  #[derive(Debug)]
@@ -10579,6 +7042,4934 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -/// Types for the `UploadSSHPublicKey` operation.
 -pub mod upload_ssh_public_key;
+```
+
+### `src/protocol_serde/shape_add_client_id_to_open_id_connect_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_add_client_id_to_open_id_connect_provider.rs
++++ generated/src/protocol_serde/shape_add_client_id_to_open_id_connect_provider.rs
+@@ -6,22 +6,22 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
+-    super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
++    super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::unhandled)?;
++        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "ConcurrentModification" => {
+-            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::ConcurrentModificationException({
++            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::ConcurrentModificationException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+@@ -30,7 +30,7 @@
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -41,13 +41,13 @@
+             })
+         }
+         "InvalidInput" => {
+-            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::InvalidInputException({
++            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::InvalidInputException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::unhandled)?;
++                        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -58,13 +58,13 @@
+             })
+         }
+         "LimitExceeded" => {
+-            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::LimitExceededException({
++            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::LimitExceededException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::unhandled)?;
++                        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -75,13 +75,13 @@
+             })
+         }
+         "NoSuchEntity" => {
+-            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::NoSuchEntityException({
++            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::NoSuchEntityException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::unhandled)?;
++                        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -92,13 +92,13 @@
+             })
+         }
+         "ServiceFailure" => {
+-            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::ServiceFailureException({
++            super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::ServiceFailureException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::unhandled)?;
++                        .map_err(super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -108,7 +108,7 @@
+                 tmp
+             })
+         }
+-        _ => super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::generic(generic),
++        _ => super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError::generic(generic),
+     })
+ }
+
+@@ -119,7 +119,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
+-    super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
++    super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_create_open_id_connect_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_create_open_id_connect_provider.rs
++++ generated/src/protocol_serde/shape_create_open_id_connect_provider.rs
+@@ -6,22 +6,22 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
+-    super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
++    super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "ConcurrentModification" => {
+-            super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ConcurrentModificationException({
++            super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::ConcurrentModificationException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+@@ -30,7 +30,7 @@
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -40,7 +40,7 @@
+                 tmp
+             })
+         }
+-        "EntityAlreadyExists" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::EntityAlreadyExistsException({
++        "EntityAlreadyExists" => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::EntityAlreadyExistsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -47,7 +47,7 @@
+                 let mut output = super::super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
+                 output =
+                     super::super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
+-                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -56,13 +56,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -71,13 +71,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -87,7 +87,7 @@
+             tmp
+         }),
+         "OpenIdIdpCommunicationError" => {
+-            super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::OpenIdIdpCommunicationErrorException({
++            super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::OpenIdIdpCommunicationErrorException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+@@ -97,7 +97,7 @@
+                             _response_body,
+                             output,
+                         )
+-                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                        .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -107,13 +107,13 @@
+                 tmp
+             })
+         }
+-        "ServiceFailure" => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -122,7 +122,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::generic(generic),
++        _ => super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::generic(generic),
+     })
+ }
+
+@@ -133,13 +133,13 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderOutput,
+-    super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
++    super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::create_open_id_connect_provider::builders::CreateOpenIdConnectProviderOutputBuilder::default();
+         output = super::super::protocol_serde::shape_create_open_id_connect_provider::de_create_open_id_connect_provider(_response_body, output)
+-            .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::unhandled)?;
++            .map_err(super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -175,7 +175,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("OpenIDConnectProviderArn") /* OpenIDConnectProviderArn com.amazonaws.iam.synthetic#CreateOpenIDConnectProviderOutput$OpenIDConnectProviderArn */ =>  {
++            s if s.matches("OpenIDConnectProviderArn") /* OpenIDConnectProviderArn com.amazonaws.iam.synthetic#CreateOpenIdConnectProviderOutput$OpenIDConnectProviderArn */ =>  {
+                 let var_1 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -188,7 +188,7 @@
+                 builder = builder.set_open_id_connect_provider_arn(var_1);
+             }
+             ,
+-            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#CreateOpenIDConnectProviderOutput$Tags */ =>  {
++            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#CreateOpenIdConnectProviderOutput$Tags */ =>  {
+                 let var_2 =
+                     Some(
+                         super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_create_saml_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_create_saml_provider.rs
++++ generated/src/protocol_serde/shape_create_saml_provider.rs
+@@ -6,21 +6,21 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::create_saml_provider::CreateSamlProviderOutput,
+-    super::super::operation::create_saml_provider::CreateSAMLProviderError,
++    super::super::operation::create_saml_provider::CreateSamlProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::create_saml_provider::CreateSAMLProviderError::unhandled)?;
++        .map_err(super::super::operation::create_saml_provider::CreateSamlProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::create_saml_provider::CreateSAMLProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::create_saml_provider::CreateSamlProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::create_saml_provider::CreateSAMLProviderError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::create_saml_provider::CreateSamlProviderError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -29,7 +29,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::create_saml_provider::CreateSAMLProviderError::unhandled)?;
++                .map_err(super::super::operation::create_saml_provider::CreateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -38,7 +38,7 @@
+             }
+             tmp
+         }),
+-        "EntityAlreadyExists" => super::super::operation::create_saml_provider::CreateSAMLProviderError::EntityAlreadyExistsException({
++        "EntityAlreadyExists" => super::super::operation::create_saml_provider::CreateSamlProviderError::EntityAlreadyExistsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -45,7 +45,7 @@
+                 let mut output = super::super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
+                 output =
+                     super::super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
+-                        .map_err(super::super::operation::create_saml_provider::CreateSAMLProviderError::unhandled)?;
++                        .map_err(super::super::operation::create_saml_provider::CreateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -54,13 +54,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::create_saml_provider::CreateSAMLProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::create_saml_provider::CreateSamlProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_saml_provider::CreateSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::create_saml_provider::CreateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -69,13 +69,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::create_saml_provider::CreateSAMLProviderError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::create_saml_provider::CreateSamlProviderError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_saml_provider::CreateSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::create_saml_provider::CreateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -84,13 +84,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::create_saml_provider::CreateSAMLProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::create_saml_provider::CreateSamlProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_saml_provider::CreateSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::create_saml_provider::CreateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -99,7 +99,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::create_saml_provider::CreateSAMLProviderError::generic(generic),
++        _ => super::super::operation::create_saml_provider::CreateSamlProviderError::generic(generic),
+     })
+ }
+
+@@ -110,13 +110,13 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::create_saml_provider::CreateSamlProviderOutput,
+-    super::super::operation::create_saml_provider::CreateSAMLProviderError,
++    super::super::operation::create_saml_provider::CreateSamlProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::create_saml_provider::builders::CreateSamlProviderOutputBuilder::default();
+         output = super::super::protocol_serde::shape_create_saml_provider::de_create_saml_provider(_response_body, output)
+-            .map_err(super::super::operation::create_saml_provider::CreateSAMLProviderError::unhandled)?;
++            .map_err(super::super::operation::create_saml_provider::CreateSamlProviderError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -150,7 +150,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("SAMLProviderArn") /* SAMLProviderArn com.amazonaws.iam.synthetic#CreateSAMLProviderOutput$SAMLProviderArn */ =>  {
++            s if s.matches("SAMLProviderArn") /* SAMLProviderArn com.amazonaws.iam.synthetic#CreateSamlProviderOutput$SAMLProviderArn */ =>  {
+                 let var_1 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -163,7 +163,7 @@
+                 builder = builder.set_saml_provider_arn(var_1);
+             }
+             ,
+-            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#CreateSAMLProviderOutput$Tags */ =>  {
++            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#CreateSamlProviderOutput$Tags */ =>  {
+                 let var_2 =
+                     Some(
+                         super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_create_virtual_mfa_device.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_create_virtual_mfa_device.rs
++++ generated/src/protocol_serde/shape_create_virtual_mfa_device.rs
+@@ -6,17 +6,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
+-    super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
++    super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++        .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled(
++            return Err(super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,7 +24,7 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -33,7 +33,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -42,7 +42,7 @@
+             }
+             tmp
+         }),
+-        "EntityAlreadyExists" => super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::EntityAlreadyExistsException({
++        "EntityAlreadyExists" => super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::EntityAlreadyExistsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -49,7 +49,7 @@
+                 let mut output = super::super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
+                 output =
+                     super::super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
+-                        .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                        .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -58,13 +58,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::InvalidInputException({
++        "InvalidInput" => super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -73,13 +73,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -88,13 +88,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -103,7 +103,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::generic(generic),
++        _ => super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::generic(generic),
+     })
+ }
+
+@@ -114,13 +114,13 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
+-    super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
++    super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceOutputBuilder::default();
+         output = super::super::protocol_serde::shape_create_virtual_mfa_device::de_create_virtual_mfa_device(_response_body, output)
+-            .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError::unhandled)?;
++            .map_err(super::super::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         super::super::serde_util::create_virtual_mfa_device_output_output_correct_errors(output).build()
+     })
+@@ -156,7 +156,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("VirtualMFADevice") /* VirtualMFADevice com.amazonaws.iam.synthetic#CreateVirtualMFADeviceOutput$VirtualMFADevice */ =>  {
++            s if s.matches("VirtualMFADevice") /* VirtualMFADevice com.amazonaws.iam.synthetic#CreateVirtualMfaDeviceOutput$VirtualMFADevice */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_virtual_mfa_device::de_virtual_mfa_device(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_deactivate_mfa_device.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_deactivate_mfa_device.rs
++++ generated/src/protocol_serde/shape_deactivate_mfa_device.rs
+@@ -6,21 +6,21 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
+-    super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
++    super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::unhandled)?;
++        .map_err(super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::unhandled(generic)),
++        None => return Err(super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -29,7 +29,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::unhandled)?;
++                .map_err(super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -39,7 +39,7 @@
+             tmp
+         }),
+         "EntityTemporarilyUnmodifiable" => {
+-            super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::EntityTemporarilyUnmodifiableException({
++            super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::EntityTemporarilyUnmodifiableException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+@@ -49,7 +49,7 @@
+                             _response_body,
+                             output,
+                         )
+-                        .map_err(super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::unhandled)?;
++                        .map_err(super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -59,13 +59,13 @@
+                 tmp
+             })
+         }
+-        "LimitExceeded" => super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -74,13 +74,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -89,13 +89,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -104,7 +104,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError::generic(generic),
++        _ => super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError::generic(generic),
+     })
+ }
+
+@@ -115,7 +115,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
+-    super::super::operation::deactivate_mfa_device::DeactivateMFADeviceError,
++    super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_delete_open_id_connect_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_open_id_connect_provider.rs
++++ generated/src/protocol_serde/shape_delete_open_id_connect_provider.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
+-    super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
++    super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::unhandled)?;
++        .map_err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::generic(generic),
++        _ => super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError::generic(generic),
+     })
+ }
+
+@@ -76,7 +76,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
+-    super::super::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
++    super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_delete_saml_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_saml_provider.rs
++++ generated/src/protocol_serde/shape_delete_saml_provider.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_saml_provider::DeleteSamlProviderOutput,
+-    super::super::operation::delete_saml_provider::DeleteSAMLProviderError,
++    super::super::operation::delete_saml_provider::DeleteSamlProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::delete_saml_provider::DeleteSAMLProviderError::unhandled)?;
++        .map_err(super::super::operation::delete_saml_provider::DeleteSamlProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::delete_saml_provider::DeleteSAMLProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::delete_saml_provider::DeleteSamlProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => super::super::operation::delete_saml_provider::DeleteSAMLProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::delete_saml_provider::DeleteSamlProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_saml_provider::DeleteSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::delete_saml_provider::DeleteSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::delete_saml_provider::DeleteSAMLProviderError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::delete_saml_provider::DeleteSamlProviderError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_saml_provider::DeleteSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::delete_saml_provider::DeleteSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::delete_saml_provider::DeleteSAMLProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::delete_saml_provider::DeleteSamlProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_saml_provider::DeleteSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::delete_saml_provider::DeleteSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::delete_saml_provider::DeleteSAMLProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::delete_saml_provider::DeleteSamlProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_saml_provider::DeleteSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::delete_saml_provider::DeleteSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,7 +80,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::delete_saml_provider::DeleteSAMLProviderError::generic(generic),
++        _ => super::super::operation::delete_saml_provider::DeleteSamlProviderError::generic(generic),
+     })
+ }
+
+@@ -91,7 +91,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_saml_provider::DeleteSamlProviderOutput,
+-    super::super::operation::delete_saml_provider::DeleteSAMLProviderError,
++    super::super::operation::delete_saml_provider::DeleteSamlProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_delete_ssh_public_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_ssh_public_key.rs
++++ generated/src/protocol_serde/shape_delete_ssh_public_key.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
+-    super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
++    super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::unhandled)?;
++        .map_err(super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::unhandled(generic)),
++        None => return Err(super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "NoSuchEntity" => super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::unhandled)?;
++                    .map_err(super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,7 +35,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::generic(generic),
++        _ => super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError::generic(generic),
+     })
+ }
+
+@@ -46,7 +46,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
+-    super::super::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
++    super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_delete_virtual_mfa_device.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_virtual_mfa_device.rs
++++ generated/src/protocol_serde/shape_delete_virtual_mfa_device.rs
+@@ -6,17 +6,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
+-    super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
++    super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::unhandled)?;
++        .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::unhandled(
++            return Err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,7 +24,7 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -33,7 +33,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::unhandled)?;
++                .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -42,13 +42,13 @@
+             }
+             tmp
+         }),
+-        "DeleteConflict" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::DeleteConflictException({
++        "DeleteConflict" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::DeleteConflictException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::DeleteConflictExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_delete_conflict_exception::de_delete_conflict_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -57,13 +57,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -72,13 +72,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -87,13 +87,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -102,7 +102,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError::generic(generic),
++        _ => super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError::generic(generic),
+     })
+ }
+
+@@ -113,7 +113,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceOutput,
+-    super::super::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
++    super::super::operation::delete_virtual_mfa_device::DeleteVirtualMfaDeviceError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_disable_organizations_root_credentials_management.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_disable_organizations_root_credentials_management.rs
++++ generated/src/protocol_serde/shape_disable_organizations_root_credentials_management.rs
+@@ -28,69 +28,61 @@
+     Err(match error_code {
+         "AccountNotManagementOrDelegatedAdministratorException" => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::AccountNotManagementOrDelegatedAdministratorException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output).map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "OrganizationNotFoundException" => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::OrganizationNotFoundException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output).map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "OrganizationNotInAllFeaturesModeException" => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::OrganizationNotInAllFeaturesModeException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output).map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "ServiceAccessNotEnabledException" => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::ServiceAccessNotEnabledException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output).map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+-        _ => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::generic(generic)
++        _ => super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError::generic(generic),
+     })
+ }
+
+```
+
+### `src/protocol_serde/shape_disable_organizations_root_sessions.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_disable_organizations_root_sessions.rs
++++ generated/src/protocol_serde/shape_disable_organizations_root_sessions.rs
+@@ -22,69 +22,61 @@
+     Err(match error_code {
+         "AccountNotManagementOrDelegatedAdministratorException" => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::AccountNotManagementOrDelegatedAdministratorException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output).map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "OrganizationNotFoundException" => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::OrganizationNotFoundException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output).map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "OrganizationNotInAllFeaturesModeException" => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::OrganizationNotInAllFeaturesModeException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output).map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "ServiceAccessNotEnabledException" => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::ServiceAccessNotEnabledException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output).map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+-        _ => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::generic(generic)
++        _ => super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::generic(generic),
+     })
+ }
+
+```
+
+### `src/protocol_serde/shape_enable_mfa_device.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_enable_mfa_device.rs
++++ generated/src/protocol_serde/shape_enable_mfa_device.rs
+@@ -4,20 +4,20 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::enable_mfa_device::EnableMfaDeviceOutput, super::super::operation::enable_mfa_device::EnableMFADeviceError> {
++) -> std::result::Result<super::super::operation::enable_mfa_device::EnableMfaDeviceOutput, super::super::operation::enable_mfa_device::EnableMfaDeviceError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
++        .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled(generic)),
++        None => return Err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::enable_mfa_device::EnableMFADeviceError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -26,7 +26,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
++                .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,7 +35,7 @@
+             }
+             tmp
+         }),
+-        "EntityAlreadyExists" => super::super::operation::enable_mfa_device::EnableMFADeviceError::EntityAlreadyExistsException({
++        "EntityAlreadyExists" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::EntityAlreadyExistsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -42,7 +42,7 @@
+                 let mut output = super::super::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
+                 output =
+                     super::super::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
+-                        .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
++                        .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -51,7 +51,7 @@
+             }
+             tmp
+         }),
+-        "EntityTemporarilyUnmodifiable" => super::super::operation::enable_mfa_device::EnableMFADeviceError::EntityTemporarilyUnmodifiableException({
++        "EntityTemporarilyUnmodifiable" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::EntityTemporarilyUnmodifiableException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -61,7 +61,7 @@
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -70,7 +70,7 @@
+             }
+             tmp
+         }),
+-        "InvalidAuthenticationCode" => super::super::operation::enable_mfa_device::EnableMFADeviceError::InvalidAuthenticationCodeException({
++        "InvalidAuthenticationCode" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::InvalidAuthenticationCodeException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -79,7 +79,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
++                .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -88,13 +88,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::enable_mfa_device::EnableMFADeviceError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -103,13 +103,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::enable_mfa_device::EnableMFADeviceError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -118,13 +118,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::enable_mfa_device::EnableMFADeviceError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::enable_mfa_device::EnableMfaDeviceError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::enable_mfa_device::EnableMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -133,7 +133,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::enable_mfa_device::EnableMFADeviceError::generic(generic),
++        _ => super::super::operation::enable_mfa_device::EnableMfaDeviceError::generic(generic),
+     })
+ }
+
+@@ -142,7 +142,7 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::enable_mfa_device::EnableMfaDeviceOutput, super::super::operation::enable_mfa_device::EnableMFADeviceError> {
++) -> std::result::Result<super::super::operation::enable_mfa_device::EnableMfaDeviceOutput, super::super::operation::enable_mfa_device::EnableMfaDeviceError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::enable_mfa_device::builders::EnableMfaDeviceOutputBuilder::default();
+```
+
+### `src/protocol_serde/shape_enable_organizations_root_credentials_management.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_enable_organizations_root_credentials_management.rs
++++ generated/src/protocol_serde/shape_enable_organizations_root_credentials_management.rs
+@@ -28,85 +28,75 @@
+     Err(match error_code {
+         "AccountNotManagementOrDelegatedAdministratorException" => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::AccountNotManagementOrDelegatedAdministratorException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "CallerIsNotManagementAccountException" => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::CallerIsNotManagementAccountException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::CallerIsNotManagementAccountExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_caller_is_not_management_account_exception::de_caller_is_not_management_account_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::CallerIsNotManagementAccountExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_caller_is_not_management_account_exception::de_caller_is_not_management_account_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "OrganizationNotFoundException" => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::OrganizationNotFoundException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "OrganizationNotInAllFeaturesModeException" => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::OrganizationNotInAllFeaturesModeException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "ServiceAccessNotEnabledException" => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::ServiceAccessNotEnabledException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+-        _ => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::generic(generic)
++        _ => super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::generic(generic),
+     })
+ }
+
+```
+
+### `src/protocol_serde/shape_enable_organizations_root_sessions.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_enable_organizations_root_sessions.rs
++++ generated/src/protocol_serde/shape_enable_organizations_root_sessions.rs
+@@ -22,85 +22,75 @@
+     Err(match error_code {
+         "AccountNotManagementOrDelegatedAdministratorException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::AccountNotManagementOrDelegatedAdministratorException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_account_not_management_or_delegated_administrator_exception::de_account_not_management_or_delegated_administrator_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "CallerIsNotManagementAccountException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::CallerIsNotManagementAccountException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::CallerIsNotManagementAccountExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_caller_is_not_management_account_exception::de_caller_is_not_management_account_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::CallerIsNotManagementAccountExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_caller_is_not_management_account_exception::de_caller_is_not_management_account_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "OrganizationNotFoundException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::OrganizationNotFoundException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::OrganizationNotFoundExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_organization_not_found_exception::de_organization_not_found_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "OrganizationNotInAllFeaturesModeException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::OrganizationNotInAllFeaturesModeException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::OrganizationNotInAllFeaturesModeExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_organization_not_in_all_features_mode_exception::de_organization_not_in_all_features_mode_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         "ServiceAccessNotEnabledException" => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::ServiceAccessNotEnabledException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output).map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::ServiceAccessNotEnabledExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_access_not_enabled_exception::de_service_access_not_enabled_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+-        _ => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::generic(generic)
++        _ => super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::generic(generic),
+     })
+ }
+
+```
+
+### `src/protocol_serde/shape_get_credential_report.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_credential_report.rs
++++ generated/src/protocol_serde/shape_get_credential_report.rs
+@@ -143,10 +143,10 @@
+             s if s.matches("Content") /* Content com.amazonaws.iam.synthetic#GetCredentialReportOutput$Content */ =>  {
+                 let var_1 =
+                     Some(
+-                        ::aws_smithy_types::base64::decode(
++                        Result::<::aws_smithy_types::Blob, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
++                            .into()
+                         )
+-                        .map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid base64: {err:?}"))).map(::aws_smithy_types::Blob::new)
+                         ?
+                     )
+                 ;
+```
+
+### `src/protocol_serde/shape_get_mfa_device.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_mfa_device.rs
++++ generated/src/protocol_serde/shape_get_mfa_device.rs
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_mfa_device::GetMfaDeviceOutput, super::super::operation::get_mfa_device::GetMFADeviceError> {
++) -> std::result::Result<super::super::operation::get_mfa_device::GetMfaDeviceOutput, super::super::operation::get_mfa_device::GetMfaDeviceError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
++        .map_err(super::super::operation::get_mfa_device::GetMfaDeviceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::get_mfa_device::GetMFADeviceError::unhandled(generic)),
++        None => return Err(super::super::operation::get_mfa_device::GetMfaDeviceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "NoSuchEntity" => super::super::operation::get_mfa_device::GetMFADeviceError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::get_mfa_device::GetMfaDeviceError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::get_mfa_device::GetMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,13 +32,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::get_mfa_device::GetMFADeviceError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::get_mfa_device::GetMfaDeviceError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::get_mfa_device::GetMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::get_mfa_device::GetMFADeviceError::generic(generic),
++        _ => super::super::operation::get_mfa_device::GetMfaDeviceError::generic(generic),
+     })
+ }
+
+@@ -56,16 +56,16 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_mfa_device::GetMfaDeviceOutput, super::super::operation::get_mfa_device::GetMFADeviceError> {
++) -> std::result::Result<super::super::operation::get_mfa_device::GetMfaDeviceOutput, super::super::operation::get_mfa_device::GetMfaDeviceError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder::default();
+         output = super::super::protocol_serde::shape_get_mfa_device::de_get_mfa_device(_response_body, output)
+-            .map_err(super::super::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
++            .map_err(super::super::operation::get_mfa_device::GetMfaDeviceError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         super::super::serde_util::get_mfa_device_output_output_correct_errors(output)
+             .build()
+-            .map_err(super::super::operation::get_mfa_device::GetMFADeviceError::unhandled)?
++            .map_err(super::super::operation::get_mfa_device::GetMfaDeviceError::unhandled)?
+     })
+ }
+
+@@ -96,7 +96,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("UserName") /* UserName com.amazonaws.iam.synthetic#GetMFADeviceOutput$UserName */ =>  {
++            s if s.matches("UserName") /* UserName com.amazonaws.iam.synthetic#GetMfaDeviceOutput$UserName */ =>  {
+                 let var_1 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -109,7 +109,7 @@
+                 builder = builder.set_user_name(var_1);
+             }
+             ,
+-            s if s.matches("SerialNumber") /* SerialNumber com.amazonaws.iam.synthetic#GetMFADeviceOutput$SerialNumber */ =>  {
++            s if s.matches("SerialNumber") /* SerialNumber com.amazonaws.iam.synthetic#GetMfaDeviceOutput$SerialNumber */ =>  {
+                 let var_2 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -122,7 +122,7 @@
+                 builder = builder.set_serial_number(var_2);
+             }
+             ,
+-            s if s.matches("EnableDate") /* EnableDate com.amazonaws.iam.synthetic#GetMFADeviceOutput$EnableDate */ =>  {
++            s if s.matches("EnableDate") /* EnableDate com.amazonaws.iam.synthetic#GetMfaDeviceOutput$EnableDate */ =>  {
+                 let var_3 =
+                     Some(
+                         ::aws_smithy_types::DateTime::from_str(
+@@ -136,7 +136,7 @@
+                 builder = builder.set_enable_date(var_3);
+             }
+             ,
+-            s if s.matches("Certifications") /* Certifications com.amazonaws.iam.synthetic#GetMFADeviceOutput$Certifications */ =>  {
++            s if s.matches("Certifications") /* Certifications com.amazonaws.iam.synthetic#GetMfaDeviceOutput$Certifications */ =>  {
+                 let var_4 =
+                     Some(
+                         super::super::protocol_serde::shape_certification_map_type::de_certification_map_type(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_get_open_id_connect_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_open_id_connect_provider.rs
++++ generated/src/protocol_serde/shape_get_open_id_connect_provider.rs
+@@ -6,17 +6,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
+-    super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
++    super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
++        .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled(
++            return Err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,13 +24,13 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -39,13 +39,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -54,13 +54,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -69,7 +69,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::generic(generic),
++        _ => super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::generic(generic),
+     })
+ }
+
+@@ -80,13 +80,13 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput,
+-    super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
++    super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::get_open_id_connect_provider::builders::GetOpenIdConnectProviderOutputBuilder::default();
+         output = super::super::protocol_serde::shape_get_open_id_connect_provider::de_get_open_id_connect_provider(_response_body, output)
+-            .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::unhandled)?;
++            .map_err(super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -122,7 +122,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("Url") /* Url com.amazonaws.iam.synthetic#GetOpenIDConnectProviderOutput$Url */ =>  {
++            s if s.matches("Url") /* Url com.amazonaws.iam.synthetic#GetOpenIdConnectProviderOutput$Url */ =>  {
+                 let var_1 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -135,7 +135,7 @@
+                 builder = builder.set_url(var_1);
+             }
+             ,
+-            s if s.matches("ClientIDList") /* ClientIDList com.amazonaws.iam.synthetic#GetOpenIDConnectProviderOutput$ClientIDList */ =>  {
++            s if s.matches("ClientIDList") /* ClientIDList com.amazonaws.iam.synthetic#GetOpenIdConnectProviderOutput$ClientIDList */ =>  {
+                 let var_2 =
+                     Some(
+                         super::super::protocol_serde::shape_client_id_list_type::de_client_id_list_type(&mut tag, depth + 1)
+@@ -145,7 +145,7 @@
+                 builder = builder.set_client_id_list(var_2);
+             }
+             ,
+-            s if s.matches("ThumbprintList") /* ThumbprintList com.amazonaws.iam.synthetic#GetOpenIDConnectProviderOutput$ThumbprintList */ =>  {
++            s if s.matches("ThumbprintList") /* ThumbprintList com.amazonaws.iam.synthetic#GetOpenIdConnectProviderOutput$ThumbprintList */ =>  {
+                 let var_3 =
+                     Some(
+                         super::super::protocol_serde::shape_thumbprint_list_type::de_thumbprint_list_type(&mut tag, depth + 1)
+@@ -155,7 +155,7 @@
+                 builder = builder.set_thumbprint_list(var_3);
+             }
+             ,
+-            s if s.matches("CreateDate") /* CreateDate com.amazonaws.iam.synthetic#GetOpenIDConnectProviderOutput$CreateDate */ =>  {
++            s if s.matches("CreateDate") /* CreateDate com.amazonaws.iam.synthetic#GetOpenIdConnectProviderOutput$CreateDate */ =>  {
+                 let var_4 =
+                     Some(
+                         ::aws_smithy_types::DateTime::from_str(
+@@ -169,7 +169,7 @@
+                 builder = builder.set_create_date(var_4);
+             }
+             ,
+-            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#GetOpenIDConnectProviderOutput$Tags */ =>  {
++            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#GetOpenIdConnectProviderOutput$Tags */ =>  {
+                 let var_5 =
+                     Some(
+                         super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_get_saml_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_saml_provider.rs
++++ generated/src/protocol_serde/shape_get_saml_provider.rs
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_saml_provider::GetSamlProviderOutput, super::super::operation::get_saml_provider::GetSAMLProviderError> {
++) -> std::result::Result<super::super::operation::get_saml_provider::GetSamlProviderOutput, super::super::operation::get_saml_provider::GetSamlProviderError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::get_saml_provider::GetSAMLProviderError::unhandled)?;
++        .map_err(super::super::operation::get_saml_provider::GetSamlProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::get_saml_provider::GetSAMLProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::get_saml_provider::GetSamlProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => super::super::operation::get_saml_provider::GetSAMLProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::get_saml_provider::GetSamlProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_saml_provider::GetSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::get_saml_provider::GetSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,13 +32,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::get_saml_provider::GetSAMLProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::get_saml_provider::GetSamlProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_saml_provider::GetSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::get_saml_provider::GetSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -47,13 +47,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::get_saml_provider::GetSAMLProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::get_saml_provider::GetSamlProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_saml_provider::GetSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::get_saml_provider::GetSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::get_saml_provider::GetSAMLProviderError::generic(generic),
++        _ => super::super::operation::get_saml_provider::GetSamlProviderError::generic(generic),
+     })
+ }
+
+@@ -71,12 +71,12 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_saml_provider::GetSamlProviderOutput, super::super::operation::get_saml_provider::GetSAMLProviderError> {
++) -> std::result::Result<super::super::operation::get_saml_provider::GetSamlProviderOutput, super::super::operation::get_saml_provider::GetSamlProviderError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::get_saml_provider::builders::GetSamlProviderOutputBuilder::default();
+         output = super::super::protocol_serde::shape_get_saml_provider::de_get_saml_provider(_response_body, output)
+-            .map_err(super::super::operation::get_saml_provider::GetSAMLProviderError::unhandled)?;
++            .map_err(super::super::operation::get_saml_provider::GetSamlProviderError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -109,7 +109,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("SAMLProviderUUID") /* SAMLProviderUUID com.amazonaws.iam.synthetic#GetSAMLProviderOutput$SAMLProviderUUID */ =>  {
++            s if s.matches("SAMLProviderUUID") /* SAMLProviderUUID com.amazonaws.iam.synthetic#GetSamlProviderOutput$SAMLProviderUUID */ =>  {
+                 let var_1 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -122,7 +122,7 @@
+                 builder = builder.set_saml_provider_uuid(var_1);
+             }
+             ,
+-            s if s.matches("SAMLMetadataDocument") /* SAMLMetadataDocument com.amazonaws.iam.synthetic#GetSAMLProviderOutput$SAMLMetadataDocument */ =>  {
++            s if s.matches("SAMLMetadataDocument") /* SAMLMetadataDocument com.amazonaws.iam.synthetic#GetSamlProviderOutput$SAMLMetadataDocument */ =>  {
+                 let var_2 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -135,7 +135,7 @@
+                 builder = builder.set_saml_metadata_document(var_2);
+             }
+             ,
+-            s if s.matches("CreateDate") /* CreateDate com.amazonaws.iam.synthetic#GetSAMLProviderOutput$CreateDate */ =>  {
++            s if s.matches("CreateDate") /* CreateDate com.amazonaws.iam.synthetic#GetSamlProviderOutput$CreateDate */ =>  {
+                 let var_3 =
+                     Some(
+                         ::aws_smithy_types::DateTime::from_str(
+@@ -149,7 +149,7 @@
+                 builder = builder.set_create_date(var_3);
+             }
+             ,
+-            s if s.matches("ValidUntil") /* ValidUntil com.amazonaws.iam.synthetic#GetSAMLProviderOutput$ValidUntil */ =>  {
++            s if s.matches("ValidUntil") /* ValidUntil com.amazonaws.iam.synthetic#GetSamlProviderOutput$ValidUntil */ =>  {
+                 let var_4 =
+                     Some(
+                         ::aws_smithy_types::DateTime::from_str(
+@@ -163,7 +163,7 @@
+                 builder = builder.set_valid_until(var_4);
+             }
+             ,
+-            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#GetSAMLProviderOutput$Tags */ =>  {
++            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#GetSamlProviderOutput$Tags */ =>  {
+                 let var_5 =
+                     Some(
+                         super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
+@@ -173,7 +173,7 @@
+                 builder = builder.set_tags(var_5);
+             }
+             ,
+-            s if s.matches("AssertionEncryptionMode") /* AssertionEncryptionMode com.amazonaws.iam.synthetic#GetSAMLProviderOutput$AssertionEncryptionMode */ =>  {
++            s if s.matches("AssertionEncryptionMode") /* AssertionEncryptionMode com.amazonaws.iam.synthetic#GetSamlProviderOutput$AssertionEncryptionMode */ =>  {
+                 let var_6 =
+                     Some(
+                         Result::<super::super::types::AssertionEncryptionModeType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -187,7 +187,7 @@
+                 builder = builder.set_assertion_encryption_mode(var_6);
+             }
+             ,
+-            s if s.matches("PrivateKeyList") /* PrivateKeyList com.amazonaws.iam.synthetic#GetSAMLProviderOutput$PrivateKeyList */ =>  {
++            s if s.matches("PrivateKeyList") /* PrivateKeyList com.amazonaws.iam.synthetic#GetSamlProviderOutput$PrivateKeyList */ =>  {
+                 let var_7 =
+                     Some(
+                         super::super::protocol_serde::shape_private_key_list::de_private_key_list(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_get_ssh_public_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_ssh_public_key.rs
++++ generated/src/protocol_serde/shape_get_ssh_public_key.rs
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_ssh_public_key::GetSshPublicKeyOutput, super::super::operation::get_ssh_public_key::GetSSHPublicKeyError> {
++) -> std::result::Result<super::super::operation::get_ssh_public_key::GetSshPublicKeyOutput, super::super::operation::get_ssh_public_key::GetSshPublicKeyError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::unhandled)?;
++        .map_err(super::super::operation::get_ssh_public_key::GetSshPublicKeyError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::unhandled(generic)),
++        None => return Err(super::super::operation::get_ssh_public_key::GetSshPublicKeyError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "NoSuchEntity" => super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::get_ssh_public_key::GetSshPublicKeyError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::unhandled)?;
++                    .map_err(super::super::operation::get_ssh_public_key::GetSshPublicKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -33,12 +33,13 @@
+             tmp
+         }),
+         "UnrecognizedPublicKeyEncoding" => {
+-            super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::UnrecognizedPublicKeyEncodingException({
++            super::super::operation::get_ssh_public_key::GetSshPublicKeyError::UnrecognizedPublicKeyEncodingException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::UnrecognizedPublicKeyEncodingExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_unrecognized_public_key_encoding_exception::de_unrecognized_public_key_encoding_exception_xml_err(_response_body, output).map_err(super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::unhandled)?;
++                    output = super::super::protocol_serde::shape_unrecognized_public_key_encoding_exception::de_unrecognized_public_key_encoding_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::get_ssh_public_key::GetSshPublicKeyError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -48,7 +49,7 @@
+                 tmp
+             })
+         }
+-        _ => super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::generic(generic),
++        _ => super::super::operation::get_ssh_public_key::GetSshPublicKeyError::generic(generic),
+     })
+ }
+
+@@ -57,12 +58,12 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_ssh_public_key::GetSshPublicKeyOutput, super::super::operation::get_ssh_public_key::GetSSHPublicKeyError> {
++) -> std::result::Result<super::super::operation::get_ssh_public_key::GetSshPublicKeyOutput, super::super::operation::get_ssh_public_key::GetSshPublicKeyError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::get_ssh_public_key::builders::GetSshPublicKeyOutputBuilder::default();
+         output = super::super::protocol_serde::shape_get_ssh_public_key::de_get_ssh_public_key(_response_body, output)
+-            .map_err(super::super::operation::get_ssh_public_key::GetSSHPublicKeyError::unhandled)?;
++            .map_err(super::super::operation::get_ssh_public_key::GetSshPublicKeyError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -95,7 +96,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("SSHPublicKey") /* SSHPublicKey com.amazonaws.iam.synthetic#GetSSHPublicKeyOutput$SSHPublicKey */ =>  {
++            s if s.matches("SSHPublicKey") /* SSHPublicKey com.amazonaws.iam.synthetic#GetSshPublicKeyOutput$SSHPublicKey */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_ssh_public_key::de_ssh_public_key(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_inline_policy_identifier_type.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_inline_policy_identifier_type.rs
++++ generated/src/protocol_serde/shape_inline_policy_identifier_type.rs
+@@ -12,7 +12,7 @@
+     #[allow(unused_mut)]
+     let mut scope_2 = writer.prefix("AttachmentType");
+     {
+-        scope_2.string(input.attachment_type.as_str());
++        scope_2.string(&input.attachment_type.as_str());
+     }
+     #[allow(unused_mut)]
+     let mut scope_3 = writer.prefix("AttachmentName");
+```
+
+### `src/protocol_serde/shape_list_mfa_device_tags.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_mfa_device_tags.rs
++++ generated/src/protocol_serde/shape_list_mfa_device_tags.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
+-    super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
++    super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::unhandled)?;
++        .map_err(super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::unhandled(generic)),
++        None => return Err(super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::InvalidInputException({
++        "InvalidInput" => super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::unhandled)?;
++                    .map_err(super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::unhandled)?;
++                    .map_err(super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::unhandled)?;
++                    .map_err(super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::generic(generic),
++        _ => super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::generic(generic),
+     })
+ }
+
+@@ -76,17 +76,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
+-    super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError,
++    super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder::default();
+         output = super::super::protocol_serde::shape_list_mfa_device_tags::de_list_mfa_device_tags(_response_body, output)
+-            .map_err(super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::unhandled)?;
++            .map_err(super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         super::super::serde_util::list_mfa_device_tags_output_output_correct_errors(output)
+             .build()
+-            .map_err(super::super::operation::list_mfa_device_tags::ListMFADeviceTagsError::unhandled)?
++            .map_err(super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsError::unhandled)?
+     })
+ }
+
+@@ -117,7 +117,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#ListMFADeviceTagsOutput$Tags */ =>  {
++            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#ListMfaDeviceTagsOutput$Tags */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
+@@ -127,7 +127,7 @@
+                 builder = builder.set_tags(var_1);
+             }
+             ,
+-            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListMFADeviceTagsOutput$IsTruncated */ =>  {
++            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListMfaDeviceTagsOutput$IsTruncated */ =>  {
+                 let var_2 =
+                     Some(
+                          {
+@@ -142,7 +142,7 @@
+                 builder = builder.set_is_truncated(var_2);
+             }
+             ,
+-            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListMFADeviceTagsOutput$Marker */ =>  {
++            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListMfaDeviceTagsOutput$Marker */ =>  {
+                 let var_3 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+```
+
+### `src/protocol_serde/shape_list_mfa_devices.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_mfa_devices.rs
++++ generated/src/protocol_serde/shape_list_mfa_devices.rs
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_mfa_devices::ListMfaDevicesOutput, super::super::operation::list_mfa_devices::ListMFADevicesError> {
++) -> std::result::Result<super::super::operation::list_mfa_devices::ListMfaDevicesOutput, super::super::operation::list_mfa_devices::ListMfaDevicesError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::list_mfa_devices::ListMFADevicesError::unhandled)?;
++        .map_err(super::super::operation::list_mfa_devices::ListMfaDevicesError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_mfa_devices::ListMFADevicesError::unhandled(generic)),
++        None => return Err(super::super::operation::list_mfa_devices::ListMfaDevicesError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "NoSuchEntity" => super::super::operation::list_mfa_devices::ListMFADevicesError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::list_mfa_devices::ListMfaDevicesError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_mfa_devices::ListMFADevicesError::unhandled)?;
++                    .map_err(super::super::operation::list_mfa_devices::ListMfaDevicesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,13 +32,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::list_mfa_devices::ListMFADevicesError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::list_mfa_devices::ListMfaDevicesError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_mfa_devices::ListMFADevicesError::unhandled)?;
++                    .map_err(super::super::operation::list_mfa_devices::ListMfaDevicesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::list_mfa_devices::ListMFADevicesError::generic(generic),
++        _ => super::super::operation::list_mfa_devices::ListMfaDevicesError::generic(generic),
+     })
+ }
+
+@@ -56,16 +56,16 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_mfa_devices::ListMfaDevicesOutput, super::super::operation::list_mfa_devices::ListMFADevicesError> {
++) -> std::result::Result<super::super::operation::list_mfa_devices::ListMfaDevicesOutput, super::super::operation::list_mfa_devices::ListMfaDevicesError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_mfa_devices::builders::ListMfaDevicesOutputBuilder::default();
+         output = super::super::protocol_serde::shape_list_mfa_devices::de_list_mfa_devices(_response_body, output)
+-            .map_err(super::super::operation::list_mfa_devices::ListMFADevicesError::unhandled)?;
++            .map_err(super::super::operation::list_mfa_devices::ListMfaDevicesError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         super::super::serde_util::list_mfa_devices_output_output_correct_errors(output)
+             .build()
+-            .map_err(super::super::operation::list_mfa_devices::ListMFADevicesError::unhandled)?
++            .map_err(super::super::operation::list_mfa_devices::ListMfaDevicesError::unhandled)?
+     })
+ }
+
+@@ -96,7 +96,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("MFADevices") /* MFADevices com.amazonaws.iam.synthetic#ListMFADevicesOutput$MFADevices */ =>  {
++            s if s.matches("MFADevices") /* MFADevices com.amazonaws.iam.synthetic#ListMfaDevicesOutput$MFADevices */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_mfa_device_list_type::de_mfa_device_list_type(&mut tag, depth + 1)
+@@ -106,7 +106,7 @@
+                 builder = builder.set_mfa_devices(var_1);
+             }
+             ,
+-            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListMFADevicesOutput$IsTruncated */ =>  {
++            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListMfaDevicesOutput$IsTruncated */ =>  {
+                 let var_2 =
+                     Some(
+                          {
+@@ -121,7 +121,7 @@
+                 builder = builder.set_is_truncated(var_2);
+             }
+             ,
+-            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListMFADevicesOutput$Marker */ =>  {
++            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListMfaDevicesOutput$Marker */ =>  {
+                 let var_3 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+```
+
+### `src/protocol_serde/shape_list_open_id_connect_provider_tags.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_open_id_connect_provider_tags.rs
++++ generated/src/protocol_serde/shape_list_open_id_connect_provider_tags.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
+-    super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
++    super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++        .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled(generic)),
++        None => return Err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::InvalidInputException({
++        "InvalidInput" => super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++                    .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++                    .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++                    .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::generic(generic),
++        _ => super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::generic(generic),
+     })
+ }
+
+@@ -76,17 +76,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
+-    super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
++    super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder::default();
+         output = super::super::protocol_serde::shape_list_open_id_connect_provider_tags::de_list_open_id_connect_provider_tags(_response_body, output)
+-            .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
++            .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         super::super::serde_util::list_open_id_connect_provider_tags_output_output_correct_errors(output)
+             .build()
+-            .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?
++            .map_err(super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError::unhandled)?
+     })
+ }
+
+@@ -120,7 +120,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#ListOpenIDConnectProviderTagsOutput$Tags */ =>  {
++            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#ListOpenIdConnectProviderTagsOutput$Tags */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
+@@ -130,7 +130,7 @@
+                 builder = builder.set_tags(var_1);
+             }
+             ,
+-            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListOpenIDConnectProviderTagsOutput$IsTruncated */ =>  {
++            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListOpenIdConnectProviderTagsOutput$IsTruncated */ =>  {
+                 let var_2 =
+                     Some(
+                          {
+@@ -145,7 +145,7 @@
+                 builder = builder.set_is_truncated(var_2);
+             }
+             ,
+-            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListOpenIDConnectProviderTagsOutput$Marker */ =>  {
++            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListOpenIdConnectProviderTagsOutput$Marker */ =>  {
+                 let var_3 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+```
+
+### `src/protocol_serde/shape_list_open_id_connect_providers.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_open_id_connect_providers.rs
++++ generated/src/protocol_serde/shape_list_open_id_connect_providers.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
+-    super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
++    super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::unhandled)?;
++        .map_err(super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::unhandled(generic)),
++        None => return Err(super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ServiceFailure" => super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::unhandled)?;
++                    .map_err(super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,7 +35,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::generic(generic),
++        _ => super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError::generic(generic),
+     })
+ }
+
+@@ -46,13 +46,13 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput,
+-    super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
++    super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersOutputBuilder::default();
+         output = super::super::protocol_serde::shape_list_open_id_connect_providers::de_list_open_id_connect_providers(_response_body, output)
+-            .map_err(super::super::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::unhandled)?;
++            .map_err(super::super::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -88,7 +88,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("OpenIDConnectProviderList") /* OpenIDConnectProviderList com.amazonaws.iam.synthetic#ListOpenIDConnectProvidersOutput$OpenIDConnectProviderList */ =>  {
++            s if s.matches("OpenIDConnectProviderList") /* OpenIDConnectProviderList com.amazonaws.iam.synthetic#ListOpenIdConnectProvidersOutput$OpenIDConnectProviderList */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_open_id_connect_provider_list_type::de_open_id_connect_provider_list_type(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_list_saml_provider_tags.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_saml_provider_tags.rs
++++ generated/src/protocol_serde/shape_list_saml_provider_tags.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
+-    super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
++    super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::unhandled)?;
++        .map_err(super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::unhandled(generic)),
++        None => return Err(super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::InvalidInputException({
++        "InvalidInput" => super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::unhandled)?;
++                    .map_err(super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::unhandled)?;
++                    .map_err(super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::unhandled)?;
++                    .map_err(super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::generic(generic),
++        _ => super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::generic(generic),
+     })
+ }
+
+@@ -76,17 +76,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
+-    super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
++    super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder::default();
+         output = super::super::protocol_serde::shape_list_saml_provider_tags::de_list_saml_provider_tags(_response_body, output)
+-            .map_err(super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::unhandled)?;
++            .map_err(super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         super::super::serde_util::list_saml_provider_tags_output_output_correct_errors(output)
+             .build()
+-            .map_err(super::super::operation::list_saml_provider_tags::ListSAMLProviderTagsError::unhandled)?
++            .map_err(super::super::operation::list_saml_provider_tags::ListSamlProviderTagsError::unhandled)?
+     })
+ }
+
+@@ -120,7 +120,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#ListSAMLProviderTagsOutput$Tags */ =>  {
++            s if s.matches("Tags") /* Tags com.amazonaws.iam.synthetic#ListSamlProviderTagsOutput$Tags */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_tag_list_type::de_tag_list_type(&mut tag, depth + 1)
+@@ -130,7 +130,7 @@
+                 builder = builder.set_tags(var_1);
+             }
+             ,
+-            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListSAMLProviderTagsOutput$IsTruncated */ =>  {
++            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListSamlProviderTagsOutput$IsTruncated */ =>  {
+                 let var_2 =
+                     Some(
+                          {
+@@ -145,7 +145,7 @@
+                 builder = builder.set_is_truncated(var_2);
+             }
+             ,
+-            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListSAMLProviderTagsOutput$Marker */ =>  {
++            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListSamlProviderTagsOutput$Marker */ =>  {
+                 let var_3 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+```
+
+### `src/protocol_serde/shape_list_saml_providers.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_saml_providers.rs
++++ generated/src/protocol_serde/shape_list_saml_providers.rs
+@@ -4,27 +4,27 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_saml_providers::ListSamlProvidersOutput, super::super::operation::list_saml_providers::ListSAMLProvidersError>
++) -> std::result::Result<super::super::operation::list_saml_providers::ListSamlProvidersOutput, super::super::operation::list_saml_providers::ListSamlProvidersError>
+ {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::list_saml_providers::ListSAMLProvidersError::unhandled)?;
++        .map_err(super::super::operation::list_saml_providers::ListSamlProvidersError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_saml_providers::ListSAMLProvidersError::unhandled(generic)),
++        None => return Err(super::super::operation::list_saml_providers::ListSamlProvidersError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ServiceFailure" => super::super::operation::list_saml_providers::ListSAMLProvidersError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::list_saml_providers::ListSamlProvidersError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_saml_providers::ListSAMLProvidersError::unhandled)?;
++                    .map_err(super::super::operation::list_saml_providers::ListSamlProvidersError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -33,7 +33,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::list_saml_providers::ListSAMLProvidersError::generic(generic),
++        _ => super::super::operation::list_saml_providers::ListSamlProvidersError::generic(generic),
+     })
+ }
+
+@@ -42,13 +42,13 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::list_saml_providers::ListSamlProvidersOutput, super::super::operation::list_saml_providers::ListSAMLProvidersError>
++) -> std::result::Result<super::super::operation::list_saml_providers::ListSamlProvidersOutput, super::super::operation::list_saml_providers::ListSamlProvidersError>
+ {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_saml_providers::builders::ListSamlProvidersOutputBuilder::default();
+         output = super::super::protocol_serde::shape_list_saml_providers::de_list_saml_providers(_response_body, output)
+-            .map_err(super::super::operation::list_saml_providers::ListSAMLProvidersError::unhandled)?;
++            .map_err(super::super::operation::list_saml_providers::ListSamlProvidersError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -81,7 +81,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("SAMLProviderList") /* SAMLProviderList com.amazonaws.iam.synthetic#ListSAMLProvidersOutput$SAMLProviderList */ =>  {
++            s if s.matches("SAMLProviderList") /* SAMLProviderList com.amazonaws.iam.synthetic#ListSamlProvidersOutput$SAMLProviderList */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_saml_provider_list_type::de_saml_provider_list_type(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_list_ssh_public_keys.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_ssh_public_keys.rs
++++ generated/src/protocol_serde/shape_list_ssh_public_keys.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
+-    super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
++    super::super::operation::list_ssh_public_keys::ListSshPublicKeysError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError::unhandled)?;
++        .map_err(super::super::operation::list_ssh_public_keys::ListSshPublicKeysError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError::unhandled(generic)),
++        None => return Err(super::super::operation::list_ssh_public_keys::ListSshPublicKeysError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "NoSuchEntity" => super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::list_ssh_public_keys::ListSshPublicKeysError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError::unhandled)?;
++                    .map_err(super::super::operation::list_ssh_public_keys::ListSshPublicKeysError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,7 +35,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError::generic(generic),
++        _ => super::super::operation::list_ssh_public_keys::ListSshPublicKeysError::generic(generic),
+     })
+ }
+
+@@ -46,13 +46,13 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_ssh_public_keys::ListSshPublicKeysOutput,
+-    super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError,
++    super::super::operation::list_ssh_public_keys::ListSshPublicKeysError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_ssh_public_keys::builders::ListSshPublicKeysOutputBuilder::default();
+         output = super::super::protocol_serde::shape_list_ssh_public_keys::de_list_ssh_public_keys(_response_body, output)
+-            .map_err(super::super::operation::list_ssh_public_keys::ListSSHPublicKeysError::unhandled)?;
++            .map_err(super::super::operation::list_ssh_public_keys::ListSshPublicKeysError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -85,7 +85,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("SSHPublicKeys") /* SSHPublicKeys com.amazonaws.iam.synthetic#ListSSHPublicKeysOutput$SSHPublicKeys */ =>  {
++            s if s.matches("SSHPublicKeys") /* SSHPublicKeys com.amazonaws.iam.synthetic#ListSshPublicKeysOutput$SSHPublicKeys */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_ssh_public_key_list_type::de_ssh_public_key_list_type(&mut tag, depth + 1)
+@@ -95,7 +95,7 @@
+                 builder = builder.set_ssh_public_keys(var_1);
+             }
+             ,
+-            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListSSHPublicKeysOutput$IsTruncated */ =>  {
++            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListSshPublicKeysOutput$IsTruncated */ =>  {
+                 let var_2 =
+                     Some(
+                          {
+@@ -110,7 +110,7 @@
+                 builder = builder.set_is_truncated(var_2);
+             }
+             ,
+-            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListSSHPublicKeysOutput$Marker */ =>  {
++            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListSshPublicKeysOutput$Marker */ =>  {
+                 let var_3 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+```
+
+### `src/protocol_serde/shape_list_virtual_mfa_devices.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_virtual_mfa_devices.rs
++++ generated/src/protocol_serde/shape_list_virtual_mfa_devices.rs
+@@ -6,14 +6,14 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
+-    super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
++    super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::unhandled)?;
++        .map_err(super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+-    Err(super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::generic(generic))
++    Err(super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError::generic(generic))
+ }
+
+ #[allow(clippy::unnecessary_wraps)]
+@@ -23,17 +23,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput,
+-    super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
++    super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesOutputBuilder::default();
+         output = super::super::protocol_serde::shape_list_virtual_mfa_devices::de_list_virtual_mfa_devices(_response_body, output)
+-            .map_err(super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::unhandled)?;
++            .map_err(super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         super::super::serde_util::list_virtual_mfa_devices_output_output_correct_errors(output)
+             .build()
+-            .map_err(super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::unhandled)?
++            .map_err(super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesError::unhandled)?
+     })
+ }
+
+@@ -67,7 +67,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("VirtualMFADevices") /* VirtualMFADevices com.amazonaws.iam.synthetic#ListVirtualMFADevicesOutput$VirtualMFADevices */ =>  {
++            s if s.matches("VirtualMFADevices") /* VirtualMFADevices com.amazonaws.iam.synthetic#ListVirtualMfaDevicesOutput$VirtualMFADevices */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_virtual_mfa_device_list_type::de_virtual_mfa_device_list_type(&mut tag, depth + 1)
+@@ -77,7 +77,7 @@
+                 builder = builder.set_virtual_mfa_devices(var_1);
+             }
+             ,
+-            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListVirtualMFADevicesOutput$IsTruncated */ =>  {
++            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.iam.synthetic#ListVirtualMfaDevicesOutput$IsTruncated */ =>  {
+                 let var_2 =
+                     Some(
+                          {
+@@ -92,7 +92,7 @@
+                 builder = builder.set_is_truncated(var_2);
+             }
+             ,
+-            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListVirtualMFADevicesOutput$Marker */ =>  {
++            s if s.matches("Marker") /* Marker com.amazonaws.iam.synthetic#ListVirtualMfaDevicesOutput$Marker */ =>  {
+                 let var_3 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+```
+
+### `src/protocol_serde/shape_policy_identifier.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_policy_identifier.rs
++++ generated/src/protocol_serde/shape_policy_identifier.rs
+@@ -6,13 +6,25 @@
+ ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
+     match input {
+         super::super::types::PolicyIdentifier::PolicyType(inner) => {
+-            writer.string(inner.as_str());
++            #[allow(unused_mut)]
++            let mut scope_1 = writer.prefix("PolicyType");
++            {
++                scope_1.string(inner.as_str());
++            }
+         }
+         super::super::types::PolicyIdentifier::PolicyArn(inner) => {
+-            writer.string(inner);
++            #[allow(unused_mut)]
++            let mut scope_2 = writer.prefix("PolicyArn");
++            {
++                scope_2.string(inner);
++            }
+         }
+         super::super::types::PolicyIdentifier::InlinePolicyIdentifier(inner) => {
+-            super::super::protocol_serde::shape_inline_policy_identifier_type::ser_inline_policy_identifier_type(writer, inner)?;
++            #[allow(unused_mut)]
++            let mut scope_3 = writer.prefix("InlinePolicyIdentifier");
++            {
++                super::super::protocol_serde::shape_inline_policy_identifier_type::ser_inline_policy_identifier_type(scope_3, inner)?;
++            }
+         }
+         super::super::types::PolicyIdentifier::Unknown => {
+             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+```
+
+### `src/protocol_serde/shape_remove_client_id_from_open_id_connect_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_remove_client_id_from_open_id_connect_provider.rs
++++ generated/src/protocol_serde/shape_remove_client_id_from_open_id_connect_provider.rs
+@@ -6,11 +6,11 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
+-    super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
++    super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::unhandled)?;
++        .map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+@@ -17,7 +17,7 @@
+         Some(code) => code,
+         None => {
+             return Err(
+-                super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::unhandled(generic),
++                super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::unhandled(generic),
+             )
+         }
+     };
+@@ -24,71 +24,63 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(_response_body, output).map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output).map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output).map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+-            let mut tmp =
+-                 {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output).map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                }
+-            ;
+-            if tmp.message.is_none() {
+-                                                            tmp.message = _error_message;
+-                                                        }
++            let mut tmp = {
++                #[allow(unused_mut)]
++                let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
++                output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+-        _ => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::generic(generic)
++        _ => super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError::generic(generic),
+     })
+ }
+
+@@ -99,7 +91,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
+-    super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
++    super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_resync_mfa_device.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_resync_mfa_device.rs
++++ generated/src/protocol_serde/shape_resync_mfa_device.rs
+@@ -4,20 +4,20 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::resync_mfa_device::ResyncMfaDeviceOutput, super::super::operation::resync_mfa_device::ResyncMFADeviceError> {
++) -> std::result::Result<super::super::operation::resync_mfa_device::ResyncMfaDeviceOutput, super::super::operation::resync_mfa_device::ResyncMfaDeviceError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::resync_mfa_device::ResyncMFADeviceError::unhandled)?;
++        .map_err(super::super::operation::resync_mfa_device::ResyncMfaDeviceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::resync_mfa_device::ResyncMFADeviceError::unhandled(generic)),
++        None => return Err(super::super::operation::resync_mfa_device::ResyncMfaDeviceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::resync_mfa_device::ResyncMFADeviceError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::resync_mfa_device::ResyncMfaDeviceError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -26,7 +26,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::resync_mfa_device::ResyncMFADeviceError::unhandled)?;
++                .map_err(super::super::operation::resync_mfa_device::ResyncMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,7 +35,7 @@
+             }
+             tmp
+         }),
+-        "InvalidAuthenticationCode" => super::super::operation::resync_mfa_device::ResyncMFADeviceError::InvalidAuthenticationCodeException({
++        "InvalidAuthenticationCode" => super::super::operation::resync_mfa_device::ResyncMfaDeviceError::InvalidAuthenticationCodeException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -44,7 +44,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::resync_mfa_device::ResyncMFADeviceError::unhandled)?;
++                .map_err(super::super::operation::resync_mfa_device::ResyncMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -53,13 +53,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::resync_mfa_device::ResyncMFADeviceError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::resync_mfa_device::ResyncMfaDeviceError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::resync_mfa_device::ResyncMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::resync_mfa_device::ResyncMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -68,13 +68,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::resync_mfa_device::ResyncMFADeviceError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::resync_mfa_device::ResyncMfaDeviceError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::resync_mfa_device::ResyncMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::resync_mfa_device::ResyncMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -83,13 +83,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::resync_mfa_device::ResyncMFADeviceError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::resync_mfa_device::ResyncMfaDeviceError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::resync_mfa_device::ResyncMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::resync_mfa_device::ResyncMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -98,7 +98,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::resync_mfa_device::ResyncMFADeviceError::generic(generic),
++        _ => super::super::operation::resync_mfa_device::ResyncMfaDeviceError::generic(generic),
+     })
+ }
+
+@@ -107,7 +107,7 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::resync_mfa_device::ResyncMfaDeviceOutput, super::super::operation::resync_mfa_device::ResyncMFADeviceError> {
++) -> std::result::Result<super::super::operation::resync_mfa_device::ResyncMfaDeviceOutput, super::super::operation::resync_mfa_device::ResyncMfaDeviceError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::resync_mfa_device::builders::ResyncMfaDeviceOutputBuilder::default();
+```
+
+### `src/protocol_serde/shape_simulate_principal_policy_input.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_simulate_principal_policy_input.rs
++++ generated/src/protocol_serde/shape_simulate_principal_policy_input.rs
+@@ -39,77 +39,75 @@
+         for item_15 in var_14 {
+             #[allow(unused_mut)]
+             let mut entry_17 = list_16.entry();
+-            #[allow(unused_mut)]
+-            let mut scope_18 = entry_17.prefix("member");
+-            super::super::protocol_serde::shape_policy_identifier::ser_policy_identifier(scope_18, item_15)?;
++            super::super::protocol_serde::shape_policy_identifier::ser_policy_identifier(entry_17, item_15)?;
+         }
+         list_16.finish();
+     }
+     #[allow(unused_mut)]
+-    let mut scope_19 = writer.prefix("ActionNames");
+-    if let Some(var_20) = &input.action_names {
+-        let mut list_22 = scope_19.start_list(false, None);
+-        for item_21 in var_20 {
++    let mut scope_18 = writer.prefix("ActionNames");
++    if let Some(var_19) = &input.action_names {
++        let mut list_21 = scope_18.start_list(false, None);
++        for item_20 in var_19 {
+             #[allow(unused_mut)]
+-            let mut entry_23 = list_22.entry();
+-            entry_23.string(item_21);
++            let mut entry_22 = list_21.entry();
++            entry_22.string(item_20);
+         }
+-        list_22.finish();
++        list_21.finish();
+     }
+     #[allow(unused_mut)]
+-    let mut scope_24 = writer.prefix("ResourceArns");
+-    if let Some(var_25) = &input.resource_arns {
+-        let mut list_27 = scope_24.start_list(false, None);
+-        for item_26 in var_25 {
++    let mut scope_23 = writer.prefix("ResourceArns");
++    if let Some(var_24) = &input.resource_arns {
++        let mut list_26 = scope_23.start_list(false, None);
++        for item_25 in var_24 {
+             #[allow(unused_mut)]
+-            let mut entry_28 = list_27.entry();
+-            entry_28.string(item_26);
++            let mut entry_27 = list_26.entry();
++            entry_27.string(item_25);
+         }
+-        list_27.finish();
++        list_26.finish();
+     }
+     #[allow(unused_mut)]
+-    let mut scope_29 = writer.prefix("ResourcePolicy");
+-    if let Some(var_30) = &input.resource_policy {
+-        scope_29.string(var_30);
++    let mut scope_28 = writer.prefix("ResourcePolicy");
++    if let Some(var_29) = &input.resource_policy {
++        scope_28.string(var_29);
+     }
+     #[allow(unused_mut)]
+-    let mut scope_31 = writer.prefix("ResourceOwner");
+-    if let Some(var_32) = &input.resource_owner {
+-        scope_31.string(var_32);
++    let mut scope_30 = writer.prefix("ResourceOwner");
++    if let Some(var_31) = &input.resource_owner {
++        scope_30.string(var_31);
+     }
+     #[allow(unused_mut)]
+-    let mut scope_33 = writer.prefix("CallerArn");
+-    if let Some(var_34) = &input.caller_arn {
+-        scope_33.string(var_34);
++    let mut scope_32 = writer.prefix("CallerArn");
++    if let Some(var_33) = &input.caller_arn {
++        scope_32.string(var_33);
+     }
+     #[allow(unused_mut)]
+-    let mut scope_35 = writer.prefix("ContextEntries");
+-    if let Some(var_36) = &input.context_entries {
+-        let mut list_38 = scope_35.start_list(false, None);
+-        for item_37 in var_36 {
++    let mut scope_34 = writer.prefix("ContextEntries");
++    if let Some(var_35) = &input.context_entries {
++        let mut list_37 = scope_34.start_list(false, None);
++        for item_36 in var_35 {
+             #[allow(unused_mut)]
+-            let mut entry_39 = list_38.entry();
+-            super::super::protocol_serde::shape_context_entry::ser_context_entry(entry_39, item_37)?;
++            let mut entry_38 = list_37.entry();
++            super::super::protocol_serde::shape_context_entry::ser_context_entry(entry_38, item_36)?;
+         }
+-        list_38.finish();
++        list_37.finish();
+     }
+     #[allow(unused_mut)]
+-    let mut scope_40 = writer.prefix("ResourceHandlingOption");
+-    if let Some(var_41) = &input.resource_handling_option {
+-        scope_40.string(var_41);
++    let mut scope_39 = writer.prefix("ResourceHandlingOption");
++    if let Some(var_40) = &input.resource_handling_option {
++        scope_39.string(var_40);
+     }
+     #[allow(unused_mut)]
+-    let mut scope_42 = writer.prefix("MaxItems");
+-    if let Some(var_43) = &input.max_items {
+-        scope_42.number(
++    let mut scope_41 = writer.prefix("MaxItems");
++    if let Some(var_42) = &input.max_items {
++        scope_41.number(
+             #[allow(clippy::useless_conversion)]
+-            ::aws_smithy_types::Number::NegInt((*var_43).into()),
++            ::aws_smithy_types::Number::NegInt((*var_42).into()),
+         );
+     }
+     #[allow(unused_mut)]
+-    let mut scope_44 = writer.prefix("Marker");
+-    if let Some(var_45) = &input.marker {
+-        scope_44.string(var_45);
++    let mut scope_43 = writer.prefix("Marker");
++    if let Some(var_44) = &input.marker {
++        scope_43.string(var_44);
+     }
+     writer.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+```
+
+### `src/protocol_serde/shape_tag_mfa_device.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tag_mfa_device.rs
++++ generated/src/protocol_serde/shape_tag_mfa_device.rs
+@@ -4,20 +4,20 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::tag_mfa_device::TagMfaDeviceOutput, super::super::operation::tag_mfa_device::TagMFADeviceError> {
++) -> std::result::Result<super::super::operation::tag_mfa_device::TagMfaDeviceOutput, super::super::operation::tag_mfa_device::TagMfaDeviceError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::tag_mfa_device::TagMFADeviceError::unhandled)?;
++        .map_err(super::super::operation::tag_mfa_device::TagMfaDeviceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::tag_mfa_device::TagMFADeviceError::unhandled(generic)),
++        None => return Err(super::super::operation::tag_mfa_device::TagMfaDeviceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::tag_mfa_device::TagMFADeviceError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::tag_mfa_device::TagMfaDeviceError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -26,7 +26,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::tag_mfa_device::TagMFADeviceError::unhandled)?;
++                .map_err(super::super::operation::tag_mfa_device::TagMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::tag_mfa_device::TagMFADeviceError::InvalidInputException({
++        "InvalidInput" => super::super::operation::tag_mfa_device::TagMfaDeviceError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_mfa_device::TagMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::tag_mfa_device::TagMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::tag_mfa_device::TagMFADeviceError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::tag_mfa_device::TagMfaDeviceError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_mfa_device::TagMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::tag_mfa_device::TagMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::tag_mfa_device::TagMFADeviceError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::tag_mfa_device::TagMfaDeviceError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_mfa_device::TagMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::tag_mfa_device::TagMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,13 +80,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::tag_mfa_device::TagMFADeviceError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::tag_mfa_device::TagMfaDeviceError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_mfa_device::TagMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::tag_mfa_device::TagMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -95,7 +95,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::tag_mfa_device::TagMFADeviceError::generic(generic),
++        _ => super::super::operation::tag_mfa_device::TagMfaDeviceError::generic(generic),
+     })
+ }
+
+@@ -104,7 +104,7 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::tag_mfa_device::TagMfaDeviceOutput, super::super::operation::tag_mfa_device::TagMFADeviceError> {
++) -> std::result::Result<super::super::operation::tag_mfa_device::TagMfaDeviceOutput, super::super::operation::tag_mfa_device::TagMfaDeviceError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::tag_mfa_device::builders::TagMfaDeviceOutputBuilder::default();
+```
+
+### `src/protocol_serde/shape_tag_open_id_connect_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tag_open_id_connect_provider.rs
++++ generated/src/protocol_serde/shape_tag_open_id_connect_provider.rs
+@@ -6,17 +6,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
+-    super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
++    super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++        .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled(
++            return Err(super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::unhandled(
+                 generic,
+             ))
+         }
+@@ -24,7 +24,7 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -33,7 +33,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -42,13 +42,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -57,13 +57,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -72,13 +72,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -87,13 +87,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -102,7 +102,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::generic(generic),
++        _ => super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError::generic(generic),
+     })
+ }
+
+@@ -113,7 +113,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput,
+-    super::super::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
++    super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_tag_saml_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tag_saml_provider.rs
++++ generated/src/protocol_serde/shape_tag_saml_provider.rs
+@@ -4,20 +4,20 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::tag_saml_provider::TagSamlProviderOutput, super::super::operation::tag_saml_provider::TagSAMLProviderError> {
++) -> std::result::Result<super::super::operation::tag_saml_provider::TagSamlProviderOutput, super::super::operation::tag_saml_provider::TagSamlProviderError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
++        .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::tag_saml_provider::TagSAMLProviderError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::tag_saml_provider::TagSamlProviderError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -26,7 +26,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
++                .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::tag_saml_provider::TagSAMLProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::tag_saml_provider::TagSamlProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::tag_saml_provider::TagSAMLProviderError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::tag_saml_provider::TagSamlProviderError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::tag_saml_provider::TagSAMLProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::tag_saml_provider::TagSamlProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,13 +80,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::tag_saml_provider::TagSAMLProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::tag_saml_provider::TagSamlProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::tag_saml_provider::TagSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -95,7 +95,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::tag_saml_provider::TagSAMLProviderError::generic(generic),
++        _ => super::super::operation::tag_saml_provider::TagSamlProviderError::generic(generic),
+     })
+ }
+
+@@ -104,7 +104,7 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::tag_saml_provider::TagSamlProviderOutput, super::super::operation::tag_saml_provider::TagSAMLProviderError> {
++) -> std::result::Result<super::super::operation::tag_saml_provider::TagSamlProviderOutput, super::super::operation::tag_saml_provider::TagSamlProviderError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::tag_saml_provider::builders::TagSamlProviderOutputBuilder::default();
+```
+
+### `src/protocol_serde/shape_untag_mfa_device.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_untag_mfa_device.rs
++++ generated/src/protocol_serde/shape_untag_mfa_device.rs
+@@ -4,20 +4,20 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::untag_mfa_device::UntagMfaDeviceOutput, super::super::operation::untag_mfa_device::UntagMFADeviceError> {
++) -> std::result::Result<super::super::operation::untag_mfa_device::UntagMfaDeviceOutput, super::super::operation::untag_mfa_device::UntagMfaDeviceError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
++        .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled(generic)),
++        None => return Err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::untag_mfa_device::UntagMFADeviceError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::untag_mfa_device::UntagMfaDeviceError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -26,7 +26,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
++                .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::untag_mfa_device::UntagMFADeviceError::InvalidInputException({
++        "InvalidInput" => super::super::operation::untag_mfa_device::UntagMfaDeviceError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::untag_mfa_device::UntagMFADeviceError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::untag_mfa_device::UntagMfaDeviceError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::untag_mfa_device::UntagMFADeviceError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::untag_mfa_device::UntagMfaDeviceError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_mfa_device::UntagMFADeviceError::unhandled)?;
++                    .map_err(super::super::operation::untag_mfa_device::UntagMfaDeviceError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,7 +80,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::untag_mfa_device::UntagMFADeviceError::generic(generic),
++        _ => super::super::operation::untag_mfa_device::UntagMfaDeviceError::generic(generic),
+     })
+ }
+
+@@ -89,7 +89,7 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::untag_mfa_device::UntagMfaDeviceOutput, super::super::operation::untag_mfa_device::UntagMFADeviceError> {
++) -> std::result::Result<super::super::operation::untag_mfa_device::UntagMfaDeviceOutput, super::super::operation::untag_mfa_device::UntagMfaDeviceError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::untag_mfa_device::builders::UntagMfaDeviceOutputBuilder::default();
+```
+
+### `src/protocol_serde/shape_untag_open_id_connect_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_untag_open_id_connect_provider.rs
++++ generated/src/protocol_serde/shape_untag_open_id_connect_provider.rs
+@@ -6,22 +6,22 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
+-    super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
++    super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::unhandled)?;
++        .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "ConcurrentModification" => {
+-            super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::ConcurrentModificationException({
++            super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::ConcurrentModificationException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+@@ -30,7 +30,7 @@
+                         _response_body,
+                         output,
+                     )
+-                    .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -40,13 +40,13 @@
+                 tmp
+             })
+         }
+-        "InvalidInput" => super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -55,13 +55,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -70,13 +70,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::unhandled)?;
++                    .map_err(super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -85,7 +85,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::generic(generic),
++        _ => super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError::generic(generic),
+     })
+ }
+
+@@ -96,7 +96,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput,
+-    super::super::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
++    super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_untag_saml_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_untag_saml_provider.rs
++++ generated/src/protocol_serde/shape_untag_saml_provider.rs
+@@ -4,21 +4,21 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::untag_saml_provider::UntagSamlProviderOutput, super::super::operation::untag_saml_provider::UntagSAMLProviderError>
++) -> std::result::Result<super::super::operation::untag_saml_provider::UntagSamlProviderOutput, super::super::operation::untag_saml_provider::UntagSamlProviderError>
+ {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::untag_saml_provider::UntagSAMLProviderError::unhandled)?;
++        .map_err(super::super::operation::untag_saml_provider::UntagSamlProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::untag_saml_provider::UntagSAMLProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::untag_saml_provider::UntagSamlProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::untag_saml_provider::UntagSAMLProviderError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::untag_saml_provider::UntagSamlProviderError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -27,7 +27,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::untag_saml_provider::UntagSAMLProviderError::unhandled)?;
++                .map_err(super::super::operation::untag_saml_provider::UntagSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -36,13 +36,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::untag_saml_provider::UntagSAMLProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::untag_saml_provider::UntagSamlProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_saml_provider::UntagSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::untag_saml_provider::UntagSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -51,13 +51,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::untag_saml_provider::UntagSAMLProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::untag_saml_provider::UntagSamlProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_saml_provider::UntagSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::untag_saml_provider::UntagSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -66,13 +66,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::untag_saml_provider::UntagSAMLProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::untag_saml_provider::UntagSamlProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::untag_saml_provider::UntagSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::untag_saml_provider::UntagSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -81,7 +81,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::untag_saml_provider::UntagSAMLProviderError::generic(generic),
++        _ => super::super::operation::untag_saml_provider::UntagSamlProviderError::generic(generic),
+     })
+ }
+
+@@ -90,7 +90,7 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::untag_saml_provider::UntagSamlProviderOutput, super::super::operation::untag_saml_provider::UntagSAMLProviderError>
++) -> std::result::Result<super::super::operation::untag_saml_provider::UntagSamlProviderOutput, super::super::operation::untag_saml_provider::UntagSamlProviderError>
+ {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_update_open_id_connect_provider_thumbprint.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_open_id_connect_provider_thumbprint.rs
++++ generated/src/protocol_serde/shape_update_open_id_connect_provider_thumbprint.rs
+@@ -6,17 +6,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
+-    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
++    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled)?;
++        .map_err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+         None => {
+-            return Err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled(generic))
++            return Err(super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled(generic))
+         }
+     };
+
+@@ -23,7 +23,7 @@
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+         "ConcurrentModification" => {
+-            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ConcurrentModificationException(
++            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::ConcurrentModificationException(
+                 {
+                     #[allow(unused_mut)]
+                     let mut tmp = {
+@@ -34,7 +34,7 @@
+                             output,
+                         )
+                         .map_err(
+-                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
++                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled,
+                         )?;
+                         let output = output.meta(generic);
+                         output.build()
+@@ -47,7 +47,7 @@
+             )
+         }
+         "InvalidInput" => {
+-            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::InvalidInputException({
++            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::InvalidInputException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+@@ -54,7 +54,7 @@
+                     let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+                         .map_err(
+-                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
++                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled,
+                         )?;
+                     let output = output.meta(generic);
+                     output.build()
+@@ -66,7 +66,7 @@
+             })
+         }
+         "NoSuchEntity" => {
+-            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::NoSuchEntityException({
++            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::NoSuchEntityException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+@@ -73,7 +73,7 @@
+                     let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+                         .map_err(
+-                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
++                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled,
+                         )?;
+                     let output = output.meta(generic);
+                     output.build()
+@@ -85,7 +85,7 @@
+             })
+         }
+         "ServiceFailure" => {
+-            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ServiceFailureException({
++            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::ServiceFailureException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+@@ -92,7 +92,7 @@
+                     let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                     output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+                         .map_err(
+-                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled,
++                            super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::unhandled,
+                         )?;
+                     let output = output.meta(generic);
+                     output.build()
+@@ -103,7 +103,7 @@
+                 tmp
+             })
+         }
+-        _ => super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::generic(generic),
++        _ => super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError::generic(generic),
+     })
+ }
+
+@@ -114,7 +114,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
+-    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
++    super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_update_saml_provider.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_saml_provider.rs
++++ generated/src/protocol_serde/shape_update_saml_provider.rs
+@@ -6,21 +6,21 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::update_saml_provider::UpdateSamlProviderOutput,
+-    super::super::operation::update_saml_provider::UpdateSAMLProviderError,
++    super::super::operation::update_saml_provider::UpdateSamlProviderError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
++        .map_err(super::super::operation::update_saml_provider::UpdateSamlProviderError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::update_saml_provider::UpdateSAMLProviderError::unhandled(generic)),
++        None => return Err(super::super::operation::update_saml_provider::UpdateSamlProviderError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ConcurrentModification" => super::super::operation::update_saml_provider::UpdateSAMLProviderError::ConcurrentModificationException({
++        "ConcurrentModification" => super::super::operation::update_saml_provider::UpdateSamlProviderError::ConcurrentModificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -29,7 +29,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
++                .map_err(super::super::operation::update_saml_provider::UpdateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -38,13 +38,13 @@
+             }
+             tmp
+         }),
+-        "InvalidInput" => super::super::operation::update_saml_provider::UpdateSAMLProviderError::InvalidInputException({
++        "InvalidInput" => super::super::operation::update_saml_provider::UpdateSamlProviderError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::update_saml_provider::UpdateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -53,13 +53,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::update_saml_provider::UpdateSAMLProviderError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::update_saml_provider::UpdateSamlProviderError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::update_saml_provider::UpdateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -68,13 +68,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::update_saml_provider::UpdateSAMLProviderError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::update_saml_provider::UpdateSamlProviderError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::update_saml_provider::UpdateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -83,13 +83,13 @@
+             }
+             tmp
+         }),
+-        "ServiceFailure" => super::super::operation::update_saml_provider::UpdateSAMLProviderError::ServiceFailureException({
++        "ServiceFailure" => super::super::operation::update_saml_provider::UpdateSamlProviderError::ServiceFailureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ServiceFailureExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
++                    .map_err(super::super::operation::update_saml_provider::UpdateSamlProviderError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -98,7 +98,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::update_saml_provider::UpdateSAMLProviderError::generic(generic),
++        _ => super::super::operation::update_saml_provider::UpdateSamlProviderError::generic(generic),
+     })
+ }
+
+@@ -109,13 +109,13 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::update_saml_provider::UpdateSamlProviderOutput,
+-    super::super::operation::update_saml_provider::UpdateSAMLProviderError,
++    super::super::operation::update_saml_provider::UpdateSamlProviderError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder::default();
+         output = super::super::protocol_serde::shape_update_saml_provider::de_update_saml_provider(_response_body, output)
+-            .map_err(super::super::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
++            .map_err(super::super::operation::update_saml_provider::UpdateSamlProviderError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -149,7 +149,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("SAMLProviderArn") /* SAMLProviderArn com.amazonaws.iam.synthetic#UpdateSAMLProviderOutput$SAMLProviderArn */ =>  {
++            s if s.matches("SAMLProviderArn") /* SAMLProviderArn com.amazonaws.iam.synthetic#UpdateSamlProviderOutput$SAMLProviderArn */ =>  {
+                 let var_1 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+```
+
+### `src/protocol_serde/shape_update_ssh_public_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_ssh_public_key.rs
++++ generated/src/protocol_serde/shape_update_ssh_public_key.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
+-    super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
++    super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::unhandled)?;
++        .map_err(super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::unhandled(generic)),
++        None => return Err(super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "InvalidInput" => super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::InvalidInputException({
++        "InvalidInput" => super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::InvalidInputException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidInputExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::unhandled)?;
++                    .map_err(super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::unhandled)?;
++                    .map_err(super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,7 +50,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError::generic(generic),
++        _ => super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError::generic(generic),
+     })
+ }
+
+@@ -61,7 +61,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
+-    super::super::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
++    super::super::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_upload_ssh_public_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_upload_ssh_public_key.rs
++++ generated/src/protocol_serde/shape_upload_ssh_public_key.rs
+@@ -6,21 +6,21 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
+-    super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
++    super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++        .map_err(super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled(generic)),
++        None => return Err(super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "DuplicateSSHPublicKey" => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::DuplicateSshPublicKeyException({
++        "DuplicateSSHPublicKey" => super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::DuplicateSshPublicKeyException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -29,7 +29,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                .map_err(super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -38,13 +38,13 @@
+             }
+             tmp
+         }),
+-        "InvalidPublicKey" => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::InvalidPublicKeyException({
++        "InvalidPublicKey" => super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::InvalidPublicKeyException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidPublicKeyExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_public_key_exception::de_invalid_public_key_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                    .map_err(super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -53,13 +53,13 @@
+             }
+             tmp
+         }),
+-        "LimitExceeded" => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::LimitExceededException({
++        "LimitExceeded" => super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::LimitExceededException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                    .map_err(super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -68,13 +68,13 @@
+             }
+             tmp
+         }),
+-        "NoSuchEntity" => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::NoSuchEntityException({
++        "NoSuchEntity" => super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::NoSuchEntityException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                    .map_err(super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -84,12 +84,13 @@
+             tmp
+         }),
+         "UnrecognizedPublicKeyEncoding" => {
+-            super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::UnrecognizedPublicKeyEncodingException({
++            super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::UnrecognizedPublicKeyEncodingException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::UnrecognizedPublicKeyEncodingExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_unrecognized_public_key_encoding_exception::de_unrecognized_public_key_encoding_exception_xml_err(_response_body, output).map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++                    output = super::super::protocol_serde::shape_unrecognized_public_key_encoding_exception::de_unrecognized_public_key_encoding_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -99,7 +100,7 @@
+                 tmp
+             })
+         }
+-        _ => super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::generic(generic),
++        _ => super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::generic(generic),
+     })
+ }
+
+@@ -110,13 +111,13 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
+-    super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
++    super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder::default();
+         output = super::super::protocol_serde::shape_upload_ssh_public_key::de_upload_ssh_public_key(_response_body, output)
+-            .map_err(super::super::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
++            .map_err(super::super::operation::upload_ssh_public_key::UploadSshPublicKeyError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -150,7 +151,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("SSHPublicKey") /* SSHPublicKey com.amazonaws.iam.synthetic#UploadSSHPublicKeyOutput$SSHPublicKey */ =>  {
++            s if s.matches("SSHPublicKey") /* SSHPublicKey com.amazonaws.iam.synthetic#UploadSshPublicKeyOutput$SSHPublicKey */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_ssh_public_key::de_ssh_public_key(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_virtual_mfa_device.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_virtual_mfa_device.rs
++++ generated/src/protocol_serde/shape_virtual_mfa_device.rs
+@@ -27,10 +27,10 @@
+             s if s.matches("Base32StringSeed") /* Base32StringSeed com.amazonaws.iam#VirtualMFADevice$Base32StringSeed */ =>  {
+                 let var_2 =
+                     Some(
+-                        ::aws_smithy_types::base64::decode(
++                        Result::<::aws_smithy_types::Blob, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
++                            .into()
+                         )
+-                        .map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid base64: {err:?}"))).map(::aws_smithy_types::Blob::new)
+                         ?
+                     )
+                 ;
+@@ -40,10 +40,10 @@
+             s if s.matches("QRCodePNG") /* QRCodePNG com.amazonaws.iam#VirtualMFADevice$QRCodePNG */ =>  {
+                 let var_3 =
+                     Some(
+-                        ::aws_smithy_types::base64::decode(
++                        Result::<::aws_smithy_types::Blob, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                             ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
++                            .into()
+                         )
+-                        .map_err(|err|::aws_smithy_xml::decode::XmlDecodeError::custom(format!("invalid base64: {err:?}"))).map(::aws_smithy_types::Blob::new)
+                         ?
+                     )
+                 ;
+```
+
+### `src/protocol_serde.rs`
+
+```diff
+--- reference/src/protocol_serde.rs
++++ generated/src/protocol_serde.rs
+@@ -749,8 +749,6 @@
+
+ pub(crate) mod shape_concurrent_modification_exception;
+
+-pub(crate) mod shape_context_entry;
+-
+ pub(crate) mod shape_credential_report_expired_exception;
+
+ pub(crate) mod shape_credential_report_not_present_exception;
+@@ -757,8 +755,6 @@
+
+ pub(crate) mod shape_credential_report_not_ready_exception;
+
+-pub(crate) mod shape_delegation_permission;
+-
+ pub(crate) mod shape_delete_conflict_exception;
+
+ pub(crate) mod shape_duplicate_certificate_exception;
+@@ -797,8 +793,6 @@
+
+ pub(crate) mod shape_open_id_idp_communication_error_exception;
+
+-pub(crate) mod shape_ordered_organization_policy_type;
+-
+ pub(crate) mod shape_organization_not_found_exception;
+
+ pub(crate) mod shape_organization_not_in_all_features_mode_exception;
+@@ -807,12 +801,8 @@
+
+ pub(crate) mod shape_policy_evaluation_exception;
+
+-pub(crate) mod shape_policy_identifier;
+-
+ pub(crate) mod shape_policy_not_attachable_exception;
+
+-pub(crate) mod shape_replacement_value_entry;
+-
+ pub(crate) mod shape_report_generation_limit_exceeded_exception;
+
+ pub(crate) mod shape_role_modified_exception;
+@@ -825,8 +815,6 @@
+
+ pub(crate) mod shape_service_not_supported_exception;
+
+-pub(crate) mod shape_tag;
+-
+ pub(crate) mod shape_unmodifiable_entity_exception;
+
+ pub(crate) mod shape_unrecognized_public_key_encoding_exception;
+@@ -851,8 +839,12 @@
+
+ pub(crate) mod shape_client_id_list_type;
+
++pub(crate) mod shape_context_entry;
++
+ pub(crate) mod shape_context_key_names_result_list_type;
+
++pub(crate) mod shape_delegation_permission;
++
+ pub(crate) mod shape_delegation_request;
+
+ pub(crate) mod shape_delegation_requests_list_type;
+@@ -873,8 +865,6 @@
+
+ pub(crate) mod shape_group_list_type;
+
+-pub(crate) mod shape_inline_policy_identifier_type;
+-
+ pub(crate) mod shape_instance_profile;
+
+ pub(crate) mod shape_instance_profile_list_type;
+@@ -889,6 +879,8 @@
+
+ pub(crate) mod shape_open_id_connect_provider_list_type;
+
++pub(crate) mod shape_ordered_organization_policy_type;
++
+ pub(crate) mod shape_password_policy;
+
+ pub(crate) mod shape_policy;
+@@ -897,12 +889,12 @@
+
+ pub(crate) mod shape_policy_group_list_type;
+
++pub(crate) mod shape_policy_identifier;
++
+ pub(crate) mod shape_policy_list_type;
+
+ pub(crate) mod shape_policy_name_list_type;
+
+-pub(crate) mod shape_policy_parameter;
+-
+ pub(crate) mod shape_policy_role_list_type;
+
+ pub(crate) mod shape_policy_user_list_type;
+@@ -911,6 +903,8 @@
+
+ pub(crate) mod shape_private_key_list;
+
++pub(crate) mod shape_replacement_value_entry;
++
+ pub(crate) mod shape_role;
+
+ pub(crate) mod shape_role_detail_list_type;
+@@ -941,6 +935,8 @@
+
+ pub(crate) mod shape_summary_map_type;
+
++pub(crate) mod shape_tag;
++
+ pub(crate) mod shape_tag_list_type;
+
+ pub(crate) mod shape_thumbprint_list_type;
+@@ -969,6 +965,8 @@
+
+ pub(crate) mod shape_group_detail;
+
++pub(crate) mod shape_inline_policy_identifier_type;
++
+ pub(crate) mod shape_inline_policy_template_list_type;
+
+ pub(crate) mod shape_list_policies_granting_service_access_entry;
+@@ -985,6 +983,8 @@
+
+ pub(crate) mod shape_policy_group;
+
++pub(crate) mod shape_policy_parameter;
++
+ pub(crate) mod shape_policy_role;
+
+ pub(crate) mod shape_policy_user;
 ```
 
 ### `src/serde_util.rs`
@@ -10754,526 +12145,3 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
  mod _caller_is_not_management_account_exception;
 ```
-
-### Missing reference files
-
-- `src/protocol_serde/shape_accept_delegation_request.rs`
-- `src/protocol_serde/shape_accept_delegation_request_input.rs`
-- `src/protocol_serde/shape_access_detail.rs`
-- `src/protocol_serde/shape_access_details.rs`
-- `src/protocol_serde/shape_access_key.rs`
-- `src/protocol_serde/shape_access_key_last_used.rs`
-- `src/protocol_serde/shape_access_key_metadata.rs`
-- `src/protocol_serde/shape_access_key_metadata_list_type.rs`
-- `src/protocol_serde/shape_account_alias_list_type.rs`
-- `src/protocol_serde/shape_account_not_management_or_delegated_administrator_exception.rs`
-- `src/protocol_serde/shape_account_properties_map_type.rs`
-- `src/protocol_serde/shape_acquire_role.rs`
-- `src/protocol_serde/shape_acquire_role_input.rs`
-- `src/protocol_serde/shape_add_client_id_to_open_id_connect_provider.rs`
-- `src/protocol_serde/shape_add_client_id_to_open_id_connect_provider_input.rs`
-- `src/protocol_serde/shape_add_role_to_instance_profile.rs`
-- `src/protocol_serde/shape_add_role_to_instance_profile_input.rs`
-- `src/protocol_serde/shape_add_user_to_group.rs`
-- `src/protocol_serde/shape_add_user_to_group_input.rs`
-- `src/protocol_serde/shape_arn_list_type.rs`
-- `src/protocol_serde/shape_associate_delegation_request.rs`
-- `src/protocol_serde/shape_associate_delegation_request_input.rs`
-- `src/protocol_serde/shape_attach_group_policy.rs`
-- `src/protocol_serde/shape_attach_group_policy_input.rs`
-- `src/protocol_serde/shape_attach_role_policy.rs`
-- `src/protocol_serde/shape_attach_role_policy_input.rs`
-- `src/protocol_serde/shape_attach_user_policy.rs`
-- `src/protocol_serde/shape_attach_user_policy_input.rs`
-- `src/protocol_serde/shape_attached_permissions_boundary.rs`
-- `src/protocol_serde/shape_attached_policies_list_type.rs`
-- `src/protocol_serde/shape_attached_policy.rs`
-- `src/protocol_serde/shape_caller_is_not_management_account_exception.rs`
-- `src/protocol_serde/shape_certificate_list_type.rs`
-- `src/protocol_serde/shape_certification_map_type.rs`
-- `src/protocol_serde/shape_change_password.rs`
-- `src/protocol_serde/shape_change_password_input.rs`
-- `src/protocol_serde/shape_client_id_list_type.rs`
-- `src/protocol_serde/shape_concurrent_modification_exception.rs`
-- `src/protocol_serde/shape_context_entry.rs`
-- `src/protocol_serde/shape_context_key_names_result_list_type.rs`
-- `src/protocol_serde/shape_create_access_key.rs`
-- `src/protocol_serde/shape_create_access_key_input.rs`
-- `src/protocol_serde/shape_create_account_alias.rs`
-- `src/protocol_serde/shape_create_account_alias_input.rs`
-- `src/protocol_serde/shape_create_delegation_request.rs`
-- `src/protocol_serde/shape_create_delegation_request_input.rs`
-- `src/protocol_serde/shape_create_group.rs`
-- `src/protocol_serde/shape_create_group_input.rs`
-- `src/protocol_serde/shape_create_instance_profile.rs`
-- `src/protocol_serde/shape_create_instance_profile_input.rs`
-- `src/protocol_serde/shape_create_login_profile.rs`
-- `src/protocol_serde/shape_create_login_profile_input.rs`
-- `src/protocol_serde/shape_create_open_id_connect_provider.rs`
-- `src/protocol_serde/shape_create_open_id_connect_provider_input.rs`
-- `src/protocol_serde/shape_create_policy.rs`
-- `src/protocol_serde/shape_create_policy_input.rs`
-- `src/protocol_serde/shape_create_policy_version.rs`
-- `src/protocol_serde/shape_create_policy_version_input.rs`
-- `src/protocol_serde/shape_create_role.rs`
-- `src/protocol_serde/shape_create_role_input.rs`
-- `src/protocol_serde/shape_create_saml_provider.rs`
-- `src/protocol_serde/shape_create_saml_provider_input.rs`
-- `src/protocol_serde/shape_create_service_linked_role.rs`
-- `src/protocol_serde/shape_create_service_linked_role_input.rs`
-- `src/protocol_serde/shape_create_service_specific_credential.rs`
-- `src/protocol_serde/shape_create_service_specific_credential_input.rs`
-- `src/protocol_serde/shape_create_user.rs`
-- `src/protocol_serde/shape_create_user_input.rs`
-- `src/protocol_serde/shape_create_virtual_mfa_device.rs`
-- `src/protocol_serde/shape_create_virtual_mfa_device_input.rs`
-- `src/protocol_serde/shape_credential_report_expired_exception.rs`
-- `src/protocol_serde/shape_credential_report_not_present_exception.rs`
-- `src/protocol_serde/shape_credential_report_not_ready_exception.rs`
-- `src/protocol_serde/shape_deactivate_mfa_device.rs`
-- `src/protocol_serde/shape_deactivate_mfa_device_input.rs`
-- `src/protocol_serde/shape_delegation_permission.rs`
-- `src/protocol_serde/shape_delegation_request.rs`
-- `src/protocol_serde/shape_delegation_requests_list_type.rs`
-- `src/protocol_serde/shape_delete_access_key.rs`
-- `src/protocol_serde/shape_delete_access_key_input.rs`
-- `src/protocol_serde/shape_delete_account_alias.rs`
-- `src/protocol_serde/shape_delete_account_alias_input.rs`
-- `src/protocol_serde/shape_delete_account_password_policy.rs`
-- `src/protocol_serde/shape_delete_account_password_policy_input.rs`
-- `src/protocol_serde/shape_delete_conflict_exception.rs`
-- `src/protocol_serde/shape_delete_group.rs`
-- `src/protocol_serde/shape_delete_group_input.rs`
-- `src/protocol_serde/shape_delete_group_policy.rs`
-- `src/protocol_serde/shape_delete_group_policy_input.rs`
-- `src/protocol_serde/shape_delete_instance_profile.rs`
-- `src/protocol_serde/shape_delete_instance_profile_input.rs`
-- `src/protocol_serde/shape_delete_login_profile.rs`
-- `src/protocol_serde/shape_delete_login_profile_input.rs`
-- `src/protocol_serde/shape_delete_open_id_connect_provider.rs`
-- `src/protocol_serde/shape_delete_open_id_connect_provider_input.rs`
-- `src/protocol_serde/shape_delete_policy.rs`
-- `src/protocol_serde/shape_delete_policy_input.rs`
-- `src/protocol_serde/shape_delete_policy_version.rs`
-- `src/protocol_serde/shape_delete_policy_version_input.rs`
-- `src/protocol_serde/shape_delete_role.rs`
-- `src/protocol_serde/shape_delete_role_input.rs`
-- `src/protocol_serde/shape_delete_role_permissions_boundary.rs`
-- `src/protocol_serde/shape_delete_role_permissions_boundary_input.rs`
-- `src/protocol_serde/shape_delete_role_policy.rs`
-- `src/protocol_serde/shape_delete_role_policy_input.rs`
-- `src/protocol_serde/shape_delete_saml_provider.rs`
-- `src/protocol_serde/shape_delete_saml_provider_input.rs`
-- `src/protocol_serde/shape_delete_server_certificate.rs`
-- `src/protocol_serde/shape_delete_server_certificate_input.rs`
-- `src/protocol_serde/shape_delete_service_linked_role.rs`
-- `src/protocol_serde/shape_delete_service_linked_role_input.rs`
-- `src/protocol_serde/shape_delete_service_specific_credential.rs`
-- `src/protocol_serde/shape_delete_service_specific_credential_input.rs`
-- `src/protocol_serde/shape_delete_signing_certificate.rs`
-- `src/protocol_serde/shape_delete_signing_certificate_input.rs`
-- `src/protocol_serde/shape_delete_ssh_public_key.rs`
-- `src/protocol_serde/shape_delete_ssh_public_key_input.rs`
-- `src/protocol_serde/shape_delete_user.rs`
-- `src/protocol_serde/shape_delete_user_input.rs`
-- `src/protocol_serde/shape_delete_user_permissions_boundary.rs`
-- `src/protocol_serde/shape_delete_user_permissions_boundary_input.rs`
-- `src/protocol_serde/shape_delete_user_policy.rs`
-- `src/protocol_serde/shape_delete_user_policy_input.rs`
-- `src/protocol_serde/shape_delete_virtual_mfa_device.rs`
-- `src/protocol_serde/shape_delete_virtual_mfa_device_input.rs`
-- `src/protocol_serde/shape_deletion_task_failure_reason_type.rs`
-- `src/protocol_serde/shape_detach_group_policy.rs`
-- `src/protocol_serde/shape_detach_group_policy_input.rs`
-- `src/protocol_serde/shape_detach_role_policy.rs`
-- `src/protocol_serde/shape_detach_role_policy_input.rs`
-- `src/protocol_serde/shape_detach_user_policy.rs`
-- `src/protocol_serde/shape_detach_user_policy_input.rs`
-- `src/protocol_serde/shape_disable_organizations_root_credentials_management.rs`
-- `src/protocol_serde/shape_disable_organizations_root_credentials_management_input.rs`
-- `src/protocol_serde/shape_disable_organizations_root_sessions.rs`
-- `src/protocol_serde/shape_disable_organizations_root_sessions_input.rs`
-- `src/protocol_serde/shape_disable_outbound_web_identity_federation.rs`
-- `src/protocol_serde/shape_disable_outbound_web_identity_federation_input.rs`
-- `src/protocol_serde/shape_duplicate_certificate_exception.rs`
-- `src/protocol_serde/shape_duplicate_ssh_public_key_exception.rs`
-- `src/protocol_serde/shape_enable_mfa_device.rs`
-- `src/protocol_serde/shape_enable_mfa_device_input.rs`
-- `src/protocol_serde/shape_enable_organizations_root_credentials_management.rs`
-- `src/protocol_serde/shape_enable_organizations_root_credentials_management_input.rs`
-- `src/protocol_serde/shape_enable_organizations_root_sessions.rs`
-- `src/protocol_serde/shape_enable_organizations_root_sessions_input.rs`
-- `src/protocol_serde/shape_enable_outbound_web_identity_federation.rs`
-- `src/protocol_serde/shape_enable_outbound_web_identity_federation_input.rs`
-- `src/protocol_serde/shape_entity_already_exists_exception.rs`
-- `src/protocol_serde/shape_entity_details.rs`
-- `src/protocol_serde/shape_entity_details_list_type.rs`
-- `src/protocol_serde/shape_entity_info.rs`
-- `src/protocol_serde/shape_entity_temporarily_unmodifiable_exception.rs`
-- `src/protocol_serde/shape_error_details.rs`
-- `src/protocol_serde/shape_eval_decision_details_type.rs`
-- `src/protocol_serde/shape_evaluation_result.rs`
-- `src/protocol_serde/shape_evaluation_results_list_type.rs`
-- `src/protocol_serde/shape_feature_disabled_exception.rs`
-- `src/protocol_serde/shape_feature_enabled_exception.rs`
-- `src/protocol_serde/shape_features_list_type.rs`
-- `src/protocol_serde/shape_generate_credential_report.rs`
-- `src/protocol_serde/shape_generate_credential_report_input.rs`
-- `src/protocol_serde/shape_generate_organizations_access_report.rs`
-- `src/protocol_serde/shape_generate_organizations_access_report_input.rs`
-- `src/protocol_serde/shape_generate_service_last_accessed_details.rs`
-- `src/protocol_serde/shape_generate_service_last_accessed_details_input.rs`
-- `src/protocol_serde/shape_get_access_key_last_used.rs`
-- `src/protocol_serde/shape_get_access_key_last_used_input.rs`
-- `src/protocol_serde/shape_get_account_authorization_details.rs`
-- `src/protocol_serde/shape_get_account_authorization_details_input.rs`
-- `src/protocol_serde/shape_get_account_password_policy.rs`
-- `src/protocol_serde/shape_get_account_password_policy_input.rs`
-- `src/protocol_serde/shape_get_account_properties.rs`
-- `src/protocol_serde/shape_get_account_properties_input.rs`
-- `src/protocol_serde/shape_get_account_summary.rs`
-- `src/protocol_serde/shape_get_account_summary_input.rs`
-- `src/protocol_serde/shape_get_context_keys_for_custom_policy.rs`
-- `src/protocol_serde/shape_get_context_keys_for_custom_policy_input.rs`
-- `src/protocol_serde/shape_get_context_keys_for_principal_policy.rs`
-- `src/protocol_serde/shape_get_context_keys_for_principal_policy_input.rs`
-- `src/protocol_serde/shape_get_credential_report.rs`
-- `src/protocol_serde/shape_get_credential_report_input.rs`
-- `src/protocol_serde/shape_get_delegation_request.rs`
-- `src/protocol_serde/shape_get_delegation_request_input.rs`
-- `src/protocol_serde/shape_get_group.rs`
-- `src/protocol_serde/shape_get_group_input.rs`
-- `src/protocol_serde/shape_get_group_policy.rs`
-- `src/protocol_serde/shape_get_group_policy_input.rs`
-- `src/protocol_serde/shape_get_human_readable_summary.rs`
-- `src/protocol_serde/shape_get_human_readable_summary_input.rs`
-- `src/protocol_serde/shape_get_instance_profile.rs`
-- `src/protocol_serde/shape_get_instance_profile_input.rs`
-- `src/protocol_serde/shape_get_login_profile.rs`
-- `src/protocol_serde/shape_get_login_profile_input.rs`
-- `src/protocol_serde/shape_get_mfa_device.rs`
-- `src/protocol_serde/shape_get_mfa_device_input.rs`
-- `src/protocol_serde/shape_get_open_id_connect_provider.rs`
-- `src/protocol_serde/shape_get_open_id_connect_provider_input.rs`
-- `src/protocol_serde/shape_get_organizations_access_report.rs`
-- `src/protocol_serde/shape_get_organizations_access_report_input.rs`
-- `src/protocol_serde/shape_get_outbound_web_identity_federation_info.rs`
-- `src/protocol_serde/shape_get_outbound_web_identity_federation_info_input.rs`
-- `src/protocol_serde/shape_get_policy.rs`
-- `src/protocol_serde/shape_get_policy_input.rs`
-- `src/protocol_serde/shape_get_policy_version.rs`
-- `src/protocol_serde/shape_get_policy_version_input.rs`
-- `src/protocol_serde/shape_get_role.rs`
-- `src/protocol_serde/shape_get_role_input.rs`
-- `src/protocol_serde/shape_get_role_policy.rs`
-- `src/protocol_serde/shape_get_role_policy_input.rs`
-- `src/protocol_serde/shape_get_role_template_version.rs`
-- `src/protocol_serde/shape_get_role_template_version_input.rs`
-- `src/protocol_serde/shape_get_saml_provider.rs`
-- `src/protocol_serde/shape_get_saml_provider_input.rs`
-- `src/protocol_serde/shape_get_server_certificate.rs`
-- `src/protocol_serde/shape_get_server_certificate_input.rs`
-- `src/protocol_serde/shape_get_service_last_accessed_details.rs`
-- `src/protocol_serde/shape_get_service_last_accessed_details_input.rs`
-- `src/protocol_serde/shape_get_service_last_accessed_details_with_entities.rs`
-- `src/protocol_serde/shape_get_service_last_accessed_details_with_entities_input.rs`
-- `src/protocol_serde/shape_get_service_linked_role_deletion_status.rs`
-- `src/protocol_serde/shape_get_service_linked_role_deletion_status_input.rs`
-- `src/protocol_serde/shape_get_ssh_public_key.rs`
-- `src/protocol_serde/shape_get_ssh_public_key_input.rs`
-- `src/protocol_serde/shape_get_user.rs`
-- `src/protocol_serde/shape_get_user_input.rs`
-- `src/protocol_serde/shape_get_user_policy.rs`
-- `src/protocol_serde/shape_get_user_policy_input.rs`
-- `src/protocol_serde/shape_group.rs`
-- `src/protocol_serde/shape_group_detail.rs`
-- `src/protocol_serde/shape_group_detail_list_type.rs`
-- `src/protocol_serde/shape_group_list_type.rs`
-- `src/protocol_serde/shape_group_name_list_type.rs`
-- `src/protocol_serde/shape_inline_policy.rs`
-- `src/protocol_serde/shape_inline_policy_identifier_type.rs`
-- `src/protocol_serde/shape_inline_policy_template_list_type.rs`
-- `src/protocol_serde/shape_instance_profile.rs`
-- `src/protocol_serde/shape_instance_profile_list_type.rs`
-- `src/protocol_serde/shape_invalid_authentication_code_exception.rs`
-- `src/protocol_serde/shape_invalid_certificate_exception.rs`
-- `src/protocol_serde/shape_invalid_input_exception.rs`
-- `src/protocol_serde/shape_invalid_public_key_exception.rs`
-- `src/protocol_serde/shape_invalid_user_type_exception.rs`
-- `src/protocol_serde/shape_key_pair_mismatch_exception.rs`
-- `src/protocol_serde/shape_limit_exceeded_exception.rs`
-- `src/protocol_serde/shape_list_access_keys.rs`
-- `src/protocol_serde/shape_list_access_keys_input.rs`
-- `src/protocol_serde/shape_list_account_aliases.rs`
-- `src/protocol_serde/shape_list_account_aliases_input.rs`
-- `src/protocol_serde/shape_list_attached_group_policies.rs`
-- `src/protocol_serde/shape_list_attached_group_policies_input.rs`
-- `src/protocol_serde/shape_list_attached_role_policies.rs`
-- `src/protocol_serde/shape_list_attached_role_policies_input.rs`
-- `src/protocol_serde/shape_list_attached_user_policies.rs`
-- `src/protocol_serde/shape_list_attached_user_policies_input.rs`
-- `src/protocol_serde/shape_list_delegation_requests.rs`
-- `src/protocol_serde/shape_list_delegation_requests_input.rs`
-- `src/protocol_serde/shape_list_entities_for_policy.rs`
-- `src/protocol_serde/shape_list_entities_for_policy_input.rs`
-- `src/protocol_serde/shape_list_group_policies.rs`
-- `src/protocol_serde/shape_list_group_policies_input.rs`
-- `src/protocol_serde/shape_list_groups.rs`
-- `src/protocol_serde/shape_list_groups_for_user.rs`
-- `src/protocol_serde/shape_list_groups_for_user_input.rs`
-- `src/protocol_serde/shape_list_groups_input.rs`
-- `src/protocol_serde/shape_list_instance_profile_tags.rs`
-- `src/protocol_serde/shape_list_instance_profile_tags_input.rs`
-- `src/protocol_serde/shape_list_instance_profiles.rs`
-- `src/protocol_serde/shape_list_instance_profiles_for_role.rs`
-- `src/protocol_serde/shape_list_instance_profiles_for_role_input.rs`
-- `src/protocol_serde/shape_list_instance_profiles_input.rs`
-- `src/protocol_serde/shape_list_mfa_device_tags.rs`
-- `src/protocol_serde/shape_list_mfa_device_tags_input.rs`
-- `src/protocol_serde/shape_list_mfa_devices.rs`
-- `src/protocol_serde/shape_list_mfa_devices_input.rs`
-- `src/protocol_serde/shape_list_open_id_connect_provider_tags.rs`
-- `src/protocol_serde/shape_list_open_id_connect_provider_tags_input.rs`
-- `src/protocol_serde/shape_list_open_id_connect_providers.rs`
-- `src/protocol_serde/shape_list_open_id_connect_providers_input.rs`
-- `src/protocol_serde/shape_list_organizations_features.rs`
-- `src/protocol_serde/shape_list_organizations_features_input.rs`
-- `src/protocol_serde/shape_list_policies.rs`
-- `src/protocol_serde/shape_list_policies_granting_service_access.rs`
-- `src/protocol_serde/shape_list_policies_granting_service_access_entry.rs`
-- `src/protocol_serde/shape_list_policies_granting_service_access_input.rs`
-- `src/protocol_serde/shape_list_policies_input.rs`
-- `src/protocol_serde/shape_list_policy_granting_service_access_response_list_type.rs`
-- `src/protocol_serde/shape_list_policy_tags.rs`
-- `src/protocol_serde/shape_list_policy_tags_input.rs`
-- `src/protocol_serde/shape_list_policy_versions.rs`
-- `src/protocol_serde/shape_list_policy_versions_input.rs`
-- `src/protocol_serde/shape_list_role_policies.rs`
-- `src/protocol_serde/shape_list_role_policies_input.rs`
-- `src/protocol_serde/shape_list_role_tags.rs`
-- `src/protocol_serde/shape_list_role_tags_input.rs`
-- `src/protocol_serde/shape_list_roles.rs`
-- `src/protocol_serde/shape_list_roles_input.rs`
-- `src/protocol_serde/shape_list_saml_provider_tags.rs`
-- `src/protocol_serde/shape_list_saml_provider_tags_input.rs`
-- `src/protocol_serde/shape_list_saml_providers.rs`
-- `src/protocol_serde/shape_list_saml_providers_input.rs`
-- `src/protocol_serde/shape_list_server_certificate_tags.rs`
-- `src/protocol_serde/shape_list_server_certificate_tags_input.rs`
-- `src/protocol_serde/shape_list_server_certificates.rs`
-- `src/protocol_serde/shape_list_server_certificates_input.rs`
-- `src/protocol_serde/shape_list_service_specific_credentials.rs`
-- `src/protocol_serde/shape_list_service_specific_credentials_input.rs`
-- `src/protocol_serde/shape_list_signing_certificates.rs`
-- `src/protocol_serde/shape_list_signing_certificates_input.rs`
-- `src/protocol_serde/shape_list_ssh_public_keys.rs`
-- `src/protocol_serde/shape_list_ssh_public_keys_input.rs`
-- `src/protocol_serde/shape_list_user_policies.rs`
-- `src/protocol_serde/shape_list_user_policies_input.rs`
-- `src/protocol_serde/shape_list_user_tags.rs`
-- `src/protocol_serde/shape_list_user_tags_input.rs`
-- `src/protocol_serde/shape_list_users.rs`
-- `src/protocol_serde/shape_list_users_input.rs`
-- `src/protocol_serde/shape_list_virtual_mfa_devices.rs`
-- `src/protocol_serde/shape_list_virtual_mfa_devices_input.rs`
-- `src/protocol_serde/shape_login_profile.rs`
-- `src/protocol_serde/shape_malformed_certificate_exception.rs`
-- `src/protocol_serde/shape_malformed_policy_document_exception.rs`
-- `src/protocol_serde/shape_managed_policy_arn_list_type.rs`
-- `src/protocol_serde/shape_managed_policy_detail.rs`
-- `src/protocol_serde/shape_managed_policy_detail_list_type.rs`
-- `src/protocol_serde/shape_mfa_device.rs`
-- `src/protocol_serde/shape_mfa_device_list_type.rs`
-- `src/protocol_serde/shape_name_conflict_exception.rs`
-- `src/protocol_serde/shape_no_such_entity_exception.rs`
-- `src/protocol_serde/shape_open_id_connect_provider_list_entry.rs`
-- `src/protocol_serde/shape_open_id_connect_provider_list_type.rs`
-- `src/protocol_serde/shape_open_id_idp_communication_error_exception.rs`
-- `src/protocol_serde/shape_ordered_organization_policy_type.rs`
-- `src/protocol_serde/shape_organization_not_found_exception.rs`
-- `src/protocol_serde/shape_organization_not_in_all_features_mode_exception.rs`
-- `src/protocol_serde/shape_organizations_decision_detail.rs`
-- `src/protocol_serde/shape_parameter_definition.rs`
-- `src/protocol_serde/shape_parameters_definition_list_type.rs`
-- `src/protocol_serde/shape_password_policy.rs`
-- `src/protocol_serde/shape_password_policy_violation_exception.rs`
-- `src/protocol_serde/shape_permissions_boundary_decision_detail.rs`
-- `src/protocol_serde/shape_policy.rs`
-- `src/protocol_serde/shape_policy_detail.rs`
-- `src/protocol_serde/shape_policy_detail_list_type.rs`
-- `src/protocol_serde/shape_policy_document_version_list_type.rs`
-- `src/protocol_serde/shape_policy_evaluation_exception.rs`
-- `src/protocol_serde/shape_policy_granting_service_access.rs`
-- `src/protocol_serde/shape_policy_granting_service_access_list_type.rs`
-- `src/protocol_serde/shape_policy_group.rs`
-- `src/protocol_serde/shape_policy_group_list_type.rs`
-- `src/protocol_serde/shape_policy_identifier.rs`
-- `src/protocol_serde/shape_policy_list_type.rs`
-- `src/protocol_serde/shape_policy_name_list_type.rs`
-- `src/protocol_serde/shape_policy_not_attachable_exception.rs`
-- `src/protocol_serde/shape_policy_parameter.rs`
-- `src/protocol_serde/shape_policy_parameter_list_type.rs`
-- `src/protocol_serde/shape_policy_parameter_values_list_type.rs`
-- `src/protocol_serde/shape_policy_role.rs`
-- `src/protocol_serde/shape_policy_role_list_type.rs`
-- `src/protocol_serde/shape_policy_user.rs`
-- `src/protocol_serde/shape_policy_user_list_type.rs`
-- `src/protocol_serde/shape_policy_version.rs`
-- `src/protocol_serde/shape_position.rs`
-- `src/protocol_serde/shape_private_key_list.rs`
-- `src/protocol_serde/shape_put_account_properties.rs`
-- `src/protocol_serde/shape_put_account_properties_input.rs`
-- `src/protocol_serde/shape_put_group_policy.rs`
-- `src/protocol_serde/shape_put_group_policy_input.rs`
-- `src/protocol_serde/shape_put_role_permissions_boundary.rs`
-- `src/protocol_serde/shape_put_role_permissions_boundary_input.rs`
-- `src/protocol_serde/shape_put_role_policy.rs`
-- `src/protocol_serde/shape_put_role_policy_input.rs`
-- `src/protocol_serde/shape_put_user_permissions_boundary.rs`
-- `src/protocol_serde/shape_put_user_permissions_boundary_input.rs`
-- `src/protocol_serde/shape_put_user_policy.rs`
-- `src/protocol_serde/shape_put_user_policy_input.rs`
-- `src/protocol_serde/shape_reject_delegation_request.rs`
-- `src/protocol_serde/shape_reject_delegation_request_input.rs`
-- `src/protocol_serde/shape_remove_client_id_from_open_id_connect_provider.rs`
-- `src/protocol_serde/shape_remove_client_id_from_open_id_connect_provider_input.rs`
-- `src/protocol_serde/shape_remove_role_from_instance_profile.rs`
-- `src/protocol_serde/shape_remove_role_from_instance_profile_input.rs`
-- `src/protocol_serde/shape_remove_user_from_group.rs`
-- `src/protocol_serde/shape_remove_user_from_group_input.rs`
-- `src/protocol_serde/shape_replacement_value_entry.rs`
-- `src/protocol_serde/shape_report_generation_limit_exceeded_exception.rs`
-- `src/protocol_serde/shape_reset_service_specific_credential.rs`
-- `src/protocol_serde/shape_reset_service_specific_credential_input.rs`
-- `src/protocol_serde/shape_resource_specific_result.rs`
-- `src/protocol_serde/shape_resource_specific_result_list_type.rs`
-- `src/protocol_serde/shape_resync_mfa_device.rs`
-- `src/protocol_serde/shape_resync_mfa_device_input.rs`
-- `src/protocol_serde/shape_role.rs`
-- `src/protocol_serde/shape_role_detail.rs`
-- `src/protocol_serde/shape_role_detail_list_type.rs`
-- `src/protocol_serde/shape_role_last_used.rs`
-- `src/protocol_serde/shape_role_list_type.rs`
-- `src/protocol_serde/shape_role_modified_exception.rs`
-- `src/protocol_serde/shape_role_permission_restriction_arn_list_type.rs`
-- `src/protocol_serde/shape_role_template_disabled_exception.rs`
-- `src/protocol_serde/shape_role_template_version.rs`
-- `src/protocol_serde/shape_role_usage_list_type.rs`
-- `src/protocol_serde/shape_role_usage_type.rs`
-- `src/protocol_serde/shape_saml_private_key.rs`
-- `src/protocol_serde/shape_saml_provider_list_entry.rs`
-- `src/protocol_serde/shape_saml_provider_list_type.rs`
-- `src/protocol_serde/shape_send_delegation_token.rs`
-- `src/protocol_serde/shape_send_delegation_token_input.rs`
-- `src/protocol_serde/shape_server_certificate.rs`
-- `src/protocol_serde/shape_server_certificate_metadata.rs`
-- `src/protocol_serde/shape_server_certificate_metadata_list_type.rs`
-- `src/protocol_serde/shape_service_access_not_enabled_exception.rs`
-- `src/protocol_serde/shape_service_failure_exception.rs`
-- `src/protocol_serde/shape_service_last_accessed.rs`
-- `src/protocol_serde/shape_service_not_supported_exception.rs`
-- `src/protocol_serde/shape_service_specific_credential.rs`
-- `src/protocol_serde/shape_service_specific_credential_metadata.rs`
-- `src/protocol_serde/shape_service_specific_credentials_list_type.rs`
-- `src/protocol_serde/shape_services_last_accessed.rs`
-- `src/protocol_serde/shape_set_default_policy_version.rs`
-- `src/protocol_serde/shape_set_default_policy_version_input.rs`
-- `src/protocol_serde/shape_set_security_token_service_preferences.rs`
-- `src/protocol_serde/shape_set_security_token_service_preferences_input.rs`
-- `src/protocol_serde/shape_signing_certificate.rs`
-- `src/protocol_serde/shape_simulate_custom_policy.rs`
-- `src/protocol_serde/shape_simulate_custom_policy_input.rs`
-- `src/protocol_serde/shape_simulate_principal_policy.rs`
-- `src/protocol_serde/shape_simulate_principal_policy_input.rs`
-- `src/protocol_serde/shape_source_role_template.rs`
-- `src/protocol_serde/shape_ssh_public_key.rs`
-- `src/protocol_serde/shape_ssh_public_key_list_type.rs`
-- `src/protocol_serde/shape_ssh_public_key_metadata.rs`
-- `src/protocol_serde/shape_statement.rs`
-- `src/protocol_serde/shape_statement_list_type.rs`
-- `src/protocol_serde/shape_summary_map_type.rs`
-- `src/protocol_serde/shape_tag.rs`
-- `src/protocol_serde/shape_tag_instance_profile.rs`
-- `src/protocol_serde/shape_tag_instance_profile_input.rs`
-- `src/protocol_serde/shape_tag_list_type.rs`
-- `src/protocol_serde/shape_tag_mfa_device.rs`
-- `src/protocol_serde/shape_tag_mfa_device_input.rs`
-- `src/protocol_serde/shape_tag_open_id_connect_provider.rs`
-- `src/protocol_serde/shape_tag_open_id_connect_provider_input.rs`
-- `src/protocol_serde/shape_tag_policy.rs`
-- `src/protocol_serde/shape_tag_policy_input.rs`
-- `src/protocol_serde/shape_tag_role.rs`
-- `src/protocol_serde/shape_tag_role_input.rs`
-- `src/protocol_serde/shape_tag_saml_provider.rs`
-- `src/protocol_serde/shape_tag_saml_provider_input.rs`
-- `src/protocol_serde/shape_tag_server_certificate.rs`
-- `src/protocol_serde/shape_tag_server_certificate_input.rs`
-- `src/protocol_serde/shape_tag_template.rs`
-- `src/protocol_serde/shape_tag_template_list_type.rs`
-- `src/protocol_serde/shape_tag_user.rs`
-- `src/protocol_serde/shape_tag_user_input.rs`
-- `src/protocol_serde/shape_thumbprint_list_type.rs`
-- `src/protocol_serde/shape_tracked_action_last_accessed.rs`
-- `src/protocol_serde/shape_tracked_actions_last_accessed.rs`
-- `src/protocol_serde/shape_unmodifiable_entity_exception.rs`
-- `src/protocol_serde/shape_unrecognized_public_key_encoding_exception.rs`
-- `src/protocol_serde/shape_untag_instance_profile.rs`
-- `src/protocol_serde/shape_untag_instance_profile_input.rs`
-- `src/protocol_serde/shape_untag_mfa_device.rs`
-- `src/protocol_serde/shape_untag_mfa_device_input.rs`
-- `src/protocol_serde/shape_untag_open_id_connect_provider.rs`
-- `src/protocol_serde/shape_untag_open_id_connect_provider_input.rs`
-- `src/protocol_serde/shape_untag_policy.rs`
-- `src/protocol_serde/shape_untag_policy_input.rs`
-- `src/protocol_serde/shape_untag_role.rs`
-- `src/protocol_serde/shape_untag_role_input.rs`
-- `src/protocol_serde/shape_untag_saml_provider.rs`
-- `src/protocol_serde/shape_untag_saml_provider_input.rs`
-- `src/protocol_serde/shape_untag_server_certificate.rs`
-- `src/protocol_serde/shape_untag_server_certificate_input.rs`
-- `src/protocol_serde/shape_untag_user.rs`
-- `src/protocol_serde/shape_untag_user_input.rs`
-- `src/protocol_serde/shape_update_access_key.rs`
-- `src/protocol_serde/shape_update_access_key_input.rs`
-- `src/protocol_serde/shape_update_account_password_policy.rs`
-- `src/protocol_serde/shape_update_account_password_policy_input.rs`
-- `src/protocol_serde/shape_update_assume_role_policy.rs`
-- `src/protocol_serde/shape_update_assume_role_policy_input.rs`
-- `src/protocol_serde/shape_update_delegation_request.rs`
-- `src/protocol_serde/shape_update_delegation_request_input.rs`
-- `src/protocol_serde/shape_update_group.rs`
-- `src/protocol_serde/shape_update_group_input.rs`
-- `src/protocol_serde/shape_update_login_profile.rs`
-- `src/protocol_serde/shape_update_login_profile_input.rs`
-- `src/protocol_serde/shape_update_open_id_connect_provider_thumbprint.rs`
-- `src/protocol_serde/shape_update_open_id_connect_provider_thumbprint_input.rs`
-- `src/protocol_serde/shape_update_role.rs`
-- `src/protocol_serde/shape_update_role_description.rs`
-- `src/protocol_serde/shape_update_role_description_input.rs`
-- `src/protocol_serde/shape_update_role_input.rs`
-- `src/protocol_serde/shape_update_saml_provider.rs`
-- `src/protocol_serde/shape_update_saml_provider_input.rs`
-- `src/protocol_serde/shape_update_server_certificate.rs`
-- `src/protocol_serde/shape_update_server_certificate_input.rs`
-- `src/protocol_serde/shape_update_service_specific_credential.rs`
-- `src/protocol_serde/shape_update_service_specific_credential_input.rs`
-- `src/protocol_serde/shape_update_signing_certificate.rs`
-- `src/protocol_serde/shape_update_signing_certificate_input.rs`
-- `src/protocol_serde/shape_update_ssh_public_key.rs`
-- `src/protocol_serde/shape_update_ssh_public_key_input.rs`
-- `src/protocol_serde/shape_update_user.rs`
-- `src/protocol_serde/shape_update_user_input.rs`
-- `src/protocol_serde/shape_upload_server_certificate.rs`
-- `src/protocol_serde/shape_upload_server_certificate_input.rs`
-- `src/protocol_serde/shape_upload_signing_certificate.rs`
-- `src/protocol_serde/shape_upload_signing_certificate_input.rs`
-- `src/protocol_serde/shape_upload_ssh_public_key.rs`
-- `src/protocol_serde/shape_upload_ssh_public_key_input.rs`
-- `src/protocol_serde/shape_user.rs`
-- `src/protocol_serde/shape_user_detail.rs`
-- `src/protocol_serde/shape_user_detail_list_type.rs`
-- `src/protocol_serde/shape_user_list_type.rs`
-- `src/protocol_serde/shape_virtual_mfa_device.rs`
-- `src/protocol_serde/shape_virtual_mfa_device_list_type.rs`
-- `src/protocol_serde.rs`
-- `src/rest_xml_wrapped_errors.rs`

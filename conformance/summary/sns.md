@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `445/445` files compared · `243` matched · `57` mismatches · `145` missing · `0` extra · `54.61%` match (100.00% means fully matched)
+**Progress:** `445/445` files compared · `414` matched · `31` mismatches · `0` missing · `0` extra · `93.03%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -51,117 +51,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`attribute_value(impl Into<String>)`](crate::operation::set_topic_attributes::builders::SetTopicAttributesFluentBuilder::attribute_value) / [`set_attribute_value(Option<String>)`](crate::operation::set_topic_attributes::builders::SetTopicAttributesFluentBuilder::set_attribute_value):<br>required: **false**<br><p>The new value for the attribute.</p><br>
      /// - On success, responds with [`SetTopicAttributesOutput`](crate::operation::set_topic_attributes::SetTopicAttributesOutput)
      /// - On failure, responds with [`SdkError<SetTopicAttributesError>`](crate::operation::set_topic_attributes::SetTopicAttributesError)
-```
-
-### `src/operation/add_permission.rs`
-
-```diff
---- reference/src/operation/add_permission.rs
-+++ generated/src/operation/add_permission.rs
-@@ -252,13 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission_input::ser_add_permission_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission_input::ser_add_permission_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/check_if_phone_number_is_opted_out.rs`
-
-```diff
---- reference/src/operation/check_if_phone_number_is_opted_out.rs
-+++ generated/src/operation/check_if_phone_number_is_opted_out.rs
-@@ -206,12 +206,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_check_if_phone_number_is_opted_out_input::ser_check_if_phone_number_is_opted_out_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_check_if_phone_number_is_opted_out_input::ser_check_if_phone_number_is_opted_out_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/confirm_subscription.rs`
-
-```diff
---- reference/src/operation/confirm_subscription.rs
-+++ generated/src/operation/confirm_subscription.rs
-@@ -260,12 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_confirm_subscription_input::ser_confirm_subscription_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_confirm_subscription_input::ser_confirm_subscription_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/create_platform_application.rs`
-
-```diff
---- reference/src/operation/create_platform_application.rs
-+++ generated/src/operation/create_platform_application.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_platform_application_input::ser_create_platform_application_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_platform_application_input::ser_create_platform_application_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/create_platform_endpoint.rs`
-
-```diff
---- reference/src/operation/create_platform_endpoint.rs
-+++ generated/src/operation/create_platform_endpoint.rs
-@@ -260,12 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_platform_endpoint_input::ser_create_platform_endpoint_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_platform_endpoint_input::ser_create_platform_endpoint_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/create_sms_sandbox_phone_number/builders.rs`
@@ -314,22 +203,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-@@ -204,12 +204,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_sms_sandbox_phone_number_input::ser_create_sms_sandbox_phone_number_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_sms_sandbox_phone_number_input::ser_create_sms_sandbox_phone_number_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -219,12 +218,12 @@
+@@ -219,12 +219,12 @@
      }
  }
  #[derive(Debug)]
@@ -345,74 +219,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/create_topic.rs`
-
-```diff
---- reference/src/operation/create_topic.rs
-+++ generated/src/operation/create_topic.rs
-@@ -252,13 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_topic_input::ser_create_topic_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_topic_input::ser_create_topic_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_endpoint.rs`
-
-```diff
---- reference/src/operation/delete_endpoint.rs
-+++ generated/src/operation/delete_endpoint.rs
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_platform_application.rs`
-
-```diff
---- reference/src/operation/delete_platform_application.rs
-+++ generated/src/operation/delete_platform_application.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_platform_application_input::ser_delete_platform_application_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_platform_application_input::ser_delete_platform_application_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/delete_sms_sandbox_phone_number/builders.rs`
@@ -565,22 +371,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-@@ -204,12 +204,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_delete_sms_sandbox_phone_number_input::ser_delete_sms_sandbox_phone_number_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_sms_sandbox_phone_number_input::ser_delete_sms_sandbox_phone_number_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -219,12 +218,12 @@
+@@ -219,12 +219,12 @@
      }
  }
  #[derive(Debug)]
@@ -596,97 +387,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/delete_topic.rs`
-
-```diff
---- reference/src/operation/delete_topic.rs
-+++ generated/src/operation/delete_topic.rs
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_topic_input::ser_delete_topic_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_topic_input::ser_delete_topic_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/get_data_protection_policy.rs`
-
-```diff
---- reference/src/operation/get_data_protection_policy.rs
-+++ generated/src/operation/get_data_protection_policy.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_data_protection_policy_input::ser_get_data_protection_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_data_protection_policy_input::ser_get_data_protection_policy_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_endpoint_attributes.rs`
-
-```diff
---- reference/src/operation/get_endpoint_attributes.rs
-+++ generated/src/operation/get_endpoint_attributes.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_endpoint_attributes_input::ser_get_endpoint_attributes_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_endpoint_attributes_input::ser_get_endpoint_attributes_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_platform_application_attributes.rs`
-
-```diff
---- reference/src/operation/get_platform_application_attributes.rs
-+++ generated/src/operation/get_platform_application_attributes.rs
-@@ -258,14 +258,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_platform_application_attributes_input::ser_get_platform_application_attributes_input_input_input(
--                &input,
--            )?,
-+            super::super::protocol_serde::shape_get_platform_application_attributes_input::ser_get_platform_application_attributes_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/get_sms_attributes/builders.rs`
@@ -839,25 +539,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::get_sms_attributes::GetSMSAttributesError,
-@@ -201,13 +201,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -216,12 +215,12 @@
+@@ -216,12 +216,12 @@
      }
  }
  #[derive(Debug)]
@@ -1025,19 +707,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-@@ -204,24 +204,20 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_sms_sandbox_account_status_input::ser_get_sms_sandbox_account_status_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -211,17 +211,20 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_get_sms_sandbox_account_status_input::ser_get_sms_sandbox_account_status_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
@@ -1054,96 +732,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/get_subscription_attributes.rs`
-
-```diff
---- reference/src/operation/get_subscription_attributes.rs
-+++ generated/src/operation/get_subscription_attributes.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_subscription_attributes_input::ser_get_subscription_attributes_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_subscription_attributes_input::ser_get_subscription_attributes_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/get_topic_attributes.rs`
-
-```diff
---- reference/src/operation/get_topic_attributes.rs
-+++ generated/src/operation/get_topic_attributes.rs
-@@ -247,12 +247,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_topic_attributes_input::ser_get_topic_attributes_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_topic_attributes_input::ser_get_topic_attributes_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_endpoints_by_platform_application.rs`
-
-```diff
---- reference/src/operation/list_endpoints_by_platform_application.rs
-+++ generated/src/operation/list_endpoints_by_platform_application.rs
-@@ -265,14 +265,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_input_input_input(
--                &input,
--            )?,
-+            super::super::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_origination_numbers.rs`
-
-```diff
---- reference/src/operation/list_origination_numbers.rs
-+++ generated/src/operation/list_origination_numbers.rs
-@@ -251,12 +251,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_origination_numbers_input::ser_list_origination_numbers_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_origination_numbers_input::ser_list_origination_numbers_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs`
@@ -1198,50 +786,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        formatter.finish()
 +    }
 +}
-```
-
-### `src/operation/list_phone_numbers_opted_out.rs`
-
-```diff
---- reference/src/operation/list_phone_numbers_opted_out.rs
-+++ generated/src/operation/list_phone_numbers_opted_out.rs
-@@ -251,12 +251,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_phone_numbers_opted_out_input::ser_list_phone_numbers_opted_out_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_phone_numbers_opted_out_input::ser_list_phone_numbers_opted_out_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_platform_applications.rs`
-
-```diff
---- reference/src/operation/list_platform_applications.rs
-+++ generated/src/operation/list_platform_applications.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_platform_applications_input::ser_list_platform_applications_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_platform_applications_input::ser_list_platform_applications_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/list_sms_sandbox_phone_numbers/builders.rs`
@@ -1417,22 +961,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -251,12 +251,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_sms_sandbox_phone_numbers_input::ser_list_sms_sandbox_phone_numbers_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_sms_sandbox_phone_numbers_input::ser_list_sms_sandbox_phone_numbers_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -266,12 +265,12 @@
+@@ -266,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -1448,259 +977,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/list_subscriptions.rs`
-
-```diff
---- reference/src/operation/list_subscriptions.rs
-+++ generated/src/operation/list_subscriptions.rs
-@@ -247,13 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_subscriptions_by_topic.rs`
-
-```diff
---- reference/src/operation/list_subscriptions_by_topic.rs
-+++ generated/src/operation/list_subscriptions_by_topic.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_subscriptions_by_topic_input::ser_list_subscriptions_by_topic_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_subscriptions_by_topic_input::ser_list_subscriptions_by_topic_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_tags_for_resource.rs`
-
-```diff
---- reference/src/operation/list_tags_for_resource.rs
-+++ generated/src/operation/list_tags_for_resource.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_tags_for_resource_input::ser_list_tags_for_resource_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/list_topics.rs`
-
-```diff
---- reference/src/operation/list_topics.rs
-+++ generated/src/operation/list_topics.rs
-@@ -245,12 +245,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_topics_input::ser_list_topics_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_topics_input::ser_list_topics_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/opt_in_phone_number.rs`
-
-```diff
---- reference/src/operation/opt_in_phone_number.rs
-+++ generated/src/operation/opt_in_phone_number.rs
-@@ -201,13 +201,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/publish.rs`
-
-```diff
---- reference/src/operation/publish.rs
-+++ generated/src/operation/publish.rs
-@@ -271,11 +271,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_input::ser_publish_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_input::ser_publish_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/publish_batch.rs`
-
-```diff
---- reference/src/operation/publish_batch.rs
-+++ generated/src/operation/publish_batch.rs
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_batch_input::ser_publish_batch_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_batch_input::ser_publish_batch_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/put_data_protection_policy.rs`
-
-```diff
---- reference/src/operation/put_data_protection_policy.rs
-+++ generated/src/operation/put_data_protection_policy.rs
-@@ -255,12 +255,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_data_protection_policy_input::ser_put_data_protection_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_put_data_protection_policy_input::ser_put_data_protection_policy_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/remove_permission.rs`
-
-```diff
---- reference/src/operation/remove_permission.rs
-+++ generated/src/operation/remove_permission.rs
-@@ -252,13 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_remove_permission_input::ser_remove_permission_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission_input::ser_remove_permission_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/set_endpoint_attributes.rs`
-
-```diff
---- reference/src/operation/set_endpoint_attributes.rs
-+++ generated/src/operation/set_endpoint_attributes.rs
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_set_endpoint_attributes_input::ser_set_endpoint_attributes_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_set_endpoint_attributes_input::ser_set_endpoint_attributes_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/set_platform_application_attributes.rs`
-
-```diff
---- reference/src/operation/set_platform_application_attributes.rs
-+++ generated/src/operation/set_platform_application_attributes.rs
-@@ -258,14 +258,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_set_platform_application_attributes_input::ser_set_platform_application_attributes_input_input_input(
--                &input,
--            )?,
-+            super::super::protocol_serde::shape_set_platform_application_attributes_input::ser_set_platform_application_attributes_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/set_sms_attributes/_set_sms_attributes_input.rs`
@@ -1935,25 +1211,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::set_sms_attributes::SetSMSAttributesError,
-@@ -201,13 +201,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -216,12 +215,12 @@
+@@ -216,12 +216,12 @@
      }
  }
  #[derive(Debug)]
@@ -1971,50 +1229,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/set_subscription_attributes.rs`
-
-```diff
---- reference/src/operation/set_subscription_attributes.rs
-+++ generated/src/operation/set_subscription_attributes.rs
-@@ -260,12 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_set_subscription_attributes_input::ser_set_subscription_attributes_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_set_subscription_attributes_input::ser_set_subscription_attributes_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
-### `src/operation/set_topic_attributes.rs`
-
-```diff
---- reference/src/operation/set_topic_attributes.rs
-+++ generated/src/operation/set_topic_attributes.rs
-@@ -257,12 +257,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_set_topic_attributes_input::ser_set_topic_attributes_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_set_topic_attributes_input::ser_set_topic_attributes_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
 ### `src/operation/subscribe/_subscribe_input.rs`
 
 ```diff
@@ -2029,95 +1243,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
-```
-
-### `src/operation/subscribe.rs`
-
-```diff
---- reference/src/operation/subscribe.rs
-+++ generated/src/operation/subscribe.rs
-@@ -252,11 +252,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_subscribe_input::ser_subscribe_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_subscribe_input::ser_subscribe_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/tag_resource.rs`
-
-```diff
---- reference/src/operation/tag_resource.rs
-+++ generated/src/operation/tag_resource.rs
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_resource_input::ser_tag_resource_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_resource_input::ser_tag_resource_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/unsubscribe.rs`
-
-```diff
---- reference/src/operation/unsubscribe.rs
-+++ generated/src/operation/unsubscribe.rs
-@@ -245,12 +245,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_unsubscribe_input::ser_unsubscribe_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_unsubscribe_input::ser_unsubscribe_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/untag_resource.rs`
-
-```diff
---- reference/src/operation/untag_resource.rs
-+++ generated/src/operation/untag_resource.rs
-@@ -247,13 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/verify_sms_sandbox_phone_number/builders.rs`
@@ -2293,22 +1418,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_verify_sms_sandbox_phone_number_input::ser_verify_sms_sandbox_phone_number_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_verify_sms_sandbox_phone_number_input::ser_verify_sms_sandbox_phone_number_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -265,12 +264,12 @@
+@@ -265,12 +265,12 @@
      }
  }
  #[derive(Debug)]
@@ -2326,208 +1436,1027 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/types/error/_validation_exception.rs`
+### `src/protocol_serde/shape_create_sms_sandbox_phone_number.rs`
 
 ```diff
---- reference/src/types/error/_validation_exception.rs
-+++ generated/src/types/error/_validation_exception.rs
-@@ -10,15 +10,17 @@
+--- reference/src/protocol_serde/shape_create_sms_sandbox_phone_number.rs
++++ generated/src/protocol_serde/shape_create_sms_sandbox_phone_number.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
+-    super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
++    super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
++        .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled(generic)),
++        None => return Err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AuthorizationError" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::AuthorizationErrorException({
++        "AuthorizationError" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::AuthorizationErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InternalError" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::InternalErrorException({
++        "InternalError" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameter" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::InvalidParameterException({
++        "InvalidParameter" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "OptedOut" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::OptedOutException({
++        "OptedOut" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::OptedOutException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::OptedOutExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_opted_out_exception::de_opted_out_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,13 +80,13 @@
+             }
+             tmp
+         }),
+-        "Throttled" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::ThrottledException({
++        "Throttled" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::ThrottledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -95,13 +95,13 @@
+             }
+             tmp
+         }),
+-        "UserError" => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::UserErrorException({
++        "UserError" => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::UserErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::UserErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_user_error_exception::de_user_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -110,7 +110,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError::generic(generic),
++        _ => super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError::generic(generic),
+     })
  }
- impl ValidationException {
-     /// Returns the error message.
--    pub fn message(&self) -> &str {
--        &self.message
-+    pub fn message(&self) -> ::std::option::Option<&str> {
-+        self.message.as_deref()
-     }
- }
- impl ::std::fmt::Display for ValidationException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-         ::std::write!(f, "ValidationException")?;
--        {
--            ::std::write!(f, ": {}", &self.message)?;
-+        if let ::std::option::Option::Some(inner_1) = &self.message {
-+            {
-+                ::std::write!(f, ": {inner_1}")?;
-+            }
-         }
-         Ok(())
-     }
+
+@@ -121,7 +121,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
+-    super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
++    super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
 ```
 
-### `src/types/error/_verification_exception.rs`
+### `src/protocol_serde/shape_delete_sms_sandbox_phone_number.rs`
 
 ```diff
---- reference/src/types/error/_verification_exception.rs
-+++ generated/src/types/error/_verification_exception.rs
-@@ -19,15 +19,17 @@
+--- reference/src/protocol_serde/shape_delete_sms_sandbox_phone_number.rs
++++ generated/src/protocol_serde/shape_delete_sms_sandbox_phone_number.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
+-    super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
++    super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
++        .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled(generic)),
++        None => return Err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AuthorizationError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::AuthorizationErrorException({
++        "AuthorizationError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::AuthorizationErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InternalError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::InternalErrorException({
++        "InternalError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameter" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::InvalidParameterException({
++        "InvalidParameter" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "ResourceNotFound" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::ResourceNotFoundException({
++        "ResourceNotFound" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::ResourceNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,13 +80,13 @@
+             }
+             tmp
+         }),
+-        "Throttled" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::ThrottledException({
++        "Throttled" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::ThrottledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -95,13 +95,13 @@
+             }
+             tmp
+         }),
+-        "UserError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::UserErrorException({
++        "UserError" => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::UserErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::UserErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_user_error_exception::de_user_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -110,7 +110,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError::generic(generic),
++        _ => super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError::generic(generic),
+     })
  }
- impl VerificationException {
-     /// Returns the error message.
--    pub fn message(&self) -> &str {
--        &self.message
-+    pub fn message(&self) -> ::std::option::Option<&str> {
-+        self.message.as_deref()
-     }
- }
- impl ::std::fmt::Display for VerificationException {
-     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-         ::std::write!(f, "VerificationException")?;
--        {
--            ::std::write!(f, ": {}", &self.message)?;
-+        if let ::std::option::Option::Some(inner_1) = &self.message {
-+            {
-+                ::std::write!(f, ": {inner_1}")?;
-+            }
-         }
-         Ok(())
-     }
+
+@@ -121,7 +121,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput,
+-    super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
++    super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
 ```
 
-### Missing reference files
+### `src/protocol_serde/shape_get_sms_attributes.rs`
 
-- `src/protocol_serde/shape_add_permission.rs`
-- `src/protocol_serde/shape_add_permission_input.rs`
-- `src/protocol_serde/shape_authorization_error_exception.rs`
-- `src/protocol_serde/shape_batch_entry_ids_not_distinct_exception.rs`
-- `src/protocol_serde/shape_batch_request_too_long_exception.rs`
-- `src/protocol_serde/shape_batch_result_error_entry.rs`
-- `src/protocol_serde/shape_batch_result_error_entry_list.rs`
-- `src/protocol_serde/shape_check_if_phone_number_is_opted_out.rs`
-- `src/protocol_serde/shape_check_if_phone_number_is_opted_out_input.rs`
-- `src/protocol_serde/shape_concurrent_access_exception.rs`
-- `src/protocol_serde/shape_confirm_subscription.rs`
-- `src/protocol_serde/shape_confirm_subscription_input.rs`
-- `src/protocol_serde/shape_create_platform_application.rs`
-- `src/protocol_serde/shape_create_platform_application_input.rs`
-- `src/protocol_serde/shape_create_platform_endpoint.rs`
-- `src/protocol_serde/shape_create_platform_endpoint_input.rs`
-- `src/protocol_serde/shape_create_sms_sandbox_phone_number.rs`
-- `src/protocol_serde/shape_create_sms_sandbox_phone_number_input.rs`
-- `src/protocol_serde/shape_create_topic.rs`
-- `src/protocol_serde/shape_create_topic_input.rs`
-- `src/protocol_serde/shape_delete_endpoint.rs`
-- `src/protocol_serde/shape_delete_endpoint_input.rs`
-- `src/protocol_serde/shape_delete_platform_application.rs`
-- `src/protocol_serde/shape_delete_platform_application_input.rs`
-- `src/protocol_serde/shape_delete_sms_sandbox_phone_number.rs`
-- `src/protocol_serde/shape_delete_sms_sandbox_phone_number_input.rs`
-- `src/protocol_serde/shape_delete_topic.rs`
-- `src/protocol_serde/shape_delete_topic_input.rs`
-- `src/protocol_serde/shape_empty_batch_request_exception.rs`
-- `src/protocol_serde/shape_endpoint.rs`
-- `src/protocol_serde/shape_endpoint_disabled_exception.rs`
-- `src/protocol_serde/shape_filter_policy_limit_exceeded_exception.rs`
-- `src/protocol_serde/shape_get_data_protection_policy.rs`
-- `src/protocol_serde/shape_get_data_protection_policy_input.rs`
-- `src/protocol_serde/shape_get_endpoint_attributes.rs`
-- `src/protocol_serde/shape_get_endpoint_attributes_input.rs`
-- `src/protocol_serde/shape_get_platform_application_attributes.rs`
-- `src/protocol_serde/shape_get_platform_application_attributes_input.rs`
-- `src/protocol_serde/shape_get_sms_attributes.rs`
-- `src/protocol_serde/shape_get_sms_attributes_input.rs`
-- `src/protocol_serde/shape_get_sms_sandbox_account_status.rs`
-- `src/protocol_serde/shape_get_sms_sandbox_account_status_input.rs`
-- `src/protocol_serde/shape_get_subscription_attributes.rs`
-- `src/protocol_serde/shape_get_subscription_attributes_input.rs`
-- `src/protocol_serde/shape_get_topic_attributes.rs`
-- `src/protocol_serde/shape_get_topic_attributes_input.rs`
-- `src/protocol_serde/shape_internal_error_exception.rs`
-- `src/protocol_serde/shape_invalid_batch_entry_id_exception.rs`
-- `src/protocol_serde/shape_invalid_parameter_exception.rs`
-- `src/protocol_serde/shape_invalid_parameter_value_exception.rs`
-- `src/protocol_serde/shape_invalid_security_exception.rs`
-- `src/protocol_serde/shape_invalid_state_exception.rs`
-- `src/protocol_serde/shape_kms_access_denied_exception.rs`
-- `src/protocol_serde/shape_kms_disabled_exception.rs`
-- `src/protocol_serde/shape_kms_invalid_state_exception.rs`
-- `src/protocol_serde/shape_kms_not_found_exception.rs`
-- `src/protocol_serde/shape_kms_opt_in_required.rs`
-- `src/protocol_serde/shape_kms_throttling_exception.rs`
-- `src/protocol_serde/shape_list_endpoints_by_platform_application.rs`
-- `src/protocol_serde/shape_list_endpoints_by_platform_application_input.rs`
-- `src/protocol_serde/shape_list_of_endpoints.rs`
-- `src/protocol_serde/shape_list_of_platform_applications.rs`
-- `src/protocol_serde/shape_list_origination_numbers.rs`
-- `src/protocol_serde/shape_list_origination_numbers_input.rs`
-- `src/protocol_serde/shape_list_phone_numbers_opted_out.rs`
-- `src/protocol_serde/shape_list_phone_numbers_opted_out_input.rs`
-- `src/protocol_serde/shape_list_platform_applications.rs`
-- `src/protocol_serde/shape_list_platform_applications_input.rs`
-- `src/protocol_serde/shape_list_sms_sandbox_phone_numbers.rs`
-- `src/protocol_serde/shape_list_sms_sandbox_phone_numbers_input.rs`
-- `src/protocol_serde/shape_list_subscriptions.rs`
-- `src/protocol_serde/shape_list_subscriptions_by_topic.rs`
-- `src/protocol_serde/shape_list_subscriptions_by_topic_input.rs`
-- `src/protocol_serde/shape_list_subscriptions_input.rs`
-- `src/protocol_serde/shape_list_tags_for_resource.rs`
-- `src/protocol_serde/shape_list_tags_for_resource_input.rs`
-- `src/protocol_serde/shape_list_topics.rs`
-- `src/protocol_serde/shape_list_topics_input.rs`
-- `src/protocol_serde/shape_map_string_to_string.rs`
-- `src/protocol_serde/shape_message_attribute_value.rs`
-- `src/protocol_serde/shape_not_found_exception.rs`
-- `src/protocol_serde/shape_number_capability_list.rs`
-- `src/protocol_serde/shape_opt_in_phone_number.rs`
-- `src/protocol_serde/shape_opt_in_phone_number_input.rs`
-- `src/protocol_serde/shape_opted_out_exception.rs`
-- `src/protocol_serde/shape_phone_number_information.rs`
-- `src/protocol_serde/shape_phone_number_information_list.rs`
-- `src/protocol_serde/shape_phone_number_list.rs`
-- `src/protocol_serde/shape_platform_application.rs`
-- `src/protocol_serde/shape_platform_application_disabled_exception.rs`
-- `src/protocol_serde/shape_publish.rs`
-- `src/protocol_serde/shape_publish_batch.rs`
-- `src/protocol_serde/shape_publish_batch_input.rs`
-- `src/protocol_serde/shape_publish_batch_request_entry.rs`
-- `src/protocol_serde/shape_publish_batch_result_entry.rs`
-- `src/protocol_serde/shape_publish_batch_result_entry_list.rs`
-- `src/protocol_serde/shape_publish_input.rs`
-- `src/protocol_serde/shape_put_data_protection_policy.rs`
-- `src/protocol_serde/shape_put_data_protection_policy_input.rs`
-- `src/protocol_serde/shape_remove_permission.rs`
-- `src/protocol_serde/shape_remove_permission_input.rs`
-- `src/protocol_serde/shape_replay_limit_exceeded_exception.rs`
-- `src/protocol_serde/shape_resource_not_found_exception.rs`
-- `src/protocol_serde/shape_set_endpoint_attributes.rs`
-- `src/protocol_serde/shape_set_endpoint_attributes_input.rs`
-- `src/protocol_serde/shape_set_platform_application_attributes.rs`
-- `src/protocol_serde/shape_set_platform_application_attributes_input.rs`
-- `src/protocol_serde/shape_set_sms_attributes.rs`
-- `src/protocol_serde/shape_set_sms_attributes_input.rs`
-- `src/protocol_serde/shape_set_subscription_attributes.rs`
-- `src/protocol_serde/shape_set_subscription_attributes_input.rs`
-- `src/protocol_serde/shape_set_topic_attributes.rs`
-- `src/protocol_serde/shape_set_topic_attributes_input.rs`
-- `src/protocol_serde/shape_sms_sandbox_phone_number.rs`
-- `src/protocol_serde/shape_sms_sandbox_phone_number_list.rs`
-- `src/protocol_serde/shape_stale_tag_exception.rs`
-- `src/protocol_serde/shape_subscribe.rs`
-- `src/protocol_serde/shape_subscribe_input.rs`
-- `src/protocol_serde/shape_subscription.rs`
-- `src/protocol_serde/shape_subscription_attributes_map.rs`
-- `src/protocol_serde/shape_subscription_limit_exceeded_exception.rs`
-- `src/protocol_serde/shape_subscriptions_list.rs`
-- `src/protocol_serde/shape_tag.rs`
-- `src/protocol_serde/shape_tag_limit_exceeded_exception.rs`
-- `src/protocol_serde/shape_tag_list.rs`
-- `src/protocol_serde/shape_tag_policy_exception.rs`
-- `src/protocol_serde/shape_tag_resource.rs`
-- `src/protocol_serde/shape_tag_resource_input.rs`
-- `src/protocol_serde/shape_throttled_exception.rs`
-- `src/protocol_serde/shape_too_many_entries_in_batch_request_exception.rs`
-- `src/protocol_serde/shape_topic.rs`
-- `src/protocol_serde/shape_topic_attributes_map.rs`
-- `src/protocol_serde/shape_topic_limit_exceeded_exception.rs`
-- `src/protocol_serde/shape_topics_list.rs`
-- `src/protocol_serde/shape_unsubscribe.rs`
-- `src/protocol_serde/shape_unsubscribe_input.rs`
-- `src/protocol_serde/shape_untag_resource.rs`
-- `src/protocol_serde/shape_untag_resource_input.rs`
-- `src/protocol_serde/shape_user_error_exception.rs`
-- `src/protocol_serde/shape_validation_exception.rs`
-- `src/protocol_serde/shape_verification_exception.rs`
-- `src/protocol_serde/shape_verify_sms_sandbox_phone_number.rs`
-- `src/protocol_serde/shape_verify_sms_sandbox_phone_number_input.rs`
-- `src/protocol_serde.rs`
-- `src/rest_xml_wrapped_errors.rs`
+```diff
+--- reference/src/protocol_serde/shape_get_sms_attributes.rs
++++ generated/src/protocol_serde/shape_get_sms_attributes.rs
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSMSAttributesError> {
++) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSmsAttributesError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
++        .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled(generic)),
++        None => return Err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AuthorizationError" => super::super::operation::get_sms_attributes::GetSMSAttributesError::AuthorizationErrorException({
++        "AuthorizationError" => super::super::operation::get_sms_attributes::GetSmsAttributesError::AuthorizationErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
++                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,13 +32,13 @@
+             }
+             tmp
+         }),
+-        "InternalError" => super::super::operation::get_sms_attributes::GetSMSAttributesError::InternalErrorException({
++        "InternalError" => super::super::operation::get_sms_attributes::GetSmsAttributesError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
++                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -47,13 +47,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameter" => super::super::operation::get_sms_attributes::GetSMSAttributesError::InvalidParameterException({
++        "InvalidParameter" => super::super::operation::get_sms_attributes::GetSmsAttributesError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
++                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -62,13 +62,13 @@
+             }
+             tmp
+         }),
+-        "Throttled" => super::super::operation::get_sms_attributes::GetSMSAttributesError::ThrottledException({
++        "Throttled" => super::super::operation::get_sms_attributes::GetSmsAttributesError::ThrottledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
++                    .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::get_sms_attributes::GetSMSAttributesError::generic(generic),
++        _ => super::super::operation::get_sms_attributes::GetSmsAttributesError::generic(generic),
+     })
+ }
+
+@@ -86,12 +86,12 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSMSAttributesError> {
++) -> std::result::Result<super::super::operation::get_sms_attributes::GetSmsAttributesOutput, super::super::operation::get_sms_attributes::GetSmsAttributesError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::get_sms_attributes::builders::GetSmsAttributesOutputBuilder::default();
+         output = super::super::protocol_serde::shape_get_sms_attributes::de_get_sms_attributes(_response_body, output)
+-            .map_err(super::super::operation::get_sms_attributes::GetSMSAttributesError::unhandled)?;
++            .map_err(super::super::operation::get_sms_attributes::GetSmsAttributesError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -124,7 +124,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("attributes") /* attributes com.amazonaws.sns.synthetic#GetSMSAttributesOutput$attributes */ =>  {
++            s if s.matches("attributes") /* attributes com.amazonaws.sns.synthetic#GetSmsAttributesOutput$attributes */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_map_string_to_string::de_map_string_to_string(&mut tag, depth + 1)
+```
+
+### `src/protocol_serde/shape_get_sms_sandbox_account_status.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_sms_sandbox_account_status.rs
++++ generated/src/protocol_serde/shape_get_sms_sandbox_account_status.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
+-    super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
++    super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
++        .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled(generic)),
++        None => return Err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AuthorizationError" => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::AuthorizationErrorException({
++        "AuthorizationError" => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::AuthorizationErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
++                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InternalError" => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::InternalErrorException({
++        "InternalError" => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
++                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "Throttled" => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::ThrottledException({
++        "Throttled" => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::ThrottledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
++                    .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::generic(generic),
++        _ => super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::generic(generic),
+     })
+ }
+
+@@ -76,15 +76,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
+-    super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
++    super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder::default();
+         output = super::super::protocol_serde::shape_get_sms_sandbox_account_status::de_get_sms_sandbox_account_status(_response_body, output)
+-            .map_err(super::super::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
++            .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+-        super::super::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output).build()
++        super::super::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output)
++            .build()
++            .map_err(super::super::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError::unhandled)?
+     })
+ }
+
+@@ -118,7 +120,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("IsInSandbox") /* IsInSandbox com.amazonaws.sns.synthetic#GetSMSSandboxAccountStatusOutput$IsInSandbox */ =>  {
++            s if s.matches("IsInSandbox") /* IsInSandbox com.amazonaws.sns.synthetic#GetSmsSandboxAccountStatusOutput$IsInSandbox */ =>  {
+                 let var_1 =
+                     Some(
+                          {
+```
+
+### `src/protocol_serde/shape_list_origination_numbers.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_origination_numbers.rs
++++ generated/src/protocol_serde/shape_list_origination_numbers.rs
+@@ -96,6 +96,9 @@
+                     .build()
+                     .map_err(super::super::operation::list_origination_numbers::ListOriginationNumbersError::unhandled)?
+             };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         _ => super::super::operation::list_origination_numbers::ListOriginationNumbersError::generic(generic),
+```
+
+### `src/protocol_serde/shape_list_sms_sandbox_phone_numbers.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_sms_sandbox_phone_numbers.rs
++++ generated/src/protocol_serde/shape_list_sms_sandbox_phone_numbers.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
+-    super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
++    super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
++        .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled(generic)),
++        None => return Err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AuthorizationError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::AuthorizationErrorException({
++        "AuthorizationError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::AuthorizationErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
++                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InternalError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::InternalErrorException({
++        "InternalError" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
++                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameter" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::InvalidParameterException({
++        "InvalidParameter" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
++                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "ResourceNotFound" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::ResourceNotFoundException({
++        "ResourceNotFound" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::ResourceNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
++                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,13 +80,13 @@
+             }
+             tmp
+         }),
+-        "Throttled" => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::ThrottledException({
++        "Throttled" => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::ThrottledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
++                    .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -95,7 +95,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::generic(generic),
++        _ => super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::generic(generic),
+     })
+ }
+
+@@ -106,17 +106,17 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
+-    super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
++    super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder::default();
+         output = super::super::protocol_serde::shape_list_sms_sandbox_phone_numbers::de_list_sms_sandbox_phone_numbers(_response_body, output)
+-            .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?;
++            .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         super::super::serde_util::list_sms_sandbox_phone_numbers_output_output_correct_errors(output)
+             .build()
+-            .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError::unhandled)?
++            .map_err(super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersError::unhandled)?
+     })
+ }
+
+@@ -150,7 +150,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("PhoneNumbers") /* PhoneNumbers com.amazonaws.sns.synthetic#ListSMSSandboxPhoneNumbersOutput$PhoneNumbers */ =>  {
++            s if s.matches("PhoneNumbers") /* PhoneNumbers com.amazonaws.sns.synthetic#ListSmsSandboxPhoneNumbersOutput$PhoneNumbers */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_sms_sandbox_phone_number_list::de_sms_sandbox_phone_number_list(&mut tag, depth + 1)
+@@ -160,7 +160,7 @@
+                 builder = builder.set_phone_numbers(var_1);
+             }
+             ,
+-            s if s.matches("NextToken") /* NextToken com.amazonaws.sns.synthetic#ListSMSSandboxPhoneNumbersOutput$NextToken */ =>  {
++            s if s.matches("NextToken") /* NextToken com.amazonaws.sns.synthetic#ListSmsSandboxPhoneNumbersOutput$NextToken */ =>  {
+                 let var_2 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+```
+
+### `src/protocol_serde/shape_publish.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_publish.rs
++++ generated/src/protocol_serde/shape_publish.rs
+@@ -245,6 +245,9 @@
+                     .build()
+                     .map_err(super::super::operation::publish::PublishError::unhandled)?
+             };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         _ => super::super::operation::publish::PublishError::generic(generic),
+```
+
+### `src/protocol_serde/shape_publish_batch.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_publish_batch.rs
++++ generated/src/protocol_serde/shape_publish_batch.rs
+@@ -308,7 +308,8 @@
+                 let mut tmp = {
+                     #[allow(unused_mut)]
+                     let mut output = super::super::types::error::builders::TooManyEntriesInBatchRequestExceptionBuilder::default();
+-                    output = super::super::protocol_serde::shape_too_many_entries_in_batch_request_exception::de_too_many_entries_in_batch_request_exception_xml_err(_response_body, output).map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
++                    output = super::super::protocol_serde::shape_too_many_entries_in_batch_request_exception::de_too_many_entries_in_batch_request_exception_xml_err(_response_body, output)
++                    .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?;
+                     let output = output.meta(generic);
+                     output.build()
+                 };
+@@ -330,6 +331,9 @@
+                     .build()
+                     .map_err(super::super::operation::publish_batch::PublishBatchError::unhandled)?
+             };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+         _ => super::super::operation::publish_batch::PublishBatchError::generic(generic),
+```
+
+### `src/protocol_serde/shape_set_sms_attributes.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_set_sms_attributes.rs
++++ generated/src/protocol_serde/shape_set_sms_attributes.rs
+@@ -4,26 +4,26 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::set_sms_attributes::SetSmsAttributesOutput, super::super::operation::set_sms_attributes::SetSMSAttributesError> {
++) -> std::result::Result<super::super::operation::set_sms_attributes::SetSmsAttributesOutput, super::super::operation::set_sms_attributes::SetSmsAttributesError> {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled)?;
++        .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled(generic)),
++        None => return Err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AuthorizationError" => super::super::operation::set_sms_attributes::SetSMSAttributesError::AuthorizationErrorException({
++        "AuthorizationError" => super::super::operation::set_sms_attributes::SetSmsAttributesError::AuthorizationErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled)?;
++                    .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -32,13 +32,13 @@
+             }
+             tmp
+         }),
+-        "InternalError" => super::super::operation::set_sms_attributes::SetSMSAttributesError::InternalErrorException({
++        "InternalError" => super::super::operation::set_sms_attributes::SetSmsAttributesError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled)?;
++                    .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -47,13 +47,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameter" => super::super::operation::set_sms_attributes::SetSMSAttributesError::InvalidParameterException({
++        "InvalidParameter" => super::super::operation::set_sms_attributes::SetSmsAttributesError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled)?;
++                    .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -62,13 +62,13 @@
+             }
+             tmp
+         }),
+-        "Throttled" => super::super::operation::set_sms_attributes::SetSMSAttributesError::ThrottledException({
++        "Throttled" => super::super::operation::set_sms_attributes::SetSmsAttributesError::ThrottledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::set_sms_attributes::SetSMSAttributesError::unhandled)?;
++                    .map_err(super::super::operation::set_sms_attributes::SetSmsAttributesError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::set_sms_attributes::SetSMSAttributesError::generic(generic),
++        _ => super::super::operation::set_sms_attributes::SetSmsAttributesError::generic(generic),
+     })
+ }
+
+@@ -86,7 +86,7 @@
+     _response_status: u16,
+     _response_headers: &::aws_smithy_runtime_api::http::Headers,
+     _response_body: &[u8],
+-) -> std::result::Result<super::super::operation::set_sms_attributes::SetSmsAttributesOutput, super::super::operation::set_sms_attributes::SetSMSAttributesError> {
++) -> std::result::Result<super::super::operation::set_sms_attributes::SetSmsAttributesOutput, super::super::operation::set_sms_attributes::SetSmsAttributesError> {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::set_sms_attributes::builders::SetSmsAttributesOutputBuilder::default();
+```
+
+### `src/protocol_serde/shape_verify_sms_sandbox_phone_number.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_verify_sms_sandbox_phone_number.rs
++++ generated/src/protocol_serde/shape_verify_sms_sandbox_phone_number.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
+-    super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
++    super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
++        .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled(generic)),
++        None => return Err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AuthorizationError" => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::AuthorizationErrorException({
++        "AuthorizationError" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::AuthorizationErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
+             }
+             tmp
+         }),
+-        "InternalError" => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::InternalErrorException({
++        "InternalError" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::InternalErrorException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,13 +50,13 @@
+             }
+             tmp
+         }),
+-        "InvalidParameter" => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::InvalidParameterException({
++        "InvalidParameter" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::InvalidParameterException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -65,13 +65,13 @@
+             }
+             tmp
+         }),
+-        "ResourceNotFound" => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::ResourceNotFoundException({
++        "ResourceNotFound" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::ResourceNotFoundException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -80,13 +80,13 @@
+             }
+             tmp
+         }),
+-        "Throttled" => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::ThrottledException({
++        "Throttled" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::ThrottledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ThrottledExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_throttled_exception::de_throttled_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -95,21 +95,24 @@
+             }
+             tmp
+         }),
+-        "VerificationException" => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::VerificationException({
++        "VerificationException" => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::VerificationException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::VerificationExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_verification_exception::de_verification_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?;
++                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?;
+                 let output = output.meta(generic);
+                 super::super::serde_util::verification_exception_correct_errors(output)
+                     .build()
+-                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::unhandled)?
++                    .map_err(super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::unhandled)?
+             };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
+             tmp
+         }),
+-        _ => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::generic(generic),
++        _ => super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError::generic(generic),
+     })
+ }
+
+@@ -120,7 +123,7 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput,
+-    super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
++    super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+```
+
+### `src/protocol_serde.rs`
+
+```diff
+--- reference/src/protocol_serde.rs
++++ generated/src/protocol_serde.rs
+@@ -229,8 +229,6 @@
+
+ pub(crate) mod shape_kms_throttling_exception;
+
+-pub(crate) mod shape_message_attribute_value;
+-
+ pub(crate) mod shape_not_found_exception;
+
+ pub(crate) mod shape_opted_out_exception;
+@@ -237,8 +235,6 @@
+
+ pub(crate) mod shape_platform_application_disabled_exception;
+
+-pub(crate) mod shape_publish_batch_request_entry;
+-
+ pub(crate) mod shape_replay_limit_exceeded_exception;
+
+ pub(crate) mod shape_resource_not_found_exception;
+@@ -247,8 +243,6 @@
+
+ pub(crate) mod shape_subscription_limit_exceeded_exception;
+
+-pub(crate) mod shape_tag;
+-
+ pub(crate) mod shape_tag_limit_exceeded_exception;
+
+ pub(crate) mod shape_tag_policy_exception;
+@@ -273,10 +267,14 @@
+
+ pub(crate) mod shape_map_string_to_string;
+
++pub(crate) mod shape_message_attribute_value;
++
+ pub(crate) mod shape_phone_number_information_list;
+
+ pub(crate) mod shape_phone_number_list;
+
++pub(crate) mod shape_publish_batch_request_entry;
++
+ pub(crate) mod shape_publish_batch_result_entry_list;
+
+ pub(crate) mod shape_sms_sandbox_phone_number_list;
+@@ -285,6 +283,8 @@
+
+ pub(crate) mod shape_subscriptions_list;
+
++pub(crate) mod shape_tag;
++
+ pub(crate) mod shape_tag_list;
+
+ pub(crate) mod shape_topic_attributes_map;
+```

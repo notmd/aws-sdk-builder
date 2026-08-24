@@ -58582,17 +58582,15 @@ pub struct AccessDeniedException {
 }
 impl AccessDeniedException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 impl ::std::fmt::Display for AccessDeniedException {
 fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     ::std::write!(f, "AccessDeniedException")?;
-    if let ::std::option::Option::Some(inner_1) = &self.message {
-        {
-            ::std::write!(f, ": {inner_1}")?;
-        }
+    {
+        ::std::write!(f, ": {}", &self.message)?;
     }
     Ok(())
 }
@@ -58684,17 +58682,15 @@ impl ConflictException {
 }
 impl ConflictException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 impl ::std::fmt::Display for ConflictException {
 fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     ::std::write!(f, "ConflictException")?;
-    if let ::std::option::Option::Some(inner_1) = &self.message {
-        {
-            ::std::write!(f, ": {inner_1}")?;
-        }
+    {
+        ::std::write!(f, ": {}", &self.message)?;
     }
     Ok(())
 }
@@ -58794,17 +58790,15 @@ pub struct InternalServerException {
 }
 impl InternalServerException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 impl ::std::fmt::Display for InternalServerException {
 fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     ::std::write!(f, "InternalServerException")?;
-    if let ::std::option::Option::Some(inner_1) = &self.message {
-        {
-            ::std::write!(f, ": {inner_1}")?;
-        }
+    {
+        ::std::write!(f, ": {}", &self.message)?;
     }
     Ok(())
 }
@@ -58896,17 +58890,15 @@ impl ResourceNotFoundException {
 }
 impl ResourceNotFoundException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 impl ::std::fmt::Display for ResourceNotFoundException {
 fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     ::std::write!(f, "ResourceNotFoundException")?;
-    if let ::std::option::Option::Some(inner_1) = &self.message {
-        {
-            ::std::write!(f, ": {inner_1}")?;
-        }
+    {
+        ::std::write!(f, ": {}", &self.message)?;
     }
     Ok(())
 }
@@ -59020,17 +59012,15 @@ impl ServiceQuotaExceededException {
 }
 impl ServiceQuotaExceededException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 impl ::std::fmt::Display for ServiceQuotaExceededException {
 fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     ::std::write!(f, "ServiceQuotaExceededException")?;
-    if let ::std::option::Option::Some(inner_1) = &self.message {
-        {
-            ::std::write!(f, ": {inner_1}")?;
-        }
+    {
+        ::std::write!(f, ": {}", &self.message)?;
     }
     Ok(())
 }
@@ -59138,17 +59128,15 @@ impl ThrottlingException {
 }
 impl ThrottlingException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 impl ::std::fmt::Display for ThrottlingException {
 fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     ::std::write!(f, "ThrottlingException")?;
-    if let ::std::option::Option::Some(inner_1) = &self.message {
-        {
-            ::std::write!(f, ": {inner_1}")?;
-        }
+    {
+        ::std::write!(f, ": {}", &self.message)?;
     }
     Ok(())
 }
@@ -59245,17 +59233,15 @@ impl ValidationException {
 }
 impl ValidationException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 impl ::std::fmt::Display for ValidationException {
 fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     ::std::write!(f, "ValidationException")?;
-    if let ::std::option::Option::Some(inner_1) = &self.message {
-        {
-            ::std::write!(f, ": {inner_1}")?;
-        }
+    {
+        ::std::write!(f, ": {}", &self.message)?;
     }
     Ok(())
 }

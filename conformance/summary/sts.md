@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `146/146` files compared · `90` matched · `14` mismatches · `42` missing · `0` extra · `61.64%` match (100.00% means fully matched)
+**Progress:** `146/146` files compared · `130` matched · `16` mismatches · `0` missing · `0` extra · `89.04%` match (100.00% means fully matched)
 
 ### `src/client.rs`
 
@@ -89,21 +89,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -282,12 +276,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_input::ser_assume_role_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_role_input::ser_assume_role_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/assume_role_with_saml/builders.rs`
@@ -250,7 +235,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,7 +104,17 @@
+@@ -104,6 +104,16 @@
 
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AssumeRoleWithSAML", "STS"));
@@ -259,15 +244,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        signing_options.content_sha256_header = false;
 +        signing_options.normalize_uri_path = true;
 +        signing_options.payload_override = None;
-
++
 +        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 +            signing_options,
 +            ..::std::default::Default::default()
 +        });
-+
+
          ::std::option::Option::Some(cfg.freeze())
      }
-
 @@ -113,17 +123,25 @@
          _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
      ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
@@ -321,22 +305,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -240,12 +258,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_assume_role_with_saml_input::ser_assume_role_with_saml_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -255,12 +272,12 @@
+@@ -255,12 +273,12 @@
      }
  }
  #[derive(Debug)]
@@ -398,22 +367,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -264,12 +266,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_assume_role_with_web_identity_input::ser_assume_role_with_web_identity_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -451,10 +452,7 @@
+@@ -451,10 +453,7 @@
          ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
      }
      fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
@@ -451,21 +405,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -252,12 +246,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_root_input::ser_assume_root_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_assume_root_input::ser_assume_root_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/decode_authorization_message.rs`
@@ -494,21 +433,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -258,12 +250,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_decode_authorization_message_input::ser_decode_authorization_message_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/get_access_key_info.rs`
@@ -536,24 +460,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -254,13 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/get_caller_identity.rs`
@@ -594,21 +500,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -195,13 +201,9 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_caller_identity_input::ser_get_caller_identity_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from("");
-
+@@ -202,7 +208,10 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(
+             super::super::protocol_serde::shape_get_caller_identity_input::ser_get_caller_identity_input_input_input(&input)?,
+         );
+-
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
+ }
 ```
 
 ### `src/operation/get_delegated_access_token.rs`
@@ -637,21 +540,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -213,12 +205,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_delegated_access_token_input::ser_get_delegated_access_token_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/get_federation_token.rs`
@@ -696,21 +584,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -245,12 +253,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_federation_token_input::ser_get_federation_token_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/get_session_token.rs`
@@ -737,24 +610,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -259,13 +253,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_session_token_input::ser_get_session_token_input_input_input(&input)?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_session_token_input::ser_get_session_token_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/get_web_identity_token.rs`
@@ -799,21 +654,270 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -243,12 +251,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+```
+
+### `src/protocol_serde/shape_assume_role_with_saml.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_assume_role_with_saml.rs
++++ generated/src/protocol_serde/shape_assume_role_with_saml.rs
+@@ -6,27 +6,27 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+-    super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++    super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+ > {
+     #[allow(unused_mut)]
+     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+-        .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
++        .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
+     let generic = generic_builder.build();
+     let error_code = match generic.code() {
+         Some(code) => code,
+-        None => return Err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled(generic)),
++        None => return Err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled(generic)),
+     };
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "ExpiredTokenException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::ExpiredTokenException({
++        "ExpiredTokenException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::ExpiredTokenException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::ExpiredTokenExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
++                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -35,13 +35,13 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder =
--                _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-www-form-urlencoded");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_web_identity_token_input::ser_get_web_identity_token_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
+             tmp
+         }),
+-        "IDPRejectedClaim" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::IdpRejectedClaimException({
++        "IDPRejectedClaim" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::IdpRejectedClaimException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::IdpRejectedClaimExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_idp_rejected_claim_exception::de_idp_rejected_claim_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
++                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -50,7 +50,7 @@
+             }
+             tmp
+         }),
+-        "InvalidIdentityToken" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::InvalidIdentityTokenException({
++        "InvalidIdentityToken" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::InvalidIdentityTokenException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -59,7 +59,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
++                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -68,7 +68,7 @@
+             }
+             tmp
+         }),
+-        "MalformedPolicyDocument" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::MalformedPolicyDocumentException({
++        "MalformedPolicyDocument" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::MalformedPolicyDocumentException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
++                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -86,7 +86,7 @@
+             }
+             tmp
+         }),
+-        "PackedPolicyTooLarge" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::PackedPolicyTooLargeException({
++        "PackedPolicyTooLarge" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::PackedPolicyTooLargeException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -95,7 +95,7 @@
+                     _response_body,
+                     output,
+                 )
+-                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
++                .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -104,13 +104,13 @@
+             }
+             tmp
+         }),
+-        "RegionDisabledException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::RegionDisabledException({
++        "RegionDisabledException" => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::RegionDisabledException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = super::super::types::error::builders::RegionDisabledExceptionBuilder::default();
+                 output = super::super::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+-                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
++                    .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+                 let output = output.meta(generic);
+                 output.build()
+             };
+@@ -119,7 +119,7 @@
+             }
+             tmp
+         }),
+-        _ => super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::generic(generic),
++        _ => super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::generic(generic),
+     })
+ }
+
+@@ -130,13 +130,13 @@
+     _response_body: &[u8],
+ ) -> std::result::Result<
+     super::super::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
+-    super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
++    super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+ > {
+     Ok({
+         #[allow(unused_mut)]
+         let mut output = super::super::operation::assume_role_with_saml::builders::AssumeRoleWithSamlOutputBuilder::default();
+         output = super::super::protocol_serde::shape_assume_role_with_saml::de_assume_role_with_saml(_response_body, output)
+-            .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSAMLError::unhandled)?;
++            .map_err(super::super::operation::assume_role_with_saml::AssumeRoleWithSamlError::unhandled)?;
+         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+         output.build()
+     })
+@@ -170,7 +170,7 @@
+         }
+         while let Some(mut tag) = result_tag.next_tag() {
+             match tag.start_el() {
+-            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$Credentials */ =>  {
++            s if s.matches("Credentials") /* Credentials com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Credentials */ =>  {
+                 let var_1 =
+                     Some(
+                         super::super::protocol_serde::shape_credentials::de_credentials(&mut tag, depth + 1)
+@@ -180,7 +180,7 @@
+                 builder = builder.set_credentials(var_1);
+             }
+             ,
+-            s if s.matches("AssumedRoleUser") /* AssumedRoleUser com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$AssumedRoleUser */ =>  {
++            s if s.matches("AssumedRoleUser") /* AssumedRoleUser com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$AssumedRoleUser */ =>  {
+                 let var_2 =
+                     Some(
+                         super::super::protocol_serde::shape_assumed_role_user::de_assumed_role_user(&mut tag, depth + 1)
+@@ -190,7 +190,7 @@
+                 builder = builder.set_assumed_role_user(var_2);
+             }
+             ,
+-            s if s.matches("PackedPolicySize") /* PackedPolicySize com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$PackedPolicySize */ =>  {
++            s if s.matches("PackedPolicySize") /* PackedPolicySize com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$PackedPolicySize */ =>  {
+                 let var_3 =
+                     Some(
+                          {
+@@ -205,7 +205,7 @@
+                 builder = builder.set_packed_policy_size(var_3);
+             }
+             ,
+-            s if s.matches("Subject") /* Subject com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$Subject */ =>  {
++            s if s.matches("Subject") /* Subject com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Subject */ =>  {
+                 let var_4 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -218,7 +218,7 @@
+                 builder = builder.set_subject(var_4);
+             }
+             ,
+-            s if s.matches("SubjectType") /* SubjectType com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$SubjectType */ =>  {
++            s if s.matches("SubjectType") /* SubjectType com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$SubjectType */ =>  {
+                 let var_5 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -231,7 +231,7 @@
+                 builder = builder.set_subject_type(var_5);
+             }
+             ,
+-            s if s.matches("Issuer") /* Issuer com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$Issuer */ =>  {
++            s if s.matches("Issuer") /* Issuer com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Issuer */ =>  {
+                 let var_6 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -244,7 +244,7 @@
+                 builder = builder.set_issuer(var_6);
+             }
+             ,
+-            s if s.matches("Audience") /* Audience com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$Audience */ =>  {
++            s if s.matches("Audience") /* Audience com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$Audience */ =>  {
+                 let var_7 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -257,7 +257,7 @@
+                 builder = builder.set_audience(var_7);
+             }
+             ,
+-            s if s.matches("NameQualifier") /* NameQualifier com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$NameQualifier */ =>  {
++            s if s.matches("NameQualifier") /* NameQualifier com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$NameQualifier */ =>  {
+                 let var_8 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+@@ -270,7 +270,7 @@
+                 builder = builder.set_name_qualifier(var_8);
+             }
+             ,
+-            s if s.matches("SourceIdentity") /* SourceIdentity com.amazonaws.sts.synthetic#AssumeRoleWithSAMLOutput$SourceIdentity */ =>  {
++            s if s.matches("SourceIdentity") /* SourceIdentity com.amazonaws.sts.synthetic#AssumeRoleWithSamlOutput$SourceIdentity */ =>  {
+                 let var_9 =
+                     Some(
+                         Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+```
+
+### `src/protocol_serde.rs`
+
+```diff
+--- reference/src/protocol_serde.rs
++++ generated/src/protocol_serde.rs
+@@ -87,18 +87,18 @@
+
+ pub(crate) mod shape_packed_policy_too_large_exception;
+
+-pub(crate) mod shape_policy_descriptor_type;
+-
+-pub(crate) mod shape_provided_context;
+-
+ pub(crate) mod shape_region_disabled_exception;
+
+ pub(crate) mod shape_session_duration_escalation_exception;
+
+-pub(crate) mod shape_tag;
+-
+ pub(crate) mod shape_assumed_role_user;
+
+ pub(crate) mod shape_credentials;
+
+ pub(crate) mod shape_federated_user;
++
++pub(crate) mod shape_policy_descriptor_type;
++
++pub(crate) mod shape_provided_context;
++
++pub(crate) mod shape_tag;
 ```
 
 ### `src/types/error/_idp_communication_error_exception.rs`
@@ -833,48 +937,3 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn message(&self) -> ::std::option::Option<&str> {
          self.message.as_deref()
 ```
-
-### Missing reference files
-
-- `src/protocol_serde/shape_assume_role.rs`
-- `src/protocol_serde/shape_assume_role_input.rs`
-- `src/protocol_serde/shape_assume_role_with_saml.rs`
-- `src/protocol_serde/shape_assume_role_with_saml_input.rs`
-- `src/protocol_serde/shape_assume_role_with_web_identity.rs`
-- `src/protocol_serde/shape_assume_role_with_web_identity_input.rs`
-- `src/protocol_serde/shape_assume_root.rs`
-- `src/protocol_serde/shape_assume_root_input.rs`
-- `src/protocol_serde/shape_assumed_role_user.rs`
-- `src/protocol_serde/shape_credentials.rs`
-- `src/protocol_serde/shape_decode_authorization_message.rs`
-- `src/protocol_serde/shape_decode_authorization_message_input.rs`
-- `src/protocol_serde/shape_expired_token_exception.rs`
-- `src/protocol_serde/shape_expired_trade_in_token_exception.rs`
-- `src/protocol_serde/shape_federated_user.rs`
-- `src/protocol_serde/shape_get_access_key_info.rs`
-- `src/protocol_serde/shape_get_access_key_info_input.rs`
-- `src/protocol_serde/shape_get_caller_identity.rs`
-- `src/protocol_serde/shape_get_caller_identity_input.rs`
-- `src/protocol_serde/shape_get_delegated_access_token.rs`
-- `src/protocol_serde/shape_get_delegated_access_token_input.rs`
-- `src/protocol_serde/shape_get_federation_token.rs`
-- `src/protocol_serde/shape_get_federation_token_input.rs`
-- `src/protocol_serde/shape_get_session_token.rs`
-- `src/protocol_serde/shape_get_session_token_input.rs`
-- `src/protocol_serde/shape_get_web_identity_token.rs`
-- `src/protocol_serde/shape_get_web_identity_token_input.rs`
-- `src/protocol_serde/shape_idp_communication_error_exception.rs`
-- `src/protocol_serde/shape_idp_rejected_claim_exception.rs`
-- `src/protocol_serde/shape_invalid_authorization_message_exception.rs`
-- `src/protocol_serde/shape_invalid_identity_token_exception.rs`
-- `src/protocol_serde/shape_jwt_payload_size_exceeded_exception.rs`
-- `src/protocol_serde/shape_malformed_policy_document_exception.rs`
-- `src/protocol_serde/shape_outbound_web_identity_federation_disabled_exception.rs`
-- `src/protocol_serde/shape_packed_policy_too_large_exception.rs`
-- `src/protocol_serde/shape_policy_descriptor_type.rs`
-- `src/protocol_serde/shape_provided_context.rs`
-- `src/protocol_serde/shape_region_disabled_exception.rs`
-- `src/protocol_serde/shape_session_duration_escalation_exception.rs`
-- `src/protocol_serde/shape_tag.rs`
-- `src/protocol_serde.rs`
-- `src/rest_xml_wrapped_errors.rs`

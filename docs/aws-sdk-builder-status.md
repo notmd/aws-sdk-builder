@@ -4,6 +4,22 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Match required modeled error accessors
+- State: in progress
+- Changed: modeled error structures now generate Smithy-RS-compatible required
+  `message() -> &str` accessors and required-message `Display` formatting; optional
+  modeled messages retain their `Option<&str>` accessors and conditional display.
+- Evidence: the implementation was checked against the pinned Smithy-RS reference at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` compared `13,301` files and matched `11,454`, with
+  `1,696` mismatches, `17` missing, and `134` extra (`84.16%` average match). This is
+  an increase of 9 exact matches from the previous `11,445` checkpoint; S3 remains
+  exact at `1,281/1,281`. The command exits 1 only because broader parity gaps remain.
+- Verification: `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D
+  warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass.
+- Next action: continue generic codegen parity work while retaining the exact S3
+  checkpoint.
+
 ### Checkpoint: 2026-08-24 — Remove redundant conformance work
 - State: in progress
 - Changed: `aws-sdk-conformance` now collects formatter inputs during the exclusion walk,
