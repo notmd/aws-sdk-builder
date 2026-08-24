@@ -1,24 +1,44 @@
 /// Converts a modeled identifier to the spelling used for Rust fields and
 /// symbols. Smithy keeps this legacy spelling for symbols such as `CMKs`.
 pub fn snake_case(value: &str) -> String {
+    const COMPLETE_WORDS: &[&str] = &["ipv4", "ipv6", "sigv4", "mib", "gib", "kib", "ttl"];
+
     let mut result = String::new();
     let chars = value.chars().collect::<Vec<_>>();
+    let mut complete_word_in_progress = true;
     for (index, character) in chars.iter().enumerate() {
         if character.is_ascii_alphanumeric() {
+            let current_word = result.rsplit('_').next().unwrap_or_default();
+            let remaining = chars[index..].iter().collect::<String>();
+            let word_in_progress = complete_word_in_progress
+                && COMPLETE_WORDS.iter().any(|word| {
+                    word.starts_with(&current_word.to_ascii_lowercase())
+                        && format!("{current_word}{remaining}")
+                            .to_ascii_lowercase()
+                            .starts_with(word)
+                        && !word.eq_ignore_ascii_case(current_word)
+                });
+            complete_word_in_progress = word_in_progress;
+
             let previous = chars.get(index.wrapping_sub(1));
             let next = chars.get(index + 1);
             let boundary = character.is_ascii_uppercase()
                 && !result.is_empty()
                 && !result.ends_with('_')
+                && !word_in_progress
                 && (previous.is_some_and(|c| c.is_ascii_lowercase() || c.is_ascii_digit())
                     || previous.is_some_and(|c| c.is_ascii_uppercase())
                         && next.is_some_and(|c| c.is_ascii_lowercase()));
             if boundary {
+                complete_word_in_progress = true;
                 result.push('_');
             }
             result.push(character.to_ascii_lowercase());
-        } else if !result.is_empty() && !result.ends_with('_') {
-            result.push('_');
+        } else {
+            complete_word_in_progress = true;
+            if !result.is_empty() && !result.ends_with('_') {
+                result.push('_');
+            }
         }
     }
     result.trim_matches('_').to_owned()
@@ -214,6 +234,11 @@ mod tests {
         assert_eq!(
             snake_case("CustomKeyStoreHasCMKsException"),
             "custom_key_store_has_cm_ks_exception"
+        );
+        assert_eq!(snake_case("SizeInGiB"), "size_in_gib");
+        assert_eq!(
+            snake_case("ExecutionEnvironmentMemoryGiBPerVCpu"),
+            "execution_environment_memory_gib_per_v_cpu"
         );
         assert_eq!(
             rust_module_name("CustomKeyStoreHasCMKsException"),

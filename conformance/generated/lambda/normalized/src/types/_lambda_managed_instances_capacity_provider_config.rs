@@ -9,7 +9,7 @@ pub struct LambdaManagedInstancesCapacityProviderConfig {
     /// <p>The maximum number of concurrent execution environments that can run on each compute instance.</p>
     pub per_execution_environment_max_concurrency: ::std::option::Option<i32>,
     /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
-    pub execution_environment_memory_gi_b_per_v_cpu: ::std::option::Option<f64>,
+    pub execution_environment_memory_gib_per_v_cpu: ::std::option::Option<f64>,
 }
 impl LambdaManagedInstancesCapacityProviderConfig {
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
@@ -22,8 +22,8 @@ impl LambdaManagedInstancesCapacityProviderConfig {
         self.per_execution_environment_max_concurrency
     }
     /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
-    pub fn execution_environment_memory_gi_b_per_v_cpu(&self) -> ::std::option::Option<f64> {
-        self.execution_environment_memory_gi_b_per_v_cpu
+    pub fn execution_environment_memory_gib_per_v_cpu(&self) -> ::std::option::Option<f64> {
+        self.execution_environment_memory_gib_per_v_cpu
     }
 }
 impl LambdaManagedInstancesCapacityProviderConfig {
@@ -39,7 +39,7 @@ impl LambdaManagedInstancesCapacityProviderConfig {
 pub struct LambdaManagedInstancesCapacityProviderConfigBuilder {
     pub(crate) capacity_provider_arn: ::std::option::Option<::std::string::String>,
     pub(crate) per_execution_environment_max_concurrency: ::std::option::Option<i32>,
-    pub(crate) execution_environment_memory_gi_b_per_v_cpu: ::std::option::Option<f64>,
+    pub(crate) execution_environment_memory_gib_per_v_cpu: ::std::option::Option<f64>,
 }
 impl LambdaManagedInstancesCapacityProviderConfigBuilder {
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
@@ -72,18 +72,18 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
         &self.per_execution_environment_max_concurrency
     }
     /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
-    pub fn execution_environment_memory_gi_b_per_v_cpu(mut self, input: f64) -> Self {
-        self.execution_environment_memory_gi_b_per_v_cpu = ::std::option::Option::Some(input);
+    pub fn execution_environment_memory_gib_per_v_cpu(mut self, input: f64) -> Self {
+        self.execution_environment_memory_gib_per_v_cpu = ::std::option::Option::Some(input);
         self
     }
     /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
-    pub fn set_execution_environment_memory_gi_b_per_v_cpu(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.execution_environment_memory_gi_b_per_v_cpu = input;
+    pub fn set_execution_environment_memory_gib_per_v_cpu(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.execution_environment_memory_gib_per_v_cpu = input;
         self
     }
     /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
-    pub fn get_execution_environment_memory_gi_b_per_v_cpu(&self) -> &::std::option::Option<f64> {
-        &self.execution_environment_memory_gi_b_per_v_cpu
+    pub fn get_execution_environment_memory_gib_per_v_cpu(&self) -> &::std::option::Option<f64> {
+        &self.execution_environment_memory_gib_per_v_cpu
     }
     /// Consumes the builder and constructs a [`LambdaManagedInstancesCapacityProviderConfig`](crate::types::LambdaManagedInstancesCapacityProviderConfig).
     /// This method will fail if any of the following fields are not set:
@@ -99,7 +99,7 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
                 )
             })?,
             per_execution_environment_max_concurrency: self.per_execution_environment_max_concurrency,
-            execution_environment_memory_gi_b_per_v_cpu: self.execution_environment_memory_gi_b_per_v_cpu,
+            execution_environment_memory_gib_per_v_cpu: self.execution_environment_memory_gib_per_v_cpu,
         })
     }
 }

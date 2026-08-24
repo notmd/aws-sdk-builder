@@ -12,7 +12,7 @@ pub fn ser_lambda_managed_instances_capacity_provider_config(
             ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
-    if let Some(var_2) = &input.execution_environment_memory_gi_b_per_v_cpu {
+    if let Some(var_2) = &input.execution_environment_memory_gib_per_v_cpu {
         object.key("ExecutionEnvironmentMemoryGiBPerVCpu").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::Float((*var_2).into()),
@@ -58,7 +58,7 @@ where
                             );
                         }
                         "ExecutionEnvironmentMemoryGiBPerVCpu" => {
-                            builder = builder.set_execution_environment_memory_gi_b_per_v_cpu(
+                            builder = builder.set_execution_environment_memory_gib_per_v_cpu(
                                 ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()),
                             );
                         }

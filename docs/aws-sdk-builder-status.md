@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Preserve Smithy complete-word identifier spellings
+- State: in progress
+- Changed: the shared Rust identifier splitter now keeps Smithy-RS complete words such
+  as `GiB` together as `gib`, while retaining the existing legacy acronym behavior for
+  symbols such as `CMKs`. This model-independent naming rule updates all generated
+  structure fields, builders, accessors, and protocol serializers consistently. It
+  follows the pinned Smithy-RS `Strings.toSnakeCase` complete-word set at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`, with focused
+  naming regressions.
+- Evidence: focused naming tests, `just conformance` regeneration and formatting,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance generated
+  and formatted all `13,166` snapshot files without generated-source parse errors.
+- Conformance: `12,899/13,168` exact, `266` mismatches, `2` missing, and `1` extra
+  (`97.82%`) -> `12,905/13,168` exact, `260` mismatches, `2` missing, and `1` extra
+  (`97.87%`). Batch improved from `750/12` to `755/7`; Lambda from `1,026/50` to
+  `1,027/49` (matched/mismatched files).
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain;
+  no blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic parity mismatch after
+  committing this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Keep modeled event-stream errors out of shared JSON parsers
 - State: in progress
 - Changed: shared AWS JSON role discovery now excludes modeled error roots from the

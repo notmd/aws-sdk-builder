@@ -54893,12 +54893,12 @@ mod _ephemeral_storage {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EphemeralStorage {
     /// <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</p>
-    pub size_in_gi_b: ::std::option::Option<i32>,
+    pub size_in_gib: ::std::option::Option<i32>,
 }
 impl EphemeralStorage {
     /// <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</p>
-    pub fn size_in_gi_b(&self) -> ::std::option::Option<i32> {
-        self.size_in_gi_b
+    pub fn size_in_gib(&self) -> ::std::option::Option<i32> {
+        self.size_in_gib
     }
 }
 impl EphemeralStorage {
@@ -54912,23 +54912,23 @@ impl EphemeralStorage {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EphemeralStorageBuilder {
-    pub(crate) size_in_gi_b: ::std::option::Option<i32>,
+    pub(crate) size_in_gib: ::std::option::Option<i32>,
 }
 impl EphemeralStorageBuilder {
     /// <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</p>
     /// This field is required.
-    pub fn size_in_gi_b(mut self, input: i32) -> Self {
-        self.size_in_gi_b = ::std::option::Option::Some(input);
+    pub fn size_in_gib(mut self, input: i32) -> Self {
+        self.size_in_gib = ::std::option::Option::Some(input);
         self
     }
     /// <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</p>
-    pub fn set_size_in_gi_b(mut self, input: ::std::option::Option<i32>) -> Self { self.size_in_gi_b = input; self }
+    pub fn set_size_in_gib(mut self, input: ::std::option::Option<i32>) -> Self { self.size_in_gib = input; self }
     /// <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</p>
-    pub fn get_size_in_gi_b(&self) -> &::std::option::Option<i32> { &self.size_in_gi_b }
+    pub fn get_size_in_gib(&self) -> &::std::option::Option<i32> { &self.size_in_gib }
     /// Consumes the builder and constructs a [`EphemeralStorage`](crate::types::EphemeralStorage).
     pub fn build(self) -> super::super::types::EphemeralStorage {
         super::super::types::EphemeralStorage {
-            size_in_gi_b: self.size_in_gi_b,
+            size_in_gib: self.size_in_gib,
         }
     }
 }
@@ -61161,12 +61161,12 @@ mod _managed_instances_storage_configuration {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ManagedInstancesStorageConfiguration {
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub storage_size_gi_b: ::std::option::Option<i32>,
+    pub storage_size_gib: ::std::option::Option<i32>,
 }
 impl ManagedInstancesStorageConfiguration {
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub fn storage_size_gi_b(&self) -> ::std::option::Option<i32> {
-        self.storage_size_gi_b
+    pub fn storage_size_gib(&self) -> ::std::option::Option<i32> {
+        self.storage_size_gib
     }
 }
 impl ManagedInstancesStorageConfiguration {
@@ -61180,22 +61180,22 @@ impl ManagedInstancesStorageConfiguration {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ManagedInstancesStorageConfigurationBuilder {
-    pub(crate) storage_size_gi_b: ::std::option::Option<i32>,
+    pub(crate) storage_size_gib: ::std::option::Option<i32>,
 }
 impl ManagedInstancesStorageConfigurationBuilder {
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub fn storage_size_gi_b(mut self, input: i32) -> Self {
-        self.storage_size_gi_b = ::std::option::Option::Some(input);
+    pub fn storage_size_gib(mut self, input: i32) -> Self {
+        self.storage_size_gib = ::std::option::Option::Some(input);
         self
     }
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub fn set_storage_size_gi_b(mut self, input: ::std::option::Option<i32>) -> Self { self.storage_size_gi_b = input; self }
+    pub fn set_storage_size_gib(mut self, input: ::std::option::Option<i32>) -> Self { self.storage_size_gib = input; self }
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub fn get_storage_size_gi_b(&self) -> &::std::option::Option<i32> { &self.storage_size_gi_b }
+    pub fn get_storage_size_gib(&self) -> &::std::option::Option<i32> { &self.storage_size_gib }
     /// Consumes the builder and constructs a [`ManagedInstancesStorageConfiguration`](crate::types::ManagedInstancesStorageConfiguration).
     pub fn build(self) -> super::super::types::ManagedInstancesStorageConfiguration {
         super::super::types::ManagedInstancesStorageConfiguration {
-            storage_size_gi_b: self.storage_size_gi_b,
+            storage_size_gib: self.storage_size_gib,
         }
     }
 }
@@ -80982,7 +80982,7 @@ pub fn ser_ephemeral_storage(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::EphemeralStorage,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.size_in_gi_b {
+if let Some(var_1) = &input.size_in_gib {
     object.key("sizeInGiB").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((*var_1).into()),
@@ -81014,7 +81014,7 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "sizeInGiB" => {
-                    builder = builder.set_size_in_gi_b(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                    builder = builder.set_size_in_gib(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
@@ -88369,7 +88369,7 @@ pub fn ser_managed_instances_storage_configuration(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ManagedInstancesStorageConfiguration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-if let Some(var_1) = &input.storage_size_gi_b {
+if let Some(var_1) = &input.storage_size_gib {
     object.key("storageSizeGiB").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((*var_1).into()),
@@ -88401,7 +88401,7 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "storageSizeGiB" => {
-                    builder = builder.set_storage_size_gi_b(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                    builder = builder.set_storage_size_gib(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?);
                 },
@@ -92565,8 +92565,8 @@ pub(crate) fn compute_environment_order_correct_errors(
 pub(crate) fn ephemeral_storage_correct_errors(
     mut builder: super::types::builders::EphemeralStorageBuilder,
 ) -> super::types::builders::EphemeralStorageBuilder {
-    if builder.size_in_gi_b.is_none() {
-        builder.size_in_gi_b = Some(Default::default())
+    if builder.size_in_gib.is_none() {
+        builder.size_in_gib = Some(Default::default())
     }
     builder
 }

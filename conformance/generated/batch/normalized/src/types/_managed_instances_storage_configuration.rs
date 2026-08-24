@@ -5,12 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ManagedInstancesStorageConfiguration {
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub storage_size_gi_b: ::std::option::Option<i32>,
+    pub storage_size_gib: ::std::option::Option<i32>,
 }
 impl ManagedInstancesStorageConfiguration {
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub fn storage_size_gi_b(&self) -> ::std::option::Option<i32> {
-        self.storage_size_gi_b
+    pub fn storage_size_gib(&self) -> ::std::option::Option<i32> {
+        self.storage_size_gib
     }
 }
 impl ManagedInstancesStorageConfiguration {
@@ -24,27 +24,27 @@ impl ManagedInstancesStorageConfiguration {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ManagedInstancesStorageConfigurationBuilder {
-    pub(crate) storage_size_gi_b: ::std::option::Option<i32>,
+    pub(crate) storage_size_gib: ::std::option::Option<i32>,
 }
 impl ManagedInstancesStorageConfigurationBuilder {
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub fn storage_size_gi_b(mut self, input: i32) -> Self {
-        self.storage_size_gi_b = ::std::option::Option::Some(input);
+    pub fn storage_size_gib(mut self, input: i32) -> Self {
+        self.storage_size_gib = ::std::option::Option::Some(input);
         self
     }
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub fn set_storage_size_gi_b(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.storage_size_gi_b = input;
+    pub fn set_storage_size_gib(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.storage_size_gib = input;
         self
     }
     /// <p>The size of the root EBS volume in GiB for the managed instances.</p>
-    pub fn get_storage_size_gi_b(&self) -> &::std::option::Option<i32> {
-        &self.storage_size_gi_b
+    pub fn get_storage_size_gib(&self) -> &::std::option::Option<i32> {
+        &self.storage_size_gib
     }
     /// Consumes the builder and constructs a [`ManagedInstancesStorageConfiguration`](crate::types::ManagedInstancesStorageConfiguration).
     pub fn build(self) -> super::super::types::ManagedInstancesStorageConfiguration {
         super::super::types::ManagedInstancesStorageConfiguration {
-            storage_size_gi_b: self.storage_size_gi_b,
+            storage_size_gib: self.storage_size_gib,
         }
     }
 }
