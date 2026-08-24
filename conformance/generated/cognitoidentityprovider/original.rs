@@ -38752,17 +38752,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Associa
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AssociateSoftwareToken", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -39509,17 +39498,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ChangeP
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ChangePassword", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -40291,17 +40269,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Complet
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CompleteWebAuthnRegistration", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -41046,17 +41013,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Confirm
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ConfirmDevice", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -41959,17 +41915,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Confirm
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ConfirmForgotPassword", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -43117,17 +43062,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Confirm
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ConfirmSignUp", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -59442,17 +59376,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteU
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteUser", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -60126,17 +60049,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteU
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteUserAttributes", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -64468,17 +64380,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteW
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteWebAuthnCredential", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -72557,17 +72458,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ForgetD
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ForgetDevice", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -73328,17 +73218,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ForgotP
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ForgotPassword", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -75103,17 +74982,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetDevi
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetDevice", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -79364,17 +79232,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetToke
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetTokensFromRefreshToken", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -81114,17 +80971,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetUser
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetUser", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -81943,17 +81789,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetUser
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetUserAttributeVerificationCode", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -82949,17 +82784,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetUser
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetUserAuthFactors", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -84526,17 +84350,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GlobalS
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GlobalSignOut", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -85212,17 +85025,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Initiat
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("InitiateAuth", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -87569,17 +87371,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListDev
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListDevices", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -99238,17 +99029,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListWeb
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListWebAuthnCredentials", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -100056,17 +99836,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ResendC
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ResendConfirmationCode", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -101104,17 +100873,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Respond
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("RespondToAuthChallenge", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -103809,17 +103567,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for RevokeT
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("RevokeToken", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -106977,17 +106724,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for SetUser
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("SetUserMFAPreference", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -108750,17 +108486,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for SetUser
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("SetUserSettings", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -109472,17 +109197,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for SignUp 
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("SignUp", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -111503,17 +111217,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for StartWe
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("StartWebAuthnRegistration", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -114373,17 +114076,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateA
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateAuthEventFeedback", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -115221,17 +114913,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateD
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateDeviceStatus", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -121500,17 +121181,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateU
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateUserAttributes", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -127952,17 +127622,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for VerifyS
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("VerifySoftwareToken", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -128871,17 +128530,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for VerifyU
         ));
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("VerifyUserAttribute", "Cognito Identity Provider"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 

@@ -96,24 +96,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/assume_role_with_saml.rs
 +++ generated/src/operation/assume_role_with_saml.rs
-@@ -104,6 +104,16 @@
+@@ -104,7 +104,6 @@
 
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AssumeRoleWithSAML", "STS"));
-+        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-+        signing_options.double_uri_encode = true;
-+        signing_options.content_sha256_header = false;
-+        signing_options.normalize_uri_path = true;
-+        signing_options.payload_override = None;
-+
-+        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-+            signing_options,
-+            ..::std::default::Default::default()
-+        });
-
+-
          ::std::option::Option::Some(cfg.freeze())
      }
-@@ -113,17 +123,25 @@
+
+@@ -113,17 +112,25 @@
          _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
      ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
          #[allow(unused_mut)]
@@ -157,25 +148,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/assume_role_with_web_identity.rs
 +++ generated/src/operation/assume_role_with_web_identity.rs
-@@ -107,7 +107,17 @@
+@@ -107,7 +107,6 @@
              "AssumeRoleWithWebIdentity",
              "STS",
          ));
-+        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-+        signing_options.double_uri_encode = true;
-+        signing_options.content_sha256_header = false;
-+        signing_options.normalize_uri_path = true;
-+        signing_options.payload_override = None;
-
-+        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-+            signing_options,
-+            ..::std::default::Default::default()
-+        });
-+
+-
          ::std::option::Option::Some(cfg.freeze())
      }
 
-@@ -132,17 +142,9 @@
+@@ -132,17 +131,9 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
              >::new())
@@ -196,7 +177,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -451,10 +453,7 @@
+@@ -451,10 +442,7 @@
          ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
      }
      fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {

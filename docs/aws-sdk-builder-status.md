@@ -4,6 +4,26 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Respect explicit per-operation auth overrides
+- State: in progress
+- Changed: per-operation SigV4 signing configuration now follows the operation's
+  effective `smithy.api#auth` trait. Explicit empty auth lists suppress signing
+  configuration while operations that inherit or explicitly select SigV4 retain it.
+  The shared service-auth fallback remains model-driven, and a focused regression test
+  covers inherited, explicit-empty, and explicit-SigV4 cases. The rule was checked
+  against the pinned Smithy-RS `SigV4AuthDecorator` and `ServiceIndex` behavior at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `11,997`
+  matched, `1,166` mismatched, `4` missing, and `1` extra (`88.76%` average match).
+  This is `+32` exact files and `-32` mismatches from the previous `11,965/1,198`
+  checkpoint. The command exits 1 only because broader parity gaps remain.
+- Verification: focused auth regression, `cargo test --workspace`, workspace Clippy
+  with `-D warnings`, formatting, and `git diff --check` pass. Conformance generation
+  and rustfmt complete without generated-source parse errors.
+- Next action: port the model-driven STS retryable-error customization, then continue
+  shared protocol and formatting parity work.
+
 ### Checkpoint: 2026-08-24 — Match event-stream error dispatch cardinality
 - State: in progress
 - Changed: event-stream response deserializers now derive modeled error dispatch from

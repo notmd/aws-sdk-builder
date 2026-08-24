@@ -5320,17 +5320,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AssumeR
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AssumeRoleWithSAML", "STS"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 
@@ -6598,17 +6587,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AssumeR
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AssumeRoleWithWebIdentity", "STS"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
         ::std::option::Option::Some(cfg.freeze())
     }
 

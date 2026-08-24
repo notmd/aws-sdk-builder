@@ -2983,6 +2983,11 @@ fn render_auth_file(selected: &SelectedModel) -> String {
 }
 
 fn auth_options_for_service(selected: &SelectedModel, service: &Value) -> String {
+    let ids = service_auth_scheme_ids(selected, service);
+    render_auth_option_vec(&ids, None, None, true)
+}
+
+fn service_auth_scheme_ids(selected: &SelectedModel, service: &Value) -> Vec<String> {
     let mut ids = service
         .get("traits")
         .and_then(Value::as_object)
@@ -3008,7 +3013,27 @@ fn auth_options_for_service(selected: &SelectedModel, service: &Value) -> String
     if service_supports_s3_express(selected) {
         ids.push("smithy.api#noAuth".to_owned());
     }
-    render_auth_option_vec(&ids, None, None, true)
+    ids
+}
+
+fn operation_uses_sigv4(selected: &SelectedModel, operation: &Value) -> bool {
+    let Some(auth) = operation
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#auth"))
+    else {
+        return selected_service(selected).is_some_and(|service| {
+            service_auth_scheme_ids(selected, service)
+                .iter()
+                .any(|id| id == "aws.auth#sigv4")
+        });
+    };
+
+    auth.as_array().is_some_and(|ids| {
+        ids.iter()
+            .filter_map(Value::as_str)
+            .any(|id| id == "aws.auth#sigv4")
+    })
 }
 
 fn auth_operation_overrides(selected: &SelectedModel) -> String {
@@ -4654,6 +4679,18 @@ fn render_standalone_runtime_plugin(
     let double_uri_encode = unsigned_payload || !disable_sigv4_overrides;
     let content_sha256_header = disable_sigv4_overrides || unsigned_payload;
     let normalize_uri_path = !disable_sigv4_overrides;
+    let signing_config = if operation_uses_sigv4(selected, operation) {
+        format!(
+            "        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();\n        signing_options.double_uri_encode = {double_uri_encode};\n        signing_options.content_sha256_header = {content_sha256_header};\n        signing_options.normalize_uri_path = {normalize_uri_path};\n        signing_options.payload_override = {payload_override};\n\n        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {{\n            signing_options,\n            ..::std::default::Default::default()\n        }});\n\n",
+            payload_override = if unsigned_payload {
+                "Some(::aws_sigv4::http_request::SignableBody::UnsignedPayload)"
+            } else {
+                "None"
+            },
+        )
+    } else {
+        String::new()
+    };
     let aws_error_classifier = if disable_sigv4_overrides {
         format!(
             "::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<{error_path}>::builder().transient_errors({{\n                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();\n                                            transient_errors.push(\"InternalError\");\n                                            ::std::borrow::Cow::Owned(transient_errors)\n                                            }}).build()"
@@ -4845,15 +4882,8 @@ fn render_standalone_runtime_plugin(
     }
     writeln!(
         output,
-        "        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new({operation_name:?}, {service_id:?}));\n{config_extras}        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();\n        signing_options.double_uri_encode = {double_uri_encode};\n        signing_options.content_sha256_header = {content_sha256_header};\n        signing_options.normalize_uri_path = {normalize_uri_path};\n        signing_options.payload_override = {payload_override};\n\n        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {{\n            signing_options,\n            ..::std::default::Default::default()\n        }});\n\n        ::std::option::Option::Some(cfg.freeze())\n    }}\n\n    fn runtime_components(\n        &self,\n        _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,\n    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {{\n        #[allow(unused_mut)]\n                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new({operation_name:?})\n{telemetry_interceptor}.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))\n.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}EndpointParamsInterceptor))\n{additional_interceptors}                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<{error_path}>::new())\n.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<{error_path}>::new())\n.with_retry_classifier({aws_error_classifier});\n\n        ::std::borrow::Cow::Owned(rcb)\n    }}\n}}",
-        double_uri_encode = double_uri_encode,
-        content_sha256_header = content_sha256_header,
-        normalize_uri_path = normalize_uri_path,
-        payload_override = if unsigned_payload {
-            "Some(::aws_sigv4::http_request::SignableBody::UnsignedPayload)"
-        } else {
-            "None"
-        },
+        "        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new({operation_name:?}, {service_id:?}));\n{config_extras}{signing_config}        ::std::option::Option::Some(cfg.freeze())\n    }}\n\n    fn runtime_components(\n        &self,\n        _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,\n    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {{\n        #[allow(unused_mut)]\n                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new({operation_name:?})\n{telemetry_interceptor}.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))\n.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}EndpointParamsInterceptor))\n{additional_interceptors}                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<{error_path}>::new())\n.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<{error_path}>::new())\n.with_retry_classifier({aws_error_classifier});\n\n        ::std::borrow::Cow::Owned(rcb)\n    }}\n}}",
+        signing_config = signing_config,
         telemetry_interceptor = telemetry_interceptor,
         aws_error_classifier = aws_error_classifier,
     )
@@ -15720,6 +15750,45 @@ mod tests {
 
         assert!(!exception.contains("match response_headers.smithy_type.as_str()"));
         assert!(!exception.contains("if response_headers.smithy_type.as_str()"));
+    }
+
+    #[test]
+    fn explicit_empty_auth_disables_operation_sigv4_configuration() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Op"],
+                        "traits": {"aws.auth#sigv4": {}}
+                    },
+                    "example#Op": {
+                        "type": "operation",
+                        "output": {"target": "smithy.api#Unit"}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+
+        assert!(operation_uses_sigv4(&selected, &serde_json::json!({})));
+        assert!(!operation_uses_sigv4(
+            &selected,
+            &serde_json::json!({"traits": {"smithy.api#auth": []}})
+        ));
+        assert!(operation_uses_sigv4(
+            &selected,
+            &serde_json::json!({"traits": {"smithy.api#auth": ["aws.auth#sigv4"]}})
+        ));
     }
 
     #[test]
