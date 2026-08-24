@@ -2,23 +2,23 @@
 
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
-**Summary:** `13168/13168 files compared` · `12767` matched · `396` mismatches · `4` missing · `1` extra · `0` read errors · `96.67%` average match
+**Summary:** `13168/13168 files compared` · `12805` matched · `358` mismatches · `4` missing · `1` extra · `0` read errors · `97.01%` average match
 
 | Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| batch | 762/762 | 747 | 15 | 0 | 0 | 0 | 98.03% | [report](summary/batch.md) |
-| bedrockruntime | 536/536 | 462 | 74 | 0 | 0 | 0 | 86.19% | [report](summary/bedrockruntime.md) |
-| cloudwatchlogs | 1287/1287 | 1252 | 33 | 2 | 0 | 0 | 97.28% | [report](summary/cloudwatchlogs.md) |
+| batch | 762/762 | 750 | 12 | 0 | 0 | 0 | 98.43% | [report](summary/batch.md) |
+| bedrockruntime | 536/536 | 480 | 56 | 0 | 0 | 0 | 89.55% | [report](summary/bedrockruntime.md) |
+| cloudwatchlogs | 1287/1287 | 1253 | 32 | 2 | 0 | 0 | 97.36% | [report](summary/cloudwatchlogs.md) |
 | codeartifact | 459/459 | 440 | 19 | 0 | 0 | 0 | 95.86% | [report](summary/codeartifact.md) |
-| cognitoidentityprovider | 1361/1361 | 1321 | 40 | 0 | 0 | 0 | 97.06% | [report](summary/cognitoidentityprovider.md) |
-| config | 1262/1262 | 1221 | 41 | 0 | 0 | 0 | 96.75% | [report](summary/config.md) |
-| dynamodb | 882/882 | 861 | 21 | 0 | 0 | 0 | 97.62% | [report](summary/dynamodb.md) |
+| cognitoidentityprovider | 1361/1361 | 1324 | 37 | 0 | 0 | 0 | 97.28% | [report](summary/cognitoidentityprovider.md) |
+| config | 1262/1262 | 1228 | 34 | 0 | 0 | 0 | 97.31% | [report](summary/config.md) |
+| dynamodb | 882/882 | 862 | 20 | 0 | 0 | 0 | 97.73% | [report](summary/dynamodb.md) |
 | iam | 1626/1626 | 1593 | 33 | 0 | 0 | 0 | 97.97% | [report](summary/iam.md) |
 | kms | 591/591 | 583 | 8 | 0 | 0 | 0 | 98.65% | [report](summary/kms.md) |
-| lambda | 1077/1077 | 1018 | 58 | 0 | 1 | 0 | 94.52% | [report](summary/lambda.md) |
+| lambda | 1077/1077 | 1020 | 56 | 0 | 1 | 0 | 94.71% | [report](summary/lambda.md) |
 | s3 | 1281/1281 | 1281 | 0 | 0 | 0 | 0 | 100.00% | [report](summary/s3.md) |
-| sesv2 | 1159/1159 | 1129 | 29 | 1 | 0 | 0 | 97.41% | [report](summary/sesv2.md) |
+| sesv2 | 1159/1159 | 1132 | 26 | 1 | 0 | 0 | 97.67% | [report](summary/sesv2.md) |
 | sns | 445/445 | 432 | 13 | 0 | 0 | 0 | 97.08% | [report](summary/sns.md) |
 | sqs | 294/294 | 281 | 12 | 1 | 0 | 0 | 95.58% | [report](summary/sqs.md) |
 | sts | 146/146 | 146 | 0 | 0 | 0 | 0 | 100.00% | [report](summary/sts.md) |
-| **Average** | — | — | — | — | — | — | **96.67%** | — |
+| **Average** | — | — | — | — | — | — | **97.01%** | — |

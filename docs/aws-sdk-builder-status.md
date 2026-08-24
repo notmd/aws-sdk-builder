@@ -4,6 +4,30 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Preserve composed JSON serializer modules and writer names
+- State: in progress
+- Changed: canonical file assembly now composes duplicate generated paths instead of
+  silently overwriting an operation serializer with a shared shape serializer. JSON
+  serializer rendering now tracks Smithy-RS's per-writer safe-name state for nested
+  union serializers, propagates union serializer root names from their first model-driven
+  call site, preserves state when an operation and shared serializer intentionally share
+  a file, and orders shared serializers/parsers by their first protocol role. The rules
+  are generic and follow the pinned Smithy-RS `RustWriter`, `SafeNamer`, and
+  `JsonSerializerGenerator` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: `just conformance` generated and formatted all `13,164` Rust snapshot files,
+  compared `13,168` files, and reported no generated-source parse errors. Workspace
+  tests, clippy with `-D warnings`, formatting, and `git diff --check` pass. The
+  conformance command exits 1 only because broader parity gaps remain.
+- Conformance: `12,767/13,168` exact, `396` mismatches, `4` missing, and `1` extra
+  (`96.67%`) -> `12,805/13,168` exact, `358` mismatches, `4` missing, and `1` extra
+  (`97.01%`). Bedrock Runtime improved from `462/74` to `480/56`; Batch from
+  `747/15` to `750/12`.
+- Blocker: remaining generic protocol, streaming, shape, and runtime parity gaps
+  remain; no blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic protocol or shape parity
+  mismatch.
+
 ### Checkpoint: 2026-08-25 — Emit JSON event-stream payload parsers
 - State: in progress
 - Changed: JSON protocol shape modules now emit Smithy-RS's generic
