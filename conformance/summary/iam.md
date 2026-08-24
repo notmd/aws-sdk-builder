@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1626/1626` files compared · `1593` matched · `33` mismatches · `0` missing · `0` extra · `97.97%` match (100.00% means fully matched)
+**Progress:** `1626/1626` files compared · `1595` matched · `31` mismatches · `0` missing · `0` extra · `98.09%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -67,22 +67,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`resource_owner(impl Into<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::resource_owner) / [`set_resource_owner(Option<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_resource_owner):<br>required: **false**<br><p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p><br>
      ///   - [`caller_arn(impl Into<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::caller_arn) / [`set_caller_arn(Option<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_caller_arn):<br>required: **false**<br><p>The ARN of the IAM user, group, or role that you want to specify as the simulated caller of the API operations. If you do not specify a <code>CallerArn</code>, it defaults to the ARN of the user, group, or role that you specify in <code>PolicySourceArn</code>. If you include both a <code>PolicySourceArn</code> (for example, <code>arn:aws:iam::123456789012:user/David</code>) and a <code>CallerArn</code> (for example, <code>arn:aws:iam::123456789012:user/Bob</code>), the result is that you simulate calling the API operations as Bob, as if Bob had David's policies.</p> <p>You can specify the ARN of an IAM user, group, or role. You cannot specify the ARN of an assumed role, federated user, or a service principal.</p> <p><code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> and the <code>PolicySourceArn</code> is not the ARN for an IAM user, group, or role. This is required so that the resource-based policy's <code>Principal</code> element has a value to use in evaluating the policy.</p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><br>
      ///   - [`context_entries(ContextEntry)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::context_entries) / [`set_context_entries(Option<Vec::<ContextEntry>>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_context_entries):<br>required: **false**<br><p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p><br>
-```
-
-### `src/operation/get_human_readable_summary/builders.rs`
-
-```diff
---- reference/src/operation/get_human_readable_summary/builders.rs
-+++ generated/src/operation/get_human_readable_summary/builders.rs
-@@ -24,7 +24,7 @@
- ///
- /// <p>Retrieves a human readable summary for a given entity. At this time, the only supported entity type is <code>delegation-request</code></p>
- /// <p>This method uses a Large Language Model (LLM) to generate the summary.</p>
--/// <p>If a delegation request has no owner or owner account, <code>GetHumanReadableSummary</code> for that delegation request can be called by any account. If the owner account is assigned but there is no owner id, only identities within that owner account can call <code>GetHumanReadableSummary</code> for the delegation request to retrieve a summary of that request. Once the delegation request is fully owned, the owner of the request gets a default permission to get that delegation request. For more details, read <code>default permissions granted to delegation requests</code>. These rules are identical to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> API behavior, such that a party who has permissions to call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> for a given delegation request will always be able to retrieve the human readable summary for that request.</p>
-+/// <p>If a delegation request has no owner or owner account, <code>GetHumanReadableSummary</code> for that delegation request can be called by any account. If the owner account is assigned but there is no owner id, only identities within that owner account can call <code>GetHumanReadableSummary</code> for the delegation request to retrieve a summary of that request. Once the delegation request is fully owned, the owner of the request gets a default permission to get that delegation request. For more details, read <a href="">default permissions granted to delegation requests</a>. These rules are identical to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> API behavior, such that a party who has permissions to call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> for a given delegation request will always be able to retrieve the human readable summary for that request.</p>
- #[derive(::std::clone::Clone, ::std::fmt::Debug)]
- pub struct GetHumanReadableSummaryFluentBuilder {
-     handle: ::std::sync::Arc<super::super::super::client::Handle>,
 ```
 
 ### `src/operation/list_mfa_device_tags/builders.rs`
@@ -1592,50 +1576,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn service_specific_credential_correct_errors(
      mut builder: super::types::builders::ServiceSpecificCredentialBuilder,
  ) -> super::types::builders::ServiceSpecificCredentialBuilder {
-```
-
-### `src/types/_delegation_permission.rs`
-
-```diff
---- reference/src/types/_delegation_permission.rs
-+++ generated/src/types/_delegation_permission.rs
-@@ -4,13 +4,13 @@
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct DelegationPermission {
--    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
-+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
-     pub policy_template_arn: ::std::option::Option<::std::string::String>,
-     /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
-     pub parameters: ::std::option::Option<::std::vec::Vec<super::super::types::PolicyParameter>>,
- }
- impl DelegationPermission {
--    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
-+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
-     pub fn policy_template_arn(&self) -> ::std::option::Option<&str> {
-         self.policy_template_arn.as_deref()
-     }
-@@ -36,17 +36,17 @@
-     pub(crate) parameters: ::std::option::Option<::std::vec::Vec<super::super::types::PolicyParameter>>,
- }
- impl DelegationPermissionBuilder {
--    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
-+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
-     pub fn policy_template_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.policy_template_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
-+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
-     pub fn set_policy_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_template_arn = input;
-         self
-     }
--    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
-+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
-     pub fn get_policy_template_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_template_arn
-     }
 ```
 
 ### `src/types/error/builders.rs`

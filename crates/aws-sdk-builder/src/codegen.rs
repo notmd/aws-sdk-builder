@@ -16179,7 +16179,9 @@ fn normalize_model_documentation(value: &str) -> String {
 
 fn normalize_documentation_tag(tag: &str, closing: bool, stack: &[String]) -> (String, String) {
     let name = documentation_tag_name(tag).unwrap_or_default();
-    if name == "a" && !closing && !tag.to_ascii_lowercase().contains("href=") {
+    let compact_tag = compact_documentation_tag_whitespace(tag).to_ascii_lowercase();
+    let empty_href = compact_tag.contains("href=\"\"") || compact_tag.contains("href=''");
+    if name == "a" && !closing && (!compact_tag.contains("href=") || empty_href) {
         return ("<code>".to_owned(), "code".to_owned());
     }
     if name == "a" && closing && stack.last().is_some_and(|current| current == "code") {
@@ -16409,9 +16411,16 @@ fn normalize_client_documentation(value: &str) -> String {
     }
     for (index, token) in tokens.iter().enumerate() {
         if matches!(token, DocumentationToken::Whitespace(_)) {
-            let next = next_significant[index].map(|next| &tokens[next]);
-            let gap = documentation_gap(previous.as_ref(), next, &stack);
-            output.push_str(&gap);
+            if let DocumentationToken::Whitespace(_) = token
+                && documentation_description_list_context(&stack)
+            {
+                let next = next_significant[index].map(|next| &tokens[next]);
+                output.push_str(documentation_description_list_gap(&stack, next));
+            } else {
+                let next = next_significant[index].map(|next| &tokens[next]);
+                let gap = documentation_gap(previous.as_ref(), next, &stack);
+                output.push_str(&gap);
+            }
             whitespace_since_previous = true;
             continue;
         }
@@ -16652,11 +16661,47 @@ fn documentation_pseudo_parent(stack: &[String]) -> bool {
         .is_some_and(|name| !documentation_known_tag(name))
 }
 
+fn documentation_description_list_context(stack: &[String]) -> bool {
+    stack
+        .iter()
+        .any(|name| matches!(name.as_str(), "dl" | "dt" | "dd"))
+}
+
+fn documentation_description_list_gap(
+    stack: &[String],
+    next: Option<&DocumentationToken>,
+) -> &'static str {
+    match stack.last().map(String::as_str) {
+        Some("dl") => {
+            if matches!(next, Some(DocumentationToken::Tag(tag)) if tag.starts_with("</dl")) {
+                " "
+            } else {
+                "  "
+            }
+        }
+        Some("dd") => {
+            if matches!(next, Some(DocumentationToken::Tag(tag)) if tag.starts_with("</dd")) {
+                "  "
+            } else {
+                "   "
+            }
+        }
+        _ => " ",
+    }
+}
+
 fn normalize_documentation_text(
     text: &str,
     previous: Option<&DocumentationToken>,
     parent: Option<&String>,
 ) -> String {
+    if parent.is_some_and(|name| name == "dt") {
+        let text = collapse_documentation_whitespace(text);
+        return format!(
+            "   {}  ",
+            escape_documentation_text(&escape_doc_brackets(&text))
+        );
+    }
     let had_newline = text
         .chars()
         .any(|character| matches!(character, '\n' | '\r'));
@@ -17720,10 +17765,25 @@ mod tests {
     }
 
     #[test]
+    fn normalize_client_documentation_preserves_description_list_spacing() {
+        let normalized = normalize_client_documentation(
+            "<dl>\n  <dt>   Name  </dt>\n  <dd>   <p>Value</p>  </dd>\n</dl>",
+        );
+        assert_eq!(
+            normalized,
+            "<dl>  <dt>   Name  </dt>  <dd>   <p>Value</p>  </dd> </dl>"
+        );
+    }
+
+    #[test]
     fn normalize_client_documentation_converts_unlinked_anchors_to_code() {
         assert_eq!(
             normalize_client_documentation("<p>Use <a>ListKeys</a>.</p>"),
             "<p>Use <code>ListKeys</code>.</p>"
+        );
+        assert_eq!(
+            normalize_client_documentation("<p>Use <a href=\"\">--volume</a>.</p>"),
+            "<p>Use <code>--volume</code>.</p>"
         );
     }
 

@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy documentation normalization for anchors and lists
+- State: in progress
+- Changed: shared client documentation normalization now renders anchors with missing or
+  empty `href` attributes as code, and preserves Smithy-RS spacing inside HTML
+  description lists (`dl`/`dt`/`dd`). These model-independent rules follow the pinned
+  Smithy-RS reference at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`, with focused regressions.
+- Evidence: focused documentation regressions, `just conformance` regeneration and
+  formatting, `cargo test --workspace`, `cargo clippy --workspace --all-targets --
+  -D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance
+  generated and formatted all `13,166` snapshot files without generated-source parse
+  errors.
+- Conformance: `12,906/13,168` exact, `259` mismatches, `2` missing, and `1` extra
+  (`97.88%`) -> `12,916/13,168` exact, `249` mismatches, `2` missing, and `1` extra
+  (`97.94%`). Batch improved from `756/6` to `760/2`; Cognito Identity Provider from
+  `1,336/25` to `1,340/21`; IAM from `1,593/33` to `1,595/31`.
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic parity mismatch after
+  committing this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Preserve raw identifiers in client operation docs
 - State: in progress
 - Changed: client operation documentation now renders reserved Rust member methods with

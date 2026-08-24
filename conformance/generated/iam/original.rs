@@ -63929,7 +63929,7 @@ impl super::super::super::operation::get_human_readable_summary::builders::GetHu
 ///
 /// <p>Retrieves a human readable summary for a given entity. At this time, the only supported entity type is <code>delegation-request</code></p>
 /// <p>This method uses a Large Language Model (LLM) to generate the summary.</p>
-/// <p>If a delegation request has no owner or owner account, <code>GetHumanReadableSummary</code> for that delegation request can be called by any account. If the owner account is assigned but there is no owner id, only identities within that owner account can call <code>GetHumanReadableSummary</code> for the delegation request to retrieve a summary of that request. Once the delegation request is fully owned, the owner of the request gets a default permission to get that delegation request. For more details, read <a href="">default permissions granted to delegation requests</a>. These rules are identical to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> API behavior, such that a party who has permissions to call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> for a given delegation request will always be able to retrieve the human readable summary for that request.</p>
+/// <p>If a delegation request has no owner or owner account, <code>GetHumanReadableSummary</code> for that delegation request can be called by any account. If the owner account is assigned but there is no owner id, only identities within that owner account can call <code>GetHumanReadableSummary</code> for the delegation request to retrieve a summary of that request. Once the delegation request is fully owned, the owner of the request gets a default permission to get that delegation request. For more details, read <code>default permissions granted to delegation requests</code>. These rules are identical to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> API behavior, such that a party who has permissions to call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html">GetDelegationRequest</a> for a given delegation request will always be able to retrieve the human readable summary for that request.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetHumanReadableSummaryFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
@@ -151636,13 +151636,13 @@ mod _delegation_permission {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DelegationPermission {
-    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
     pub policy_template_arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
     pub parameters: ::std::option::Option<::std::vec::Vec<super::super::types::PolicyParameter>>,
 }
 impl DelegationPermission {
-    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
     pub fn policy_template_arn(&self) -> ::std::option::Option<&str> {
         self.policy_template_arn.as_deref()
     }
@@ -151668,14 +151668,14 @@ pub struct DelegationPermissionBuilder {
     pub(crate) parameters: ::std::option::Option<::std::vec::Vec<super::super::types::PolicyParameter>>,
 }
 impl DelegationPermissionBuilder {
-    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
     pub fn policy_template_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_template_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
     pub fn set_policy_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_template_arn = input; self }
-    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
+    /// <p>This ARN maps to a pre-registered policy content for this partner. See the <code>partner onboarding documentation</code> to understand how to create a delegation template.</p>
     pub fn get_policy_template_arn(&self) -> &::std::option::Option<::std::string::String> { &self.policy_template_arn }
     /// Appends an item to `parameters`.
     ///
