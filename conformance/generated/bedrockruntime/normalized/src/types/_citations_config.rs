@@ -9,8 +9,8 @@ pub struct CitationsConfig {
 }
 impl CitationsConfig {
     /// <p>Specifies whether citations from the selected document should be used in the model's response. When set to true, the model can generate citations that reference the source documents used to inform the response.</p>
-    pub fn enabled(&self) -> &bool {
-        &self.enabled
+    pub fn enabled(&self) -> bool {
+        self.enabled
     }
 }
 impl CitationsConfig {

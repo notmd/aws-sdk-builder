@@ -9,8 +9,8 @@ pub struct CountTokensOutput {
 }
 impl CountTokensOutput {
     /// <p>The number of tokens in the provided input according to the specified model's tokenization rules. This count represents the number of input tokens that would be processed if the same input were sent to the model in an inference request. Use this value to estimate costs and ensure your inputs stay within model token limits.</p>
-    pub fn input_tokens(&self) -> &i32 {
-        &self.input_tokens
+    pub fn input_tokens(&self) -> i32 {
+        self.input_tokens
     }
 }
 impl ::aws_types::request_id::RequestId for CountTokensOutput {

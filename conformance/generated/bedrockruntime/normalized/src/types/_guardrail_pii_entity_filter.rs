@@ -28,8 +28,8 @@ impl GuardrailPiiEntityFilter {
         &self.action
     }
     /// <p>Indicates whether personally identifiable information (PII) that breaches the guardrail configuration is detected.</p>
-    pub fn detected(&self) -> ::std::option::Option<&bool> {
-        self.detected.as_ref()
+    pub fn detected(&self) -> ::std::option::Option<bool> {
+        self.detected
     }
 }
 impl GuardrailPiiEntityFilter {

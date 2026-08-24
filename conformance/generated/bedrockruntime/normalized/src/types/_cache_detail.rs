@@ -15,8 +15,8 @@ impl CacheDetail {
         &self.ttl
     }
     /// <p>Number of tokens written to cache with this TTL (cache creation tokens)</p>
-    pub fn input_tokens(&self) -> &i32 {
-        &self.input_tokens
+    pub fn input_tokens(&self) -> i32 {
+        self.input_tokens
     }
 }
 impl CacheDetail {

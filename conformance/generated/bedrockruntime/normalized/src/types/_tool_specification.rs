@@ -28,8 +28,8 @@ impl ToolSpecification {
         self.input_schema.as_ref()
     }
     /// <p>Flag to enable structured output enforcement on a tool usage response.</p>
-    pub fn strict(&self) -> ::std::option::Option<&bool> {
-        self.strict.as_ref()
+    pub fn strict(&self) -> ::std::option::Option<bool> {
+        self.strict
     }
 }
 impl ToolSpecification {

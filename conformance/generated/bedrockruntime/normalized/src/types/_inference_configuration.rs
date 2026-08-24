@@ -18,18 +18,18 @@ pub struct InferenceConfiguration {
 }
 impl InferenceConfiguration {
     /// <p>The maximum number of tokens to allow in the generated response. The default value is the maximum allowed value for the model that you are using. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
-    pub fn max_tokens(&self) -> ::std::option::Option<&i32> {
-        self.max_tokens.as_ref()
+    pub fn max_tokens(&self) -> ::std::option::Option<i32> {
+        self.max_tokens
     }
     /// <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
     /// <p>The default value is the default value for the model that you are using. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
-    pub fn temperature(&self) -> ::std::option::Option<&f32> {
-        self.temperature.as_ref()
+    pub fn temperature(&self) -> ::std::option::Option<f32> {
+        self.temperature
     }
     /// <p>The percentage of most-likely candidates that the model considers for the next token. For example, if you choose a value of 0.8 for <code>topP</code>, the model selects from the top 80% of the probability distribution of tokens that could be next in the sequence.</p>
     /// <p>The default value is the default value for the model that you are using. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
-    pub fn top_p(&self) -> ::std::option::Option<&f32> {
-        self.top_p.as_ref()
+    pub fn top_p(&self) -> ::std::option::Option<f32> {
+        self.top_p
     }
     /// <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
     ///

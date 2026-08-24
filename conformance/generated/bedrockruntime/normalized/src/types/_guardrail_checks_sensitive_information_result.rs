@@ -16,8 +16,8 @@ impl GuardrailChecksSensitiveInformationResult {
         self.results.deref()
     }
     /// <p>Specifies whether the results were truncated because the number of detected entities exceeded the maximum limit.</p>
-    pub fn truncated(&self) -> ::std::option::Option<&bool> {
-        self.truncated.as_ref()
+    pub fn truncated(&self) -> ::std::option::Option<bool> {
+        self.truncated
     }
 }
 impl GuardrailChecksSensitiveInformationResult {

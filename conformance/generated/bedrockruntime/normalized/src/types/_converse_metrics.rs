@@ -9,8 +9,8 @@ pub struct ConverseMetrics {
 }
 impl ConverseMetrics {
     /// <p>The latency of the call to <code>Converse</code>, in milliseconds.</p>
-    pub fn latency_ms(&self) -> &i64 {
-        &self.latency_ms
+    pub fn latency_ms(&self) -> i64 {
+        self.latency_ms
     }
 }
 impl ConverseMetrics {

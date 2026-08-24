@@ -13537,12 +13537,14 @@ fn is_streaming_target(target: &str) -> bool {
 }
 
 fn is_copy_type(target: &str, shape: Option<&Value>) -> bool {
+    let kind = shape
+        .and_then(|shape| shape.get("type"))
+        .and_then(Value::as_str)
+        .or_else(|| target.strip_prefix("smithy.api#"))
+        .unwrap_or("string");
     matches!(
-        shape
-            .and_then(|shape| shape.get("type"))
-            .and_then(Value::as_str)
-            .or_else(|| target.strip_prefix("smithy.api#")),
-        Some("boolean" | "integer" | "long" | "short" | "byte" | "float" | "double")
+        normalize_protocol_shape_kind(kind),
+        "boolean" | "integer" | "long" | "short" | "byte" | "float" | "double"
     )
 }
 
@@ -16665,6 +16667,9 @@ mod tests {
             assert_eq!(normalize_protocol_shape_kind(input), expected);
         }
         assert_eq!(normalize_protocol_shape_kind("structure"), "structure");
+        assert!(is_copy_type("smithy.api#Integer", None));
+        assert!(is_copy_type("smithy.api#Boolean", None));
+        assert!(!is_copy_type("smithy.api#String", None));
     }
 
     #[test]

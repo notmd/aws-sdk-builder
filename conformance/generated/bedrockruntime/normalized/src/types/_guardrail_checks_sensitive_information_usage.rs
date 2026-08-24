@@ -9,8 +9,8 @@ pub struct GuardrailChecksSensitiveInformationUsage {
 }
 impl GuardrailChecksSensitiveInformationUsage {
     /// <p>The number of text units consumed by the sensitive information check.</p>
-    pub fn text_units(&self) -> &i32 {
-        &self.text_units
+    pub fn text_units(&self) -> i32 {
+        self.text_units
     }
 }
 impl GuardrailChecksSensitiveInformationUsage {

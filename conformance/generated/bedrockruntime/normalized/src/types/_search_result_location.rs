@@ -13,16 +13,16 @@ pub struct SearchResultLocation {
 }
 impl SearchResultLocation {
     /// <p>The index of the search result content block where the cited content is found.</p>
-    pub fn search_result_index(&self) -> ::std::option::Option<&i32> {
-        self.search_result_index.as_ref()
+    pub fn search_result_index(&self) -> ::std::option::Option<i32> {
+        self.search_result_index
     }
     /// <p>The starting position in the content array where the cited content begins.</p>
-    pub fn start(&self) -> ::std::option::Option<&i32> {
-        self.start.as_ref()
+    pub fn start(&self) -> ::std::option::Option<i32> {
+        self.start
     }
     /// <p>The ending position in the content array where the cited content ends.</p>
-    pub fn end(&self) -> ::std::option::Option<&i32> {
-        self.end.as_ref()
+    pub fn end(&self) -> ::std::option::Option<i32> {
+        self.end
     }
 }
 impl SearchResultLocation {

@@ -23,24 +23,24 @@ impl GuardrailChecksSensitiveInformationResultEntry {
         &self.r#type
     }
     /// <p>The confidence score for the detection, ranging from 0.0 to 1.0. Higher values indicate greater confidence.</p>
-    pub fn confidence_score(&self) -> &f64 {
-        &self.confidence_score
+    pub fn confidence_score(&self) -> f64 {
+        self.confidence_score
     }
     /// <p>The start character offset of the detected entity within the content block.</p>
-    pub fn begin_offset(&self) -> &i32 {
-        &self.begin_offset
+    pub fn begin_offset(&self) -> i32 {
+        self.begin_offset
     }
     /// <p>The end character offset of the detected entity within the content block.</p>
-    pub fn end_offset(&self) -> &i32 {
-        &self.end_offset
+    pub fn end_offset(&self) -> i32 {
+        self.end_offset
     }
     /// <p>The zero-based index of the message in the input messages array where the entity was detected.</p>
-    pub fn message_index(&self) -> &i32 {
-        &self.message_index
+    pub fn message_index(&self) -> i32 {
+        self.message_index
     }
     /// <p>The zero-based index of the content block within the message where the entity was detected.</p>
-    pub fn content_index(&self) -> &i32 {
-        &self.content_index
+    pub fn content_index(&self) -> i32 {
+        self.content_index
     }
 }
 impl GuardrailChecksSensitiveInformationResultEntry {

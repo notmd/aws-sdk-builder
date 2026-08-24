@@ -2,12 +2,12 @@
 
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
-**Summary:** `13168/13168 files compared` · `12727` matched · `436` mismatches · `4` missing · `1` extra · `0` read errors · `96.18%` average match
+**Summary:** `13168/13168 files compared` · `12753` matched · `410` mismatches · `4` missing · `1` extra · `0` read errors · `96.51%` average match
 
 | Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | batch | 762/762 | 747 | 15 | 0 | 0 | 0 | 98.03% | [report](summary/batch.md) |
-| bedrockruntime | 536/536 | 424 | 112 | 0 | 0 | 0 | 79.10% | [report](summary/bedrockruntime.md) |
+| bedrockruntime | 536/536 | 450 | 86 | 0 | 0 | 0 | 83.96% | [report](summary/bedrockruntime.md) |
 | cloudwatchlogs | 1287/1287 | 1251 | 34 | 2 | 0 | 0 | 97.20% | [report](summary/cloudwatchlogs.md) |
 | codeartifact | 459/459 | 440 | 19 | 0 | 0 | 0 | 95.86% | [report](summary/codeartifact.md) |
 | cognitoidentityprovider | 1361/1361 | 1321 | 40 | 0 | 0 | 0 | 97.06% | [report](summary/cognitoidentityprovider.md) |
@@ -21,4 +21,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 | sns | 445/445 | 432 | 13 | 0 | 0 | 0 | 97.08% | [report](summary/sns.md) |
 | sqs | 294/294 | 281 | 12 | 1 | 0 | 0 | 95.58% | [report](summary/sqs.md) |
 | sts | 146/146 | 146 | 0 | 0 | 0 | 0 | 100.00% | [report](summary/sts.md) |
-| **Average** | — | — | — | — | — | — | **96.18%** | — |
+| **Average** | — | — | — | — | — | — | **96.51%** | — |

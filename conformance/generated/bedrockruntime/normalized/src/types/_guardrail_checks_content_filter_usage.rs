@@ -9,8 +9,8 @@ pub struct GuardrailChecksContentFilterUsage {
 }
 impl GuardrailChecksContentFilterUsage {
     /// <p>The number of text units consumed by the content filter check.</p>
-    pub fn text_units(&self) -> &i32 {
-        &self.text_units
+    pub fn text_units(&self) -> i32 {
+        self.text_units
     }
 }
 impl GuardrailChecksContentFilterUsage {

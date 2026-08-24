@@ -33,8 +33,8 @@ impl GuardrailRegexFilter {
         &self.action
     }
     /// <p>Indicates whether custom regex entities that breach the guardrail configuration are detected.</p>
-    pub fn detected(&self) -> ::std::option::Option<&bool> {
-        self.detected.as_ref()
+    pub fn detected(&self) -> ::std::option::Option<bool> {
+        self.detected
     }
 }
 impl GuardrailRegexFilter {

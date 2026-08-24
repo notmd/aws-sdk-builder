@@ -9,8 +9,8 @@ pub struct ConverseStreamMetrics {
 }
 impl ConverseStreamMetrics {
     /// <p>The latency for the streaming request, in milliseconds.</p>
-    pub fn latency_ms(&self) -> &i64 {
-        &self.latency_ms
+    pub fn latency_ms(&self) -> i64 {
+        self.latency_ms
     }
 }
 impl ConverseStreamMetrics {

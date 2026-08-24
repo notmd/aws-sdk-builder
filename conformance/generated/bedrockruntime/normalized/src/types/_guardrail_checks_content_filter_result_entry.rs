@@ -15,8 +15,8 @@ impl GuardrailChecksContentFilterResultEntry {
         &self.category
     }
     /// <p>The severity score for the category, ranging from 0.0 to 1.0. Higher values indicate greater severity.</p>
-    pub fn severity_score(&self) -> &f64 {
-        &self.severity_score
+    pub fn severity_score(&self) -> f64 {
+        self.severity_score
     }
 }
 impl GuardrailChecksContentFilterResultEntry {

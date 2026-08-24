@@ -13,16 +13,16 @@ pub struct DocumentChunkLocation {
 }
 impl DocumentChunkLocation {
     /// <p>The index of the document within the array of documents provided in the request.</p>
-    pub fn document_index(&self) -> ::std::option::Option<&i32> {
-        self.document_index.as_ref()
+    pub fn document_index(&self) -> ::std::option::Option<i32> {
+        self.document_index
     }
     /// <p>The starting chunk identifier or index of the cited content within the document.</p>
-    pub fn start(&self) -> ::std::option::Option<&i32> {
-        self.start.as_ref()
+    pub fn start(&self) -> ::std::option::Option<i32> {
+        self.start
     }
     /// <p>The ending chunk identifier or index of the cited content within the document.</p>
-    pub fn end(&self) -> ::std::option::Option<&i32> {
-        self.end.as_ref()
+    pub fn end(&self) -> ::std::option::Option<i32> {
+        self.end
     }
 }
 impl DocumentChunkLocation {

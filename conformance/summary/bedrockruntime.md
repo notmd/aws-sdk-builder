@@ -3,25 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `424` matched · `112` mismatches · `0` missing · `0` extra · `79.10%` match (100.00% means fully matched)
-
-### `src/operation/count_tokens/_count_tokens_output.rs`
-
-```diff
---- reference/src/operation/count_tokens/_count_tokens_output.rs
-+++ generated/src/operation/count_tokens/_count_tokens_output.rs
-@@ -9,8 +9,8 @@
- }
- impl CountTokensOutput {
-     /// <p>The number of tokens in the provided input according to the specified model's tokenization rules. This count represents the number of input tokens that would be processed if the same input were sent to the model in an inference request. Use this value to estimate costs and ensure your inputs stay within model token limits.</p>
--    pub fn input_tokens(&self) -> i32 {
--        self.input_tokens
-+    pub fn input_tokens(&self) -> &i32 {
-+        &self.input_tokens
-     }
- }
- impl ::aws_types::request_id::RequestId for CountTokensOutput {
-```
+**Progress:** `536/536` files compared · `450` matched · `86` mismatches · `0` missing · `0` extra · `83.96%` match (100.00% means fully matched)
 
 ### `src/operation/invoke_model_with_bidirectional_stream.rs`
 
@@ -3205,24 +3187,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/types/_cache_detail.rs`
-
-```diff
---- reference/src/types/_cache_detail.rs
-+++ generated/src/types/_cache_detail.rs
-@@ -15,8 +15,8 @@
-         &self.ttl
-     }
-     /// <p>Number of tokens written to cache with this TTL (cache creation tokens)</p>
--    pub fn input_tokens(&self) -> i32 {
--        self.input_tokens
-+    pub fn input_tokens(&self) -> &i32 {
-+        &self.input_tokens
-     }
- }
- impl CacheDetail {
-```
-
 ### `src/types/_cache_ttl.rs`
 
 ```diff
@@ -3287,24 +3251,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              CacheTtl::Unknown(value) => write!(f, "{value}"),
          }
      }
-```
-
-### `src/types/_citations_config.rs`
-
-```diff
---- reference/src/types/_citations_config.rs
-+++ generated/src/types/_citations_config.rs
-@@ -9,8 +9,8 @@
- }
- impl CitationsConfig {
-     /// <p>Specifies whether citations from the selected document should be used in the model's response. When set to true, the model can generate citations that reference the source documents used to inform the response.</p>
--    pub fn enabled(&self) -> bool {
--        self.enabled
-+    pub fn enabled(&self) -> &bool {
-+        &self.enabled
-     }
- }
- impl CitationsConfig {
 ```
 
 ### `src/types/_content_block.rs`
@@ -3390,42 +3336,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/types/_converse_metrics.rs`
-
-```diff
---- reference/src/types/_converse_metrics.rs
-+++ generated/src/types/_converse_metrics.rs
-@@ -9,8 +9,8 @@
- }
- impl ConverseMetrics {
-     /// <p>The latency of the call to <code>Converse</code>, in milliseconds.</p>
--    pub fn latency_ms(&self) -> i64 {
--        self.latency_ms
-+    pub fn latency_ms(&self) -> &i64 {
-+        &self.latency_ms
-     }
- }
- impl ConverseMetrics {
-```
-
-### `src/types/_converse_stream_metrics.rs`
-
-```diff
---- reference/src/types/_converse_stream_metrics.rs
-+++ generated/src/types/_converse_stream_metrics.rs
-@@ -9,8 +9,8 @@
- }
- impl ConverseStreamMetrics {
-     /// <p>The latency for the streaming request, in milliseconds.</p>
--    pub fn latency_ms(&self) -> i64 {
--        self.latency_ms
-+    pub fn latency_ms(&self) -> &i64 {
-+        &self.latency_ms
-     }
- }
- impl ConverseStreamMetrics {
-```
-
 ### `src/types/_document_block.rs`
 
 ```diff
@@ -3442,96 +3352,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              name: self.name.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
                      "name",
-```
-
-### `src/types/_document_char_location.rs`
-
-```diff
---- reference/src/types/_document_char_location.rs
-+++ generated/src/types/_document_char_location.rs
-@@ -13,16 +13,16 @@
- }
- impl DocumentCharLocation {
-     /// <p>The index of the document within the array of documents provided in the request.</p>
--    pub fn document_index(&self) -> ::std::option::Option<i32> {
--        self.document_index
-+    pub fn document_index(&self) -> ::std::option::Option<&i32> {
-+        self.document_index.as_ref()
-     }
-     /// <p>The starting character position of the cited content within the document.</p>
--    pub fn start(&self) -> ::std::option::Option<i32> {
--        self.start
-+    pub fn start(&self) -> ::std::option::Option<&i32> {
-+        self.start.as_ref()
-     }
-     /// <p>The ending character position of the cited content within the document.</p>
--    pub fn end(&self) -> ::std::option::Option<i32> {
--        self.end
-+    pub fn end(&self) -> ::std::option::Option<&i32> {
-+        self.end.as_ref()
-     }
- }
- impl DocumentCharLocation {
-```
-
-### `src/types/_document_chunk_location.rs`
-
-```diff
---- reference/src/types/_document_chunk_location.rs
-+++ generated/src/types/_document_chunk_location.rs
-@@ -13,16 +13,16 @@
- }
- impl DocumentChunkLocation {
-     /// <p>The index of the document within the array of documents provided in the request.</p>
--    pub fn document_index(&self) -> ::std::option::Option<i32> {
--        self.document_index
-+    pub fn document_index(&self) -> ::std::option::Option<&i32> {
-+        self.document_index.as_ref()
-     }
-     /// <p>The starting chunk identifier or index of the cited content within the document.</p>
--    pub fn start(&self) -> ::std::option::Option<i32> {
--        self.start
-+    pub fn start(&self) -> ::std::option::Option<&i32> {
-+        self.start.as_ref()
-     }
-     /// <p>The ending chunk identifier or index of the cited content within the document.</p>
--    pub fn end(&self) -> ::std::option::Option<i32> {
--        self.end
-+    pub fn end(&self) -> ::std::option::Option<&i32> {
-+        self.end.as_ref()
-     }
- }
- impl DocumentChunkLocation {
-```
-
-### `src/types/_document_page_location.rs`
-
-```diff
---- reference/src/types/_document_page_location.rs
-+++ generated/src/types/_document_page_location.rs
-@@ -13,16 +13,16 @@
- }
- impl DocumentPageLocation {
-     /// <p>The index of the document within the array of documents provided in the request.</p>
--    pub fn document_index(&self) -> ::std::option::Option<i32> {
--        self.document_index
-+    pub fn document_index(&self) -> ::std::option::Option<&i32> {
-+        self.document_index.as_ref()
-     }
-     /// <p>The starting page number of the cited content within the document.</p>
--    pub fn start(&self) -> ::std::option::Option<i32> {
--        self.start
-+    pub fn start(&self) -> ::std::option::Option<&i32> {
-+        self.start.as_ref()
-     }
-     /// <p>The ending page number of the cited content within the document.</p>
--    pub fn end(&self) -> ::std::option::Option<i32> {
--        self.end
-+    pub fn end(&self) -> ::std::option::Option<&i32> {
-+        self.end.as_ref()
-     }
- }
- impl DocumentPageLocation {
 ```
 
 ### `src/types/_document_source.rs`
@@ -3576,156 +3396,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        }
 -    }
 -}
-```
-
-### `src/types/_guardrail_checks_content_filter_result_entry.rs`
-
-```diff
---- reference/src/types/_guardrail_checks_content_filter_result_entry.rs
-+++ generated/src/types/_guardrail_checks_content_filter_result_entry.rs
-@@ -15,8 +15,8 @@
-         &self.category
-     }
-     /// <p>The severity score for the category, ranging from 0.0 to 1.0. Higher values indicate greater severity.</p>
--    pub fn severity_score(&self) -> f64 {
--        self.severity_score
-+    pub fn severity_score(&self) -> &f64 {
-+        &self.severity_score
-     }
- }
- impl GuardrailChecksContentFilterResultEntry {
-```
-
-### `src/types/_guardrail_checks_content_filter_usage.rs`
-
-```diff
---- reference/src/types/_guardrail_checks_content_filter_usage.rs
-+++ generated/src/types/_guardrail_checks_content_filter_usage.rs
-@@ -9,8 +9,8 @@
- }
- impl GuardrailChecksContentFilterUsage {
-     /// <p>The number of text units consumed by the content filter check.</p>
--    pub fn text_units(&self) -> i32 {
--        self.text_units
-+    pub fn text_units(&self) -> &i32 {
-+        &self.text_units
-     }
- }
- impl GuardrailChecksContentFilterUsage {
-```
-
-### `src/types/_guardrail_checks_prompt_attack_result_entry.rs`
-
-```diff
---- reference/src/types/_guardrail_checks_prompt_attack_result_entry.rs
-+++ generated/src/types/_guardrail_checks_prompt_attack_result_entry.rs
-@@ -15,8 +15,8 @@
-         &self.category
-     }
-     /// <p>The severity score for the category, ranging from 0.0 to 1.0. Higher values indicate greater severity.</p>
--    pub fn severity_score(&self) -> f64 {
--        self.severity_score
-+    pub fn severity_score(&self) -> &f64 {
-+        &self.severity_score
-     }
- }
- impl GuardrailChecksPromptAttackResultEntry {
-```
-
-### `src/types/_guardrail_checks_prompt_attack_usage.rs`
-
-```diff
---- reference/src/types/_guardrail_checks_prompt_attack_usage.rs
-+++ generated/src/types/_guardrail_checks_prompt_attack_usage.rs
-@@ -9,8 +9,8 @@
- }
- impl GuardrailChecksPromptAttackUsage {
-     /// <p>The number of text units consumed by the prompt attack check.</p>
--    pub fn text_units(&self) -> i32 {
--        self.text_units
-+    pub fn text_units(&self) -> &i32 {
-+        &self.text_units
-     }
- }
- impl GuardrailChecksPromptAttackUsage {
-```
-
-### `src/types/_guardrail_checks_sensitive_information_result.rs`
-
-```diff
---- reference/src/types/_guardrail_checks_sensitive_information_result.rs
-+++ generated/src/types/_guardrail_checks_sensitive_information_result.rs
-@@ -16,8 +16,8 @@
-         self.results.deref()
-     }
-     /// <p>Specifies whether the results were truncated because the number of detected entities exceeded the maximum limit.</p>
--    pub fn truncated(&self) -> ::std::option::Option<bool> {
--        self.truncated
-+    pub fn truncated(&self) -> ::std::option::Option<&bool> {
-+        self.truncated.as_ref()
-     }
- }
- impl GuardrailChecksSensitiveInformationResult {
-```
-
-### `src/types/_guardrail_checks_sensitive_information_result_entry.rs`
-
-```diff
---- reference/src/types/_guardrail_checks_sensitive_information_result_entry.rs
-+++ generated/src/types/_guardrail_checks_sensitive_information_result_entry.rs
-@@ -23,24 +23,24 @@
-         &self.r#type
-     }
-     /// <p>The confidence score for the detection, ranging from 0.0 to 1.0. Higher values indicate greater confidence.</p>
--    pub fn confidence_score(&self) -> f64 {
--        self.confidence_score
-+    pub fn confidence_score(&self) -> &f64 {
-+        &self.confidence_score
-     }
-     /// <p>The start character offset of the detected entity within the content block.</p>
--    pub fn begin_offset(&self) -> i32 {
--        self.begin_offset
-+    pub fn begin_offset(&self) -> &i32 {
-+        &self.begin_offset
-     }
-     /// <p>The end character offset of the detected entity within the content block.</p>
--    pub fn end_offset(&self) -> i32 {
--        self.end_offset
-+    pub fn end_offset(&self) -> &i32 {
-+        &self.end_offset
-     }
-     /// <p>The zero-based index of the message in the input messages array where the entity was detected.</p>
--    pub fn message_index(&self) -> i32 {
--        self.message_index
-+    pub fn message_index(&self) -> &i32 {
-+        &self.message_index
-     }
-     /// <p>The zero-based index of the content block within the message where the entity was detected.</p>
--    pub fn content_index(&self) -> i32 {
--        self.content_index
-+    pub fn content_index(&self) -> &i32 {
-+        &self.content_index
-     }
- }
- impl GuardrailChecksSensitiveInformationResultEntry {
-```
-
-### `src/types/_guardrail_checks_sensitive_information_usage.rs`
-
-```diff
---- reference/src/types/_guardrail_checks_sensitive_information_usage.rs
-+++ generated/src/types/_guardrail_checks_sensitive_information_usage.rs
-@@ -9,8 +9,8 @@
- }
- impl GuardrailChecksSensitiveInformationUsage {
-     /// <p>The number of text units consumed by the sensitive information check.</p>
--    pub fn text_units(&self) -> i32 {
--        self.text_units
-+    pub fn text_units(&self) -> &i32 {
-+        &self.text_units
-     }
- }
- impl GuardrailChecksSensitiveInformationUsage {
 ```
 
 ### `src/types/_guardrail_configuration.rs`
@@ -3775,59 +3445,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        }
 -    }
 -}
-```
-
-### `src/types/_guardrail_content_filter.rs`
-
-```diff
---- reference/src/types/_guardrail_content_filter.rs
-+++ generated/src/types/_guardrail_content_filter.rs
-@@ -33,8 +33,8 @@
-         &self.action
-     }
-     /// <p>Indicates whether content that breaches the guardrail configuration is detected.</p>
--    pub fn detected(&self) -> ::std::option::Option<bool> {
--        self.detected
-+    pub fn detected(&self) -> ::std::option::Option<&bool> {
-+        self.detected.as_ref()
-     }
- }
- impl GuardrailContentFilter {
-```
-
-### `src/types/_guardrail_contextual_grounding_filter.rs`
-
-```diff
---- reference/src/types/_guardrail_contextual_grounding_filter.rs
-+++ generated/src/types/_guardrail_contextual_grounding_filter.rs
-@@ -21,12 +21,12 @@
-         &self.r#type
-     }
-     /// <p>The threshold used by contextual grounding filter to determine whether the content is grounded or not.</p>
--    pub fn threshold(&self) -> f64 {
--        self.threshold
-+    pub fn threshold(&self) -> &f64 {
-+        &self.threshold
-     }
-     /// <p>The score generated by contextual grounding filter.</p>
--    pub fn score(&self) -> f64 {
--        self.score
-+    pub fn score(&self) -> &f64 {
-+        &self.score
-     }
-     /// <p>The action performed by the guardrails contextual grounding filter.</p>
-     pub fn action(&self) -> &super::super::types::GuardrailContextualGroundingPolicyAction {
-@@ -33,8 +33,8 @@
-         &self.action
-     }
-     /// <p>Indicates whether content that fails the contextual grounding evaluation (grounding or relevance score less than the corresponding threshold) was detected.</p>
--    pub fn detected(&self) -> ::std::option::Option<bool> {
--        self.detected
-+    pub fn detected(&self) -> ::std::option::Option<&bool> {
-+        self.detected.as_ref()
-     }
- }
- impl GuardrailContextualGroundingFilter {
 ```
 
 ### `src/types/_guardrail_converse_content_block.rs`
@@ -3887,24 +3504,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/types/_guardrail_custom_word.rs`
-
-```diff
---- reference/src/types/_guardrail_custom_word.rs
-+++ generated/src/types/_guardrail_custom_word.rs
-@@ -22,8 +22,8 @@
-         &self.action
-     }
-     /// <p>Indicates whether custom word content that breaches the guardrail configuration is detected.</p>
--    pub fn detected(&self) -> ::std::option::Option<bool> {
--        self.detected
-+    pub fn detected(&self) -> ::std::option::Option<&bool> {
-+        self.detected.as_ref()
-     }
- }
- impl GuardrailCustomWord {
-```
-
 ### `src/types/_guardrail_image_source.rs`
 
 ```diff
@@ -3928,24 +3527,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        ::std::write!(f, "*** Sensitive Data Redacted ***")
 -    }
 -}
-```
-
-### `src/types/_guardrail_managed_word.rs`
-
-```diff
---- reference/src/types/_guardrail_managed_word.rs
-+++ generated/src/types/_guardrail_managed_word.rs
-@@ -28,8 +28,8 @@
-         &self.action
-     }
-     /// <p>Indicates whether managed word content that breaches the guardrail configuration is detected.</p>
--    pub fn detected(&self) -> ::std::option::Option<bool> {
--        self.detected
-+    pub fn detected(&self) -> ::std::option::Option<&bool> {
-+        self.detected.as_ref()
-     }
- }
- impl GuardrailManagedWord {
 ```
 
 ### `src/types/_guardrail_ownership.rs`
@@ -4013,42 +3594,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_guardrail_pii_entity_filter.rs`
-
-```diff
---- reference/src/types/_guardrail_pii_entity_filter.rs
-+++ generated/src/types/_guardrail_pii_entity_filter.rs
-@@ -28,8 +28,8 @@
-         &self.action
-     }
-     /// <p>Indicates whether personally identifiable information (PII) that breaches the guardrail configuration is detected.</p>
--    pub fn detected(&self) -> ::std::option::Option<bool> {
--        self.detected
-+    pub fn detected(&self) -> ::std::option::Option<&bool> {
-+        self.detected.as_ref()
-     }
- }
- impl GuardrailPiiEntityFilter {
-```
-
-### `src/types/_guardrail_regex_filter.rs`
-
-```diff
---- reference/src/types/_guardrail_regex_filter.rs
-+++ generated/src/types/_guardrail_regex_filter.rs
-@@ -33,8 +33,8 @@
-         &self.action
-     }
-     /// <p>Indicates whether custom regex entities that breach the guardrail configuration are detected.</p>
--    pub fn detected(&self) -> ::std::option::Option<bool> {
--        self.detected
-+    pub fn detected(&self) -> ::std::option::Option<&bool> {
-+        self.detected.as_ref()
-     }
- }
- impl GuardrailRegexFilter {
-```
-
 ### `src/types/_guardrail_stream_configuration.rs`
 
 ```diff
@@ -4075,24 +3620,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/types/_guardrail_topic.rs`
-
-```diff
---- reference/src/types/_guardrail_topic.rs
-+++ generated/src/types/_guardrail_topic.rs
-@@ -28,8 +28,8 @@
-         &self.action
-     }
-     /// <p>Indicates whether topic content that breaches the guardrail configuration is detected.</p>
--    pub fn detected(&self) -> ::std::option::Option<bool> {
--        self.detected
-+    pub fn detected(&self) -> ::std::option::Option<&bool> {
-+        self.detected.as_ref()
-     }
- }
- impl GuardrailTopic {
-```
-
 ### `src/types/_image_source.rs`
 
 ```diff
@@ -4116,38 +3643,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        ::std::write!(f, "*** Sensitive Data Redacted ***")
 -    }
 -}
-```
-
-### `src/types/_inference_configuration.rs`
-
-```diff
---- reference/src/types/_inference_configuration.rs
-+++ generated/src/types/_inference_configuration.rs
-@@ -18,18 +18,18 @@
- }
- impl InferenceConfiguration {
-     /// <p>The maximum number of tokens to allow in the generated response. The default value is the maximum allowed value for the model that you are using. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
--    pub fn max_tokens(&self) -> ::std::option::Option<i32> {
--        self.max_tokens
-+    pub fn max_tokens(&self) -> ::std::option::Option<&i32> {
-+        self.max_tokens.as_ref()
-     }
-     /// <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
-     /// <p>The default value is the default value for the model that you are using. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
--    pub fn temperature(&self) -> ::std::option::Option<f32> {
--        self.temperature
-+    pub fn temperature(&self) -> ::std::option::Option<&f32> {
-+        self.temperature.as_ref()
-     }
-     /// <p>The percentage of most-likely candidates that the model considers for the next token. For example, if you choose a value of 0.8 for <code>topP</code>, the model selects from the top 80% of the probability distribution of tokens that could be next in the sequence.</p>
-     /// <p>The default value is the default value for the model that you are using. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
--    pub fn top_p(&self) -> ::std::option::Option<f32> {
--        self.top_p
-+    pub fn top_p(&self) -> ::std::option::Option<&f32> {
-+        self.top_p.as_ref()
-     }
-     /// <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
-     ///
 ```
 
 ### `src/types/_invoke_model_with_bidirectional_stream_input.rs`
@@ -4352,96 +3847,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        }
 -    }
 -}
-```
-
-### `src/types/_search_result_location.rs`
-
-```diff
---- reference/src/types/_search_result_location.rs
-+++ generated/src/types/_search_result_location.rs
-@@ -13,16 +13,16 @@
- }
- impl SearchResultLocation {
-     /// <p>The index of the search result content block where the cited content is found.</p>
--    pub fn search_result_index(&self) -> ::std::option::Option<i32> {
--        self.search_result_index
-+    pub fn search_result_index(&self) -> ::std::option::Option<&i32> {
-+        self.search_result_index.as_ref()
-     }
-     /// <p>The starting position in the content array where the cited content begins.</p>
--    pub fn start(&self) -> ::std::option::Option<i32> {
--        self.start
-+    pub fn start(&self) -> ::std::option::Option<&i32> {
-+        self.start.as_ref()
-     }
-     /// <p>The ending position in the content array where the cited content ends.</p>
--    pub fn end(&self) -> ::std::option::Option<i32> {
--        self.end
-+    pub fn end(&self) -> ::std::option::Option<&i32> {
-+        self.end.as_ref()
-     }
- }
- impl SearchResultLocation {
-```
-
-### `src/types/_token_usage.rs`
-
-```diff
---- reference/src/types/_token_usage.rs
-+++ generated/src/types/_token_usage.rs
-@@ -19,24 +19,24 @@
- }
- impl TokenUsage {
-     /// <p>The number of tokens sent in the request to the model.</p>
--    pub fn input_tokens(&self) -> i32 {
--        self.input_tokens
-+    pub fn input_tokens(&self) -> &i32 {
-+        &self.input_tokens
-     }
-     /// <p>The number of tokens that the model generated for the request.</p>
--    pub fn output_tokens(&self) -> i32 {
--        self.output_tokens
-+    pub fn output_tokens(&self) -> &i32 {
-+        &self.output_tokens
-     }
-     /// <p>The total of input tokens and tokens generated by the model.</p>
--    pub fn total_tokens(&self) -> i32 {
--        self.total_tokens
-+    pub fn total_tokens(&self) -> &i32 {
-+        &self.total_tokens
-     }
-     /// <p>The number of input tokens read from the cache for the request.</p>
--    pub fn cache_read_input_tokens(&self) -> ::std::option::Option<i32> {
--        self.cache_read_input_tokens
-+    pub fn cache_read_input_tokens(&self) -> ::std::option::Option<&i32> {
-+        self.cache_read_input_tokens.as_ref()
-     }
-     /// <p>The number of input tokens written to the cache for the request.</p>
--    pub fn cache_write_input_tokens(&self) -> ::std::option::Option<i32> {
--        self.cache_write_input_tokens
-+    pub fn cache_write_input_tokens(&self) -> ::std::option::Option<&i32> {
-+        self.cache_write_input_tokens.as_ref()
-     }
-     /// <p>Detailed breakdown of cache writes by TTL. Empty if no cache creation occurred. Sorted by TTL duration (1h before 5m).</p>
-     ///
-```
-
-### `src/types/_tool_specification.rs`
-
-```diff
---- reference/src/types/_tool_specification.rs
-+++ generated/src/types/_tool_specification.rs
-@@ -28,8 +28,8 @@
-         self.input_schema.as_ref()
-     }
-     /// <p>Flag to enable structured output enforcement on a tool usage response.</p>
--    pub fn strict(&self) -> ::std::option::Option<bool> {
--        self.strict
-+    pub fn strict(&self) -> ::std::option::Option<&bool> {
-+        self.strict.as_ref()
-     }
- }
- impl ToolSpecification {
 ```
 
 ### `src/types/builders.rs`
